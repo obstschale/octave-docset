@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Set Operations</title>
+
+<meta name="description" content="GNU Octave: Set Operations">
+<meta name="keywords" content="GNU Octave: Set Operations">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Sets.html#Sets" rel="up" title="Sets">
+<link href="Polynomial-Manipulations.html#Polynomial-Manipulations" rel="next" title="Polynomial Manipulations">
+<link href="Sets.html#Sets" rel="prev" title="Sets">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Set-Operations"></a>
+<div class="header">
+<p>
+Up: <a href="Sets.html#Sets" accesskey="u" rel="up">Sets</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Set-Operations-1"></a>
+<h3 class="section">27.1 Set Operations</h3>
+
+<p>Octave supports the basic set operations.  That is, Octave can compute
+the union, intersection, and difference of two sets.
+Octave also supports the <em>Exclusive Or</em> set operation, and
+membership determination.  The functions for set operations all work in
+pretty much the same way.  As an example, assume that <code>x</code> and
+<code>y</code> contains two sets, then
+</p>
+<div class="example">
+<pre class="example">union (x, y)
+</pre></div>
+
+<p>computes the union of the two sets.
+</p>
+<a name="XREFismember"></a><dl>
+<dt><a name="index-ismember"></a>Function File: <em><var>tf</var> =</em> <strong>ismember</strong> <em>(<var>A</var>, <var>s</var>)</em></dt>
+<dt><a name="index-ismember-1"></a>Function File: <em>[<var>tf</var>, <var>S_idx</var>] =</em> <strong>ismember</strong> <em>(<var>A</var>, <var>s</var>)</em></dt>
+<dt><a name="index-ismember-2"></a>Function File: <em>[<var>tf</var>, <var>S_idx</var>] =</em> <strong>ismember</strong> <em>(<var>A</var>, <var>s</var>, &quot;rows&quot;)</em></dt>
+<dd><p>Return a logical matrix <var>tf</var> with the same shape as <var>A</var> which is
+true (1) if <code>A(i,j)</code> is in <var>s</var> and false (0) if it is not.  If a
+second output argument is requested, the index into <var>s</var> of each of the
+matching elements is also returned.
+</p>
+<div class="example">
+<pre class="example">a = [3, 10, 1];
+s = [0:9];
+[tf, s_idx] = ismember (a, s)
+     &rArr; tf = [1, 0, 1]
+     &rArr; s_idx = [4, 0, 2]
+</pre></div>
+
+<p>The inputs, <var>A</var> and <var>s</var>, may also be cell arrays.
+</p>
+<div class="example">
+<pre class="example">a = {&quot;abc&quot;};
+s = {&quot;abc&quot;, &quot;def&quot;};
+[tf, s_idx] = ismember (a, s)
+     &rArr; tf = [1, 0]
+     &rArr; s_idx = [1, 0]
+</pre></div>
+
+<p>With the optional third argument <code>&quot;rows&quot;</code>, and matrices
+<var>A</var> and <var>s</var> with the same number of columns, compare rows in
+<var>A</var> with the rows in <var>s</var>.
+</p>
+<div class="example">
+<pre class="example">a = [1:3; 5:7; 4:6];
+s = [0:2; 1:3; 2:4; 3:5; 4:6];
+[tf, s_idx] = ismember (a, s, &quot;rows&quot;)
+     &rArr; tf = logical ([1; 0; 1])
+     &rArr; s_idx = [2; 0; 5];
+</pre></div>
+
+
+<p><strong>See also:</strong> <a href="Sets.html#XREFunique">unique</a>, <a href="Set-Operations.html#XREFunion">union</a>, <a href="Set-Operations.html#XREFintersect">intersect</a>, <a href="Set-Operations.html#XREFsetxor">setxor</a>, <a href="Set-Operations.html#XREFsetdiff">setdiff</a>.
+</p></dd></dl>
+
+
+<a name="XREFunion"></a><dl>
+<dt><a name="index-union"></a>Function File: <em></em> <strong>union</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-union-1"></a>Function File: <em></em> <strong>union</strong> <em>(<var>a</var>, <var>b</var>, &quot;rows&quot;)</em></dt>
+<dt><a name="index-union-2"></a>Function File: <em>[<var>c</var>, <var>ia</var>, <var>ib</var>] =</em> <strong>union</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Return the set of elements that are in either of the sets <var>a</var> and
+<var>b</var>.  <var>a</var>, <var>b</var> may be cell arrays of strings.
+For example:
+</p>
+<div class="example">
+<pre class="example">union ([1, 2, 4], [2, 3, 5])
+    &rArr; [1, 2, 3, 4, 5]
+</pre></div>
+
+<p>If the optional third input argument is the string <code>&quot;rows&quot;</code> then
+each row of the matrices <var>a</var> and <var>b</var> will be considered as a
+single set element.  For example:
+</p>
+<div class="example">
+<pre class="example">union ([1, 2; 2, 3], [1, 2; 3, 4], &quot;rows&quot;)
+   &rArr;  1   2
+       2   3
+       3   4
+</pre></div>
+
+<p>The optional outputs <var>ia</var> and <var>ib</var> are index vectors such that
+<code>a(ia)</code> and <code>b(ib)</code> are disjoint sets whose union is <var>c</var>.
+</p>
+
+<p><strong>See also:</strong> <a href="Set-Operations.html#XREFintersect">intersect</a>, <a href="Set-Operations.html#XREFsetdiff">setdiff</a>, <a href="Sets.html#XREFunique">unique</a>.
+</p></dd></dl>
+
+
+<a name="XREFintersect"></a><dl>
+<dt><a name="index-intersect"></a>Function File: <em></em> <strong>intersect</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-intersect-1"></a>Function File: <em>[<var>c</var>, <var>ia</var>, <var>ib</var>] =</em> <strong>intersect</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Return the elements in both <var>a</var> and <var>b</var>, sorted in ascending
+order.  If <var>a</var> and <var>b</var> are both column vectors return a column
+vector, otherwise return a row vector.
+<var>a</var>, <var>b</var> may be cell arrays of string(s).
+</p>
+<p>Return index vectors <var>ia</var> and <var>ib</var> such that <code>a(ia)==c</code> and
+<code>b(ib)==c</code>.
+</p>
+</dd></dl>
+
+<p><strong>See also:</strong> <a href="Sets.html#XREFunique">unique</a>, <a href="Set-Operations.html#XREFunion">union</a>, <a href="Set-Operations.html#XREFsetxor">setxor</a>, <a href="Set-Operations.html#XREFsetdiff">setdiff</a>, <a href="Set-Operations.html#XREFismember">ismember</a>.
+</p>
+
+<a name="XREFsetdiff"></a><dl>
+<dt><a name="index-setdiff"></a>Function File: <em></em> <strong>setdiff</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-setdiff-1"></a>Function File: <em></em> <strong>setdiff</strong> <em>(<var>a</var>, <var>b</var>, &quot;rows&quot;)</em></dt>
+<dt><a name="index-setdiff-2"></a>Function File: <em>[<var>c</var>, <var>i</var>] =</em> <strong>setdiff</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Return the elements in <var>a</var> that are not in <var>b</var>, sorted in
+ascending order.  If <var>a</var> and <var>b</var> are both column vectors
+return a column vector, otherwise return a row vector.
+<var>a</var>, <var>b</var> may be cell arrays of string(s).
+</p>
+<p>Given the optional third argument <code>&quot;rows&quot;</code>, return the rows in
+<var>a</var> that are not in <var>b</var>, sorted in ascending order by rows.
+</p>
+<p>If requested, return <var>i</var> such that <code>c = a(i)</code>.
+</p>
+<p><strong>See also:</strong> <a href="Sets.html#XREFunique">unique</a>, <a href="Set-Operations.html#XREFunion">union</a>, <a href="Set-Operations.html#XREFintersect">intersect</a>, <a href="Set-Operations.html#XREFsetxor">setxor</a>, <a href="Set-Operations.html#XREFismember">ismember</a>.
+</p></dd></dl>
+
+
+<a name="XREFsetxor"></a><dl>
+<dt><a name="index-setxor"></a>Function File: <em></em> <strong>setxor</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-setxor-1"></a>Function File: <em></em> <strong>setxor</strong> <em>(<var>a</var>, <var>b</var>, &quot;rows&quot;)</em></dt>
+<dt><a name="index-setxor-2"></a>Function File: <em>[<var>c</var>, <var>ia</var>, <var>ib</var>] =</em> <strong>setxor</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd>
+<p>Return the elements exclusive to <var>a</var> or <var>b</var>, sorted in ascending
+order.  If <var>a</var> and <var>b</var> are both column vectors return a column
+vector, otherwise return a row vector.
+<var>a</var>, <var>b</var> may be cell arrays of string(s).
+</p>
+<p>With three output arguments, return index vectors <var>ia</var> and <var>ib</var>
+such that <code>a(ia)</code> and <code>b(ib)</code> are disjoint sets whose union
+is <var>c</var>.
+</p>
+
+<p><strong>See also:</strong> <a href="Sets.html#XREFunique">unique</a>, <a href="Set-Operations.html#XREFunion">union</a>, <a href="Set-Operations.html#XREFintersect">intersect</a>, <a href="Set-Operations.html#XREFsetdiff">setdiff</a>, <a href="Set-Operations.html#XREFismember">ismember</a>.
+</p></dd></dl>
+
+
+<a name="XREFpowerset"></a><dl>
+<dt><a name="index-powerset"></a>Function File: <em></em> <strong>powerset</strong> <em>(<var>a</var>)</em></dt>
+<dt><a name="index-powerset-1"></a>Function File: <em></em> <strong>powerset</strong> <em>(<var>a</var>, &quot;rows&quot;)</em></dt>
+<dd><p>Compute the powerset (all subsets) of the set <var>a</var>.
+</p>
+<p>The set <var>a</var> must be a numerical matrix or a cell array of strings.  The
+output will always be a cell array of either vectors or strings.
+</p>
+<p>With the optional second argument <code>&quot;rows&quot;</code>, each row of the set <var>a</var>
+is considered one element of the set.  As a result, <var>a</var> must then be a
+numerical 2-D matrix.
+</p>
+
+<p><strong>See also:</strong> <a href="Sets.html#XREFunique">unique</a>, <a href="Set-Operations.html#XREFunion">union</a>, <a href="Set-Operations.html#XREFsetxor">setxor</a>, <a href="Set-Operations.html#XREFsetdiff">setdiff</a>, <a href="Set-Operations.html#XREFismember">ismember</a>.
+</p></dd></dl>
+
+
+
+<hr>
+<div class="header">
+<p>
+Up: <a href="Sets.html#Sets" accesskey="u" rel="up">Sets</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

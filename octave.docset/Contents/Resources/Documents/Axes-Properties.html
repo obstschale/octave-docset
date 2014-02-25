@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Axes Properties</title>
+
+<meta name="description" content="GNU Octave: Axes Properties">
+<meta name="keywords" content="GNU Octave: Axes Properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Graphics-Object-Properties.html#Graphics-Object-Properties" rel="up" title="Graphics Object Properties">
+<link href="Line-Properties.html#Line-Properties" rel="next" title="Line Properties">
+<link href="Figure-Properties.html#Figure-Properties" rel="prev" title="Figure Properties">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Axes-Properties"></a>
+<div class="header">
+<p>
+Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Line Properties</a>, Previous: <a href="Figure-Properties.html#Figure-Properties" accesskey="p" rel="prev">Figure Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Axes-Properties-1"></a>
+<h4 class="subsubsection">15.3.3.3 Axes Properties</h4>
+<a name="index-axes-properties"></a>
+
+<p>The <code>axes</code> properties are:
+</p>
+<dl compact="compact">
+<dt><code>__modified__</code></dt>
+<dt><code>__myhandle__</code></dt>
+<dt><code>activepositionproperty</code></dt>
+<dt><code>alim</code></dt>
+<dt><code>alimmode</code></dt>
+<dt><code>ambientlightcolor</code></dt>
+<dt><code>beingdeleted</code></dt>
+<dt><code>box</code></dt>
+<dd><p>Box surrounding axes.
+&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>busyaction</code></dt>
+<dt><code>buttondownfcn</code></dt>
+<dt><code>cameraposition</code></dt>
+<dt><code>camerapositionmode</code></dt>
+<dt><code>cameratarget</code></dt>
+<dt><code>cameratargetmode</code></dt>
+<dt><code>cameraupvector</code></dt>
+<dt><code>cameraupvectormode</code></dt>
+<dt><code>cameraviewangle</code></dt>
+<dt><code>cameraviewanglemode</code></dt>
+<dt><code>children</code></dt>
+<dt><code>clim</code></dt>
+<dd><p>Two-element vector defining the limits for the c axis of
+an image.  See <code>pcolor</code> property.
+Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>climmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>clipping</code></dt>
+<dt><code>color</code></dt>
+<dt><code>colororder</code></dt>
+<dt><code>createfcn</code></dt>
+<dt><code>currentpoint</code></dt>
+<dd><p>Holds the coordinates of the point over which the mouse pointer was when
+the mouse button was pressed.  If a mouse callback function is defined,
+<code>&quot;currentpoint&quot;</code> holds the coordinates of the point over which the
+mouse pointer is when the function gets called.
+</p>
+</dd>
+<dt><code>dataaspectratio</code></dt>
+<dd><p>A two-element vector specifying the relative height and width of the
+data displayed in the axes.  Setting <code>dataaspectratio</code> to &lsquo;<samp>1,
+2]</samp>&rsquo; causes the length of one unit as displayed on the y-axis to be the
+same as the length of 2 units on the x-axis.  Setting
+<code>dataaspectratio</code> also forces the <code>dataaspectratiomode</code>
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>dataaspectratiomode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>deletefcn</code></dt>
+<dt><code>drawmode</code></dt>
+<dt><code>fontangle</code></dt>
+<dt><code>fontname</code></dt>
+<dt><code>fontsize</code></dt>
+<dt><code>fontunits</code></dt>
+<dt><code>fontweight</code></dt>
+<dt><code>gridlinestyle</code></dt>
+<dt><code>handlevisibility</code></dt>
+<dt><code>hittest</code></dt>
+<dt><code>interpreter</code></dt>
+<dt><code>interruptible</code></dt>
+<dt><code>layer</code></dt>
+<dt><code>linestyleorder</code></dt>
+<dt><code>linewidth</code></dt>
+<dt><code>minorgridlinestyle</code></dt>
+<dt><code>nextplot</code></dt>
+<dd><p>May be one of
+</p>
+<dl compact="compact">
+<dt><code>&quot;add&quot;</code></dt>
+<dt><code>&quot;replace&quot;</code></dt>
+<dt><code>&quot;replacechildren&quot;</code></dt>
+</dl>
+
+</dd>
+<dt><code>outerposition</code></dt>
+<dd><p>A vector specifying the position of the plot, including titles, axes and
+legend.  The four elements of the vector are the coordinates of the
+lower left corner and width and height of the plot, in units normalized
+to the width and height of the plot window.  For example, <code>[0.2,
+0.3, 0.4, 0.5]</code> sets the lower left corner of the axes at <em>(0.2,
+0.3)</em> and the width and height to be 0.4 and 0.5 respectively.  See also
+the <code>position</code> property.
+</p>
+</dd>
+<dt><code>parent</code></dt>
+<dt><code>plotboxaspectratio</code></dt>
+<dt><code>plotboxaspectratiomode</code></dt>
+<dt><code>position</code></dt>
+<dd><p>A vector specifying the position of the plot, excluding titles, axes and
+legend.  The four elements of the vector are the coordinates of the
+lower left corner and width and height of the plot, in units normalized
+to the width and height of the plot window.  For example, <code>[0.2,
+0.3, 0.4, 0.5]</code> sets the lower left corner of the axes at <em>(0.2,
+0.3)</em> and the width and height to be 0.4 and 0.5 respectively.  See also
+the <code>outerposition</code> property.
+</p>
+</dd>
+<dt><code>projection</code></dt>
+<dt><code>selected</code></dt>
+<dt><code>selectionhighlight</code></dt>
+<dt><code>tag</code></dt>
+<dt><code>tickdir</code></dt>
+<dt><code>tickdirmode</code></dt>
+<dt><code>ticklength</code></dt>
+<dt><code>tightinset</code></dt>
+<dt><code>title</code></dt>
+<dd><p>Index of text object for the axes title.
+</p>
+</dd>
+<dt><code>type</code></dt>
+<dt><code>uicontextmenu</code></dt>
+<dt><code>units</code></dt>
+<dt><code>userdata</code></dt>
+<dt><code>view</code></dt>
+<dd><p>A three element vector specifying the view point for three-dimensional plots.
+</p>
+</dd>
+<dt><code>visible</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of the axes.
+</p>
+</dd>
+<dt><code>x_normrendertransform</code></dt>
+<dt><code>x_projectiontransform</code></dt>
+<dt><code>x_rendertransform</code></dt>
+<dt><code>x_viewporttransform</code></dt>
+<dt><code>x_viewtransform</code></dt>
+<dt><code>xaxislocation</code></dt>
+<dd><p>Either <code>&quot;top&quot;</code> or <code>&quot;bottom&quot;</code>.
+</p>
+</dd>
+<dt><code>xcolor</code></dt>
+<dt><code>xdir</code></dt>
+<dd><p>Either <code>&quot;forward&quot;</code> or <code>&quot;reverse&quot;</code>.
+</p>
+</dd>
+<dt><code>xgrid</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of grid lines.
+</p>
+</dd>
+<dt><code>xlabel</code></dt>
+<dd><p>Indices to text objects for the axes labels.
+</p>
+</dd>
+<dt><code>xlim</code></dt>
+<dd><p>Two-element vector defining the limits for the x-axis.
+Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>xlimmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>xminorgrid</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of minor grid lines.
+</p>
+</dd>
+<dt><code>xminortick</code></dt>
+<dt><code>xscale</code></dt>
+<dd><p>Either <code>&quot;linear&quot;</code> or <code>&quot;log&quot;</code>.
+</p>
+</dd>
+<dt><code>xtick</code></dt>
+<dd><p>Set position of tick marks.
+Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>xticklabel</code></dt>
+<dd><p>Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>xticklabelmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>xtickmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>yaxislocation</code></dt>
+<dd><p>Either <code>&quot;left&quot;</code> or <code>&quot;right&quot;</code>
+</p>
+</dd>
+<dt><code>ycolor</code></dt>
+<dt><code>ydir</code></dt>
+<dd><p>Either <code>&quot;forward&quot;</code> or <code>&quot;reverse&quot;</code>.
+</p>
+</dd>
+<dt><code>ygrid</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of grid lines.
+</p>
+</dd>
+<dt><code>ylabel</code></dt>
+<dd><p>Indices to text objects for the axes labels.
+</p>
+</dd>
+<dt><code>ylim</code></dt>
+<dd><p>Two-element vectors defining the limits for the x, y, and z axes and the
+Setting one of these properties also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>ylimmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>yminorgrid</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of minor grid lines.
+</p>
+</dd>
+<dt><code>yminortick</code></dt>
+<dt><code>yscale</code></dt>
+<dd><p>Either <code>&quot;linear&quot;</code> or <code>&quot;log&quot;</code>.
+</p>
+</dd>
+<dt><code>ytick</code></dt>
+<dd><p>Set position of tick marks.
+Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>yticklabel</code></dt>
+<dd><p>Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>yticklabelmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>ytickmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>zcolor</code></dt>
+<dt><code>zdir</code></dt>
+<dd><p>Either <code>&quot;forward&quot;</code> or <code>&quot;reverse&quot;</code>.
+</p>
+</dd>
+<dt><code>zgrid</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of grid lines.
+</p>
+</dd>
+<dt><code>zlabel</code></dt>
+<dd><p>Indices to text objects for the axes labels.
+</p>
+</dd>
+<dt><code>zlim</code></dt>
+<dd><p>Two-element vector defining the limits for z-axis.
+Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>zlimmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>zminorgrid</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of minor grid lines.
+</p>
+</dd>
+<dt><code>zminortick</code></dt>
+<dt><code>zscale</code></dt>
+<dd><p>Either <code>&quot;linear&quot;</code> or <code>&quot;log&quot;</code>.
+</p>
+</dd>
+<dt><code>ztick</code></dt>
+<dd><p>Set position of tick marks.
+Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>zticklabel</code></dt>
+<dd><p>Setting this property also forces the corresponding mode
+property to be set to <code>&quot;manual&quot;</code>.
+</p>
+</dd>
+<dt><code>zticklabelmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+<dt><code>ztickmode</code></dt>
+<dd><p>Either <code>&quot;manual&quot;</code> or <code>&quot;auto&quot;</code>.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Line Properties</a>, Previous: <a href="Figure-Properties.html#Figure-Properties" accesskey="p" rel="prev">Figure Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

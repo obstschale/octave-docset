@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Iterative Techniques</title>
+
+<meta name="description" content="GNU Octave: Iterative Techniques">
+<meta name="keywords" content="GNU Octave: Iterative Techniques">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Sparse-Matrices.html#Sparse-Matrices" rel="up" title="Sparse Matrices">
+<link href="Real-Life-Example.html#Real-Life-Example" rel="next" title="Real Life Example">
+<link href="Sparse-Linear-Algebra.html#Sparse-Linear-Algebra" rel="prev" title="Sparse Linear Algebra">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Iterative-Techniques"></a>
+<div class="header">
+<p>
+Next: <a href="Real-Life-Example.html#Real-Life-Example" accesskey="n" rel="next">Real Life Example</a>, Previous: <a href="Sparse-Linear-Algebra.html#Sparse-Linear-Algebra" accesskey="p" rel="prev">Sparse Linear Algebra</a>, Up: <a href="Sparse-Matrices.html#Sparse-Matrices" accesskey="u" rel="up">Sparse Matrices</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Iterative-Techniques-Applied-to-Sparse-Matrices"></a>
+<h3 class="section">22.3 Iterative Techniques Applied to Sparse Matrices</h3>
+
+<p>The left division <code>\</code> and right division <code>/</code> operators,
+discussed in the previous section, use direct solvers to resolve a
+linear equation of the form <code><var>x</var> = <var>A</var> \ <var>b</var></code> or
+<code><var>x</var> = <var>b</var> / <var>A</var></code>.  Octave equally includes a number of
+functions to solve sparse linear equations using iterative techniques.
+</p>
+<a name="XREFpcg"></a><dl>
+<dt><a name="index-pcg"></a>Function File: <em><var>x</var> =</em> <strong>pcg</strong> <em>(<var>A</var>, <var>b</var>, <var>tol</var>, <var>maxit</var>, <var>m1</var>, <var>m2</var>, <var>x0</var>, &hellip;)</em></dt>
+<dt><a name="index-pcg-1"></a>Function File: <em>[<var>x</var>, <var>flag</var>, <var>relres</var>, <var>iter</var>, <var>resvec</var>, <var>eigest</var>] =</em> <strong>pcg</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Solve the linear system of equations <code><var>A</var>&nbsp;*&nbsp;<var>x</var>&nbsp;=&nbsp;<var>b</var></code><!-- /@w -->
+by means of the Preconditioned Conjugate Gradient iterative method.  The
+input arguments are
+</p>
+<ul>
+<li> <var>A</var> can be either a square (preferably sparse) matrix or a function
+handle, inline function or string containing the name of a function which
+computes <code><var>A</var>&nbsp;*&nbsp;<var>x</var></code><!-- /@w -->.  In principle, <var>A</var> should be
+symmetric and positive definite; if <code>pcg</code> finds <var>A</var> not to be
+positive definite, a warning is printed and the <var>flag</var> output will be
+set.
+
+</li><li> <var>b</var> is the right-hand side vector.
+
+</li><li> <var>tol</var> is the required relative tolerance for the residual error,
+<code><var>b</var>&nbsp;<span class="nolinebreak">-</span>&nbsp;<var>A</var>&nbsp;*&nbsp;<var>x</var></code><!-- /@w -->.  The iteration stops if
+<code>norm&nbsp;(<var>b</var>&nbsp;<span class="nolinebreak">-</span>&nbsp;<var>A</var>&nbsp;*&nbsp;<var>x</var>)</code>&nbsp;&le;&nbsp;<var>tol</var>&nbsp;*&nbsp;norm&nbsp;(<var>b</var>)<!-- /@w --><!-- /@w -->.
+If <var>tol</var> is omitted or empty then a tolerance of 1e-6 is used.
+
+</li><li> <var>maxit</var> is the maximum allowable number of iterations; if <var>maxit</var>
+is omitted or empty then a value of 20 is used.
+
+</li><li> <var>m</var> = <var>m1</var> * <var>m2</var> is the (left) preconditioning matrix, so that
+the iteration is (theoretically) equivalent to solving by <code>pcg</code>
+<code><var>P</var>&nbsp;*&nbsp;<var>x</var>&nbsp;=&nbsp;<var>m</var>&nbsp;\&nbsp;<var>b</var></code><!-- /@w -->, with
+<code><var>P</var>&nbsp;=&nbsp;<var>m</var>&nbsp;\&nbsp;<var>A</var></code><!-- /@w -->.
+Note that a proper choice of the preconditioner may dramatically
+improve the overall performance of the method.  Instead of matrices
+<var>m1</var> and <var>m2</var>, the user may pass two functions which return
+the results of applying the inverse of <var>m1</var> and <var>m2</var> to
+a vector (usually this is the preferred way of using the preconditioner).
+If <var>m1</var> is omitted or empty <code>[]</code> then no preconditioning is
+applied.  If <var>m2</var> is omitted, <var>m</var> = <var>m1</var> will be used as
+a preconditioner.
+
+</li><li> <var>x0</var> is the initial guess.  If <var>x0</var> is omitted or empty then the
+function sets <var>x0</var> to a zero vector by default.
+</li></ul>
+
+<p>The arguments which follow <var>x0</var> are treated as parameters, and passed in
+a proper way to any of the functions (<var>A</var> or <var>m</var>) which are passed
+to <code>pcg</code>.  See the examples below for further details.  The output
+arguments are
+</p>
+<ul>
+<li> <var>x</var> is the computed approximation to the solution of
+<code><var>A</var>&nbsp;*&nbsp;<var>x</var>&nbsp;=&nbsp;<var>b</var></code><!-- /@w -->.
+
+</li><li> <var>flag</var> reports on the convergence.  A value of 0 means the solution
+converged and the tolerance criterion given by <var>tol</var> is satisfied.
+A value of 1 means that the <var>maxit</var> limit for the iteration count was
+reached.  A value of 3 indicates that the (preconditioned) matrix was found
+not to be positive definite.
+
+</li><li> <var>relres</var> is the ratio of the final residual to its initial value,
+measured in the Euclidean norm.
+
+</li><li> <var>iter</var> is the actual number of iterations performed.
+
+</li><li> <var>resvec</var> describes the convergence history of the method.
+<code><var>resvec</var>(i,1)</code> is the Euclidean norm of the residual, and
+<code><var>resvec</var>(i,2)</code> is the preconditioned residual norm, after the
+(<var>i</var>-1)-th iteration, <code><var>i</var> = 1, 2, &hellip;, <var>iter</var>+1</code>.
+The preconditioned residual norm is defined as
+<code>norm (<var>r</var>) ^ 2 = <var>r</var>' * (<var>m</var> \ <var>r</var>)</code> where
+<code><var>r</var> = <var>b</var> - <var>A</var> * <var>x</var></code>, see also the
+description of <var>m</var>.  If <var>eigest</var> is not required, only
+<code><var>resvec</var>(:,1)</code> is returned.
+
+</li><li> <var>eigest</var> returns the estimate for the smallest <code><var>eigest</var>(1)</code>
+and largest <code><var>eigest</var>(2)</code> eigenvalues of the preconditioned matrix
+<code><var>P</var>&nbsp;=&nbsp;<var>m</var>&nbsp;\&nbsp;<var>A</var></code><!-- /@w -->.  In particular, if no
+preconditioning is used, the estimates for the extreme eigenvalues of
+<var>A</var> are returned.  <code><var>eigest</var>(1)</code> is an overestimate and
+<code><var>eigest</var>(2)</code> is an underestimate, so that
+<code><var>eigest</var>(2) / <var>eigest</var>(1)</code> is a lower bound for
+<code>cond (<var>P</var>, 2)</code>, which nevertheless in the limit should 
+theoretically be equal to the actual value of the condition number.
+The method which computes <var>eigest</var> works only for symmetric positive
+definite <var>A</var> and <var>m</var>, and the user is responsible for verifying this
+assumption.
+</li></ul>
+
+<p>Let us consider a trivial problem with a diagonal matrix (we exploit the
+sparsity of A)
+</p>
+<div class="example">
+<pre class="example">n = 10;
+A = diag (sparse (1:n));
+b = rand (n, 1);
+[l, u, p, q] = luinc (A, 1.e-3);
+</pre></div>
+
+<p><small>EXAMPLE 1:</small> Simplest use of <code>pcg</code>
+</p>
+<div class="example">
+<pre class="example">x = pcg (A, b)
+</pre></div>
+
+<p><small>EXAMPLE 2:</small> <code>pcg</code> with a function which computes
+<code><var>A</var> * <var>x</var></code>
+</p>
+<div class="example">
+<pre class="example">function y = apply_a (x)
+  y = [1:N]' .* x;
+endfunction
+
+x = pcg (&quot;apply_a&quot;, b)
+</pre></div>
+
+<p><small>EXAMPLE 3:</small> <code>pcg</code> with a preconditioner: <var>l</var> * <var>u</var>
+</p>
+<div class="example">
+<pre class="example">x = pcg (A, b, 1.e-6, 500, l*u)
+</pre></div>
+
+<p><small>EXAMPLE 4:</small> <code>pcg</code> with a preconditioner: <var>l</var> * <var>u</var>.
+Faster than <small>EXAMPLE 3</small> since lower and upper triangular matrices
+are easier to invert
+</p>
+<div class="example">
+<pre class="example">x = pcg (A, b, 1.e-6, 500, l, u)
+</pre></div>
+
+<p><small>EXAMPLE 5:</small> Preconditioned iteration, with full diagnostics.  The
+preconditioner (quite strange, because even the original matrix
+<var>A</var> is trivial) is defined as a function
+</p>
+<div class="example">
+<pre class="example">function y = apply_m (x)
+  k = floor (length (x) - 2);
+  y = x;
+  y(1:k) = x(1:k) ./ [1:k]';
+endfunction
+
+[x, flag, relres, iter, resvec, eigest] = ...
+                   pcg (A, b, [], [], &quot;apply_m&quot;);
+semilogy (1:iter+1, resvec);
+</pre></div>
+
+<p><small>EXAMPLE 6:</small> Finally, a preconditioner which depends on a
+parameter <var>k</var>.
+</p>
+<div class="example">
+<pre class="example">function y = apply_M (x, varargin)
+  K = varargin{1};
+  y = x;
+  y(1:K) = x(1:K) ./ [1:K]';
+endfunction
+
+[x, flag, relres, iter, resvec, eigest] = ...
+     pcg (A, b, [], [], &quot;apply_m&quot;, [], [], 3)
+</pre></div>
+
+<p>References:
+</p>
+<ol>
+<li> C.T. Kelley, <cite>Iterative Methods for Linear and Nonlinear Equations</cite>,
+SIAM, 1995. (the base PCG algorithm)
+
+</li><li> Y. Saad, <cite>Iterative Methods for Sparse Linear Systems</cite>, 
+PWS 1996. (condition number estimate from PCG)
+Revised version of this book is available online at
+<a href="http://www-users.cs.umn.edu/~saad/books.html">http://www-users.cs.umn.edu/~saad/books.html</a>
+</li></ol>
+
+
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>, <a href="Iterative-Techniques.html#XREFpcr">pcr</a>.
+</p></dd></dl>
+
+
+<a name="XREFpcr"></a><dl>
+<dt><a name="index-pcr"></a>Function File: <em><var>x</var> =</em> <strong>pcr</strong> <em>(<var>A</var>, <var>b</var>, <var>tol</var>, <var>maxit</var>, <var>m</var>, <var>x0</var>, &hellip;)</em></dt>
+<dt><a name="index-pcr-1"></a>Function File: <em>[<var>x</var>, <var>flag</var>, <var>relres</var>, <var>iter</var>, <var>resvec</var>] =</em> <strong>pcr</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Solve the linear system of equations <code><var>A</var> * <var>x</var> = <var>b</var></code>
+by means of the Preconditioned Conjugate Residuals iterative
+method.  The input arguments are
+</p>
+<ul>
+<li> <var>A</var> can be either a square (preferably sparse) matrix or a
+function handle, inline function or string containing the name
+of a function which computes <code><var>A</var> * <var>x</var></code>.  In principle
+<var>A</var> should be symmetric and non-singular; if <code>pcr</code>
+finds <var>A</var> to be numerically singular, you will get a warning
+message and the <var>flag</var> output parameter will be set.
+
+</li><li> <var>b</var> is the right hand side vector.
+
+</li><li> <var>tol</var> is the required relative tolerance for the residual error,
+<code><var>b</var> - <var>A</var> * <var>x</var></code>.  The iteration stops if
+<code>norm (<var>b</var> - <var>A</var> * <var>x</var>) &lt;=
+<var>tol</var> * norm (<var>b</var> - <var>A</var> * <var>x0</var>)</code>.
+If <var>tol</var> is empty or is omitted, the function sets
+<code><var>tol</var> = 1e-6</code> by default.
+
+</li><li> <var>maxit</var> is the maximum allowable number of iterations; if
+<code>[]</code> is supplied for <code>maxit</code>, or <code>pcr</code> has less
+arguments, a default value equal to 20 is used.
+
+</li><li> <var>m</var> is the (left) preconditioning matrix, so that the iteration is
+(theoretically) equivalent to solving by <code>pcr</code> <code><var>P</var> *
+<var>x</var> = <var>m</var> \ <var>b</var></code>, with <code><var>P</var> = <var>m</var> \ <var>A</var></code>.
+Note that a proper choice of the preconditioner may dramatically
+improve the overall performance of the method.  Instead of matrix
+<var>m</var>, the user may pass a function which returns the results of
+applying the inverse of <var>m</var> to a vector (usually this is the
+preferred way of using the preconditioner).  If <code>[]</code> is supplied
+for <var>m</var>, or <var>m</var> is omitted, no preconditioning is applied.
+
+</li><li> <var>x0</var> is the initial guess.  If <var>x0</var> is empty or omitted, the
+function sets <var>x0</var> to a zero vector by default.
+</li></ul>
+
+<p>The arguments which follow <var>x0</var> are treated as parameters, and
+passed in a proper way to any of the functions (<var>A</var> or <var>m</var>)
+which are passed to <code>pcr</code>.  See the examples below for further
+details.  The output arguments are
+</p>
+<ul>
+<li> <var>x</var> is the computed approximation to the solution of
+<code><var>A</var> * <var>x</var> = <var>b</var></code>.
+
+</li><li> <var>flag</var> reports on the convergence.  <code><var>flag</var> = 0</code> means
+the solution converged and the tolerance criterion given by <var>tol</var>
+is satisfied.  <code><var>flag</var> = 1</code> means that the <var>maxit</var> limit
+for the iteration count was reached.  <code><var>flag</var> = 3</code> reports t
+<code>pcr</code> breakdown, see [1] for details.
+
+</li><li> <var>relres</var> is the ratio of the final residual to its initial value,
+measured in the Euclidean norm.
+
+</li><li> <var>iter</var> is the actual number of iterations performed.
+
+</li><li> <var>resvec</var> describes the convergence history of the method,
+so that <code><var>resvec</var> (i)</code> contains the Euclidean norms of the
+residual after the (<var>i</var>-1)-th iteration, <code><var>i</var> =
+1,2, &hellip;, <var>iter</var>+1</code>.
+</li></ul>
+
+<p>Let us consider a trivial problem with a diagonal matrix (we exploit the
+sparsity of A)
+</p>
+<div class="example">
+<pre class="example">n = 10;
+A = sparse (diag (1:n));
+b = rand (N, 1);
+</pre></div>
+
+<p><small>EXAMPLE 1:</small> Simplest use of <code>pcr</code>
+</p>
+<div class="example">
+<pre class="example">x = pcr (A, b)
+</pre></div>
+
+<p><small>EXAMPLE 2:</small> <code>pcr</code> with a function which computes
+<code><var>A</var> * <var>x</var></code>.
+</p>
+<div class="example">
+<pre class="example">function y = apply_a (x)
+  y = [1:10]' .* x;
+endfunction
+
+x = pcr (&quot;apply_a&quot;, b)
+</pre></div>
+
+<p><small>EXAMPLE 3:</small>  Preconditioned iteration, with full diagnostics.  The
+preconditioner (quite strange, because even the original matrix
+<var>A</var> is trivial) is defined as a function
+</p>
+<div class="example">
+<pre class="example">function y = apply_m (x)
+  k = floor (length (x) - 2);
+  y = x;
+  y(1:k) = x(1:k) ./ [1:k]';
+endfunction
+
+[x, flag, relres, iter, resvec] = ...
+                   pcr (A, b, [], [], &quot;apply_m&quot;)
+semilogy ([1:iter+1], resvec);
+</pre></div>
+
+<p><small>EXAMPLE 4:</small> Finally, a preconditioner which depends on a
+parameter <var>k</var>.
+</p>
+<div class="example">
+<pre class="example">function y = apply_m (x, varargin)
+  k = varargin{1};
+  y = x;
+  y(1:k) = x(1:k) ./ [1:k]';
+endfunction
+
+[x, flag, relres, iter, resvec] = ...
+                   pcr (A, b, [], [], &quot;apply_m&quot;', [], 3)
+</pre></div>
+
+<p>References:
+</p>
+<p>[1] W. Hackbusch, <cite>Iterative Solution of Large Sparse Systems of
+     Equations</cite>, section 9.5.4; Springer, 1994
+</p>
+
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>, <a href="Iterative-Techniques.html#XREFpcg">pcg</a>.
+</p></dd></dl>
+
+
+<p>The speed with which an iterative solver converges to a solution can be
+accelerated with the use of a pre-conditioning matrix <var>M</var>.  In this
+case the linear equation <code><var>M</var>^-1 * <var>x</var> = <var>M</var>^-1 *
+<var>A</var> \ <var>b</var></code> is solved instead.  Typical pre-conditioning matrices
+are partial factorizations of the original matrix.
+</p>
+<a name="XREFluinc"></a><dl>
+<dt><a name="index-luinc"></a>Built-in Function: <em>[<var>L</var>, <var>U</var>, <var>P</var>, <var>Q</var>] =</em> <strong>luinc</strong> <em>(<var>A</var>, '0')</em></dt>
+<dt><a name="index-luinc-1"></a>Built-in Function: <em>[<var>L</var>, <var>U</var>, <var>P</var>, <var>Q</var>] =</em> <strong>luinc</strong> <em>(<var>A</var>, <var>droptol</var>)</em></dt>
+<dt><a name="index-luinc-2"></a>Built-in Function: <em>[<var>L</var>, <var>U</var>, <var>P</var>, <var>Q</var>] =</em> <strong>luinc</strong> <em>(<var>A</var>, <var>opts</var>)</em></dt>
+<dd><a name="index-LU-decomposition-1"></a>
+<p>Produce the incomplete LU&nbsp;factorization of the sparse matrix <var>A</var>.
+Two types of incomplete factorization are possible, and the type
+is determined by the second argument to <code>luinc</code>.
+</p>
+<p>Called with a second argument of <code>'0'</code>, the zero-level incomplete
+LU&nbsp;factorization is produced.  This creates a factorization of <var>A</var>
+where the position of the non-zero arguments correspond to the same
+positions as in the matrix <var>A</var>.
+</p>
+<p>Alternatively, the fill-in of the incomplete LU&nbsp;factorization can
+be controlled through the variable <var>droptol</var> or the structure
+<var>opts</var>.  The <small>UMFPACK</small> multifrontal factorization code by Tim A.
+Davis is used for the incomplete LU&nbsp;factorization, (availability
+<a href="http://www.cise.ufl.edu/research/sparse/umfpack/">http://www.cise.ufl.edu/research/sparse/umfpack/</a>)
+</p>
+<p><var>droptol</var> determines the values below which the values in the
+LU&nbsp; factorization are dropped and replaced by zero.  It must be a
+positive scalar, and any values in the factorization whose absolute value
+are less than this value are dropped, expect if leaving them increase the
+sparsity of the matrix.  Setting <var>droptol</var> to zero results in a complete
+LU&nbsp;factorization which is the default.
+</p>
+<p><var>opts</var> is a structure containing one or more of the fields
+</p>
+<dl compact="compact">
+<dt><code>droptol</code></dt>
+<dd><p>The drop tolerance as above.  If <var>opts</var> only contains <code>droptol</code>
+then this is equivalent to using the variable <var>droptol</var>.
+</p>
+</dd>
+<dt><code>milu</code></dt>
+<dd><p>A logical variable flagging whether to use the modified incomplete
+LU&nbsp; factorization.  In the case that <code>milu</code> is true, the dropped
+values are subtracted from the diagonal of the matrix <var>U</var> of the
+factorization.  The default is <code>false</code>.
+</p>
+</dd>
+<dt><code>udiag</code></dt>
+<dd><p>A logical variable that flags whether zero elements on the diagonal of
+<var>U</var> should be replaced with <var>droptol</var> to attempt to avoid singular
+factors.  The default is <code>false</code>.
+</p>
+</dd>
+<dt><code>thresh</code></dt>
+<dd><p>Defines the pivot threshold in the interval [0,1].  Values outside that
+range are ignored.
+</p></dd>
+</dl>
+
+<p>All other fields in <var>opts</var> are ignored.  The outputs from <code>luinc</code>
+are the same as for <code>lu</code>.
+</p>
+<p>Given the string argument <code>&quot;vector&quot;</code>, <code>luinc</code> returns the
+values of <var>p</var> <var>q</var> as vector values.
+</p>
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Real-Life-Example.html#Real-Life-Example" accesskey="n" rel="next">Real Life Example</a>, Previous: <a href="Sparse-Linear-Algebra.html#Sparse-Linear-Algebra" accesskey="p" rel="prev">Sparse Linear Algebra</a>, Up: <a href="Sparse-Matrices.html#Sparse-Matrices" accesskey="u" rel="up">Sparse Matrices</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

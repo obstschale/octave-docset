@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Manipulating Structures</title>
+
+<meta name="description" content="GNU Octave: Manipulating Structures">
+<meta name="keywords" content="GNU Octave: Manipulating Structures">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Structures.html#Structures" rel="up" title="Structures">
+<link href="Processing-Data-in-Structures.html#Processing-Data-in-Structures" rel="next" title="Processing Data in Structures">
+<link href="Creating-Structures.html#Creating-Structures" rel="prev" title="Creating Structures">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Manipulating-Structures"></a>
+<div class="header">
+<p>
+Next: <a href="Processing-Data-in-Structures.html#Processing-Data-in-Structures" accesskey="n" rel="next">Processing Data in Structures</a>, Previous: <a href="Creating-Structures.html#Creating-Structures" accesskey="p" rel="prev">Creating Structures</a>, Up: <a href="Structures.html#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Manipulating-Structures-1"></a>
+<h4 class="subsection">6.1.4 Manipulating Structures</h4>
+
+<p>Other functions that can manipulate the fields of a structure are given below.
+</p>
+<a name="XREFnfields"></a><dl>
+<dt><a name="index-nfields"></a>Built-in Function: <em></em> <strong>nfields</strong> <em>(<var>s</var>)</em></dt>
+<dd><p>Return the number of fields of the structure <var>s</var>.
+</p></dd></dl>
+
+
+<a name="XREFfieldnames"></a><dl>
+<dt><a name="index-fieldnames"></a>Function File: <em><var>names</var> =</em> <strong>fieldnames</strong> <em>(<var>struct</var>)</em></dt>
+<dt><a name="index-fieldnames-1"></a>Function File: <em><var>names</var> =</em> <strong>fieldnames</strong> <em>(<var>obj</var>)</em></dt>
+<dt><a name="index-fieldnames-2"></a>Function File: <em><var>names</var> =</em> <strong>fieldnames</strong> <em>(<var>javaobj</var>)</em></dt>
+<dt><a name="index-fieldnames-3"></a>Function File: <em><var>names</var> =</em> <strong>fieldnames</strong> <em>(&quot;<var>jclassname</var>&quot;)</em></dt>
+<dd><p>Return a cell array of strings with the names of the fields in the
+specified input.
+</p>
+<p>When the input is a structure <var>struct</var>, the names are the elements
+of the structure.
+</p>
+<p>When the input is an Octave object <var>obj</var>, the names are the public
+properties of the object.
+</p>
+<p>When the input is a Java object <var>javaobj</var> or Java classname
+<var>jclassname</var> the name are the public data elements of the object or
+class.
+</p>
+<p><strong>See also:</strong> <a href="Creating-Structures.html#XREFstruct">struct</a>, <a href="Creating-a-Class.html#XREFmethods">methods</a>.
+</p></dd></dl>
+
+
+<a name="XREFisfield"></a><dl>
+<dt><a name="index-isfield"></a>Built-in Function: <em></em> <strong>isfield</strong> <em>(<var>x</var>, <var>name</var>)</em></dt>
+<dd><p>Return true if the <var>x</var> is a structure and it
+includes an element named <var>name</var>.  If <var>name</var> is a cell
+array of strings then a logical array of equal dimension is returned.
+</p></dd></dl>
+
+
+<a name="XREFsetfield"></a><dl>
+<dt><a name="index-setfield"></a>Function File: <em><var>s</var> =</em> <strong>setfield</strong> <em>(<var>s</var>, <var>field</var>, <var>val</var>)</em></dt>
+<dt><a name="index-setfield-1"></a>Function File: <em><var>s</var> =</em> <strong>setfield</strong> <em>(<var>s</var>, <var>idx1</var>, <var>field1</var>, <var>idx2</var>, <var>field2</var>, &hellip;, <var>val</var>)</em></dt>
+<dd>
+<p>Set a field member <var>field</var> in a structure <var>s</var> equal to <var>val</var>. 
+For example:
+</p>
+<div class="example">
+<pre class="example"><var>s</var> = struct ();
+<var>s</var> = setfield (<var>s</var>, &quot;foo bar&quot;, 42);
+</pre></div>
+
+<p>This is equivalent to
+</p>
+<div class="example">
+<pre class="example"><var>s</var>.(&quot;foo bar&quot;) = 42;
+</pre></div>
+
+<p>Note that ordinary structure syntax <code><var>s</var>.foo bar = 42</code> cannot be
+used here, as the field name is not a valid Octave identifier.  Using
+arbitrary strings for field name is incompatible with <small>MATLAB</small>, so
+this usage will warn if the <code>Octave:matlab-incompatible</code> warning
+is set.  See <a href="Issuing-Warnings.html#XREFwarning_005fids">XREFwarning_ids</a>.
+</p>
+<p>With the second calling form, set a field on a structure array,
+possibly nested, with successive nested indices <var>idx1</var>,
+<var>idx2</var>, &hellip; and fields <var>field1</var>, <var>field2</var>, &hellip;
+The indices must be cells containing the desired index at this
+nesting depth.
+</p>
+<p>Thus consider instead,
+</p>
+<div class="example">
+<pre class="example"><var>s</var> = struct (&quot;baz&quot;, 42);
+setfield (<var>s</var>, {1}, &quot;foo&quot;, {1}, &quot;bar&quot;, 5)
+    &rArr; ans =
+    scalar structure containing the fields:
+      baz =  42
+      foo =
+        scalar structure containing the fields:
+          bar =  54
+</pre></div>
+
+<p>Here we first have an ordinary structure array with one field
+<code>baz</code> set to 42.  Then we set another field in a nested scalar structure
+indexing with two single cells containing the unique desired indices.
+</p>
+<p>Finally an example with nested structure arrays,
+</p>
+<div class="example">
+<pre class="example"><var>sa</var>.foo = 1;
+<var>sa</var> = setfield (<var>sa</var>, {2}, &quot;bar&quot;, {3}, &quot;baz&quot;, 6);
+<var>sa</var>(2).bar(3)
+     &rArr; ans =
+     scalar structure containing the fields:
+       baz =  6
+</pre></div>
+
+<p>Here <var>sa</var> is a structure array whose field <code>fd</code> at elements
+1 and 2 field is in turn
+another structure array whose third element is a structure
+</p>
+<p>Note that the same result as in the above example could be achieved by:
+</p>
+<div class="example">
+<pre class="example"><var>SA</var>.foo = 1;
+<var>SA</var>(2).bar(3).baz = 6
+</pre></div>
+
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFgetfield">getfield</a>, <a href="Manipulating-Structures.html#XREFrmfield">rmfield</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
+</p></dd></dl>
+
+
+<a name="XREFgetfield"></a><dl>
+<dt><a name="index-getfield"></a>Function File: <em>[<var>val</var>] =</em> <strong>getfield</strong> <em>(<var>s</var>, <var>field</var>)</em></dt>
+<dt><a name="index-getfield-1"></a>Function File: <em>[<var>val</var>] =</em> <strong>getfield</strong> <em>(<var>s</var>, <var>idx1</var>, <var>field1</var>, <var>idx2</var>, <var>field2</var>, &hellip;)</em></dt>
+<dd><p>Extract a field from a structure (or a nested structure).  The syntax
+is the same as <code>setfield</code>, except it omits the final <var>val</var>
+argument, returning this value instead of setting it.
+</p>
+
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFsetfield">setfield</a>, <a href="Manipulating-Structures.html#XREFrmfield">rmfield</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
+</p></dd></dl>
+
+
+<a name="XREFrmfield"></a><dl>
+<dt><a name="index-rmfield"></a>Built-in Function: <em><var>s</var> =</em> <strong>rmfield</strong> <em>(<var>s</var>, &quot;<var>f</var>&quot;)</em></dt>
+<dt><a name="index-rmfield-1"></a>Built-in Function: <em><var>s</var> =</em> <strong>rmfield</strong> <em>(<var>s</var>, <var>f</var>)</em></dt>
+<dd><p>Return a copy of the structure (array) <var>s</var> with the field <var>f</var>
+removed.  If <var>f</var> is a cell array of strings or a character array, remove
+each of the named fields.
+</p>
+<p><strong>See also:</strong> <a href="Cell-Arrays-of-Strings.html#XREFcellstr">cellstr</a>, <a href="Cell-Arrays-of-Strings.html#XREFiscellstr">iscellstr</a>, <a href="Manipulating-Structures.html#XREFsetfield">setfield</a>.
+</p></dd></dl>
+
+
+<a name="XREForderfields"></a><dl>
+<dt><a name="index-orderfields"></a>Function File: <em>[<var>t</var>, <var>p</var>] =</em> <strong>orderfields</strong> <em>(<var>s1</var>)</em></dt>
+<dt><a name="index-orderfields-1"></a>Function File: <em>[<var>t</var>, <var>p</var>] =</em> <strong>orderfields</strong> <em>(<var>s1</var>, <var>s2</var>)</em></dt>
+<dd><p>Return a copy of <var>s1</var> with fields arranged alphabetically or as
+specified by <var>s2</var>.
+</p>
+<p>Given one struct, arrange field names in <var>s1</var> alphabetically.
+</p>
+<p>If the second argument is a struct, arrange field names in <var>s1</var> as they
+appear in <var>s2</var>.  The second argument may also specify the order in a
+permutation vector or a cell array of strings containing the fieldnames of
+<var>s1</var> in the desired order.
+</p>
+<p>The optional second output argument <var>p</var> is assigned the permutation
+vector which converts the original name order into the new name order.
+</p>
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example">s = struct (&quot;d&quot;, 4, &quot;b&quot;, 2, &quot;a&quot;, 1, &quot;c&quot;, 3);
+t1 = orderfields (s)
+     &rArr; t1 =
+        {
+          a =  1
+          b =  2
+          c =  3
+          d =  4
+        }
+</pre><pre class="example">t = struct (&quot;d&quot;, {}, &quot;c&quot;, {}, &quot;b&quot;, {}, &quot;a&quot;, {});
+t2 = orderfields (s, t)
+     &rArr; t2 =
+        {
+          d =  4
+          c =  3
+          b =  2
+          a =  1
+        }
+</pre><pre class="example">t3 = orderfields (s, [3, 2, 4, 1])
+     &rArr; t3 =
+        {
+          a =  1
+          b =  2
+          c =  3
+          d =  4
+        }
+</pre><pre class="example">[t4, p] = orderfields (s, {&quot;d&quot;, &quot;c&quot;, &quot;b&quot;, &quot;a&quot;})
+     &rArr; t4 =
+        {
+          d =  4
+          c =  3
+          b =  2
+          a =  1
+        }
+        p =
+           1
+           4
+           2
+           3
+</pre></div>
+
+
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFgetfield">getfield</a>, <a href="Manipulating-Structures.html#XREFrmfield">rmfield</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
+</p></dd></dl>
+
+
+<a name="XREFsubstruct"></a><dl>
+<dt><a name="index-substruct"></a>Function File: <em></em> <strong>substruct</strong> <em>(<var>type</var>, <var>subs</var>, &hellip;)</em></dt>
+<dd><p>Create a subscript structure for use with <code>subsref</code> or
+<code>subsasgn</code>.  For example:
+</p>
+<div class="example">
+<pre class="example">idx = substruct (&quot;()&quot;, {3, &quot;:&quot;})
+     &rArr;
+       idx =
+       {
+         type = ()
+         subs =
+         {
+           [1,1] =  3
+           [1,2] = :
+         }
+       }
+x = [1, 2, 3; 4, 5, 6; 7, 8, 9];
+subsref (x, idx)
+   &rArr; 7  8  9
+</pre></div>
+
+<p><strong>See also:</strong> <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsref">subsref</a>, <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsasgn">subsasgn</a>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Processing-Data-in-Structures.html#Processing-Data-in-Structures" accesskey="n" rel="next">Processing Data in Structures</a>, Previous: <a href="Creating-Structures.html#Creating-Structures" accesskey="p" rel="prev">Creating Structures</a>, Up: <a href="Structures.html#Structures" accesskey="u" rel="up">Structures</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

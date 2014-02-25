@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Multiple Return Values</title>
+
+<meta name="description" content="GNU Octave: Multiple Return Values">
+<meta name="keywords" content="GNU Octave: Multiple Return Values">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Functions-and-Scripts.html#Functions-and-Scripts" rel="up" title="Functions and Scripts">
+<link href="Variable_002dlength-Argument-Lists.html#Variable_002dlength-Argument-Lists" rel="next" title="Variable-length Argument Lists">
+<link href="Defining-Functions.html#Defining-Functions" rel="prev" title="Defining Functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Multiple-Return-Values"></a>
+<div class="header">
+<p>
+Next: <a href="Variable_002dlength-Argument-Lists.html#Variable_002dlength-Argument-Lists" accesskey="n" rel="next">Variable-length Argument Lists</a>, Previous: <a href="Defining-Functions.html#Defining-Functions" accesskey="p" rel="prev">Defining Functions</a>, Up: <a href="Functions-and-Scripts.html#Functions-and-Scripts" accesskey="u" rel="up">Functions and Scripts</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Multiple-Return-Values-1"></a>
+<h3 class="section">11.3 Multiple Return Values</h3>
+
+<p>Unlike many other computer languages, Octave allows you to define
+functions that return more than one value.  The syntax for defining
+functions that return multiple values is
+</p>
+<div class="example">
+<pre class="example">function [<var>ret-list</var>] = <var>name</var> (<var>arg-list</var>)
+  <var>body</var>
+endfunction
+</pre></div>
+
+<p>where <var>name</var>, <var>arg-list</var>, and <var>body</var> have the same meaning
+as before, and <var>ret-list</var> is a comma-separated list of variable
+names that will hold the values returned from the function.  The list of
+return values must have at least one element.  If <var>ret-list</var> has
+only one element, this form of the <code>function</code> statement is
+equivalent to the form described in the previous section.
+</p>
+<p>Here is an example of a function that returns two values, the maximum
+element of a vector and the index of its first occurrence in the vector.
+</p>
+<div class="example">
+<pre class="example">function [max, idx] = vmax (v)
+  idx = 1;
+  max = v (idx);
+  for i = 2:length (v)
+    if (v (i) &gt; max)
+      max = v (i);
+      idx = i;
+    endif
+  endfor
+endfunction
+</pre></div>
+
+<p>In this particular case, the two values could have been returned as
+elements of a single array, but that is not always possible or
+convenient.  The values to be returned may not have compatible
+dimensions, and it is often desirable to give the individual return
+values distinct names.
+</p>
+<p>It is possible to use the <code>nthargout</code> function to obtain only some
+of the return values or several at once in a cell array.
+See <a href="Cell-Array-Objects.html#Cell-Array-Objects">Cell Array Objects</a>.
+</p>
+<a name="XREFnthargout"></a><dl>
+<dt><a name="index-nthargout"></a>Function File: <em></em> <strong>nthargout</strong> <em>(<var>n</var>, <var>func</var>, &hellip;)</em></dt>
+<dt><a name="index-nthargout-1"></a>Function File: <em></em> <strong>nthargout</strong> <em>(<var>n</var>, <var>ntot</var>, <var>func</var>, &hellip;)</em></dt>
+<dd><p>Return the <var>n</var>th output argument of function given by the
+function handle or string <var>func</var>.  Any arguments after <var>func</var>
+are passed to <var>func</var>.  The total number of arguments to call
+<var>func</var> with can be passed in <var>ntot</var>; by default <var>ntot</var>
+is <var>n</var>.  The input <var>n</var> can also be a vector of indices of the
+output, in which case the output will be a cell array of the
+requested output arguments.
+</p>
+<p>The intended use <code>nthargout</code> is to avoid intermediate variables.
+For example, when finding the indices of the maximum entry of a
+matrix, the following two compositions of nthargout
+</p>
+<div class="example">
+<pre class="example"><var>m</var> = magic (5);
+cell2mat (nthargout ([1, 2], @ind2sub, size (<var>m</var>),
+                     nthargout (2, @max, <var>m</var>(:))))
+&rArr; 5   3
+</pre></div>
+
+<p>are completely equivalent to the following lines:
+</p>
+<div class="example">
+<pre class="example"><var>m</var> = magic (5);
+[~, idx] = max (<var>M</var>(:));
+[i, j] = ind2sub (size (<var>m</var>), idx);
+[i, j]
+&rArr; 5   3
+</pre></div>
+
+<p>It can also be helpful to have all output arguments in a single cell
+in the following manner:
+</p>
+<div class="example">
+<pre class="example"><var>USV</var> = nthargout ([1:3], @svd, hilb (5));
+</pre></div>
+
+
+<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>, <a href="Multiple-Return-Values.html#XREFvarargout">varargout</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>.
+</p></dd></dl>
+
+
+<p>In addition to setting <code>nargin</code> each time a function is called,
+Octave also automatically initializes <code>nargout</code> to the number of
+values that are expected to be returned.  This allows you to write
+functions that behave differently depending on the number of values that
+the user of the function has requested.  The implicit assignment to the
+built-in variable <code>ans</code> does not figure in the count of output
+arguments, so the value of <code>nargout</code> may be zero.
+</p>
+<p>The <code>svd</code> and <code>lu</code> functions are examples of built-in
+functions that behave differently depending on the value of
+<code>nargout</code>.
+</p>
+<p>It is possible to write functions that only set some return values.  For
+example, calling the function
+</p>
+<div class="example">
+<pre class="example">function [x, y, z] = f ()
+  x = 1;
+  z = 2;
+endfunction
+</pre></div>
+
+<p>as
+</p>
+<div class="example">
+<pre class="example">[a, b, c] = f ()
+</pre></div>
+
+<p>produces:
+</p>
+<div class="example">
+<pre class="example">a = 1
+
+b = [](0x0)
+
+c = 2
+</pre></div>
+
+<p>along with a warning.
+</p>
+<a name="XREFnargout"></a><dl>
+<dt><a name="index-nargout"></a>Built-in Function: <em></em> <strong>nargout</strong> <em>()</em></dt>
+<dt><a name="index-nargout-1"></a>Built-in Function: <em></em> <strong>nargout</strong> <em>(<var>fcn</var>)</em></dt>
+<dd><p>Within a function, return the number of values the caller expects to
+receive.  If called with the optional argument <var>fcn</var>, a function
+name or handle, return the number of declared output values that the
+function can produce.  If the final output argument is <var>varargout</var>
+the returned value is negative.
+</p>
+<p>For example,
+</p>
+<div class="example">
+<pre class="example">f ()
+</pre></div>
+
+<p>will cause <code>nargout</code> to return 0 inside the function <code>f</code> and
+</p>
+<div class="example">
+<pre class="example">[s, t] = f ()
+</pre></div>
+
+<p>will cause <code>nargout</code> to return 2 inside the function
+<code>f</code>.
+</p>
+<p>In the second usage,
+</p>
+<div class="example">
+<pre class="example">nargout (@histc) % or nargout (&quot;histc&quot;)
+</pre></div>
+
+<p>will return 2, because <code>histc</code> has two outputs, whereas
+</p>
+<div class="example">
+<pre class="example">nargout (@deal)
+</pre></div>
+
+<p>will return -1, because <code>deal</code> has a variable number of outputs.
+</p>
+<p>At the top level, <code>nargout</code> with no argument is undefined.
+<code>nargout</code> does not work on builtin functions.
+<code>nargout</code> returns -1 for all anonymous functions.
+</p>
+<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>, <a href="Multiple-Return-Values.html#XREFvarargout">varargout</a>, <a href="Multiple-Return-Values.html#XREFnthargout">nthargout</a>.
+</p></dd></dl>
+
+
+<p>It is good practice at the head of a function to verify that it has been called
+correctly.  In Octave the following idiom is seen frequently
+</p>
+<div class="example">
+<pre class="example">if (nargin &lt; min_#_inputs || nargin &gt; max_#_inputs)
+  print_usage ();
+endif
+</pre></div>
+
+<p>which stops the function execution and prints a message about the correct
+way to call the function whenever the number of inputs is wrong.
+</p>
+<p>For compatibility with <small>MATLAB</small>, <code>nargchk</code>, <code>narginchk</code> and
+<code>nargoutchk</code> are available which provide similar error checking.
+</p>
+<a name="XREFnargchk"></a><dl>
+<dt><a name="index-nargchk"></a>Function File: <em><var>msgstr</var> =</em> <strong>nargchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>, <var>nargs</var>)</em></dt>
+<dt><a name="index-nargchk-1"></a>Function File: <em><var>msgstr</var> =</em> <strong>nargchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>, <var>nargs</var>, &quot;string&quot;)</em></dt>
+<dt><a name="index-nargchk-2"></a>Function File: <em><var>msgstruct</var> =</em> <strong>nargchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>, <var>nargs</var>, &quot;struct&quot;)</em></dt>
+<dd><p>Return an appropriate error message string (or structure) if the
+number of inputs requested is invalid.
+</p>
+<p>This is useful for checking to see that the number of input arguments
+supplied to a function is within an acceptable range.
+</p>
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnargoutchk">nargoutchk</a>, <a href="Multiple-Return-Values.html#XREFnarginchk">narginchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>.
+</p></dd></dl>
+
+
+<a name="XREFnarginchk"></a><dl>
+<dt><a name="index-narginchk"></a>Function File: <em></em> <strong>narginchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>)</em></dt>
+<dd><p>Check for correct number of arguments or generate an error message if
+the number of arguments in the calling function is outside the range
+<var>minargs</var> and <var>maxargs</var>.  Otherwise, do nothing.
+</p>
+<p>Both <var>minargs</var> and <var>maxargs</var> need to be scalar numeric
+values.  Zero, Inf and negative values are all allowed, and
+<var>minargs</var> and <var>maxargs</var> may be equal.
+</p>
+<p>Note that this function evaluates <code>nargin</code> on the caller.
+</p>
+
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnargchk">nargchk</a>, <a href="Multiple-Return-Values.html#XREFnargoutchk">nargoutchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>.
+</p></dd></dl>
+
+
+<a name="XREFnargoutchk"></a><dl>
+<dt><a name="index-nargoutchk"></a>Function File: <em></em> <strong>nargoutchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>)</em></dt>
+<dt><a name="index-nargoutchk-1"></a>Function File: <em><var>msgstr</var> =</em> <strong>nargoutchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>, <var>nargs</var>)</em></dt>
+<dt><a name="index-nargoutchk-2"></a>Function File: <em><var>msgstr</var> =</em> <strong>nargoutchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>, <var>nargs</var>, &quot;string&quot;)</em></dt>
+<dt><a name="index-nargoutchk-3"></a>Function File: <em><var>msgstruct</var> =</em> <strong>nargoutchk</strong> <em>(<var>minargs</var>, <var>maxargs</var>, <var>nargs</var>, &quot;struct&quot;)</em></dt>
+<dd><p>Check for correct number of output arguments.
+</p>
+<p>On the first form, returns an error unless the number of arguments in its
+caller is between the values of <var>minargs</var> and <var>maxargs</var>.  It does
+nothing otherwise.  Note that this function evaluates the value of
+<code>nargout</code> on the caller so its value must have not been tampered with.
+</p>
+<p>Both <var>minargs</var> and <var>maxargs</var> need to be a numeric scalar.  Zero, Inf
+and negative are all valid, and they can have the same value.
+</p>
+<p>For backward compatibility reasons, the other forms return an appropriate
+error message string (or structure) if the number of outputs requested is
+invalid.
+</p>
+<p>This is useful for checking to see that the number of output
+arguments supplied to a function is within an acceptable range.
+</p>
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnargchk">nargchk</a>, <a href="Multiple-Return-Values.html#XREFnarginchk">narginchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>.
+</p></dd></dl>
+
+
+<a name="XREFvarargin"></a><a name="XREFvarargout"></a><hr>
+<div class="header">
+<p>
+Next: <a href="Variable_002dlength-Argument-Lists.html#Variable_002dlength-Argument-Lists" accesskey="n" rel="next">Variable-length Argument Lists</a>, Previous: <a href="Defining-Functions.html#Defining-Functions" accesskey="p" rel="prev">Defining Functions</a>, Up: <a href="Functions-and-Scripts.html#Functions-and-Scripts" accesskey="u" rel="up">Functions and Scripts</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

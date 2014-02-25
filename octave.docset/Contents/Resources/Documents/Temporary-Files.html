@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Temporary Files</title>
+
+<meta name="description" content="GNU Octave: Temporary Files">
+<meta name="keywords" content="GNU Octave: Temporary Files">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="C_002dStyle-I_002fO-Functions.html#C_002dStyle-I_002fO-Functions" rel="up" title="C-Style I/O Functions">
+<link href="EOF-and-Errors.html#EOF-and-Errors" rel="next" title="EOF and Errors">
+<link href="Binary-I_002fO.html#Binary-I_002fO" rel="prev" title="Binary I/O">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Temporary-Files"></a>
+<div class="header">
+<p>
+Next: <a href="EOF-and-Errors.html#EOF-and-Errors" accesskey="n" rel="next">EOF and Errors</a>, Previous: <a href="Binary-I_002fO.html#Binary-I_002fO" accesskey="p" rel="prev">Binary I/O</a>, Up: <a href="C_002dStyle-I_002fO-Functions.html#C_002dStyle-I_002fO-Functions" accesskey="u" rel="up">C-Style I/O Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Temporary-Files-1"></a>
+<h4 class="subsection">14.2.17 Temporary Files</h4>
+
+<p>Sometimes one needs to write data to a file that is only temporary.
+This is most commonly used when an external program launched from
+within Octave needs to access data.  When Octave exits all temporary
+files will be deleted, so this step need not be executed manually.
+</p>
+<a name="XREFmkstemp"></a><dl>
+<dt><a name="index-mkstemp"></a>Built-in Function: <em>[<var>fid</var>, <var>name</var>, <var>msg</var>] =</em> <strong>mkstemp</strong> <em>(<var>template</var>, <var>delete</var>)</em></dt>
+<dd><p>Return the file ID corresponding to a new temporary file with a unique
+name created from <var>template</var>.  The last six characters of <var>template</var>
+must be <code>XXXXXX</code> and these are replaced with a string that makes the
+filename unique.  The file is then created with mode read/write and
+permissions that are system dependent (on GNU/Linux systems, the permissions
+will be 0600 for versions of glibc 2.0.7 and later).  The file is opened
+in binary mode and with the <code><span class="nolinebreak">O_EXCL</span></code><!-- /@w --> flag.
+</p>
+<p>If the optional argument <var>delete</var> is supplied and is true,
+the file will be deleted automatically when Octave exits.
+</p>
+<p>If successful, <var>fid</var> is a valid file ID, <var>name</var> is the name of
+the file, and <var>msg</var> is an empty string.  Otherwise, <var>fid</var>
+is -1, <var>name</var> is empty, and <var>msg</var> contains a system-dependent
+error message.
+</p>
+<p><strong>See also:</strong> <a href="Temporary-Files.html#XREFtmpfile">tmpfile</a>, <a href="Temporary-Files.html#XREFtmpnam">tmpnam</a>, <a href="Filesystem-Utilities.html#XREFP_005ftmpdir">P_tmpdir</a>.
+</p></dd></dl>
+
+
+<a name="XREFtmpfile"></a><dl>
+<dt><a name="index-tmpfile"></a>Built-in Function: <em>[<var>fid</var>, <var>msg</var>] =</em> <strong>tmpfile</strong> <em>()</em></dt>
+<dd><p>Return the file ID corresponding to a new temporary file with a unique
+name.  The file is opened in binary read/write (<code>&quot;w+b&quot;</code>) mode.
+The file will be deleted automatically when it is closed or when Octave
+exits.
+</p>
+<p>If successful, <var>fid</var> is a valid file ID and <var>msg</var> is an empty
+string.  Otherwise, <var>fid</var> is -1 and <var>msg</var> contains a
+system-dependent error message.
+</p>
+<p><strong>See also:</strong> <a href="Temporary-Files.html#XREFtmpnam">tmpnam</a>, <a href="Temporary-Files.html#XREFmkstemp">mkstemp</a>, <a href="Filesystem-Utilities.html#XREFP_005ftmpdir">P_tmpdir</a>.
+</p></dd></dl>
+
+
+<a name="XREFtmpnam"></a><a name="index-octave_005ftmp_005ffile_005fname"></a>
+
+<dl>
+<dt><a name="index-tmpnam"></a>Built-in Function: <em></em> <strong>tmpnam</strong> <em>()</em></dt>
+<dt><a name="index-tmpnam-1"></a>Built-in Function: <em></em> <strong>tmpnam</strong> <em>(<var>dir</var>)</em></dt>
+<dt><a name="index-tmpnam-2"></a>Built-in Function: <em></em> <strong>tmpnam</strong> <em>(<var>dir</var>, <var>prefix</var>)</em></dt>
+<dd><p>Return a unique temporary file name as a string.
+</p>
+<p>If <var>prefix</var> is omitted, a value of <code>&quot;oct-&quot;</code> is used.
+If <var>dir</var> is also omitted, the default directory for temporary files
+is used.  If <var>dir</var> is provided, it must exist, otherwise the default
+directory for temporary files is used.  Since the named file is not
+opened, by <code>tmpnam</code>, it is possible (though relatively unlikely)
+that it will not be available by the time your program attempts to open it.
+</p>
+<p><strong>See also:</strong> <a href="Temporary-Files.html#XREFtmpfile">tmpfile</a>, <a href="Temporary-Files.html#XREFmkstemp">mkstemp</a>, <a href="Filesystem-Utilities.html#XREFP_005ftmpdir">P_tmpdir</a>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="EOF-and-Errors.html#EOF-and-Errors" accesskey="n" rel="next">EOF and Errors</a>, Previous: <a href="Binary-I_002fO.html#Binary-I_002fO" accesskey="p" rel="prev">Binary I/O</a>, Up: <a href="C_002dStyle-I_002fO-Functions.html#C_002dStyle-I_002fO-Functions" accesskey="u" rel="up">C-Style I/O Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

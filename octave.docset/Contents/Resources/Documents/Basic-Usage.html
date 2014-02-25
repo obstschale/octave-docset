@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Basic Usage</title>
+
+<meta name="description" content="GNU Octave: Basic Usage">
+<meta name="keywords" content="GNU Octave: Basic Usage">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Diagonal-and-Permutation-Matrices.html#Diagonal-and-Permutation-Matrices" rel="up" title="Diagonal and Permutation Matrices">
+<link href="Creating-Diagonal-Matrices.html#Creating-Diagonal-Matrices" rel="next" title="Creating Diagonal Matrices">
+<link href="Diagonal-and-Permutation-Matrices.html#Diagonal-and-Permutation-Matrices" rel="prev" title="Diagonal and Permutation Matrices">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Basic-Usage"></a>
+<div class="header">
+<p>
+Next: <a href="Matrix-Algebra.html#Matrix-Algebra" accesskey="n" rel="next">Matrix Algebra</a>, Up: <a href="Diagonal-and-Permutation-Matrices.html#Diagonal-and-Permutation-Matrices" accesskey="u" rel="up">Diagonal and Permutation Matrices</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Creating-and-Manipulating-Diagonal_002fPermutation-Matrices"></a>
+<h3 class="section">21.1 Creating and Manipulating Diagonal/Permutation Matrices</h3>
+
+<p>A diagonal matrix is defined as a matrix that has zero entries outside the main
+diagonal; that is, 
+<code>D(i,j) == 0</code> if <code>i != j</code>.
+Most often, square diagonal matrices are considered; however, the definition can
+equally be applied to non-square matrices, in which case we usually speak of a
+rectangular diagonal matrix.
+</p>
+<p>A permutation matrix is defined as a square matrix that has a single element
+equal to unity in each row and each column; all other elements are zero.  That
+is, there exists a permutation (vector) 
+<code>p</code> such that <code>P(i,j) == 1</code> if <code>j == p(i)</code> and 
+<code>P(i,j) == 0</code> otherwise.  
+</p>
+<p>Octave provides special treatment of real and complex rectangular diagonal
+matrices, as well as permutation matrices.  They are stored as special objects,
+using efficient storage and algorithms, facilitating writing both readable and
+efficient matrix algebra expressions in the Octave language.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Creating-Diagonal-Matrices.html#Creating-Diagonal-Matrices" accesskey="1">Creating Diagonal Matrices</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Creating-Permutation-Matrices.html#Creating-Permutation-Matrices" accesskey="2">Creating Permutation Matrices</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Explicit-and-Implicit-Conversions.html#Explicit-and-Implicit-Conversions" accesskey="3">Explicit and Implicit Conversions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+
+</body>
+</html>

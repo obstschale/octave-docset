@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Figure Properties</title>
+
+<meta name="description" content="GNU Octave: Figure Properties">
+<meta name="keywords" content="GNU Octave: Figure Properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Graphics-Object-Properties.html#Graphics-Object-Properties" rel="up" title="Graphics Object Properties">
+<link href="Axes-Properties.html#Axes-Properties" rel="next" title="Axes Properties">
+<link href="Root-Figure-Properties.html#Root-Figure-Properties" rel="prev" title="Root Figure Properties">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Figure-Properties"></a>
+<div class="header">
+<p>
+Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Axes Properties</a>, Previous: <a href="Root-Figure-Properties.html#Root-Figure-Properties" accesskey="p" rel="prev">Root Figure Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Figure-Properties-1"></a>
+<h4 class="subsubsection">15.3.3.2 Figure Properties</h4>
+<a name="index-figure-properties"></a>
+
+<p>The <code>figure</code> properties are:
+</p>
+<dl compact="compact">
+<dt><code>__graphics_toolkit__</code></dt>
+<dd><p>&mdash; The graphics toolkit currently in use.
+</p>
+</dd>
+<dt><code>__enhanced__</code></dt>
+<dt><code>__modified__</code></dt>
+<dt><code>__myhandle__</code></dt>
+<dt><code>__plot_stream__</code></dt>
+<dt><code>alphamap</code></dt>
+<dt><code>beingdeleted</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>busyaction</code></dt>
+<dt><code>buttondownfcn</code></dt>
+<dt><code>children</code></dt>
+<dd><p>Handle to children.
+</p>
+</dd>
+<dt><code>clipping</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>closerequestfcn</code></dt>
+<dd><p>&mdash; Handle of function to call on close.
+</p>
+</dd>
+<dt><code>color</code></dt>
+<dt><code>colormap</code></dt>
+<dd><p>An N-by-3 matrix containing the color map for the current axes.
+</p>
+</dd>
+<dt><code>paperorientation</code></dt>
+<dt><code>createfcn</code></dt>
+<dt><code>currentaxes</code></dt>
+<dd><p>Handle to graphics object of current axes.
+</p>
+</dd>
+<dt><code>currentcharacter</code></dt>
+<dt><code>currentobject</code></dt>
+<dt><code>currentpoint</code></dt>
+<dd><p>Holds the coordinates of the point over which the mouse pointer was when
+the mouse button was pressed.  If a mouse callback function is defined,
+<code>&quot;currentpoint&quot;</code> holds the coordinates of the point over which the
+mouse pointer is when the function gets called.
+</p>
+</dd>
+<dt><code>deletefcn</code></dt>
+<dt><code>dockcontrols</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>doublebuffer</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>filename</code></dt>
+<dt><code>handlevisibility</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>hittest</code></dt>
+<dt><code>integerhandle</code></dt>
+<dt><code>interruptible</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>inverthardcopy</code></dt>
+<dt><code>keypressfcn</code></dt>
+<dd><p>see <code>&quot;keypressfcn&quot;</code>
+</p>
+</dd>
+<dt><code>keyreleasefcn</code></dt>
+<dd><p>With <code>&quot;keypressfcn&quot;</code>, the keyboard callback functions.  These
+callback functions get called when a key is pressed/released
+respectively.  The functions are called with two input arguments.  The
+first argument holds the handle of the calling figure.  The second
+argument holds the event structure which has the following members:
+</p>
+<dl compact="compact">
+<dt><code>Character</code></dt>
+<dd><p>The ASCII value of the key
+</p>
+</dd>
+<dt><code>Key</code></dt>
+<dd><p>lowercase value of the key
+</p>
+</dd>
+<dt><code>Modifier</code></dt>
+<dd><p>A cell array containing strings representing the modifiers pressed with
+the key.  Possible values are <code>&quot;shift&quot;</code>, <code>&quot;alt&quot;</code>, and
+<code>&quot;control&quot;</code>.
+</p></dd>
+</dl>
+
+</dd>
+<dt><code>menubar</code></dt>
+<dt><code>mincolormap</code></dt>
+<dt><code>name</code></dt>
+<dt><code>nextplot</code></dt>
+<dd><p>May be one of
+</p>
+<dl compact="compact">
+<dt><code>&quot;new&quot;</code></dt>
+<dt><code>&quot;add&quot;</code></dt>
+<dt><code>&quot;replace&quot;</code></dt>
+<dt><code>&quot;replacechildren&quot;</code></dt>
+</dl>
+
+</dd>
+<dt><code>numbertitle</code></dt>
+<dt><code>paperorientation</code></dt>
+<dd><p>Indicates the orientation for printing.  Either <code>&quot;landscape&quot;</code> or
+<code>&quot;portrait&quot;</code>.
+</p>
+</dd>
+<dt><code>paperposition</code></dt>
+<dt><code>paperpositionmode</code></dt>
+<dt><code>papersize</code></dt>
+<dt><code>papertype</code></dt>
+<dt><code>paperunits</code></dt>
+<dt><code>pointer</code></dt>
+<dt><code>pointershapecdata</code></dt>
+<dt><code>pointershapehotspot</code></dt>
+<dt><code>position</code></dt>
+<dt><code>renderer</code></dt>
+<dt><code>renderermode</code></dt>
+<dt><code>resize</code></dt>
+<dt><code>resizefcn</code></dt>
+<dt><code>selected</code></dt>
+<dt><code>selectionhighlight</code></dt>
+<dd><p>&mdash; Values: <code>&quot;on&quot;</code>, <code>&quot;off&quot;</code>
+</p>
+</dd>
+<dt><code>selectiontype</code></dt>
+<dt><code>tag</code></dt>
+<dt><code>toolbar</code></dt>
+<dt><code>type</code></dt>
+<dt><code>units</code></dt>
+<dt><code>userdata</code></dt>
+<dt><code>visible</code></dt>
+<dd><p>Either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> to toggle display of the figure.
+</p>
+</dd>
+<dt><code>windowbuttondownfcn</code></dt>
+<dd><p>See <code>&quot;windowbuttonupfcn&quot;</code>
+</p>
+</dd>
+<dt><code>windowbuttonmotionfcn</code></dt>
+<dd><p>See <code>&quot;windowbuttonupfcn&quot;</code>
+</p>
+</dd>
+<dt><code>windowbuttonupfcn</code></dt>
+<dd><p>With <code>&quot;windowbuttondownfcn&quot;</code> and <code>&quot;windowbuttonmotionfcn&quot;</code>,
+the mouse callback functions.  These callback functions get called when
+the mouse button is pressed, dragged, and released respectively.  When
+these callback functions are called, the <code>&quot;currentpoint&quot;</code> property
+holds the current coordinates of the cursor.
+</p>
+</dd>
+<dt><code>windowscrollwheelfcn</code></dt>
+<dt><code>windowstyle</code></dt>
+<dt><code>wvisual</code></dt>
+<dt><code>wvisualmode</code></dt>
+<dt><code>xdisplay</code></dt>
+<dt><code>xvisual</code></dt>
+<dt><code>xvisualmode</code></dt>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Axes Properties</a>, Previous: <a href="Root-Figure-Properties.html#Root-Figure-Properties" accesskey="p" rel="prev">Root Figure Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

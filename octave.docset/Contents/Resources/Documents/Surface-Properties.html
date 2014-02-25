@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Surface Properties</title>
+
+<meta name="description" content="GNU Octave: Surface Properties">
+<meta name="keywords" content="GNU Octave: Surface Properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Graphics-Object-Properties.html#Graphics-Object-Properties" rel="up" title="Graphics Object Properties">
+<link href="Searching-Properties.html#Searching-Properties" rel="next" title="Searching Properties">
+<link href="Patch-Properties.html#Patch-Properties" rel="prev" title="Patch Properties">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Surface-Properties"></a>
+<div class="header">
+<p>
+Previous: <a href="Patch-Properties.html#Patch-Properties" accesskey="p" rel="prev">Patch Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Surface-Properties-1"></a>
+<h4 class="subsubsection">15.3.3.8 Surface Properties</h4>
+<a name="index-surface-properties"></a>
+
+<p>The <code>surface</code> properties are:
+</p>
+<dl compact="compact">
+<dt><code>__modified__</code></dt>
+<dt><code>__myhandle__</code></dt>
+<dt><code>alim</code></dt>
+<dt><code>aliminclude</code></dt>
+<dt><code>alphadata</code></dt>
+<dt><code>alphadatamapping</code></dt>
+<dt><code>ambientstrength</code></dt>
+<dt><code>backfacelighting</code></dt>
+<dt><code>beingdeleted</code></dt>
+<dt><code>busyaction</code></dt>
+<dt><code>buttondownfcn</code></dt>
+<dt><code>cdata</code></dt>
+<dt><code>cdatamapping</code></dt>
+<dt><code>cdatasource</code></dt>
+<dt><code>children</code></dt>
+<dt><code>clim</code></dt>
+<dt><code>climinclude</code></dt>
+<dt><code>clipping</code></dt>
+<dt><code>createfcn</code></dt>
+<dt><code>deletefcn</code></dt>
+<dt><code>diffusestrength</code></dt>
+<dt><code>displayname</code></dt>
+<dd><p>The text of the legend entry corresponding to this surface.
+</p>
+</dd>
+<dt><code>edgealpha</code></dt>
+<dt><code>edgecolor</code></dt>
+<dt><code>edgelighting</code></dt>
+<dt><code>erasemode</code></dt>
+<dt><code>facealpha</code></dt>
+<dt><code>facecolor</code></dt>
+<dt><code>facelighting</code></dt>
+<dt><code>handlevisibility</code></dt>
+<dt><code>hittest</code></dt>
+<dt><code>interpreter</code></dt>
+<dt><code>interruptible</code></dt>
+<dt><code>linestyle</code></dt>
+<dt><code>linewidth</code></dt>
+<dt><code>marker</code></dt>
+<dt><code>markeredgecolor</code></dt>
+<dt><code>markerfacecolor</code></dt>
+<dt><code>markersize</code></dt>
+<dt><code>meshstyle</code></dt>
+<dt><code>normalmode</code></dt>
+<dt><code>parent</code></dt>
+<dt><code>selected</code></dt>
+<dt><code>selectionhighlight</code></dt>
+<dt><code>specularcolorreflectance</code></dt>
+<dt><code>specularexponent</code></dt>
+<dt><code>specularstrength</code></dt>
+<dt><code>tag</code></dt>
+<dt><code>type</code></dt>
+<dt><code>uicontextmenu</code></dt>
+<dt><code>userdata</code></dt>
+<dt><code>vertexnormals</code></dt>
+<dt><code>visible</code></dt>
+<dt><code>xdata</code></dt>
+<dd><p>The data determining the surface.  The <code>xdata</code> and <code>ydata</code>
+elements are vectors and <code>zdata</code> must be a matrix.
+</p>
+</dd>
+<dt><code>xdatasource</code></dt>
+<dt><code>xlim</code></dt>
+<dt><code>xliminclude</code></dt>
+<dt><code>ydata</code></dt>
+<dd><p>The data determining the surface.  The <code>xdata</code> and <code>ydata</code>
+elements are vectors and <code>zdata</code> must be a matrix.
+</p>
+</dd>
+<dt><code>ydatasource</code></dt>
+<dt><code>ylim</code></dt>
+<dt><code>yliminclude</code></dt>
+<dt><code>zdata</code></dt>
+<dd><p>The data determining the surface.  The <code>xdata</code> and <code>ydata</code>
+elements are vectors and <code>zdata</code> must be a matrix.
+</p>
+</dd>
+<dt><code>zdatasource</code></dt>
+<dt><code>zlim</code></dt>
+<dt><code>zliminclude</code></dt>
+</dl>
+
+
+
+
+</body>
+</html>

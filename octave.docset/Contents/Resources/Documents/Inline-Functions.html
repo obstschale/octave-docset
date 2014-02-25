@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Inline Functions</title>
+
+<meta name="description" content="GNU Octave: Inline Functions">
+<meta name="keywords" content="GNU Octave: Inline Functions">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Function-Handles-Anonymous-Functions-Inline-Functions.html#Function-Handles-Anonymous-Functions-Inline-Functions" rel="up" title="Function Handles Anonymous Functions Inline Functions">
+<link href="Commands.html#Commands" rel="next" title="Commands">
+<link href="Anonymous-Functions.html#Anonymous-Functions" rel="prev" title="Anonymous Functions">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Inline-Functions"></a>
+<div class="header">
+<p>
+Previous: <a href="Anonymous-Functions.html#Anonymous-Functions" accesskey="p" rel="prev">Anonymous Functions</a>, Up: <a href="Function-Handles-Anonymous-Functions-Inline-Functions.html#Function-Handles-Anonymous-Functions-Inline-Functions" accesskey="u" rel="up">Function Handles Anonymous Functions Inline Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Inline-Functions-1"></a>
+<h4 class="subsection">11.11.3 Inline Functions</h4>
+
+<p>An inline function is created from a string containing the function
+body using the <code>inline</code> function.  The following code defines the
+function <em>f(x) = x^2 + 2</em>.
+</p>
+<div class="example">
+<pre class="example">f = inline (&quot;x^2 + 2&quot;);
+</pre></div>
+
+<p>After this it is possible to evaluate <em>f</em> at any <em>x</em> by
+writing <code>f(x)</code>.
+</p>
+<a name="XREFinline"></a><dl>
+<dt><a name="index-inline"></a>Built-in Function: <em></em> <strong>inline</strong> <em>(<var>str</var>)</em></dt>
+<dt><a name="index-inline-1"></a>Built-in Function: <em></em> <strong>inline</strong> <em>(<var>str</var>, <var>arg1</var>, &hellip;)</em></dt>
+<dt><a name="index-inline-2"></a>Built-in Function: <em></em> <strong>inline</strong> <em>(<var>str</var>, <var>n</var>)</em></dt>
+<dd><p>Create an inline function from the character string <var>str</var>.
+If called with a single argument, the arguments of the generated
+function are extracted from the function itself.  The generated
+function arguments will then be in alphabetical order.  It should
+be noted that i, and j are ignored as arguments due to the
+ambiguity between their use as a variable or their use as an inbuilt
+constant.  All arguments followed by a parenthesis are considered
+to be functions.  If no arguments are found, a function taking a single
+argument named <code>x</code> will be created.
+</p>
+<p>If the second and subsequent arguments are character strings,
+they are the names of the arguments of the function.
+</p>
+<p>If the second argument is an integer <var>n</var>, the arguments are
+<code>&quot;x&quot;</code>, <code>&quot;P1&quot;</code>, &hellip;, <code>&quot;P<var>N</var>&quot;</code>.
+</p>
+<p><strong>See also:</strong> <a href="Inline-Functions.html#XREFargnames">argnames</a>, <a href="Inline-Functions.html#XREFformula">formula</a>, <a href="Basic-Vectorization.html#XREFvectorize">vectorize</a>.
+</p></dd></dl>
+
+
+<a name="XREFargnames"></a><dl>
+<dt><a name="index-argnames"></a>Built-in Function: <em></em> <strong>argnames</strong> <em>(<var>fun</var>)</em></dt>
+<dd><p>Return a cell array of character strings containing the names of
+the arguments of the inline function <var>fun</var>.
+</p>
+<p><strong>See also:</strong> <a href="Inline-Functions.html#XREFinline">inline</a>, <a href="Inline-Functions.html#XREFformula">formula</a>, <a href="Basic-Vectorization.html#XREFvectorize">vectorize</a>.
+</p></dd></dl>
+
+
+<a name="XREFformula"></a><dl>
+<dt><a name="index-formula"></a>Built-in Function: <em></em> <strong>formula</strong> <em>(<var>fun</var>)</em></dt>
+<dd><p>Return a character string representing the inline function <var>fun</var>.
+Note that <code>char (<var>fun</var>)</code> is equivalent to
+<code>formula (<var>fun</var>)</code>.
+</p>
+<p><strong>See also:</strong> <a href="Inline-Functions.html#XREFargnames">argnames</a>, <a href="Inline-Functions.html#XREFinline">inline</a>, <a href="Basic-Vectorization.html#XREFvectorize">vectorize</a>.
+</p></dd></dl>
+
+
+<a name="XREFsymvar"></a><dl>
+<dt><a name="index-symvar"></a>Function File: <em></em> <strong>symvar</strong> <em>(<var>s</var>)</em></dt>
+<dd><p>Identify the argument names in the function defined by a string.
+Common constant names such as <code>pi</code>, <code>NaN</code>, <code>Inf</code>,
+<code>eps</code>, <code>i</code> or <code>j</code> are ignored.  The arguments that are
+found are returned in a cell array of strings.  If no variables are
+found then the returned cell array is empty.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Previous: <a href="Anonymous-Functions.html#Anonymous-Functions" accesskey="p" rel="prev">Anonymous Functions</a>, Up: <a href="Function-Handles-Anonymous-Functions-Inline-Functions.html#Function-Handles-Anonymous-Functions-Inline-Functions" accesskey="u" rel="up">Function Handles Anonymous Functions Inline Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

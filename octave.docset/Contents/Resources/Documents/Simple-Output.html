@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Simple Output</title>
+
+<meta name="description" content="GNU Octave: Simple Output">
+<meta name="keywords" content="GNU Octave: Simple Output">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="C_002dStyle-I_002fO-Functions.html#C_002dStyle-I_002fO-Functions" rel="up" title="C-Style I/O Functions">
+<link href="Line_002dOriented-Input.html#Line_002dOriented-Input" rel="next" title="Line-Oriented Input">
+<link href="Opening-and-Closing-Files.html#Opening-and-Closing-Files" rel="prev" title="Opening and Closing Files">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Simple-Output"></a>
+<div class="header">
+<p>
+Next: <a href="Line_002dOriented-Input.html#Line_002dOriented-Input" accesskey="n" rel="next">Line-Oriented Input</a>, Previous: <a href="Opening-and-Closing-Files.html#Opening-and-Closing-Files" accesskey="p" rel="prev">Opening and Closing Files</a>, Up: <a href="C_002dStyle-I_002fO-Functions.html#C_002dStyle-I_002fO-Functions" accesskey="u" rel="up">C-Style I/O Functions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Simple-Output-1"></a>
+<h4 class="subsection">14.2.2 Simple Output</h4>
+
+<p>Once a file has been opened for writing a string can be written to the
+file using the <code>fputs</code> function.  The following example shows
+how to write the string &lsquo;<samp>Free Software is needed for Free Science</samp>&rsquo;
+to the file &lsquo;<samp>free.txt</samp>&rsquo;.
+</p>
+<div class="example">
+<pre class="example">filename = &quot;free.txt&quot;;
+fid = fopen (filename, &quot;w&quot;);
+fputs (fid, &quot;Free Software is needed for Free Science&quot;);
+fclose (fid);
+</pre></div>
+
+<a name="XREFfputs"></a><dl>
+<dt><a name="index-fputs"></a>Built-in Function: <em></em> <strong>fputs</strong> <em>(<var>fid</var>, <var>string</var>)</em></dt>
+<dd><p>Write a string to a file with no formatting.
+</p>
+<p>Return a non-negative number on success and EOF on error.
+</p>
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+</p></dd></dl>
+
+
+<p>A function much similar to <code>fputs</code> is available for writing data
+to the screen.  The <code>puts</code> function works just like <code>fputs</code>
+except it doesn&rsquo;t take a file pointer as its input.
+</p>
+<a name="XREFputs"></a><dl>
+<dt><a name="index-puts"></a>Built-in Function: <em></em> <strong>puts</strong> <em>(<var>string</var>)</em></dt>
+<dd><p>Write a string to the standard output with no formatting.
+</p>
+<p>Return a non-negative number on success and EOF on error.
+</p>
+<p><strong>See also:</strong> <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Terminal-Output.html#XREFdisp">disp</a>.
+</p></dd></dl>
+
+
+
+
+
+</body>
+</html>

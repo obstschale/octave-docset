@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Patch Properties</title>
+
+<meta name="description" content="GNU Octave: Patch Properties">
+<meta name="keywords" content="GNU Octave: Patch Properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Graphics-Object-Properties.html#Graphics-Object-Properties" rel="up" title="Graphics Object Properties">
+<link href="Surface-Properties.html#Surface-Properties" rel="next" title="Surface Properties">
+<link href="Image-Properties.html#Image-Properties" rel="prev" title="Image Properties">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Patch-Properties"></a>
+<div class="header">
+<p>
+Next: <a href="Surface-Properties.html#Surface-Properties" accesskey="n" rel="next">Surface Properties</a>, Previous: <a href="Image-Properties.html#Image-Properties" accesskey="p" rel="prev">Image Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Patch-Properties-1"></a>
+<h4 class="subsubsection">15.3.3.7 Patch Properties</h4>
+<a name="index-patch-properties"></a>
+
+<p>The <code>patch</code> properties are:
+</p>
+<dl compact="compact">
+<dt><code>__modified__</code></dt>
+<dt><code>__myhandle__</code></dt>
+<dt><code>alim</code></dt>
+<dt><code>aliminclude</code></dt>
+<dt><code>alphadatamapping</code></dt>
+<dt><code>ambientstrength</code></dt>
+<dt><code>backfacelighting</code></dt>
+<dt><code>beingdeleted</code></dt>
+<dt><code>busyaction</code></dt>
+<dt><code>buttondownfcn</code></dt>
+<dt><code>cdata</code></dt>
+<dd><p>Data defining the patch object.
+</p>
+</dd>
+<dt><code>cdatamapping</code></dt>
+<dt><code>children</code></dt>
+<dt><code>clim</code></dt>
+<dt><code>climinclude</code></dt>
+<dt><code>clipping</code></dt>
+<dt><code>createfcn</code></dt>
+<dt><code>deletefcn</code></dt>
+<dt><code>diffusestrength</code></dt>
+<dt><code>displayname</code></dt>
+<dd><p>The text of the legend entry corresponding to this line.
+</p>
+</dd>
+<dt><code>edgealpha</code></dt>
+<dt><code>edgecolor</code></dt>
+<dd><p>The color of the line defining the patch.  See <a href="Colors.html#Colors">Colors</a>.
+</p>
+</dd>
+<dt><code>edgelighting</code></dt>
+<dt><code>erasemode</code></dt>
+<dt><code>facealpha</code></dt>
+<dd><p>A number in the range [0, 1] indicating the transparency of the patch.
+</p>
+</dd>
+<dt><code>facecolor</code></dt>
+<dd><p>The fill color of the patch.  See <a href="Colors.html#Colors">Colors</a>.
+</p>
+</dd>
+<dt><code>facelighting</code></dt>
+<dt><code>faces</code></dt>
+<dt><code>facevertexalphadata</code></dt>
+<dt><code>facevertexcdata</code></dt>
+<dt><code>handlevisibility</code></dt>
+<dt><code>hittest</code></dt>
+<dt><code>interpreter</code></dt>
+<dt><code>interruptible</code></dt>
+<dt><code>linestyle</code></dt>
+<dd><p>See <a href="Line-Styles.html#Line-Styles">Line Styles</a>.
+</p>
+</dd>
+<dt><code>linewidth</code></dt>
+<dd><p>See <a href="Line-Styles.html#Line-Styles">Line Styles</a>.
+</p>
+</dd>
+<dt><code>marker</code></dt>
+<dd><p>See <a href="Marker-Styles.html#Marker-Styles">Marker Styles</a>.
+</p>
+</dd>
+<dt><code>markeredgecolor</code></dt>
+<dd><p>See <a href="Marker-Styles.html#Marker-Styles">Marker Styles</a>.
+</p>
+</dd>
+<dt><code>markerfacecolor</code></dt>
+<dd><p>See <a href="Marker-Styles.html#Marker-Styles">Marker Styles</a>.
+</p>
+</dd>
+<dt><code>markersize</code></dt>
+<dd><p>See <a href="Marker-Styles.html#Marker-Styles">Marker Styles</a>.
+</p>
+</dd>
+<dt><code>normalmode</code></dt>
+<dt><code>parent</code></dt>
+<dt><code>selected</code></dt>
+<dt><code>selectionhighlight</code></dt>
+<dt><code>specularcolorreflectance</code></dt>
+<dt><code>specularexponent</code></dt>
+<dt><code>specularstrength</code></dt>
+<dt><code>tag</code></dt>
+<dt><code>type</code></dt>
+<dt><code>uicontextmenu</code></dt>
+<dt><code>userdata</code></dt>
+<dt><code>vertexnormals</code></dt>
+<dt><code>vertices</code></dt>
+<dt><code>visible</code></dt>
+<dt><code>xdata</code></dt>
+<dd><p>Data defining the patch object.
+</p>
+</dd>
+<dt><code>xlim</code></dt>
+<dt><code>xliminclude</code></dt>
+<dt><code>ydata</code></dt>
+<dd><p>Data defining the patch object.
+</p>
+</dd>
+<dt><code>ylim</code></dt>
+<dt><code>yliminclude</code></dt>
+<dt><code>zdata</code></dt>
+<dd><p>Data defining the patch object.
+</p>
+</dd>
+<dt><code>zlim</code></dt>
+<dt><code>zliminclude</code></dt>
+</dl>
+
+
+
+
+</body>
+</html>

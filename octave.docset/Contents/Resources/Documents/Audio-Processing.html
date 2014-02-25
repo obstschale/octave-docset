@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: Audio Processing</title>
+
+<meta name="description" content="GNU Octave: Audio Processing">
+<meta name="keywords" content="GNU Octave: Audio Processing">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Object-Oriented-Programming.html#Object-Oriented-Programming" rel="next" title="Object Oriented Programming">
+<link href="Color-Conversion.html#Color-Conversion" rel="prev" title="Color Conversion">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.indentedblock {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style:oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nocodebreak {white-space:nowrap}
+span.nolinebreak {white-space:nowrap}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<a name="Audio-Processing"></a>
+<div class="header">
+<p>
+Next: <a href="Object-Oriented-Programming.html#Object-Oriented-Programming" accesskey="n" rel="next">Object Oriented Programming</a>, Previous: <a href="Image-Processing.html#Image-Processing" accesskey="p" rel="prev">Image Processing</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Audio-Processing-1"></a>
+<h2 class="chapter">33 Audio Processing</h2>
+
+<p>Octave provides a few functions for dealing with audio data.  An audio
+&lsquo;sample&rsquo; is a single output value from an A/D converter, i.e., a small
+integer number (usually 8 or 16 bits), and audio data is just a series
+of such samples.  It can be characterized by three parameters: the
+sampling rate (measured in samples per second or Hz, e.g., 8000 or
+44100), the number of bits per sample (e.g., 8 or 16), and the number of
+channels (1 for mono, 2 for stereo, etc.).
+</p>
+<p>There are many different formats for representing such data.  Currently,
+only the two most popular, <em>linear encoding</em> and <em>mu-law
+encoding</em>, are supported by Octave.  There is an excellent FAQ on audio
+formats by Guido van Rossum <a href="mailto:guido@cwi.nl">guido@cwi.nl</a> which can be found at any
+FAQ ftp site, in particular in the directory
+<samp>/pub/usenet/news.answers/audio-fmts</samp> of the archive site
+<code>rtfm.mit.edu</code>.
+</p>
+<p>Octave simply treats audio data as vectors of samples (non-mono data are
+not supported yet).  It is assumed that audio files using linear
+encoding have one of the extensions <samp>lin</samp> or <samp>raw</samp>, and that
+files holding data in mu-law encoding end in <samp>au</samp>, <samp>mu</samp>, or
+<samp>snd</samp>.
+</p>
+<a name="XREFlin2mu"></a><dl>
+<dt><a name="index-lin2mu"></a>Function File: <em></em> <strong>lin2mu</strong> <em>(<var>x</var>, <var>n</var>)</em></dt>
+<dd><p>Convert audio data from linear to mu-law.  Mu-law values use 8-bit
+unsigned integers.  Linear values use <var>n</var>-bit signed integers or
+floating point values in the range -1 &le; <var>x</var> &le; 1 if
+<var>n</var> is 0.
+</p>
+<p>If <var>n</var> is not specified it defaults to 0, 8, or 16 depending on
+the range of values in <var>x</var>.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFmu2lin">mu2lin</a>, <a href="Audio-Processing.html#XREFloadaudio">loadaudio</a>, <a href="Audio-Processing.html#XREFsaveaudio">saveaudio</a>.
+</p></dd></dl>
+
+
+<a name="XREFmu2lin"></a><dl>
+<dt><a name="index-mu2lin"></a>Function File: <em></em> <strong>mu2lin</strong> <em>(<var>x</var>, <var>n</var>)</em></dt>
+<dd><p>Convert audio data from mu-law to linear.  Mu-law values are 8-bit
+unsigned integers.  Linear values use <var>n</var>-bit signed integers
+or floating point values in the range -1&le;y&le;1 if <var>n</var>
+is 0.
+</p>
+<p>If <var>n</var> is not specified it defaults to 0.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFlin2mu">lin2mu</a>, <a href="Audio-Processing.html#XREFloadaudio">loadaudio</a>, <a href="Audio-Processing.html#XREFsaveaudio">saveaudio</a>.
+</p></dd></dl>
+
+
+<a name="XREFloadaudio"></a><dl>
+<dt><a name="index-loadaudio"></a>Function File: <em></em> <strong>loadaudio</strong> <em>(<var>name</var>, <var>ext</var>, <var>bps</var>)</em></dt>
+<dd><p>Load audio data from the file <samp><var>name</var>.<var>ext</var></samp> into the
+vector <var>x</var>.
+</p>
+<p>The extension <var>ext</var> determines how the data in the audio file is
+interpreted; the extensions <samp>lin</samp> (default) and <samp>raw</samp>
+correspond to linear, the extensions <samp>au</samp>, <samp>mu</samp>, or <samp>snd</samp>
+to mu-law encoding.
+</p>
+<p>The argument <var>bps</var> can be either 8 (default) or 16, and specifies
+the number of bits per sample used in the audio file.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFlin2mu">lin2mu</a>, <a href="Audio-Processing.html#XREFmu2lin">mu2lin</a>, <a href="Audio-Processing.html#XREFsaveaudio">saveaudio</a>, <a href="Audio-Processing.html#XREFplayaudio">playaudio</a>, <a href="Audio-Processing.html#XREFsetaudio">setaudio</a>, <a href="Audio-Processing.html#XREFrecord">record</a>.
+</p></dd></dl>
+
+
+<a name="XREFsaveaudio"></a><dl>
+<dt><a name="index-saveaudio"></a>Function File: <em></em> <strong>saveaudio</strong> <em>(<var>name</var>, <var>x</var>, <var>ext</var>, <var>bps</var>)</em></dt>
+<dd><p>Save a vector <var>x</var> of audio data to the file
+<samp><var>name</var>.<var>ext</var></samp>.  The optional parameters <var>ext</var> and
+<var>bps</var> determine the encoding and the number of bits per sample used
+in the audio file (see <code>loadaudio</code>); defaults are <samp>lin</samp> and
+8, respectively.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFlin2mu">lin2mu</a>, <a href="Audio-Processing.html#XREFmu2lin">mu2lin</a>, <a href="Audio-Processing.html#XREFloadaudio">loadaudio</a>, <a href="Audio-Processing.html#XREFplayaudio">playaudio</a>, <a href="Audio-Processing.html#XREFsetaudio">setaudio</a>, <a href="Audio-Processing.html#XREFrecord">record</a>.
+</p></dd></dl>
+
+
+<p>The following functions for audio I/O require special A/D hardware and
+operating system support.  It is assumed that audio data in linear
+encoding can be played and recorded by reading from and writing to
+<samp>/dev/dsp</samp>, and that similarly <samp>/dev/audio</samp> is used for mu-law
+encoding.  These file names are system-dependent.  Improvements so that
+these functions will work without modification on a wide variety of
+hardware are welcome.
+</p>
+<a name="XREFplayaudio"></a><dl>
+<dt><a name="index-playaudio"></a>Function File: <em></em> <strong>playaudio</strong> <em>(<var>name</var>, <var>ext</var>)</em></dt>
+<dt><a name="index-playaudio-1"></a>Function File: <em></em> <strong>playaudio</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Play the audio file <samp><var>name</var>.<var>ext</var></samp> or the audio data
+stored in the vector <var>x</var>.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFlin2mu">lin2mu</a>, <a href="Audio-Processing.html#XREFmu2lin">mu2lin</a>, <a href="Audio-Processing.html#XREFloadaudio">loadaudio</a>, <a href="Audio-Processing.html#XREFsaveaudio">saveaudio</a>, <a href="Audio-Processing.html#XREFsetaudio">setaudio</a>, <a href="Audio-Processing.html#XREFrecord">record</a>.
+</p></dd></dl>
+
+
+<a name="XREFrecord"></a><dl>
+<dt><a name="index-record"></a>Function File: <em></em> <strong>record</strong> <em>(<var>sec</var>, <var>sampling_rate</var>)</em></dt>
+<dd><p>Record <var>sec</var> seconds of audio input into the vector <var>x</var>.  The
+default value for <var>sampling_rate</var> is 8000 samples per second, or
+8kHz.  The program waits until the user types <tt class="key">RET</tt> and then
+immediately starts to record.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFlin2mu">lin2mu</a>, <a href="Audio-Processing.html#XREFmu2lin">mu2lin</a>, <a href="Audio-Processing.html#XREFloadaudio">loadaudio</a>, <a href="Audio-Processing.html#XREFsaveaudio">saveaudio</a>, <a href="Audio-Processing.html#XREFplayaudio">playaudio</a>, <a href="Audio-Processing.html#XREFsetaudio">setaudio</a>.
+</p></dd></dl>
+
+
+<a name="XREFsetaudio"></a><dl>
+<dt><a name="index-setaudio"></a>Function File: <em></em> <strong>setaudio</strong> <em>()</em></dt>
+<dt><a name="index-setaudio-1"></a>Function File: <em></em> <strong>setaudio</strong> <em>(<var>w_type</var>)</em></dt>
+<dt><a name="index-setaudio-2"></a>Function File: <em></em> <strong>setaudio</strong> <em>(<var>w_type</var>, <var>value</var>)</em></dt>
+<dd><p>Execute the shell command &lsquo;<samp>mixer</samp>&rsquo;, possibly with optional
+arguments <var>w_type</var> and <var>value</var>.
+</p></dd></dl>
+
+
+<a name="XREFwavread"></a><dl>
+<dt><a name="index-wavread"></a>Function File: <em><var>y</var> =</em> <strong>wavread</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-wavread-1"></a>Function File: <em>[<var>y</var>, <var>Fs</var>, <var>bps</var>] =</em> <strong>wavread</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-wavread-2"></a>Function File: <em>[&hellip;] =</em> <strong>wavread</strong> <em>(<var>filename</var>, <var>n</var>)</em></dt>
+<dt><a name="index-wavread-3"></a>Function File: <em>[&hellip;] =</em> <strong>wavread</strong> <em>(<var>filename</var>, [<var>n1</var> <var>n2</var>])</em></dt>
+<dt><a name="index-wavread-4"></a>Function File: <em>[<var>samples</var>, <var>channels</var>] =</em> <strong>wavread</strong> <em>(<var>filename</var>, &quot;size&quot;)</em></dt>
+<dd>
+<p>Load the RIFF/WAVE sound file <var>filename</var>, and return the samples
+in vector <var>y</var>.  If the file contains multichannel data, then
+<var>y</var> is a matrix with the channels represented as columns.
+</p>
+<p><code>[<var>y</var>, <var>Fs</var>, <var>bps</var>] = wavread (<var>filename</var>)</code>
+</p>
+<p>Additionally return the sample rate (<var>fs</var>) in Hz and the number of bits
+per sample (<var>bps</var>).
+</p>
+<p><code>[&hellip;] = wavread (<var>filename</var>, <var>n</var>)</code>
+</p>
+<p>Read only the first <var>n</var> samples from each channel.
+</p>
+<p><code>wavread (<var>filename</var>, [<var>n1</var> <var>n2</var>])</code>
+</p>
+<p>Read only samples <var>n1</var> through <var>n2</var> from each channel.
+</p>
+<p><code>[<var>samples</var>, <var>channels</var>] = wavread (<var>filename</var>, &quot;size&quot;)</code>
+</p>
+<p>Return the number of samples (<var>n</var>) and number of channels (<var>ch</var>)
+instead of the audio data.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFwavwrite">wavwrite</a>.
+</p></dd></dl>
+
+
+<a name="XREFwavwrite"></a><dl>
+<dt><a name="index-wavwrite"></a>Function File: <em></em> <strong>wavwrite</strong> <em>(<var>y</var>, <var>filename</var>)</em></dt>
+<dt><a name="index-wavwrite-1"></a>Function File: <em></em> <strong>wavwrite</strong> <em>(<var>y</var>, <var>Fs</var>, <var>filename</var>)</em></dt>
+<dt><a name="index-wavwrite-2"></a>Function File: <em></em> <strong>wavwrite</strong> <em>(<var>y</var>, <var>Fs</var>, <var>bps</var>, <var>filename</var>)</em></dt>
+<dd><p>Write <var>y</var> to the canonical RIFF/WAVE sound file <var>filename</var>
+with sample rate <var>Fs</var> and bits per sample <var>bps</var>.  The
+default sample rate is 8000 Hz with 16-bits per sample.  Each column
+of the data represents a separate channel.  If <var>y</var> is either a
+row vector or a column vector, it is written as a single channel.
+</p>
+<p><strong>See also:</strong> <a href="Audio-Processing.html#XREFwavread">wavread</a>.
+</p></dd></dl>
+
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Object-Oriented-Programming.html#Object-Oriented-Programming" accesskey="n" rel="next">Object Oriented Programming</a>, Previous: <a href="Image-Processing.html#Image-Processing" accesskey="p" rel="prev">Image Processing</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>
