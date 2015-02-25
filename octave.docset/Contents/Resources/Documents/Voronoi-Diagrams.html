@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Voronoi Diagrams</title>
+<title>Voronoi Diagrams</title>
 
 <meta name="description" content="GNU Octave: Voronoi Diagrams">
 <meta name="keywords" content="GNU Octave: Voronoi Diagrams">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -66,7 +66,7 @@ tessellation where <var>p</var> is a member of <var>s</var>, are closer to <var>
 than any other point in <var>s</var>.  The Voronoi diagram is related to the
 Delaunay triangulation of a set of points, in that the vertexes of the
 Voronoi tessellation are the centers of the circum-circles of the
-simplices of the Delaunay tessellation. 
+simplices of the Delaunay tessellation.
 </p>
 <a name="XREFvoronoi"></a><dl>
 <dt><a name="index-voronoi"></a>Function File: <em></em> <strong>voronoi</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
@@ -129,8 +129,8 @@ See the documentation for the Qhull library for details
 </li></ul>
 
 <p>If <var>options</var> is not present or <code>[]</code> then the default arguments are
-used.  Otherwise, <var>options</var> replaces the default argument list. 
-To append user options to the defaults it is necessary to repeat the 
+used.  Otherwise, <var>options</var> replaces the default argument list.
+To append user options to the defaults it is necessary to repeat the
 default arguments in <var>options</var>.  Use a null string to pass no arguments.
 </p>
 
@@ -180,7 +180,7 @@ works along this dimension of the arrays <var>x</var> and <var>y</var>.
 </dd></dl>
 
 
-<p>An example of the use of <code>polyarea</code> might be 
+<p>An example of the use of <code>polyarea</code> might be
 </p>
 <div class="example">
 <pre class="example">rand (&quot;state&quot;, 2);

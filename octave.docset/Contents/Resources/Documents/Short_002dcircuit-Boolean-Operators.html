@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Short-circuit Boolean Operators</title>
+<title>Short-circuit Boolean Operators</title>
 
 <meta name="description" content="GNU Octave: Short-circuit Boolean Operators">
 <meta name="keywords" content="GNU Octave: Short-circuit Boolean Operators">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -144,7 +144,7 @@ arguments because Octave would be forced to try to evaluate both of the
 operands for the operator &lsquo;<samp>&amp;</samp>&rsquo;.
 </p>
 <p><small>MATLAB</small> has special behavior that allows the operators &lsquo;<samp>&amp;</samp>&rsquo; and
-&lsquo;<samp>|</samp>&rsquo; to short-circuit when used in the truth expression for <code>if</code> and 
+&lsquo;<samp>|</samp>&rsquo; to short-circuit when used in the truth expression for <code>if</code> and
 <code>while</code> statements.  The Octave parser may be instructed to behave in the
 same manner, but its use is strongly discouraged.
 </p>
@@ -163,7 +163,7 @@ not be used unless you are porting old code that relies on this feature.
 you should always use the &lsquo;<samp>&amp;&amp;</samp>&rsquo; and &lsquo;<samp>||</samp>&rsquo; operators.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p></dd></dl>
 

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Real Life Example</title>
+<title>Real Life Example</title>
 
 <meta name="description" content="GNU Octave: Real Life Example">
 <meta name="keywords" content="GNU Octave: Real Life Example">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -66,7 +66,7 @@ typically because of the complex shape of the domain.
 </p>
 <p>In order to motivate this application, we consider the boundary value
 Laplace equation.  This system can model scalar potential fields, such
-as heat or electrical potential.  Given a medium 
+as heat or electrical potential.  Given a medium
 Omega with boundary dOmega.  At all points on the dOmega
 the boundary conditions are known, and we wish to calculate the potential in
 Omega.
@@ -79,7 +79,7 @@ its derivative (Cauchy boundary condition).
 Omega
 and know the boundary temperature (Dirichlet condition)
 or heat flux (from which we can calculate the Neumann condition
-by dividing by the thermal conductivity at the boundary).  Similarly, 
+by dividing by the thermal conductivity at the boundary).  Similarly,
 in an electrical model, we want to calculate the voltage in
 Omega
 and know the boundary voltage (Dirichlet) or current
@@ -88,18 +88,18 @@ In an electrical model, it is common for much of the boundary
 to be electrically isolated; this is a Neumann boundary condition
 with the current equal to zero.
 </p>
-<p>The simplest finite element models will divide 
+<p>The simplest finite element models will divide
 Omega
 into simplexes (triangles in 2D, pyramids in 3D).
-We take as a 3-D example a cylindrical liquid filled tank with a small 
+We take as a 3-D example a cylindrical liquid filled tank with a small
 non-conductive ball from the EIDORS project<a name="DOCF11" href="Real-Life-Example.html#FOOT11"><sup>11</sup></a>.  This is model is designed to reflect
 an application of electrical impedance tomography, where current patterns
 are applied to such a tank in order to image the internal conductivity
-distribution.  In order to describe the FEM geometry, we have a matrix of 
+distribution.  In order to describe the FEM geometry, we have a matrix of
 vertices <code>nodes</code> and simplices <code>elems</code>.
 </p>
 <p>The following example creates a simple rectangular 2-D electrically
-conductive medium with 10 V and 20 V imposed on opposite sides 
+conductive medium with 10 V and 20 V imposed on opposite sides
 (Dirichlet boundary conditions).  All other edges are electrically
 isolated.
 </p>
@@ -115,7 +115,7 @@ isolated.
      widx = (idx-1)*h;
      elems = [elems; ...
        widx+[(1:h-1);(2:h);h+(1:h-1)]'; ...
-       widx+[(2:h);h+(2:h);h+(1:h-1)]' ]; 
+       widx+[(2:h);h+(2:h);h+(1:h-1)]' ];
    endfor
 
    E = size (elems,1); # No. of simplices
@@ -137,14 +137,14 @@ isolated.
     6    7    8    9    6    7    8 &hellip;
 </pre></div>
 
-<p>Using a first order FEM, we approximate the electrical conductivity 
-distribution in 
+<p>Using a first order FEM, we approximate the electrical conductivity
+distribution in
 Omega
 as constant on each simplex (represented by the vector <code>conductivity</code>).
 Based on the finite element geometry, we first calculate a system (or
 stiffness) matrix for each simplex (represented as 3-by-3 elements on the
-diagonal of the element-wise system matrix <code>SE</code>.  Based on <code>SE</code> 
-and a N-by-DE connectivity matrix <code>C</code>, representing the connections 
+diagonal of the element-wise system matrix <code>SE</code>.  Based on <code>SE</code>
+and a N-by-DE connectivity matrix <code>C</code>, representing the connections
 between simplices and vertices, the global connectivity matrix <code>S</code> is
 calculated.
 </p>
@@ -164,7 +164,7 @@ calculated.
   Sdata = zeros (D*E,D);
   dfact = factorial (D-1);
   for j = 1:E
-     a = inv ([ones(D,1), ... 
+     a = inv ([ones(D,1), ...
          nodes(elems(j,:), :)]);
      const = conductivity(j) * 2 / ...
          dfact / abs (det (a));
@@ -177,21 +177,21 @@ calculated.
   S = C'* SE *C;
 </pre></div>
 
-<p>The system matrix acts like the conductivity 
+<p>The system matrix acts like the conductivity
 <code>S</code>
-in Ohm&rsquo;s law 
+in Ohm&rsquo;s law
 <code>S * V = I</code>.
-Based on the Dirichlet and Neumann boundary conditions, we are able to 
-solve for the voltages at each vertex <code>V</code>. 
+Based on the Dirichlet and Neumann boundary conditions, we are able to
+solve for the voltages at each vertex <code>V</code>.
 </p>
 <div class="example">
 <pre class="example">  ## Dirichlet boundary conditions
-  D_nodes = [1:5, 51:55]; 
-  D_value = [10*ones(1,5), 20*ones(1,5)]; 
+  D_nodes = [1:5, 51:55];
+  D_value = [10*ones(1,5), 20*ones(1,5)];
 
   V = zeros (N,1);
   V(D_nodes) = D_value;
-  idx = 1:N; # vertices without Dirichlet 
+  idx = 1:N; # vertices without Dirichlet
              # boundary condns
   idx(D_nodes) = [];
 
@@ -208,7 +208,7 @@ solve for the voltages at each vertex <code>V</code>.
             S(idx,D_nodes) * V(D_nodes));
 </pre></div>
 
-<p>Finally, in order to display the solution, we show each solved voltage 
+<p>Finally, in order to display the solution, we show each solved voltage
 value in the z-axis for each simplex vertex.
 See <a href="Real-Life-Example.html#fig_003afemmodel">Figure 22.6</a>.
 </p>
@@ -217,7 +217,7 @@ See <a href="Real-Life-Example.html#fig_003afemmodel">Figure 22.6</a>.
   xelems = reshape (nodes(elemx, 1), 4, E);
   yelems = reshape (nodes(elemx, 2), 4, E);
   velems = reshape (V(elemx), 4, E);
-  plot3 (xelems,yelems,velems,&quot;k&quot;); 
+  plot3 (xelems,yelems,velems,&quot;k&quot;);
   print &quot;grid.eps&quot;;
 </pre></div>
 
@@ -225,7 +225,7 @@ See <a href="Real-Life-Example.html#fig_003afemmodel">Figure 22.6</a>.
 <div class="float"><a name="fig_003afemmodel"></a>
 <div align="center"><img src="grid.png" alt="grid">
 </div>
-<div class="float-caption"><p><strong>Figure 22.6: </strong>Example finite element model the showing triangular elements. 
+<div class="float-caption"><p><strong>Figure 22.6: </strong>Example finite element model the showing triangular elements.
 The height of each vertex corresponds to the solution value.</p></div></div>
 
 <div class="footnote">
@@ -233,8 +233,8 @@ The height of each vertex corresponds to the solution value.</p></div></div>
 <h4 class="footnotes-heading">Footnotes</h4>
 
 <h3><a name="FOOT11" href="Real-Life-Example.html#DOCF11">(11)</a></h3>
-<p>EIDORS - Electrical 
-Impedance Tomography and Diffuse optical Tomography Reconstruction Software 
+<p>EIDORS - Electrical
+Impedance Tomography and Diffuse optical Tomography Reconstruction Software
 <a href="http://eidors3d.sourceforge.net">http://eidors3d.sourceforge.net</a></p>
 </div>
 <hr>

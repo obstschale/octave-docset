@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Color Conversion</title>
+<title>Color Conversion</title>
 
 <meta name="description" content="GNU Octave: Color Conversion">
 <meta name="keywords" content="GNU Octave: Color Conversion">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -60,7 +60,7 @@ Previous: <a href="Plotting-on-top-of-Images.html#Plotting-on-top-of-Images" acc
 <h3 class="section">32.5 Color Conversion</h3>
 
 <p>Octave supports conversion from the RGB color system to NTSC and HSV
-and vice versa. 
+and vice versa.
 </p>
 <a name="XREFrgb2hsv"></a><dl>
 <dt><a name="index-rgb2hsv"></a>Function File: <em><var>hsv_map</var> =</em> <strong>rgb2hsv</strong> <em>(<var>rgb</var>)</em></dt>
@@ -107,9 +107,9 @@ uint16, single, or double.  The output is of class double.
 The reference matrix for the transformation is
 </p>
 <div class="example">
-<pre class="example">/Y\     0.299  0.587  0.114  /R\ 
-|I|  =  0.596 -0.274 -0.322  |G| 
-\Q/     0.211 -0.523  0.312  \B/ 
+<pre class="example">/Y\     0.299  0.587  0.114  /R\
+|I|  =  0.596 -0.274 -0.322  |G|
+\Q/     0.211 -0.523  0.312  \B/
 </pre></div>
 
 <p>as documented in <a href="http://en.wikipedia.org/wiki/YIQ">http://en.wikipedia.org/wiki/YIQ</a> and truncated to 3

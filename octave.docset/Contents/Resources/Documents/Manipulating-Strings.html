@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Manipulating Strings</title>
+<title>Manipulating Strings</title>
 
 <meta name="description" content="GNU Octave: Manipulating Strings">
 <meta name="keywords" content="GNU Octave: Manipulating Strings">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -68,7 +68,7 @@ all blank characters with underscores.
 <pre class="example">quote = ...
   &quot;First things first, but not necessarily in that order&quot;;
 quote( quote == &quot; &quot; ) = &quot;_&quot;
-&rArr; quote = 
+&rArr; quote =
     First_things_first,_but_not_necessarily_in_that_order
 </pre></div>
 
@@ -306,7 +306,7 @@ strmatch (&quot;apple&quot;, [&quot;apple  &quot;; &quot;apple juice&quot;; &quo
 <dt><a name="index-strtok"></a>Function File: <em>[<var>tok</var>, <var>rem</var>] =</em> <strong>strtok</strong> <em>(<var>str</var>)</em></dt>
 <dt><a name="index-strtok-1"></a>Function File: <em>[<var>tok</var>, <var>rem</var>] =</em> <strong>strtok</strong> <em>(<var>str</var>, <var>delim</var>)</em></dt>
 <dd>
-<p>Find all characters in the string <var>str</var> up to, but not including, the 
+<p>Find all characters in the string <var>str</var> up to, but not including, the
 first character which is in the string <var>delim</var>.  If <var>rem</var> is
 requested, it contains the remainder of the string, starting at the first
 delimiter.  Leading delimiters are ignored.  If <var>delim</var> is not
@@ -376,9 +376,9 @@ strsplit (&quot;a,,b, c&quot;, {&quot;,&quot;, &quot; &quot;}, false)
       &rArr;
           {
             [1,1] = a
-            [1,2] = 
+            [1,2] =
             [1,3] = b
-            [1,4] = 
+            [1,4] =
             [1,5] = c
           }
 
@@ -410,9 +410,9 @@ strsplit (&quot;a,,b, c&quot;, &quot;[, ]&quot;, false, &quot;delimitertype&quot
       &rArr;
           {
             [1,1] = a
-            [1,2] = 
+            [1,2] =
             [1,3] = b
-            [1,4] = 
+            [1,4] =
             [1,5] = c
           }
 
@@ -428,10 +428,10 @@ strsplit (&quot;a,\t,b, c&quot;, {',', ' ', '\t'}, &quot;collapsedelimiters&quot
       &rArr;
           {
             [1,1] = a
-            [1,2] = 
-            [1,3] = 
+            [1,2] =
+            [1,3] =
             [1,4] = b
-            [1,5] = 
+            [1,5] =
             [1,6] = c
           }
 </pre></div>
@@ -631,7 +631,7 @@ depends on the last character of <var>str</var>:
 <dl compact="compact">
 <dt>last character = <code>&quot;\n&quot;</code></dt>
 <dd><p>Data columns are padded with empty fields or Nan so that all columns
-have equal length 
+have equal length
 </p>
 </dd>
 <dt>last character is not <code>&quot;\n&quot;</code></dt>

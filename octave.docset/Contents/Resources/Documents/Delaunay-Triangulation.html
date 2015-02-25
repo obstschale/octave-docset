@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Delaunay Triangulation</title>
+<title>Delaunay Triangulation</title>
 
 <meta name="description" content="GNU Octave: Delaunay Triangulation">
 <meta name="keywords" content="GNU Octave: Delaunay Triangulation">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -68,7 +68,7 @@ points falls within any of the circum-circles.
 <p>In general there are only three points on the circumference of any
 circum-circle.  However, in some cases, and in particular for the
 case of a regular grid, 4 or more points can be on a single
-circum-circle.  In this case the Delaunay triangulation is not unique. 
+circum-circle.  In this case the Delaunay triangulation is not unique.
 </p>
 <a name="XREFdelaunay"></a><dl>
 <dt><a name="index-delaunay"></a>Function File: <em></em> <strong>delaunay</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
@@ -95,11 +95,11 @@ See the documentation for the Qhull library for details
 The default options are <code>{&quot;Qt&quot;, &quot;Qbb&quot;, &quot;Qc&quot;, &quot;Qz&quot;}</code>.
 </p>
 <p>If <var>options</var> is not present or <code>[]</code> then the default arguments are
-used.  Otherwise, <var>options</var> replaces the default argument list. 
-To append user options to the defaults it is necessary to repeat the 
+used.  Otherwise, <var>options</var> replaces the default argument list.
+To append user options to the defaults it is necessary to repeat the
 default arguments in <var>options</var>.  Use a null string to pass no arguments.
 </p>
-<p>If no output argument is specified the resulting Delaunay triangulation 
+<p>If no output argument is specified the resulting Delaunay triangulation
 is plotted along with the original set of points.
 </p>
 <div class="example">
@@ -117,10 +117,10 @@ plot (VX, VY, &quot;b&quot;, x, y, &quot;r*&quot;);
 
 
 <p>The 3- and N-dimensional extension of the Delaunay triangulation are
-given by <code>delaunay3</code> and <code>delaunayn</code> respectively.  
+given by <code>delaunay3</code> and <code>delaunayn</code> respectively.
 <code>delaunay3</code> returns a set of tetrahedra that satisfy the
 Delaunay circum-circle criteria.  Similarly, <code>delaunayn</code> returns the
-N-dimensional simplex satisfying the Delaunay circum-circle criteria.  
+N-dimensional simplex satisfying the Delaunay circum-circle criteria.
 The N-dimensional extension of a triangulation is called a tessellation.
 </p>
 <a name="XREFdelaunay3"></a><dl>
@@ -145,8 +145,8 @@ See the documentation for the Qhull library for details
 The default options are <code>{&quot;Qt&quot;, &quot;Qbb&quot;, &quot;Qc&quot;, &quot;Qz&quot;}</code>.
 </p>
 <p>If <var>options</var> is not present or <code>[]</code> then the default arguments are
-used.  Otherwise, <var>options</var> replaces the default argument list. 
-To append user options to the defaults it is necessary to repeat the 
+used.  Otherwise, <var>options</var> replaces the default argument list.
+To append user options to the defaults it is necessary to repeat the
 default arguments in <var>options</var>.  Use a null string to pass no arguments.
 </p>
 
@@ -181,8 +181,8 @@ The default options depend on the dimension of the input:
 </li></ul>
 
 <p>If <var>options</var> is not present or <code>[]</code> then the default arguments are
-used.  Otherwise, <var>options</var> replaces the default argument list. 
-To append user options to the defaults it is necessary to repeat the 
+used.  Otherwise, <var>options</var> replaces the default argument list.
+To append user options to the defaults it is necessary to repeat the
 default arguments in <var>options</var>.  Use a null string to pass no arguments.
 </p>
 

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Creating Structures</title>
+<title>Creating Structures</title>
 
 <meta name="description" content="GNU Octave: Creating Structures">
 <meta name="keywords" content="GNU Octave: Creating Structures">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -128,14 +128,14 @@ example:
 </pre></div>
 
 <p>If the values passed to <code>struct</code> are a mix of scalar and cell
-arrays, then the scalar arguments are expanded to create a 
+arrays, then the scalar arguments are expanded to create a
 structure array with a consistent dimension.  For example:
 </p>
 <div class="example">
 <pre class="example">s = struct (&quot;field1&quot;, {1, &quot;one&quot;}, &quot;field2&quot;, {2, &quot;two&quot;},
         &quot;field3&quot;, 3);
 s.field1
-     &rArr; 
+     &rArr;
         ans =  1
         ans = one
 

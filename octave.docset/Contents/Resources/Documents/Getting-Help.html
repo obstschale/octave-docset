@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Getting Help</title>
+<title>Getting Help</title>
 
 <meta name="description" content="GNU Octave: Getting Help">
 <meta name="keywords" content="GNU Octave: Getting Help">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -183,7 +183,7 @@ The default value may be overridden by the environment variable
 &lsquo;<samp>--info-file FNAME</samp>&rsquo;.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 <p><strong>See also:</strong> <a href="Getting-Help.html#XREFinfo_005fprogram">info_program</a>, <a href="Getting-Help.html#XREFdoc">doc</a>, <a href="Getting-Help.html#XREFhelp">help</a>, <a href="Getting-Help.html#XREFmakeinfo_005fprogram">makeinfo_program</a>.
@@ -205,7 +205,7 @@ default value may be overridden by the environment variable
 &lsquo;<samp>--info-program NAME</samp>&rsquo;.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 <p><strong>See also:</strong> <a href="Getting-Help.html#XREFinfo_005ffile">info_file</a>, <a href="Getting-Help.html#XREFdoc">doc</a>, <a href="Getting-Help.html#XREFhelp">help</a>, <a href="Getting-Help.html#XREFmakeinfo_005fprogram">makeinfo_program</a>.
@@ -221,7 +221,7 @@ program that Octave runs to format help text containing
 Texinfo markup commands.  The default value is <code>makeinfo</code>.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 <p><strong>See also:</strong> <a href="Getting-Help.html#XREFtexi_005fmacros_005ffile">texi_macros_file</a>, <a href="Getting-Help.html#XREFinfo_005ffile">info_file</a>, <a href="Getting-Help.html#XREFinfo_005fprogram">info_program</a>, <a href="Getting-Help.html#XREFdoc">doc</a>, <a href="Getting-Help.html#XREFhelp">help</a>.
@@ -234,7 +234,7 @@ The original variable value is restored when exiting the function.
 <dt><a name="index-texi_005fmacros_005ffile-2"></a>Built-in Function: <em></em> <strong>texi_macros_file</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the name of the
 file containing Texinfo macros that are prepended to documentation strings
-before they are passed to makeinfo.  The default value is 
+before they are passed to makeinfo.  The default value is
 <samp><var>octave-home</var>/share/octave/<var>version</var>/etc/macros.texi</samp>,
 in which <var>octave-home</var> is the root directory of the Octave installation,
 and <var>version</var> is the Octave version number.
@@ -243,7 +243,7 @@ The default value may be overridden by the environment variable
 &lsquo;<samp>--texi-macros-file FNAME</samp>&rsquo;.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 <p><strong>See also:</strong> <a href="Getting-Help.html#XREFmakeinfo_005fprogram">makeinfo_program</a>.
@@ -256,7 +256,7 @@ The original variable value is restored when exiting the function.
 <dt><a name="index-doc_005fcache_005ffile-2"></a>Built-in Function: <em></em> <strong>doc_cache_file</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the name of the
 Octave documentation cache file.  A cache file significantly improves
-the performance of the <code>lookfor</code> command.  The default value is 
+the performance of the <code>lookfor</code> command.  The default value is
 <samp><var>octave-home</var>/share/octave/<var>version</var>/etc/doc-cache</samp>,
 in which <var>octave-home</var> is the root directory of the Octave installation,
 and <var>version</var> is the Octave version number.
@@ -265,7 +265,7 @@ The default value may be overridden by the environment variable
 &lsquo;<samp>--doc-cache-file FNAME</samp>&rsquo;.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 <p><strong>See also:</strong> <a href="Getting-Help.html#XREFdoc_005fcache_005fcreate">doc_cache_create</a>, <a href="Getting-Help.html#XREFlookfor">lookfor</a>, <a href="Getting-Help.html#XREFinfo_005fprogram">info_program</a>, <a href="Getting-Help.html#XREFdoc">doc</a>, <a href="Getting-Help.html#XREFhelp">help</a>, <a href="Getting-Help.html#XREFmakeinfo_005fprogram">makeinfo_program</a>.
@@ -300,7 +300,7 @@ will add additional help information to the end of the output from
 the <code>help</code> command and usage messages for built-in commands.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p></dd></dl>
 

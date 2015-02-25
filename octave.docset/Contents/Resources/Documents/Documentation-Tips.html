@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Documentation Tips</title>
+<title>Documentation Tips</title>
 
 <meta name="description" content="GNU Octave: Documentation Tips">
 <meta name="keywords" content="GNU Octave: Documentation Tips">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -107,7 +107,7 @@ It is a good idea for most lines to be no wider than 60 characters.
 <p>However, rather than simply filling the entire documentation string, you
 can make it much more readable by choosing line breaks with care.
 Use blank lines between topics if the documentation string is long.
-</p> 
+</p>
 </li><li> <strong>Do not</strong> indent subsequent lines of a documentation string so
 that the text is lined up in the source code with the text of the first
 line.  This looks nice in the source code, but looks bizarre when users
@@ -172,7 +172,7 @@ therefore looks like this
 <pre class="example">-*- texinfo -*-
 @deftypefn {Function File} {@var{ret} =} fn (&hellip;)
 @cindex index term
-Help text in Texinfo format.  Code samples should be marked 
+Help text in Texinfo format.  Code samples should be marked
 like @code{sample of code} and variables should be marked
 as @var{variable}.
 @seealso{fn2, fn3}
@@ -198,7 +198,7 @@ deftypefn.
 <dd><p>This generates an index entry, and can be useful when the function is
 included as part of a larger piece of documentation.  It is ignored
 within Octave&rsquo;s help viewer.  Only one index term may appear per line
-but multiple @cindex lines are valid if the function should be 
+but multiple @cindex lines are valid if the function should be
 filed under different terms.
 </p>
 </dd>

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Indexing Cell Arrays</title>
+<title>Indexing Cell Arrays</title>
 
 <meta name="description" content="GNU Octave: Indexing Cell Arrays">
 <meta name="keywords" content="GNU Octave: Indexing Cell Arrays">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -61,7 +61,7 @@ Next: <a href="Cell-Arrays-of-Strings.html#Cell-Arrays-of-Strings" accesskey="n"
 
 <p>As shown in see <a href="Basic-Usage-of-Cell-Arrays.html#Basic-Usage-of-Cell-Arrays">Basic Usage of Cell Arrays</a> elements can be
 extracted from cell arrays using the &lsquo;<samp>{</samp>&rsquo; and &lsquo;<samp>}</samp>&rsquo;
-operators.  If you want to extract or access subarrays which are still 
+operators.  If you want to extract or access subarrays which are still
 cell arrays, you need to use the &lsquo;<samp>(</samp>&rsquo; and &lsquo;<samp>)</samp>&rsquo; operators.  The
 following example illustrates the difference:
 </p>
@@ -71,7 +71,7 @@ c{2,3}
      &rArr; ans = z
 
 c(2,3)
-     &rArr; ans = 
+     &rArr; ans =
         {
           [1,1] = z
         }
@@ -108,17 +108,17 @@ with the following command:
 <pre class="example">c(:, [1, 3]) = 0;
 </pre></div>
 
-<p>Here, the scalar &lsquo;<samp>0</samp>&rsquo; is automatically promoted to 
+<p>Here, the scalar &lsquo;<samp>0</samp>&rsquo; is automatically promoted to
 cell array &lsquo;<samp>{0}</samp>&rsquo; and then assigned to the subarray of <code>c</code>.
 </p>
 <p>To give another example for indexing cell arrays with &lsquo;<samp>()</samp>&rsquo;, you
 can exchange the first and the second row of a cell array as in the
-following command: 
+following command:
 </p>
 <div class="example">
 <pre class="example">c = {1, 2, 3; 4, 5, 6};
 c([1, 2], :) = c([2, 1], :)
-     &rArr; = 
+     &rArr; =
         {
           [1,1] =  4
           [2,1] =  1
@@ -137,7 +137,7 @@ example can be swapped back like this:
 </p>
 <div class="example">
 <pre class="example">[c{[1,2], :}] = deal (c{[2, 1], :})
-     &rArr; = 
+     &rArr; =
         {
           [1,1] =  1
           [2,1] =  4

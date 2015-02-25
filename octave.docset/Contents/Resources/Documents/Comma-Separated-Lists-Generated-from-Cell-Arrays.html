@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Comma Separated Lists Generated from Cell Arrays</title>
+<title>Comma Separated Lists Generated from Cell Arrays</title>
 
 <meta name="description" content="GNU Octave: Comma Separated Lists Generated from Cell Arrays">
 <meta name="keywords" content="GNU Octave: Comma Separated Lists Generated from Cell Arrays">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -72,7 +72,7 @@ b = [a{1:4}]
 </pre></div>
 
 <p>Similarly, it is possible to create a new cell array containing cell
-elements selected with <code>{}</code>.  By surrounding the list with  
+elements selected with <code>{}</code>.  By surrounding the list with
 &lsquo;<samp>{</samp>&rsquo; and &lsquo;<samp>}</samp>&rsquo; a new cell array will be created, as the
 following example illustrates:
 </p>
@@ -96,13 +96,13 @@ simpler and can handle cell arrays of an arbitrary size:
 <div class="example">
 <pre class="example">c = {&quot;GNU&quot;, &quot;Octave&quot;, &quot;is&quot;, &quot;Free&quot;, &quot;Software&quot;};
 printf (&quot;%s &quot;, c{1}, c{2}, c{3}, c{4}, c{5});
-     -| GNU Octave is Free Software 
+     -| GNU Octave is Free Software
 printf (&quot;%s &quot;, c{:});
-     -| GNU Octave is Free Software 
+     -| GNU Octave is Free Software
 </pre></div>
 
 <p>If used on the left-hand side of an assignment, a comma separated list
-generated with <code>{}</code> can be assigned to.  An example is 
+generated with <code>{}</code> can be assigned to.  An example is
 </p>
 <div class="example">
 <pre class="example">in{1} = [10, 20, 30, 40, 50, 60, 70, 80, 90];

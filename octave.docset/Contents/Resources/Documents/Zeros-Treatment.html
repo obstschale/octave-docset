@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Zeros Treatment</title>
+<title>Zeros Treatment</title>
 
 <meta name="description" content="GNU Octave: Zeros Treatment">
 <meta name="keywords" content="GNU Octave: Zeros Treatment">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -65,21 +65,21 @@ implies, as a side effect, small differences in treating zeros.
 The contents of this section applies also to sparse matrices, discussed in
 the following chapter.
 </p>
-<p>The IEEE standard defines the result of the expressions <code>0*Inf</code> and 
+<p>The IEEE standard defines the result of the expressions <code>0*Inf</code> and
 <code>0*NaN</code> as <code>NaN</code>, as it has been generally agreed that this is the
 best compromise.
 Numerical software dealing with structured and sparse matrices (including
 Octave) however, almost always makes a distinction between a &quot;numerical zero&quot;
-and an &quot;assumed zero&quot;. 
+and an &quot;assumed zero&quot;.
 A &quot;numerical zero&quot; is a zero value occurring in a place where any floating-point
 value could occur.  It is normally stored somewhere in memory as an explicit
-value. 
+value.
 An &quot;assumed zero&quot;, on the contrary, is a zero matrix element implied by the
 matrix structure (diagonal, triangular) or a sparsity pattern; its value is
 usually not stored explicitly anywhere, but is implied by the underlying
 data structure.
 </p>
-<p>The primary distinction is that an assumed zero, when multiplied 
+<p>The primary distinction is that an assumed zero, when multiplied
 by any number, or divided by any nonzero number,
 yields *always* a zero, even when, e.g., multiplied by <code>Inf</code>
 or divided by <code>NaN</code>.

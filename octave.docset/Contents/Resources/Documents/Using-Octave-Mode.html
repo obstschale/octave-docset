@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Using Octave Mode</title>
+<title>Using Octave Mode</title>
 
 <meta name="description" content="GNU Octave: Using Octave Mode">
 <meta name="keywords" content="GNU Octave: Using Octave Mode">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -106,7 +106,7 @@ point is expanded if <code>abbrev-mode</code> is non-<code>nil</code>.
 </dd>
 <dt><kbd>TAB</kbd></dt>
 <dd><p>Indents current Octave line based on its contents and on previous
-lines (<code>indent-according-to-mode</code>). 
+lines (<code>indent-according-to-mode</code>).
 </p>
 </dd>
 <dt><kbd>;</kbd></dt>
@@ -131,7 +131,7 @@ abbrevs start with a grave accent.
 <dt><kbd>M-TAB</kbd></dt>
 <dd><p>Perform completion on Octave symbol preceding point, comparing that
 symbol against Octave&rsquo;s reserved words and built-in variables
-(<code>octave-complete-symbol</code>). 
+(<code>octave-complete-symbol</code>).
 </p>
 </dd>
 <dt><kbd>M-C-a</kbd></dt>
@@ -265,7 +265,7 @@ matches are found, one can cycle through them using the standard
 <p>The variable <code>octave-help-files</code> is a list of files to search
 through and defaults to <code>'(&quot;octave&quot;)</code>.  If there is also an Octave
 Local Guide with corresponding info file, say, <samp>octave-LG</samp>, you can
-have <code>octave-help</code> search both files by 
+have <code>octave-help</code> search both files by
 </p><div class="lisp">
 <pre class="lisp">(setq octave-help-files '(&quot;octave&quot; &quot;octave-LG&quot;))
 </pre></div>
@@ -281,7 +281,7 @@ is because the standard Emacs convention is that <tt class="key">RET</tt> (aka
 newline and indents it.  This is particularly inconvenient for users with
 keyboards which do not have a special <tt class="key">LFD</tt> key at all; in such
 cases, it is typically more convenient to use <tt class="key">RET</tt> as the <tt class="key">LFD</tt>
-key (rather than typing <kbd>C-j</kbd>).  
+key (rather than typing <kbd>C-j</kbd>).
 </p>
 <p>You can make <tt class="key">RET</tt> do this by adding
 </p><div class="lisp">
@@ -330,7 +330,7 @@ Default is 2.
 </dd>
 <dt><code>octave-continuation-offset</code></dt>
 <dd><p>Extra indentation applied to Octave continuation lines.
-Default is 4. 
+Default is 4.
 </p>
 </dd>
 <dt><code>octave-continuation-string</code></dt>

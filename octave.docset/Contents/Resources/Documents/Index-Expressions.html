@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Index Expressions</title>
+<title>Index Expressions</title>
 
 <meta name="description" content="GNU Octave: Index Expressions">
 <meta name="keywords" content="GNU Octave: Index Expressions">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -125,8 +125,8 @@ For example:
 <pre class="example">a = [1, 2, 3, 4];
 
 a(1:end/2)        # first half of a =&gt; [1, 2]
-a(end + 1) = 5;   # append element 
-a(end) = [];      # delete element 
+a(end + 1) = 5;   # append element
+a(end) = [];      # delete element
 a(1:2:end)        # odd elements of a =&gt; [1, 3]
 a(2:2:end)        # even elements of a =&gt; [2, 4]
 a(end:-1:1)       # reversal of a =&gt; [4, 3, 2 , 1]

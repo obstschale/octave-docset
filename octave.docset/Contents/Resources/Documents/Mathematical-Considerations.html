@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Mathematical Considerations</title>
+<title>Mathematical Considerations</title>
 
 <meta name="description" content="GNU Octave: Mathematical Considerations">
 <meta name="keywords" content="GNU Octave: Mathematical Considerations">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -63,7 +63,7 @@ Previous: <a href="Return-Types-of-Operators-and-Functions.html#Return-Types-of-
 same manner as there full counterparts.  However, there are certain differences
 and especially differences with other products sparse implementations.
 </p>
-<p>Firstly, the <code>&quot;./&quot;</code> and <code>&quot;.^&quot;</code> operators must be used with care. 
+<p>Firstly, the <code>&quot;./&quot;</code> and <code>&quot;.^&quot;</code> operators must be used with care.
 Consider what the examples
 </p>
 <div class="example">
@@ -79,19 +79,19 @@ Consider what the examples
 <p>will give.  The first example of <var>s</var> raised to the power of 2 causes
 no problems.  However <var>s</var> raised element-wise to itself involves a
 large number of terms <code>0 .^ 0</code> which is 1. There <code><var>s</var> .^
-<var>s</var></code> is a full matrix. 
+<var>s</var></code> is a full matrix.
 </p>
 <p>Likewise <code><var>s</var> .^ -2</code> involves terms like <code>0 .^ -2</code> which
 is infinity, and so <code><var>s</var> .^ -2</code> is equally a full matrix.
 </p>
-<p>For the &quot;./&quot; operator <code><var>s</var> ./ 2</code> has no problems, but 
+<p>For the &quot;./&quot; operator <code><var>s</var> ./ 2</code> has no problems, but
 <code>2 ./ <var>s</var></code> involves a large number of infinity terms as well
 and is equally a full matrix.  The case of <code><var>s</var> ./ <var>s</var></code>
 involves terms like <code>0 ./ 0</code> which is a <code>NaN</code> and so this
 is equally a full matrix with the zero elements of <var>s</var> filled with
 <code>NaN</code> values.
 </p>
-<p>The above behavior is consistent with full matrices, but is not 
+<p>The above behavior is consistent with full matrices, but is not
 consistent with sparse implementations in other products.
 </p>
 <p>A particular problem of sparse matrices comes about due to the fact that
@@ -107,9 +107,9 @@ stored.  In certain cases the sign-bit of zero is important.  For example:
  &rArr;  Inf            Inf
      Inf            Inf
 </pre></div>
- 
+
 <p>To correct this behavior would mean that zero elements with a negative
-sign-bit would need to be stored in the matrix to ensure that their 
+sign-bit would need to be stored in the matrix to ensure that their
 sign-bit was respected.  This is not done at this time, for reasons of
 efficiency, and so the user is warned that calculations where the sign-bit
 of zero is important must not be done using sparse matrices.
@@ -130,7 +130,7 @@ then <em>symamd</em> or <em>csymamd</em> should be used.  Otherwise
 the reordering functions <em>colperm</em> and <em>randperm</em> are
 also available.
 </p>
-<p>See <a href="Mathematical-Considerations.html#fig_003asimplematrix">Figure 22.3</a>, for an example of the structure of a simple 
+<p>See <a href="Mathematical-Considerations.html#fig_003asimplematrix">Figure 22.3</a>, for an example of the structure of a simple
 positive definite matrix.
 </p>
 <div class="float"><a name="fig_003asimplematrix"></a>
@@ -139,22 +139,22 @@ positive definite matrix.
 <div class="float-caption"><p><strong>Figure 22.3: </strong>Structure of simple sparse matrix.</p></div></div>
 <p>The standard Cholesky&nbsp;factorization of this matrix can be
 obtained by the same command that would be used for a full
-matrix.  This can be visualized with the command 
+matrix.  This can be visualized with the command
 <code>r = chol (A); spy (r);</code>.
 See <a href="Mathematical-Considerations.html#fig_003asimplechol">Figure 22.4</a>.
-The original matrix had 
+The original matrix had
 598
 non-zero terms, while this Cholesky&nbsp;factorization has
 10200,
 with only half of the symmetric matrix being stored.  This
 is a significant level of fill in, and although not an issue
-for such a small test case, can represents a large overhead 
+for such a small test case, can represents a large overhead
 in working with other sparse matrices.
 </p>
 <p>The appropriate sparsity preserving permutation of the original
 matrix is given by <em>symamd</em> and the factorization using this
 reordering can be visualized using the command <code>q = symamd (A);
-r = chol (A(q,q)); spy (r)</code>.  This gives 
+r = chol (A(q,q)); spy (r)</code>.  This gives
 399
 non-zero terms which is a significant improvement.
 </p>

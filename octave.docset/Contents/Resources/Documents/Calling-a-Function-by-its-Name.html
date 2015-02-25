@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Calling a Function by its Name</title>
+<title>Calling a Function by its Name</title>
 
 <meta name="description" content="GNU Octave: Calling a Function by its Name">
 <meta name="keywords" content="GNU Octave: Calling a Function by its Name">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -62,7 +62,7 @@ Next: <a href="Evaluation-in-a-Different-Context.html#Evaluation-in-a-Different-
 <p>The <code>feval</code> function allows you to call a function from a string
 containing its name.  This is useful when writing a function that needs to
 call user-supplied functions.  The <code>feval</code> function takes the name
-of the function to call as its first argument, and the remaining 
+of the function to call as its first argument, and the remaining
 arguments are given to the function.
 </p>
 <p>The following example is a simple-minded function using <code>feval</code>
@@ -157,7 +157,7 @@ falling back to the script name without an extension.
 <p>Implementation Note: If <var>script</var> includes a path component, then
 <code>run</code> first changes the directory to the directory where <var>script</var>
 is found.  <code>run</code> then executes the script, and returns to the original
-directory. 
+directory.
 </p>
 <p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Script-Files.html#XREFsource">source</a>.
 </p></dd></dl>

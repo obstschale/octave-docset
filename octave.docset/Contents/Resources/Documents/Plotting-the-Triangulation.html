@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Plotting the Triangulation</title>
+<title>Plotting the Triangulation</title>
 
 <meta name="description" content="GNU Octave: Plotting the Triangulation">
 <meta name="keywords" content="GNU Octave: Plotting the Triangulation">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -164,7 +164,7 @@ object.
 <p><var>T</var> is typically the output of a Delaunay triangulation
 of a 3-D set of points.  Every row of <var>T</var> contains four indices into
 the n-by-3 matrix <var>X</var> of the vertices of a tetrahedron.  Every row in
-<var>X</var> represents one point in 3-D space. 
+<var>X</var> represents one point in 3-D space.
 </p>
 <p>The vector <var>C</var> specifies the color of each tetrahedron as an index
 into the current colormap.  The default value is 1:m where m is the number
@@ -176,7 +176,7 @@ the values in <var>C</var> are cyclically repeated.
 property/value pairs directly to the patch function as additional arguments.
 </p>
 <p>The optional return value <var>h</var> is a vector of patch handles where each
-handle represents one tetrahedron in the order given by <var>T</var>. 
+handle represents one tetrahedron in the order given by <var>T</var>.
 A typical use case for <var>h</var> is to turn the respective patch
 <code>&quot;visible&quot;</code> property <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code>.
 </p>

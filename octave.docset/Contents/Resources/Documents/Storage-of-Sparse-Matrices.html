@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Storage of Sparse Matrices</title>
+<title>Storage of Sparse Matrices</title>
 
 <meta name="description" content="GNU Octave: Storage of Sparse Matrices">
 <meta name="keywords" content="GNU Octave: Storage of Sparse Matrices">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -62,8 +62,8 @@ Next: <a href="Creating-Sparse-Matrices.html#Creating-Sparse-Matrices" accesskey
 <p>It is not strictly speaking necessary for the user to understand how
 sparse matrices are stored.  However, such an understanding will help
 to get an understanding of the size of sparse matrices.  Understanding
-the storage technique is also necessary for those users wishing to 
-create their own oct-files. 
+the storage technique is also necessary for those users wishing to
+create their own oct-files.
 </p>
 <p>There are many different means of storing sparse matrix data.  What all
 of the methods have in common is that they attempt to reduce the complexity
@@ -71,12 +71,12 @@ and storage given a-priori knowledge of the particular class of problems
 that will be solved.  A good summary of the available techniques for storing
 sparse matrix is given by Saad <a name="DOCF8" href="Storage-of-Sparse-Matrices.html#FOOT8"><sup>8</sup></a>.
 With full matrices, knowledge of the point of an element of the matrix
-within the matrix is implied by its position in the computers memory. 
+within the matrix is implied by its position in the computers memory.
 However, this is not the case for sparse matrices, and so the positions
-of the non-zero elements of the matrix must equally be stored. 
+of the non-zero elements of the matrix must equally be stored.
 </p>
 <p>An obvious way to do this is by storing the elements of the matrix as
-triplets, with two elements being their position in the array 
+triplets, with two elements being their position in the array
 (rows and column) and the third being the data itself.  This is conceptually
 easy to grasp, but requires more storage than is strictly needed.
 </p>
@@ -100,7 +100,7 @@ C is.
 <div class="example">
 <pre class="example">  for (j = 0; j &lt; nc; j++)
     for (i = cidx(j); i &lt; cidx(j+1); i++)
-       printf (&quot;non-zero element (%i,%i) is %d\n&quot;, 
+       printf (&quot;non-zero element (%i,%i) is %d\n&quot;,
            ridx(i), j, data(i));
 </pre></div>
 
@@ -133,9 +133,9 @@ contents of these three vectors for the above matrix will be
 </pre></div>
 
 <p>Note that this is the representation of these elements with the first row
-and column assumed to start at zero, while in Octave itself the row and 
-column indexing starts at one.  Thus the number of elements in the 
-<var>i</var>-th column is given by <code><var>cidx</var> (<var>i</var> + 1) - 
+and column assumed to start at zero, while in Octave itself the row and
+column indexing starts at one.  Thus the number of elements in the
+<var>i</var>-th column is given by <code><var>cidx</var> (<var>i</var> + 1) -
 <var>cidx</var> (<var>i</var>)</code>.
 </p>
 <p>Although Octave uses a compressed column format, it should be noted
@@ -146,7 +146,7 @@ same order as the dense matrices.  Octave stores dense matrices in
 column major ordering, and so sparse matrices are equally stored in
 this manner.
 </p>
-<p>A further constraint on the sparse matrix storage used by Octave is that 
+<p>A further constraint on the sparse matrix storage used by Octave is that
 all elements in the rows are stored in increasing order of their row
 index, which makes certain operations faster.  However, it imposes
 the need to sort the elements on the creation of sparse matrices.  Having

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Two-Dimensional Plots</title>
+<title>Two-Dimensional Plots</title>
 
 <meta name="description" content="GNU Octave: Two-Dimensional Plots">
 <meta name="keywords" content="GNU Octave: Two-Dimensional Plots">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -158,7 +158,7 @@ in pairs.  These arguments are applied to the line objects drawn by
 <code>&quot;markersize&quot;</code>, <code>&quot;markeredgecolor&quot;</code>, <code>&quot;markerfacecolor&quot;</code>.
 </p>
 <p>The <var>fmt</var> format argument can also be used to control the plot style.
-The format is composed of three parts: linestyle, markerstyle, color. 
+The format is composed of three parts: linestyle, markerstyle, color.
 When a markerstyle is specified, but no linestyle, only the markers are
 plotted.  Similarly, if a linestyle is specified, but no markerstyle, then
 only lines are drawn.  If both are specified then lines and markers will
@@ -615,7 +615,7 @@ Briefly, the entries are as shown:
 #% nx|___________________     nx = numel (x)
 M% mi|       md         |     mi median index, md median
 H% hi|hl              hu| hs  hi lower hinge index, hl,hu hinges,
-1    |x(1)         x(nx)|     hs h_spreadx(1), x(nx) first 
+1    |x(1)         x(nx)|     hs h_spreadx(1), x(nx) first
            _______            and last data value.
      ______|step |_______     step 1.5*h_spread
     f|ifl            ifh|     inner fence, lower and higher
@@ -630,12 +630,12 @@ string made up of the leaf digits.  If the <var>stem_sz</var> is not 1 the
 successive leaf values are separated by &quot;,&quot;.
 </p>
 <p>With no return argument, the plot is immediately displayed.  If an output
-argument is provided, the plot is returned as an array of strings. 
+argument is provided, the plot is returned as an array of strings.
 </p>
 <p>The leaf digits are not sorted.  If sorted leaf values are desired, use
 <code><var>xs</var> = sort (<var>x</var>)</code> before calling <code>stemleaf (<var>xs</var>)</code>.
 </p>
-<p>The stem and leaf plot and associated displays are described in: 
+<p>The stem and leaf plot and associated displays are described in:
 Ch. 3, <cite>Exploratory Data Analysis</cite> by J. W. Tukey, Addison-Wesley, 1977.
 </p>
 <p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFprintd">printd</a>.
@@ -783,7 +783,7 @@ line of the first.
 </p>
 </dd>
 <dt>markerfacecolor</dt>
-<dd><p>The color to use for &quot;filling&quot; the marker.  
+<dd><p>The color to use for &quot;filling&quot; the marker.
 (Default: <code>&quot;none&quot;</code> [unfilled])
 </p>
 </dd>
@@ -964,7 +964,7 @@ in decreasing magnitude from left to right along the x-axis.
 </p>
 <p>The fundamental idea (Pareto principle) behind the use of Pareto
 diagrams is that the majority of an effect is due to a small subset of the
-causes.  For quality improvement, the first few contributing causes 
+causes.  For quality improvement, the first few contributing causes
 (leftmost bars as presented on the diagram) to a problem usually account for
 the majority of the result.  Thus, targeting these &quot;major causes&quot; for
 elimination results in the most cost-effective improvement scheme.
@@ -1018,7 +1018,7 @@ rather than the current axes returned by <code>gca</code>.
 <p>The optional return value <var>h</var> is a vector of graphics handles to the
 line objects representing each histogram.
 </p>
-<p>If two output arguments are requested then no plot is made and 
+<p>If two output arguments are requested then no plot is made and
 the polar vectors necessary to plot the histogram are returned instead.
 </p>
 <div class="example">
@@ -1460,7 +1460,7 @@ rather than the current axes returned by <code>gca</code>.
 <p>When called with a single vector argument, produce a pie chart of the
 elements in <var>x</var>.  The size of the ith slice is the percentage that the
 element <var>x</var>i represents of the total sum of <var>x</var>:
-<code>pct = <var>x</var>(i) / sum (<var>x</var>)</code>. 
+<code>pct = <var>x</var>(i) / sum (<var>x</var>)</code>.
 </p>
 <p>The optional input <var>explode</var> is a vector of the same length as <var>x</var>
 that, if non-zero, &quot;explodes&quot; the slice from the pie chart.
@@ -1495,7 +1495,7 @@ in the pie plot to represent the missing, unspecified percentage.
 <p>Called with a single vector argument, produces a 3-D pie chart of the
 elements in <var>x</var>.  The size of the ith slice is the percentage that the
 element <var>x</var>i represents of the total sum of <var>x</var>:
-<code>pct = <var>x</var>(i) / sum (<var>x</var>)</code>. 
+<code>pct = <var>x</var>(i) / sum (<var>x</var>)</code>.
 </p>
 <p>The optional input <var>explode</var> is a vector of the same length as <var>x</var>
 that, if non-zero, &quot;explodes&quot; the slice from the pie chart.

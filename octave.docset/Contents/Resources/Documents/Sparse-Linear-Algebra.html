@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Sparse Linear Algebra</title>
+<title>Sparse Linear Algebra</title>
 
 <meta name="description" content="GNU Octave: Sparse Linear Algebra">
 <meta name="keywords" content="GNU Octave: Sparse Linear Algebra">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -59,7 +59,7 @@ Next: <a href="Iterative-Techniques.html#Iterative-Techniques" accesskey="n" rel
 <a name="Linear-Algebra-on-Sparse-Matrices"></a>
 <h3 class="section">22.2 Linear Algebra on Sparse Matrices</h3>
 
-<p>Octave includes a polymorphic solver for sparse matrices, where 
+<p>Octave includes a polymorphic solver for sparse matrices, where
 the exact solver used to factorize the matrix, depends on the properties
 of the sparse matrix itself.  Generally, the cost of determining the matrix type
 is small relative to the cost of factorizing the matrix itself, but in any
@@ -78,7 +78,7 @@ account the permutations.  Goto 8
 than that given by <code>spparms (&quot;bandden&quot;)</code> continue, else goto 4.
 
 <ol>
-<li> If the matrix is tridiagonal and the right-hand side is not sparse 
+<li> If the matrix is tridiagonal and the right-hand side is not sparse
 continue, else goto 3b.
 
 <ol>
@@ -86,7 +86,7 @@ continue, else goto 3b.
       Cholesky&nbsp;factorization using <small>LAPACK</small> xPTSV.
 
 </li><li> If the above failed or the matrix is not Hermitian with a positive
-      real diagonal use Gaussian elimination with pivoting using 
+      real diagonal use Gaussian elimination with pivoting using
       <small>LAPACK</small> xGTSV, and goto 8.
 </li></ol>
 
@@ -94,7 +94,7 @@ continue, else goto 3b.
       Cholesky&nbsp;factorization using <small>LAPACK</small> xPBTRF.
 
 </li><li> if the above failed or the matrix is not Hermitian with a positive
-      real diagonal use Gaussian elimination with pivoting using 
+      real diagonal use Gaussian elimination with pivoting using
       <small>LAPACK</small> xGBTRF, and goto 8.
 </li></ol>
 
@@ -102,14 +102,14 @@ continue, else goto 3b.
 or backward substitution, and goto 8
 
 </li><li> If the matrix is an upper triangular matrix with column permutations
-or lower triangular matrix with row permutations, perform a sparse forward 
+or lower triangular matrix with row permutations, perform a sparse forward
 or backward substitution, and goto 8
 
 </li><li> If the matrix is square, Hermitian with a real positive diagonal, attempt
 sparse Cholesky&nbsp;factorization using <small>CHOLMOD</small>.
 
 </li><li> If the sparse Cholesky&nbsp;factorization failed or the matrix is not
-Hermitian with a real positive diagonal, and the matrix is square, factorize 
+Hermitian with a real positive diagonal, and the matrix is square, factorize
 using <small>UMFPACK</small>.
 
 </li><li> If the matrix is not square, or any of the previous solvers flags

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: The DESCRIPTION File</title>
+<title>The DESCRIPTION File</title>
 
 <meta name="description" content="GNU Octave: The DESCRIPTION File">
 <meta name="keywords" content="GNU Octave: The DESCRIPTION File">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -66,7 +66,7 @@ simple format
 <ul>
 <li> Lines starting with &lsquo;<samp>#</samp>&rsquo; are comments.
 
-</li><li> Lines starting with a blank character are continuations from the 
+</li><li> Lines starting with a blank character are continuations from the
 previous line.
 
 </li><li> Everything else is of the form <code>NameOfOption: ValueOfOption</code>.
@@ -172,7 +172,7 @@ distribution packager.  They follow the same conventions as the
 <dt><code>BuildRequires</code></dt>
 <dd><p>These are the external build dependencies of the package and are not
 checked by the package manager.  This is here as a hint to the
-distribution packager.  They follow the same conventions as the 
+distribution packager.  They follow the same conventions as the
 <code>Depends</code> keyword.  Note that in general, packaging systems such
 as <code>rpm</code> or <code>deb</code> and autoprobe the install dependencies
 from the build dependencies, and therefore the often a
@@ -182,7 +182,7 @@ from the build dependencies, and therefore the often a
 </dd>
 </dl>
 
-<p>The developer is free to add additional arguments to the 
+<p>The developer is free to add additional arguments to the
 <samp>DESCRIPTION</samp> file for their own purposes.  One further detail to
 aid the packager is that the <code>SystemRequirements</code> and
 <code>BuildRequires</code> keywords can have a distribution dependent section,
@@ -195,7 +195,7 @@ format of this is
 
 <p>where the first package name will be used as a default and if the
 RPMs are built on a Mandriva distribution, then the second package
-name will be used instead. 
+name will be used instead.
 </p>
 <hr>
 <div class="header">

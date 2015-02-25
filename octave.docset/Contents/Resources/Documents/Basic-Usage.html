@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Basic Usage</title>
+<title>Basic Usage</title>
 
 <meta name="description" content="GNU Octave: Basic Usage">
 <meta name="keywords" content="GNU Octave: Basic Usage">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -60,7 +60,7 @@ Next: <a href="Matrix-Algebra.html#Matrix-Algebra" accesskey="n" rel="next">Matr
 <h3 class="section">21.1 Creating and Manipulating Diagonal/Permutation Matrices</h3>
 
 <p>A diagonal matrix is defined as a matrix that has zero entries outside the main
-diagonal; that is, 
+diagonal; that is,
 <code>D(i,j) == 0</code> if <code>i != j</code>.
 Most often, square diagonal matrices are considered; however, the definition can
 equally be applied to non-square matrices, in which case we usually speak of a
@@ -68,9 +68,9 @@ rectangular diagonal matrix.
 </p>
 <p>A permutation matrix is defined as a square matrix that has a single element
 equal to unity in each row and each column; all other elements are zero.  That
-is, there exists a permutation (vector) 
-<code>p</code> such that <code>P(i,j) == 1</code> if <code>j == p(i)</code> and 
-<code>P(i,j) == 0</code> otherwise.  
+is, there exists a permutation (vector)
+<code>p</code> such that <code>P(i,j) == 1</code> if <code>j == p(i)</code> and
+<code>P(i,j) == 0</code> otherwise.
 </p>
 <p>Octave provides special treatment of real and complex rectangular diagonal
 matrices, as well as permutation matrices.  They are stored as special objects,

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Controlling Subprocesses</title>
+<title>Controlling Subprocesses</title>
 
 <meta name="description" content="GNU Octave: Controlling Subprocesses">
 <meta name="keywords" content="GNU Octave: Controlling Subprocesses">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -83,7 +83,7 @@ defaults to the value <code>&quot;sync&quot;</code>.
 </p>
 <p>If <var>system</var> is called with one or more output arguments, or if the
 optional argument <var>return_output</var> is true and the subprocess is started
-synchronously, then the output from the command is returned as a variable.  
+synchronously, then the output from the command is returned as a variable.
 Otherwise, if the subprocess is executed synchronously, its output is sent
 to the standard output.  To send the output of a command executed with
 <code>system</code> through the pager, use a command like
@@ -271,7 +271,7 @@ programs.  The initial value of is taken from the environment variable
 the command line argument <samp>--exec-path PATH</samp>.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 
@@ -444,7 +444,7 @@ child process was resumed by delivery of <code>SIGCONT</code>.
 <p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>.
 </p></dd></dl>
 
- 
+
 <a name="XREFWIFSIGNALED"></a><dl>
 <dt><a name="index-WIFSIGNALED"></a>Built-in Function: <em></em> <strong>WIFSIGNALED</strong> <em>(<var>status</var>)</em></dt>
 <dd><p>Given <var>status</var> from a call to <code>waitpid</code>, return true if the
@@ -493,7 +493,7 @@ be employed if <code>WIFSTOPPED</code> returned true.
 <p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
- 
+
 <a name="XREFWTERMSIG"></a><dl>
 <dt><a name="index-WTERMSIG"></a>Built-in Function: <em></em> <strong>WTERMSIG</strong> <em>(<var>status</var>)</em></dt>
 <dd><p>Given <var>status</var> from a call to <code>waitpid</code>, return the number of

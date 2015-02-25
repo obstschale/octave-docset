@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Iterative Techniques</title>
+<title>Iterative Techniques</title>
 
 <meta name="description" content="GNU Octave: Iterative Techniques">
 <meta name="keywords" content="GNU Octave: Iterative Techniques">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -145,7 +145,7 @@ preconditioning is used, the estimates for the extreme eigenvalues of
 <var>A</var> are returned.  <code><var>eigest</var>(1)</code> is an overestimate and
 <code><var>eigest</var>(2)</code> is an underestimate, so that
 <code><var>eigest</var>(2) / <var>eigest</var>(1)</code> is a lower bound for
-<code>cond (<var>P</var>, 2)</code>, which nevertheless in the limit should 
+<code>cond (<var>P</var>, 2)</code>, which nevertheless in the limit should
 theoretically be equal to the actual value of the condition number.
 The method which computes <var>eigest</var> works only for symmetric positive
 definite <var>A</var> and <var>m</var>, and the user is responsible for verifying this
@@ -229,7 +229,7 @@ endfunction
 <li> C.T. Kelley, <cite>Iterative Methods for Linear and Nonlinear Equations</cite>,
 SIAM, 1995. (the base PCG algorithm)
 
-</li><li> Y. Saad, <cite>Iterative Methods for Sparse Linear Systems</cite>, 
+</li><li> Y. Saad, <cite>Iterative Methods for Sparse Linear Systems</cite>,
 PWS 1996. (condition number estimate from PCG)
 Revised version of this book is available online at
 <a href="http://www-users.cs.umn.edu/~saad/books.html">http://www-users.cs.umn.edu/~saad/books.html</a>

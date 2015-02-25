@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Techniques Used for Linear Algebra</title>
+<title>Techniques Used for Linear Algebra</title>
 
 <meta name="description" content="GNU Octave: Techniques Used for Linear Algebra">
 <meta name="keywords" content="GNU Octave: Techniques Used for Linear Algebra">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -60,10 +60,10 @@ Next: <a href="Basic-Matrix-Functions.html#Basic-Matrix-Functions" accesskey="n"
 <h3 class="section">18.1 Techniques Used for Linear Algebra</h3>
 
 <p>Octave includes a polymorphic solver, that selects an appropriate
-matrix factorization depending on the properties of the matrix itself. 
-Generally, the cost of determining the matrix type is small relative to 
-the cost of factorizing the matrix itself, but in any case the matrix 
-type is cached once it is calculated, so that it is not re-determined 
+matrix factorization depending on the properties of the matrix itself.
+Generally, the cost of determining the matrix type is small relative to
+the cost of factorizing the matrix itself, but in any case the matrix
+type is cached once it is calculated, so that it is not re-determined
 each time it is used in a linear equation.
 </p>
 <p>The selection tree for how the linear equation is solve or a matrix
@@ -78,7 +78,7 @@ backward substitution using the <small>LAPACK</small> xTRTRS function, and goto 
 attempt Cholesky&nbsp;factorization using the <small>LAPACK</small> xPOTRF function.
 
 </li><li> If the Cholesky&nbsp;factorization failed or the matrix is not
-Hermitian with a real positive diagonal, and the matrix is square, factorize 
+Hermitian with a real positive diagonal, and the matrix is square, factorize
 using the <small>LAPACK</small> xGETRF function.
 
 </li><li> If the matrix is not square, or any of the previous solvers flags

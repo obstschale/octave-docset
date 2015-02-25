@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Using Sparse Matrices in Oct-Files</title>
+<title>Using Sparse Matrices in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Using Sparse Matrices in Oct-Files">
 <meta name="keywords" content="GNU Octave: Using Sparse Matrices in Oct-Files">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -69,7 +69,7 @@ following example.
 <pre class="example">octave_value_list retval;
 
 SparseMatrix sm = args(0).sparse_matrix_value ();
-SparseComplexMatrix scm = 
+SparseComplexMatrix scm =
     args(1).sparse_complex_matrix_value ();
 SparseBoolMatrix sbm = args(2).sparse_bool_matrix_value ();
 &hellip;

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: The unwind_protect Statement</title>
+<title>The unwind_protect Statement</title>
 
 <meta name="description" content="GNU Octave: The unwind_protect Statement">
 <meta name="keywords" content="GNU Octave: The unwind_protect Statement">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -63,7 +63,7 @@ Next: <a href="The-try-Statement.html#The-try-Statement" accesskey="n" rel="next
 <a name="index-end_005funwind_005fprotect"></a>
 
 <p>Octave supports a limited form of exception handling modeled after the
-unwind-protect form of Lisp.  
+unwind-protect form of Lisp.
 </p>
 <p>The general form of an <code>unwind_protect</code> block looks like this:
 </p>
@@ -76,7 +76,7 @@ end_unwind_protect
 </pre></div>
 
 <p>where <var>body</var> and <var>cleanup</var> are both optional and may contain any
-Octave expressions or commands.  The statements in <var>cleanup</var> are 
+Octave expressions or commands.  The statements in <var>cleanup</var> are
 guaranteed to be executed regardless of how control exits <var>body</var>.
 </p>
 <p>This is useful to protect temporary changes to global variables from

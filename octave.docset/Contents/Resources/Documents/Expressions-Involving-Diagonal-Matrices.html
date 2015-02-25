@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Expressions Involving Diagonal Matrices</title>
+<title>Expressions Involving Diagonal Matrices</title>
 
 <meta name="description" content="GNU Octave: Expressions Involving Diagonal Matrices">
 <meta name="keywords" content="GNU Octave: Expressions Involving Diagonal Matrices">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -62,7 +62,7 @@ Next: <a href="Expressions-Involving-Permutation-Matrices.html#Expressions-Invol
 <p>Assume <var>D</var> is a diagonal matrix.  If <var>M</var> is a full matrix,
 then <code>D*M</code> will scale the rows of <var>M</var>.  That means,
 if <code>S = D*M</code>, then for each pair of indices
-i,j it holds 
+i,j it holds
 </p>
 <div class="example">
 <pre class="example">S(i,j) = D(i,i) * M(i,j).
@@ -77,8 +77,8 @@ If <code>m &lt; n</code>, then the expression <code>D*M</code> is equivalent to
 <pre class="example">D(:,1:m) * M(1:m,:),
 </pre></div>
 
-<p>i.e., trailing <code>n-m</code> rows of <var>M</var> are ignored.  If <code>m &gt; n</code>, 
-then <code>D*M</code> is equivalent to 
+<p>i.e., trailing <code>n-m</code> rows of <var>M</var> are ignored.  If <code>m &gt; n</code>,
+then <code>D*M</code> is equivalent to
 </p>
 <div class="example">
 <pre class="example">[D(1:n,n) * M; zeros(m-n, columns (M))],
@@ -94,7 +94,7 @@ equivalent to multiplying by a pseudoinverse.  The pseudoinverse of
 a rectangular diagonal matrix is again a rectangular diagonal matrix
 with swapped dimensions, where each nonzero diagonal element is replaced
 by its reciprocal.
-The matrix division algorithms do, in fact, use division rather than 
+The matrix division algorithms do, in fact, use division rather than
 multiplication by reciprocals for better numerical accuracy; otherwise, they
 honor the above definition.  Note that a diagonal matrix is never truncated due
 to ill-conditioning; otherwise, it would not be much useful for scaling.  This
@@ -112,9 +112,9 @@ work analogically.
 </p>
 <div class="example">
 <pre class="example">D1 + D2
-D1 - D2 
-D1 * D2 
-D1 / D2 
+D1 - D2
+D1 * D2
+D1 / D2
 D1 \ D2
 </pre></div>
 
@@ -124,7 +124,7 @@ above.
 </p>
 <p>Also, a diagonal matrix <var>D</var> can be multiplied or divided by a scalar, or
 raised to a scalar power if it is square, producing diagonal matrix result in
-all cases. 
+all cases.
 </p>
 <p>A diagonal matrix can also be transposed or conjugate-transposed, giving the
 expected result.  Extracting a leading submatrix of a diagonal matrix, i.e.,

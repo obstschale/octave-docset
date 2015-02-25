@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Executable Octave Programs</title>
+<title>Executable Octave Programs</title>
 
 <meta name="description" content="GNU Octave: Executable Octave Programs">
 <meta name="keywords" content="GNU Octave: Executable Octave Programs">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -115,9 +115,9 @@ differently depending on the contents of a particular user&rsquo;s
 <samp>~/.octaverc</samp> file.  See <a href="Invoking-Octave-from-the-Command-Line.html#Invoking-Octave-from-the-Command-Line">Invoking Octave from the Command Line</a>.
 </p>
 <p>Note that some operating systems may place a limit on the number of
-characters that are recognized after &lsquo;<samp>#!</samp>&rsquo;.  Also, the arguments 
-appearing in a &lsquo;<samp>#!</samp>&rsquo; line are parsed differently by various 
-shells/systems.  The majority of them group all the arguments together in one 
+characters that are recognized after &lsquo;<samp>#!</samp>&rsquo;.  Also, the arguments
+appearing in a &lsquo;<samp>#!</samp>&rsquo; line are parsed differently by various
+shells/systems.  The majority of them group all the arguments together in one
 string and pass it to the interpreter as a single argument.  In this case, the
 following script:
 </p>
@@ -132,7 +132,7 @@ following script:
 </pre></div>
 
 <p>which will produce an error message.  Unfortunately, it is
-not possible for Octave to determine whether it has been called from the 
+not possible for Octave to determine whether it has been called from the
 command line or from a &lsquo;<samp>#!</samp>&rsquo; script, so some care is needed when using the
 &lsquo;<samp>#!</samp>&rsquo; mechanism.
 </p>

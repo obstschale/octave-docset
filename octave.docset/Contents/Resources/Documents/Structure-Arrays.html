@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Structure Arrays</title>
+<title>Structure Arrays</title>
 
 <meta name="description" content="GNU Octave: Structure Arrays">
 <meta name="keywords" content="GNU Octave: Structure Arrays">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -75,7 +75,7 @@ x(2).b = 2;
 <p>which creates a 2-by-1 structure array with two fields.  Another way
 to create a structure array is with the <code>struct</code> function
 (see <a href="Creating-Structures.html#Creating-Structures">Creating Structures</a>).  As previously, to print the value of
-the structure array, you can type its name: 
+the structure array, you can type its name:
 </p>
 <div class="example">
 <pre class="example">x
@@ -85,11 +85,11 @@ the structure array, you can type its name:
 
             a
             b
-        }  
+        }
 </pre></div>
 
 <p>Individual elements of the structure array can be returned by indexing
-the variable like <code><var>x</var>(1)</code>, which returns a structure with 
+the variable like <code><var>x</var>(1)</code>, which returns a structure with
 two fields:
 </p>
 <div class="example">
@@ -152,7 +152,7 @@ numerical array, by assigning the elements to an empty matrix.  For
 example
 </p>
 <div class="example">
-<pre class="example">in = struct (&quot;call1&quot;, {x, Inf, &quot;last&quot;}, 
+<pre class="example">in = struct (&quot;call1&quot;, {x, Inf, &quot;last&quot;},
              &quot;call2&quot;, {x, Inf, &quot;first&quot;})
      &rArr; in =
         {

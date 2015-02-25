@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Functions of One Variable</title>
+<title>Functions of One Variable</title>
 
 <meta name="description" content="GNU Octave: Functions of One Variable">
 <meta name="keywords" content="GNU Octave: Functions of One Variable">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -507,7 +507,7 @@ Mathematical Software, Vol. 37, Issue 3, Article No. 3, 2010.
 which to perform an integration.  This can occur when collecting data in an
 experiment.  The <code>trapz</code> function can integrate these values as shown in
 the following example where &quot;data&quot; has been collected on the cosine function
-over the range [0, pi/2). 
+over the range [0, pi/2).
 </p>
 <div class="example">
 <pre class="example">x = 0:0.1:pi/2;  # Uniformly spaced points
@@ -517,7 +517,7 @@ trapz (x, y)
 </pre></div>
 
 <p>The answer is reasonably close to the exact value of 1.  Ordinary quadrature
-is sensitive to the characteristics of the integrand.  Empirical integration 
+is sensitive to the characteristics of the integrand.  Empirical integration
 depends not just on the integrand, but also on the particular points chosen to
 represent the function.  Repeating the example above with the sine function
 over the range [0, pi/2) produces far inferior results.

@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Test Functions</title>
+<title>Test Functions</title>
 
 <meta name="description" content="GNU Octave: Test Functions">
 <meta name="keywords" content="GNU Octave: Test Functions">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -128,7 +128,7 @@ block evaluated separately.  Blocks are introduced by valid keywords like
 <code>test</code>, <code>function</code>, or <code>assert</code> immediately following &lsquo;<samp>%!</samp>&rsquo;.
 A block is defined by indentation as in Python.  Lines beginning with
 &lsquo;<samp>%!&lt;whitespace&gt;</samp>&rsquo; are part of the preceeding block.
-</p> 
+</p>
 <p>For example:
 </p>
 <div class="example">
@@ -260,10 +260,10 @@ is empty), and then uses it in several subsequent tests.
 %!assert (fn(2), 4);
 </pre></div>
 
-<p>Note that all previous variables and values are lost when a new 
+<p>Note that all previous variables and values are lost when a new
 shared block is declared.
 </p>
-<p>Remember that <code>%!function</code> begins a new block and that 
+<p>Remember that <code>%!function</code> begins a new block and that
 <code>%!endfunction</code> ends this block.  Be aware that until a new block
 is started, lines starting with &lsquo;<samp>%!&lt;space&gt;</samp>&rsquo; will be discarded as comments.
 The following is nearly identical to the example above, but does nothing.
@@ -278,9 +278,9 @@ The following is nearly identical to the example above, but does nothing.
 <p>Because there is a space after &lsquo;<samp>%!</samp>&rsquo; the <code>assert</code> statement does
 not begin a new block and this line is treated as a comment.
 </p>
-<p>Error and warning blocks are like test blocks, but they only succeed 
+<p>Error and warning blocks are like test blocks, but they only succeed
 if the code generates an error.  You can check the text of the error
-is correct using an optional regular expression <code>&lt;pattern&gt;</code>.  
+is correct using an optional regular expression <code>&lt;pattern&gt;</code>.
 For example:
 </p>
 <div class="example">
@@ -302,7 +302,7 @@ For example:
 
 <p>It is important to automate the tests as much as possible, however
 some tests require user interaction.  These can be isolated into
-demo blocks, which if you are in batch mode, are only run when 
+demo blocks, which if you are in batch mode, are only run when
 called with <code>demo</code> or the <code>verbose</code> option to <code>test</code>.
 The code is displayed before it is executed.  For example,
 </p>
@@ -321,7 +321,7 @@ The code is displayed before it is executed.  For example,
  plot (<var>t</var>, <var>x</var>);
  # you should now see a sine wave in your figure window
 
-Press &lt;enter&gt; to continue: 
+Press &lt;enter&gt; to continue:
 </pre></div>
 
 <p>Note that demo blocks cannot use any shared variables.  This is so

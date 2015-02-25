@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Manipulating Classes</title>
+<title>Manipulating Classes</title>
 
 <meta name="description" content="GNU Octave: Manipulating Classes">
 <meta name="keywords" content="GNU Octave: Manipulating Classes">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -124,7 +124,7 @@ endfunction
 <p>Note that in the display method, it makes sense to start the method
 with the line <code>fprintf (&quot;%s =&quot;, inputname (1))</code> to be consistent
 with the rest of Octave and print the variable name to be displayed
-when displaying the class. 
+when displaying the class.
 </p>
 <p>To be consistent with the Octave graphic handle classes, a class
 should also define the <code>get</code> and <code>set</code> methods.  The
@@ -155,7 +155,7 @@ endfunction
 </pre></div>
 
 <p>Similarly, the <code>set</code> method should taken as its first argument an
-object to modify, and then take property/value pairs to be modified. 
+object to modify, and then take property/value pairs to be modified.
 </p>
 <div class="example">
 <pre class="verbatim">function s = set (p, varargin)

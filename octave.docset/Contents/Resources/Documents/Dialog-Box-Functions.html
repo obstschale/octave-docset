@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Dialog Box Functions</title>
+<title>Dialog Box Functions</title>
 
 <meta name="description" content="GNU Octave: Dialog Box Functions">
 <meta name="keywords" content="GNU Octave: Dialog Box Functions">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -67,14 +67,14 @@ of dialog box.
 <dt><a name="index-msgbox"></a>Function File: <em><var>h</var> =</em> <strong>msgbox</strong> <em>(<var>msg</var>)</em></dt>
 <dt><a name="index-msgbox-1"></a>Function File: <em><var>h</var> =</em> <strong>msgbox</strong> <em>(<var>msg</var>, <var>title</var>)</em></dt>
 <dt><a name="index-msgbox-2"></a>Function File: <em><var>h</var> =</em> <strong>msgbox</strong> <em>(<var>msg</var>, <var>title</var>, <var>icon</var>)</em></dt>
-<dd><p>Display <var>msg</var> using a message dialog box. 
+<dd><p>Display <var>msg</var> using a message dialog box.
 </p>
 <p>The message may have multiple lines separated by newline characters
 (<code>&quot;\n&quot;</code>), or it may be a cellstr array with one element for each
 line.  The optional input <var>title</var> (character string) can be used to
 decorate the dialog caption.
 </p>
-<p>The optional argument <var>icon</var> selects a dialog icon. 
+<p>The optional argument <var>icon</var> selects a dialog icon.
 It can be one of <code>&quot;none&quot;</code> (default), <code>&quot;error&quot;</code>,
 <code>&quot;help&quot;</code>, or <code>&quot;warn&quot;</code>.
 </p>
@@ -132,7 +132,7 @@ Cancel button.
 </p>
 <dl compact="compact">
 <dt><var>prompt</var></dt>
-<dd><p>A cell array with strings labeling each text field.  This input is required. 
+<dd><p>A cell array with strings labeling each text field.  This input is required.
 </p>
 </dd>
 <dt><var>title</var></dt>
@@ -148,7 +148,7 @@ Dialog&quot;</code>.
 text field.
 
 </li><li> a vector which defines the individual number of rows
-used for each text field. 
+used for each text field.
 
 </li><li> a matrix which defines the individual number of rows and
 columns used for each text field.  In the matrix each row describes
@@ -170,7 +170,7 @@ a cell array of strings with the same size as <var>prompt</var>.
 <a name="index-dialog_002c-displaying-a-list-dialog"></a>
 <a name="XREFlistdlg"></a><dl>
 <dt><a name="index-listdlg"></a>Function File: <em>[<var>sel</var>, <var>ok</var>] =</em> <strong>listdlg</strong> <em>(<var>key</var>, <var>value</var>, &hellip;)</em></dt>
-<dd><p>Return user inputs from a list dialog box in a vector of 
+<dd><p>Return user inputs from a list dialog box in a vector of
 selection indices <var>sel</var> and a flag <var>ok</var> indicating how the
 user closed the dialog box.  The value of <var>ok</var> is 1 if the user
 closed the box with the OK button, otherwise it is 0 and <var>sel</var> is
@@ -178,7 +178,7 @@ empty.
 </p>
 <p>The indices in <var>sel</var> are 1-based.
 </p>
-<p>The arguments are specified in form of <var>key</var>, <var>value</var> pairs. 
+<p>The arguments are specified in form of <var>key</var>, <var>value</var> pairs.
 The <code>&quot;ListString&quot;</code> argument pair must be specified.
 </p>
 <p>Valid <var>key</var> and <var>value</var> pairs are:
@@ -254,7 +254,7 @@ of the activated button.
 line.  The optional <var>title</var> (character string) can be used to
 decorate the dialog caption.
 </p>
-<p>The string <var>default</var> identifies the default button, 
+<p>The string <var>default</var> identifies the default button,
 which is activated by pressing the <tt class="key">ENTER</tt> key.
 It must match one of the strings given in <var>btn1</var>, <var>btn2</var>, or
 <var>btn3</var>.
@@ -263,7 +263,7 @@ It must match one of the strings given in <var>btn1</var>, <var>btn2</var>, or
 the default captions <code>&quot;Yes&quot;</code>, <code>&quot;No&quot;</code>, and <code>&quot;Cancel&quot;</code> are
 used.
 </p>
-<p>If only two button captions, <var>btn1</var> and <var>btn2</var>, are specified 
+<p>If only two button captions, <var>btn1</var> and <var>btn2</var>, are specified
 the dialog will have only these two buttons.
 </p>
 
@@ -275,7 +275,7 @@ the dialog will have only these two buttons.
 <a name="XREFwarndlg"></a><dl>
 <dt><a name="index-warndlg"></a>Function File: <em><var>h</var> =</em> <strong>warndlg</strong> <em>(<var>msg</var>)</em></dt>
 <dt><a name="index-warndlg-1"></a>Function File: <em><var>h</var> =</em> <strong>warndlg</strong> <em>(<var>msg</var>, <var>title</var>)</em></dt>
-<dd><p>Display <var>msg</var> using a warning dialog box. 
+<dd><p>Display <var>msg</var> using a warning dialog box.
 </p>
 <p>The message may have multiple lines separated by newline characters
 (&quot;\n&quot;), or it may be a cellstr array with one element for each

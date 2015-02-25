@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Return Types of Operators and Functions</title>
+<title>Return Types of Operators and Functions</title>
 
 <meta name="description" content="GNU Octave: Return Types of Operators and Functions">
 <meta name="keywords" content="GNU Octave: Return Types of Operators and Functions">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -59,14 +59,14 @@ Next: <a href="Mathematical-Considerations.html#Mathematical-Considerations" acc
 <a name="Return-Types-of-Operators-and-Functions-1"></a>
 <h4 class="subsubsection">22.1.4.2 Return Types of Operators and Functions</h4>
 
-<p>The two basic reasons to use sparse matrices are to reduce the memory 
+<p>The two basic reasons to use sparse matrices are to reduce the memory
 usage and to not have to do calculations on zero elements.  The two are
 closely related in that the computation time on a sparse matrix operator
 or function is roughly linear with the number of non-zero elements.
 </p>
-<p>Therefore, there is a certain density of non-zero elements of a matrix 
+<p>Therefore, there is a certain density of non-zero elements of a matrix
 where it no longer makes sense to store it as a sparse matrix, but rather
-as a full matrix.  For this reason operators and functions that have a 
+as a full matrix.  For this reason operators and functions that have a
 high probability of returning a full matrix will always return one.  For
 example adding a scalar constant to a sparse matrix will almost always
 make it a full matrix, and so the example,
@@ -78,7 +78,7 @@ make it a full matrix, and so the example,
   0  0  1
 </pre></div>
 
-<p>returns a full matrix as can be seen. 
+<p>returns a full matrix as can be seen.
 </p>
 
 <p>Additionally, if <code>sparse_auto_mutate</code> is true, all sparse functions
@@ -87,27 +87,27 @@ amount of storage used is larger than the amount used by the full
 equivalent.  Therefore <code>speye (2) * 1</code> will return a full matrix as
 the memory used is smaller for the full version than the sparse version.
 </p>
-<p>As all of the mixed operators and functions between full and sparse 
+<p>As all of the mixed operators and functions between full and sparse
 matrices exist, in general this does not cause any problems.  However,
 one area where it does cause a problem is where a sparse matrix is
 promoted to a full matrix, where subsequent operations would resparsify
 the matrix.  Such cases are rare, but can be artificially created, for
 example <code>(fliplr (speye (3)) + speye (3)) - speye (3)</code> gives a full
-matrix when it should give a sparse one.  In general, where such cases 
+matrix when it should give a sparse one.  In general, where such cases
 occur, they impose only a small memory penalty.
 </p>
 <p>There is however one known case where this behavior of Octave&rsquo;s
 sparse matrices will cause a problem.  That is in the handling of the
 <em>diag</em> function.  Whether <em>diag</em> returns a sparse or full matrix
-depending on the type of its input arguments.  So 
+depending on the type of its input arguments.  So
 </p>
 <div class="example">
 <pre class="example"> a = diag (sparse ([1,2,3]), -1);
 </pre></div>
 
 <p>should return a sparse matrix.  To ensure this actually happens, the
-<em>sparse</em> function, and other functions based on it like <em>speye</em>, 
-always returns a sparse matrix, even if the memory used will be larger 
+<em>sparse</em> function, and other functions based on it like <em>speye</em>,
+always returns a sparse matrix, even if the memory used will be larger
 than its full representation.
 </p>
 <a name="XREFsparse_005fauto_005fmutate"></a><dl>
@@ -131,7 +131,7 @@ typeinfo (s)
 </pre></div>
 
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.  
+variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p></dd></dl>
 

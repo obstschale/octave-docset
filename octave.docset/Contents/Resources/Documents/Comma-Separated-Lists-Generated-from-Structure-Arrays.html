@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Comma Separated Lists Generated from Structure Arrays</title>
+<title>Comma Separated Lists Generated from Structure Arrays</title>
 
 <meta name="description" content="GNU Octave: Comma Separated Lists Generated from Structure Arrays">
 <meta name="keywords" content="GNU Octave: Comma Separated Lists Generated from Structure Arrays">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -63,8 +63,8 @@ lists.  This is done by addressing one of the fields of a structure
 array.  For example:
 </p>
 <div class="example">
-<pre class="example">x = ceil (randn (10, 1)); 
-in = struct (&quot;call1&quot;, {x, 3, &quot;last&quot;}, 
+<pre class="example">x = ceil (randn (10, 1));
+in = struct (&quot;call1&quot;, {x, 3, &quot;last&quot;},
              &quot;call2&quot;, {x, inf, &quot;first&quot;});
 out = struct (&quot;call1&quot;, cell (2, 1), &quot;call2&quot;, cell (2, 1));
 [out.call1] = find (in.call1);

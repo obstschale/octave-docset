@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Three-Dimensional Plots</title>
+<title>Three-Dimensional Plots</title>
 
 <meta name="description" content="GNU Octave: Three-Dimensional Plots">
 <meta name="keywords" content="GNU Octave: Three-Dimensional Plots">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -686,7 +686,7 @@ isofinish (p);
 <dd>
 <p>Reduce the faces area for a given patch, structure or explicit faces
 and points matrices by a scale factor <var>sf</var>.  The structure
-<var>fv</var> must contain the fields <code>&quot;faces&quot;</code> and <code>&quot;vertices&quot;</code>. 
+<var>fv</var> must contain the fields <code>&quot;faces&quot;</code> and <code>&quot;vertices&quot;</code>.
 If the factor <var>sf</var> is omitted then a default of 0.3 is used.
 </p>
 <p>Given a patch handle as the first input argument and no output
@@ -773,7 +773,7 @@ plot of the &ldquo;sombrero&rdquo; function.
 <div class="example">
 <pre class="example">f = @(x,y) sin (sqrt (x.^2 + y.^2)) ./ sqrt (x.^2 + y.^2);
 range = linspace (-8, 8, 41);
-[<var>X</var>, <var>Y</var>] = meshgrid (range, range);  
+[<var>X</var>, <var>Y</var>] = meshgrid (range, range);
 Z = f (X, Y);
 surf (X, Y, Z);
 </pre></div>

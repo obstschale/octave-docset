@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: String Conversions</title>
+<title>String Conversions</title>
 
 <meta name="description" content="GNU Octave: String Conversions">
 <meta name="keywords" content="GNU Octave: String Conversions">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -107,7 +107,7 @@ converted number per cell element in <var>s</var>.
 </pre></div>
 
 <p>If <var>d</var> is a matrix or cell array, return a string matrix with one
-row per element in <var>d</var>, padded with leading zeros to the width of 
+row per element in <var>d</var>, padded with leading zeros to the width of
 the largest value.
 </p>
 <p>The optional second argument, <var>len</var>, specifies the minimum
@@ -128,7 +128,7 @@ integer <var>d</var>.  For example:
 </pre></div>
 
 <p>If <var>d</var> is a matrix or cell array, return a string matrix with one
-row per element in <var>d</var>, padded with leading zeros to the width of 
+row per element in <var>d</var>, padded with leading zeros to the width of
 the largest value.
 </p>
 <p>The optional second argument, <var>len</var>, specifies the minimum
@@ -173,7 +173,7 @@ the non-negative integer <var>d</var>.
 </pre></div>
 
 <p>If <var>d</var> is a matrix or cell array, return a string matrix with one
-row per element in <var>d</var>, padded with leading zeros to the width of 
+row per element in <var>d</var>, padded with leading zeros to the width of
 the largest value.
 </p>
 <p>If <var>base</var> is a string then the characters of <var>base</var> are used as
@@ -269,7 +269,7 @@ number.
 <p>The optional argument <var>class</var> can be passed as the string
 <code>&quot;single&quot;</code> to specify that the given string should be interpreted as
 a single precision number.  In this case, <var>s</var> should be an 8 character
-hexadecimal string.  For example: 
+hexadecimal string.  For example:
 </p>
 <div class="example">
 <pre class="example">hex2num ([&quot;402df854&quot;; &quot;41200000&quot;], &quot;single&quot;)

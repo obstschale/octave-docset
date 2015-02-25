@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Compiling Octave with 64-bit Indexing</title>
+<title>Compiling Octave with 64-bit Indexing</title>
 
 <meta name="description" content="GNU Octave: Compiling Octave with 64-bit Indexing">
 <meta name="keywords" content="GNU Octave: Compiling Octave with 64-bit Indexing">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -68,7 +68,7 @@ array sizes when using the default 32-bit indexing mode:
 </p>
 <div class="example">
 <pre class="example">double:         16GB
-single:          8GB 
+single:          8GB
 uint64, int64:  16GB
 uint32, int32:   8GB
 uint16, int16:   4GB
@@ -200,7 +200,7 @@ sizes may be limited.
 <p>You must ensure that all Fortran sources except those in the
 <samp>liboctave/cruft/ranlib</samp> directory are compiled such that INTEGERS are
 8-bytes wide.  If you are using gfortran, the configure script should
-automatically set the Makefile variable <code><span class="nolinebreak">F77_INTEGER_8_FLAG</span></code><!-- /@w --> to 
+automatically set the Makefile variable <code><span class="nolinebreak">F77_INTEGER_8_FLAG</span></code><!-- /@w --> to
 <samp>-fdefault-integer-8</samp>.  If you are using another compiler, you
 must set this variable yourself.  You should NOT set this flag in
 <code>FFLAGS</code>, otherwise the files in <samp>liboctave/cruft/ranlib</samp> will be

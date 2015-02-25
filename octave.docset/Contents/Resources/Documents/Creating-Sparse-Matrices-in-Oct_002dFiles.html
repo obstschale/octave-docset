@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Creating Sparse Matrices in Oct-Files</title>
+<title>Creating Sparse Matrices in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Creating Sparse Matrices in Oct-Files">
 <meta name="keywords" content="GNU Octave: Creating Sparse Matrices in Oct-Files">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -76,9 +76,9 @@ ColumnVector ridx (nz);
 ColumnVector cidx (nz);
 ColumnVector data (nz);
 
-ridx(0) = 0; cidx(0) = 0; data(0) = 1; 
-ridx(1) = 0; cidx(1) = 1; data(1) = 2; 
-ridx(2) = 1; cidx(2) = 3; data(2) = 3; 
+ridx(0) = 0; cidx(0) = 0; data(0) = 1;
+ridx(1) = 0; cidx(1) = 1; data(1) = 2;
+ridx(2) = 1; cidx(2) = 3; data(2) = 3;
 ridx(3) = 2; cidx(3) = 3; data(3) = 4;
 SparseMatrix sm (data, ridx, cidx, nr, nc);
 </pre></div>
@@ -134,7 +134,7 @@ it is possible to create a sparse matrix with too much storage, so having
 occupies more memory than strictly needed.
 </p>
 <p>It is not always possible to know the number of non-zero elements prior
-to filling a matrix.  For this reason the additional unused storage of 
+to filling a matrix.  For this reason the additional unused storage of
 a sparse matrix can be removed after its creation with the
 <code>maybe_compress</code> function.  In addition, <code>maybe_compress</code> can
 deallocate the unused storage, but it can also remove zero elements

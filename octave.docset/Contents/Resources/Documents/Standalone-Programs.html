@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Standalone Programs</title>
+<title>Standalone Programs</title>
 
 <meta name="description" content="GNU Octave: Standalone Programs">
 <meta name="keywords" content="GNU Octave: Standalone Programs">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -156,12 +156,12 @@ GCD of [10, 15] is 5
 $
 </pre></div>
 
-<p>It is worth noting that, if only builtin functions are to be called from 
-a C++ standalone program, then it does not need to initialize the 
-interpreter to do so.  The general rule is that, for a builtin 
+<p>It is worth noting that, if only builtin functions are to be called from
+a C++ standalone program, then it does not need to initialize the
+interpreter to do so.  The general rule is that, for a builtin
 function named <code>function_name</code> in the interpreter, there will be
-a C++ function named <code>Ffunction_name</code> (note the prepended capital 
-<code>F</code>) accessible in the C++ API.  The declarations for all builtin 
+a C++ function named <code>Ffunction_name</code> (note the prepended capital
+<code>F</code>) accessible in the C++ API.  The declarations for all builtin
 functions are collected in the header file <code>builtin-defun-decls.h</code>.
 This feature should be used with care as the list of built-in functions can
 change.  No guarantees can be made that a function that is currently built in
@@ -185,8 +185,8 @@ main (void)
     for (octave_idx_type j = 0; j &lt; n; j++)
       a_matrix(i,j) = (i + 1) * 10 + (j + 1);
 
-  std::cout &lt;&lt; &quot;This is a matrix:&quot; 
-            &lt;&lt; std::endl 
+  std::cout &lt;&lt; &quot;This is a matrix:&quot;
+            &lt;&lt; std::endl
             &lt;&lt; a_matrix
             &lt;&lt; std::endl;
 
@@ -196,11 +196,11 @@ main (void)
   octave_value_list out = Fnorm (in, 1);
   double norm_of_the_matrix = out(0).double_value ();
 
-  std::cout &lt;&lt; &quot;This is the norm of the matrix:&quot; 
-            &lt;&lt; std::endl 
+  std::cout &lt;&lt; &quot;This is the norm of the matrix:&quot;
+            &lt;&lt; std::endl
             &lt;&lt; norm_of_the_matrix
             &lt;&lt; std::endl;
-  
+
   return 0;
 }
 </pre><pre class="example">
@@ -210,7 +210,7 @@ main (void)
 </p>
 <div class="example">
 <pre class="example">$ mkoctfile --link-stand-alone standalonebuiltin.cc -o standalonebuiltin
-$ ./standalonebuiltin 
+$ ./standalonebuiltin
 This is a matrix:
  11 12
  21 22

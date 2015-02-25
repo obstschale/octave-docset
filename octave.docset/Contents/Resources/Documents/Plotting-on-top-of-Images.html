@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Plotting on top of Images</title>
+<title>Plotting on top of Images</title>
 
 <meta name="description" content="GNU Octave: Plotting on top of Images">
 <meta name="keywords" content="GNU Octave: Plotting on top of Images">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -61,7 +61,7 @@ Next: <a href="Color-Conversion.html#Color-Conversion" accesskey="n" rel="next">
 
 <p>If gnuplot is being used to display images it is possible to plot on
 top of images.  Since an image is a matrix it is indexed by row and
-column values.  The plotting system is, however, based on the 
+column values.  The plotting system is, however, based on the
 traditional <em>(x, y)</em> system.  To minimize the difference between
 the two systems Octave places the origin of the coordinate system in
 the point corresponding to the pixel at <em>(1, 1)</em>.  So, to plot
@@ -69,7 +69,7 @@ points given by row and column values on top of an image, one should
 simply call <code>plot</code> with the column values as the first argument
 and the row values as the second.  As an example the following code
 generates an image with random intensities between 0 and 1, and shows
-the image with red circles over pixels with an intensity above 
+the image with red circles over pixels with an intensity above
 <em>0.99</em>.
 </p>
 <div class="example">

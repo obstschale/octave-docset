@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Concatenating Strings</title>
+<title>Concatenating Strings</title>
 
 <meta name="description" content="GNU Octave: Concatenating Strings">
 <meta name="keywords" content="GNU Octave: Concatenating Strings">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -110,14 +110,14 @@ eliminates empty strings.
 <div class="example">
 <pre class="example">char (&quot;orange&quot;, &quot;green&quot;, &quot;&quot;, &quot;red&quot;)
     &rArr; orange
-       green 
+       green
 
        red
 </pre><pre class="example">
 </pre><pre class="example">strvcat (&quot;orange&quot;, &quot;green&quot;, &quot;&quot;, &quot;red&quot;)
     &rArr; orange
-       green 
-       red  
+       green
+       red
 </pre></div>
 
 </li><li> All string concatenation functions except <code>cstrcat</code> also accept cell
@@ -127,10 +127,10 @@ concatenates within the cells of the cell arrays:
 
 <div class="example">
 <pre class="example">char ({&quot;red&quot;, &quot;green&quot;, &quot;&quot;, &quot;blue&quot;})
-     &rArr; red  
+     &rArr; red
         green
 
-        blue 
+        blue
 </pre><pre class="example">
 </pre><pre class="example">strcat ({&quot;abc&quot;; &quot;ghi&quot;}, {&quot;def&quot;; &quot;jkl&quot;})
      &rArr;
@@ -270,7 +270,7 @@ strcat (s, s, s)
     &rArr;
         {
           [1,1] = ababab
-          [2,1] = cd cd cd 
+          [2,1] = cd cd cd
         }
 </pre></div>
 

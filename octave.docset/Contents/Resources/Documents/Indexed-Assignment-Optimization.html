@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Indexed Assignment Optimization</title>
+<title>Indexed Assignment Optimization</title>
 
 <meta name="description" content="GNU Octave: Indexed Assignment Optimization">
 <meta name="keywords" content="GNU Octave: Indexed Assignment Optimization">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -59,7 +59,7 @@ Previous: <a href="Defining-Indexing-And-Indexed-Assignment.html#Defining-Indexi
 <a name="Indexed-Assignment-Optimization-1"></a>
 <h4 class="subsection">34.3.2 Indexed Assignment Optimization</h4>
 
-<p>Octave&rsquo;s ubiquitous lazily-copied pass-by-value semantics implies 
+<p>Octave&rsquo;s ubiquitous lazily-copied pass-by-value semantics implies
 a problem for performance of user-defined subsasgn methods.  Imagine
 a call to subsasgn:
 </p>
@@ -78,7 +78,7 @@ a call to subsasgn:
 </pre></div>
 
 <p>The problem is that on entry to the subsasgn method, <code>x</code> is still
-referenced from the caller&rsquo;s scope, which means that the method will 
+referenced from the caller&rsquo;s scope, which means that the method will
 first need to unshare (copy) <code>x</code> and <code>x.myfield</code> before performing
 the assignment.  Upon completing the call, unless an error occurs,
 the result is immediately assigned to <code>x</code> in the caller&rsquo;s scope,

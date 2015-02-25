@@ -2,7 +2,7 @@
 <html>
 <!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>GNU Octave: Simple Examples</title>
+<title>Simple Examples</title>
 
 <meta name="description" content="GNU Octave: Simple Examples">
 <meta name="keywords" content="GNU Octave: Simple Examples">
@@ -44,7 +44,7 @@ span.sansserif {font-family:sans-serif; font-weight:normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="http://www.gnu.org/software/octave/doc/manual.css">
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
 
 
 </head>
@@ -71,12 +71,12 @@ respond with an answer, or by displaying a graph.
 <a name="Elementary-Calculations"></a>
 <h4 class="subsection">1.2.1 Elementary Calculations</h4>
 
-<p>Octave can easily be used for basic numerical calculations.  Octave 
-knows about arithmetic operations (+,-,*,/), exponentiation (^), 
-natural logarithms/exponents (log, exp), and the trigonometric 
-functions (sin, cos, &hellip;).  Moreover, Octave calculations work 
-on real or imaginary numbers (i,j).  In addition, some mathematical 
-constants such as the base of the natural logarithm (e) and the ratio 
+<p>Octave can easily be used for basic numerical calculations.  Octave
+knows about arithmetic operations (+,-,*,/), exponentiation (^),
+natural logarithms/exponents (log, exp), and the trigonometric
+functions (sin, cos, &hellip;).  Moreover, Octave calculations work
+on real or imaginary numbers (i,j).  In addition, some mathematical
+constants such as the base of the natural logarithm (e) and the ratio
 of a circle&rsquo;s circumference to its diameter (pi) are pre-defined.
 </p>
 <p>For example, to verify Euler&rsquo;s Identity,
@@ -87,7 +87,7 @@ e     = -1
 </pre></div>
 
 <p>type the following which will evaluate to <code>-1</code> within the
-tolerance of the calculation. 
+tolerance of the calculation.
 </p>
 <div class="example">
 <pre class="example">octave:1&gt; exp (i*pi)
@@ -96,7 +96,7 @@ tolerance of the calculation.
 <a name="Creating-a-Matrix"></a>
 <h4 class="subsection">1.2.2 Creating a Matrix</h4>
 
-<p>Vectors and matrices are the basic building blocks for numerical analysis.  
+<p>Vectors and matrices are the basic building blocks for numerical analysis.
 To create a new matrix and store it in a variable so that you can
 refer to it later, type the command
 </p>
@@ -104,9 +104,9 @@ refer to it later, type the command
 <pre class="example">octave:1&gt; A = [ 1, 1, 2; 3, 5, 8; 13, 21, 34 ]
 </pre></div>
 
-<p>Octave will respond by printing the matrix in neatly aligned columns.  
-Octave uses a comma or space to separate entries in a row, and a 
-semicolon or carriage return to separate one row from the next.  
+<p>Octave will respond by printing the matrix in neatly aligned columns.
+Octave uses a comma or space to separate entries in a row, and a
+semicolon or carriage return to separate one row from the next.
 Ending a command with a semicolon tells Octave not to print the result
 of the command.  For example,
 </p>
@@ -118,7 +118,7 @@ of the command.  For example,
 value between zero and one.
 </p>
 <p>To display the value of a variable, simply type the name of the
-variable at the prompt.  For example, to display the value stored in the 
+variable at the prompt.  For example, to display the value stored in the
 matrix <code>B</code>, type the command
 </p>
 <div class="example">
@@ -168,17 +168,17 @@ but avoids computing the inverse of a matrix directly.
 <p>If the coefficient matrix is singular, Octave will print a warning
 message and compute a minimum norm solution.
 </p>
-<p>A simple example comes from chemistry and the need to obtain balanced 
-chemical equations.  Consider the burning of hydrogen and oxygen to 
+<p>A simple example comes from chemistry and the need to obtain balanced
+chemical equations.  Consider the burning of hydrogen and oxygen to
 produce water.
 </p>
 <div class="example">
 <pre class="example">H2 + O2 --&gt; H2O
 </pre></div>
 
-<p>The equation above is not accurate.  The Law of Conservation of Mass requires 
-that the number of molecules of each type balance on the left- and right-hand 
-sides of the equation.  Writing the variable overall reaction with 
+<p>The equation above is not accurate.  The Law of Conservation of Mass requires
+that the number of molecules of each type balance on the left- and right-hand
+sides of the equation.  Writing the variable overall reaction with
 individual equations for hydrogen and oxygen one finds:
 </p>
 <div class="example">
@@ -224,7 +224,7 @@ function, Octave responds with a different prompt, to indicate that it
 is waiting for you to complete your input.
 </p>
 <div class="example">
-<pre class="example">octave:1&gt; function xdot = f (x, t) 
+<pre class="example">octave:1&gt; function xdot = f (x, t)
 &gt;
 &gt;  r = 0.25;
 &gt;  k = 1.4;
