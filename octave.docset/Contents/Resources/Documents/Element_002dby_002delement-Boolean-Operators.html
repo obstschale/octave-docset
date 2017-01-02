@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Element-by-element Boolean Operators</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Element_002dby_002delement-Boolean-Operators"></a>
 <div class="header">
 <p>
@@ -134,12 +133,13 @@ described for matrix-valued operands.
 </p>
 <a name="index-_0026-1"></a>
 <a name="XREFand"></a><dl>
-<dt><a name="index-and"></a>Built-in Function: <em></em> <strong>and</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-and-1"></a>Built-in Function: <em></em> <strong>and</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
+<dt><a name="index-and"></a>: <em><var>z</var> =</em> <strong>and</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-and-1"></a>: <em><var>z</var> =</em> <strong>and</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
 <dd><p>Return the logical AND of <var>x</var> and <var>y</var>.
-This function is equivalent to <code>x&nbsp;&amp;&nbsp;y</code><!-- /@w -->.
-If more arguments are given, the logical and is applied
-cumulatively from left to right:
+</p>
+<p>This function is equivalent to the operator syntax <code>x&nbsp;&amp;&nbsp;y</code><!-- /@w -->.  If
+more than two arguments are given, the logical AND is applied cumulatively
+from left to right:
 </p>
 <div class="example">
 <pre class="example">(&hellip;((x1 &amp; x2) &amp; x3) &amp; &hellip;)
@@ -147,29 +147,31 @@ cumulatively from left to right:
 
 <p>At least one argument is required.
 </p>
-<p><strong>See also:</strong> <a href="Element_002dby_002delement-Boolean-Operators.html#XREFor">or</a>, <a href="Element_002dby_002delement-Boolean-Operators.html#XREFnot">not</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFxor">xor</a>.
+<p><strong>See also:</strong> <a href="#XREFor">or</a>, <a href="#XREFnot">not</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFxor">xor</a>.
 </p></dd></dl>
 
 
 <a name="index-_007e-1"></a>
 <a name="index-_0021-1"></a>
 <a name="XREFnot"></a><dl>
-<dt><a name="index-not"></a>Built-in Function: <em></em> <strong>not</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Return the logical NOT of <var>x</var>.  This function is equivalent to
-<code>! x</code>.
+<dt><a name="index-not"></a>: <em><var>z</var> =</em> <strong>not</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Return the logical NOT of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Element_002dby_002delement-Boolean-Operators.html#XREFand">and</a>, <a href="Element_002dby_002delement-Boolean-Operators.html#XREFor">or</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFxor">xor</a>.
+<p>This function is equivalent to the operator syntax <code>!&nbsp;x</code><!-- /@w -->.
+</p>
+<p><strong>See also:</strong> <a href="#XREFand">and</a>, <a href="#XREFor">or</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFxor">xor</a>.
 </p></dd></dl>
 
 
 <a name="index-_007c-1"></a>
 <a name="XREFor"></a><dl>
-<dt><a name="index-or"></a>Built-in Function: <em></em> <strong>or</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-or-1"></a>Built-in Function: <em></em> <strong>or</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
+<dt><a name="index-or"></a>: <em><var>z</var> =</em> <strong>or</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-or-1"></a>: <em><var>z</var> =</em> <strong>or</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
 <dd><p>Return the logical OR of <var>x</var> and <var>y</var>.
-This function is equivalent to <code>x&nbsp;|&nbsp;y</code><!-- /@w -->.
-If more arguments are given, the logical or is applied
-cumulatively from left to right:
+</p>
+<p>This function is equivalent to the operator syntax <code>x&nbsp;|&nbsp;y</code><!-- /@w -->.  If
+more than two arguments are given, the logical OR is applied cumulatively
+from left to right:
 </p>
 <div class="example">
 <pre class="example">(&hellip;((x1 | x2) | x3) | &hellip;)
@@ -177,7 +179,7 @@ cumulatively from left to right:
 
 <p>At least one argument is required.
 </p>
-<p><strong>See also:</strong> <a href="Element_002dby_002delement-Boolean-Operators.html#XREFand">and</a>, <a href="Element_002dby_002delement-Boolean-Operators.html#XREFnot">not</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFxor">xor</a>.
+<p><strong>See also:</strong> <a href="#XREFand">and</a>, <a href="#XREFnot">not</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFxor">xor</a>.
 </p></dd></dl>
 
 

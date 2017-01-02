@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Variable-length Argument Lists</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Variable_002dlength-Argument-Lists"></a>
 <div class="header">
 <p>
@@ -132,11 +131,13 @@ endfunction
 </pre></div>
 
 <a name="XREFparseparams"></a><dl>
-<dt><a name="index-parseparams"></a>Function File: <em>[<var>reg</var>, <var>prop</var>] =</em> <strong>parseparams</strong> <em>(<var>params</var>)</em></dt>
-<dt><a name="index-parseparams-1"></a>Function File: <em>[<var>reg</var>, <var>var1</var>, &hellip;] =</em> <strong>parseparams</strong> <em>(<var>params</var>, <var>name1</var>, <var>default1</var>, &hellip;)</em></dt>
+<dt><a name="index-parseparams"></a>: <em>[<var>reg</var>, <var>prop</var>] =</em> <strong>parseparams</strong> <em>(<var>params</var>)</em></dt>
+<dt><a name="index-parseparams-1"></a>: <em>[<var>reg</var>, <var>var1</var>, &hellip;] =</em> <strong>parseparams</strong> <em>(<var>params</var>, <var>name1</var>, <var>default1</var>, &hellip;)</em></dt>
 <dd><p>Return in <var>reg</var> the cell elements of <var>param</var> up to the first
-string element and in <var>prop</var> all remaining elements beginning
-with the first string element.  For example:
+string element and in <var>prop</var> all remaining elements beginning with the
+first string element.
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">[reg, prop] = parseparams ({1, 2, &quot;linewidth&quot;, 10})
@@ -152,20 +153,22 @@ prop =
 }
 </pre></div>
 
-<p>The parseparams function may be used to separate regular numeric
-arguments from additional arguments given as property/value pairs of
-the <var>varargin</var> cell array.
+<p>The parseparams function may be used to separate regular numeric arguments
+from additional arguments given as property/value pairs of the
+<var>varargin</var> cell array.
 </p>
 <p>In the second form of the call, available options are specified directly
-with their default values given as name-value pairs.
-If <var>params</var> do not form name-value pairs, or if an option occurs
-that does not match any of the available options, an error occurs.
-When called from an m-file function, the error is prefixed with the
-name of the caller function.
-The matching of options is case-insensitive.
+with their default values given as name-value pairs.  If <var>params</var> do
+not form name-value pairs, or if an option occurs that does not match any
+of the available options, an error occurs.
+</p>
+<p>When called from an m-file function, the error is prefixed with the name
+of the caller function.
+</p>
+<p>The matching of options is case-insensitive.
 </p>
 
-<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>.
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>, <a href="Multiple-Return-Values.html#XREFinputParser">inputParser</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>JIT Compiler</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="JIT-Compiler"></a>
 <div class="header">
 <p>
@@ -80,44 +79,61 @@ is available it may be worth benchmarking the code with JIT enabled.  The
 function <code>jit_enable</code> is used to turn compilation on or off.  The
 function <code>jit_startcnt</code> sets the threshold for acceleration.  Loops
 with iteration counts above <code>jit_startcnt</code> will be accelerated.  The
-function <code>debug_jit</code> is not likely to be of use to anyone not working
-directly on the implementation of the JIT compiler.
+functions <code>jit_failcnt</code> and <code>debug_jit</code> are not likely to be of use
+to anyone not working directly on the implementation of the JIT compiler.
 </p>
 <a name="XREFjit_005fenable"></a><dl>
-<dt><a name="index-jit_005fenable"></a>Built-in Function: <em><var>val</var> =</em> <strong>jit_enable</strong> <em>()</em></dt>
-<dt><a name="index-jit_005fenable-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>jit_enable</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-jit_005fenable-2"></a>Built-in Function: <em></em> <strong>jit_enable</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-jit_005fenable"></a>: <em><var>val</var> =</em> <strong>jit_enable</strong> <em>()</em></dt>
+<dt><a name="index-jit_005fenable-1"></a>: <em><var>old_val</var> =</em> <strong>jit_enable</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-jit_005fenable-2"></a>: <em></em> <strong>jit_enable</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that enables Octave&rsquo;s JIT compiler.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="JIT-Compiler.html#XREFjit_005fstartcnt">jit_startcnt</a>, <a href="JIT-Compiler.html#XREFdebug_005fjit">debug_jit</a>.
+<p><strong>See also:</strong> <a href="#XREFjit_005fstartcnt">jit_startcnt</a>, <a href="#XREFdebug_005fjit">debug_jit</a>.
 </p></dd></dl>
 
 
 <a name="XREFjit_005fstartcnt"></a><dl>
-<dt><a name="index-jit_005fstartcnt"></a>Built-in Function: <em><var>val</var> =</em> <strong>jit_startcnt</strong> <em>()</em></dt>
-<dt><a name="index-jit_005fstartcnt-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>jit_startcnt</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-jit_005fstartcnt-2"></a>Built-in Function: <em></em> <strong>jit_startcnt</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-jit_005fstartcnt"></a>: <em><var>val</var> =</em> <strong>jit_startcnt</strong> <em>()</em></dt>
+<dt><a name="index-jit_005fstartcnt-1"></a>: <em><var>old_val</var> =</em> <strong>jit_startcnt</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-jit_005fstartcnt-2"></a>: <em></em> <strong>jit_startcnt</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that determines whether JIT compilation
-will take place for a specific loop.  Because compilation is a costly
-operation it does not make sense to employ JIT when the loop count is low.
-By default only loops with greater than 1000 iterations will be accelerated.
+will take place for a specific loop.
+</p>
+<p>Because compilation is a costly operation it does not make sense to employ
+JIT when the loop count is low.  By default only loops with greater than
+1000 iterations will be accelerated.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="JIT-Compiler.html#XREFjit_005fenable">jit_enable</a>, <a href="JIT-Compiler.html#XREFdebug_005fjit">debug_jit</a>.
+<p><strong>See also:</strong> <a href="#XREFjit_005fenable">jit_enable</a>, <a href="#XREFjit_005ffailcnt">jit_failcnt</a>, <a href="#XREFdebug_005fjit">debug_jit</a>.
+</p></dd></dl>
+
+
+<a name="XREFjit_005ffailcnt"></a><dl>
+<dt><a name="index-jit_005ffailcnt"></a>: <em><var>val</var> =</em> <strong>jit_failcnt</strong> <em>()</em></dt>
+<dt><a name="index-jit_005ffailcnt-1"></a>: <em><var>old_val</var> =</em> <strong>jit_failcnt</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-jit_005ffailcnt-2"></a>: <em></em> <strong>jit_failcnt</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dd><p>Query or set the internal variable that counts the number of JIT fail
+exceptions for Octave&rsquo;s JIT compiler.
+</p>
+<p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
+variable is changed locally for the function and any subroutines it calls.
+The original variable value is restored when exiting the function.
+</p>
+<p><strong>See also:</strong> <a href="#XREFjit_005fenable">jit_enable</a>, <a href="#XREFjit_005fstartcnt">jit_startcnt</a>, <a href="#XREFdebug_005fjit">debug_jit</a>.
 </p></dd></dl>
 
 
 <a name="XREFdebug_005fjit"></a><dl>
-<dt><a name="index-debug_005fjit"></a>Built-in Function: <em><var>val</var> =</em> <strong>debug_jit</strong> <em>()</em></dt>
-<dt><a name="index-debug_005fjit-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>debug_jit</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-debug_005fjit-2"></a>Built-in Function: <em></em> <strong>debug_jit</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-debug_005fjit"></a>: <em><var>val</var> =</em> <strong>debug_jit</strong> <em>()</em></dt>
+<dt><a name="index-debug_005fjit-1"></a>: <em><var>old_val</var> =</em> <strong>debug_jit</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-debug_005fjit-2"></a>: <em></em> <strong>debug_jit</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that determines whether
 debugging/tracing is enabled for Octave&rsquo;s JIT compiler.
 </p>
@@ -125,7 +141,7 @@ debugging/tracing is enabled for Octave&rsquo;s JIT compiler.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="JIT-Compiler.html#XREFjit_005fenable">jit_enable</a>, <a href="JIT-Compiler.html#XREFjit_005fstartcnt">jit_startcnt</a>.
+<p><strong>See also:</strong> <a href="#XREFjit_005fenable">jit_enable</a>, <a href="#XREFjit_005fstartcnt">jit_startcnt</a>.
 </p></dd></dl>
 
 

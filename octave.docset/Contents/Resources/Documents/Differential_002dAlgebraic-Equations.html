@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Differential-Algebraic Equations</title>
 
@@ -15,20 +15,20 @@
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Differential-Equations.html#Differential-Equations" rel="up" title="Differential Equations">
 <link href="Optimization.html#Optimization" rel="next" title="Optimization">
-<link href="Ordinary-Differential-Equations.html#Ordinary-Differential-Equations" rel="prev" title="Ordinary Differential Equations">
+<link href="Matlab_002dcompatible-solvers.html#Matlab_002dcompatible-solvers" rel="prev" title="Matlab-compatible solvers">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Differential_002dAlgebraic-Equations"></a>
 <div class="header">
 <p>
@@ -68,11 +67,11 @@ Previous: <a href="Ordinary-Differential-Equations.html#Ordinary-Differential-Eq
 
 <p>where
 <em>x-dot</em>
-is the derivative of <em>x</em>.  The equation is solved using Petzold&rsquo;s
-DAE solver <small>DASPK</small>.
+is the derivative of <em>x</em>.  The equation is solved using
+Petzold&rsquo;s DAE solver <small>DASPK</small>.
 </p>
 <a name="XREFdaspk"></a><dl>
-<dt><a name="index-daspk"></a>Built-in Function: <em>[<var>x</var>, <var>xdot</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>daspk</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
+<dt><a name="index-daspk"></a>: <em>[<var>x</var>, <var>xdot</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>daspk</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
 <dd><p>Solve the set of differential-algebraic equations
 </p>
 <div class="example">
@@ -120,6 +119,7 @@ jac = -- + c ------
 </p>
 <div class="example">
 <pre class="example">
+
 <var>jac</var> = j (<var>x</var>, <var>xdot</var>, <var>t</var>, <var>c</var>)
 
 </pre></div>
@@ -148,31 +148,34 @@ less than zero and <var>msg</var> will contain additional information.
 <p>You can use the function <code>daspk_options</code> to set optional
 parameters for <code>daspk</code>.
 </p>
-<p><strong>See also:</strong> <a href="Differential_002dAlgebraic-Equations.html#XREFdassl">dassl</a>.
+<p><strong>See also:</strong> <a href="#XREFdassl">dassl</a>.
 </p></dd></dl>
 
 
 <a name="XREFdaspk_005foptions"></a><dl>
-<dt><a name="index-daspk_005foptions"></a>Built-in Function: <em></em> <strong>daspk_options</strong> <em>()</em></dt>
-<dt><a name="index-daspk_005foptions-1"></a>Built-in Function: <em>val =</em> <strong>daspk_options</strong> <em>(<var>opt</var>)</em></dt>
-<dt><a name="index-daspk_005foptions-2"></a>Built-in Function: <em></em> <strong>daspk_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
+<dt><a name="index-daspk_005foptions"></a>: <em></em> <strong>daspk_options</strong> <em>()</em></dt>
+<dt><a name="index-daspk_005foptions-1"></a>: <em>val =</em> <strong>daspk_options</strong> <em>(<var>opt</var>)</em></dt>
+<dt><a name="index-daspk_005foptions-2"></a>: <em></em> <strong>daspk_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
 <dd><p>Query or set options for the function <code>daspk</code>.
-When called with no arguments, the names of all available options and
+</p>
+<p>When called with no arguments, the names of all available options and
 their current values are displayed.
-Given one argument, return the value of the corresponding option.
-When called with two arguments, <code>daspk_options</code> set the option
+</p>
+<p>Given one argument, return the value of the option <var>opt</var>.
+</p>
+<p>When called with two arguments, <code>daspk_options</code> sets the option
 <var>opt</var> to value <var>val</var>.
 </p>
 <p>Options include
 </p>
 <dl compact="compact">
-<dt><code><code>&quot;absolute tolerance&quot;</code></code></dt>
+<dt><code>&quot;absolute tolerance&quot;</code></dt>
 <dd><p>Absolute tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector, and the relative
 tolerance must also be a vector of the same length.
 </p>
 </dd>
-<dt><code><code>&quot;relative tolerance&quot;</code></code></dt>
+<dt><code>&quot;relative tolerance&quot;</code></dt>
 <dd><p>Relative tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector, and the absolute
 tolerance must also be a vector of the same length.
@@ -185,7 +188,7 @@ tolerance must also be a vector of the same length.
 </pre></div>
 
 </dd>
-<dt><code><code>&quot;compute consistent initial condition&quot;</code></code></dt>
+<dt><code>&quot;compute consistent initial condition&quot;</code></dt>
 <dd><p>Denoting the differential variables in the state vector by &lsquo;<samp>Y_d</samp>&rsquo;
 and the algebraic variables by &lsquo;<samp>Y_a</samp>&rsquo;, <code>ddaspk</code> can solve
 one of two initialization problems:
@@ -207,12 +210,12 @@ initial conditions that are consistent).
 problem are algebraic.
 </p>
 </dd>
-<dt><code><code>&quot;use initial condition heuristics&quot;</code></code></dt>
+<dt><code>&quot;use initial condition heuristics&quot;</code></dt>
 <dd><p>Set to a nonzero value to use the initial condition heuristics options
 described below.
 </p>
 </dd>
-<dt><code><code>&quot;initial condition heuristics&quot;</code></code></dt>
+<dt><code>&quot;initial condition heuristics&quot;</code></dt>
 <dd><p>A vector of the following parameters that can be used to control the
 initial condition calculation.
 </p>
@@ -256,29 +259,29 @@ time steps.  The default is <code>EPINIT</code> = 0.01.
 </dl>
 
 </dd>
-<dt><code><code>&quot;print initial condition info&quot;</code></code></dt>
+<dt><code>&quot;print initial condition info&quot;</code></dt>
 <dd><p>Set this option to a nonzero value to display detailed information
 about the initial condition calculation (default is 0).
 </p>
 </dd>
-<dt><code><code>&quot;exclude algebraic variables from error test&quot;</code></code></dt>
+<dt><code>&quot;exclude algebraic variables from error test&quot;</code></dt>
 <dd><p>Set to a nonzero value to exclude algebraic variables from the error
 test.  You must also set the <code>&quot;algebraic variables&quot;</code> option to
 declare which variables in the problem are algebraic (default is 0).
 </p>
 </dd>
-<dt><code><code>&quot;algebraic variables&quot;</code></code></dt>
+<dt><code>&quot;algebraic variables&quot;</code></dt>
 <dd><p>A vector of the same length as the state vector.  A nonzero element
 indicates that the corresponding element of the state vector is an
 algebraic variable (i.e., its derivative does not appear explicitly
-in the equation set.
+in the equation set).
 </p>
 <p>This option is required by the
-<code>compute consistent initial condition&quot;</code> and
+<code>&quot;compute consistent initial condition&quot;</code> and
 <code>&quot;exclude algebraic variables from error test&quot;</code> options.
 </p>
 </dd>
-<dt><code><code>&quot;enforce inequality constraints&quot;</code></code></dt>
+<dt><code>&quot;enforce inequality constraints&quot;</code></dt>
 <dd><p>Set to one of the following values to enforce the inequality
 constraints specified by the <code>&quot;inequality constraint types&quot;</code>
 option (default is 0).
@@ -292,7 +295,7 @@ option (default is 0).
 </li></ol>
 
 </dd>
-<dt><code><code>&quot;inequality constraint types&quot;</code></code></dt>
+<dt><code>&quot;inequality constraint types&quot;</code></dt>
 <dd><p>A vector of the same length as the state specifying the type of
 inequality constraint.  Each element of the vector corresponds to an
 element of the state and should be assigned one of the following
@@ -324,7 +327,7 @@ codes
 <code>&quot;enforce inequality constraints&quot;</code> option is nonzero.
 </p>
 </dd>
-<dt><code><code>&quot;initial step size&quot;</code></code></dt>
+<dt><code>&quot;initial step size&quot;</code></dt>
 <dd><p>Differential-algebraic problems may occasionally suffer from severe
 scaling difficulties on the first step.  If you know a great deal
 about the scaling of your problem, you can help to alleviate this
@@ -332,12 +335,12 @@ problem by specifying an initial stepsize (default is computed
 automatically).
 </p>
 </dd>
-<dt><code><code>&quot;maximum order&quot;</code></code></dt>
+<dt><code>&quot;maximum order&quot;</code></dt>
 <dd><p>Restrict the maximum order of the solution method.  This option must
 be between 1 and 5, inclusive (default is 5).
 </p>
 </dd>
-<dt><code><code>&quot;maximum step size&quot;</code></code></dt>
+<dt><code>&quot;maximum step size&quot;</code></dt>
 <dd><p>Setting the maximum stepsize will avoid passing over very large
 regions (default is not specified).
 </p></dd>
@@ -350,7 +353,7 @@ and <small>DASRT</small>, which can be used to solve DAEs with constraints
 (stopping conditions).
 </p>
 <a name="XREFdassl"></a><dl>
-<dt><a name="index-dassl"></a>Built-in Function: <em>[<var>x</var>, <var>xdot</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>dassl</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
+<dt><a name="index-dassl"></a>: <em>[<var>x</var>, <var>xdot</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>dassl</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
 <dd><p>Solve the set of differential-algebraic equations
 </p>
 <div class="example">
@@ -399,6 +402,7 @@ jac = -- + c ------
 </p>
 <div class="example">
 <pre class="example">
+
 <var>jac</var> = j (<var>x</var>, <var>xdot</var>, <var>t</var>, <var>c</var>)
 
 </pre></div>
@@ -427,31 +431,34 @@ less than zero and <var>msg</var> will contain additional information.
 <p>You can use the function <code>dassl_options</code> to set optional
 parameters for <code>dassl</code>.
 </p>
-<p><strong>See also:</strong> <a href="Differential_002dAlgebraic-Equations.html#XREFdaspk">daspk</a>, <a href="Differential_002dAlgebraic-Equations.html#XREFdasrt">dasrt</a>, <a href="Ordinary-Differential-Equations.html#XREFlsode">lsode</a>.
+<p><strong>See also:</strong> <a href="#XREFdaspk">daspk</a>, <a href="#XREFdasrt">dasrt</a>, <a href="Ordinary-Differential-Equations.html#XREFlsode">lsode</a>.
 </p></dd></dl>
 
 
 <a name="XREFdassl_005foptions"></a><dl>
-<dt><a name="index-dassl_005foptions"></a>Built-in Function: <em></em> <strong>dassl_options</strong> <em>()</em></dt>
-<dt><a name="index-dassl_005foptions-1"></a>Built-in Function: <em>val =</em> <strong>dassl_options</strong> <em>(<var>opt</var>)</em></dt>
-<dt><a name="index-dassl_005foptions-2"></a>Built-in Function: <em></em> <strong>dassl_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
+<dt><a name="index-dassl_005foptions"></a>: <em></em> <strong>dassl_options</strong> <em>()</em></dt>
+<dt><a name="index-dassl_005foptions-1"></a>: <em>val =</em> <strong>dassl_options</strong> <em>(<var>opt</var>)</em></dt>
+<dt><a name="index-dassl_005foptions-2"></a>: <em></em> <strong>dassl_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
 <dd><p>Query or set options for the function <code>dassl</code>.
-When called with no arguments, the names of all available options and
+</p>
+<p>When called with no arguments, the names of all available options and
 their current values are displayed.
-Given one argument, return the value of the corresponding option.
-When called with two arguments, <code>dassl_options</code> set the option
+</p>
+<p>Given one argument, return the value of the option <var>opt</var>.
+</p>
+<p>When called with two arguments, <code>dassl_options</code> sets the option
 <var>opt</var> to value <var>val</var>.
 </p>
 <p>Options include
 </p>
 <dl compact="compact">
-<dt><code><code>&quot;absolute tolerance&quot;</code></code></dt>
+<dt><code>&quot;absolute tolerance&quot;</code></dt>
 <dd><p>Absolute tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector, and the relative
 tolerance must also be a vector of the same length.
 </p>
 </dd>
-<dt><code><code>&quot;relative tolerance&quot;</code></code></dt>
+<dt><code>&quot;relative tolerance&quot;</code></dt>
 <dd><p>Relative tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector, and the absolute
 tolerance must also be a vector of the same length.
@@ -464,13 +471,13 @@ tolerance must also be a vector of the same length.
 </pre></div>
 
 </dd>
-<dt><code><code>&quot;compute consistent initial condition&quot;</code></code></dt>
+<dt><code>&quot;compute consistent initial condition&quot;</code></dt>
 <dd><p>If nonzero, <code>dassl</code> will attempt to compute a consistent set of initial
 conditions.  This is generally not reliable, so it is best to provide
 a consistent set and leave this option set to zero.
 </p>
 </dd>
-<dt><code><code>&quot;enforce nonnegativity constraints&quot;</code></code></dt>
+<dt><code>&quot;enforce nonnegativity constraints&quot;</code></dt>
 <dd><p>If you know that the solutions to your equations will always be
 non-negative, it may help to set this parameter to a nonzero
 value.  However, it is probably best to try leaving this option set to
@@ -478,24 +485,24 @@ zero first, and only setting it to a nonzero value if that doesn&rsquo;t
 work very well.
 </p>
 </dd>
-<dt><code><code>&quot;initial step size&quot;</code></code></dt>
+<dt><code>&quot;initial step size&quot;</code></dt>
 <dd><p>Differential-algebraic problems may occasionally suffer from severe
 scaling difficulties on the first step.  If you know a great deal
 about the scaling of your problem, you can help to alleviate this
 problem by specifying an initial stepsize.
 </p>
 </dd>
-<dt><code><code>&quot;maximum order&quot;</code></code></dt>
+<dt><code>&quot;maximum order&quot;</code></dt>
 <dd><p>Restrict the maximum order of the solution method.  This option must
 be between 1 and 5, inclusive.
 </p>
 </dd>
-<dt><code><code>&quot;maximum step size&quot;</code></code></dt>
+<dt><code>&quot;maximum step size&quot;</code></dt>
 <dd><p>Setting the maximum stepsize will avoid passing over very large
 regions  (default is not specified).
 </p>
 </dd>
-<dt><code><code>&quot;step limit&quot;</code></code></dt>
+<dt><code>&quot;step limit&quot;</code></dt>
 <dd><p>Maximum number of integration steps to attempt on a single call to the
 underlying Fortran code.
 </p></dd>
@@ -504,10 +511,10 @@ underlying Fortran code.
 
 
 <a name="XREFdasrt"></a><dl>
-<dt><a name="index-dasrt"></a>Built-in Function: <em>[<var>x</var>, <var>xdot</var>, <var>t_out</var>, <var>istat</var>, <var>msg</var>] =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, [], <var>x_0</var>, <var>xdot_0</var>, <var>t</var>)</em></dt>
-<dt><a name="index-dasrt-1"></a>Built-in Function: <em>&hellip; =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, <var>g</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>)</em></dt>
-<dt><a name="index-dasrt-2"></a>Built-in Function: <em>&hellip; =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, [], <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
-<dt><a name="index-dasrt-3"></a>Built-in Function: <em>&hellip; =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, <var>g</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
+<dt><a name="index-dasrt"></a>: <em>[<var>x</var>, <var>xdot</var>, <var>t_out</var>, <var>istat</var>, <var>msg</var>] =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, [], <var>x_0</var>, <var>xdot_0</var>, <var>t</var>)</em></dt>
+<dt><a name="index-dasrt-1"></a>: <em>&hellip; =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, <var>g</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>)</em></dt>
+<dt><a name="index-dasrt-2"></a>: <em>&hellip; =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, [], <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
+<dt><a name="index-dasrt-3"></a>: <em>&hellip; =</em> <strong>dasrt</strong> <em>(<var>fcn</var>, <var>g</var>, <var>x_0</var>, <var>xdot_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
 <dd><p>Solve the set of differential-algebraic equations
 </p>
 <div class="example">
@@ -564,6 +571,7 @@ jac = -- + c ------
 </p>
 <div class="example">
 <pre class="example">
+
 <var>jac</var> = j (<var>x</var>, <var>xdot</var>, <var>t</var>, <var>c</var>)
 
 </pre></div>
@@ -619,31 +627,34 @@ less than zero and <var>msg</var> will contain additional information.
 <p>You can use the function <code>dasrt_options</code> to set optional
 parameters for <code>dasrt</code>.
 </p>
-<p><strong>See also:</strong> <a href="Differential_002dAlgebraic-Equations.html#XREFdasrt_005foptions">dasrt_options</a>, <a href="Differential_002dAlgebraic-Equations.html#XREFdaspk">daspk</a>, <a href="Differential_002dAlgebraic-Equations.html#XREFdasrt">dasrt</a>, <a href="Ordinary-Differential-Equations.html#XREFlsode">lsode</a>.
+<p><strong>See also:</strong> <a href="#XREFdasrt_005foptions">dasrt_options</a>, <a href="#XREFdaspk">daspk</a>, <a href="#XREFdasrt">dasrt</a>, <a href="Ordinary-Differential-Equations.html#XREFlsode">lsode</a>.
 </p></dd></dl>
 
 
 <a name="XREFdasrt_005foptions"></a><dl>
-<dt><a name="index-dasrt_005foptions"></a>Built-in Function: <em></em> <strong>dasrt_options</strong> <em>()</em></dt>
-<dt><a name="index-dasrt_005foptions-1"></a>Built-in Function: <em>val =</em> <strong>dasrt_options</strong> <em>(<var>opt</var>)</em></dt>
-<dt><a name="index-dasrt_005foptions-2"></a>Built-in Function: <em></em> <strong>dasrt_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
+<dt><a name="index-dasrt_005foptions"></a>: <em></em> <strong>dasrt_options</strong> <em>()</em></dt>
+<dt><a name="index-dasrt_005foptions-1"></a>: <em>val =</em> <strong>dasrt_options</strong> <em>(<var>opt</var>)</em></dt>
+<dt><a name="index-dasrt_005foptions-2"></a>: <em></em> <strong>dasrt_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
 <dd><p>Query or set options for the function <code>dasrt</code>.
-When called with no arguments, the names of all available options and
+</p>
+<p>When called with no arguments, the names of all available options and
 their current values are displayed.
-Given one argument, return the value of the corresponding option.
-When called with two arguments, <code>dasrt_options</code> set the option
+</p>
+<p>Given one argument, return the value of the option <var>opt</var>.
+</p>
+<p>When called with two arguments, <code>dasrt_options</code> sets the option
 <var>opt</var> to value <var>val</var>.
 </p>
 <p>Options include
 </p>
 <dl compact="compact">
-<dt><code><code>&quot;absolute tolerance&quot;</code></code></dt>
+<dt><code>&quot;absolute tolerance&quot;</code></dt>
 <dd><p>Absolute tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector, and the relative
 tolerance must also be a vector of the same length.
 </p>
 </dd>
-<dt><code><code>&quot;relative tolerance&quot;</code></code></dt>
+<dt><code>&quot;relative tolerance&quot;</code></dt>
 <dd><p>Relative tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector, and the absolute
 tolerance must also be a vector of the same length.
@@ -656,24 +667,24 @@ tolerance must also be a vector of the same length.
 </pre></div>
 
 </dd>
-<dt><code><code>&quot;initial step size&quot;</code></code></dt>
+<dt><code>&quot;initial step size&quot;</code></dt>
 <dd><p>Differential-algebraic problems may occasionally suffer from severe
 scaling difficulties on the first step.  If you know a great deal
 about the scaling of your problem, you can help to alleviate this
 problem by specifying an initial stepsize.
 </p>
 </dd>
-<dt><code><code>&quot;maximum order&quot;</code></code></dt>
+<dt><code>&quot;maximum order&quot;</code></dt>
 <dd><p>Restrict the maximum order of the solution method.  This option must
 be between 1 and 5, inclusive.
 </p>
 </dd>
-<dt><code><code>&quot;maximum step size&quot;</code></code></dt>
+<dt><code>&quot;maximum step size&quot;</code></dt>
 <dd><p>Setting the maximum stepsize will avoid passing over very large
 regions.
 </p>
 </dd>
-<dt><code><code>&quot;step limit&quot;</code></code></dt>
+<dt><code>&quot;step limit&quot;</code></dt>
 <dd><p>Maximum number of integration steps to attempt on a single call to the
 underlying Fortran code.
 </p></dd>

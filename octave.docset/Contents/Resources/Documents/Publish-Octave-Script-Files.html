@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Publish Octave Script Files</title>
+
+<meta name="description" content="GNU Octave: Publish Octave Script Files">
+<meta name="keywords" content="GNU Octave: Publish Octave Script Files">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Script-Files.html#Script-Files" rel="up" title="Script Files">
+<link href="Publishing-Markup.html#Publishing-Markup" rel="next" title="Publishing Markup">
+<link href="Script-Files.html#Script-Files" rel="prev" title="Script Files">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
+
+
+</head>
+
+<body lang="en">
+<a name="Publish-Octave-Script-Files"></a>
+<div class="header">
+<p>
+Next: <a href="Publishing-Markup.html#Publishing-Markup" accesskey="n" rel="next">Publishing Markup</a>, Up: <a href="Script-Files.html#Script-Files" accesskey="u" rel="up">Script Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Publish-Octave-Script-Files-1"></a>
+<h4 class="subsection">11.10.1 Publish Octave Script Files</h4>
+
+<p>The function <code>publish</code> provides a dynamic possibility to document your
+script file.  Unlike static documentation, <code>publish</code> runs the script
+file, saves any figures and output while running the script, and presents them
+alongside static documentation in a desired output format.  The static
+documentation can make use of <a href="Publishing-Markup.html#Publishing-Markup">Publishing Markup</a> to enhance and
+customize the output.
+</p>
+<a name="XREFpublish"></a><dl>
+<dt><a name="index-publish"></a>: <em></em> <strong>publish</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-publish-1"></a>: <em></em> <strong>publish</strong> <em>(<var>filename</var>, <var>output_format</var>)</em></dt>
+<dt><a name="index-publish-2"></a>: <em></em> <strong>publish</strong> <em>(<var>filename</var>, <var>option1</var>, <var>value1</var>, &hellip;)</em></dt>
+<dt><a name="index-publish-3"></a>: <em></em> <strong>publish</strong> <em>(<var>filename</var>, <var>options</var>)</em></dt>
+<dt><a name="index-publish-4"></a>: <em><var>output_file</var> =</em> <strong>publish</strong> <em>(<var>filename</var>, &hellip;)</em></dt>
+<dd>
+<p>Generate reports from Octave script files in several output formats.
+</p>
+<p>The generated reports consider Publishing Markup in comments,
+which is explained in detail in the GNU Octave manual.  Assume the
+following example, using some Publishing Markup, to be the content
+of a script file named &lsquo;<samp>example.m</samp>&rsquo;:
+</p>
+<div class="example">
+<pre class="example">%% Headline title
+%
+% Some *bold*, _italic_, or |monospaced| Text with
+% a &lt;http://www.octave.org link to *GNU Octave*&gt;.
+%%
+
+# &quot;Real&quot; Octave commands to be evaluated
+sombrero ()
+
+## Octave comment style supported as well
+#
+# * Bulleted list item 1
+# * Bulleted list item 2
+#
+# # Numbered list item 1
+# # Numbered list item 2
+</pre></div>
+
+<p>To publish this script file, type <code>publish (&quot;example.m&quot;)</code>.
+</p>
+<p>With only <var>filename</var> given, a HTML report is generated in a
+subdirectory &lsquo;<samp>html</samp>&rsquo; relative to the current working directory.
+The Octave commands are evaluated in a separate context and any
+figures created while executing the script file are included in the
+report.  All formatting syntax of <var>filename</var> is treated according
+to the specified output format and included in the report.
+</p>
+<p>Using <code>publish (<var>filename</var>, <var>output_format</var>)</code> is
+equivalent to the function call using a structure
+</p>
+<div class="example">
+<pre class="example"><var>options</var>.format = <var>output_format</var>;
+publish (<var>filename</var>, <var>options</var>)
+</pre></div>
+
+<p>which is described below.  The same holds for using option-value-pairs
+</p>
+<div class="example">
+<pre class="example"><var>options</var>.<var>option1</var> = <var>value1</var>;
+publish (<var>filename</var>, <var>options</var>)
+</pre></div>
+
+<p>The structure <var>options</var> can have the following field names.  If a
+field name is not specified, the default value is considered:
+</p>
+<ul>
+<li> &lsquo;<samp>format</samp>&rsquo; &mdash; Output format of the published script file, one of
+
+<p>&lsquo;<samp>html</samp>&rsquo; (default), &lsquo;<samp>doc</samp>&rsquo;, &lsquo;<samp>latex</samp>&rsquo;, &lsquo;<samp>ppt</samp>&rsquo;,
+&lsquo;<samp>xml</samp>&rsquo;, or &lsquo;<samp>pdf</samp>&rsquo;.
+</p>
+<p>The output formats &lsquo;<samp>doc</samp>&rsquo;, &lsquo;<samp>ppt</samp>&rsquo;, and &lsquo;<samp>xml</samp>&rsquo; are currently
+not supported.  To generate a &lsquo;<samp>doc</samp>&rsquo; report, open a generated
+&lsquo;<samp>html</samp>&rsquo; report with your office suite.
+</p>
+</li><li> &lsquo;<samp>outputDir</samp>&rsquo; &mdash; Full path string of a directory, where the generated
+report will be located.  If no directory is given, the report is generated
+in a subdirectory &lsquo;<samp>html</samp>&rsquo; relative to the current working directory.
+
+</li><li> &lsquo;<samp>stylesheet</samp>&rsquo; &mdash; Not supported, only for <small>MATLAB</small> compatibility.
+
+</li><li> &lsquo;<samp>createThumbnail</samp>&rsquo; &mdash; Not supported, only for <small>MATLAB</small> compatibility.
+
+</li><li> &lsquo;<samp>figureSnapMethod</samp>&rsquo; &mdash; Not supported, only for <small>MATLAB</small> compatibility.
+
+</li><li> &lsquo;<samp>imageFormat</samp>&rsquo; &mdash; Desired format for images produced, while
+evaluating the code.  The allowed image formats depend on the output
+format:
+
+<ul>
+<li> &lsquo;<samp>html</samp>&rsquo; and &lsquo;<samp>xml</samp>&rsquo; &mdash; &lsquo;<samp>png</samp>&rsquo; (default), any other
+image format supported by Octave
+
+</li><li> &lsquo;<samp>latex</samp>&rsquo; &mdash; &lsquo;<samp>epsc2</samp>&rsquo; (default), any other image format
+supported by Octave
+
+</li><li> &lsquo;<samp>pdf</samp>&rsquo; &mdash; &lsquo;<samp>jpg</samp>&rsquo; (default) or &lsquo;<samp>bmp</samp>&rsquo;, note <small>MATLAB</small>
+uses  &lsquo;<samp>bmp</samp>&rsquo; as default
+
+</li><li> &lsquo;<samp>doc</samp>&rsquo; or &lsquo;<samp>ppt</samp>&rsquo; &mdash; &lsquo;<samp>png</samp>&rsquo; (default), &lsquo;<samp>jpg</samp>&rsquo;,
+&lsquo;<samp>bmp</samp>&rsquo;, or &lsquo;<samp>tiff</samp>&rsquo;
+</li></ul>
+
+</li><li> &lsquo;<samp>maxHeight</samp>&rsquo; and &lsquo;<samp>maxWidth</samp>&rsquo; &mdash; Maximum height (width) of the
+produced images in pixels.  An empty value means no restriction.  Both
+values have to be set, to work properly.
+
+<p>&lsquo;<samp>[]</samp>&rsquo; (default), integer value &ge; 0
+</p>
+</li><li> &lsquo;<samp>useNewFigure</samp>&rsquo; &mdash; Use a new figure window for figures created by
+the evaluated code.  This avoids side effects with already opened figure
+windows.
+
+<p>&lsquo;<samp>true</samp>&rsquo; (default) or &lsquo;<samp>false</samp>&rsquo;
+</p>
+</li><li> &lsquo;<samp>evalCode</samp>&rsquo; &mdash; Evaluate code of the Octave source file
+
+<p>&lsquo;<samp>true</samp>&rsquo; (default) or &lsquo;<samp>false</samp>&rsquo;
+</p>
+</li><li> &lsquo;<samp>catchError</samp>&rsquo; &mdash; Catch errors while code evaluation and continue
+
+<p>&lsquo;<samp>true</samp>&rsquo; (default) or &lsquo;<samp>false</samp>&rsquo;
+</p>
+</li><li> &lsquo;<samp>codeToEvaluate</samp>&rsquo; &mdash; Octave commands that should be evaluated prior
+to publishing the script file.  These Octave commands do not appear in the
+generated report.
+
+</li><li> &lsquo;<samp>maxOutputLines</samp>&rsquo; &mdash; Maximum number of shown output lines of the
+code evaluation
+
+<p>&lsquo;<samp>Inf</samp>&rsquo; (default) or integer value &gt; 0
+</p>
+</li><li> &lsquo;<samp>showCode</samp>&rsquo; &mdash; Show the evaluated Octave commands in the generated
+report
+
+<p>&lsquo;<samp>true</samp>&rsquo; (default) or &lsquo;<samp>false</samp>&rsquo;
+</p></li></ul>
+
+<p>The returned <var>output_file</var> is a string with the path and file name
+of the generated report.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFgrabcode">grabcode</a>.
+</p></dd></dl>
+
+
+<p>The counterpart to <code>publish</code> is <code>grabcode</code>:
+</p>
+<a name="XREFgrabcode"></a><dl>
+<dt><a name="index-grabcode"></a>: <em></em> <strong>grabcode</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-grabcode-1"></a>: <em><var>code_str</var> =</em> <strong>grabcode</strong> <em>(<var>url</var>)</em></dt>
+<dd>
+<p>Grab by the <code>publish</code> function generated HTML reports from Octave
+script files.
+</p>
+<p>The input parameter <var>url</var> must point to a local or remote HTML file
+with extension &lsquo;<samp>.htm</samp>&rsquo; or &lsquo;<samp>.html</samp>&rsquo; which was generated by the
+<code>publish</code> function.  With any other HTML file this will not work!
+</p>
+<p>If no return value is given, the grabbed code is saved to a temporary
+file and opened in the default editor.
+</p>
+<p>NOTE: You have to save the file at another location with arbitrary name,
+otherwise any grabbed code will be lost!
+</p>
+<p>With a return value given, the grabbed code will be returned as string
+<var>code_str</var>.
+</p>
+<p>An example:
+</p>
+<div class="example">
+<pre class="example">publish (&quot;my_script.m&quot;);
+grabcode (&quot;html/my_script.html&quot;);
+</pre></div>
+
+<p>The example above publishes &lsquo;<samp>my_script.m</samp>&rsquo; by default to
+&lsquo;<samp>html/my_script.html</samp>&rsquo;.  Afterwards this published Octave script
+is grabbed to edit its content in a new temporary file.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFpublish">publish</a>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Publishing-Markup.html#Publishing-Markup" accesskey="n" rel="next">Publishing Markup</a>, Up: <a href="Script-Files.html#Script-Files" accesskey="u" rel="up">Script Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

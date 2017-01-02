@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Customizing Toolkit Behavior</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Customizing-Toolkit-Behavior"></a>
 <div class="header">
 <p>
@@ -65,71 +64,20 @@ following utility functions.  Note: Not all functions apply to every
 graphics toolkit.
 </p>
 <a name="XREFgnuplot_005fbinary"></a><dl>
-<dt><a name="index-gnuplot_005fbinary"></a>Loadable Function: <em>[<var>prog</var>, <var>args</var>] =</em> <strong>gnuplot_binary</strong> <em>()</em></dt>
-<dt><a name="index-gnuplot_005fbinary-1"></a>Loadable Function: <em>[<var>old_prog</var>, <var>old_args</var>] =</em> <strong>gnuplot_binary</strong> <em>(<var>new_prog</var>, <var>arg1</var>, &hellip;)</em></dt>
-<dd><p>Query or set the name of the program invoked by the plot command
-when the graphics toolkit is set to &quot;gnuplot&quot;.  Additional arguments to
-pass to the external plotting program may also be given.
-The default value is <code>&quot;gnuplot&quot;</code> with no additional arguments.
+<dt><a name="index-gnuplot_005fbinary"></a>: <em>[<var>prog</var>, <var>args</var>] =</em> <strong>gnuplot_binary</strong> <em>()</em></dt>
+<dt><a name="index-gnuplot_005fbinary-1"></a>: <em>[<var>old_prog</var>, <var>old_args</var>] =</em> <strong>gnuplot_binary</strong> <em>(<var>new_prog</var>, <var>arg1</var>, &hellip;)</em></dt>
+<dd><p>Query or set the name of the program invoked by the plot command when the
+graphics toolkit is set to <code>&quot;gnuplot&quot;</code>.
+</p>
+<p>Additional arguments to pass to the external plotting program may also be
+given.  The default value is <code>&quot;gnuplot&quot;</code> with no additional arguments.
 See <a href="Installation.html#Installation">Installation</a>.
 </p>
 <p><strong>See also:</strong> <a href="Graphics-Toolkits.html#XREFgraphics_005ftoolkit">graphics_toolkit</a>.
 </p></dd></dl>
 
 
-<a name="XREFgui_005fmode"></a><dl>
-<dt><a name="index-gui_005fmode"></a>Built-in Function: <em><var>mode</var> =</em> <strong>gui_mode</strong> <em>()</em></dt>
-<dt><a name="index-gui_005fmode-1"></a>Built-in Function: <em></em> <strong>gui_mode</strong> <em>(<var>mode</var>)</em></dt>
-<dd><p>Query or set the GUI mode for the current graphics toolkit.
-The <var>mode</var> argument can be one of the following strings:
-</p>
-<dl compact="compact">
-<dt><code>&quot;2d&quot;</code></dt>
-<dd><p>Allows panning and zooming of current axes.
-</p>
-</dd>
-<dt><code>&quot;3d&quot;</code></dt>
-<dd><p>Allows rotating and zooming of current axes.
-</p>
-</dd>
-<dt><code>&quot;none&quot;</code></dt>
-<dd><p>Mouse inputs have no effect.
-</p></dd>
-</dl>
 
-<p>This function is currently implemented only for the FLTK graphics toolkit.
-</p>
-<p><strong>See also:</strong> <a href="Customizing-Toolkit-Behavior.html#XREFmouse_005fwheel_005fzoom">mouse_wheel_zoom</a>.
-</p></dd></dl>
-
-
-<a name="XREFmouse_005fwheel_005fzoom"></a><dl>
-<dt><a name="index-mouse_005fwheel_005fzoom"></a>Loadable Function: <em><var>val</var> =</em> <strong>mouse_wheel_zoom</strong> <em>()</em></dt>
-<dt><a name="index-mouse_005fwheel_005fzoom-1"></a>Loadable Function: <em><var>old_val</var> =</em> <strong>mouse_wheel_zoom</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-mouse_005fwheel_005fzoom-2"></a>Loadable Function: <em></em> <strong>mouse_wheel_zoom</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
-<dd><p>Query or set the mouse wheel zoom factor.
-</p>
-<p>The zoom factor is a number in the range (0,1) which is the percentage of the
-current axis limits that will be used when zooming.  For example, if the
-current x-axis limits are [0, 50] and <code>mouse_wheel_zoom</code> is 0.4 (40%),
-then a zoom operation will change the limits by 20.
-</p>
-<p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
-variable is changed locally for the function and any subroutines it calls.
-The original variable value is restored when exiting the function.
-</p>
-<p>This function is currently implemented only for the FLTK graphics toolkit.
-</p>
-<p><strong>See also:</strong> <a href="Customizing-Toolkit-Behavior.html#XREFgui_005fmode">gui_mode</a>.
-</p></dd></dl>
-
-
-
-<hr>
-<div class="header">
-<p>
-Up: <a href="Graphics-Toolkits.html#Graphics-Toolkits" accesskey="u" rel="up">Graphics Toolkits</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
 
 
 

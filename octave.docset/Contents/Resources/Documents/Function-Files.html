@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Function Files</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Function-Files"></a>
 <div class="header">
 <p>
@@ -74,7 +73,7 @@ for variables or functions that are already compiled and currently
 listed in its symbol table.  If it fails to find a definition there, it
 searches a list of directories (the <em>path</em>) for files ending in
 <samp>.m</samp> that have the same base name as the undefined
-identifier.<a name="DOCF5" href="Function-Files.html#FOOT5"><sup>5</sup></a>  Once Octave finds a file with a name that matches,
+identifier.<a name="DOCF5" href="#FOOT5"><sup>5</sup></a>  Once Octave finds a file with a name that matches,
 the contents of the file are read.  If it defines a <em>single</em>
 function, it is compiled and executed.  See <a href="Script-Files.html#Script-Files">Script Files</a>, for more
 information about how you can define more than one function in a single
@@ -108,33 +107,33 @@ ignore the time stamps for all function files.  Passing
 </p>
 
 <a name="XREFedit"></a><dl>
-<dt><a name="index-edit"></a>Command: <em></em> <strong>edit</strong> <em><var>name</var></em></dt>
-<dt><a name="index-edit-1"></a>Command: <em></em> <strong>edit</strong> <em><var>field</var> <var>value</var></em></dt>
-<dt><a name="index-edit-2"></a>Command: <em><var>value</var> =</em> <strong>edit</strong> <em>get <var>field</var></em></dt>
+<dt><a name="index-edit"></a>: <em></em> <strong>edit</strong> <em><var>name</var></em></dt>
+<dt><a name="index-edit-1"></a>: <em></em> <strong>edit</strong> <em><var>field</var> <var>value</var></em></dt>
+<dt><a name="index-edit-2"></a>: <em><var>value</var> =</em> <strong>edit</strong> <em>(&quot;get&quot;, <var>field</var>)</em></dt>
+<dt><a name="index-edit-3"></a>: <em><var>value</var> =</em> <strong>edit</strong> <em>(&quot;get&quot;, &quot;all&quot;)</em></dt>
 <dd><p>Edit the named function, or change editor settings.
 </p>
-<p>If <code>edit</code> is called with the name of a file or function as
-its argument it will be opened in the text editor defined by <code>EDITOR</code>.
+<p>If <code>edit</code> is called with the name of a file or function as its
+argument it will be opened in the text editor defined by <code>EDITOR</code>.
 </p>
 <ul>
-<li> If the function <var>name</var> is available in a file on your path and
-that file is modifiable, then it will be edited in place.  If it
-is a system function, then it will first be copied to the directory
-<code>HOME</code> (see below) and then edited.
-If no file is found, then the m-file
-variant, ending with &quot;.m&quot;, will be considered.  If still no file
-is found, then variants with a leading &quot;@&quot; and then with both a
-leading &quot;@&quot; and trailing &quot;.m&quot; will be considered.
+<li> If the function <var>name</var> is available in a file on your path and that
+file is modifiable, then it will be edited in place.  If it is a system
+function, then it will first be copied to the directory <code>HOME</code> (see
+below) and then edited.  If no file is found, then the m-file variant,
+ending with <code>&quot;.m&quot;</code>, will be considered.  If still no file is found,
+then variants with a leading <code>&quot;@&quot;</code> and then with both a leading
+<code>&quot;@&quot;</code> and trailing <code>&quot;.m&quot;</code> will be considered.
 
-</li><li> If <var>name</var> is the name of a function defined in the interpreter but
-not in an m-file, then an m-file will be created in <code>HOME</code>
-to contain that function along with its current definition.
+</li><li> If <var>name</var> is the name of a function defined in the interpreter but not
+in an m-file, then an m-file will be created in <code>HOME</code> to contain that
+function along with its current definition.
 
 </li><li> If <code><var>name</var>.cc</code> is specified, then it will search for
 <code><var>name</var>.cc</code> in the path and try to modify it, otherwise it will
-create a new <samp>.cc</samp> file in the current directory.  If <var>name</var> happens
-to be an m-file or interpreter defined function, then the text of that
-function will be inserted into the .cc file as a comment.
+create a new <samp>.cc</samp> file in the current directory.  If <var>name</var>
+happens to be an m-file or interpreter defined function, then the text of
+that function will be inserted into the .cc file as a comment.
 
 </li><li> If <samp><var>name</var>.ext</samp> is on your path then it will be edited, otherwise
 the editor will be started with <samp><var>name</var>.ext</samp> in the current
@@ -142,36 +141,38 @@ directory as the filename.  If <samp><var>name</var>.ext</samp> is not modifiabl
 it will be copied to <code>HOME</code> before editing.
 
 <p><strong>Warning:</strong> You may need to clear <var>name</var> before the new definition
-is available.  If you are editing a .cc file, you will need
-to execute <code>mkoctfile <samp><var>name</var>.cc</samp></code> before the definition
-will be available.
+is available.  If you are editing a .cc file, you will need to execute
+<code>mkoctfile <samp><var>name</var>.cc</samp></code> before the definition will be
+available.
 </p></li></ul>
 
-<p>If <code>edit</code> is called with <var>field</var> and <var>value</var> variables,
-the value of the control field <var>field</var> will be set to <var>value</var>.
-If an output argument is requested and the first input argument is <code>get</code>
-then <code>edit</code> will return the value of the control field <var>field</var>.
-If the control field does not exist, edit will return a structure
-containing all fields and values.  Thus, <code>edit get all</code> returns
-a complete control structure.
-The following control fields are used:
+<p>If <code>edit</code> is called with <var>field</var> and <var>value</var> variables, the
+value of the control field <var>field</var> will be set to <var>value</var>.
+</p>
+<p>If an output argument is requested and the first input argument is
+<code>get</code> then <code>edit</code> will return the value of the control field
+<var>field</var>.  If the control field does not exist, edit will return a
+structure containing all fields and values.  Thus, <code>edit (&quot;get&quot;,
+<code>&quot;all&quot;</code>)</code> returns a complete control structure.
+</p>
+<p>The following control fields are used:
 </p>
 <dl compact="compact">
 <dt>&lsquo;<samp>home</samp>&rsquo;</dt>
-<dd><p>This is the location of user local m-files.  Be sure it is in your
-path.  The default is <samp>~/octave</samp>.
+<dd><p>This is the location of user local m-files.  Be sure it is in your path.
+The default is <samp>~/octave</samp>.
 </p>
 </dd>
 <dt>&lsquo;<samp>author</samp>&rsquo;</dt>
-<dd><p>This is the name to put after the &quot;## Author:&quot; field of new functions.
-By default it guesses from the <code>gecos</code> field of the password database.
+<dd><p>This is the name to put after the &quot;## Author:&quot; field of new functions.  By
+default it guesses from the <code>gecos</code> field of the password database.
 </p>
 </dd>
 <dt>&lsquo;<samp>email</samp>&rsquo;</dt>
-<dd><p>This is the e-mail address to list after the name in the author field.
-By default it guesses <code>&lt;$LOGNAME@$HOSTNAME&gt;</code>, and if <code>$HOSTNAME</code>
-is not defined it uses <code>uname -n</code>.  You probably want to override this.
-Be sure to use the format <code>&lt;user@host&gt;</code>.
+<dd><p>This is the e-mail address to list after the name in the author field.  By
+default it guesses <code>&lt;$LOGNAME@$HOSTNAME&gt;</code>, and if <code>$HOSTNAME</code>
+is not defined it uses <code>uname -n</code>.  You probably want to override
+this.  Be sure to use the format <code><a href="mailto:user@host">user@host</a></code>.
 </p>
 </dd>
 <dt>&lsquo;<samp>license</samp>&rsquo;</dt>
@@ -195,7 +196,7 @@ Be sure to use the format <code>&lt;user@host&gt;</code>.
 </dl>
 
 <p>Unless you specify &lsquo;<samp>pd</samp>&rsquo;, edit will prepend the copyright statement
-with &quot;Copyright (C) yyyy Function Author&quot;.
+with &quot;Copyright (C) YYYY Author&quot;.
 </p>
 </dd>
 <dt>&lsquo;<samp>mode</samp>&rsquo;</dt>
@@ -215,31 +216,37 @@ whether they are modifiable or not.  The default is <code>false</code>.
 
 
 <a name="XREFmfilename"></a><dl>
-<dt><a name="index-mfilename"></a>Built-in Function: <em></em> <strong>mfilename</strong> <em>()</em></dt>
-<dt><a name="index-mfilename-1"></a>Built-in Function: <em></em> <strong>mfilename</strong> <em>(&quot;fullpath&quot;)</em></dt>
-<dt><a name="index-mfilename-2"></a>Built-in Function: <em></em> <strong>mfilename</strong> <em>(&quot;fullpathext&quot;)</em></dt>
-<dd><p>Return the name of the currently executing file.  At the top-level,
-return the empty string.  Given the argument <code>&quot;fullpath&quot;</code>,
-include the directory part of the file name, but not the extension.
-Given the argument <code>&quot;fullpathext&quot;</code>, include the directory part
-of the file name and the extension.
+<dt><a name="index-mfilename"></a>: <em></em> <strong>mfilename</strong> <em>()</em></dt>
+<dt><a name="index-mfilename-1"></a>: <em></em> <strong>mfilename</strong> <em>(&quot;fullpath&quot;)</em></dt>
+<dt><a name="index-mfilename-2"></a>: <em></em> <strong>mfilename</strong> <em>(&quot;fullpathext&quot;)</em></dt>
+<dd><p>Return the name of the currently executing file.
+</p>
+<p>When called from outside an m-file return the empty string.
+</p>
+<p>Given the argument <code>&quot;fullpath&quot;</code>, include the directory part of the
+filename, but not the extension.
+</p>
+<p>Given the argument <code>&quot;fullpathext&quot;</code>, include the directory part of
+the filename and the extension.
 </p></dd></dl>
 
 
 <a name="XREFignore_005ffunction_005ftime_005fstamp"></a><dl>
-<dt><a name="index-ignore_005ffunction_005ftime_005fstamp"></a>Built-in Function: <em><var>val</var> =</em> <strong>ignore_function_time_stamp</strong> <em>()</em></dt>
-<dt><a name="index-ignore_005ffunction_005ftime_005fstamp-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>ignore_function_time_stamp</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-ignore_005ffunction_005ftime_005fstamp"></a>: <em><var>val</var> =</em> <strong>ignore_function_time_stamp</strong> <em>()</em></dt>
+<dt><a name="index-ignore_005ffunction_005ftime_005fstamp-1"></a>: <em><var>old_val</var> =</em> <strong>ignore_function_time_stamp</strong> <em>(<var>new_val</var>)</em></dt>
 <dd><p>Query or set the internal variable that controls whether Octave checks
 the time stamp on files each time it looks up functions defined in
-function files.  If the internal variable is set to <code>&quot;system&quot;</code>,
-Octave will not automatically recompile function files in subdirectories of
-<samp><var>octave-home</var>/lib/<var>version</var></samp> if they have changed since
-they were last compiled, but will recompile other function files in the
-search path if they change.  If set to <code>&quot;all&quot;</code>, Octave will not
-recompile any function files unless their definitions are removed with
-<code>clear</code>.  If set to <code>&quot;none&quot;</code>, Octave will always check time
-stamps on files to determine whether functions defined in function files
-need to recompiled.
+function files.
+</p>
+<p>If the internal variable is set to <code>&quot;system&quot;</code>, Octave will not
+automatically recompile function files in subdirectories of
+<samp><var>octave-home</var>/lib/<var>version</var></samp> if they have changed since they were last compiled, but will recompile other function files in the search path if they change.
+</p>
+<p>If set to <code>&quot;all&quot;</code>, Octave will not recompile any function files
+unless their definitions are removed with <code>clear</code>.
+</p>
+<p>If set to <code>&quot;none&quot;</code>, Octave will always check time stamps on files to
+determine whether functions defined in function files need to recompiled.
 </p></dd></dl>
 
 
@@ -264,7 +271,7 @@ need to recompiled.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT5" href="Function-Files.html#DOCF5">(5)</a></h3>
+<h3><a name="FOOT5" href="#DOCF5">(5)</a></h3>
 <p>The &lsquo;<samp>.m</samp>&rsquo; suffix was chosen for compatibility
 with <small>MATLAB</small>.</p>
 </div>

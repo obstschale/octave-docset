@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Profiling</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Profiling"></a>
 <div class="header">
 <p>
@@ -76,23 +75,22 @@ The data is returned in an Octave data structure which can then be
 examined or further processed by other routines or tools.
 </p>
 <a name="XREFprofile"></a><dl>
-<dt><a name="index-profile"></a>Command: <em></em> <strong>profile</strong> <em>on</em></dt>
-<dt><a name="index-profile-1"></a>Command: <em></em> <strong>profile</strong> <em>off</em></dt>
-<dt><a name="index-profile-2"></a>Command: <em></em> <strong>profile</strong> <em>resume</em></dt>
-<dt><a name="index-profile-3"></a>Command: <em></em> <strong>profile</strong> <em>clear</em></dt>
-<dt><a name="index-profile-4"></a>Function File: <em><var>S</var> =</em> <strong>profile</strong> <em>(&quot;status&quot;)</em></dt>
-<dt><a name="index-profile-5"></a>Function File: <em><var>T</var> =</em> <strong>profile</strong> <em>(&quot;info&quot;)</em></dt>
+<dt><a name="index-profile"></a>: <em></em> <strong>profile</strong> <em>on</em></dt>
+<dt><a name="index-profile-1"></a>: <em></em> <strong>profile</strong> <em>off</em></dt>
+<dt><a name="index-profile-2"></a>: <em></em> <strong>profile</strong> <em>resume</em></dt>
+<dt><a name="index-profile-3"></a>: <em></em> <strong>profile</strong> <em>clear</em></dt>
+<dt><a name="index-profile-4"></a>: <em><var>S</var> =</em> <strong>profile</strong> <em>(&quot;status&quot;)</em></dt>
+<dt><a name="index-profile-5"></a>: <em><var>T</var> =</em> <strong>profile</strong> <em>(&quot;info&quot;)</em></dt>
 <dd><p>Control the built-in profiler.
 </p>
 <dl compact="compact">
 <dt><code>profile on</code></dt>
-<dd><p>Start the profiler, clearing all previously collected data if there
-is any.
+<dd><p>Start the profiler, clearing all previously collected data if there is any.
 </p>
 </dd>
 <dt><code>profile off</code></dt>
 <dd><p>Stop profiling.  The collected data can later be retrieved and examined
-with calls like <code>S = profile (&quot;info&quot;)</code>.
+with <code>T = profile (&quot;info&quot;)</code>.
 </p>
 </dd>
 <dt><code>profile clear</code></dt>
@@ -100,27 +98,27 @@ with calls like <code>S = profile (&quot;info&quot;)</code>.
 </p>
 </dd>
 <dt><code>profile resume</code></dt>
-<dd><p>Restart profiling without cleaning up the old data and instead
-all newly collected statistics are added to the already existing ones.
+<dd><p>Restart profiling without clearing the old data.  All newly collected
+statistics are added to the existing ones.
 </p>
 </dd>
 <dt><code><var>S</var> = profile (&quot;status&quot;)</code></dt>
-<dd><p>Return a structure filled with certain information about the current status
-of the profiler.  At the moment, the only field is <code>ProfilerStatus</code>
-which is either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code>.
+<dd><p>Return a structure with information about the current status of the
+profiler.  At the moment, the only field is <code>ProfilerStatus</code> which is
+either <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code>.
 </p>
 </dd>
 <dt><code><var>T</var> = profile (&quot;info&quot;)</code></dt>
-<dd><p>Return the collected profiling statistics in the structure <var>T</var>.
-The flat profile is returned in the field <code>FunctionTable</code> which is an
+<dd><p>Return the collected profiling statistics in the structure <var>T</var>.  The
+flat profile is returned in the field <code>FunctionTable</code> which is an
 array of structures, each entry corresponding to a function which was called
-and for which profiling statistics are present.  Furthermore, the field
-<code>Hierarchical</code> contains the hierarchical call-tree.  Each node
-has an index into the <code>FunctionTable</code> identifying the function it
-corresponds to as well as data fields for number of calls and time spent
-at this level in the call-tree.
+and for which profiling statistics are present.  In addition, the field
+<code>Hierarchical</code> contains the hierarchical call tree.  Each node has an
+index into the <code>FunctionTable</code> identifying the function it corresponds
+to as well as data fields for number of calls and time spent at this level
+in the call tree.
 </p>
-<p><strong>See also:</strong> <a href="Profiling.html#XREFprofshow">profshow</a>, <a href="Profiling.html#XREFprofexplore">profexplore</a>.
+<p><strong>See also:</strong> <a href="#XREFprofshow">profshow</a>, <a href="#XREFprofexplore">profexplore</a>.
 </p></dd>
 </dl>
 </dd></dl>
@@ -145,27 +143,53 @@ operators.  Furthermore, it is shown how often the function was called
 and the profiler also records that it is recursive.
 </p>
 <a name="XREFprofshow"></a><dl>
-<dt><a name="index-profshow"></a>Function File: <em></em> <strong>profshow</strong> <em>(<var>data</var>)</em></dt>
-<dt><a name="index-profshow-1"></a>Function File: <em></em> <strong>profshow</strong> <em>(<var>data</var>, <var>n</var>)</em></dt>
-<dd><p>Show flat profiler results.
+<dt><a name="index-profshow"></a>: <em></em> <strong>profshow</strong> <em>(<var>data</var>)</em></dt>
+<dt><a name="index-profshow-1"></a>: <em></em> <strong>profshow</strong> <em>(<var>data</var>, <var>n</var>)</em></dt>
+<dt><a name="index-profshow-2"></a>: <em></em> <strong>profshow</strong> <em>()</em></dt>
+<dt><a name="index-profshow-3"></a>: <em></em> <strong>profshow</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Display flat per-function profiler results.
 </p>
-<p>This command prints out profiler data as a flat profile.  <var>data</var> is the
-structure returned by <code>profile (&quot;info&quot;)</code>.  If <var>n</var> is given, it
-specifies the number of functions to show in the profile; functions are
-sorted in descending order by total time spent in them.  If there are more
-than <var>n</var> included in the profile, those will not be shown.  <var>n</var>
+<p>Print out profiler data (execution time, number of calls) for the most
+critical <var>n</var> functions.  The results are sorted in descending order by
+the total time spent in each function.  If <var>n</var> is unspecified it
 defaults to 20.
 </p>
-<p>The attribute column shows &lsquo;<samp>R</samp>&rsquo; for recursive functions and nothing
-otherwise.
+<p>The input <var>data</var> is the structure returned by <code>profile (&quot;info&quot;)</code>.
+If unspecified, <code>profshow</code> will use the current profile dataset.
 </p>
-<p><strong>See also:</strong> <a href="Profiling.html#XREFprofexplore">profexplore</a>, <a href="Profiling.html#XREFprofile">profile</a>.
+<p>The attribute column displays &lsquo;<samp>R</samp>&rsquo; for recursive functions, and is blank
+for all other function types.
+</p>
+<p><strong>See also:</strong> <a href="#XREFprofexplore">profexplore</a>, <a href="#XREFprofile">profile</a>.
+</p></dd></dl>
+
+
+<a name="XREFprofexport"></a><dl>
+<dt><a name="index-profexport"></a>: <em></em> <strong>profexport</strong> <em>(<var>dir</var>)</em></dt>
+<dt><a name="index-profexport-1"></a>: <em></em> <strong>profexport</strong> <em>(<var>dir</var>, <var>data</var>)</em></dt>
+<dt><a name="index-profexport-2"></a>: <em></em> <strong>profexport</strong> <em>(<var>dir</var>, <var>name</var>)</em></dt>
+<dt><a name="index-profexport-3"></a>: <em></em> <strong>profexport</strong> <em>(<var>dir</var>, <var>name</var>, <var>data</var>)</em></dt>
+<dd>
+<p>Export profiler data as HTML.
+</p>
+<p>Export the profiling data in <var>data</var> into a series of HTML files in
+the folder <var>dir</var>.  The initial file will be
+<samp><var>data</var>/index.html</samp>.
+</p>
+<p>If <var>name</var> is specified, it must be a string that contains a &ldquo;name&rdquo;
+for the profile being exported.  This name is included in the HTML.
+</p>
+<p>The input <var>data</var> is the structure returned by <code>profile (&quot;info&quot;)</code>.
+If unspecified, <code>profexport</code> will use the current profile dataset.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFprofshow">profshow</a>, <a href="#XREFprofexplore">profexplore</a>, <a href="#XREFprofile">profile</a>.
 </p></dd></dl>
 
 
 <a name="XREFprofexplore"></a><dl>
-<dt><a name="index-profexplore"></a>Function File: <em></em> <strong>profexplore</strong> <em>()</em></dt>
-<dt><a name="index-profexplore-1"></a>Function File: <em></em> <strong>profexplore</strong> <em>(<var>data</var>)</em></dt>
+<dt><a name="index-profexplore"></a>: <em></em> <strong>profexplore</strong> <em>()</em></dt>
+<dt><a name="index-profexplore-1"></a>: <em></em> <strong>profexplore</strong> <em>(<var>data</var>)</em></dt>
 <dd><p>Interactively explore hierarchical profiler output.
 </p>
 <p>Assuming <var>data</var> is the structure with profile data returned by
@@ -174,7 +198,7 @@ that can be used to explore the call-tree.  Type <kbd>help</kbd> to get a list
 of possible commands.  If <var>data</var> is omitted, <code>profile (&quot;info&quot;)</code>
 is called and used in its place.
 </p>
-<p><strong>See also:</strong> <a href="Profiling.html#XREFprofile">profile</a>, <a href="Profiling.html#XREFprofshow">profshow</a>.
+<p><strong>See also:</strong> <a href="#XREFprofile">profile</a>, <a href="#XREFprofshow">profshow</a>.
 </p></dd></dl>
 
 

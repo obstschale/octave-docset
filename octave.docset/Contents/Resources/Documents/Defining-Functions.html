@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Defining Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Defining-Functions"></a>
 <div class="header">
 <p>
@@ -88,8 +87,8 @@ endfunction
 </pre></div>
 
 <p>The <code>printf</code> statement (see <a href="Input-and-Output.html#Input-and-Output">Input and Output</a>) simply tells
-Octave to print the string <code>&quot;\a&quot;</code>.  The special character &lsquo;<samp>\a</samp>&rsquo;
-stands for the alert character (ASCII 7).  See <a href="Strings.html#Strings">Strings</a>.
+Octave to print the string <code>&quot;\a&quot;</code>.  The special character
+&lsquo;<samp>\a</samp>&rsquo; stands for the alert character (ASCII 7).  See <a href="Strings.html#Strings">Strings</a>.
 </p>
 <p>Once this function is defined, you can ask Octave to evaluate it by
 typing the name of the function.
@@ -224,36 +223,62 @@ To avoid such problems and to provide useful messages, we check for both
 possibilities and issue our own error message.
 </p>
 <a name="XREFnargin"></a><dl>
-<dt><a name="index-nargin"></a>Built-in Function: <em></em> <strong>nargin</strong> <em>()</em></dt>
-<dt><a name="index-nargin-1"></a>Built-in Function: <em></em> <strong>nargin</strong> <em>(<var>fcn</var>)</em></dt>
-<dd><p>Within a function, return the number of arguments passed to the function.
-At the top level, return the number of command line arguments passed to
-Octave.
+<dt><a name="index-nargin"></a>: <em></em> <strong>nargin</strong> <em>()</em></dt>
+<dt><a name="index-nargin-1"></a>: <em></em> <strong>nargin</strong> <em>(<var>fcn</var>)</em></dt>
+<dd><p>Report the number of input arguments to a function.
 </p>
-<p>If called with the optional argument <var>fcn</var>, a function name or handle,
-return the declared number of arguments that the function can accept.
-If the last argument is <var>varargin</var> the returned value is negative.
-This feature does not work on builtin functions.
+<p>Called from within a function, return the number of arguments passed to the
+function.  At the top level, return the number of command line arguments
+passed to Octave.
 </p>
-<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>, <a href="Multiple-Return-Values.html#XREFvarargout">varargout</a>, <a href="Multiple-Return-Values.html#XREFnthargout">nthargout</a>.
+<p>If called with the optional argument <var>fcn</var>&mdash;a function name or
+handle&mdash;return the declared number of arguments that the function can
+accept.
+</p>
+<p>If the last argument to <var>fcn</var> is <var>varargin</var> the returned value is
+negative.  For example, the function <code>union</code> for sets is declared as
+</p>
+<div class="example">
+<pre class="example">function [y, ia, ib] = union (a, b, varargin)
+
+and
+
+nargin (&quot;union&quot;)
+&rArr; -3
+</pre></div>
+
+<p>Programming Note: <code>nargin</code> does not work on compiled functions
+(<samp>.oct</samp> files) such as built-in or dynamically loaded functions.
+</p>
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Multiple-Return-Values.html#XREFnarginchk">narginchk</a>, <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>, <a href="#XREFinputname">inputname</a>.
 </p></dd></dl>
 
 
 <a name="XREFinputname"></a><dl>
-<dt><a name="index-inputname"></a>Function File: <em></em> <strong>inputname</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-inputname"></a>: <em></em> <strong>inputname</strong> <em>(<var>n</var>)</em></dt>
 <dd><p>Return the name of the <var>n</var>-th argument to the calling function.
-If the argument is not a simple variable name, return an empty string.
+</p>
+<p>If the argument is not a simple variable name, return an empty string.  As
+an example, a reference to a field in a structure such as <code>s.field</code> is
+not a simple name and will return <code>&quot;&quot;</code>.
+</p>
+<p><code>inputname</code> is only useful within a function.  When used at the command
+line it always returns an empty string.
+</p>
+<p><strong>See also:</strong> <a href="#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFnthargout">nthargout</a>.
 </p></dd></dl>
 
 
 <a name="XREFsilent_005ffunctions"></a><dl>
-<dt><a name="index-silent_005ffunctions"></a>Built-in Function: <em><var>val</var> =</em> <strong>silent_functions</strong> <em>()</em></dt>
-<dt><a name="index-silent_005ffunctions-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>silent_functions</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-silent_005ffunctions-2"></a>Built-in Function: <em></em> <strong>silent_functions</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-silent_005ffunctions"></a>: <em><var>val</var> =</em> <strong>silent_functions</strong> <em>()</em></dt>
+<dt><a name="index-silent_005ffunctions-1"></a>: <em><var>old_val</var> =</em> <strong>silent_functions</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-silent_005ffunctions-2"></a>: <em></em> <strong>silent_functions</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether internal
-output from a function is suppressed.  If this option is disabled,
-Octave will display the results produced by evaluating expressions
-within a function body that are not terminated with a semicolon.
+output from a function is suppressed.
+</p>
+<p>If this option is disabled, Octave will display the results produced by
+evaluating expressions within a function body that are not terminated with
+a semicolon.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.

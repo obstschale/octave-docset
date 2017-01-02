@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Nonlinear Programming</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Nonlinear-Programming"></a>
 <div class="header">
 <p>
@@ -63,13 +62,15 @@ Next: <a href="Linear-Least-Squares.html#Linear-Least-Squares" accesskey="n" rel
 successive quadratic programming solver.
 </p>
 <a name="XREFsqp"></a><dl>
-<dt><a name="index-sqp"></a>Function File: <em>[<var>x</var>, <var>obj</var>, <var>info</var>, <var>iter</var>, <var>nf</var>, <var>lambda</var>] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>)</em></dt>
-<dt><a name="index-sqp-1"></a>Function File: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>)</em></dt>
-<dt><a name="index-sqp-2"></a>Function File: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>)</em></dt>
-<dt><a name="index-sqp-3"></a>Function File: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>, <var>lb</var>, <var>ub</var>)</em></dt>
-<dt><a name="index-sqp-4"></a>Function File: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>, <var>lb</var>, <var>ub</var>, <var>maxiter</var>)</em></dt>
-<dt><a name="index-sqp-5"></a>Function File: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>, <var>lb</var>, <var>ub</var>, <var>maxiter</var>, <var>tol</var>)</em></dt>
-<dd><p>Solve the nonlinear program
+<dt><a name="index-sqp"></a>: <em>[<var>x</var>, <var>obj</var>, <var>info</var>, <var>iter</var>, <var>nf</var>, <var>lambda</var>] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>)</em></dt>
+<dt><a name="index-sqp-1"></a>: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>)</em></dt>
+<dt><a name="index-sqp-2"></a>: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>)</em></dt>
+<dt><a name="index-sqp-3"></a>: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>, <var>lb</var>, <var>ub</var>)</em></dt>
+<dt><a name="index-sqp-4"></a>: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>, <var>lb</var>, <var>ub</var>, <var>maxiter</var>)</em></dt>
+<dt><a name="index-sqp-5"></a>: <em>[&hellip;] =</em> <strong>sqp</strong> <em>(<var>x0</var>, <var>phi</var>, <var>g</var>, <var>h</var>, <var>lb</var>, <var>ub</var>, <var>maxiter</var>, <var>tol</var>)</em></dt>
+<dd><p>Minimize an objective function using sequential quadratic programming (SQP).
+</p>
+<p>Solve the nonlinear program
 </p>
 <div class="example">
 <pre class="example">min phi (x)
@@ -88,31 +89,29 @@ lb &lt;= x &lt;= ub
 </p>
 <p>The first argument is the initial guess for the vector <var>x0</var>.
 </p>
-<p>The second argument is a function handle pointing to the objective
-function <var>phi</var>.  The objective function must accept one vector
-argument and return a scalar.
+<p>The second argument is a function handle pointing to the objective function
+<var>phi</var>.  The objective function must accept one vector argument and
+return a scalar.
 </p>
-<p>The second argument may also be a 2- or 3-element cell array of
-function handles.  The first element should point to the objective
-function, the second should point to a function that computes the
-gradient of the objective function, and the third should point to a
-function that computes the Hessian of the objective function.  If the
-gradient function is not supplied, the gradient is computed by finite
-differences.  If the Hessian function is not supplied, a BFGS update
-formula is used to approximate the Hessian.
+<p>The second argument may also be a 2- or 3-element cell array of function
+handles.  The first element should point to the objective function, the
+second should point to a function that computes the gradient of the
+objective function, and the third should point to a function that computes
+the Hessian of the objective function.  If the gradient function is not
+supplied, the gradient is computed by finite differences.  If the Hessian
+function is not supplied, a BFGS update formula is used to approximate the
+Hessian.
 </p>
-<p>When supplied, the gradient function <code><var>phi</var>{2}</code> must accept
-one vector argument and return a vector.  When supplied, the Hessian
-function <code><var>phi</var>{3}</code> must accept one vector argument and
-return a matrix.
+<p>When supplied, the gradient function <code><var>phi</var>{2}</code> must accept one
+vector argument and return a vector.  When supplied, the Hessian function
+<code><var>phi</var>{3}</code> must accept one vector argument and return a matrix.
 </p>
-<p>The third and fourth arguments <var>g</var> and <var>h</var> are function
-handles pointing to functions that compute the equality constraints
-and the inequality constraints, respectively.  If the problem does
-not have equality (or inequality) constraints, then use an empty
-matrix ([]) for <var>g</var> (or <var>h</var>).  When supplied, these equality
-and inequality constraint functions must accept one vector argument
-and return a vector.
+<p>The third and fourth arguments <var>g</var> and <var>h</var> are function handles
+pointing to functions that compute the equality constraints and the
+inequality constraints, respectively.  If the problem does not have
+equality (or inequality) constraints, then use an empty matrix ([]) for
+<var>g</var> (or <var>h</var>).  When supplied, these equality and inequality
+constraint functions must accept one vector argument and return a vector.
 </p>
 <p>The third and fourth arguments may also be 2-element cell arrays of
 function handles.  The first element should point to the constraint
@@ -125,29 +124,26 @@ transpose ( [ ------   -----   ...   ------ ] )
             [  dx_1     dx_2          dx_N  ]
 </pre></div>
 
-<p>The fifth and sixth arguments, <var>lb</var> and <var>ub</var>, contain lower
-and upper bounds on <var>x</var>.  These must be consistent with the
-equality and inequality constraints <var>g</var> and <var>h</var>.  If the
-arguments are vectors then <var>x</var>(i) is bound by <var>lb</var>(i) and
-<var>ub</var>(i).  A bound can also be a scalar in which case all elements
-of <var>x</var> will share the same bound.  If only one bound (lb, ub) is
-specified then the other will default to (-<var>realmax</var>,
-+<var>realmax</var>).
+<p>The fifth and sixth arguments, <var>lb</var> and <var>ub</var>, contain lower and
+upper bounds on <var>x</var>.  These must be consistent with the equality and
+inequality constraints <var>g</var> and <var>h</var>.  If the arguments are vectors
+then <var>x</var>(i) is bound by <var>lb</var>(i) and <var>ub</var>(i).  A bound can also
+be a scalar in which case all elements of <var>x</var> will share the same
+bound.  If only one bound (lb, ub) is specified then the other will
+default to (-<var>realmax</var>, +<var>realmax</var>).
 </p>
 <p>The seventh argument <var>maxiter</var> specifies the maximum number of
 iterations.  The default value is 100.
 </p>
-<p>The eighth argument <var>tol</var> specifies the tolerance for the
-stopping criteria.  The default value is <code>sqrt (eps)</code>.
+<p>The eighth argument <var>tol</var> specifies the tolerance for the stopping
+criteria.  The default value is <code>sqrt (eps)</code>.
 </p>
 <p>The value returned in <var>info</var> may be one of the following:
 </p>
 <dl compact="compact">
 <dt>101</dt>
 <dd><p>The algorithm terminated normally.
-Either all constraints meet the requested tolerance, or the stepsize,
-delta <var>x</var>,
-is less than <code><var>tol</var> * norm (x)</code>.
+All constraints meet the specified tolerance.
 </p>
 </dd>
 <dt>102</dt>
@@ -156,6 +152,12 @@ is less than <code><var>tol</var> * norm (x)</code>.
 </dd>
 <dt>103</dt>
 <dd><p>The maximum number of iterations was reached.
+</p>
+</dd>
+<dt>104</dt>
+<dd><p>The stepsize has become too small, i.e.,
+delta <var>x</var>,
+is less than <code><var>tol</var> * norm (x)</code>.
 </p></dd>
 </dl>
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Accumulation</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Accumulation"></a>
 <div class="header">
 <p>
@@ -64,16 +63,17 @@ of an array when performing a computation, accumulation functions can be
 useful.
 </p>
 <a name="XREFaccumarray"></a><dl>
-<dt><a name="index-accumarray"></a>Function File: <em></em> <strong>accumarray</strong> <em>(<var>subs</var>, <var>vals</var>, <var>sz</var>, <var>func</var>, <var>fillval</var>, <var>issparse</var>)</em></dt>
-<dt><a name="index-accumarray-1"></a>Function File: <em></em> <strong>accumarray</strong> <em>(<var>subs</var>, <var>vals</var>, &hellip;)</em></dt>
+<dt><a name="index-accumarray"></a>: <em></em> <strong>accumarray</strong> <em>(<var>subs</var>, <var>vals</var>, <var>sz</var>, <var>func</var>, <var>fillval</var>, <var>issparse</var>)</em></dt>
+<dt><a name="index-accumarray-1"></a>: <em></em> <strong>accumarray</strong> <em>(<var>subs</var>, <var>vals</var>, &hellip;)</em></dt>
 <dd>
 <p>Create an array by accumulating the elements of a vector into the
-positions defined by their subscripts.  The subscripts are defined by
-the rows of the matrix <var>subs</var> and the values by <var>vals</var>.  Each
-row of <var>subs</var> corresponds to one of the values in <var>vals</var>.  If
-<var>vals</var> is a scalar, it will be used for each of the row of
-<var>subs</var>.  If <var>subs</var> is a cell array of vectors, all vectors
-must be of the same length, and the subscripts in the <var>k</var>th
+positions defined by their subscripts.
+</p>
+<p>The subscripts are defined by the rows of the matrix <var>subs</var> and the
+values by <var>vals</var>.  Each row of <var>subs</var> corresponds to one of the
+values in <var>vals</var>.  If <var>vals</var> is a scalar, it will be used for each
+of the row of <var>subs</var>.  If <var>subs</var> is a cell array of vectors, all
+vectors must be of the same length, and the subscripts in the <var>k</var>th
 vector must correspond to the <var>k</var>th dimension of the result.
 </p>
 <p>The size of the matrix will be determined by the subscripts
@@ -163,15 +163,16 @@ play a major part and it may be more efficient to do multiple
 accumarray calls and compute the results in a vectorized manner.
 </p>
 
-<p><strong>See also:</strong> <a href="Accumulation.html#XREFaccumdim">accumdim</a>, <a href="Sets.html#XREFunique">unique</a>, <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
+<p><strong>See also:</strong> <a href="#XREFaccumdim">accumdim</a>, <a href="Sets.html#XREFunique">unique</a>, <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 
 <a name="XREFaccumdim"></a><dl>
-<dt><a name="index-accumdim"></a>Function File: <em></em> <strong>accumdim</strong> <em>(<var>subs</var>, <var>vals</var>, <var>dim</var>, <var>n</var>, <var>func</var>, <var>fillval</var>)</em></dt>
+<dt><a name="index-accumdim"></a>: <em></em> <strong>accumdim</strong> <em>(<var>subs</var>, <var>vals</var>, <var>dim</var>, <var>n</var>, <var>func</var>, <var>fillval</var>)</em></dt>
 <dd><p>Create an array by accumulating the slices of an array into the
 positions defined by their subscripts along a specified dimension.
-The subscripts are defined by the index vector <var>subs</var>.
+</p>
+<p>The subscripts are defined by the index vector <var>subs</var>.
 The dimension is specified by <var>dim</var>.  If not given, it defaults
 to the first non-singleton dimension.  The length of <var>subs</var> must
 be equal to <code>size (<var>vals</var>, <var>dim</var>)</code>.
@@ -204,7 +205,7 @@ value allows these values to be defined.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Accumulation.html#XREFaccumarray">accumarray</a>.
+<p><strong>See also:</strong> <a href="#XREFaccumarray">accumarray</a>.
 </p></dd></dl>
 
 

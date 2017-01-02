@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Derivatives / Integrals / Transforms</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Derivatives-_002f-Integrals-_002f-Transforms"></a>
 <div class="header">
 <p>
@@ -72,37 +71,43 @@ area = polyval (integral, 3) - polyval (integral, 0)
 </pre></div>
 
 <a name="XREFpolyder"></a><dl>
-<dt><a name="index-polyder"></a>Function File: <em></em> <strong>polyder</strong> <em>(<var>p</var>)</em></dt>
-<dt><a name="index-polyder-1"></a>Function File: <em>[<var>k</var>] =</em> <strong>polyder</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dt><a name="index-polyder-2"></a>Function File: <em>[<var>q</var>, <var>d</var>] =</em> <strong>polyder</strong> <em>(<var>b</var>, <var>a</var>)</em></dt>
+<dt><a name="index-polyder"></a>: <em></em> <strong>polyder</strong> <em>(<var>p</var>)</em></dt>
+<dt><a name="index-polyder-1"></a>: <em>[<var>k</var>] =</em> <strong>polyder</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dt><a name="index-polyder-2"></a>: <em>[<var>q</var>, <var>d</var>] =</em> <strong>polyder</strong> <em>(<var>b</var>, <var>a</var>)</em></dt>
 <dd><p>Return the coefficients of the derivative of the polynomial whose
-coefficients are given by the vector <var>p</var>.  If a pair of polynomials
-is given, return the derivative of the product <em><var>a</var>*<var>b</var></em>.
-If two inputs and two outputs are given, return the derivative of the
+coefficients are given by the vector <var>p</var>.
+</p>
+<p>If a pair of polynomials is given, return the derivative of the product
+<em><var>a</var>*<var>b</var></em>.
+</p>
+<p>If two inputs and two outputs are given, return the derivative of the
 polynomial quotient <em><var>b</var>/<var>a</var></em>.  The quotient numerator is
 in <var>q</var> and the denominator in <var>d</var>.
 </p>
-<p><strong>See also:</strong> <a href="Derivatives-_002f-Integrals-_002f-Transforms.html#XREFpolyint">polyint</a>, <a href="Evaluating-Polynomials.html#XREFpolyval">polyval</a>, <a href="Miscellaneous-Functions.html#XREFpolyreduce">polyreduce</a>.
+<p><strong>See also:</strong> <a href="#XREFpolyint">polyint</a>, <a href="Evaluating-Polynomials.html#XREFpolyval">polyval</a>, <a href="Miscellaneous-Functions.html#XREFpolyreduce">polyreduce</a>.
 </p></dd></dl>
 
 
 <a name="XREFpolyint"></a><dl>
-<dt><a name="index-polyint"></a>Function File: <em></em> <strong>polyint</strong> <em>(<var>p</var>)</em></dt>
-<dt><a name="index-polyint-1"></a>Function File: <em></em> <strong>polyint</strong> <em>(<var>p</var>, <var>k</var>)</em></dt>
+<dt><a name="index-polyint"></a>: <em></em> <strong>polyint</strong> <em>(<var>p</var>)</em></dt>
+<dt><a name="index-polyint-1"></a>: <em></em> <strong>polyint</strong> <em>(<var>p</var>, <var>k</var>)</em></dt>
 <dd><p>Return the coefficients of the integral of the polynomial whose
-coefficients are represented by the vector <var>p</var>.  The variable
-<var>k</var> is the constant of integration, which by default is set to zero.
+coefficients are represented by the vector <var>p</var>.
 </p>
-<p><strong>See also:</strong> <a href="Derivatives-_002f-Integrals-_002f-Transforms.html#XREFpolyder">polyder</a>, <a href="Evaluating-Polynomials.html#XREFpolyval">polyval</a>.
+<p>The variable <var>k</var> is the constant of integration, which by default is
+set to zero.
+</p>
+<p><strong>See also:</strong> <a href="#XREFpolyder">polyder</a>, <a href="Evaluating-Polynomials.html#XREFpolyval">polyval</a>.
 </p></dd></dl>
 
 
 <a name="XREFpolyaffine"></a><dl>
-<dt><a name="index-polyaffine"></a>Function File: <em></em> <strong>polyaffine</strong> <em>(<var>f</var>, <var>mu</var>)</em></dt>
+<dt><a name="index-polyaffine"></a>: <em></em> <strong>polyaffine</strong> <em>(<var>f</var>, <var>mu</var>)</em></dt>
 <dd><p>Return the coefficients of the polynomial vector <var>f</var> after an affine
-transformation.  If <var>f</var> is the vector representing the polynomial f(x),
-then <code><var>g</var> = polyaffine (<var>f</var>, <var>mu</var>)</code> is the vector
-representing:
+transformation.
+</p>
+<p>If <var>f</var> is the vector representing the polynomial f(x), then
+<code><var>g</var> = polyaffine (<var>f</var>, <var>mu</var>)</code> is the vector representing:
 </p>
 <div class="example">
 <pre class="example">g(x) = f( (x - <var>mu</var>(1)) / <var>mu</var>(2) )

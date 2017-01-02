@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Return Types of Operators and Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Return-Types-of-Operators-and-Functions"></a>
 <div class="header">
 <p>
@@ -62,9 +61,9 @@ Next: <a href="Mathematical-Considerations.html#Mathematical-Considerations" acc
 <p>The two basic reasons to use sparse matrices are to reduce the memory
 usage and to not have to do calculations on zero elements.  The two are
 closely related in that the computation time on a sparse matrix operator
-or function is roughly linear with the number of non-zero elements.
+or function is roughly linear with the number of nonzero elements.
 </p>
-<p>Therefore, there is a certain density of non-zero elements of a matrix
+<p>Therefore, there is a certain density of nonzero elements of a matrix
 where it no longer makes sense to store it as a sparse matrix, but rather
 as a full matrix.  For this reason operators and functions that have a
 high probability of returning a full matrix will always return one.  For
@@ -111,12 +110,13 @@ always returns a sparse matrix, even if the memory used will be larger
 than its full representation.
 </p>
 <a name="XREFsparse_005fauto_005fmutate"></a><dl>
-<dt><a name="index-sparse_005fauto_005fmutate"></a>Built-in Function: <em><var>val</var> =</em> <strong>sparse_auto_mutate</strong> <em>()</em></dt>
-<dt><a name="index-sparse_005fauto_005fmutate-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>sparse_auto_mutate</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-sparse_005fauto_005fmutate-2"></a>Built-in Function: <em></em> <strong>sparse_auto_mutate</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-sparse_005fauto_005fmutate"></a>: <em><var>val</var> =</em> <strong>sparse_auto_mutate</strong> <em>()</em></dt>
+<dt><a name="index-sparse_005fauto_005fmutate-1"></a>: <em><var>old_val</var> =</em> <strong>sparse_auto_mutate</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-sparse_005fauto_005fmutate-2"></a>: <em></em> <strong>sparse_auto_mutate</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether Octave will
 automatically mutate sparse matrices to full matrices to save memory.
-For example:
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">s = speye (3);

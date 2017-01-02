@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>The try Statement</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="The-try-Statement"></a>
 <div class="header">
 <p>
@@ -62,10 +61,7 @@ Next: <a href="Continuation-Lines.html#Continuation-Lines" accesskey="n" rel="ne
 <a name="index-catch"></a>
 <a name="index-end_005ftry_005fcatch"></a>
 
-<p>In addition to unwind_protect, Octave supports another limited form of
-exception handling.
-</p>
-<p>The general form of a <code>try</code> block looks like this:
+<p>The original form of a <code>try</code> block looks like this:
 </p>
 <div class="example">
 <pre class="example">try
@@ -79,15 +75,25 @@ end_try_catch
 Octave expressions or commands.  The statements in <var>cleanup</var> are
 only executed if an error occurs in <var>body</var>.
 </p>
-<p>No warnings or error messages are printed while <var>body</var> is
-executing.  If an error does occur during the execution of <var>body</var>,
-<var>cleanup</var> can use the function <code>lasterr</code> to access the text
-of the message that would have been printed.  This is the same
-as <code>eval (<var>try</var>, <var>catch</var>)</code> but it is more efficient since
-the commands do not need to be parsed each time the <var>try</var> and
-<var>catch</var> statements are evaluated.  See <a href="Errors-and-Warnings.html#Errors-and-Warnings">Errors and Warnings</a>, for more
-information about the <code>lasterr</code> function.
+<p>No warnings or error messages are printed while <var>body</var> is executing.
+If an error does occur during the execution of <var>body</var>, <var>cleanup</var>
+can use the functions <code>lasterr</code> or <code>lasterror</code> to access the
+text of the message that would have been printed, as well as its
+identifier.  The alternative form,
 </p>
+<div class="example">
+<pre class="example">try
+  <var>body</var>
+catch <var>err</var>
+  <var>cleanup</var>
+end_try_catch
+</pre></div>
+
+<p>will automatically store the output of <code>lasterror</code> in the structure
+<var>err</var>.  See <a href="Errors-and-Warnings.html#Errors-and-Warnings">Errors and Warnings</a>, for more information about the
+<code>lasterr</code> and <code>lasterror</code> functions.
+</p>
+
 
 
 

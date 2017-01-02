@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>GUI Utility Functions</title>
 
@@ -15,20 +15,20 @@
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="GUI-Development.html#GUI-Development" rel="up" title="GUI Development">
 <link href="User_002dDefined-Preferences.html#User_002dDefined-Preferences" rel="next" title="User-Defined Preferences">
-<link href="Progress-Bar.html#Progress-Bar" rel="prev" title="Progress Bar">
+<link href="UI-Elements.html#UI-Elements" rel="prev" title="UI Elements">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,31 +48,31 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="GUI-Utility-Functions"></a>
 <div class="header">
 <p>
-Next: <a href="User_002dDefined-Preferences.html#User_002dDefined-Preferences" accesskey="n" rel="next">User-Defined Preferences</a>, Previous: <a href="Progress-Bar.html#Progress-Bar" accesskey="p" rel="prev">Progress Bar</a>, Up: <a href="GUI-Development.html#GUI-Development" accesskey="u" rel="up">GUI Development</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="User_002dDefined-Preferences.html#User_002dDefined-Preferences" accesskey="n" rel="next">User-Defined Preferences</a>, Previous: <a href="UI-Elements.html#UI-Elements" accesskey="p" rel="prev">UI Elements</a>, Up: <a href="GUI-Development.html#GUI-Development" accesskey="u" rel="up">GUI Development</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <a name="GUI-Utility-Functions-1"></a>
-<h3 class="section">35.3 GUI Utility Functions</h3>
+<h3 class="section">35.4 GUI Utility Functions</h3>
 
 <p>These functions do not implement a GUI element but are useful when developing
-programs that do.  <strong>Warning:</strong> The functions <code>uiwait</code>,
-<code>uiresume</code>, and <code>waitfor</code> are only available for the FLTK tooolkit.
+programs that do.  The functions <code>uiwait</code>, <code>uiresume</code>, and
+<code>waitfor</code> are only available with the <code>qt</code> or <code>fltk</code> toolkits.
 </p>
 <a name="XREFdesktop"></a><dl>
-<dt><a name="index-used"></a>Function File: <em></em> <strong><var>used</var></strong> <em>= desktop (&quot;-inuse&quot;)</em></dt>
+<dt><a name="index-desktop"></a>: <em><var>used</var> =</em> <strong>desktop</strong> <em>(&quot;-inuse&quot;)</em></dt>
 <dd><p>Return true if the desktop (GUI) is currently in use.
 </p>
-<p><strong>See also:</strong> <a href="GUI-Utility-Functions.html#XREFisguirunning">isguirunning</a>.
+<p><strong>See also:</strong> <a href="#XREFisguirunning">isguirunning</a>.
 </p></dd></dl>
 
 
 <a name="XREFguidata"></a><dl>
-<dt><a name="index-guidata"></a>Function File: <em><var>data</var> =</em> <strong>guidata</strong> <em>(<var>h</var>)</em></dt>
-<dt><a name="index-guidata-1"></a>Function File: <em></em> <strong>guidata</strong> <em>(<var>h</var>, <var>data</var>)</em></dt>
+<dt><a name="index-guidata"></a>: <em><var>data</var> =</em> <strong>guidata</strong> <em>(<var>h</var>)</em></dt>
+<dt><a name="index-guidata-1"></a>: <em></em> <strong>guidata</strong> <em>(<var>h</var>, <var>data</var>)</em></dt>
 <dd><p>Query or set user-custom GUI data.
 </p>
 <p>The GUI data is stored in the figure handle <var>h</var>.  If <var>h</var> is not a
@@ -89,8 +88,8 @@ additional data items can be added easily.
 
 
 <a name="XREFguihandles"></a><dl>
-<dt><a name="index-guihandles"></a>Function File: <em><var>hdata</var> =</em> <strong>guihandles</strong> <em>(<var>h</var>)</em></dt>
-<dt><a name="index-guihandles-1"></a>Function File: <em><var>hdata</var> =</em> <strong>guihandles</strong></dt>
+<dt><a name="index-guihandles"></a>: <em><var>hdata</var> =</em> <strong>guihandles</strong> <em>(<var>h</var>)</em></dt>
+<dt><a name="index-guihandles-1"></a>: <em><var>hdata</var> =</em> <strong>guihandles</strong></dt>
 <dd><p>Return a structure of object handles for the figure associated with
 handle <var>h</var>.
 </p>
@@ -103,25 +102,36 @@ the entry in <var>hdata</var> will be a vector of handles.  <code>guihandles</co
 includes all possible handles, including those for
 which <code>&quot;HandleVisibility&quot;</code> is <code>&quot;off&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="GUI-Utility-Functions.html#XREFguidata">guidata</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>, <a href="Searching-Properties.html#XREFfindall">findall</a>, <a href="Graphics-Objects.html#XREFallchild">allchild</a>.
+<p><strong>See also:</strong> <a href="#XREFguidata">guidata</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>, <a href="Searching-Properties.html#XREFfindall">findall</a>, <a href="Graphics-Objects.html#XREFallchild">allchild</a>.
+</p></dd></dl>
+
+
+<a name="XREFhave_005fwindow_005fsystem"></a><dl>
+<dt><a name="index-have_005fwindow_005fsystem"></a>: <em></em> <strong>have_window_system</strong> <em>()</em></dt>
+<dd><p>Return true if a window system is available (X11, Windows, or Apple OS X)
+and false otherwise.
+</p>
+<p><strong>See also:</strong> <a href="#XREFisguirunning">isguirunning</a>.
 </p></dd></dl>
 
 
 <a name="XREFisguirunning"></a><dl>
-<dt><a name="index-isguirunning"></a>Built-in Function: <em></em> <strong>isguirunning</strong> <em>()</em></dt>
+<dt><a name="index-isguirunning"></a>: <em></em> <strong>isguirunning</strong> <em>()</em></dt>
 <dd><p>Return true if Octave is running in GUI mode and false otherwise.
+</p>
+<p><strong>See also:</strong> <a href="#XREFhave_005fwindow_005fsystem">have_window_system</a>.
 </p></dd></dl>
 
 
 <a name="XREFuiwait"></a><dl>
-<dt><a name="index-uiwait"></a>Function File: <em></em> <strong>uiwait</strong></dt>
-<dt><a name="index-uiwait-1"></a>Function File: <em></em> <strong>uiwait</strong> <em>(<var>h</var>)</em></dt>
-<dt><a name="index-uiwait-2"></a>Function File: <em></em> <strong>uiwait</strong> <em>(<var>h</var>, <var>timeout</var>)</em></dt>
-<dd><p>Suspend program execution until the figure with handle <var>h</var> is
-deleted or <code>uiresume</code> is called.  When no figure handle is specified,
-this function uses the current figure.
+<dt><a name="index-uiwait"></a>: <em></em> <strong>uiwait</strong></dt>
+<dt><a name="index-uiwait-1"></a>: <em></em> <strong>uiwait</strong> <em>(<var>h</var>)</em></dt>
+<dt><a name="index-uiwait-2"></a>: <em></em> <strong>uiwait</strong> <em>(<var>h</var>, <var>timeout</var>)</em></dt>
+<dd><p>Suspend program execution until the figure with handle <var>h</var> is deleted
+or <code>uiresume</code> is called.
 </p>
-<p>If the figure handle is invalid or there is no current figure, this
+<p>When no figure handle is specified this function uses the current figure.
+If the figure handle is invalid or there is no current figure, this
 functions returns immediately.
 </p>
 <p>When specified, <var>timeout</var> defines the number of seconds to wait
@@ -131,33 +141,34 @@ and a timeout value of 1 is used instead.  If a non-integer value is
 specified, it is truncated towards 0.  If <var>timeout</var> is not specified,
 the program execution is suspended indefinitely.
 </p>
-<p><strong>See also:</strong> <a href="GUI-Utility-Functions.html#XREFuiresume">uiresume</a>, <a href="GUI-Utility-Functions.html#XREFwaitfor">waitfor</a>.
+<p><strong>See also:</strong> <a href="#XREFuiresume">uiresume</a>, <a href="#XREFwaitfor">waitfor</a>.
 </p></dd></dl>
 
 
 <a name="XREFuiresume"></a><dl>
-<dt><a name="index-uiresume"></a>Function File: <em></em> <strong>uiresume</strong> <em>(<var>h</var>)</em></dt>
-<dd><p>Resume program execution suspended with <code>uiwait</code>.  The handle <var>h</var>
-must be the same as the on specified in <code>uiwait</code>.  If the handle
-is invalid or there is no <code>uiwait</code> call pending for the figure
-with handle <var>h</var>, this function does nothing.
+<dt><a name="index-uiresume"></a>: <em></em> <strong>uiresume</strong> <em>(<var>h</var>)</em></dt>
+<dd><p>Resume program execution suspended with <code>uiwait</code>.
 </p>
-<p><strong>See also:</strong> <a href="GUI-Utility-Functions.html#XREFuiwait">uiwait</a>.
+<p>The handle <var>h</var> must be the same as the on specified in <code>uiwait</code>.
+If the handle is invalid or there is no <code>uiwait</code> call pending for the
+figure with handle <var>h</var>, this function does nothing.
+</p>
+<p><strong>See also:</strong> <a href="#XREFuiwait">uiwait</a>.
 </p></dd></dl>
 
 
 <a name="XREFwaitfor"></a><dl>
-<dt><a name="index-waitfor"></a>Built-in Function: <em></em> <strong>waitfor</strong> <em>(<var>h</var>)</em></dt>
-<dt><a name="index-waitfor-1"></a>Built-in Function: <em></em> <strong>waitfor</strong> <em>(<var>h</var>, <var>prop</var>)</em></dt>
-<dt><a name="index-waitfor-2"></a>Built-in Function: <em></em> <strong>waitfor</strong> <em>(<var>h</var>, <var>prop</var>, <var>value</var>)</em></dt>
-<dt><a name="index-waitfor-3"></a>Built-in Function: <em></em> <strong>waitfor</strong> <em>(&hellip;, &quot;timeout&quot;, <var>timeout</var>)</em></dt>
+<dt><a name="index-waitfor"></a>: <em></em> <strong>waitfor</strong> <em>(<var>h</var>)</em></dt>
+<dt><a name="index-waitfor-1"></a>: <em></em> <strong>waitfor</strong> <em>(<var>h</var>, <var>prop</var>)</em></dt>
+<dt><a name="index-waitfor-2"></a>: <em></em> <strong>waitfor</strong> <em>(<var>h</var>, <var>prop</var>, <var>value</var>)</em></dt>
+<dt><a name="index-waitfor-3"></a>: <em></em> <strong>waitfor</strong> <em>(&hellip;, &quot;timeout&quot;, <var>timeout</var>)</em></dt>
 <dd><p>Suspend the execution of the current program until a condition is
 satisfied on the graphics handle <var>h</var>.
 </p>
-<p>While the program is suspended graphics events are still being processed
-normally, allowing callbacks to modify the state of graphics objects.  This
-function is reentrant and can be called from a callback, while another
-<code>waitfor</code> call is pending at the top-level.
+<p>While the program is suspended graphics events are still processed normally,
+allowing callbacks to modify the state of graphics objects.  This function
+is reentrant and can be called from a callback, while another <code>waitfor</code>
+call is pending at the top-level.
 </p>
 <p>In the first form, program execution is suspended until the graphics object
 <var>h</var> is destroyed.  If the graphics handle is invalid, the function
@@ -176,7 +187,7 @@ set to <var>value</var>, the function returns immediately.
 </p>
 <p>An optional timeout can be specified using the property <code>timeout</code>.
 This timeout value is the number of seconds to wait for the condition to be
-true.  <var>timeout</var> must be at least 1. If a smaller value is specified, a
+true.  <var>timeout</var> must be at least 1.  If a smaller value is specified, a
 warning is issued and a value of 1 is used instead.  If the timeout value is
 not an integer, it is truncated towards 0.
 </p>
@@ -192,7 +203,7 @@ not an integer, it is truncated towards 0.
 <hr>
 <div class="header">
 <p>
-Next: <a href="User_002dDefined-Preferences.html#User_002dDefined-Preferences" accesskey="n" rel="next">User-Defined Preferences</a>, Previous: <a href="Progress-Bar.html#Progress-Bar" accesskey="p" rel="prev">Progress Bar</a>, Up: <a href="GUI-Development.html#GUI-Development" accesskey="u" rel="up">GUI Development</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="User_002dDefined-Preferences.html#User_002dDefined-Preferences" accesskey="n" rel="next">User-Defined Preferences</a>, Previous: <a href="UI-Elements.html#UI-Elements" accesskey="p" rel="prev">UI Elements</a>, Up: <a href="GUI-Development.html#GUI-Development" accesskey="u" rel="up">GUI Development</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

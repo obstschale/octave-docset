@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Broadcasting</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Broadcasting"></a>
 <div class="header">
 <p>
@@ -154,15 +153,16 @@ scalar.  The following code accomplishes this with broadcasting,
 <code>bsxfun</code> can be useful for coercing them to broadcast.
 </p>
 <a name="XREFbsxfun"></a><dl>
-<dt><a name="index-bsxfun"></a>Built-in Function: <em></em> <strong>bsxfun</strong> <em>(<var>f</var>, <var>A</var>, <var>B</var>)</em></dt>
-<dd><p>The binary singleton expansion function applier performs broadcasting,
-that is, applies a binary function <var>f</var> element-by-element to two
+<dt><a name="index-bsxfun"></a>: <em></em> <strong>bsxfun</strong> <em>(<var>f</var>, <var>A</var>, <var>B</var>)</em></dt>
+<dd><p>The binary singleton expansion function performs broadcasting,
+that is, it applies a binary function <var>f</var> element-by-element to two
 array arguments <var>A</var> and <var>B</var>, and expands as necessary
-singleton dimensions in either input argument.  <var>f</var> is a function
-handle, inline function, or string containing the name of the function
-to evaluate.  The function <var>f</var> must be capable of accepting two
-column-vector arguments of equal length, or one column vector argument
-and a scalar.
+singleton dimensions in either input argument.
+</p>
+<p><var>f</var> is a function handle, inline function, or string containing the name
+of the function to evaluate.  The function <var>f</var> must be capable of
+accepting two column-vector arguments of equal length, or one column vector
+argument and a scalar.
 </p>
 <p>The dimensions of <var>A</var> and <var>B</var> must be equal or singleton.  The
 singleton dimensions of the arrays will be expanded to the same
@@ -254,24 +254,18 @@ end_try_catch
 </pre></div>
 
 <p>that may have relied on matrices of different size producing an error.
-Due to how broadcasting changes semantics with older versions of Octave,
-by default Octave warns if a broadcasting operation is performed.  To
-disable this warning, refer to its ID (see <a href="Issuing-Warnings.html#XREFwarning_005fids">warning_ids</a>):
+Because such operation is now valid Octave syntax, this will no longer
+produce an error.  Instead, the following code should be used:
 </p>
 <div class="example">
-<pre class="example">warning (&quot;off&quot;, &quot;Octave:broadcast&quot;);
+<pre class="example">if (isequal (size (a), size (b)))
+  c = a .* b;
+else
+  c = a .* a;
+endif
 </pre></div>
 
-<p>If you want to recover the old behavior and produce an error, turn this
-warning into an error:
-</p>
-<div class="example">
-<pre class="example">warning (&quot;error&quot;, &quot;Octave:broadcast&quot;);
-</pre></div>
 
-<p>For broadcasting on scalars that worked in previous versions of Octave,
-this warning will not be emitted.
-</p>
 <hr>
 <div class="header">
 <p>

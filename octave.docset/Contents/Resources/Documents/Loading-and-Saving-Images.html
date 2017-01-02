@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Loading and Saving Images</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Loading-and-Saving-Images"></a>
 <div class="header">
 <p>
@@ -73,75 +72,80 @@ imwrite (J, &quot;my_output_image.img&quot;);
 </pre></div>
 
 <a name="XREFimread"></a><dl>
-<dt><a name="index-imread"></a>Function File: <em>[<var>img</var>, <var>map</var>, <var>alpha</var>] =</em> <strong>imread</strong> <em>(<var>filename</var>)</em></dt>
-<dt><a name="index-imread-1"></a>Function File: <em>[&hellip;] =</em> <strong>imread</strong> <em>(<var>filename</var>, <var>ext</var>)</em></dt>
-<dt><a name="index-imread-2"></a>Function File: <em>[&hellip;] =</em> <strong>imread</strong> <em>(<var>url</var>)</em></dt>
-<dt><a name="index-imread-3"></a>Function File: <em>[&hellip;] =</em> <strong>imread</strong> <em>(&hellip;, <var>idx</var>)</em></dt>
-<dt><a name="index-imread-4"></a>Function File: <em>[&hellip;] =</em> <strong>imread</strong> <em>(&hellip;, <var>param1</var>, <var>val1</var>, &hellip;)</em></dt>
+<dt><a name="index-imread"></a>: <em>[<var>img</var>, <var>map</var>, <var>alpha</var>] =</em> <strong>imread</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-imread-1"></a>: <em>[&hellip;] =</em> <strong>imread</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-imread-2"></a>: <em>[&hellip;] =</em> <strong>imread</strong> <em>(&hellip;, <var>ext</var>)</em></dt>
+<dt><a name="index-imread-3"></a>: <em>[&hellip;] =</em> <strong>imread</strong> <em>(&hellip;, <var>idx</var>)</em></dt>
+<dt><a name="index-imread-4"></a>: <em>[&hellip;] =</em> <strong>imread</strong> <em>(&hellip;, <var>param1</var>, <var>value1</var>, &hellip;)</em></dt>
 <dd><p>Read images from various file formats.
 </p>
-<p>Reads an image as a matrix from the file <var>filename</var>.  If there is
-no file <var>filename</var>, and <var>ext</var> was specified, it will look for
-a file named <var>filename</var> and extension <var>ext</var>, i.e., a file named
-<var>filename</var>.<var>ext</var>.
+<p>Read an image as a matrix from the file <var>filename</var> or from the online
+resource <var>url</var>.  If neither is given, but <var>ext</var> was specified, look
+for a file with the extension <var>ext</var>.
 </p>
-<p>The size and class of the output depends on the
-format of the image.  A color image is returned as an
-MxNx3 matrix.  Gray-level and black-and-white images are
-of size MxN.  Multipage images will have an additional 4th
-dimension.
+<p>The size and class of the output depends on the format of the image.  A
+color image is returned as an MxNx3 matrix.  Grayscale and
+black-and-white images are of size MxN.  Multipage images will
+have an additional 4th dimension.
 </p>
-<p>The bit depth of the image determines the
-class of the output: <code>&quot;uint8&quot;</code>, <code>&quot;uint16&quot;</code> or <code>&quot;single&quot;</code>
-for gray and color, and <code>&quot;logical&quot;</code> for black and white.
-Note that indexed images always return the indexes for a colormap,
-independent if <var>map</var> is a requested output.  To obtain the actual
-RGB image, use <code>ind2rgb</code>.  When more than one indexed image is being
-read, <var>map</var> is obtained from the first.  In some rare cases this
-may be incorrect and <code>imfinfo</code> can be used to obtain the colormap of
-each image.
+<p>The bit depth of the image determines the class of the output:
+<code>&quot;uint8&quot;</code>, <code>&quot;uint16&quot;</code>, or <code>&quot;single&quot;</code> for grayscale and
+color, and <code>&quot;logical&quot;</code> for black-and-white.  Note that indexed images
+always return the indexes for a colormap, independent of whether <var>map</var>
+is a requested output.  To obtain the actual RGB image, use <code>ind2rgb</code>.
+When more than one indexed image is being read, <var>map</var> is obtained from
+the first.  In some rare cases this may be incorrect and <code>imfinfo</code> can
+be used to obtain the colormap of each image.
 </p>
 <p>See the Octave manual for more information in representing images.
 </p>
-<p>Some file formats, such as TIFF and GIF, are able to store multiple
-images in a single file.  <var>idx</var> can be a scalar or vector
-specifying the index of the images to read.  By default, Octave
-will only read the first page.
+<p>Some file formats, such as TIFF and GIF, are able to store multiple images
+in a single file.  <var>idx</var> can be a scalar or vector specifying the
+index of the images to read.  By default, Octave will read only the first
+page.
 </p>
-<p>Depending on the file format, it is possible to configure the reading
-of images with <var>param</var>, <var>val</var> pairs.  The following options
-are supported:
+<p>Depending on the file format, it is possible to configure the reading of
+images with <var>parameter</var>, <var>value</var> pairs.  The following options are
+supported:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp><code>&quot;Frames&quot;</code> or <code>&quot;Index&quot;</code></samp>&rsquo;</dt>
+<dt><code>&quot;Frames&quot;</code> or <code>&quot;Index&quot;</code></dt>
 <dd><p>This is an alternative method to specify <var>idx</var>.  When specifying it
 in this way, its value can also be the string <code>&quot;all&quot;</code>.
 </p>
 </dd>
-<dt>&lsquo;<samp><code>&quot;Info&quot;</code></samp>&rsquo;</dt>
-<dd><p>This option exists for <small>MATLAB</small> compatibility and has no effect.  For
-maximum performance while reading multiple images from a single file,
-use the Index option.
+<dt><code>&quot;Info&quot;</code></dt>
+<dd><p>This option exists for <small>MATLAB</small> compatibility, but has no effect.  For
+maximum performance when reading multiple images from a single file, use
+the <code>&quot;Index&quot;</code> option.
 </p>
 </dd>
-<dt>&lsquo;<samp><code>&quot;PixelRegion&quot;</code></samp>&rsquo;</dt>
-<dd><p>Controls the image region that is read.  Takes as value a cell array
-with two arrays of 3 elements <code>{<var>rows</var> <var>cols</var>}</code>.  The
-elements in the array are the start, increment and end pixel to be
-read.  If the increment value is omitted, defaults to 1.
-</p></dd>
+<dt><code>&quot;PixelRegion&quot;</code></dt>
+<dd><p>Controls the image region that is read.  The value must be a cell array with
+two arrays of 3 elements <code>{[<var>rows</var>], [<var>cols</var>]}</code>.  The
+elements in the array are the start, increment, and end pixel to be read.
+If the increment value is omitted it defaults to 1.  For example, the
+following are all equivalent:
+</p>
+<div class="example">
+<pre class="example">imread (filename, &quot;PixelRegion&quot;, {[200 600], [300 700]});
+imread (filename, &quot;PixelRegion&quot;, {[200 1 600], [300 1 700]});
+imread (filename)(200:600, 300:700);
+</pre></div>
+
+</dd>
 </dl>
 
 
-<p><strong>See also:</strong> <a href="Loading-and-Saving-Images.html#XREFimwrite">imwrite</a>, <a href="Loading-and-Saving-Images.html#XREFimfinfo">imfinfo</a>, <a href="Loading-and-Saving-Images.html#XREFimformats">imformats</a>.
+<p><strong>See also:</strong> <a href="#XREFimwrite">imwrite</a>, <a href="#XREFimfinfo">imfinfo</a>, <a href="#XREFimformats">imformats</a>.
 </p></dd></dl>
 
 
 <a name="XREFimwrite"></a><dl>
-<dt><a name="index-imwrite"></a>Function File: <em></em> <strong>imwrite</strong> <em>(<var>img</var>, <var>filename</var>)</em></dt>
-<dt><a name="index-imwrite-1"></a>Function File: <em></em> <strong>imwrite</strong> <em>(<var>img</var>, <var>filename</var>, <var>ext</var>)</em></dt>
-<dt><a name="index-imwrite-2"></a>Function File: <em></em> <strong>imwrite</strong> <em>(<var>img</var>, <var>map</var>, <var>filename</var>)</em></dt>
-<dt><a name="index-imwrite-3"></a>Function File: <em></em> <strong>imwrite</strong> <em>(&hellip;, <var>param1</var>, <var>val1</var>, &hellip;)</em></dt>
+<dt><a name="index-imwrite"></a>: <em></em> <strong>imwrite</strong> <em>(<var>img</var>, <var>filename</var>)</em></dt>
+<dt><a name="index-imwrite-1"></a>: <em></em> <strong>imwrite</strong> <em>(<var>img</var>, <var>filename</var>, <var>ext</var>)</em></dt>
+<dt><a name="index-imwrite-2"></a>: <em></em> <strong>imwrite</strong> <em>(<var>img</var>, <var>map</var>, <var>filename</var>)</em></dt>
+<dt><a name="index-imwrite-3"></a>: <em></em> <strong>imwrite</strong> <em>(&hellip;, <var>param1</var>, <var>val1</var>, &hellip;)</em></dt>
 <dd><p>Write images in various file formats.
 </p>
 <p>The image <var>img</var> can be a binary, grayscale, RGB, or multi-dimensional
@@ -155,30 +159,36 @@ to determine the format.  The actual supported formats are dependent on
 options made during the build of Octave.  Use <code>imformats</code> to check
 the support of the different image formats.
 </p>
-<p>Depending on the file format, it is possible to configure the writing
-of images with <var>param</var>, <var>val</var> pairs.  The following options
-are supported:
+<p>Depending on the file format, it is possible to configure the writing of
+images with <var>param</var>, <var>val</var> pairs.  The following options are
+supported:
 </p>
 <dl compact="compact">
 <dt>&lsquo;<samp>Alpha</samp>&rsquo;</dt>
 <dd><p>Alpha (transparency) channel for the image.  This must be a matrix with
 same class, and number of rows and columns of <var>img</var>.  In case of a
 multipage image, the size of the 4th dimension must also match and the third
-dimension must be a singleton.  By default, image will be completely
-opaque.
+dimension must be a singleton.  By default, image will be completely opaque.
+</p>
+</dd>
+<dt>&lsquo;<samp>Compression</samp>&rsquo;</dt>
+<dd><p>Compression to use one the image.  Can be one of the following: &quot;none&quot;
+(default), &quot;bzip&quot;, &quot;fax3&quot;, &quot;fax4&quot;, &quot;jpeg&quot;, &quot;lzw&quot;, &quot;rle&quot;, or &quot;deflate&quot;.
+Note that not all compression types are available for all image formats
+in which it defaults to your Magick library.
 </p>
 </dd>
 <dt>&lsquo;<samp>DelayTime</samp>&rsquo;</dt>
 <dd><p>For formats that accept animations (such as GIF), controls for how long a
-frame is displayed until it moves to the next one. The value must be scalar
+frame is displayed until it moves to the next one.  The value must be scalar
 (which will applied to all frames in <var>img</var>), or a vector of length
 equal to the number of frames in <var>im</var>.  The value is in seconds, must
 be between 0 and 655.35, and defaults to 0.5.
 </p>
 </dd>
 <dt>&lsquo;<samp>DisposalMethod</samp>&rsquo;</dt>
-<dd><p>For formats that accept animations (such as GIF), controls what happens
-to a frame before drawing the next one.  Its value can be one of the
+<dd><p>For formats that accept animations (such as GIF), controls what happens to
+a frame before drawing the next one.  Its value can be one of the
 following strings: &quot;doNotSpecify&quot; (default); &quot;leaveInPlace&quot;; &quot;restoreBG&quot;;
 and &quot;restorePrevious&quot;, or a cell array of those string with length equal
 to the number of frames in <var>img</var>.
@@ -194,35 +204,35 @@ is only a single image at the end of writing the file.
 </p>
 </dd>
 <dt>&lsquo;<samp>Quality</samp>&rsquo;</dt>
-<dd><p>Set the quality of the compression.  The value should be an
-integer between 0 and 100, with larger values indicating higher visual
-quality and lower compression.  Defaults to 75.
+<dd><p>Set the quality of the compression.  The value should be an integer
+between 0 and 100, with larger values indicating higher visual quality and
+lower compression.  Defaults to 75.
 </p>
 </dd>
 <dt>&lsquo;<samp>WriteMode</samp>&rsquo;</dt>
-<dd><p>Some file formats, such as TIFF and GIF, are able to store multiple
-images in a single file.  This option specifies if <var>img</var> should be
-appended to the file (if it exists) or if a new file should be created
-for it (possibly overwriting an existing file).  The value should be
-the string <code>&quot;Overwrite&quot;</code> (default), or <code>&quot;Append&quot;</code>.
+<dd><p>Some file formats, such as TIFF and GIF, are able to store multiple images
+in a single file.  This option specifies if <var>img</var> should be appended
+to the file (if it exists) or if a new file should be created for it
+(possibly overwriting an existing file).  The value should be the string
+<code>&quot;Overwrite&quot;</code> (default), or <code>&quot;Append&quot;</code>.
 </p>
 <p>Despite this option, the most efficient method of writing a multipage
-image is to pass a 4 dimensional <var>img</var> to <code>imwrite</code>, the
-same matrix that could be expected when using <code>imread</code> with the
-option <code>&quot;Index&quot;</code> set to <code>&quot;all&quot;</code>.
+image is to pass a 4 dimensional <var>img</var> to <code>imwrite</code>, the same
+matrix that could be expected when using <code>imread</code> with the option
+<code>&quot;Index&quot;</code> set to <code>&quot;all&quot;</code>.
 </p>
 </dd>
 </dl>
 
 
-<p><strong>See also:</strong> <a href="Loading-and-Saving-Images.html#XREFimread">imread</a>, <a href="Loading-and-Saving-Images.html#XREFimfinfo">imfinfo</a>, <a href="Loading-and-Saving-Images.html#XREFimformats">imformats</a>.
+<p><strong>See also:</strong> <a href="#XREFimread">imread</a>, <a href="#XREFimfinfo">imfinfo</a>, <a href="#XREFimformats">imformats</a>.
 </p></dd></dl>
 
 
 <a name="XREFIMAGE_005fPATH"></a><dl>
-<dt><a name="index-IMAGE_005fPATH"></a>Built-in Function: <em><var>val</var> =</em> <strong>IMAGE_PATH</strong> <em>()</em></dt>
-<dt><a name="index-IMAGE_005fPATH-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>IMAGE_PATH</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-IMAGE_005fPATH-2"></a>Built-in Function: <em></em> <strong>IMAGE_PATH</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-IMAGE_005fPATH"></a>: <em><var>val</var> =</em> <strong>IMAGE_PATH</strong> <em>()</em></dt>
+<dt><a name="index-IMAGE_005fPATH-1"></a>: <em><var>old_val</var> =</em> <strong>IMAGE_PATH</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-IMAGE_005fPATH-2"></a>: <em></em> <strong>IMAGE_PATH</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies a colon separated
 list of directories in which to search for image files.
 </p>
@@ -237,13 +247,13 @@ The original variable value is restored when exiting the function.
 
 <p>It is possible to get information about an image file on disk, without actually
 reading it into Octave.  This is done using the <code>imfinfo</code> function which
-provides read access to many of the parameters stored in the header of the image
-file.
+provides read access to many of the parameters stored in the header of the
+image file.
 </p>
 <a name="XREFimfinfo"></a><dl>
-<dt><a name="index-imfinfo"></a>Function File: <em><var>info</var> =</em> <strong>imfinfo</strong> <em>(<var>filename</var>)</em></dt>
-<dt><a name="index-imfinfo-1"></a>Function File: <em><var>info</var> =</em> <strong>imfinfo</strong> <em>(<var>filename</var>, <var>ext</var>)</em></dt>
-<dt><a name="index-imfinfo-2"></a>Function File: <em><var>info</var> =</em> <strong>imfinfo</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-imfinfo"></a>: <em><var>info</var> =</em> <strong>imfinfo</strong> <em>(<var>filename</var>)</em></dt>
+<dt><a name="index-imfinfo-1"></a>: <em><var>info</var> =</em> <strong>imfinfo</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-imfinfo-2"></a>: <em><var>info</var> =</em> <strong>imfinfo</strong> <em>(&hellip;, <var>ext</var>)</em></dt>
 <dd><p>Read image information from a file.
 </p>
 <p><code>imfinfo</code> returns a structure containing information about the image
@@ -301,8 +311,8 @@ and extension <var>ext</var>, i.e., a file named <var>filename</var>.<var>ext</v
 </p>
 </dd>
 <dt>&lsquo;<samp>DelayTime</samp>&rsquo;</dt>
-<dd><p>Time in 1/100ths of a second (0 to 65535) which must expire before displaying
-the next image in an animated sequence.
+<dd><p>Time in 1/100ths of a second (0 to 65535) which must expire before
+displaying the next image in an animated sequence.
 </p>
 </dd>
 <dt>&lsquo;<samp>LoopCount</samp>&rsquo;</dt>
@@ -310,8 +320,8 @@ the next image in an animated sequence.
 </p>
 </dd>
 <dt>&lsquo;<samp>ByteOrder</samp>&rsquo;</dt>
-<dd><p>Endian option for formats that support it.  Value is <code>&quot;little-endian&quot;</code>,
-<code>&quot;big-endian&quot;</code>, or <code>&quot;undefined&quot;</code>.
+<dd><p>Endian option for formats that support it.  Value is
+<code>&quot;little-endian&quot;</code>, <code>&quot;big-endian&quot;</code>, or <code>&quot;undefined&quot;</code>.
 </p>
 </dd>
 <dt>&lsquo;<samp>Gamma</samp>&rsquo;</dt>
@@ -368,8 +378,8 @@ the image.
 </p>
 </dd>
 <dt>&lsquo;<samp>Model</samp>&rsquo;</dt>
-<dd><p>The model name or model number of the recording equipment as mentioned
-on the field <code>&quot;Make&quot;</code>.
+<dd><p>The model name or model number of the recording equipment as mentioned on
+the field <code>&quot;Make&quot;</code>.
 </p>
 </dd>
 <dt>&lsquo;<samp>DateTime</samp>&rsquo;</dt>
@@ -399,7 +409,7 @@ it is the date and time the file was changed.
 </dl>
 
 
-<p><strong>See also:</strong> <a href="Loading-and-Saving-Images.html#XREFimread">imread</a>, <a href="Loading-and-Saving-Images.html#XREFimwrite">imwrite</a>, <a href="Displaying-Images.html#XREFimshow">imshow</a>, <a href="Loading-and-Saving-Images.html#XREFimformats">imformats</a>.
+<p><strong>See also:</strong> <a href="#XREFimread">imread</a>, <a href="#XREFimwrite">imwrite</a>, <a href="Displaying-Images.html#XREFimshow">imshow</a>, <a href="#XREFimformats">imformats</a>.
 </p></dd></dl>
 
 
@@ -411,11 +421,11 @@ its commonly closed nature, it is impossible to have a library
 capable of reading them all.  Because of this, the function
 <code>imformats</code> keeps a configurable list of available formats,
 their extensions, and what functions should the image IO functions
-use.  This allows to expand Octave&rsquo;s image IO capabilities by
+use.  This allows one to expand Octave&rsquo;s image IO capabilities by
 creating functions aimed at acting on specific file formats.
 </p>
 <p>While it would be possible to call the extra functions directly,
-properly configuring Octave with <code>imformats</code> allows to keep a
+properly configuring Octave with <code>imformats</code> allows one to keep a
 consistent code that is abstracted from file formats.
 </p>
 <p>It is important to note that a file format is not actually defined by its
@@ -426,13 +436,13 @@ still be read correctly, and that even unlisted formats are not necessarily
 unsupported.
 </p>
 <a name="XREFimformats"></a><dl>
-<dt><a name="index-imformats"></a>Function File: <em></em> <strong>imformats</strong> <em>()</em></dt>
-<dt><a name="index-imformats-1"></a>Function File: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(<var>ext</var>)</em></dt>
-<dt><a name="index-imformats-2"></a>Function File: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(<var>format</var>)</em></dt>
-<dt><a name="index-imformats-3"></a>Function File: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;add&quot;, <var>format</var>)</em></dt>
-<dt><a name="index-imformats-4"></a>Function File: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;remove&quot;, <var>ext</var>)</em></dt>
-<dt><a name="index-imformats-5"></a>Function File: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;update&quot;, <var>ext</var>, <var>format</var>)</em></dt>
-<dt><a name="index-imformats-6"></a>Function File: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;factory&quot;)</em></dt>
+<dt><a name="index-imformats"></a>: <em></em> <strong>imformats</strong> <em>()</em></dt>
+<dt><a name="index-imformats-1"></a>: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(<var>ext</var>)</em></dt>
+<dt><a name="index-imformats-2"></a>: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(<var>format</var>)</em></dt>
+<dt><a name="index-imformats-3"></a>: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;add&quot;, <var>format</var>)</em></dt>
+<dt><a name="index-imformats-4"></a>: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;remove&quot;, <var>ext</var>)</em></dt>
+<dt><a name="index-imformats-5"></a>: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;update&quot;, <var>ext</var>, <var>format</var>)</em></dt>
+<dt><a name="index-imformats-6"></a>: <em><var>formats</var> =</em> <strong>imformats</strong> <em>(&quot;factory&quot;)</em></dt>
 <dd><p>Manage supported image formats.
 </p>
 <p><var>formats</var> is a structure with information about each supported file
@@ -474,16 +484,16 @@ will automatically detect the file format.
 </p></dd>
 </dl>
 
-<p>It is possible to change the way Octave manages file formats with the options
-<code>&quot;add&quot;</code>, <code>&quot;remove&quot;</code>, and <code>&quot;update&quot;</code>, and supplying a
-structure <var>format</var> with the required fields.  The option
+<p>It is possible to change the way Octave manages file formats with the
+options <code>&quot;add&quot;</code>, <code>&quot;remove&quot;</code>, and <code>&quot;update&quot;</code>, and supplying
+a structure <var>format</var> with the required fields.  The option
 <code>&quot;factory&quot;</code> resets the configuration to the default.
 </p>
 <p>This can be used by Octave packages to extend the image reading capabilities
 Octave, through use of the PKG_ADD and PKG_DEL commands.
 </p>
 
-<p><strong>See also:</strong> <a href="Loading-and-Saving-Images.html#XREFimfinfo">imfinfo</a>, <a href="Loading-and-Saving-Images.html#XREFimread">imread</a>, <a href="Loading-and-Saving-Images.html#XREFimwrite">imwrite</a>.
+<p><strong>See also:</strong> <a href="#XREFimfinfo">imfinfo</a>, <a href="#XREFimread">imread</a>, <a href="#XREFimwrite">imwrite</a>.
 </p></dd></dl>
 
 

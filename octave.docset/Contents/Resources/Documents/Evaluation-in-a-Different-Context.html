@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Evaluation in a Different Context</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Evaluation-in-a-Different-Context"></a>
 <div class="header">
 <p>
@@ -134,22 +133,21 @@ are written in C++ where all Octave variables
 are in the &lsquo;<samp>caller</samp>&rsquo; context and <code>evalin</code> is not needed.
 </p>
 <a name="XREFevalin"></a><dl>
-<dt><a name="index-evalin"></a>Built-in Function: <em></em> <strong>evalin</strong> <em>(<var>context</var>, <var>try</var>)</em></dt>
-<dt><a name="index-evalin-1"></a>Built-in Function: <em></em> <strong>evalin</strong> <em>(<var>context</var>, <var>try</var>, <var>catch</var>)</em></dt>
-<dd><p>Like <code>eval</code>, except that the expressions are evaluated in the
-context <var>context</var>, which may be either <code>&quot;caller&quot;</code> or
-<code>&quot;base&quot;</code>.
+<dt><a name="index-evalin"></a>: <em></em> <strong>evalin</strong> <em>(<var>context</var>, <var>try</var>)</em></dt>
+<dt><a name="index-evalin-1"></a>: <em></em> <strong>evalin</strong> <em>(<var>context</var>, <var>try</var>, <var>catch</var>)</em></dt>
+<dd><p>Like <code>eval</code>, except that the expressions are evaluated in the context
+<var>context</var>, which may be either <code>&quot;caller&quot;</code> or <code>&quot;base&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="Evaluation.html#XREFeval">eval</a>, <a href="Evaluation-in-a-Different-Context.html#XREFassignin">assignin</a>.
+<p><strong>See also:</strong> <a href="Evaluation.html#XREFeval">eval</a>, <a href="#XREFassignin">assignin</a>.
 </p></dd></dl>
 
 
 <a name="XREFassignin"></a><dl>
-<dt><a name="index-assignin"></a>Built-in Function: <em></em> <strong>assignin</strong> <em>(<var>context</var>, <var>varname</var>, <var>value</var>)</em></dt>
+<dt><a name="index-assignin"></a>: <em></em> <strong>assignin</strong> <em>(<var>context</var>, <var>varname</var>, <var>value</var>)</em></dt>
 <dd><p>Assign <var>value</var> to <var>varname</var> in context <var>context</var>, which
 may be either <code>&quot;base&quot;</code> or <code>&quot;caller&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="Evaluation-in-a-Different-Context.html#XREFevalin">evalin</a>.
+<p><strong>See also:</strong> <a href="#XREFevalin">evalin</a>.
 </p></dd></dl>
 
 

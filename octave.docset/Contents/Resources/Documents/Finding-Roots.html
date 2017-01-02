@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Finding Roots</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Finding-Roots"></a>
 <div class="header">
 <p>
@@ -64,13 +63,15 @@ the companion matrix of the polynomial (see the <code>compan</code> function
 for a definition), and then finding its eigenvalues.
 </p>
 <a name="XREFroots"></a><dl>
-<dt><a name="index-roots"></a>Function File: <em></em> <strong>roots</strong> <em>(<var>v</var>)</em></dt>
+<dt><a name="index-roots"></a>: <em></em> <strong>roots</strong> <em>(<var>c</var>)</em></dt>
 <dd>
-<p>For a vector <var>v</var> with <em>N</em> components, return
-the roots of the polynomial
+<p>Compute the roots of the polynomial <var>c</var>.
+</p>
+<p>For a vector <var>c</var> with <em>N</em> components, return the roots of the
+polynomial
 </p>
 <div class="example">
-<pre class="example">v(1) * z^(N-1) + &hellip; + v(N-1) * z + v(N)
+<pre class="example">c(1) * x^(N-1) + &hellip; + c(N-1) * x + c(N)
 </pre></div>
 
 
@@ -94,33 +95,38 @@ roots (c)
 which is roughly
 <em>+/- 2.2361</em>.
 </p>
-<p><strong>See also:</strong> <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>, <a href="Finding-Roots.html#XREFcompan">compan</a>, <a href="Solvers.html#XREFfzero">fzero</a>.
+<p><strong>See also:</strong> <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>, <a href="#XREFcompan">compan</a>, <a href="Solvers.html#XREFfzero">fzero</a>.
 </p></dd></dl>
 
 
 <a name="XREFpolyeig"></a><dl>
-<dt><a name="index-polyeig"></a>Function File: <em><var>z</var> =</em> <strong>polyeig</strong> <em>(<var>C0</var>, <var>C1</var>, &hellip;, <var>Cl</var>)</em></dt>
-<dt><a name="index-polyeig-1"></a>Function File: <em>[<var>v</var>, <var>z</var>] =</em> <strong>polyeig</strong> <em>(<var>C0</var>, <var>C1</var>, &hellip;, <var>Cl</var>)</em></dt>
+<dt><a name="index-polyeig"></a>: <em><var>z</var> =</em> <strong>polyeig</strong> <em>(<var>C0</var>, <var>C1</var>, &hellip;, <var>Cl</var>)</em></dt>
+<dt><a name="index-polyeig-1"></a>: <em>[<var>v</var>, <var>z</var>] =</em> <strong>polyeig</strong> <em>(<var>C0</var>, <var>C1</var>, &hellip;, <var>Cl</var>)</em></dt>
 <dd>
 <p>Solve the polynomial eigenvalue problem of degree <var>l</var>.
 </p>
 <p>Given an <var>n*n</var> matrix polynomial
-<code><var>C</var>(s) = <var>C0</var> + <var>C1</var> s + &hellip; + <var>Cl</var> s^l</code>
-polyeig solves the eigenvalue problem
-<code>(<var>C0</var> + <var>C1</var> + &hellip; + <var>Cl</var>)v = 0</code>.
-Note that the eigenvalues <var>z</var> are the zeros of the matrix polynomial.
-<var>z</var> is an <var>lxn</var> vector and <var>v</var> is an (<var>n</var> x <var>n</var>)l matrix
-with columns that correspond to the eigenvectors.
+</p>
+<p><code><var>C</var>(s) = <var>C0</var> + <var>C1</var> s + &hellip; + <var>Cl</var> s^l</code>
+</p>
+<p><code>polyeig</code> solves the eigenvalue problem
+</p>
+<p><code>(<var>C0</var> + <var>C1</var> + &hellip; + <var>Cl</var>)v = 0</code>.
+</p>
+<p>Note that the eigenvalues <var>z</var> are the zeros of the matrix polynomial.
+<var>z</var> is a row vector with <var>n*l</var> elements.  <var>v</var> is a matrix
+(<var>n</var> x <var>n</var>*<var>l</var>) with columns that correspond to the
+eigenvectors.
 </p>
 
-<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Sparse-Linear-Algebra.html#XREFeigs">eigs</a>, <a href="Finding-Roots.html#XREFcompan">compan</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Sparse-Linear-Algebra.html#XREFeigs">eigs</a>, <a href="#XREFcompan">compan</a>.
 </p></dd></dl>
 
 
 <a name="XREFcompan"></a><dl>
-<dt><a name="index-compan"></a>Function File: <em></em> <strong>compan</strong> <em>(<var>c</var>)</em></dt>
-<dd><p>Compute the companion matrix corresponding to polynomial coefficient
-vector <var>c</var>.
+<dt><a name="index-compan"></a>: <em></em> <strong>compan</strong> <em>(<var>c</var>)</em></dt>
+<dd><p>Compute the companion matrix corresponding to polynomial coefficient vector
+<var>c</var>.
 </p>
 <p>The companion matrix is
 </p>
@@ -138,25 +144,25 @@ A = |       .            .      .         .             .      |
 <p>The eigenvalues of the companion matrix are equal to the roots of the
 polynomial.
 </p>
-<p><strong>See also:</strong> <a href="Finding-Roots.html#XREFroots">roots</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>, <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>.
+<p><strong>See also:</strong> <a href="#XREFroots">roots</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>, <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>.
 </p></dd></dl>
 
 
 <a name="XREFmpoles"></a><dl>
-<dt><a name="index-mpoles"></a>Function File: <em>[<var>multp</var>, <var>idxp</var>] =</em> <strong>mpoles</strong> <em>(<var>p</var>)</em></dt>
-<dt><a name="index-mpoles-1"></a>Function File: <em>[<var>multp</var>, <var>idxp</var>] =</em> <strong>mpoles</strong> <em>(<var>p</var>, <var>tol</var>)</em></dt>
-<dt><a name="index-mpoles-2"></a>Function File: <em>[<var>multp</var>, <var>idxp</var>] =</em> <strong>mpoles</strong> <em>(<var>p</var>, <var>tol</var>, <var>reorder</var>)</em></dt>
-<dd><p>Identify unique poles in <var>p</var> and their associated multiplicity.  The
-output is ordered from largest pole to smallest pole.
+<dt><a name="index-mpoles"></a>: <em>[<var>multp</var>, <var>idxp</var>] =</em> <strong>mpoles</strong> <em>(<var>p</var>)</em></dt>
+<dt><a name="index-mpoles-1"></a>: <em>[<var>multp</var>, <var>idxp</var>] =</em> <strong>mpoles</strong> <em>(<var>p</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-mpoles-2"></a>: <em>[<var>multp</var>, <var>idxp</var>] =</em> <strong>mpoles</strong> <em>(<var>p</var>, <var>tol</var>, <var>reorder</var>)</em></dt>
+<dd><p>Identify unique poles in <var>p</var> and their associated multiplicity.
 </p>
-<p>If the relative difference of two poles is less than <var>tol</var> then
-they are considered to be multiples.  The default value for <var>tol</var>
-is 0.001.
+<p>The output is ordered from largest pole to smallest pole.
+</p>
+<p>If the relative difference of two poles is less than <var>tol</var> then they are
+considered to be multiples.  The default value for <var>tol</var> is 0.001.
 </p>
 <p>If the optional parameter <var>reorder</var> is zero, poles are not sorted.
 </p>
-<p>The output <var>multp</var> is a vector specifying the multiplicity of the
-poles.  <code><var>multp</var>(n)</code> refers to the multiplicity of the Nth pole
+<p>The output <var>multp</var> is a vector specifying the multiplicity of the poles.
+<code><var>multp</var>(n)</code> refers to the multiplicity of the Nth pole
 <code><var>p</var>(<var>idxp</var>(n))</code>.
 </p>
 <p>For example:
@@ -170,7 +176,7 @@ poles.  <code><var>multp</var>(n)</code> refers to the multiplicity of the Nth p
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Products-of-Polynomials.html#XREFresidue">residue</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>, <a href="Finding-Roots.html#XREFroots">roots</a>, <a href="Products-of-Polynomials.html#XREFconv">conv</a>, <a href="Products-of-Polynomials.html#XREFdeconv">deconv</a>.
+<p><strong>See also:</strong> <a href="Products-of-Polynomials.html#XREFresidue">residue</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>, <a href="#XREFroots">roots</a>, <a href="Products-of-Polynomials.html#XREFconv">conv</a>, <a href="Products-of-Polynomials.html#XREFdeconv">deconv</a>.
 </p></dd></dl>
 
 

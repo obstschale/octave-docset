@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Paging Screen Output</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Paging-Screen-Output"></a>
 <div class="header">
 <p>
@@ -80,24 +79,27 @@ function, and you can turn paging off by using the function
 <code>more</code>.
 </p>
 <a name="XREFmore"></a><dl>
-<dt><a name="index-more"></a>Command: <em></em> <strong>more</strong></dt>
-<dt><a name="index-more-1"></a>Command: <em></em> <strong>more</strong> <em>on</em></dt>
-<dt><a name="index-more-2"></a>Command: <em></em> <strong>more</strong> <em>off</em></dt>
-<dd><p>Turn output pagination on or off.  Without an argument, <code>more</code>
-toggles the current state.
-The current state can be determined via <code>page_screen_output</code>.
+<dt><a name="index-more"></a>: <em></em> <strong>more</strong></dt>
+<dt><a name="index-more-1"></a>: <em></em> <strong>more</strong> <em>on</em></dt>
+<dt><a name="index-more-2"></a>: <em></em> <strong>more</strong> <em>off</em></dt>
+<dd><p>Turn output pagination on or off.
 </p>
-<p><strong>See also:</strong> <a href="Paging-Screen-Output.html#XREFpage_005fscreen_005foutput">page_screen_output</a>, <a href="Paging-Screen-Output.html#XREFpage_005foutput_005fimmediately">page_output_immediately</a>, <a href="Paging-Screen-Output.html#XREFPAGER">PAGER</a>, <a href="Paging-Screen-Output.html#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>.
+<p>Without an argument, <code>more</code> toggles the current state.
+</p>
+<p>The current state can be determined via <code>page_screen_output</code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFpage_005fscreen_005foutput">page_screen_output</a>, <a href="#XREFpage_005foutput_005fimmediately">page_output_immediately</a>, <a href="#XREFPAGER">PAGER</a>, <a href="#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>.
 </p></dd></dl>
 
 
 <a name="XREFPAGER"></a><dl>
-<dt><a name="index-PAGER"></a>Built-in Function: <em><var>val</var> =</em> <strong>PAGER</strong> <em>()</em></dt>
-<dt><a name="index-PAGER-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>PAGER</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-PAGER-2"></a>Built-in Function: <em></em> <strong>PAGER</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-PAGER"></a>: <em><var>val</var> =</em> <strong>PAGER</strong> <em>()</em></dt>
+<dt><a name="index-PAGER-1"></a>: <em><var>old_val</var> =</em> <strong>PAGER</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-PAGER-2"></a>: <em></em> <strong>PAGER</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the program to use
-to display terminal output on your system.  The default value is
-normally <code>&quot;less&quot;</code>, <code>&quot;more&quot;</code>, or
+to display terminal output on your system.
+</p>
+<p>The default value is normally <code>&quot;less&quot;</code>, <code>&quot;more&quot;</code>, or
 <code>&quot;pg&quot;</code>, depending on what programs are installed on your system.
 See <a href="Installation.html#Installation">Installation</a>.
 </p>
@@ -105,14 +107,14 @@ See <a href="Installation.html#Installation">Installation</a>.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Paging-Screen-Output.html#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>, <a href="Paging-Screen-Output.html#XREFpage_005foutput_005fimmediately">page_output_immediately</a>, <a href="Paging-Screen-Output.html#XREFmore">more</a>, <a href="Paging-Screen-Output.html#XREFpage_005fscreen_005foutput">page_screen_output</a>.
+<p><strong>See also:</strong> <a href="#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>, <a href="#XREFpage_005foutput_005fimmediately">page_output_immediately</a>, <a href="#XREFmore">more</a>, <a href="#XREFpage_005fscreen_005foutput">page_screen_output</a>.
 </p></dd></dl>
 
 
 <a name="XREFPAGER_005fFLAGS"></a><dl>
-<dt><a name="index-PAGER_005fFLAGS"></a>Built-in Function: <em><var>val</var> =</em> <strong>PAGER_FLAGS</strong> <em>()</em></dt>
-<dt><a name="index-PAGER_005fFLAGS-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>PAGER_FLAGS</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-PAGER_005fFLAGS-2"></a>Built-in Function: <em></em> <strong>PAGER_FLAGS</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-PAGER_005fFLAGS"></a>: <em><var>val</var> =</em> <strong>PAGER_FLAGS</strong> <em>()</em></dt>
+<dt><a name="index-PAGER_005fFLAGS-1"></a>: <em><var>old_val</var> =</em> <strong>PAGER_FLAGS</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-PAGER_005fFLAGS-2"></a>: <em></em> <strong>PAGER_FLAGS</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the options to pass
 to the pager.
 </p>
@@ -120,17 +122,19 @@ to the pager.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Paging-Screen-Output.html#XREFPAGER">PAGER</a>, <a href="Paging-Screen-Output.html#XREFmore">more</a>, <a href="Paging-Screen-Output.html#XREFpage_005fscreen_005foutput">page_screen_output</a>, <a href="Paging-Screen-Output.html#XREFpage_005foutput_005fimmediately">page_output_immediately</a>.
+<p><strong>See also:</strong> <a href="#XREFPAGER">PAGER</a>, <a href="#XREFmore">more</a>, <a href="#XREFpage_005fscreen_005foutput">page_screen_output</a>, <a href="#XREFpage_005foutput_005fimmediately">page_output_immediately</a>.
 </p></dd></dl>
 
 
 <a name="XREFpage_005fscreen_005foutput"></a><dl>
-<dt><a name="index-page_005fscreen_005foutput"></a>Built-in Function: <em><var>val</var> =</em> <strong>page_screen_output</strong> <em>()</em></dt>
-<dt><a name="index-page_005fscreen_005foutput-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>page_screen_output</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-page_005fscreen_005foutput-2"></a>Built-in Function: <em></em> <strong>page_screen_output</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-page_005fscreen_005foutput"></a>: <em><var>val</var> =</em> <strong>page_screen_output</strong> <em>()</em></dt>
+<dt><a name="index-page_005fscreen_005foutput-1"></a>: <em><var>old_val</var> =</em> <strong>page_screen_output</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-page_005fscreen_005foutput-2"></a>: <em></em> <strong>page_screen_output</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether output intended
 for the terminal window that is longer than one page is sent through a
-pager.  This allows you to view one screenful at a time.  Some pagers
+pager.
+</p>
+<p>This allows you to view one screenful at a time.  Some pagers
 (such as <code>less</code>&mdash;see <a href="Installation.html#Installation">Installation</a>) are also capable of moving
 backward on the output.
 </p>
@@ -138,36 +142,39 @@ backward on the output.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Paging-Screen-Output.html#XREFmore">more</a>, <a href="Paging-Screen-Output.html#XREFpage_005foutput_005fimmediately">page_output_immediately</a>, <a href="Paging-Screen-Output.html#XREFPAGER">PAGER</a>, <a href="Paging-Screen-Output.html#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>.
+<p><strong>See also:</strong> <a href="#XREFmore">more</a>, <a href="#XREFpage_005foutput_005fimmediately">page_output_immediately</a>, <a href="#XREFPAGER">PAGER</a>, <a href="#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>.
 </p></dd></dl>
 
 
 <a name="XREFpage_005foutput_005fimmediately"></a><dl>
-<dt><a name="index-page_005foutput_005fimmediately"></a>Built-in Function: <em><var>val</var> =</em> <strong>page_output_immediately</strong> <em>()</em></dt>
-<dt><a name="index-page_005foutput_005fimmediately-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>page_output_immediately</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-page_005foutput_005fimmediately-2"></a>Built-in Function: <em></em> <strong>page_output_immediately</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-page_005foutput_005fimmediately"></a>: <em><var>val</var> =</em> <strong>page_output_immediately</strong> <em>()</em></dt>
+<dt><a name="index-page_005foutput_005fimmediately-1"></a>: <em><var>old_val</var> =</em> <strong>page_output_immediately</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-page_005foutput_005fimmediately-2"></a>: <em></em> <strong>page_output_immediately</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether Octave sends
-output to the pager as soon as it is available.  Otherwise, Octave
-buffers its output and waits until just before the prompt is printed to
-flush it to the pager.
+output to the pager as soon as it is available.
+</p>
+<p>Otherwise, Octave buffers its output and waits until just before the prompt
+is printed to flush it to the pager.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Paging-Screen-Output.html#XREFpage_005fscreen_005foutput">page_screen_output</a>, <a href="Paging-Screen-Output.html#XREFmore">more</a>, <a href="Paging-Screen-Output.html#XREFPAGER">PAGER</a>, <a href="Paging-Screen-Output.html#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>.
+<p><strong>See also:</strong> <a href="#XREFpage_005fscreen_005foutput">page_screen_output</a>, <a href="#XREFmore">more</a>, <a href="#XREFPAGER">PAGER</a>, <a href="#XREFPAGER_005fFLAGS">PAGER_FLAGS</a>.
 </p></dd></dl>
 
 
 <a name="XREFfflush"></a><dl>
-<dt><a name="index-fflush"></a>Built-in Function: <em></em> <strong>fflush</strong> <em>(<var>fid</var>)</em></dt>
-<dd><p>Flush output to <var>fid</var>.  This is useful for ensuring that all
-pending output makes it to the screen before some other event occurs.
-For example, it is always a good idea to flush the standard output
-stream before calling <code>input</code>.
+<dt><a name="index-fflush"></a>: <em></em> <strong>fflush</strong> <em>(<var>fid</var>)</em></dt>
+<dd><p>Flush output to file descriptor <var>fid</var>.
 </p>
 <p><code>fflush</code> returns 0 on success and an OS dependent error value
 (-1 on Unix) on error.
+</p>
+<p>Programming Note: Flushing is useful for ensuring that all pending output
+makes it to the screen before some other event occurs.  For example, it is
+always a good idea to flush the standard output stream before calling
+<code>input</code>.
 </p>
 <p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>.
 </p></dd></dl>

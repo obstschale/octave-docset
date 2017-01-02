@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Evaluating Polynomials</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Evaluating-Polynomials"></a>
 <div class="header">
 <p>
@@ -79,30 +78,32 @@ more elegant algorithms perform better.  The <code>polyvalm</code> function
 provides such an algorithm.
 </p>
 <a name="XREFpolyval"></a><dl>
-<dt><a name="index-polyval"></a>Function File: <em><var>y</var> =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>)</em></dt>
-<dt><a name="index-polyval-1"></a>Function File: <em><var>y</var> =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>, [], <var>mu</var>)</em></dt>
-<dt><a name="index-polyval-2"></a>Function File: <em>[<var>y</var>, <var>dy</var>] =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>, <var>s</var>)</em></dt>
-<dt><a name="index-polyval-3"></a>Function File: <em>[<var>y</var>, <var>dy</var>] =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>, <var>s</var>, <var>mu</var>)</em></dt>
+<dt><a name="index-polyval"></a>: <em><var>y</var> =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>)</em></dt>
+<dt><a name="index-polyval-1"></a>: <em><var>y</var> =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>, [], <var>mu</var>)</em></dt>
+<dt><a name="index-polyval-2"></a>: <em>[<var>y</var>, <var>dy</var>] =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>, <var>s</var>)</em></dt>
+<dt><a name="index-polyval-3"></a>: <em>[<var>y</var>, <var>dy</var>] =</em> <strong>polyval</strong> <em>(<var>p</var>, <var>x</var>, <var>s</var>, <var>mu</var>)</em></dt>
 <dd>
-<p>Evaluate the polynomial <var>p</var> at the specified values of <var>x</var>.  When
-<var>mu</var> is present, evaluate the polynomial for
-(<var>x</var>-<var>mu</var>(1))/<var>mu</var>(2).
-If <var>x</var> is a vector or matrix, the polynomial is evaluated for each of
+<p>Evaluate the polynomial <var>p</var> at the specified values of <var>x</var>.
+</p>
+<p>If <var>x</var> is a vector or matrix, the polynomial is evaluated for each of
 the elements of <var>x</var>.
 </p>
-<p>In addition to evaluating the polynomial, the second output
-represents the prediction interval, <var>y</var> +/- <var>dy</var>, which
-contains at least 50% of the future predictions.  To calculate the
-prediction interval, the structured variable <var>s</var>, originating
-from <code>polyfit</code>, must be supplied.
+<p>When <var>mu</var> is present, evaluate the polynomial for
+(<var>x</var>-<var>mu</var>(1))/<var>mu</var>(2).
+</p>
+<p>In addition to evaluating the polynomial, the second output represents the
+prediction interval, <var>y</var> +/- <var>dy</var>, which contains at least 50% of
+the future predictions.  To calculate the prediction interval, the
+structured variable <var>s</var>, originating from <code>polyfit</code>, must be
+supplied.
 </p>
 
-<p><strong>See also:</strong> <a href="Evaluating-Polynomials.html#XREFpolyvalm">polyvalm</a>, <a href="Derivatives-_002f-Integrals-_002f-Transforms.html#XREFpolyaffine">polyaffine</a>, <a href="Polynomial-Interpolation.html#XREFpolyfit">polyfit</a>, <a href="Finding-Roots.html#XREFroots">roots</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>.
+<p><strong>See also:</strong> <a href="#XREFpolyvalm">polyvalm</a>, <a href="Derivatives-_002f-Integrals-_002f-Transforms.html#XREFpolyaffine">polyaffine</a>, <a href="Polynomial-Interpolation.html#XREFpolyfit">polyfit</a>, <a href="Finding-Roots.html#XREFroots">roots</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>.
 </p></dd></dl>
 
 
 <a name="XREFpolyvalm"></a><dl>
-<dt><a name="index-polyvalm"></a>Function File: <em></em> <strong>polyvalm</strong> <em>(<var>c</var>, <var>x</var>)</em></dt>
+<dt><a name="index-polyvalm"></a>: <em></em> <strong>polyvalm</strong> <em>(<var>c</var>, <var>x</var>)</em></dt>
 <dd><p>Evaluate a polynomial in the matrix sense.
 </p>
 <p><code>polyvalm (<var>c</var>, <var>x</var>)</code> will evaluate the polynomial in the
@@ -111,7 +112,7 @@ element multiplication as used in <code>polyval</code>.
 </p>
 <p>The argument <var>x</var> must be a square matrix.
 </p>
-<p><strong>See also:</strong> <a href="Evaluating-Polynomials.html#XREFpolyval">polyval</a>, <a href="Finding-Roots.html#XREFroots">roots</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>.
+<p><strong>See also:</strong> <a href="#XREFpolyval">polyval</a>, <a href="Finding-Roots.html#XREFroots">roots</a>, <a href="Miscellaneous-Functions.html#XREFpoly">poly</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Trigonometry</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Trigonometry"></a>
 <div class="header">
 <p>
@@ -62,12 +61,12 @@ Next: <a href="Sums-and-Products.html#Sums-and-Products" accesskey="n" rel="next
 <p>Octave provides the following trigonometric functions where angles are
 specified in radians.  To convert from degrees to radians multiply by
 <code>pi/180</code>
-(e.g., <code>sin (30 * pi/180)</code> returns the sine of 30 degrees).  As
-an alternative, Octave provides a number of trigonometric functions
-which work directly on an argument specified in degrees.  These functions
-are named after the base trigonometric function with a &lsquo;<samp>d</samp>&rsquo; suffix.  For
-example, <code>sin</code> expects an angle in radians while <code>sind</code> expects an
-angle in degrees.
+or use the <code>deg2rad</code> function.  For example, <code>sin (30 * pi/180)</code>
+returns the sine of 30 degrees.  As an alternative, Octave provides a number of
+trigonometric functions which work directly on an argument specified in
+degrees.  These functions are named after the base trigonometric function with
+a &lsquo;<samp>d</samp>&rsquo; suffix.  As an example, <code>sin</code> expects an angle in radians while
+<code>sind</code> expects an angle in degrees.
 </p>
 <p>Octave uses the C library trigonometric functions.  It is expected that these
 functions are defined by the ISO/IEC 9899 Standard.  This Standard is available
@@ -82,185 +81,235 @@ the behavior given in the Standard.  Including
 <p>It should be noted that <small>MATLAB</small> uses different definitions which apparently
 do not distinguish -0.
 </p>
+<a name="XREFdeg2rad"></a><dl>
+<dt><a name="index-deg2rad"></a>: <em><var>rad</var> =</em> <strong>deg2rad</strong> <em>(<var>deg</var>)</em></dt>
+<dd>
+<p>Convert degrees to radians.
+</p>
+<p>The input <var>deg</var> must be a scalar, vector, or N-dimensional array of
+double or single floating point values.  <var>deg</var> may be complex in which
+case the real and imaginary components are converted separately.
+</p>
+<p>The output <var>rad</var> is the same size and shape as <var>deg</var> with degrees
+converted to radians using the conversion constant <code>pi/180</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">deg2rad ([0, 90, 180, 270, 360])
+  &rArr;  0.00000   1.57080   3.14159   4.71239   6.28319
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFrad2deg">rad2deg</a>.
+</p></dd></dl>
+
+<a name="XREFrad2deg"></a><dl>
+<dt><a name="index-rad2deg"></a>: <em><var>deg</var> =</em> <strong>rad2deg</strong> <em>(<var>rad</var>)</em></dt>
+<dd>
+<p>Convert radians to degrees.
+</p>
+<p>The input <var>rad</var> must be a scalar, vector, or N-dimensional array of
+double or single floating point values.  <var>rad</var> may be complex in which
+case the real and imaginary components are converted separately.
+</p>
+<p>The output <var>deg</var> is the same size and shape as <var>rad</var> with radians
+converted to degrees using the conversion constant <code>180/pi</code>.
+</p>
+<p>Example:
+</p>
+<div class="example">
+<pre class="example">rad2deg ([0, pi/2, pi, 3/2*pi, 2*pi])
+  &rArr;  0    90   180   270   360
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFdeg2rad">deg2rad</a>.
+</p></dd></dl>
+
+
 <a name="XREFsin"></a><dl>
-<dt><a name="index-sin"></a>Mapping Function: <em></em> <strong>sin</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-sin"></a>: <em></em> <strong>sin</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the sine for each element of <var>x</var> in radians.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFasin">asin</a>, <a href="Trigonometry.html#XREFsind">sind</a>, <a href="Trigonometry.html#XREFsinh">sinh</a>.
+<p><strong>See also:</strong> <a href="#XREFasin">asin</a>, <a href="#XREFsind">sind</a>, <a href="#XREFsinh">sinh</a>.
 </p></dd></dl>
 
 <a name="XREFcos"></a><dl>
-<dt><a name="index-cos"></a>Mapping Function: <em></em> <strong>cos</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cos"></a>: <em></em> <strong>cos</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the cosine for each element of <var>x</var> in radians.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacos">acos</a>, <a href="Trigonometry.html#XREFcosd">cosd</a>, <a href="Trigonometry.html#XREFcosh">cosh</a>.
+<p><strong>See also:</strong> <a href="#XREFacos">acos</a>, <a href="#XREFcosd">cosd</a>, <a href="#XREFcosh">cosh</a>.
 </p></dd></dl>
 
 <a name="XREFtan"></a><dl>
-<dt><a name="index-tan"></a>Mapping Function: <em></em> <strong>tan</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-tan"></a>: <em></em> <strong>tan</strong> <em>(<var>z</var>)</em></dt>
 <dd><p>Compute the tangent for each element of <var>x</var> in radians.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFatan">atan</a>, <a href="Trigonometry.html#XREFtand">tand</a>, <a href="Trigonometry.html#XREFtanh">tanh</a>.
+<p><strong>See also:</strong> <a href="#XREFatan">atan</a>, <a href="#XREFtand">tand</a>, <a href="#XREFtanh">tanh</a>.
 </p></dd></dl>
 
 <a name="XREFsec"></a><dl>
-<dt><a name="index-sec"></a>Mapping Function: <em></em> <strong>sec</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-sec"></a>: <em></em> <strong>sec</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the secant for each element of <var>x</var> in radians.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFasec">asec</a>, <a href="Trigonometry.html#XREFsecd">secd</a>, <a href="Trigonometry.html#XREFsech">sech</a>.
+<p><strong>See also:</strong> <a href="#XREFasec">asec</a>, <a href="#XREFsecd">secd</a>, <a href="#XREFsech">sech</a>.
 </p></dd></dl>
 
 <a name="XREFcsc"></a><dl>
-<dt><a name="index-csc"></a>Mapping Function: <em></em> <strong>csc</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-csc"></a>: <em></em> <strong>csc</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the cosecant for each element of <var>x</var> in radians.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacsc">acsc</a>, <a href="Trigonometry.html#XREFcscd">cscd</a>, <a href="Trigonometry.html#XREFcsch">csch</a>.
+<p><strong>See also:</strong> <a href="#XREFacsc">acsc</a>, <a href="#XREFcscd">cscd</a>, <a href="#XREFcsch">csch</a>.
 </p></dd></dl>
 
 <a name="XREFcot"></a><dl>
-<dt><a name="index-cot"></a>Mapping Function: <em></em> <strong>cot</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cot"></a>: <em></em> <strong>cot</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the cotangent for each element of <var>x</var> in radians.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacot">acot</a>, <a href="Trigonometry.html#XREFcotd">cotd</a>, <a href="Trigonometry.html#XREFcoth">coth</a>.
+<p><strong>See also:</strong> <a href="#XREFacot">acot</a>, <a href="#XREFcotd">cotd</a>, <a href="#XREFcoth">coth</a>.
 </p></dd></dl>
 
 
 <a name="XREFasin"></a><dl>
-<dt><a name="index-asin"></a>Mapping Function: <em></em> <strong>asin</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-asin"></a>: <em></em> <strong>asin</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse sine in radians for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFsin">sin</a>, <a href="Trigonometry.html#XREFasind">asind</a>.
+<p><strong>See also:</strong> <a href="#XREFsin">sin</a>, <a href="#XREFasind">asind</a>.
 </p></dd></dl>
 
 <a name="XREFacos"></a><dl>
-<dt><a name="index-acos"></a>Mapping Function: <em></em> <strong>acos</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acos"></a>: <em></em> <strong>acos</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse cosine in radians for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcos">cos</a>, <a href="Trigonometry.html#XREFacosd">acosd</a>.
+<p><strong>See also:</strong> <a href="#XREFcos">cos</a>, <a href="#XREFacosd">acosd</a>.
 </p></dd></dl>
 
 <a name="XREFatan"></a><dl>
-<dt><a name="index-atan"></a>Mapping Function: <em></em> <strong>atan</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-atan"></a>: <em></em> <strong>atan</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse tangent in radians for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFtan">tan</a>, <a href="Trigonometry.html#XREFatand">atand</a>.
+<p><strong>See also:</strong> <a href="#XREFtan">tan</a>, <a href="#XREFatand">atand</a>.
 </p></dd></dl>
 
 <a name="XREFasec"></a><dl>
-<dt><a name="index-asec"></a>Mapping Function: <em></em> <strong>asec</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-asec"></a>: <em></em> <strong>asec</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse secant in radians for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFsec">sec</a>, <a href="Trigonometry.html#XREFasecd">asecd</a>.
+<p><strong>See also:</strong> <a href="#XREFsec">sec</a>, <a href="#XREFasecd">asecd</a>.
 </p></dd></dl>
 
 <a name="XREFacsc"></a><dl>
-<dt><a name="index-acsc"></a>Mapping Function: <em></em> <strong>acsc</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acsc"></a>: <em></em> <strong>acsc</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse cosecant in radians for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcsc">csc</a>, <a href="Trigonometry.html#XREFacscd">acscd</a>.
+<p><strong>See also:</strong> <a href="#XREFcsc">csc</a>, <a href="#XREFacscd">acscd</a>.
 </p></dd></dl>
 
 <a name="XREFacot"></a><dl>
-<dt><a name="index-acot"></a>Mapping Function: <em></em> <strong>acot</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acot"></a>: <em></em> <strong>acot</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse cotangent in radians for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcot">cot</a>, <a href="Trigonometry.html#XREFacotd">acotd</a>.
+<p><strong>See also:</strong> <a href="#XREFcot">cot</a>, <a href="#XREFacotd">acotd</a>.
 </p></dd></dl>
 
 
 <a name="XREFsinh"></a><dl>
-<dt><a name="index-sinh"></a>Mapping Function: <em></em> <strong>sinh</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-sinh"></a>: <em></em> <strong>sinh</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the hyperbolic sine for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFasinh">asinh</a>, <a href="Trigonometry.html#XREFcosh">cosh</a>, <a href="Trigonometry.html#XREFtanh">tanh</a>.
+<p><strong>See also:</strong> <a href="#XREFasinh">asinh</a>, <a href="#XREFcosh">cosh</a>, <a href="#XREFtanh">tanh</a>.
 </p></dd></dl>
 
 <a name="XREFcosh"></a><dl>
-<dt><a name="index-cosh"></a>Mapping Function: <em></em> <strong>cosh</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cosh"></a>: <em></em> <strong>cosh</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the hyperbolic cosine for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacosh">acosh</a>, <a href="Trigonometry.html#XREFsinh">sinh</a>, <a href="Trigonometry.html#XREFtanh">tanh</a>.
+<p><strong>See also:</strong> <a href="#XREFacosh">acosh</a>, <a href="#XREFsinh">sinh</a>, <a href="#XREFtanh">tanh</a>.
 </p></dd></dl>
 
 <a name="XREFtanh"></a><dl>
-<dt><a name="index-tanh"></a>Mapping Function: <em></em> <strong>tanh</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-tanh"></a>: <em></em> <strong>tanh</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute hyperbolic tangent for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFatanh">atanh</a>, <a href="Trigonometry.html#XREFsinh">sinh</a>, <a href="Trigonometry.html#XREFcosh">cosh</a>.
+<p><strong>See also:</strong> <a href="#XREFatanh">atanh</a>, <a href="#XREFsinh">sinh</a>, <a href="#XREFcosh">cosh</a>.
 </p></dd></dl>
 
 <a name="XREFsech"></a><dl>
-<dt><a name="index-sech"></a>Mapping Function: <em></em> <strong>sech</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-sech"></a>: <em></em> <strong>sech</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the hyperbolic secant of each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFasech">asech</a>.
+<p><strong>See also:</strong> <a href="#XREFasech">asech</a>.
 </p></dd></dl>
 
 <a name="XREFcsch"></a><dl>
-<dt><a name="index-csch"></a>Mapping Function: <em></em> <strong>csch</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-csch"></a>: <em></em> <strong>csch</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the hyperbolic cosecant of each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacsch">acsch</a>.
+<p><strong>See also:</strong> <a href="#XREFacsch">acsch</a>.
 </p></dd></dl>
 
 <a name="XREFcoth"></a><dl>
-<dt><a name="index-coth"></a>Mapping Function: <em></em> <strong>coth</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-coth"></a>: <em></em> <strong>coth</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the hyperbolic cotangent of each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacoth">acoth</a>.
+<p><strong>See also:</strong> <a href="#XREFacoth">acoth</a>.
 </p></dd></dl>
 
 
 <a name="XREFasinh"></a><dl>
-<dt><a name="index-asinh"></a>Mapping Function: <em></em> <strong>asinh</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-asinh"></a>: <em></em> <strong>asinh</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse hyperbolic sine for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFsinh">sinh</a>.
+<p><strong>See also:</strong> <a href="#XREFsinh">sinh</a>.
 </p></dd></dl>
 
 <a name="XREFacosh"></a><dl>
-<dt><a name="index-acosh"></a>Mapping Function: <em></em> <strong>acosh</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acosh"></a>: <em></em> <strong>acosh</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse hyperbolic cosine for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcosh">cosh</a>.
+<p><strong>See also:</strong> <a href="#XREFcosh">cosh</a>.
 </p></dd></dl>
 
 <a name="XREFatanh"></a><dl>
-<dt><a name="index-atanh"></a>Mapping Function: <em></em> <strong>atanh</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-atanh"></a>: <em></em> <strong>atanh</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse hyperbolic tangent for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFtanh">tanh</a>.
+<p><strong>See also:</strong> <a href="#XREFtanh">tanh</a>.
 </p></dd></dl>
 
 <a name="XREFasech"></a><dl>
-<dt><a name="index-asech"></a>Mapping Function: <em></em> <strong>asech</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-asech"></a>: <em></em> <strong>asech</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse hyperbolic secant of each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFsech">sech</a>.
+<p><strong>See also:</strong> <a href="#XREFsech">sech</a>.
 </p></dd></dl>
 
 <a name="XREFacsch"></a><dl>
-<dt><a name="index-acsch"></a>Mapping Function: <em></em> <strong>acsch</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acsch"></a>: <em></em> <strong>acsch</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse hyperbolic cosecant of each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcsch">csch</a>.
+<p><strong>See also:</strong> <a href="#XREFcsch">csch</a>.
 </p></dd></dl>
 
 <a name="XREFacoth"></a><dl>
-<dt><a name="index-acoth"></a>Mapping Function: <em></em> <strong>acoth</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acoth"></a>: <em></em> <strong>acoth</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse hyperbolic cotangent of each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcoth">coth</a>.
+<p><strong>See also:</strong> <a href="#XREFcoth">coth</a>.
 </p></dd></dl>
 
 
 <a name="XREFatan2"></a><dl>
-<dt><a name="index-atan2"></a>Mapping Function: <em></em> <strong>atan2</strong> <em>(<var>y</var>, <var>x</var>)</em></dt>
+<dt><a name="index-atan2"></a>: <em></em> <strong>atan2</strong> <em>(<var>y</var>, <var>x</var>)</em></dt>
 <dd><p>Compute atan (<var>y</var> / <var>x</var>) for corresponding elements of <var>y</var>
-and <var>x</var>.  Signal an error if <var>y</var> and <var>x</var> do not match in size
-and orientation.
+and <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFtan">tan</a>, <a href="Trigonometry.html#XREFtand">tand</a>, <a href="Trigonometry.html#XREFtanh">tanh</a>, <a href="Trigonometry.html#XREFatanh">atanh</a>.
+<p><var>y</var> and <var>x</var> must match in size and orientation.  The signs of
+elements of <var>y</var> and <var>x</var> are used to determine the quadrants of each
+resulting value.
+</p>
+<p>This function is equivalent to <code>arg (complex (<var>x</var>, <var>y</var>))</code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFtan">tan</a>, <a href="#XREFtand">tand</a>, <a href="#XREFtanh">tanh</a>, <a href="#XREFatanh">atanh</a>.
 </p></dd></dl>
 
 
@@ -277,100 +326,103 @@ cos (pi/2)
 </pre></div>
 
 <a name="XREFsind"></a><dl>
-<dt><a name="index-sind"></a>Function File: <em></em> <strong>sind</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Compute the sine for each element of <var>x</var> in degrees.  Returns zero
-for elements where <code><var>x</var>/180</code> is an integer.
+<dt><a name="index-sind"></a>: <em></em> <strong>sind</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Compute the sine for each element of <var>x</var> in degrees.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFasind">asind</a>, <a href="Trigonometry.html#XREFsin">sin</a>.
+<p>Returns zero for elements where <code><var>x</var>/180</code> is an integer.
+</p>
+<p><strong>See also:</strong> <a href="#XREFasind">asind</a>, <a href="#XREFsin">sin</a>.
 </p></dd></dl>
 
 <a name="XREFcosd"></a><dl>
-<dt><a name="index-cosd"></a>Function File: <em></em> <strong>cosd</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Compute the cosine for each element of <var>x</var> in degrees.  Returns zero
-for elements where <code>(<var>x</var>-90)/180</code> is an integer.
+<dt><a name="index-cosd"></a>: <em></em> <strong>cosd</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Compute the cosine for each element of <var>x</var> in degrees.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacosd">acosd</a>, <a href="Trigonometry.html#XREFcos">cos</a>.
+<p>Returns zero for elements where <code>(<var>x</var>-90)/180</code> is an integer.
+</p>
+<p><strong>See also:</strong> <a href="#XREFacosd">acosd</a>, <a href="#XREFcos">cos</a>.
 </p></dd></dl>
 
 <a name="XREFtand"></a><dl>
-<dt><a name="index-tand"></a>Function File: <em></em> <strong>tand</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Compute the tangent for each element of <var>x</var> in degrees.  Returns zero
-for elements where <code><var>x</var>/180</code> is an integer and <code>Inf</code> for
-elements where <code>(<var>x</var>-90)/180</code> is an integer.
+<dt><a name="index-tand"></a>: <em></em> <strong>tand</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Compute the tangent for each element of <var>x</var> in degrees.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFatand">atand</a>, <a href="Trigonometry.html#XREFtan">tan</a>.
+<p>Returns zero for elements where <code><var>x</var>/180</code> is an integer and
+<code>Inf</code> for elements where <code>(<var>x</var>-90)/180</code> is an integer.
+</p>
+<p><strong>See also:</strong> <a href="#XREFatand">atand</a>, <a href="#XREFtan">tan</a>.
 </p></dd></dl>
 
 <a name="XREFsecd"></a><dl>
-<dt><a name="index-secd"></a>Function File: <em></em> <strong>secd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-secd"></a>: <em></em> <strong>secd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the secant for each element of <var>x</var> in degrees.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFasecd">asecd</a>, <a href="Trigonometry.html#XREFsec">sec</a>.
+<p><strong>See also:</strong> <a href="#XREFasecd">asecd</a>, <a href="#XREFsec">sec</a>.
 </p></dd></dl>
 
 <a name="XREFcscd"></a><dl>
-<dt><a name="index-cscd"></a>Function File: <em></em> <strong>cscd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cscd"></a>: <em></em> <strong>cscd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the cosecant for each element of <var>x</var> in degrees.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacscd">acscd</a>, <a href="Trigonometry.html#XREFcsc">csc</a>.
+<p><strong>See also:</strong> <a href="#XREFacscd">acscd</a>, <a href="#XREFcsc">csc</a>.
 </p></dd></dl>
 
 <a name="XREFcotd"></a><dl>
-<dt><a name="index-cotd"></a>Function File: <em></em> <strong>cotd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cotd"></a>: <em></em> <strong>cotd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the cotangent for each element of <var>x</var> in degrees.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFacotd">acotd</a>, <a href="Trigonometry.html#XREFcot">cot</a>.
+<p><strong>See also:</strong> <a href="#XREFacotd">acotd</a>, <a href="#XREFcot">cot</a>.
 </p></dd></dl>
 
 
 <a name="XREFasind"></a><dl>
-<dt><a name="index-asind"></a>Function File: <em></em> <strong>asind</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-asind"></a>: <em></em> <strong>asind</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse sine in degrees for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFsind">sind</a>, <a href="Trigonometry.html#XREFasin">asin</a>.
+<p><strong>See also:</strong> <a href="#XREFsind">sind</a>, <a href="#XREFasin">asin</a>.
 </p></dd></dl>
 
 <a name="XREFacosd"></a><dl>
-<dt><a name="index-acosd"></a>Function File: <em></em> <strong>acosd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acosd"></a>: <em></em> <strong>acosd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse cosine in degrees for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcosd">cosd</a>, <a href="Trigonometry.html#XREFacos">acos</a>.
+<p><strong>See also:</strong> <a href="#XREFcosd">cosd</a>, <a href="#XREFacos">acos</a>.
 </p></dd></dl>
 
 <a name="XREFatand"></a><dl>
-<dt><a name="index-atand"></a>Function File: <em></em> <strong>atand</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-atand"></a>: <em></em> <strong>atand</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse tangent in degrees for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFtand">tand</a>, <a href="Trigonometry.html#XREFatan">atan</a>.
+<p><strong>See also:</strong> <a href="#XREFtand">tand</a>, <a href="#XREFatan">atan</a>.
 </p></dd></dl>
 
 <a name="XREFatan2d"></a><dl>
-<dt><a name="index-atan2d"></a>Function File: <em></em> <strong>atan2d</strong> <em>(<var>y</var>, <var>x</var>)</em></dt>
+<dt><a name="index-atan2d"></a>: <em></em> <strong>atan2d</strong> <em>(<var>y</var>, <var>x</var>)</em></dt>
 <dd><p>Compute atan2 (<var>y</var> / <var>x</var>) in degrees for corresponding elements
 from <var>y</var> and <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFtand">tand</a>, <a href="Trigonometry.html#XREFatan2">atan2</a>.
+<p><strong>See also:</strong> <a href="#XREFtand">tand</a>, <a href="#XREFatan2">atan2</a>.
 </p></dd></dl>
 
 <a name="XREFasecd"></a><dl>
-<dt><a name="index-asecd"></a>Function File: <em></em> <strong>asecd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-asecd"></a>: <em></em> <strong>asecd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse secant in degrees for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFsecd">secd</a>, <a href="Trigonometry.html#XREFasec">asec</a>.
+<p><strong>See also:</strong> <a href="#XREFsecd">secd</a>, <a href="#XREFasec">asec</a>.
 </p></dd></dl>
 
 <a name="XREFacscd"></a><dl>
-<dt><a name="index-acscd"></a>Function File: <em></em> <strong>acscd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acscd"></a>: <em></em> <strong>acscd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse cosecant in degrees for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcscd">cscd</a>, <a href="Trigonometry.html#XREFacsc">acsc</a>.
+<p><strong>See also:</strong> <a href="#XREFcscd">cscd</a>, <a href="#XREFacsc">acsc</a>.
 </p></dd></dl>
 
 <a name="XREFacotd"></a><dl>
-<dt><a name="index-acotd"></a>Function File: <em></em> <strong>acotd</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-acotd"></a>: <em></em> <strong>acotd</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the inverse cotangent in degrees for each element of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Trigonometry.html#XREFcotd">cotd</a>, <a href="Trigonometry.html#XREFacot">acot</a>.
+<p><strong>See also:</strong> <a href="#XREFcotd">cotd</a>, <a href="#XREFacot">acot</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Defining Indexing And Indexed Assignment</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Defining-Indexing-And-Indexed-Assignment"></a>
 <div class="header">
 <p>
@@ -59,28 +58,26 @@ Next: <a href="Indexed-Assignment-Optimization.html#Indexed-Assignment-Optimizat
 <a name="Defining-Indexing-And-Indexed-Assignment-1"></a>
 <h4 class="subsection">34.3.1 Defining Indexing And Indexed Assignment</h4>
 
-<p>Objects can be indexed with parentheses, either like
-<code><var>a</var> (<var>idx</var>)</code> or like <code><var>a</var> {<var>idx</var>}</code>, or even
-like <code><var>a</var> (<var>idx</var>).<var>field</var></code>.  However, it is up to the user
-to decide what this indexing actually means.  In the case of our polynomial
-class <code><var>p</var> (<var>n</var>)</code> might mean either the coefficient of the
-<var>n</var>-th power of the polynomial, or it might be the evaluation of the
+<p>Objects can be indexed with parentheses or braces, either like
+<code><var>obj</var>(<var>idx</var>)</code> or like <code><var>obj</var>{<var>idx</var>}</code>, or even
+like <code><var>obj</var>(<var>idx</var>).<var>field</var></code>.  However, it is up to the
+programmer to decide what this indexing actually means.  In the case of the
+polynomial class <code><var>p</var>(<var>n</var>)</code> might mean either the coefficient of
+the <var>n</var>-th power of the polynomial, or it might be the evaluation of the
 polynomial at <var>n</var>.  The meaning of this subscripted referencing is
 determined by the <code>subsref</code> method.
 </p>
 <a name="XREFsubsref"></a><dl>
-<dt><a name="index-subsref"></a>Built-in Function: <em></em> <strong>subsref</strong> <em>(<var>val</var>, <var>idx</var>)</em></dt>
-<dd><p>Perform the subscripted element selection operation according to
-the subscript specified by <var>idx</var>.
+<dt><a name="index-subsref"></a>: <em></em> <strong>subsref</strong> <em>(<var>val</var>, <var>idx</var>)</em></dt>
+<dd><p>Perform the subscripted element selection operation on <var>val</var> according
+to the subscript specified by <var>idx</var>.
 </p>
-<p>The subscript <var>idx</var> is expected to be a structure array with
-fields &lsquo;<samp>type</samp>&rsquo; and &lsquo;<samp>subs</samp>&rsquo;.  Valid values for &lsquo;<samp>type</samp>&rsquo;
-are &lsquo;<samp>&quot;()&quot;</samp>&rsquo;, &lsquo;<samp>&quot;{}&quot;</samp>&rsquo;, and &lsquo;<samp>&quot;.&quot;</samp>&rsquo;.
-The &lsquo;<samp>subs</samp>&rsquo; field may be either &lsquo;<samp>&quot;:&quot;</samp>&rsquo; or a cell array
-of index values.
+<p>The subscript <var>idx</var> must be a structure array with fields &lsquo;<samp>type</samp>&rsquo;
+and &lsquo;<samp>subs</samp>&rsquo;.  Valid values for &lsquo;<samp>type</samp>&rsquo; are <code>&quot;()&quot;</code>,
+<code>&quot;{}&quot;</code>, and <code>&quot;.&quot;</code>.  The &lsquo;<samp>subs</samp>&rsquo; field may be either
+<code>&quot;:&quot;</code> or a cell array of index values.
 </p>
-<p>The following example shows how to extract the two first columns of
-a matrix
+<p>The following example shows how to extract the first two columns of a matrix
 </p>
 <div class="example">
 <pre class="example">val = magic (3)
@@ -95,77 +92,82 @@ subsref (val, idx)
           4   9 ]
 </pre></div>
 
-<p>Note that this is the same as writing <code>val(:,1:2)</code>.
+<p>Note that this is the same as writing <code>val(:, 1:2)</code>.
 </p>
-<p>If <var>idx</var> is an empty structure array with fields &lsquo;<samp>type</samp>&rsquo;
-and &lsquo;<samp>subs</samp>&rsquo;, return <var>val</var>.
+<p>If <var>idx</var> is an empty structure array with fields &lsquo;<samp>type</samp>&rsquo; and
+&lsquo;<samp>subs</samp>&rsquo;, return <var>val</var>.
 </p>
-<p><strong>See also:</strong> <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsasgn">subsasgn</a>, <a href="Manipulating-Structures.html#XREFsubstruct">substruct</a>.
+<p><strong>See also:</strong> <a href="#XREFsubsasgn">subsasgn</a>, <a href="Manipulating-Structures.html#XREFsubstruct">substruct</a>.
 </p></dd></dl>
 
 
-<p>For example we might decide that indexing with <code>&quot;()&quot;</code> evaluates the
-polynomial and indexing with <code>&quot;{}&quot;</code> returns the <var>n</var>-th coefficient
-(of <var>n</var>-th power).  In this case the <code>subsref</code> method of our
-polynomial class might look like
+<p>For example, this class uses the convention that indexing with <code>&quot;()&quot;</code>
+evaluates the polynomial and indexing with <code>&quot;{}&quot;</code> returns the
+<var>n</var>-th coefficient (of the <var>n</var>-th power).  The code for the
+<code>subsref</code> method looks like
 </p>
 <div class="example">
-<pre class="verbatim">function b = subsref (a, s)
+<pre class="verbatim">function r = subsref (p, s)
+
   if (isempty (s))
-    error (&quot;polynomial: missing index&quot;);
+    error (&quot;@polynomial/subsref: missing index&quot;);
   endif
+
   switch (s(1).type)
+
     case &quot;()&quot;
-      ind = s(1).subs;
-      if (numel (ind) != 1)
-        error (&quot;polynomial: need exactly one index&quot;);
-      else
-        b = polyval (fliplr (a.poly), ind{1});
+      idx = s(1).subs;
+      if (numel (idx) != 1)
+        error (&quot;@polynomial/subsref: need exactly one index&quot;);
       endif
+      r = polyval (fliplr (p.poly), idx{1});
+
     case &quot;{}&quot;
-      ind = s(1).subs;
-      if (numel (ind) != 1)
-        error (&quot;polynomial: need exactly one index&quot;);
-      else
-        if (isnumeric (ind{1}))
-          b = a.poly(ind{1}+1);
-        else
-          b = a.poly(ind{1});
-        endif
+      idx = s(1).subs;
+      if (numel (idx) != 1)
+        error (&quot;@polynomial/subsref: need exactly one index&quot;);
       endif
+
+      if (isnumeric (idx{1}))
+        r = p.poly(idx{1}+1);
+      else
+        r = p.poly(idx{1});
+      endif
+
     case &quot;.&quot;
       fld = s.subs;
-      if (strcmp (fld, &quot;poly&quot;))
-        b = a.poly;
-      else
-        error (&quot;@polynomial/subsref: invalid property \&quot;%s\&quot;&quot;, fld);
+      if (! strcmp (fld, &quot;poly&quot;))
+        error ('@polynomial/subsref: invalid property &quot;%s&quot;', fld);
       endif
+      r = p.poly;
+
     otherwise
-      error (&quot;invalid subscript type&quot;);
+      error (&quot;@polynomial/subsref: invalid subscript type&quot;);
+
   endswitch
+
   if (numel (s) &gt; 1)
-    b = subsref (b, s(2:end));
+    r = subsref (r, s(2:end));
   endif
+
 endfunction
-</pre><pre class="example">
 </pre></div>
 
 <p>The equivalent functionality for subscripted assignments uses the
 <code>subsasgn</code> method.
 </p>
 <a name="XREFsubsasgn"></a><dl>
-<dt><a name="index-subsasgn"></a>Built-in Function: <em></em> <strong>subsasgn</strong> <em>(<var>val</var>, <var>idx</var>, <var>rhs</var>)</em></dt>
-<dd><p>Perform the subscripted assignment operation according to
-the subscript specified by <var>idx</var>.
+<dt><a name="index-subsasgn"></a>: <em></em> <strong>subsasgn</strong> <em>(<var>val</var>, <var>idx</var>, <var>rhs</var>)</em></dt>
+<dd><p>Perform the subscripted assignment operation according to the subscript
+specified by <var>idx</var>.
 </p>
-<p>The subscript <var>idx</var> is expected to be a structure array with
-fields &lsquo;<samp>type</samp>&rsquo; and &lsquo;<samp>subs</samp>&rsquo;.  Valid values for &lsquo;<samp>type</samp>&rsquo;
-are &lsquo;<samp>&quot;()&quot;</samp>&rsquo;, &lsquo;<samp>&quot;{}&quot;</samp>&rsquo;, and &lsquo;<samp>&quot;.&quot;</samp>&rsquo;.
-The &lsquo;<samp>subs</samp>&rsquo; field may be either &lsquo;<samp>&quot;:&quot;</samp>&rsquo; or a cell array
-of index values.
+<p>The subscript <var>idx</var> must be a structure array with fields &lsquo;<samp>type</samp>&rsquo;
+and &lsquo;<samp>subs</samp>&rsquo;.  Valid values for &lsquo;<samp>type</samp>&rsquo; are <code>&quot;()&quot;</code>,
+<code>&quot;{}&quot;</code>, and <code>&quot;.&quot;</code>.  The &lsquo;<samp>subs</samp>&rsquo; field may be either
+<code>&quot;:&quot;</code> or a cell array of index values.
 </p>
-<p>The following example shows how to set the two first columns of a
-3-by-3 matrix to zero.
+<p>The following example shows how to set the two first columns of a 3-by-3
+matrix to zero.
 </p>
 <div class="example">
 <pre class="example">val = magic (3);
@@ -177,26 +179,30 @@ subsasgn (val, idx, 0)
            0   0   2 ]
 </pre></div>
 
-<p>Note that this is the same as writing <code>val(:,1:2) = 0</code>.
+<p>Note that this is the same as writing <code>val(:, 1:2) = 0</code>.
 </p>
-<p>If <var>idx</var> is an empty structure array with fields &lsquo;<samp>type</samp>&rsquo;
-and &lsquo;<samp>subs</samp>&rsquo;, return <var>rhs</var>.
+<p>If <var>idx</var> is an empty structure array with fields &lsquo;<samp>type</samp>&rsquo; and
+&lsquo;<samp>subs</samp>&rsquo;, return <var>rhs</var>.
 </p>
-<p><strong>See also:</strong> <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsref">subsref</a>, <a href="Manipulating-Structures.html#XREFsubstruct">substruct</a>.
+<p><strong>See also:</strong> <a href="#XREFsubsref">subsref</a>, <a href="Manipulating-Structures.html#XREFsubstruct">substruct</a>, <a href="#XREFoptimize_005fsubsasgn_005fcalls">optimize_subsasgn_calls</a>.
 </p></dd></dl>
 
 
 <a name="XREFoptimize_005fsubsasgn_005fcalls"></a><dl>
-<dt><a name="index-optimize_005fsubsasgn_005fcalls"></a>Built-in Function: <em><var>val</var> =</em> <strong>optimize_subsasgn_calls</strong> <em>()</em></dt>
-<dt><a name="index-optimize_005fsubsasgn_005fcalls-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>optimize_subsasgn_calls</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-optimize_005fsubsasgn_005fcalls-2"></a>Built-in Function: <em></em> <strong>optimize_subsasgn_calls</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
-<dd><p>Query or set the internal flag for subsasgn method call optimizations.
-If true, Octave will attempt to eliminate the redundant copying when calling
-subsasgn method of a user-defined class.
+<dt><a name="index-optimize_005fsubsasgn_005fcalls"></a>: <em><var>val</var> =</em> <strong>optimize_subsasgn_calls</strong> <em>()</em></dt>
+<dt><a name="index-optimize_005fsubsasgn_005fcalls-1"></a>: <em><var>old_val</var> =</em> <strong>optimize_subsasgn_calls</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-optimize_005fsubsasgn_005fcalls-2"></a>: <em></em> <strong>optimize_subsasgn_calls</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dd><p>Query or set the internal flag for <code>subsasgn</code> method call
+optimizations.
+</p>
+<p>If true, Octave will attempt to eliminate the redundant copying when calling
+the <code>subsasgn</code> method of a user-defined class.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
+</p>
+<p><strong>See also:</strong> <a href="#XREFsubsasgn">subsasgn</a>.
 </p></dd></dl>
 
 
@@ -205,61 +211,60 @@ whole index chain, while they usually handle only the first element.  It is the
 responsibility of these methods to handle the rest of the chain (if needed),
 usually by forwarding it again to <code>subsref</code> or <code>subsasgn</code>.
 </p>
-<p>If you wish to use the <code>end</code> keyword in subscripted expressions
-of an object, then the user needs to define the <code>end</code> method for
-the class.  For example, the <code>end</code> method for our polynomial class might
-look like
+<p>If you wish to use the <code>end</code> keyword in subscripted expressions of an
+object, then there must be an <code>end</code> method defined.  For example, the
+<code>end</code> method for the polynomial class might look like
 </p>
 <div class="example">
 <pre class="verbatim">function r = end (obj, index_pos, num_indices)
 
   if (num_indices != 1)
-    error (&quot;polynomial object may only have one index&quot;)
+    error (&quot;polynomial object may only have one index&quot;);
   endif
 
   r = length (obj.poly) - 1;
 
 endfunction
-</pre><pre class="example">
 </pre></div>
 
-<p>which is a fairly generic <code>end</code> method that has a behavior similar to
-the <code>end</code> keyword for Octave Array classes.  It can then be used as
-follows:
+<p>which is a fairly generic <code>end</code> method that has a behavior similar to the
+<code>end</code> keyword for Octave Array classes.  An example using the polynomial
+class is then
 </p>
 <div class="example">
 <pre class="example">p = polynomial ([1,2,3,4]);
-p(end-1)
+p{end-1}
   &rArr; 3
 </pre></div>
 
-<p>Objects can also be used as the index in a subscripted expression themselves
-and this is controlled with the <code>subsindex</code> function.
+<p>Objects can also be used themselves as the index in a subscripted expression
+and this is controlled by the <code>subsindex</code> function.
 </p>
 <a name="XREFsubsindex"></a><dl>
-<dt><a name="index-subsindex"></a>Function File: <em><var>idx</var> =</em> <strong>subsindex</strong> <em>(<var>a</var>)</em></dt>
-<dd><p>Convert an object to an index vector.  When <var>a</var> is a class object
-defined with a class constructor, then <code>subsindex</code> is the
-overloading method that allows the conversion of this class object to
-a valid indexing vector.  It is important to note that
-<code>subsindex</code> must return a zero-based real integer vector of the
-class <code>&quot;double&quot;</code>.  For example, if the class constructor
+<dt><a name="index-subsindex"></a>: <em><var>idx</var> =</em> <strong>subsindex</strong> <em>(<var>obj</var>)</em></dt>
+<dd><p>Convert an object to an index vector.
+</p>
+<p>When <var>obj</var> is a class object defined with a class constructor, then
+<code>subsindex</code> is the overloading method that allows the conversion of
+this class object to a valid indexing vector.  It is important to note that
+<code>subsindex</code> must return a zero-based real integer vector of the class
+<code>&quot;double&quot;</code>.  For example, if the class constructor were
 </p>
 <div class="example">
-<pre class="example">function b = myclass (a)
-  b = class (struct (&quot;a&quot;, a), &quot;myclass&quot;);
+<pre class="example">function obj = myclass (a)
+  obj = class (struct (&quot;a&quot;, a), &quot;myclass&quot;);
 endfunction
 </pre></div>
 
 <p>then the <code>subsindex</code> function
 </p>
 <div class="example">
-<pre class="example">function idx = subsindex (a)
-  idx = double (a.a) - 1.0;
+<pre class="example">function idx = subsindex (obj)
+  idx = double (obj.a) - 1.0;
 endfunction
 </pre></div>
 
-<p>can then be used as follows
+<p>could be used as follows
 </p>
 <div class="example">
 <pre class="example">a = myclass (1:4);
@@ -269,27 +274,20 @@ b(a)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsref">subsref</a>, <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsasgn">subsasgn</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="#XREFsubsref">subsref</a>, <a href="#XREFsubsasgn">subsasgn</a>.
 </p></dd></dl>
 
 
-<p>Finally, objects can equally be used like ranges, using the <code>colon</code>
-method
+<p>Finally, objects can be used like ranges by providing a <code>colon</code> method.
 </p>
 <a name="XREFcolon"></a><dl>
-<dt><a name="index-colon"></a>Function File: <em><var>r</var> =</em> <strong>colon</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dt><a name="index-colon-1"></a>Function File: <em><var>r</var> =</em> <strong>colon</strong> <em>(<var>a</var>, <var>b</var>, <var>c</var>)</em></dt>
-<dd><p>Method of a class to construct a range with the <code>:</code> operator.  For
-example:
+<dt><a name="index-colon"></a>: <em><var>r</var> =</em> <strong>colon</strong> <em>(<var>base</var>, <var>limit</var>)</em></dt>
+<dt><a name="index-colon-1"></a>: <em><var>r</var> =</em> <strong>colon</strong> <em>(<var>base</var>, <var>increment</var>, <var>limit</var>)</em></dt>
+<dd><p>Return the result of the colon expression corresponding to <var>base</var>,
+<var>limit</var>, and optionally, <var>increment</var>.
 </p>
-<div class="example">
-<pre class="example">a = myclass (&hellip;);
-b = myclass (&hellip;);
-c = a : b
-</pre></div>
-
-
-<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsref">subsref</a>, <a href="Defining-Indexing-And-Indexed-Assignment.html#XREFsubsasgn">subsasgn</a>.
+<p>This function is equivalent to the operator syntax <code>base&nbsp;:&nbsp;limit</code><!-- /@w -->
+or <code>base&nbsp;:&nbsp;increment&nbsp;:&nbsp;limit</code><!-- /@w -->.
 </p></dd></dl>
 
 

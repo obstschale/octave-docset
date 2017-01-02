@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>C-Style I/O Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="C_002dStyle-I_002fO-Functions"></a>
 <div class="header">
 <p>
@@ -64,7 +63,7 @@ functionality of the C programming language&rsquo;s standard I/O library.  The
 argument lists for some of the input functions are slightly different,
 however, because Octave has no way of passing arguments by reference.
 </p>
-<p>In the following, <var>file</var> refers to a file name and <code>fid</code> refers
+<p>In the following, <var>file</var> refers to a filename and <code>fid</code> refers
 to an integer file number, as returned by <code>fopen</code>.
 </p>
 <p>There are three files that are always available.  Although these files
@@ -73,31 +72,34 @@ always use the symbolic names given in the table below, since it will
 make your programs easier to understand.
 </p>
 <a name="XREFstdin"></a><dl>
-<dt><a name="index-stdin"></a>Built-in Function: <em></em> <strong>stdin</strong> <em>()</em></dt>
+<dt><a name="index-stdin"></a>: <em></em> <strong>stdin</strong> <em>()</em></dt>
 <dd><p>Return the numeric value corresponding to the standard input stream.
-When Octave is used interactively, this is filtered through the command
+</p>
+<p>When Octave is used interactively, stdin is filtered through the command
 line editing functions.
 </p>
-<p><strong>See also:</strong> <a href="C_002dStyle-I_002fO-Functions.html#XREFstdout">stdout</a>, <a href="C_002dStyle-I_002fO-Functions.html#XREFstderr">stderr</a>.
+<p><strong>See also:</strong> <a href="#XREFstdout">stdout</a>, <a href="#XREFstderr">stderr</a>.
 </p></dd></dl>
 
 
 <a name="XREFstdout"></a><dl>
-<dt><a name="index-stdout"></a>Built-in Function: <em></em> <strong>stdout</strong> <em>()</em></dt>
+<dt><a name="index-stdout"></a>: <em></em> <strong>stdout</strong> <em>()</em></dt>
 <dd><p>Return the numeric value corresponding to the standard output stream.
-Data written to the standard output is normally filtered through the pager.
 </p>
-<p><strong>See also:</strong> <a href="C_002dStyle-I_002fO-Functions.html#XREFstdin">stdin</a>, <a href="C_002dStyle-I_002fO-Functions.html#XREFstderr">stderr</a>.
+<p>Data written to the standard output is normally filtered through the pager.
+</p>
+<p><strong>See also:</strong> <a href="#XREFstdin">stdin</a>, <a href="#XREFstderr">stderr</a>.
 </p></dd></dl>
 
 
 <a name="XREFstderr"></a><dl>
-<dt><a name="index-stderr"></a>Built-in Function: <em></em> <strong>stderr</strong> <em>()</em></dt>
+<dt><a name="index-stderr"></a>: <em></em> <strong>stderr</strong> <em>()</em></dt>
 <dd><p>Return the numeric value corresponding to the standard error stream.
-Even if paging is turned on, the standard error is not sent to the
-pager.  It is useful for error messages and prompts.
 </p>
-<p><strong>See also:</strong> <a href="C_002dStyle-I_002fO-Functions.html#XREFstdin">stdin</a>, <a href="C_002dStyle-I_002fO-Functions.html#XREFstdout">stdout</a>.
+<p>Even if paging is turned on, the standard error is not sent to the pager.
+It is useful for error messages and prompts.
+</p>
+<p><strong>See also:</strong> <a href="#XREFstdin">stdin</a>, <a href="#XREFstdout">stdout</a>.
 </p></dd></dl>
 
 

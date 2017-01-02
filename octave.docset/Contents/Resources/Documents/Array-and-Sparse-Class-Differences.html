@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Array and Sparse Class Differences</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Array-and-Sparse-Class-Differences"></a>
 <div class="header">
 <p>
@@ -60,7 +59,7 @@ Next: <a href="Creating-Sparse-Matrices-in-Oct_002dFiles.html#Creating-Sparse-Ma
 <h4 class="subsubsection">A.1.6.1 Array and Sparse Class Differences</h4>
 
 <p>The number of elements in a sparse matrix is considered to be the number
-of non-zero elements rather than the product of the dimensions.  Therefore
+of nonzero elements rather than the product of the dimensions.  Therefore
 </p>
 <div class="example">
 <pre class="example">SparseMatrix sm;
@@ -68,17 +67,17 @@ of non-zero elements rather than the product of the dimensions.  Therefore
 int nel = sm.nelem ();
 </pre></div>
 
-<p>returns the number of non-zero elements.  If the user really requires the
-number of elements in the matrix, including the non-zero elements, they
+<p>returns the number of nonzero elements.  If the user really requires the
+number of elements in the matrix, including the nonzero elements, they
 should use <code>numel</code> rather than <code>nelem</code>.  Note that for very
 large matrices, where the product of the two dimensions is larger than
 the representation of an unsigned int, then <code>numel</code> can overflow.
 An example is <code>speye (1e6)</code> which will create a matrix with a million
-rows and columns, but only a million non-zero elements.  Therefore the
+rows and columns, but only a million nonzero elements.  Therefore the
 number of rows by the number of columns in this case is more than two
 hundred times the maximum value that can be represented by an unsigned int.
-The use of <code>numel</code> should therefore be avoided useless it is known
-it won&rsquo;t overflow.
+The use of <code>numel</code> should therefore be avoided unless it is known
+that it will not overflow.
 </p>
 <p>Extreme care must be take with the elem method and the <code>&quot;()&quot;</code> operator,
 which perform basically the same function.  The reason is that if a

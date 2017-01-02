@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Assignment Ops</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Assignment-Ops"></a>
 <div class="header">
 <p>
@@ -228,10 +227,10 @@ with a given value, like this
 <pre class="example">a += 2;
 </pre></div>
 
-<a name="index-_002d_003d"></a>
+<p><a name="index-_002d_003d"></a>
 <a name="index-_002a_003d"></a>
 <a name="index-_002f_003d"></a>
-<p>Similar operators also exist for subtraction (<code>-=</code>),
+Similar operators also exist for subtraction (<code>-=</code>),
 multiplication (<code>*=</code>), and division (<code>/=</code>).  An expression
 of the form
 </p>
@@ -245,8 +244,18 @@ of the form
 <pre class="example"><var>expr1</var> = (<var>expr1</var>) <var>op</var> (<var>expr2</var>)
 </pre></div>
 
-<p>where <var>op</var> can be either <code>+</code>, <code>-</code>, <code>*</code>, or <code>/</code>.
-So, the expression
+<p>where <var>op</var> can be either <code>+</code>, <code>-</code>, <code>*</code>, or <code>/</code>,
+as long as <var>expr2</var> is a simple expression with no side effects.  If
+<var>expr2</var> also contains an assignment operator, then this expression
+is evaluated as
+</p>
+<div class="example">
+<pre class="example"><var>temp</var> = <var>expr2</var>
+<var>expr1</var> = (<var>expr1</var>) <var>op</var> <var>temp</var>
+</pre></div>
+
+<p>where <var>temp</var> is a placeholder temporary value storing the computed
+result of evaluating <var>expr2</var>.  So, the expression
 </p>
 <div class="example">
 <pre class="example">a *= b+1

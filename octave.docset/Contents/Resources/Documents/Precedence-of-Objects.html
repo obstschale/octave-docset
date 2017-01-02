@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Precedence of Objects</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Precedence-of-Objects"></a>
 <div class="header">
 <p>
@@ -59,47 +58,53 @@ Previous: <a href="Operator-Overloading.html#Operator-Overloading" accesskey="p"
 <a name="Precedence-of-Objects-1"></a>
 <h4 class="subsection">34.4.3 Precedence of Objects</h4>
 
-<p>Many functions and operators take two or more arguments and so the
-case can easily arise that these functions are called with objects of
-different classes.  It is therefore necessary to determine the precedence
-of which method of which class to call when there are mixed objects given
-to a function or operator.  To do this the <code>superiorto</code> and
-<code>inferiorto</code> functions can be used
+<p>Many functions and operators take two or more arguments and the situation can
+easily arise where these functions are called with objects of different
+classes.  It is therefore necessary to determine the precedence of which method
+from which class to call when there are mixed objects given to a function or
+operator.  To do this the <code>superiorto</code> and <code>inferiorto</code> functions can
+be used
 </p>
 <a name="XREFsuperiorto"></a><dl>
-<dt><a name="index-superiorto"></a>Built-in Function: <em></em> <strong>superiorto</strong> <em>(<var>class_name</var>, &hellip;)</em></dt>
-<dd><p>When called from a class constructor, mark the object currently
-constructed as having a higher precedence than <var>class_name</var>.
-More that one such class can be specified in a single call.
-This function may only be called from a class constructor.
+<dt><a name="index-superiorto"></a>: <em></em> <strong>superiorto</strong> <em>(<var>class_name</var>, &hellip;)</em></dt>
+<dd><p>When called from a class constructor, mark the object currently constructed
+as having a higher precedence than <var>class_name</var>.
+</p>
+<p>More that one such class can be specified in a single call.  This function
+may <em>only</em> be called from a class constructor.
+</p>
+<p><strong>See also:</strong> <a href="#XREFinferiorto">inferiorto</a>.
 </p></dd></dl>
 
 
 <a name="XREFinferiorto"></a><dl>
-<dt><a name="index-inferiorto"></a>Built-in Function: <em></em> <strong>inferiorto</strong> <em>(<var>class_name</var>, &hellip;)</em></dt>
-<dd><p>When called from a class constructor, mark the object currently
-constructed as having a lower precedence than <var>class_name</var>.
-More that one such class can be specified in a single call.
-This function may only be called from a class constructor.
+<dt><a name="index-inferiorto"></a>: <em></em> <strong>inferiorto</strong> <em>(<var>class_name</var>, &hellip;)</em></dt>
+<dd><p>When called from a class constructor, mark the object currently constructed
+as having a lower precedence than <var>class_name</var>.
+</p>
+<p>More that one such class can be specified in a single call.  This function
+may <em>only</em> be called from a class constructor.
+</p>
+<p><strong>See also:</strong> <a href="#XREFsuperiorto">superiorto</a>.
 </p></dd></dl>
 
 
-<p>For example with our polynomial class consider the case
+<p>With the polynomial class, consider the case
 </p>
 <div class="example">
 <pre class="example">2 * polynomial ([1, 0, 1]);
 </pre></div>
 
-<p>That mixes an object of the class <code>&quot;double&quot;</code> with an object of the class
-<code>&quot;polynomial&quot;</code>.  In this case we like to ensure that the return type of
-the above is of the type <code>&quot;polynomial&quot;</code> and so we use the
-<code>superiorto</code> function in the class constructor.  In particular our
-polynomial class constructor would be modified to be
+<p>that mixes an object of the class <code>&quot;double&quot;</code> with an object of the class
+<code>&quot;polynomial&quot;</code>.  In this case the return type should be
+<code>&quot;polynomial&quot;</code> and so the <code>superiorto</code> function is used in the class
+constructor.  In particular the polynomial class constructor would be modified
+to
 </p>
 <div class="example">
 <pre class="verbatim">## -*- texinfo -*-
-## @deftypefn  {Function File} {} polynomial ()
-## @deftypefnx {Function File} {} polynomial (@var{a})
+## @deftypefn  {} {} polynomial ()
+## @deftypefnx {} {} polynomial (@var{a})
 ## Create a polynomial object representing the polynomial
 ##
 ## @example
@@ -111,32 +116,36 @@ polynomial class constructor would be modified to be
 ## @end deftypefn
 
 function p = polynomial (a)
+
+  if (nargin &gt; 1)
+    print_usage ();
+  endif
+
   if (nargin == 0)
     p.poly = [0];
     p = class (p, &quot;polynomial&quot;);
-  elseif (nargin == 1)
+  else
     if (strcmp (class (a), &quot;polynomial&quot;))
       p = a;
-    elseif (isvector (a) &amp;&amp; isreal (a))
-      p.poly = a(:).';
+    elseif (isreal (a) &amp;&amp; isvector (a))
+      p.poly = a(:).';  # force row vector
       p = class (p, &quot;polynomial&quot;);
     else
-      error (&quot;polynomial: expecting real vector&quot;);
+      error (&quot;@polynomial: A must be a real vector&quot;);
     endif
-  else
-    print_usage ();
   endif
+
   superiorto (&quot;double&quot;);
+
 endfunction
-</pre><pre class="example">
 </pre></div>
 
-<p>Note that user classes always have higher precedence than built-in
-Octave types.  So in fact marking our polynomial class higher than the
-<code>&quot;double&quot;</code> class is in fact not necessary.
+<p>Note that user classes <em>always</em> have higher precedence than built-in
+Octave types.  Thus, marking the polynomial class higher than the
+<code>&quot;double&quot;</code> class is not actually necessary.
 </p>
-<p>When faced with two objects that have the same precedence, Octave will use the
-method of the object that appears first on the list of arguments.
+<p>When confronted with two objects of equal precedence, Octave will use the
+method of the object that appears first in the list of arguments.
 </p>
 <hr>
 <div class="header">

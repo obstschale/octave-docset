@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Character Strings in Oct-Files</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Character-Strings-in-Oct_002dFiles"></a>
 <div class="header">
 <p>
@@ -67,32 +66,29 @@ Consider the example:
 
 DEFUN_DLD (stringdemo, args, , &quot;String Demo&quot;)
 {
-  octave_value_list retval;
-  int nargin = args.length ();
-
-  if (nargin != 1)
+  if (args.length () != 1)
     print_usage ();
-  else
+
+  octave_value_list retval;
+
+  charMatrix ch = args(0).char_matrix_value ();
+
+  retval(1) = octave_value (ch, '\'');  // Single Quote String
+
+  octave_idx_type nr = ch.rows ();
+
+  for (octave_idx_type i = 0; i &lt; nr / 2; i++)
     {
-      charMatrix ch = args(0).char_matrix_value ();
+      std::string tmp = ch.row_as_string (i);
 
-      if (! error_state)
-        {
-          retval(1) = octave_value (ch, '\'');  // Single Quote String
-
-          octave_idx_type nr = ch.rows ();
-          for (octave_idx_type i = 0; i &lt; nr / 2; i++)
-            {
-              std::string tmp = ch.row_as_string (i);
-              ch.insert (ch.row_as_string (nr-i-1).c_str (), i, 0);
-              ch.insert (tmp.c_str (), nr-i-1, 0);
-            }
-          retval(0) = octave_value (ch, '&quot;');  // Double Quote String
-        }
+      ch.insert (ch.row_as_string (nr-i-1).c_str (), i, 0);
+      ch.insert (tmp.c_str (), nr-i-1, 0);
     }
+
+  retval(0) = octave_value (ch, '&quot;');  // Double Quote String
+
   return retval;
 }
-</pre><pre class="example">
 </pre></div>
 
 <p>An example of the use of this function is
@@ -130,7 +126,7 @@ else if (args(0).is_dq_string ())
 </p>
 <div class="example">
 <pre class="example">octave_value_list retval;
-charNDArray c;
+charNDArray ch;
 &hellip;
 // Create single quoted string
 retval(1) = octave_value (ch);        // default constructor is sq_string
@@ -141,11 +137,6 @@ retval(1) = octave_value (ch, '\'');  // explicitly create sq_string
 retval(0) = octave_value (ch, '&quot;');
 </pre></div>
 
-<hr>
-<div class="header">
-<p>
-Next: <a href="Cell-Arrays-in-Oct_002dFiles.html#Cell-Arrays-in-Oct_002dFiles" accesskey="n" rel="next">Cell Arrays in Oct-Files</a>, Previous: <a href="Matrices-and-Arrays-in-Oct_002dFiles.html#Matrices-and-Arrays-in-Oct_002dFiles" accesskey="p" rel="prev">Matrices and Arrays in Oct-Files</a>, Up: <a href="Oct_002dFiles.html#Oct_002dFiles" accesskey="u" rel="up">Oct-Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
-</div>
 
 
 

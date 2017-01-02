@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Character Class Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Character-Class-Functions"></a>
 <div class="header">
 <p>
@@ -71,121 +70,124 @@ corresponding character in the string array.  For example:
 </pre></div>
 
 <a name="XREFisalnum"></a><dl>
-<dt><a name="index-isalnum"></a>Mapping Function: <em></em> <strong>isalnum</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isalnum"></a>: <em></em> <strong>isalnum</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
-letters or digits and false where they are not.  This is equivalent to
-(<code>isalpha (<var>s</var>) | isdigit (<var>s</var>)</code>).
+letters or digits and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>, <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>.
+<p>This is equivalent to (<code>isalpha (<var>s</var>) | isdigit (<var>s</var>)</code>).
+</p>
+<p><strong>See also:</strong> <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisdigit">isdigit</a>, <a href="#XREFispunct">ispunct</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFiscntrl">iscntrl</a>.
 </p></dd></dl>
 
 
 <a name="XREFisalpha"></a><dl>
-<dt><a name="index-isalpha"></a>Mapping Function: <em></em> <strong>isalpha</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isalpha"></a>: <em></em> <strong>isalpha</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
-letters and false where they are not.  This is equivalent to
-(<code>islower (<var>s</var>) | isupper (<var>s</var>)</code>).
+letters and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>, <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>, <a href="Character-Class-Functions.html#XREFisalnum">isalnum</a>, <a href="Character-Class-Functions.html#XREFislower">islower</a>, <a href="Character-Class-Functions.html#XREFisupper">isupper</a>.
+<p>This is equivalent to (<code>islower (<var>s</var>) | isupper (<var>s</var>)</code>).
+</p>
+<p><strong>See also:</strong> <a href="#XREFisdigit">isdigit</a>, <a href="#XREFispunct">ispunct</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFiscntrl">iscntrl</a>, <a href="#XREFisalnum">isalnum</a>, <a href="#XREFislower">islower</a>, <a href="#XREFisupper">isupper</a>.
 </p></dd></dl>
 
 
 <a name="XREFisletter"></a><dl>
-<dt><a name="index-isletter"></a>Function File: <em></em> <strong>isletter</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isletter"></a>: <em></em> <strong>isletter</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var>
-are letters and false where they are not.  This is an alias for
-the <code>isalpha</code> function.
+are letters and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>, <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>, <a href="Character-Class-Functions.html#XREFisalnum">isalnum</a>.
+<p>This is an alias for the <code>isalpha</code> function.
+</p>
+<p><strong>See also:</strong> <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisdigit">isdigit</a>, <a href="#XREFispunct">ispunct</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFiscntrl">iscntrl</a>, <a href="#XREFisalnum">isalnum</a>.
 </p></dd></dl>
 
 
 <a name="XREFislower"></a><dl>
-<dt><a name="index-islower"></a>Mapping Function: <em></em> <strong>islower</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-islower"></a>: <em></em> <strong>islower</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 lowercase letters and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisupper">isupper</a>, <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisletter">isletter</a>, <a href="Character-Class-Functions.html#XREFisalnum">isalnum</a>.
+<p><strong>See also:</strong> <a href="#XREFisupper">isupper</a>, <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisletter">isletter</a>, <a href="#XREFisalnum">isalnum</a>.
 </p></dd></dl>
 
 
 <a name="XREFisupper"></a><dl>
-<dt><a name="index-isupper"></a>Mapping Function: <em></em> <strong>isupper</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isupper"></a>: <em></em> <strong>isupper</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 uppercase letters and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFislower">islower</a>, <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisletter">isletter</a>, <a href="Character-Class-Functions.html#XREFisalnum">isalnum</a>.
+<p><strong>See also:</strong> <a href="#XREFislower">islower</a>, <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisletter">isletter</a>, <a href="#XREFisalnum">isalnum</a>.
 </p></dd></dl>
 
 
 <a name="XREFisdigit"></a><dl>
-<dt><a name="index-isdigit"></a>Mapping Function: <em></em> <strong>isdigit</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isdigit"></a>: <em></em> <strong>isdigit</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 decimal digits (0-9) and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisxdigit">isxdigit</a>, <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisletter">isletter</a>, <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>.
+<p><strong>See also:</strong> <a href="#XREFisxdigit">isxdigit</a>, <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisletter">isletter</a>, <a href="#XREFispunct">ispunct</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFiscntrl">iscntrl</a>.
 </p></dd></dl>
 
 
 <a name="XREFisxdigit"></a><dl>
-<dt><a name="index-isxdigit"></a>Mapping Function: <em></em> <strong>isxdigit</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isxdigit"></a>: <em></em> <strong>isxdigit</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 hexadecimal digits (0-9 and a-fA-F).
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>.
+<p><strong>See also:</strong> <a href="#XREFisdigit">isdigit</a>.
 </p></dd></dl>
 
 
 <a name="XREFispunct"></a><dl>
-<dt><a name="index-ispunct"></a>Mapping Function: <em></em> <strong>ispunct</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-ispunct"></a>: <em></em> <strong>ispunct</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 punctuation characters and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>.
+<p><strong>See also:</strong> <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisdigit">isdigit</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFiscntrl">iscntrl</a>.
 </p></dd></dl>
 
 
 <a name="XREFisspace"></a><dl>
-<dt><a name="index-isspace"></a>Mapping Function: <em></em> <strong>isspace</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isspace"></a>: <em></em> <strong>isspace</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 whitespace characters (space, formfeed, newline, carriage return, tab, and
 vertical tab) and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>, <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>.
+<p><strong>See also:</strong> <a href="#XREFiscntrl">iscntrl</a>, <a href="#XREFispunct">ispunct</a>, <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisdigit">isdigit</a>.
 </p></dd></dl>
 
 
 <a name="XREFiscntrl"></a><dl>
-<dt><a name="index-iscntrl"></a>Mapping Function: <em></em> <strong>iscntrl</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-iscntrl"></a>: <em></em> <strong>iscntrl</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 control characters and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>.
+<p><strong>See also:</strong> <a href="#XREFispunct">ispunct</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisdigit">isdigit</a>.
 </p></dd></dl>
 
 
 <a name="XREFisgraph"></a><dl>
-<dt><a name="index-isgraph"></a>Mapping Function: <em></em> <strong>isgraph</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isgraph"></a>: <em></em> <strong>isgraph</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 printable characters (but not the space character) and false where they are
 not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisprint">isprint</a>.
+<p><strong>See also:</strong> <a href="#XREFisprint">isprint</a>.
 </p></dd></dl>
 
 
 <a name="XREFisprint"></a><dl>
-<dt><a name="index-isprint"></a>Mapping Function: <em></em> <strong>isprint</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isprint"></a>: <em></em> <strong>isprint</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 printable characters (including the space character) and false where they
 are not.
 </p>
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisgraph">isgraph</a>.
+<p><strong>See also:</strong> <a href="#XREFisgraph">isgraph</a>.
 </p></dd></dl>
 
 
 <a name="XREFisascii"></a><dl>
-<dt><a name="index-isascii"></a>Mapping Function: <em></em> <strong>isascii</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-isascii"></a>: <em></em> <strong>isascii</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return a logical array which is true where the elements of <var>s</var> are
 ASCII characters (in the range 0 to 127 decimal) and false where they are
 not.
@@ -193,16 +195,18 @@ not.
 
 
 <a name="XREFisstrprop"></a><dl>
-<dt><a name="index-isstrprop"></a>Function File: <em></em> <strong>isstrprop</strong> <em>(<var>str</var>, <var>prop</var>)</em></dt>
-<dd><p>Test character string properties.  For example:
+<dt><a name="index-isstrprop"></a>: <em></em> <strong>isstrprop</strong> <em>(<var>str</var>, <var>prop</var>)</em></dt>
+<dd><p>Test character string properties.
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">isstrprop (&quot;abc123&quot;, &quot;alpha&quot;)
 &rArr; [1, 1, 1, 0, 0, 0]
 </pre></div>
 
-<p>If <var>str</var> is a cell array, <code>isstrpop</code> is applied recursively
-to each element of the cell array.
+<p>If <var>str</var> is a cell array, <code>isstrpop</code> is applied recursively to
+each element of the cell array.
 </p>
 <p>Numeric arrays are converted to character strings.
 </p>
@@ -236,13 +240,13 @@ to each element of the cell array.
 </dd>
 <dt><code>&quot;space&quot;</code></dt>
 <dt><code>&quot;wspace&quot;</code></dt>
-<dd><p>True for whitespace characters (space, formfeed, newline, carriage
-return, tab, vertical tab).
+<dd><p>True for whitespace characters (space, formfeed, newline, carriage return,
+tab, vertical tab).
 </p>
 </dd>
 <dt><code>&quot;punct&quot;</code></dt>
-<dd><p>True for punctuation characters (printing characters except space
-or letter or digit).
+<dd><p>True for punctuation characters (printing characters except space or
+letter or digit).
 </p>
 </dd>
 <dt><code>&quot;cntrl&quot;</code></dt>
@@ -265,7 +269,7 @@ or letter or digit).
 </dl>
 
 
-<p><strong>See also:</strong> <a href="Character-Class-Functions.html#XREFisalpha">isalpha</a>, <a href="Character-Class-Functions.html#XREFisalnum">isalnum</a>, <a href="Character-Class-Functions.html#XREFislower">islower</a>, <a href="Character-Class-Functions.html#XREFisupper">isupper</a>, <a href="Character-Class-Functions.html#XREFisdigit">isdigit</a>, <a href="Character-Class-Functions.html#XREFisxdigit">isxdigit</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>, <a href="Character-Class-Functions.html#XREFispunct">ispunct</a>, <a href="Character-Class-Functions.html#XREFiscntrl">iscntrl</a>, <a href="Character-Class-Functions.html#XREFisgraph">isgraph</a>, <a href="Character-Class-Functions.html#XREFisprint">isprint</a>, <a href="Character-Class-Functions.html#XREFisascii">isascii</a>.
+<p><strong>See also:</strong> <a href="#XREFisalpha">isalpha</a>, <a href="#XREFisalnum">isalnum</a>, <a href="#XREFislower">islower</a>, <a href="#XREFisupper">isupper</a>, <a href="#XREFisdigit">isdigit</a>, <a href="#XREFisxdigit">isxdigit</a>, <a href="#XREFisspace">isspace</a>, <a href="#XREFispunct">ispunct</a>, <a href="#XREFiscntrl">iscntrl</a>, <a href="#XREFisgraph">isgraph</a>, <a href="#XREFisprint">isprint</a>, <a href="#XREFisascii">isascii</a>.
 </p></dd></dl>
 
 

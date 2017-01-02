@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Matrices</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Matrices"></a>
 <div class="header">
 <p>
@@ -77,6 +76,7 @@ state the dimensions.  The expression
 </p>
 <div class="example">
 <pre class="example">
+
         /      \
         | 1  2 |
   a  =  |      |
@@ -206,9 +206,10 @@ that other factors, such as the amount of memory available on your machine,
 may limit the maximum size of matrices to something smaller.
 </p>
 <a name="XREFsizemax"></a><dl>
-<dt><a name="index-sizemax"></a>Built-in Function: <em></em> <strong>sizemax</strong> <em>()</em></dt>
+<dt><a name="index-sizemax"></a>: <em></em> <strong>sizemax</strong> <em>()</em></dt>
 <dd><p>Return the largest value allowed for the size of an array.
-If Octave is compiled with 64-bit indexing, the result is of class int64,
+</p>
+<p>If Octave is compiled with 64-bit indexing, the result is of class int64,
 otherwise it is of class int32.  The maximum array size is slightly
 smaller than the maximum value allowable for the relevant class as reported
 by <code>intmax</code>.
@@ -225,9 +226,9 @@ section to indicate which columns are being displayed.  You can use the
 following variables to control the format of the output.
 </p>
 <a name="XREFoutput_005fmax_005ffield_005fwidth"></a><dl>
-<dt><a name="index-output_005fmax_005ffield_005fwidth"></a>Built-in Function: <em><var>val</var> =</em> <strong>output_max_field_width</strong> <em>()</em></dt>
-<dt><a name="index-output_005fmax_005ffield_005fwidth-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>output_max_field_width</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-output_005fmax_005ffield_005fwidth-2"></a>Built-in Function: <em></em> <strong>output_max_field_width</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-output_005fmax_005ffield_005fwidth"></a>: <em><var>val</var> =</em> <strong>output_max_field_width</strong> <em>()</em></dt>
+<dt><a name="index-output_005fmax_005ffield_005fwidth-1"></a>: <em><var>old_val</var> =</em> <strong>output_max_field_width</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-output_005fmax_005ffield_005fwidth-2"></a>: <em></em> <strong>output_max_field_width</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the maximum width
 of a numeric output field.
 </p>
@@ -235,14 +236,14 @@ of a numeric output field.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="Matrices.html#XREFfixed_005fpoint_005fformat">fixed_point_format</a>, <a href="Matrices.html#XREFoutput_005fprecision">output_precision</a>.
+<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="#XREFfixed_005fpoint_005fformat">fixed_point_format</a>, <a href="#XREFoutput_005fprecision">output_precision</a>.
 </p></dd></dl>
 
 
 <a name="XREFoutput_005fprecision"></a><dl>
-<dt><a name="index-output_005fprecision"></a>Built-in Function: <em><var>val</var> =</em> <strong>output_precision</strong> <em>()</em></dt>
-<dt><a name="index-output_005fprecision-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>output_precision</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-output_005fprecision-2"></a>Built-in Function: <em></em> <strong>output_precision</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-output_005fprecision"></a>: <em><var>val</var> =</em> <strong>output_precision</strong> <em>()</em></dt>
+<dt><a name="index-output_005fprecision-1"></a>: <em><var>old_val</var> =</em> <strong>output_precision</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-output_005fprecision-2"></a>: <em></em> <strong>output_precision</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the minimum number of
 significant figures to display for numeric output.
 </p>
@@ -250,7 +251,7 @@ significant figures to display for numeric output.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="Matrices.html#XREFfixed_005fpoint_005fformat">fixed_point_format</a>, <a href="Matrices.html#XREFoutput_005fmax_005ffield_005fwidth">output_max_field_width</a>.
+<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="#XREFfixed_005fpoint_005fformat">fixed_point_format</a>, <a href="#XREFoutput_005fmax_005ffield_005fwidth">output_max_field_width</a>.
 </p></dd></dl>
 
 
@@ -260,15 +261,16 @@ different values of <code>output_precision</code> and
 the <code>format</code> function.  See <a href="Basic-Input-and-Output.html#Basic-Input-and-Output">Basic Input and Output</a>.
 </p>
 <a name="XREFsplit_005flong_005frows"></a><dl>
-<dt><a name="index-split_005flong_005frows"></a>Built-in Function: <em><var>val</var> =</em> <strong>split_long_rows</strong> <em>()</em></dt>
-<dt><a name="index-split_005flong_005frows-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>split_long_rows</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-split_005flong_005frows-2"></a>Built-in Function: <em></em> <strong>split_long_rows</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-split_005flong_005frows"></a>: <em><var>val</var> =</em> <strong>split_long_rows</strong> <em>()</em></dt>
+<dt><a name="index-split_005flong_005frows-1"></a>: <em><var>old_val</var> =</em> <strong>split_long_rows</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-split_005flong_005frows-2"></a>: <em></em> <strong>split_long_rows</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether rows of a matrix
-may be split when displayed to a terminal window.  If the rows are split,
-Octave will display the matrix in a series of smaller pieces, each of
-which can fit within the limits of your terminal width and each set of
-rows is labeled so that you can easily see which columns are currently
-being displayed.  For example:
+may be split when displayed to a terminal window.
+</p>
+<p>If the rows are split, Octave will display the matrix in a series of smaller
+pieces, each of which can fit within the limits of your terminal width and
+each set of rows is labeled so that you can easily see which columns are
+currently being displayed.  For example:
 </p>
 <div class="example">
 <pre class="example">octave:13&gt; rand (2,10)
@@ -302,16 +304,18 @@ doing so is not recommended, because it can produce output that can
 easily be misinterpreted.
 </p>
 <a name="XREFfixed_005fpoint_005fformat"></a><dl>
-<dt><a name="index-fixed_005fpoint_005fformat"></a>Built-in Function: <em><var>val</var> =</em> <strong>fixed_point_format</strong> <em>()</em></dt>
-<dt><a name="index-fixed_005fpoint_005fformat-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>fixed_point_format</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-fixed_005fpoint_005fformat-2"></a>Built-in Function: <em></em> <strong>fixed_point_format</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-fixed_005fpoint_005fformat"></a>: <em><var>val</var> =</em> <strong>fixed_point_format</strong> <em>()</em></dt>
+<dt><a name="index-fixed_005fpoint_005fformat-1"></a>: <em><var>old_val</var> =</em> <strong>fixed_point_format</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-fixed_005fpoint_005fformat-2"></a>: <em></em> <strong>fixed_point_format</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether Octave will
-use a scaled format to print matrix values such that the largest
-element may be written with a single leading digit with the scaling
-factor is printed on the first line of output.  For example:
+use a scaled format to print matrix values.
+</p>
+<p>The scaled format prints a scaling factor on the first line of output chosen
+such that the largest matrix element can be written with a single leading
+digit.  For example:
 </p>
 <div class="example">
-<pre class="example">octave:1&gt; logspace (1, 7, 5)'
+<pre class="example">logspace (1, 7, 5)'
 ans =
 
   1.0e+07  *
@@ -323,15 +327,15 @@ ans =
   1.00000
 </pre></div>
 
-<p>Notice that first value appears to be zero when it is actually 1.  For
-this reason, you should be careful when setting
-<code>fixed_point_format</code> to a nonzero value.
+<p>Notice that the first value appears to be 0 when it is actually 1.  Because
+of the possibility for confusion you should be careful about enabling
+<code>fixed_point_format</code>.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="Matrices.html#XREFoutput_005fmax_005ffield_005fwidth">output_max_field_width</a>, <a href="Matrices.html#XREFoutput_005fprecision">output_precision</a>.
+<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="#XREFoutput_005fmax_005ffield_005fwidth">output_max_field_width</a>, <a href="#XREFoutput_005fprecision">output_precision</a>.
 </p></dd></dl>
 
 

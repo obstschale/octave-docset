@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Integer Data Types</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Integer-Data-Types"></a>
 <div class="header">
 <p>
@@ -84,9 +83,10 @@ integer = int32 (float)
 when converted.
 </p>
 <a name="XREFisinteger"></a><dl>
-<dt><a name="index-isinteger"></a>Built-in Function: <em></em> <strong>isinteger</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-isinteger"></a>: <em></em> <strong>isinteger</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return true if <var>x</var> is an integer object (int8, uint8, int16, etc.).
-Note that <code>isinteger&nbsp;(14)</code><!-- /@w --> is false because numeric constants in
+</p>
+<p>Note that <code>isinteger&nbsp;(14)</code><!-- /@w --> is false because numeric constants in
 Octave are double precision floating point values.
 </p>
 <p><strong>See also:</strong> <a href="Predicates-for-Numeric-Objects.html#XREFisfloat">isfloat</a>, <a href="Character-Arrays.html#XREFischar">ischar</a>, <a href="Predicates-for-Numeric-Objects.html#XREFislogical">islogical</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisnumeric">isnumeric</a>, <a href="Built_002din-Data-Types.html#XREFisa">isa</a>.
@@ -94,57 +94,74 @@ Octave are double precision floating point values.
 
 
 <a name="XREFint8"></a><dl>
-<dt><a name="index-int8"></a>Built-in Function: <em></em> <strong>int8</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-int8"></a>: <em></em> <strong>int8</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to 8-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFuint8">uint8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFint64">int64</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFuint8"></a><dl>
-<dt><a name="index-uint8"></a>Built-in Function: <em></em> <strong>uint8</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-uint8"></a>: <em></em> <strong>uint8</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to unsigned 8-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFint64">int64</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFint16"></a><dl>
-<dt><a name="index-int16"></a>Built-in Function: <em></em> <strong>int16</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-int16"></a>: <em></em> <strong>int16</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to 16-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFuint8">uint8</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFint64">int64</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFuint16"></a><dl>
-<dt><a name="index-uint16"></a>Built-in Function: <em></em> <strong>uint16</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-uint16"></a>: <em></em> <strong>uint16</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to unsigned 16-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFuint8">uint8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFint64">int64</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFint32"></a><dl>
-<dt><a name="index-int32"></a>Built-in Function: <em></em> <strong>int32</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-int32"></a>: <em></em> <strong>int32</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to 32-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFuint8">uint8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFint64">int64</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFuint32"></a><dl>
-<dt><a name="index-uint32"></a>Built-in Function: <em></em> <strong>uint32</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-uint32"></a>: <em></em> <strong>uint32</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to unsigned 32-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFuint8">uint8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFint64">int64</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFint64"></a><dl>
-<dt><a name="index-int64"></a>Built-in Function: <em></em> <strong>int64</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-int64"></a>: <em></em> <strong>int64</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to 64-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFuint8">uint8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFuint64">uint64</a>.
 </p></dd></dl>
 
 
 <a name="XREFuint64"></a><dl>
-<dt><a name="index-uint64"></a>Built-in Function: <em></em> <strong>uint64</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-uint64"></a>: <em></em> <strong>uint64</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Convert <var>x</var> to unsigned 64-bit integer type.
+</p>
+<p><strong>See also:</strong> <a href="#XREFint8">int8</a>, <a href="#XREFuint8">uint8</a>, <a href="#XREFint16">int16</a>, <a href="#XREFuint16">uint16</a>, <a href="#XREFint32">int32</a>, <a href="#XREFuint32">uint32</a>, <a href="#XREFint64">int64</a>.
 </p></dd></dl>
 
 
 <a name="XREFintmax"></a><dl>
-<dt><a name="index-intmax"></a>Built-in Function: <em></em> <strong>intmax</strong> <em>(<var>type</var>)</em></dt>
+<dt><a name="index-intmax"></a>: <em></em> <strong>intmax</strong> <em>(<var>type</var>)</em></dt>
 <dd><p>Return the largest integer that can be represented in an integer type.
-The variable <var>type</var> can be
+</p>
+<p>The variable <var>type</var> can be
 </p>
 <dl compact="compact">
 <dt><code>int8</code></dt>
@@ -182,14 +199,15 @@ The variable <var>type</var> can be
 
 <p>The default for <var>type</var> is <code>int32</code>.
 </p>
-<p><strong>See also:</strong> <a href="Integer-Data-Types.html#XREFintmin">intmin</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+<p><strong>See also:</strong> <a href="#XREFintmin">intmin</a>, <a href="#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
 <a name="XREFintmin"></a><dl>
-<dt><a name="index-intmin"></a>Built-in Function: <em></em> <strong>intmin</strong> <em>(<var>type</var>)</em></dt>
+<dt><a name="index-intmin"></a>: <em></em> <strong>intmin</strong> <em>(<var>type</var>)</em></dt>
 <dd><p>Return the smallest integer that can be represented in an integer type.
-The variable <var>type</var> can be
+</p>
+<p>The variable <var>type</var> can be
 </p>
 <dl compact="compact">
 <dt><code>int8</code></dt>
@@ -227,21 +245,23 @@ The variable <var>type</var> can be
 
 <p>The default for <var>type</var> is <code>int32</code>.
 </p>
-<p><strong>See also:</strong> <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+<p><strong>See also:</strong> <a href="#XREFintmax">intmax</a>, <a href="#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
 <a name="XREFflintmax"></a><dl>
-<dt><a name="index-flintmax"></a>Built-in Function: <em></em> <strong>flintmax</strong> <em>()</em></dt>
-<dt><a name="index-flintmax-1"></a>Built-in Function: <em></em> <strong>flintmax</strong> <em>(&quot;double&quot;)</em></dt>
-<dt><a name="index-flintmax-2"></a>Built-in Function: <em></em> <strong>flintmax</strong> <em>(&quot;single&quot;)</em></dt>
+<dt><a name="index-flintmax"></a>: <em></em> <strong>flintmax</strong> <em>()</em></dt>
+<dt><a name="index-flintmax-1"></a>: <em></em> <strong>flintmax</strong> <em>(&quot;double&quot;)</em></dt>
+<dt><a name="index-flintmax-2"></a>: <em></em> <strong>flintmax</strong> <em>(&quot;single&quot;)</em></dt>
 <dd><p>Return the largest integer that can be represented consecutively in a
-floating point value.  The default class is <code>&quot;double&quot;</code>, but
-<code>&quot;single&quot;</code> is a valid option.  On IEEE-754 compatible systems,
-<code>flintmax</code> is <em>2^53</em><!-- /@w --> for <code>&quot;double&quot;</code> and
-<em>2^24</em><!-- /@w --> for <code>&quot;single&quot;</code>.
+floating point value.
 </p>
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Mathematical-Constants.html#XREFrealmax">realmax</a>, <a href="Mathematical-Constants.html#XREFrealmin">realmin</a>.
+<p>The default class is <code>&quot;double&quot;</code>, but <code>&quot;single&quot;</code> is a valid
+option.  On IEEE 754 compatible systems, <code>flintmax</code> is
+<em>2^{53}</em><!-- /@w --> for <code>&quot;double&quot;</code> and <em>2^{24}</em><!-- /@w --> for
+<code>&quot;single&quot;</code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFintmax">intmax</a>, <a href="Mathematical-Constants.html#XREFrealmax">realmax</a>, <a href="Mathematical-Constants.html#XREFrealmin">realmin</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Diary and Echo Commands</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Diary-and-Echo-Commands"></a>
 <div class="header">
 <p>
@@ -69,10 +68,10 @@ interactive session by recording the input you type and the output that
 Octave produces in a separate file.
 </p>
 <a name="XREFdiary"></a><dl>
-<dt><a name="index-diary"></a>Command: <em></em> <strong>diary</strong></dt>
-<dt><a name="index-diary-1"></a>Command: <em></em> <strong>diary</strong> <em>on</em></dt>
-<dt><a name="index-diary-2"></a>Command: <em></em> <strong>diary</strong> <em>off</em></dt>
-<dt><a name="index-diary-3"></a>Command: <em></em> <strong>diary</strong> <em><var>filename</var></em></dt>
+<dt><a name="index-diary-4"></a>: <em></em> <strong>diary</strong></dt>
+<dt><a name="index-diary-5"></a>: <em></em> <strong>diary</strong> <em>on</em></dt>
+<dt><a name="index-diary-6"></a>: <em></em> <strong>diary</strong> <em>off</em></dt>
+<dt><a name="index-diary-7"></a>: <em></em> <strong>diary</strong> <em><var>filename</var></em></dt>
 <dd><p>Record a list of all commands <em>and</em> the output they produce, mixed
 together just as they appear on the terminal.
 </p>
@@ -95,7 +94,7 @@ current working directory.
 
 <p>With no arguments, <code>diary</code> toggles the current diary state.
 </p>
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFhistory">history</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFhistory">history</a>, <a href="Evaluation.html#XREFevalc">evalc</a>.
 </p></dd></dl>
 
 
@@ -104,9 +103,14 @@ they are being evaluated.  This can be especially helpful for debugging
 some kinds of problems.
 </p>
 <a name="XREFecho"></a><dl>
-<dt><a name="index-echo"></a>Command: <em></em> <strong>echo</strong> <em>options</em></dt>
-<dd><p>Control whether commands are displayed as they are executed.  Valid
-options are:
+<dt><a name="index-echo"></a>: <em></em> <strong>echo</strong></dt>
+<dt><a name="index-echo-1"></a>: <em></em> <strong>echo</strong> <em>on</em></dt>
+<dt><a name="index-echo-2"></a>: <em></em> <strong>echo</strong> <em>off</em></dt>
+<dt><a name="index-echo-3"></a>: <em></em> <strong>echo</strong> <em>on all</em></dt>
+<dt><a name="index-echo-4"></a>: <em></em> <strong>echo</strong> <em>off all</em></dt>
+<dd><p>Control whether commands are displayed as they are executed.
+</p>
+<p>Valid options are:
 </p>
 <dl compact="compact">
 <dt><code>on</code></dt>
@@ -133,11 +137,12 @@ functions.
 
 
 <a name="XREFecho_005fexecuting_005fcommands"></a><dl>
-<dt><a name="index-echo_005fexecuting_005fcommands"></a>Built-in Function: <em><var>val</var> =</em> <strong>echo_executing_commands</strong> <em>()</em></dt>
-<dt><a name="index-echo_005fexecuting_005fcommands-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>echo_executing_commands</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-echo_005fexecuting_005fcommands-2"></a>Built-in Function: <em></em> <strong>echo_executing_commands</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-echo_005fexecuting_005fcommands"></a>: <em><var>val</var> =</em> <strong>echo_executing_commands</strong> <em>()</em></dt>
+<dt><a name="index-echo_005fexecuting_005fcommands-1"></a>: <em><var>old_val</var> =</em> <strong>echo_executing_commands</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-echo_005fexecuting_005fcommands-2"></a>: <em></em> <strong>echo_executing_commands</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls the echo state.
-It may be the sum of the following values:
+</p>
+<p>It may be the sum of the following values:
 </p>
 <dl compact="compact">
 <dt>1</dt>

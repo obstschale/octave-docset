@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Use of the interpreter Property</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Use-of-the-interpreter-Property"></a>
 <div class="header">
 <p>
@@ -57,23 +56,25 @@ Next: <a href="Printing-and-Saving-Plots.html#Printing-and-Saving-Plots" accessk
 </div>
 <hr>
 <a name="Use-of-the-interpreter-Property-1"></a>
-<h4 class="subsection">15.2.7 Use of the <code>interpreter</code> Property</h4>
-
-<p>All text objects, including titles, labels, legends, and text, include
-the property <code>&quot;interpreter&quot;</code>, this property determines the manner in which
-special control sequences in the text are rendered.  If the interpreter
-is set to <code>&quot;none&quot;</code>, then no rendering occurs.  At this point the
-<code>&quot;latex&quot;</code> option is not implemented and so the <code>&quot;latex&quot;</code>
-interpreter also does not interpret the text.
+<h4 class="subsection">15.2.8 Use of the <code>interpreter</code> Property</h4>
+<a name="XREFinterpreterusage"></a>
+<p>All text objects&mdash;such as titles, labels, legends, and text&mdash;include
+the property <code>&quot;interpreter&quot;</code> that determines the manner in
+which special control sequences in the text are rendered.
 </p>
-<p>The <code>&quot;tex&quot;</code> option implements a subset of TeX functionality in the
-rendering of the text.  This allows the insertion of special characters
-such as Greek or mathematical symbols within the text.  The special
-characters are also inserted with a code starting with the backslash
-(\) character, as in the table <a href="Use-of-the-interpreter-Property.html#tab_003aextended">Table 15.1</a>.
+<p>The interpreter property can take three values: <code>&quot;none&quot;</code>, <code>&quot;tex&quot;</code>,
+<code>&quot;latex&quot;</code>.  If the interpreter is set to <code>&quot;none&quot;</code> then no special
+rendering occurs&mdash;the displayed text is a verbatim copy of the specified text.
+Currently, the <code>&quot;latex&quot;</code> interpreter is not implemented and is equivalent
+to <code>&quot;none&quot;</code>.
 </p>
-<p>In addition, the formatting of the text can be changed within the string
-with the codes
+<p>The <code>&quot;tex&quot;</code> option implements a subset of TeX functionality when
+rendering text.  This allows the insertion of special glyphs such as Greek
+characters or mathematical symbols.  Special characters are inserted by using
+a backslash (\) character followed by a code, as shown in <a href="#tab_003aextended">Table 15.1</a>.
+</p>
+<p>Besides special glyphs, the formatting of the text can be changed within the
+string by using the codes
 </p>
 <table>
 <tr><td width="20%"></td><td width="20%">\bf</td><td width="60%">Bold font</td><td width="20%"></td></tr>
@@ -82,16 +83,16 @@ with the codes
 <tr><td width="20%"></td><td width="20%">\rm</td><td width="60%">Normal font</td><td width="20%"></td></tr>
 </table>
 
-<p>These are be used in conjunction with the { and } characters to limit
-the change in the font to part of the string.  For example,
+<p>These codes may be used in conjunction with the { and } characters to limit
+the change to a part of the string.  For example,
 </p>
 <div class="example">
 <pre class="example">xlabel ('{\bf H} = a {\bf V}')
 </pre></div>
 
-<p>where the character <code>'a'</code> will not appear in a bold font.  Note that to
-avoid having Octave interpret the backslash characters in the strings,
-the strings should be in single quotes.
+<p>where the character <code>'a'</code> will not appear in bold font.  Note that to
+avoid having Octave interpret the backslash character in the strings,
+the strings themselves should be in single quotes.
 </p>
 <p>It is also possible to change the fontname and size within the text
 </p>
@@ -101,11 +102,21 @@ the strings should be in single quotes.
 use</td><td width="10%"></td></tr>
 </table>
 
-<p>Finally, the superscript and subscripting can be controlled with the <code>'^'</code>
+<p>The color of the text may also be changed inline using either a string (e.g.,
+&quot;red&quot;) or numerically with a Red-Green-Blue (RGB) specification (.e.g.,
+[1 0 0], also red).
+</p>
+<table>
+<tr><td width="10%"></td><td width="40%">\color{<var>color</var>}</td><td width="60%">Specify the color as a string</td><td width="10%"></td></tr>
+<tr><td width="10%"></td><td width="40%">\color[rgb]{<var>R</var> <var>G</var> <var>B</var>}</td><td width="60%">Specify the color
+numerically</td><td width="10%"></td></tr>
+</table>
+
+<p>Finally, superscripting and subscripting can be controlled with the <code>'^'</code>
 and <code>'_'</code> characters.  If the <code>'^'</code> or <code>'_'</code> is followed by a
-{ character, then all of the block surrounded by the { } pair is super- or
-sub-scripted.  Without the { } pair, only the character immediately following
-the <code>'^'</code> or <code>'_'</code> is super- or sub-scripted.
+{ character, then all of the block surrounded by the { } pair is
+superscripted or subscripted.  Without the { } pair, only the character
+immediately following the <code>'^'</code> or <code>'_'</code> is changed.
 </p>
 <div class="float"><a name="tab_003aextended"></a>
 <table>
@@ -161,25 +172,6 @@ the <code>'^'</code> or <code>'_'</code> is super- or sub-scripted.
 
 <div class="float-caption"><p><strong>Table 15.1: </strong>Available special characters in TeX mode</p></div></div><div class="float">
 </div>
-<p>A complete example showing the capabilities of the extended text is
-</p>
-<div class="example">
-<pre class="example">x = 0:0.01:3;
-plot (x, erf (x));
-hold on;
-plot (x,x,&quot;r&quot;);
-axis ([0, 3, 0, 1]);
-text (0.65, 0.6175, strcat ('\leftarrow x = {2/\surd\pi',
-' {\fontsize{16}\int_{\fontsize{8}0}^{\fontsize{8}x}}',
-' e^{-t^2} dt} = 0.6175'))
-</pre></div>
-
-<p>The result of which can be seen in <a href="Use-of-the-interpreter-Property.html#fig_003aextendedtext">Figure 15.7</a>
-</p>
-<div class="float"><a name="fig_003aextendedtext"></a>
-<div align="center"><img src="extended.png" alt="extended">
-</div>
-<div class="float-caption"><p><strong>Figure 15.7: </strong>Example of inclusion of text with the TeX interpreter</p></div></div>
 <hr>
 <div class="header">
 <p>

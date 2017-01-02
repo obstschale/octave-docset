@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>System Information</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="System-Information"></a>
 <div class="header">
 <p>
@@ -60,37 +59,45 @@ Next: <a href="Hashing-Functions.html#Hashing-Functions" accesskey="n" rel="next
 <h3 class="section">36.11 System Information</h3>
 
 <a name="XREFcomputer"></a><dl>
-<dt><a name="index-computer"></a>Function File: <em>[<var>c</var>, <var>maxsize</var>, <var>endian</var>] =</em> <strong>computer</strong> <em>()</em></dt>
-<dt><a name="index-computer-1"></a>Function File: <em><var>arch</var> =</em> <strong>computer</strong> <em>(&quot;arch&quot;)</em></dt>
-<dd><p>Print or return a string of the form <var>cpu</var>-<var>vendor</var>-<var>os</var>
-that identifies the kind of computer Octave is running on.  If invoked
-with an output argument, the value is returned instead of printed.  For
-example:
+<dt><a name="index-computer"></a>: <em></em> <strong>computer</strong> <em>()</em></dt>
+<dt><a name="index-computer-1"></a>: <em><var>c</var> =</em> <strong>computer</strong> <em>()</em></dt>
+<dt><a name="index-computer-2"></a>: <em>[<var>c</var>, <var>maxsize</var>] =</em> <strong>computer</strong> <em>()</em></dt>
+<dt><a name="index-computer-3"></a>: <em>[<var>c</var>, <var>maxsize</var>, <var>endian</var>] =</em> <strong>computer</strong> <em>()</em></dt>
+<dt><a name="index-computer-4"></a>: <em><var>arch</var> =</em> <strong>computer</strong> <em>(&quot;arch&quot;)</em></dt>
+<dd><p>Print or return a string of the form <var>cpu</var>-<var>vendor</var>-<var>os</var> that
+identifies the type of computer that Octave is running on.
+</p>
+<p>If invoked with an output argument, the value is returned instead of
+printed.  For example:
 </p>
 <div class="example">
 <pre class="example">computer ()
    -| i586-pc-linux-gnu
 
-x = computer ()
-   &rArr; x = &quot;i586-pc-linux-gnu&quot;
+mycomp = computer ()
+   &rArr; mycomp = &quot;i586-pc-linux-gnu&quot;
 </pre></div>
 
-<p>If two output arguments are requested, also return the maximum number
-of elements for an array.
+<p>If two output arguments are requested, also return the maximum number of
+elements for an array.  This will depend on whether Octave has been
+compiled with 32-bit or 64-bit index vectors.
 </p>
-<p>If three output arguments are requested, also return the byte order
-of the current system as a character (<code>&quot;B&quot;</code> for big-endian or
-<code>&quot;L&quot;</code> for little-endian).
+<p>If three output arguments are requested, also return the byte order of the
+current system as a character (<code>&quot;B&quot;</code> for big-endian or <code>&quot;L&quot;</code>
+for little-endian).
 </p>
-<p>If the argument <code>&quot;arch&quot;</code> is specified, return a string
-indicating the architecture of the computer on which Octave is
-running.
+<p>If the argument <code>&quot;arch&quot;</code> is specified, return a string indicating the
+architecture of the computer on which Octave is running.
+</p>
+<p><strong>See also:</strong> <a href="#XREFisunix">isunix</a>, <a href="#XREFismac">ismac</a>, <a href="#XREFispc">ispc</a>.
 </p></dd></dl>
 
 
 <a name="XREFuname"></a><dl>
-<dt><a name="index-uname"></a>Built-in Function: <em>[<var>uts</var>, <var>err</var>, <var>msg</var>] =</em> <strong>uname</strong> <em>()</em></dt>
-<dd><p>Return system information in the structure.  For example:
+<dt><a name="index-uname"></a>: <em>[<var>uts</var>, <var>err</var>, <var>msg</var>] =</em> <strong>uname</strong> <em>()</em></dt>
+<dd><p>Return system information in the structure.
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">uname ()
@@ -110,8 +117,8 @@ system-dependent error message.
 
 
 <a name="XREFnproc"></a><dl>
-<dt><a name="index-nproc"></a>Built-in Function: <em></em> <strong>nproc</strong> <em>()</em></dt>
-<dt><a name="index-nproc-1"></a>Built-in Function: <em></em> <strong>nproc</strong> <em>(<var>query</var>)</em></dt>
+<dt><a name="index-nproc"></a>: <em></em> <strong>nproc</strong> <em>()</em></dt>
+<dt><a name="index-nproc-1"></a>: <em></em> <strong>nproc</strong> <em>(<var>query</var>)</em></dt>
 <dd><p>Return the current number of available processors.
 </p>
 <p>If called with the optional argument <var>query</var>, modify how processors
@@ -127,104 +134,158 @@ are counted as follows:
 </p>
 </dd>
 <dt><code>overridable</code></dt>
-<dd><p>likewise, but overridable through the <code><span class="nolinebreak">OMP_NUM_THREADS</span></code><!-- /@w --> environment
-variable.
+<dd><p>same as <code>current</code>, but overridable through the
+<code><span class="nolinebreak">OMP_NUM_THREADS</span></code><!-- /@w --> environment variable.
 </p></dd>
 </dl>
 </dd></dl>
 
 
 <a name="XREFispc"></a><dl>
-<dt><a name="index-ispc"></a>Function File: <em></em> <strong>ispc</strong> <em>()</em></dt>
+<dt><a name="index-ispc"></a>: <em></em> <strong>ispc</strong> <em>()</em></dt>
 <dd><p>Return true if Octave is running on a Windows system and false otherwise.
 </p>
-<p><strong>See also:</strong> <a href="System-Information.html#XREFisunix">isunix</a>, <a href="System-Information.html#XREFismac">ismac</a>.
+<p><strong>See also:</strong> <a href="#XREFisunix">isunix</a>, <a href="#XREFismac">ismac</a>.
 </p></dd></dl>
 
 
 <a name="XREFisunix"></a><dl>
-<dt><a name="index-isunix"></a>Function File: <em></em> <strong>isunix</strong> <em>()</em></dt>
+<dt><a name="index-isunix"></a>: <em></em> <strong>isunix</strong> <em>()</em></dt>
 <dd><p>Return true if Octave is running on a Unix-like system and false otherwise.
 </p>
-<p><strong>See also:</strong> <a href="System-Information.html#XREFismac">ismac</a>, <a href="System-Information.html#XREFispc">ispc</a>.
+<p><strong>See also:</strong> <a href="#XREFismac">ismac</a>, <a href="#XREFispc">ispc</a>.
 </p></dd></dl>
 
 
 <a name="XREFismac"></a><dl>
-<dt><a name="index-ismac"></a>Function File: <em></em> <strong>ismac</strong> <em>()</em></dt>
+<dt><a name="index-ismac"></a>: <em></em> <strong>ismac</strong> <em>()</em></dt>
 <dd><p>Return true if Octave is running on a Mac OS X system and false otherwise.
 </p>
-<p><strong>See also:</strong> <a href="System-Information.html#XREFisunix">isunix</a>, <a href="System-Information.html#XREFispc">ispc</a>.
+<p><strong>See also:</strong> <a href="#XREFisunix">isunix</a>, <a href="#XREFispc">ispc</a>.
 </p></dd></dl>
 
 
 <a name="XREFisieee"></a><dl>
-<dt><a name="index-isieee"></a>Built-in Function: <em></em> <strong>isieee</strong> <em>()</em></dt>
+<dt><a name="index-isieee"></a>: <em></em> <strong>isieee</strong> <em>()</em></dt>
 <dd><p>Return true if your computer <em>claims</em> to conform to the IEEE standard
-for floating point calculations.  No actual tests are performed.
+for floating point calculations.
+</p>
+<p>No actual tests are performed.
 </p></dd></dl>
 
 
 <a name="XREFisdeployed"></a><dl>
-<dt><a name="index-isdeployed"></a>Function File: <em></em> <strong>isdeployed</strong> <em>()</em></dt>
+<dt><a name="index-isdeployed"></a>: <em></em> <strong>isdeployed</strong> <em>()</em></dt>
 <dd><p>Return true if the current program has been compiled and is running
 separately from the Octave interpreter and false if it is running in
-the Octave interpreter.  Currently, this function always returns
-false in Octave.
+the Octave interpreter.
+</p>
+<p>Currently, this function always returns false in Octave.
+</p></dd></dl>
+
+
+<a name="XREFisstudent"></a><dl>
+<dt><a name="index-isstudent"></a>: <em></em> <strong>isstudent</strong> <em>()</em></dt>
+<dd><p>Return true if running in the student edition of <small>MATLAB</small>.
+</p>
+<p><code>isstudent</code> always returns false in Octave.
+</p>
+<p><strong>See also:</strong> <a href="Logical-Values.html#XREFfalse">false</a>.
 </p></dd></dl>
 
 
 <a name="XREFOCTAVE_005fHOME"></a><dl>
-<dt><a name="index-OCTAVE_005fHOME"></a>Built-in Function: <em></em> <strong>OCTAVE_HOME</strong> <em>()</em></dt>
+<dt><a name="index-OCTAVE_005fHOME"></a>: <em></em> <strong>OCTAVE_HOME</strong> <em>()</em></dt>
 <dd><p>Return the name of the top-level Octave installation directory.
 </p>
-
 <p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFEXEC_005fPATH">EXEC_PATH</a>, <a href="Loading-and-Saving-Images.html#XREFIMAGE_005fPATH">IMAGE_PATH</a>.
 </p></dd></dl>
 
 
 <a name="XREFmatlabroot"></a><dl>
-<dt><a name="index-matlabroot"></a>Function File: <em></em> <strong>matlabroot</strong> <em>()</em></dt>
+<dt><a name="index-matlabroot"></a>: <em></em> <strong>matlabroot</strong> <em>()</em></dt>
 <dd><p>Return the name of the top-level Octave installation directory.
 </p>
-<p>This is an alias for the function <code><span class="nolinebreak">OCTAVE_HOME</span></code><!-- /@w --> provided
-for compatibility.
+<p>This is an alias for the function <code><span class="nolinebreak">OCTAVE_HOME</span></code><!-- /@w --> provided for
+compatibility.
 </p>
-<p><strong>See also:</strong> <a href="System-Information.html#XREFOCTAVE_005fHOME">OCTAVE_HOME</a>.
+<p><strong>See also:</strong> <a href="#XREFOCTAVE_005fHOME">OCTAVE_HOME</a>.
 </p></dd></dl>
 
 
 <a name="XREFOCTAVE_005fVERSION"></a><dl>
-<dt><a name="index-OCTAVE_005fVERSION"></a>Built-in Function: <em></em> <strong>OCTAVE_VERSION</strong> <em>()</em></dt>
-<dd><p>Return the version number of Octave, as a string.
+<dt><a name="index-OCTAVE_005fVERSION"></a>: <em></em> <strong>OCTAVE_VERSION</strong> <em>()</em></dt>
+<dd><p>Return the version number of Octave as a string.
+</p>
+<p><strong>See also:</strong> <a href="#XREFver">ver</a>, <a href="#XREFversion">version</a>.
 </p></dd></dl>
 
 
 <a name="XREFversion"></a><dl>
-<dt><a name="index-version"></a>Function File: <em></em> <strong>version</strong> <em>()</em></dt>
-<dd><p>Return the version number of Octave, as a string.
+<dt><a name="index-version"></a>: <em><var>v</var> =</em> <strong>version</strong> <em>()</em></dt>
+<dt><a name="index-version-1"></a>: <em>[<var>v</var>, <var>d</var>] =</em> <strong>version</strong> <em>()</em></dt>
+<dt><a name="index-version-2"></a>: <em><var>v</var> =</em> <strong>version</strong> <em>(<var>feature</var>)</em></dt>
+<dd><p>Get version information for Octave.
 </p>
-<p>This is an alias for the function <code><span class="nolinebreak">OCTAVE_VERSION</span></code><!-- /@w --> provided for
-compatibility.
+<p>If called without input argument, the first return value <var>v</var> gives the
+version number of Octave as a string.  The second return value <var>d</var> holds
+the release date as a string.
 </p>
-<p><strong>See also:</strong> <a href="System-Information.html#XREFOCTAVE_005fVERSION">OCTAVE_VERSION</a>.
+<p>The following options can be passed for <var>feature</var>:
+</p>
+<dl compact="compact">
+<dt><code>&quot;-date&quot;</code></dt>
+<dd><p>for the release date of the running build,
+</p>
+</dd>
+<dt><code>&quot;-description&quot;</code></dt>
+<dd><p>for a description of the release (always an empty string),
+</p>
+</dd>
+<dt><code>&quot;-release&quot;</code></dt>
+<dd><p>for the name of the running build,
+</p>
+</dd>
+<dt><code>&quot;-java&quot;</code></dt>
+<dd><p>for version information of the Java VM,
+</p>
+</dd>
+<dt><code>&quot;-fftw&quot;</code></dt>
+<dd><p>for version information for the linked <small>FFTW</small>,
+</p>
+</dd>
+<dt><code>&quot;-blas&quot;</code></dt>
+<dd><p>for version information for the linked <small>BLAS</small> (not implemented),
+</p>
+</dd>
+<dt><code>&quot;-lapack&quot;</code></dt>
+<dd><p>for version information for the linked <small>LAPACK</small> (not implemented).
+</p></dd>
+</dl>
+
+<p>The variant with no input and output argument is an alias for the function
+<code><span class="nolinebreak">OCTAVE_VERSION</span></code><!-- /@w --> provided for compatibility.
+</p>
+<p><strong>See also:</strong> <a href="#XREFOCTAVE_005fVERSION">OCTAVE_VERSION</a>, <a href="#XREFver">ver</a>.
 </p></dd></dl>
 
 
 <a name="XREFver"></a><dl>
-<dt><a name="index-ver"></a>Function File: <em></em> <strong>ver</strong> <em>()</em></dt>
-<dt><a name="index-ver-1"></a>Function File: <em>v =</em> <strong>ver</strong> <em>()</em></dt>
-<dt><a name="index-ver-2"></a>Function File: <em>v =</em> <strong>ver</strong> <em>(&quot;Octave&quot;)</em></dt>
-<dt><a name="index-ver-3"></a>Function File: <em>v =</em> <strong>ver</strong> <em>(<var>package</var>)</em></dt>
+<dt><a name="index-ver"></a>: <em></em> <strong>ver</strong></dt>
+<dt><a name="index-ver-1"></a>: <em></em> <strong>ver</strong> <em>Octave</em></dt>
+<dt><a name="index-ver-2"></a>: <em></em> <strong>ver</strong> <em><var>package</var></em></dt>
+<dt><a name="index-ver-3"></a>: <em>v =</em> <strong>ver</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Display a header containing the current Octave version number, license
-string, and operating system followed by a list of installed packages,
-versions, and installation directories.
+string, and operating system.  The header is followed by a list of installed
+packages, versions, and installation directories.
 </p>
-<p><code>v = ver ()</code>
+<p>Use the package name <var>package</var> or Octave to limit the listing to a
+desired component.
 </p>
-<p>Return a vector of structures describing Octave and each installed package.
-The structure includes the following fields.
+<p>When called with an output argument, return a vector of structures
+describing Octave and each installed package.  The structure includes the
+following fields.
 </p>
 <dl compact="compact">
 <dt><code>Name</code></dt>
@@ -244,33 +305,24 @@ The structure includes the following fields.
 </p></dd>
 </dl>
 
-<p><code>v = ver (&quot;Octave&quot;)</code>
-</p>
-<p>Return version information for Octave only.
-</p>
-<p><code>v = ver (<var>package</var>)</code>
-</p>
-<p>Return version information for <var>package</var>.
-</p>
 
-<p><strong>See also:</strong> <a href="System-Information.html#XREFversion">version</a>, <a href="System-Information.html#XREFoctave_005fconfig_005finfo">octave_config_info</a>.
+<p><strong>See also:</strong> <a href="#XREFversion">version</a>, <a href="Java-Interface-Functions.html#XREFusejava">usejava</a>, <a href="Installing-and-Removing-Packages.html#XREFpkg">pkg</a>.
 </p></dd></dl>
 
 
 <a name="XREFcompare_005fversions"></a><dl>
-<dt><a name="index-compare_005fversions"></a>Function File: <em></em> <strong>compare_versions</strong> <em>(<var>v1</var>, <var>v2</var>, <var>operator</var>)</em></dt>
+<dt><a name="index-compare_005fversions"></a>: <em></em> <strong>compare_versions</strong> <em>(<var>v1</var>, <var>v2</var>, <var>operator</var>)</em></dt>
 <dd><p>Compare two version strings using the given <var>operator</var>.
 </p>
-<p>This function assumes that versions <var>v1</var> and <var>v2</var> are
-arbitrarily long strings made of numeric and period characters
-possibly followed by an arbitrary string (e.g., <code>&quot;1.2.3&quot;</code>,
-<code>&quot;0.3&quot;</code>, <code>&quot;0.1.2+&quot;</code>, or <code>&quot;1.2.3.4-test1&quot;</code>).
+<p>This function assumes that versions <var>v1</var> and <var>v2</var> are arbitrarily
+long strings made of numeric and period characters possibly followed by an
+arbitrary string (e.g., <code>&quot;1.2.3&quot;</code>, <code>&quot;0.3&quot;</code>, <code>&quot;0.1.2+&quot;</code>,
+or <code>&quot;1.2.3.4-test1&quot;</code>).
 </p>
-<p>The version is first split into numeric and character portions
-and then the parts are padded to be the same length (i.e., <code>&quot;1.1&quot;</code>
-would be padded to be <code>&quot;1.1.0&quot;</code> when being compared with
-<code>&quot;1.1.1&quot;</code>, and separately, the character parts of the strings are
-padded with nulls).
+<p>The version is first split into numeric and character portions and then
+the parts are padded to be the same length (i.e., <code>&quot;1.1&quot;</code> would be
+padded to be <code>&quot;1.1.0&quot;</code> when being compared with <code>&quot;1.1.1&quot;</code>, and
+separately, the character parts of the strings are padded with nulls).
 </p>
 <p>The operator can be any logical operator from the set
 </p>
@@ -306,75 +358,61 @@ starts with a numeric part even though <code>double (&quot;a&quot;)</code> is gr
 
 
 <a name="XREFlicense"></a><dl>
-<dt><a name="index-license"></a>Command: <em></em> <strong>license</strong></dt>
-<dt><a name="index-license-1"></a>Function File: <em></em> <strong>license</strong> <em>(&quot;inuse&quot;)</em></dt>
-<dt><a name="index-license-2"></a>Function File: <em><var>retval</var> =</em> <strong>license</strong> <em>(&quot;inuse&quot;)</em></dt>
-<dt><a name="index-license-3"></a>Function File: <em><var>retval</var> =</em> <strong>license</strong> <em>(&quot;test&quot;, <var>feature</var>)</em></dt>
-<dt><a name="index-license-4"></a>Function File: <em></em> <strong>license</strong> <em>(&quot;test&quot;, <var>feature</var>, <var>toggle</var>)</em></dt>
-<dt><a name="index-license-5"></a>Function File: <em><var>retval</var> =</em> <strong>license</strong> <em>(&quot;checkout&quot;, <var>feature</var>)</em></dt>
-<dd>
-<p>Display the license of Octave.
+<dt><a name="index-license"></a>: <em></em> <strong>license</strong></dt>
+<dt><a name="index-license-1"></a>: <em></em> <strong>license</strong> <em>inuse</em></dt>
+<dt><a name="index-license-2"></a>: <em></em> <strong>license</strong> <em>inuse <var>feature</var></em></dt>
+<dt><a name="index-license-3"></a>: <em></em> <strong>license</strong> <em>(&quot;inuse&quot;)</em></dt>
+<dt><a name="index-license-4"></a>: <em><var>retval</var> =</em> <strong>license</strong> <em>(&quot;inuse&quot;)</em></dt>
+<dt><a name="index-license-5"></a>: <em><var>retval</var> =</em> <strong>license</strong> <em>(&quot;test&quot;, <var>feature</var>)</em></dt>
+<dt><a name="index-license-6"></a>: <em><var>retval</var> =</em> <strong>license</strong> <em>(&quot;checkout&quot;, <var>feature</var>)</em></dt>
+<dt><a name="index-license-7"></a>: <em>[<var>retval</var>, <var>errmsg</var>] =</em> <strong>license</strong> <em>(&quot;checkout&quot;, <var>feature</var>)</em></dt>
+<dd><p>Get license information for Octave and Octave packages.
 </p>
-<p><code>license (&quot;inuse&quot;)</code>
+<p>GNU Octave is free software distributed under the GNU General Public
+License (GPL), and a license manager makes no sense.  This function is
+provided only for <small>MATLAB</small> compatibility.
 </p>
-<p>Display a list of packages currently being used.
-</p>
-<p><code><var>retval</var> = license (&quot;inuse&quot;)</code>
-</p>
-<p>Return a structure containing the fields <code>feature</code> and <code>user</code>.
-</p>
-<p><code><var>retval</var> = license (&quot;test&quot;, <var>feature</var>)</code>
-</p>
-<p>Return 1 if a license exists for the product identified by the string
-<var>feature</var> and 0 otherwise.  The argument <var>feature</var> is case
-insensitive and only the first 27 characters are checked.
-</p>
-<p><code>license (&quot;test&quot;, <var>feature</var>, <var>toggle</var>)</code>
-</p>
-<p>Enable or disable license testing for <var>feature</var>, depending on
-<var>toggle</var>, which may be one of:
+<p>When called with no extra input arguments, it returns the Octave license,
+otherwise the first input defines the operation mode and must be one of
+the following strings: <code>inuse</code>, <code>test</code>, and <code>checkout</code>.
+The optional <var>feature</var> argument can either be <code>&quot;octave&quot;</code> (core),
+or an Octave package.
 </p>
 <dl compact="compact">
-<dt><code>&quot;enable&quot;</code></dt>
-<dd><p>Future tests for the specified license of <var>feature</var> are conducted
-as usual.
+<dt><code>&quot;inuse&quot;</code></dt>
+<dd><p>Returns a list of loaded features, i.e., octave and the list of loaded
+packages.  If an output is requested, it returns a struct array with
+the fields <code>&quot;feature&quot;</code>, and <code>&quot;user&quot;</code>.
 </p>
 </dd>
-<dt><code>&quot;disable&quot;</code></dt>
-<dd><p>Future tests for the specified license of <var>feature</var> return 0.
-</p></dd>
+<dt><code>&quot;test&quot;</code></dt>
+<dd><p>Return true if the specified <var>feature</var> is installed, false otherwise.
+</p>
+<p>An optional third argument <code>&quot;enable&quot;</code> or <code>&quot;disable&quot;</code> is
+accepted but ignored.
+</p>
+</dd>
+<dt><code>&quot;checkout&quot;</code></dt>
+<dd><p>Return true if the specified <var>feature</var> is installed, false otherwise.
+An optional second output will have an error message if a package is not
+installed.
+</p>
+</dd>
 </dl>
 
-<p><code><var>retval</var> = license (&quot;checkout&quot;, <var>feature</var>)</code>
-</p>
-<p>Check out a license for <var>feature</var>, returning 1 on success and 0
-on failure.
-</p>
-<p>This function is provided for compatibility with <small>MATLAB</small>.
-</p>
-<p><strong>See also:</strong> <a href="System-Information.html#XREFver">ver</a>, <a href="System-Information.html#XREFversion">version</a>.
+
+<p><strong>See also:</strong> <a href="Installing-and-Removing-Packages.html#XREFpkg">pkg</a>, <a href="#XREFver">ver</a>, <a href="#XREFversion">version</a>.
 </p></dd></dl>
 
 
-<a name="XREFoctave_005fconfig_005finfo"></a><dl>
-<dt><a name="index-octave_005fconfig_005finfo"></a>Built-in Function: <em></em> <strong>octave_config_info</strong> <em>()</em></dt>
-<dt><a name="index-octave_005fconfig_005finfo-1"></a>Built-in Function: <em></em> <strong>octave_config_info</strong> <em>(<var>option</var>)</em></dt>
-<dd><p>Return a structure containing configuration and installation
-information for Octave.
-</p>
-<p>If <var>option</var> is a string, return the configuration information for the
-specified option.
-</p>
-</dd></dl>
-
-
 <a name="XREFgetrusage"></a><dl>
-<dt><a name="index-getrusage"></a>Built-in Function: <em></em> <strong>getrusage</strong> <em>()</em></dt>
+<dt><a name="index-getrusage"></a>: <em></em> <strong>getrusage</strong> <em>()</em></dt>
 <dd><p>Return a structure containing a number of statistics about the current
-Octave process.  Not all fields are available on all systems.  If it is
-not possible to get CPU time statistics, the CPU time slots are set to
-zero.  Other missing data are replaced by NaN.  The list of possible
-fields is:
+Octave process.
+</p>
+<p>Not all fields are available on all systems.  If it is not possible to get
+CPU time statistics, the CPU time slots are set to zero.  Other missing data
+are replaced by NaN.  The list of possible fields is:
 </p>
 <dl compact="compact">
 <dt><code>idrss</code></dt>

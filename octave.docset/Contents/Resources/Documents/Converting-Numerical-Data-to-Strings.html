@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Converting Numerical Data to Strings</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Converting-Numerical-Data-to-Strings"></a>
 <div class="header">
 <p>
@@ -68,17 +67,18 @@ data as strings is the <code>sprintf</code> function (see <a href="Formatted-Out
 <a href="Formatted-Output.html#XREFsprintf">sprintf</a>).
 </p>
 <a name="XREFmat2str"></a><dl>
-<dt><a name="index-mat2str"></a>Function File: <em><var>s</var> =</em> <strong>mat2str</strong> <em>(<var>x</var>, <var>n</var>)</em></dt>
-<dt><a name="index-mat2str-1"></a>Function File: <em><var>s</var> =</em> <strong>mat2str</strong> <em>(<var>x</var>, <var>n</var>, &quot;class&quot;)</em></dt>
-<dd><p>Format real, complex, and logical matrices as strings.  The
-returned string may be used to reconstruct the original matrix by using
+<dt><a name="index-mat2str"></a>: <em><var>s</var> =</em> <strong>mat2str</strong> <em>(<var>x</var>, <var>n</var>)</em></dt>
+<dt><a name="index-mat2str-1"></a>: <em><var>s</var> =</em> <strong>mat2str</strong> <em>(<var>x</var>, <var>n</var>, &quot;class&quot;)</em></dt>
+<dd><p>Format real, complex, and logical matrices as strings.
+</p>
+<p>The returned string may be used to reconstruct the original matrix by using
 the <code>eval</code> function.
 </p>
-<p>The precision of the values is given by <var>n</var>.  If <var>n</var> is a
-scalar then both real and imaginary parts of the matrix are printed
-to the same precision.  Otherwise <code><var>n</var>(1)</code> defines the
-precision of the real part and <code><var>n</var>(2)</code> defines the
-precision of the imaginary part.  The default for <var>n</var> is 15.
+<p>The precision of the values is given by <var>n</var>.  If <var>n</var> is a scalar
+then both real and imaginary parts of the matrix are printed to the same
+precision.  Otherwise <code><var>n</var>(1)</code> defines the precision of the real
+part and <code><var>n</var>(2)</code> defines the precision of the imaginary part.
+The default for <var>n</var> is 15.
 </p>
 <p>If the argument <code>&quot;class&quot;</code> is given then the class of <var>x</var> is
 included in the string in such a way that <code>eval</code> will result in the
@@ -102,18 +102,20 @@ isequal (x, eval (mat2str (x)))
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="Converting-Numerical-Data-to-Strings.html#XREFnum2str">num2str</a>, <a href="Converting-Numerical-Data-to-Strings.html#XREFint2str">int2str</a>.
+<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="#XREFnum2str">num2str</a>, <a href="#XREFint2str">int2str</a>.
 </p></dd></dl>
 
 
 <a name="XREFnum2str"></a><dl>
-<dt><a name="index-num2str"></a>Function File: <em></em> <strong>num2str</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-num2str-1"></a>Function File: <em></em> <strong>num2str</strong> <em>(<var>x</var>, <var>precision</var>)</em></dt>
-<dt><a name="index-num2str-2"></a>Function File: <em></em> <strong>num2str</strong> <em>(<var>x</var>, <var>format</var>)</em></dt>
-<dd><p>Convert a number (or array) to a string (or a character array).  The
-optional second argument may either give the number of significant
-digits (<var>precision</var>) to be used in the output or a format
-template string (<var>format</var>) as in <code>sprintf</code> (see <a href="Formatted-Output.html#Formatted-Output">Formatted Output</a>).  <code>num2str</code> can also handle complex numbers.
+<dt><a name="index-num2str"></a>: <em></em> <strong>num2str</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-num2str-1"></a>: <em></em> <strong>num2str</strong> <em>(<var>x</var>, <var>precision</var>)</em></dt>
+<dt><a name="index-num2str-2"></a>: <em></em> <strong>num2str</strong> <em>(<var>x</var>, <var>format</var>)</em></dt>
+<dd><p>Convert a number (or array) to a string (or a character array).
+</p>
+<p>The optional second argument may either give the number of significant
+digits (<var>precision</var>) to be used in the output or a format template
+string (<var>format</var>) as in <code>sprintf</code> (see <a href="Formatted-Output.html#Formatted-Output">Formatted Output</a>).
+<code>num2str</code> can also process complex numbers.
 </p>
 <p>Examples:
 </p>
@@ -138,24 +140,30 @@ num2str (1.234 + 27.3i)
      &rArr; &quot;1.234+27.3i&quot;
 </pre></div>
 
-<p>Notes:
+<p>The <code>num2str</code> function is not very flexible.  For better control
+over the results, use <code>sprintf</code> (see <a href="Formatted-Output.html#Formatted-Output">Formatted Output</a>).
+</p>
+<p>Programming Notes:
 </p>
 <p>For <small>MATLAB</small> compatibility, leading spaces are stripped before returning
 the string.
 </p>
-<p>The <code>num2str</code> function is not very flexible.  For better control
-over the results, use <code>sprintf</code> (see <a href="Formatted-Output.html#Formatted-Output">Formatted Output</a>).
+<p>Integers larger than <code>flintmax</code> may not be displayed correctly.
 </p>
-<p>For complex <var>x</var>, the format string may only contain one
-output conversion specification and nothing else.  Otherwise, results
-will be unpredictable.
+<p>For complex <var>x</var>, the format string may only contain one output
+conversion specification and nothing else.  Otherwise, results will be
+unpredictable.
 </p>
-<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="Converting-Numerical-Data-to-Strings.html#XREFint2str">int2str</a>, <a href="Converting-Numerical-Data-to-Strings.html#XREFmat2str">mat2str</a>.
+<p>Any optional <var>format</var> specified by the programmer is used without
+modification.  This is in contrast to <small>MATLAB</small> which tampers with the
+<var>format</var> based on internal heuristics.
+</p>
+<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="#XREFint2str">int2str</a>, <a href="#XREFmat2str">mat2str</a>.
 </p></dd></dl>
 
 
 <a name="XREFint2str"></a><dl>
-<dt><a name="index-int2str"></a>Function File: <em></em> <strong>int2str</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-int2str"></a>: <em></em> <strong>int2str</strong> <em>(<var>n</var>)</em></dt>
 <dd><p>Convert an integer (or array of integers) to a string (or a character
 array).
 </p>
@@ -178,7 +186,13 @@ whos s
 <p>This function is not very flexible.  For better control over the
 results, use <code>sprintf</code> (see <a href="Formatted-Output.html#Formatted-Output">Formatted Output</a>).
 </p>
-<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="Converting-Numerical-Data-to-Strings.html#XREFnum2str">num2str</a>, <a href="Converting-Numerical-Data-to-Strings.html#XREFmat2str">mat2str</a>.
+<p>Programming Notes:
+</p>
+<p>Non-integers are rounded to integers before display.  Only the real part
+of complex numbers is displayed.
+</p>
+
+<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="#XREFnum2str">num2str</a>, <a href="#XREFmat2str">mat2str</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Arithmetic Ops</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Arithmetic-Ops"></a>
 <div class="header">
 <p>
@@ -237,70 +236,76 @@ useful in this case.
 </p>
 <a name="index-_0027-3"></a>
 <a name="XREFctranspose"></a><dl>
-<dt><a name="index-ctranspose"></a>Built-in Function: <em></em> <strong>ctranspose</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-ctranspose"></a>: <em></em> <strong>ctranspose</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return the complex conjugate transpose of <var>x</var>.
-This function and <code>x'</code> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFtranspose">transpose</a>.
+<p>This function and <code>x'</code> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFtranspose">transpose</a>.
 </p></dd></dl>
 
 
 <a name="index-_002e_005c-1"></a>
 <a name="XREFldivide"></a><dl>
-<dt><a name="index-ldivide"></a>Built-in Function: <em></em> <strong>ldivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-ldivide"></a>: <em></em> <strong>ldivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the element-by-element left division of <var>x</var> and <var>y</var>.
-This function and <code>x&nbsp;.\&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFrdivide">rdivide</a>, <a href="Arithmetic-Ops.html#XREFmldivide">mldivide</a>, <a href="Arithmetic-Ops.html#XREFtimes">times</a>, <a href="Arithmetic-Ops.html#XREFplus">plus</a>.
+<p>This function and <code>x&nbsp;.\&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFrdivide">rdivide</a>, <a href="#XREFmldivide">mldivide</a>, <a href="#XREFtimes">times</a>, <a href="#XREFplus">plus</a>.
 </p></dd></dl>
 
 
 <a name="index-_002d-2"></a>
 <a name="XREFminus"></a><dl>
-<dt><a name="index-minus"></a>Built-in Function: <em></em> <strong>minus</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-minus"></a>: <em></em> <strong>minus</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>This function and <code>x&nbsp;<span class="nolinebreak">-</span>&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFplus">plus</a>, <a href="Arithmetic-Ops.html#XREFuminus">uminus</a>.
+<p><strong>See also:</strong> <a href="#XREFplus">plus</a>, <a href="#XREFuminus">uminus</a>.
 </p></dd></dl>
 
 
 <a name="index-_005c-1"></a>
 <a name="XREFmldivide"></a><dl>
-<dt><a name="index-mldivide"></a>Built-in Function: <em></em> <strong>mldivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-mldivide"></a>: <em></em> <strong>mldivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the matrix left division of <var>x</var> and <var>y</var>.
-This function and <code>x&nbsp;\&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFmrdivide">mrdivide</a>, <a href="Arithmetic-Ops.html#XREFldivide">ldivide</a>, <a href="Arithmetic-Ops.html#XREFrdivide">rdivide</a>.
+<p>This function and <code>x&nbsp;\&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFmrdivide">mrdivide</a>, <a href="#XREFldivide">ldivide</a>, <a href="#XREFrdivide">rdivide</a>.
 </p></dd></dl>
 
 
 <a name="index-_002a_002a-1"></a>
 <a name="index-_005e-1"></a>
 <a name="XREFmpower"></a><dl>
-<dt><a name="index-mpower"></a>Built-in Function: <em></em> <strong>mpower</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-mpower"></a>: <em></em> <strong>mpower</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the matrix power operation of <var>x</var> raised to the <var>y</var> power.
-This function and <code>x&nbsp;^&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFpower">power</a>, <a href="Arithmetic-Ops.html#XREFmtimes">mtimes</a>, <a href="Arithmetic-Ops.html#XREFplus">plus</a>, <a href="Arithmetic-Ops.html#XREFminus">minus</a>.
+<p>This function and <code>x&nbsp;^&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFpower">power</a>, <a href="#XREFmtimes">mtimes</a>, <a href="#XREFplus">plus</a>, <a href="#XREFminus">minus</a>.
 </p></dd></dl>
 
 
 <a name="index-_002f-1"></a>
 <a name="XREFmrdivide"></a><dl>
-<dt><a name="index-mrdivide"></a>Built-in Function: <em></em> <strong>mrdivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-mrdivide"></a>: <em></em> <strong>mrdivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the matrix right division of <var>x</var> and <var>y</var>.
-This function and <code>x&nbsp;/&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFmldivide">mldivide</a>, <a href="Arithmetic-Ops.html#XREFrdivide">rdivide</a>, <a href="Arithmetic-Ops.html#XREFplus">plus</a>, <a href="Arithmetic-Ops.html#XREFminus">minus</a>.
+<p>This function and <code>x&nbsp;/&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFmldivide">mldivide</a>, <a href="#XREFrdivide">rdivide</a>, <a href="#XREFplus">plus</a>, <a href="#XREFminus">minus</a>.
 </p></dd></dl>
 
 
 <a name="index-_002a-1"></a>
 <a name="XREFmtimes"></a><dl>
-<dt><a name="index-mtimes"></a>Built-in Function: <em></em> <strong>mtimes</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-mtimes-1"></a>Built-in Function: <em></em> <strong>mtimes</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
+<dt><a name="index-mtimes"></a>: <em></em> <strong>mtimes</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-mtimes-1"></a>: <em></em> <strong>mtimes</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
 <dd><p>Return the matrix multiplication product of inputs.
-This function and <code>x&nbsp;*&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p>This function and <code>x&nbsp;*&nbsp;y</code><!-- /@w --> are equivalent.
 If more arguments are given, the multiplication is applied
 cumulatively from left to right:
 </p>
@@ -310,16 +315,17 @@ cumulatively from left to right:
 
 <p>At least one argument is required.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFtimes">times</a>, <a href="Arithmetic-Ops.html#XREFplus">plus</a>, <a href="Arithmetic-Ops.html#XREFminus">minus</a>, <a href="Arithmetic-Ops.html#XREFrdivide">rdivide</a>, <a href="Arithmetic-Ops.html#XREFmrdivide">mrdivide</a>, <a href="Arithmetic-Ops.html#XREFmldivide">mldivide</a>, <a href="Arithmetic-Ops.html#XREFmpower">mpower</a>.
+<p><strong>See also:</strong> <a href="#XREFtimes">times</a>, <a href="#XREFplus">plus</a>, <a href="#XREFminus">minus</a>, <a href="#XREFrdivide">rdivide</a>, <a href="#XREFmrdivide">mrdivide</a>, <a href="#XREFmldivide">mldivide</a>, <a href="#XREFmpower">mpower</a>.
 </p></dd></dl>
 
 
 <a name="index-_002b-2"></a>
 <a name="XREFplus"></a><dl>
-<dt><a name="index-plus"></a>Built-in Function: <em></em> <strong>plus</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-plus-1"></a>Built-in Function: <em></em> <strong>plus</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
+<dt><a name="index-plus"></a>: <em></em> <strong>plus</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-plus-1"></a>: <em></em> <strong>plus</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
 <dd><p>This function and <code>x&nbsp;+&nbsp;y</code><!-- /@w --> are equivalent.
-If more arguments are given, the summation is applied
+</p>
+<p>If more arguments are given, the summation is applied
 cumulatively from left to right:
 </p>
 <div class="example">
@@ -328,42 +334,46 @@ cumulatively from left to right:
 
 <p>At least one argument is required.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFminus">minus</a>, <a href="Arithmetic-Ops.html#XREFuplus">uplus</a>.
+<p><strong>See also:</strong> <a href="#XREFminus">minus</a>, <a href="#XREFuplus">uplus</a>.
 </p></dd></dl>
 
 
 <a name="index-_002e_002a_002a-1"></a>
 <a name="index-_002e_005e-1"></a>
 <a name="XREFpower"></a><dl>
-<dt><a name="index-power"></a>Built-in Function: <em></em> <strong>power</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-power"></a>: <em></em> <strong>power</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the element-by-element operation of <var>x</var> raised to the
-<var>y</var> power.  If several complex results are possible,
-returns the one with smallest non-negative argument (angle).  Use
-<code>realpow</code>, <code>realsqrt</code>, <code>cbrt</code>, or <code>nthroot</code> if a
-real result is preferred.
+<var>y</var> power.
 </p>
 <p>This function and <code>x&nbsp;.^&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFmpower">mpower</a>, <a href="Exponents-and-Logarithms.html#XREFrealpow">realpow</a>, <a href="Exponents-and-Logarithms.html#XREFrealsqrt">realsqrt</a>, <a href="Exponents-and-Logarithms.html#XREFcbrt">cbrt</a>, <a href="Exponents-and-Logarithms.html#XREFnthroot">nthroot</a>.
+<p>If several complex results are possible, returns the one with smallest
+non-negative argument (angle).  Use <code>realpow</code>, <code>realsqrt</code>,
+<code>cbrt</code>, or <code>nthroot</code> if a real result is preferred.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFmpower">mpower</a>, <a href="Exponents-and-Logarithms.html#XREFrealpow">realpow</a>, <a href="Exponents-and-Logarithms.html#XREFrealsqrt">realsqrt</a>, <a href="Exponents-and-Logarithms.html#XREFcbrt">cbrt</a>, <a href="Exponents-and-Logarithms.html#XREFnthroot">nthroot</a>.
 </p></dd></dl>
 
 
 <a name="index-_002e_002f-1"></a>
 <a name="XREFrdivide"></a><dl>
-<dt><a name="index-rdivide"></a>Built-in Function: <em></em> <strong>rdivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-rdivide"></a>: <em></em> <strong>rdivide</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the element-by-element right division of <var>x</var> and <var>y</var>.
-This function and <code>x&nbsp;./&nbsp;y</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFldivide">ldivide</a>, <a href="Arithmetic-Ops.html#XREFmrdivide">mrdivide</a>, <a href="Arithmetic-Ops.html#XREFtimes">times</a>, <a href="Arithmetic-Ops.html#XREFplus">plus</a>.
+<p>This function and <code>x&nbsp;./&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFldivide">ldivide</a>, <a href="#XREFmrdivide">mrdivide</a>, <a href="#XREFtimes">times</a>, <a href="#XREFplus">plus</a>.
 </p></dd></dl>
 
 
 <a name="index-_002e_002a-1"></a>
 <a name="XREFtimes"></a><dl>
-<dt><a name="index-times"></a>Built-in Function: <em></em> <strong>times</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-times-1"></a>Built-in Function: <em></em> <strong>times</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
+<dt><a name="index-times"></a>: <em></em> <strong>times</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-times-1"></a>: <em></em> <strong>times</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;)</em></dt>
 <dd><p>Return the element-by-element multiplication product of inputs.
-This function and <code>x&nbsp;.*&nbsp;y</code><!-- /@w --> are equivalent.
+</p>
+<p>This function and <code>x&nbsp;.*&nbsp;y</code><!-- /@w --> are equivalent.
 If more arguments are given, the multiplication is applied
 cumulatively from left to right:
 </p>
@@ -373,35 +383,36 @@ cumulatively from left to right:
 
 <p>At least one argument is required.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFmtimes">mtimes</a>, <a href="Arithmetic-Ops.html#XREFrdivide">rdivide</a>.
+<p><strong>See also:</strong> <a href="#XREFmtimes">mtimes</a>, <a href="#XREFrdivide">rdivide</a>.
 </p></dd></dl>
 
 
 <a name="index-_002e_0027-1"></a>
 <a name="XREFtranspose"></a><dl>
-<dt><a name="index-transpose-2"></a>Built-in Function: <em></em> <strong>transpose</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-transpose-2"></a>: <em></em> <strong>transpose</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return the transpose of <var>x</var>.
-This function and <code>x.'</code> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFctranspose">ctranspose</a>.
+<p>This function and <code>x.'</code> are equivalent.
+</p>
+<p><strong>See also:</strong> <a href="#XREFctranspose">ctranspose</a>.
 </p></dd></dl>
 
 
 <a name="index-_002d-3"></a>
 <a name="XREFuminus"></a><dl>
-<dt><a name="index-uminus"></a>Built-in Function: <em></em> <strong>uminus</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-uminus"></a>: <em></em> <strong>uminus</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>This function and <code><span class="nolinebreak">-</span>&nbsp;x</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFuplus">uplus</a>, <a href="Arithmetic-Ops.html#XREFminus">minus</a>.
+<p><strong>See also:</strong> <a href="#XREFuplus">uplus</a>, <a href="#XREFminus">minus</a>.
 </p></dd></dl>
 
 
 <a name="index-_002b-3"></a>
 <a name="XREFuplus"></a><dl>
-<dt><a name="index-uplus"></a>Built-in Function: <em></em> <strong>uplus</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-uplus"></a>: <em></em> <strong>uplus</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>This function and <code>+&nbsp;x</code><!-- /@w --> are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFuminus">uminus</a>, <a href="Arithmetic-Ops.html#XREFplus">plus</a>, <a href="Arithmetic-Ops.html#XREFminus">minus</a>.
+<p><strong>See also:</strong> <a href="#XREFuminus">uminus</a>, <a href="#XREFplus">plus</a>, <a href="#XREFminus">minus</a>.
 </p></dd></dl>
 
 

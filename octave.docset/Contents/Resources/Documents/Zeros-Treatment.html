@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Zeros Treatment</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Zeros-Treatment"></a>
 <div class="header">
 <p>
@@ -58,26 +57,25 @@ Previous: <a href="Example-Code.html#Example-Code" accesskey="p" rel="prev">Exam
 <hr>
 <a name="Differences-in-Treatment-of-Zero-Elements"></a>
 <h3 class="section">21.5 Differences in Treatment of Zero Elements</h3>
+<a name="index-matrix_002c-zero-elements"></a>
 
 <p>Making diagonal and permutation matrices special matrix objects in their own
 right and the consequent usage of smarter algorithms for certain operations
 implies, as a side effect, small differences in treating zeros.
-The contents of this section applies also to sparse matrices, discussed in
-the following chapter.
+The contents of this section apply also to sparse matrices, discussed in
+the following chapter.  (see <a href="Sparse-Matrices.html#Sparse-Matrices">Sparse Matrices</a>)
 </p>
-<p>The IEEE standard defines the result of the expressions <code>0*Inf</code> and
-<code>0*NaN</code> as <code>NaN</code>, as it has been generally agreed that this is the
-best compromise.
-Numerical software dealing with structured and sparse matrices (including
-Octave) however, almost always makes a distinction between a &quot;numerical zero&quot;
-and an &quot;assumed zero&quot;.
-A &quot;numerical zero&quot; is a zero value occurring in a place where any floating-point
-value could occur.  It is normally stored somewhere in memory as an explicit
-value.
-An &quot;assumed zero&quot;, on the contrary, is a zero matrix element implied by the
-matrix structure (diagonal, triangular) or a sparsity pattern; its value is
-usually not stored explicitly anywhere, but is implied by the underlying
-data structure.
+<p>The IEEE floating point standard defines the result of the expressions
+<code>0*Inf</code> and <code>0*NaN</code> as <code>NaN</code>.  This is widely agreed to be a
+good compromise.  Numerical software dealing with structured and sparse
+matrices (including Octave) however, almost always makes a distinction between
+a &quot;numerical zero&quot; and an &quot;assumed zero&quot;.  A
+&quot;numerical zero&quot; is a zero value occurring in a place where any
+floating-point value could occur.  It is normally stored somewhere in memory
+as an explicit value.  An &quot;assumed zero&quot;, on the contrary, is a zero
+matrix element implied by the matrix structure (diagonal, triangular) or a
+sparsity pattern; its value is usually not stored explicitly anywhere, but is
+implied by the underlying data structure.
 </p>
 <p>The primary distinction is that an assumed zero, when multiplied
 by any number, or divided by any nonzero number,

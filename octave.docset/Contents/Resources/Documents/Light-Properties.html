@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Light Properties</title>
+
+<meta name="description" content="GNU Octave: Light Properties">
+<meta name="keywords" content="GNU Octave: Light Properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Graphics-Object-Properties.html#Graphics-Object-Properties" rel="up" title="Graphics Object Properties">
+<link href="Uimenu-Properties.html#Uimenu-Properties" rel="next" title="Uimenu Properties">
+<link href="Surface-Properties.html#Surface-Properties" rel="prev" title="Surface Properties">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
+
+
+</head>
+
+<body lang="en">
+<a name="Light-Properties"></a>
+<div class="header">
+<p>
+Next: <a href="Uimenu-Properties.html#Uimenu-Properties" accesskey="n" rel="next">Uimenu Properties</a>, Previous: <a href="Surface-Properties.html#Surface-Properties" accesskey="p" rel="prev">Surface Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Light-Properties-1"></a>
+<h4 class="subsubsection">15.3.3.9 Light Properties</h4>
+<a name="index-light-properties"></a>
+
+<p>The <code>light</code> properties are:
+</p>
+
+
+<dl compact="compact">
+<dd>
+<a name="XREFlight_005f_005fmodified_005f_005f"></a><a name="index-light-_005f_005fmodified_005f_005f"></a>
+</dd>
+<dt><code>__modified__</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFlightbeingdeleted"></a><a name="index-light-beingdeleted"></a>
+</dd>
+<dt><code>beingdeleted</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFlightbusyaction"></a><a name="index-light-busyaction"></a>
+</dd>
+<dt><code>busyaction</code>: <code>&quot;cancel&quot;</code> | {<code>&quot;queue&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFlightbuttondownfcn"></a><a name="index-light-buttondownfcn"></a>
+</dd>
+<dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd>
+
+
+<a name="XREFlightchildren"></a><a name="index-light-children"></a>
+</dd>
+<dt><code>children</code> (read-only): vector of graphics handles, def. <code>[](0x1)</code></dt>
+<dd><p><code>children</code> is unused.
+</p>
+
+<a name="XREFlightclipping"></a><a name="index-light-clipping"></a>
+</dd>
+<dt><code>clipping</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>clipping</code> is <code>&quot;on&quot;</code>, the light is clipped in its parent axes limits.
+</p>
+
+<a name="XREFlightcolor"></a><a name="index-light-color"></a>
+</dd>
+<dt><code>color</code>: colorspec, def. <code>[1   1   1]</code></dt>
+<dd><p>Color of the light source.  See <a href="Colors.html#Colors">colorspec</a>.
+</p>
+
+<a name="XREFlightcreatefcn"></a><a name="index-light-createfcn"></a>
+</dd>
+<dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p>Callback function executed immediately after light has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultlightcreatefcn&quot;, 'disp (&quot;light created!&quot;)')</code>.
+</p>
+
+<a name="XREFlightdeletefcn"></a><a name="index-light-deletefcn"></a>
+</dd>
+<dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p>Callback function executed immediately before light is deleted.
+</p>
+
+<a name="XREFlighthandlevisibility"></a><a name="index-light-handlevisibility"></a>
+</dd>
+<dt><code>handlevisibility</code>: <code>&quot;callback&quot;</code> | <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>handlevisibility</code> is <code>&quot;off&quot;</code>, the light&rsquo;s handle is not visible in its parent&rsquo;s &quot;children&quot; property.
+</p>
+
+<a name="XREFlighthittest"></a><a name="index-light-hittest"></a>
+</dd>
+<dt><code>hittest</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFlightinterruptible"></a><a name="index-light-interruptible"></a>
+</dd>
+<dt><code>interruptible</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFlightparent"></a><a name="index-light-parent"></a>
+</dd>
+<dt><code>parent</code>: graphics handle</dt>
+<dd><p>Handle of the parent graphics object.
+</p>
+
+<a name="XREFlightposition"></a><a name="index-light-position"></a>
+</dd>
+<dt><code>position</code>: def. <code>[1   0   1]</code></dt>
+<dd><p>Position of the light source.
+</p>
+
+<a name="XREFlightselected"></a><a name="index-light-selected"></a>
+</dd>
+<dt><code>selected</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFlightselectionhighlight"></a><a name="index-light-selectionhighlight"></a>
+</dd>
+<dt><code>selectionhighlight</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFlightstyle"></a><a name="index-light-style"></a>
+</dd>
+<dt><code>style</code>: {<code>&quot;infinite&quot;</code>} | <code>&quot;local&quot;</code></dt>
+<dd><p>This string defines whether the light emanates from a light source at infinite distance (<code>&quot;infinite&quot;</code>) or from a local point source (<code>&quot;local&quot;</code>).
+</p>
+
+<a name="XREFlighttag"></a><a name="index-light-tag"></a>
+</dd>
+<dt><code>tag</code>: string, def. <code>&quot;&quot;</code></dt>
+<dd><p>A user-defined string to label the graphics object.
+</p>
+
+<a name="XREFlighttype"></a><a name="index-light-type"></a>
+</dd>
+<dt><code>type</code> (read-only): string</dt>
+<dd><p>Class name of the graphics object.  <code>type</code> is always <code>&quot;light&quot;</code>
+</p>
+
+<a name="XREFlightuicontextmenu"></a><a name="index-light-uicontextmenu"></a>
+</dd>
+<dt><code>uicontextmenu</code>: graphics handle, def. <code>[](0x0)</code></dt>
+<dd><p>Graphics handle of the uicontextmenu object that is currently associated to this light object.
+</p>
+
+<a name="XREFlightuserdata"></a><a name="index-light-userdata"></a>
+</dd>
+<dt><code>userdata</code>: Any Octave data, def. <code>[](0x0)</code></dt>
+<dd><p>User-defined data to associate with the graphics object.
+</p>
+
+<a name="XREFlightvisible"></a><a name="index-light-visible"></a>
+</dd>
+<dt><code>visible</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>visible</code> is <code>&quot;off&quot;</code>, the light is not rendered on screen.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Uimenu-Properties.html#Uimenu-Properties" accesskey="n" rel="next">Uimenu Properties</a>, Previous: <a href="Surface-Properties.html#Surface-Properties" accesskey="p" rel="prev">Surface Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

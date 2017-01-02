@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Parser</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Parser"></a>
 <div class="header">
 <p>
@@ -57,7 +56,7 @@ Previous: <a href="Keywords.html#Keywords" accesskey="p" rel="prev">Keywords</a>
 </div>
 <hr>
 <a name="Parser-1"></a>
-<h3 class="section">I.2 Parser</h3>
+<h3 class="section">F.2 Parser</h3>
 <a name="index-parser"></a>
 
 <p>The parser has a number of variables that affect its internal operation.
@@ -71,34 +70,34 @@ periodic evaluation.  <code>remove_input_event_hook</code> will stop a user func
 from being evaluated periodically.
 </p>
 <a name="XREFadd_005finput_005fevent_005fhook"></a><dl>
-<dt><a name="index-add_005finput_005fevent_005fhook"></a>Built-in Function: <em><var>id</var> =</em> <strong>add_input_event_hook</strong> <em>(<var>fcn</var>)</em></dt>
-<dt><a name="index-add_005finput_005fevent_005fhook-1"></a>Built-in Function: <em><var>id</var> =</em> <strong>add_input_event_hook</strong> <em>(<var>fcn</var>, <var>data</var>)</em></dt>
+<dt><a name="index-add_005finput_005fevent_005fhook"></a>: <em><var>id</var> =</em> <strong>add_input_event_hook</strong> <em>(<var>fcn</var>)</em></dt>
+<dt><a name="index-add_005finput_005fevent_005fhook-1"></a>: <em><var>id</var> =</em> <strong>add_input_event_hook</strong> <em>(<var>fcn</var>, <var>data</var>)</em></dt>
 <dd><p>Add the named function or function handle <var>fcn</var> to the list of functions
-to call periodically when Octave is waiting for input.  The function should
-have the form
+to call periodically when Octave is waiting for input.
+</p>
+<p>The function should have the form
 </p>
 <div class="example">
 <pre class="example"><var>fcn</var> (<var>data</var>)
 </pre></div>
 
-<p>If <var>data</var> is omitted, Octave calls the function without any
-arguments.
+<p>If <var>data</var> is omitted, Octave calls the function without any arguments.
 </p>
-<p>The returned identifier may be used to remove the function handle from
-the list of input hook functions.
+<p>The returned identifier may be used to remove the function handle from the
+list of input hook functions.
 </p>
-<p><strong>See also:</strong> <a href="Parser.html#XREFremove_005finput_005fevent_005fhook">remove_input_event_hook</a>.
+<p><strong>See also:</strong> <a href="#XREFremove_005finput_005fevent_005fhook">remove_input_event_hook</a>.
 </p></dd></dl>
 
 
 <a name="XREFremove_005finput_005fevent_005fhook"></a><dl>
-<dt><a name="index-remove_005finput_005fevent_005fhook"></a>Built-in Function: <em></em> <strong>remove_input_event_hook</strong> <em>(<var>name</var>)</em></dt>
-<dt><a name="index-remove_005finput_005fevent_005fhook-1"></a>Built-in Function: <em></em> <strong>remove_input_event_hook</strong> <em>(<var>fcn_id</var>)</em></dt>
+<dt><a name="index-remove_005finput_005fevent_005fhook"></a>: <em></em> <strong>remove_input_event_hook</strong> <em>(<var>name</var>)</em></dt>
+<dt><a name="index-remove_005finput_005fevent_005fhook-1"></a>: <em></em> <strong>remove_input_event_hook</strong> <em>(<var>fcn_id</var>)</em></dt>
 <dd><p>Remove the named function or function handle with the given identifier
 from the list of functions to call periodically when Octave is waiting
 for input.
 </p>
-<p><strong>See also:</strong> <a href="Parser.html#XREFadd_005finput_005fevent_005fhook">add_input_event_hook</a>.
+<p><strong>See also:</strong> <a href="#XREFadd_005finput_005fevent_005fhook">add_input_event_hook</a>.
 </p></dd></dl>
 
 
@@ -108,9 +107,9 @@ function to handle this.  By default, this is the internal function
 substitutes for <small>MATLAB</small> functions.
 </p>
 <a name="XREFmissing_005ffunction_005fhook"></a><dl>
-<dt><a name="index-missing_005ffunction_005fhook"></a>Built-in Function: <em><var>val</var> =</em> <strong>missing_function_hook</strong> <em>()</em></dt>
-<dt><a name="index-missing_005ffunction_005fhook-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>missing_function_hook</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-missing_005ffunction_005fhook-2"></a>Built-in Function: <em></em> <strong>missing_function_hook</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-missing_005ffunction_005fhook"></a>: <em><var>val</var> =</em> <strong>missing_function_hook</strong> <em>()</em></dt>
+<dt><a name="index-missing_005ffunction_005fhook-1"></a>: <em><var>old_val</var> =</em> <strong>missing_function_hook</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-missing_005ffunction_005fhook-2"></a>: <em></em> <strong>missing_function_hook</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the function to call when
 an unknown identifier is requested.
 </p>

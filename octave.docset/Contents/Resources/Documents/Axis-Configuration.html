@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Axis Configuration</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Axis-Configuration"></a>
 <div class="header">
 <p>
@@ -64,29 +63,32 @@ plot and various other axis properties, such as the aspect ratio and the
 appearance of tic marks.
 </p>
 <a name="XREFaxis"></a><dl>
-<dt><a name="index-axis"></a>Function File: <em></em> <strong>axis</strong> <em>()</em></dt>
-<dt><a name="index-axis-1"></a>Function File: <em></em> <strong>axis</strong> <em>([<var>x</var>_lo <var>x</var>_hi])</em></dt>
-<dt><a name="index-axis-2"></a>Function File: <em></em> <strong>axis</strong> <em>([<var>x</var>_lo <var>x</var>_hi <var>y</var>_lo <var>y</var>_hi])</em></dt>
-<dt><a name="index-axis-3"></a>Function File: <em></em> <strong>axis</strong> <em>([<var>x</var>_lo <var>x</var>_hi <var>y</var>_lo <var>y</var>_hi <var>z</var>_lo <var>z</var>_hi])</em></dt>
-<dt><a name="index-axis-4"></a>Function File: <em></em> <strong>axis</strong> <em>(<var>option</var>)</em></dt>
-<dt><a name="index-axis-5"></a>Function File: <em></em> <strong>axis</strong> <em>(&hellip;, <var>option</var>)</em></dt>
-<dt><a name="index-axis-6"></a>Function File: <em></em> <strong>axis</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-axis-7"></a>Function File: <em><var>limits</var> =</em> <strong>axis</strong> <em>()</em></dt>
+<dt><a name="index-axis"></a>: <em></em> <strong>axis</strong> <em>()</em></dt>
+<dt><a name="index-axis-1"></a>: <em></em> <strong>axis</strong> <em>([<var>x_lo</var> <var>x_hi</var>])</em></dt>
+<dt><a name="index-axis-2"></a>: <em></em> <strong>axis</strong> <em>([<var>x_lo</var> <var>x_hi</var> <var>y_lo</var> <var>y_hi</var>])</em></dt>
+<dt><a name="index-axis-3"></a>: <em></em> <strong>axis</strong> <em>([<var>x_lo</var> <var>x_hi</var> <var>y_lo</var> <var>y_hi</var> <var>z_lo</var> <var>z_hi</var>])</em></dt>
+<dt><a name="index-axis-4"></a>: <em></em> <strong>axis</strong> <em>([<var>x_lo</var> <var>x_hi</var> <var>y_lo</var> <var>y_hi</var> <var>z_lo</var> <var>z_hi</var> <var>c_lo</var> <var>c_hi</var>])</em></dt>
+<dt><a name="index-axis-5"></a>: <em></em> <strong>axis</strong> <em>(<var>option</var>)</em></dt>
+<dt><a name="index-axis-6"></a>: <em></em> <strong>axis</strong> <em>(&hellip;, <var>option</var>)</em></dt>
+<dt><a name="index-axis-7"></a>: <em></em> <strong>axis</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-axis-8"></a>: <em><var>limits</var> =</em> <strong>axis</strong> <em>()</em></dt>
 <dd><p>Set axis limits and appearance.
 </p>
-<p>The argument <var>limits</var> should be a 2-, 4-, or 6-element vector.  The
+<p>The argument <var>limits</var> should be a 2-, 4-, 6-, or 8-element vector.  The
 first and second elements specify the lower and upper limits for the
-x-axis.  The third and fourth specify the limits for the y-axis, and the
-fifth and sixth specify the limits for the z-axis.
+x-axis.  The third and fourth specify the limits for the y-axis, the fifth
+and sixth specify the limits for the z-axis, and the seventh and eighth
+specify the limits for the color axis.  The special values -Inf and Inf may
+be used to indicate that the limit should automatically be computed based
+on the data in the axis.
 </p>
 <p>Without any arguments, <code>axis</code> turns autoscaling on.
 </p>
 <p>With one output argument, <code><var>limits</var> = axis</code> returns the current
 axis limits.
 </p>
-<p>The vector argument specifying limits is optional, and additional
-string arguments may be used to specify various axis properties.  For
-example,
+<p>The vector argument specifying limits is optional, and additional string
+arguments may be used to specify various axis properties.  For example,
 </p>
 <div class="example">
 <pre class="example">axis ([1, 2, 3, 4], &quot;square&quot;);
@@ -98,18 +100,18 @@ example,
 <pre class="example">axis (&quot;tic&quot;, &quot;labely&quot;);
 </pre></div>
 
-<p>turns tic marks on for all axes and tic mark labels on for the y-axis
+<p>turns tick marks on for all axes and tick mark labels on for the y-axis
 only.
 </p>
 <p>The following options control the aspect ratio of the axes.
 </p>
 <dl compact="compact">
 <dt><code>&quot;square&quot;</code></dt>
-<dd><p>Force a square aspect ratio.
+<dd><p>Force a square axis aspect ratio.
 </p>
 </dd>
 <dt><code>&quot;equal&quot;</code></dt>
-<dd><p>Force x distance to equal y-distance.
+<dd><p>Force x-axis unit distance to equal y-axis (and z-axis) unit distance.
 </p>
 </dd>
 <dt><code>&quot;normal&quot;</code></dt>
@@ -120,9 +122,9 @@ only.
 <p>The following options control the way axis limits are interpreted.
 </p>
 <dl compact="compact">
-<dt><code>&quot;auto&quot;</code></dt>
-<dd><p>Set the specified axes to have nice limits around the data
-or all if no axes are specified.
+<dt><code>&quot;auto[xyz]&quot;</code></dt>
+<dd><p>Set the specified axes to have nice limits around the data or all if no
+axes are specified.
 </p>
 </dd>
 <dt><code>&quot;manual&quot;</code></dt>
@@ -138,33 +140,33 @@ or all if no axes are specified.
 </p></dd>
 </dl>
 
-<p>The following options affect the appearance of tic marks.
+<p>The following options affect the appearance of tick marks.
 </p>
 <dl compact="compact">
 <dt><code>&quot;on&quot;</code></dt>
-<dd><p>Turn tic marks and labels on for all axes.
+<dd><p>Turn tick marks and labels on for all axes.
 </p>
 </dd>
 <dt><code>&quot;off&quot;</code></dt>
-<dd><p>Turn tic marks off for all axes.
+<dd><p>Turn tick marks off for all axes.
 </p>
 </dd>
 <dt><code>&quot;tic[xyz]&quot;</code></dt>
-<dd><p>Turn tic marks on for all axes, or turn them on for the
-specified axes and off for the remainder.
+<dd><p>Turn tick marks on for all axes, or turn them on for the specified axes and
+off for the remainder.
 </p>
 </dd>
 <dt><code>&quot;label[xyz]&quot;</code></dt>
-<dd><p>Turn tic labels on for all axes, or turn them on for the
-specified axes and off for the remainder.
+<dd><p>Turn tick labels on for all axes, or turn them on for the specified axes
+and off for the remainder.
 </p>
 </dd>
 <dt><code>&quot;nolabel&quot;</code></dt>
-<dd><p>Turn tic labels off for all axes.
+<dd><p>Turn tick labels off for all axes.
 </p></dd>
 </dl>
 
-<p>Note, if there are no tic marks for an axis, there can be no labels.
+<p>Note, if there are no tick marks for an axis, there can be no labels.
 </p>
 <p>The following options affect the direction of increasing values on the axes.
 </p>
@@ -178,11 +180,11 @@ specified axes and off for the remainder.
 </p></dd>
 </dl>
 
-<p>If the first argument <var>hax</var> is an axes handle, then operate on
-this axes rather than the current axes returned by <code>gca</code>.
+<p>If the first argument <var>hax</var> is an axes handle, then operate on this
+axes rather than the current axes returned by <code>gca</code>.
 </p>
 
-<p><strong>See also:</strong> <a href="Axis-Configuration.html#XREFxlim">xlim</a>, <a href="Axis-Configuration.html#XREFylim">ylim</a>, <a href="Axis-Configuration.html#XREFzlim">zlim</a>, <a href="Aspect-Ratio.html#XREFdaspect">daspect</a>, <a href="Aspect-Ratio.html#XREFpbaspect">pbaspect</a>, <a href="Plot-Annotations.html#XREFbox">box</a>, <a href="Plot-Annotations.html#XREFgrid">grid</a>.
+<p><strong>See also:</strong> <a href="#XREFxlim">xlim</a>, <a href="#XREFylim">ylim</a>, <a href="#XREFzlim">zlim</a>, <a href="Aspect-Ratio.html#XREFdaspect">daspect</a>, <a href="Aspect-Ratio.html#XREFpbaspect">pbaspect</a>, <a href="Plot-Annotations.html#XREFbox">box</a>, <a href="Plot-Annotations.html#XREFgrid">grid</a>, <a href="#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -190,17 +192,17 @@ this axes rather than the current axes returned by <code>gca</code>.
 function.
 </p>
 <a name="XREFcaxis"></a><dl>
-<dt><a name="index-caxis"></a>Function File: <em></em> <strong>caxis</strong> <em>([cmin cmax])</em></dt>
-<dt><a name="index-caxis-1"></a>Function File: <em></em> <strong>caxis</strong> <em>(&quot;auto&quot;)</em></dt>
-<dt><a name="index-caxis-2"></a>Function File: <em></em> <strong>caxis</strong> <em>(&quot;manual&quot;)</em></dt>
-<dt><a name="index-caxis-3"></a>Function File: <em></em> <strong>caxis</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-caxis-4"></a>Function File: <em><var>limits</var> =</em> <strong>caxis</strong> <em>()</em></dt>
+<dt><a name="index-caxis"></a>: <em></em> <strong>caxis</strong> <em>([cmin cmax])</em></dt>
+<dt><a name="index-caxis-1"></a>: <em></em> <strong>caxis</strong> <em>(&quot;auto&quot;)</em></dt>
+<dt><a name="index-caxis-2"></a>: <em></em> <strong>caxis</strong> <em>(&quot;manual&quot;)</em></dt>
+<dt><a name="index-caxis-3"></a>: <em></em> <strong>caxis</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-caxis-4"></a>: <em><var>limits</var> =</em> <strong>caxis</strong> <em>()</em></dt>
 <dd><p>Query or set color axis limits for plots.
 </p>
-<p>The limits argument should be a 2-element vector specifying the
-lower and upper limits to assign to the first and last value in the
-colormap.  Data values outside this range are clamped to the first and last
-colormap entries.
+<p>The limits argument should be a 2-element vector specifying the lower and
+upper limits to assign to the first and last value in the colormap.  Data
+values outside this range are clamped to the first and last colormap
+entries.
 </p>
 <p>If the <code>&quot;auto&quot;</code> option is given then automatic colormap limits are
 applied.  The automatic algorithm sets <var>cmin</var> to the minimum data value
@@ -223,17 +225,19 @@ get or set individual axis limits.  Each has the same form.
 <a name="XREFylim"></a><a name="XREFzlim"></a><a name="index-ylim"></a>
 <a name="index-zlim"></a>
 <a name="XREFxlim"></a><dl>
-<dt><a name="index-xlim"></a>Function File: <em><var>xlimits</var> =</em> <strong>xlim</strong> <em>()</em></dt>
-<dt><a name="index-xlim-1"></a>Function File: <em><var>xmode</var> =</em> <strong>xlim</strong> <em>(&quot;mode&quot;)</em></dt>
-<dt><a name="index-xlim-2"></a>Function File: <em></em> <strong>xlim</strong> <em>([<var>x_lo</var> <var>x_hi</var>])</em></dt>
-<dt><a name="index-xlim-3"></a>Function File: <em></em> <strong>xlim</strong> <em>(&quot;auto&quot;)</em></dt>
-<dt><a name="index-xlim-4"></a>Function File: <em></em> <strong>xlim</strong> <em>(&quot;manual&quot;)</em></dt>
-<dt><a name="index-xlim-5"></a>Function File: <em></em> <strong>xlim</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-xlim"></a>: <em><var>xlimits</var> =</em> <strong>xlim</strong> <em>()</em></dt>
+<dt><a name="index-xlim-1"></a>: <em><var>xmode</var> =</em> <strong>xlim</strong> <em>(&quot;mode&quot;)</em></dt>
+<dt><a name="index-xlim-2"></a>: <em></em> <strong>xlim</strong> <em>([<var>x_lo</var> <var>x_hi</var>])</em></dt>
+<dt><a name="index-xlim-3"></a>: <em></em> <strong>xlim</strong> <em>(&quot;auto&quot;)</em></dt>
+<dt><a name="index-xlim-4"></a>: <em></em> <strong>xlim</strong> <em>(&quot;manual&quot;)</em></dt>
+<dt><a name="index-xlim-5"></a>: <em></em> <strong>xlim</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
 <dd><p>Query or set the limits of the x-axis for the current plot.
 </p>
 <p>Called without arguments <code>xlim</code> returns the x-axis limits of the
-current plot.  With the input query <code>&quot;mode&quot;</code>, return the current
-x-limit calculation mode which is either <code>&quot;auto&quot;</code> or <code>&quot;manual&quot;</code>.
+current plot.
+</p>
+<p>With the input query <code>&quot;mode&quot;</code>, return the current x-limit
+calculation mode which is either <code>&quot;auto&quot;</code> or <code>&quot;manual&quot;</code>.
 </p>
 <p>If passed a 2-element vector [<var>x_lo</var> <var>x_hi</var>], the limits of the
 x-axis are set to these values and the mode is set to <code>&quot;manual&quot;</code>.
@@ -244,7 +248,7 @@ or <code>&quot;manual&quot;</code> as the argument.
 <p>If the first argument <var>hax</var> is an axes handle, then operate on
 this axis rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="Axis-Configuration.html#XREFylim">ylim</a>, <a href="Axis-Configuration.html#XREFzlim">zlim</a>, <a href="Axis-Configuration.html#XREFaxis">axis</a>, <a href="Graphics-Objects.html#XREFset">set</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>.
+<p><strong>See also:</strong> <a href="#XREFylim">ylim</a>, <a href="#XREFzlim">zlim</a>, <a href="#XREFaxis">axis</a>, <a href="Graphics-Objects.html#XREFset">set</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>.
 </p></dd></dl>
 
 

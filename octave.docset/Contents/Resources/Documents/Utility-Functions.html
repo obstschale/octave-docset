@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Utility Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Utility-Functions"></a>
 <div class="header">
 <p>
@@ -60,24 +59,28 @@ Next: <a href="Special-Functions.html#Special-Functions" accesskey="n" rel="next
 <h3 class="section">17.5 Utility Functions</h3>
 
 <a name="XREFceil"></a><dl>
-<dt><a name="index-ceil"></a>Mapping Function: <em></em> <strong>ceil</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Return the smallest integer not less than <var>x</var>.  This is equivalent to
-rounding towards positive infinity.  If <var>x</var> is
-complex, return <code>ceil (real (<var>x</var>)) + ceil (imag (<var>x</var>)) * I</code>.
+<dt><a name="index-ceil"></a>: <em></em> <strong>ceil</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Return the smallest integer not less than <var>x</var>.
+</p>
+<p>This is equivalent to rounding towards positive infinity.
+</p>
+<p>If <var>x</var> is complex, return
+<code>ceil (real (<var>x</var>)) + ceil (imag (<var>x</var>)) * I</code>.
 </p>
 <div class="example">
 <pre class="example">ceil ([-2.7, 2.7])
     &rArr; -2    3
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFfloor">floor</a>, <a href="Utility-Functions.html#XREFround">round</a>, <a href="Utility-Functions.html#XREFfix">fix</a>.
+<p><strong>See also:</strong> <a href="#XREFfloor">floor</a>, <a href="#XREFround">round</a>, <a href="#XREFfix">fix</a>.
 </p></dd></dl>
 
 
 <a name="XREFfix"></a><dl>
-<dt><a name="index-fix"></a>Mapping Function: <em></em> <strong>fix</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Truncate fractional portion of <var>x</var> and return the integer portion.  This
-is equivalent to rounding towards zero.  If <var>x</var> is complex, return
+<dt><a name="index-fix"></a>: <em></em> <strong>fix</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Truncate fractional portion of <var>x</var> and return the integer portion.
+</p>
+<p>This is equivalent to rounding towards zero.  If <var>x</var> is complex, return
 <code>fix (real (<var>x</var>)) + fix (imag (<var>x</var>)) * I</code>.
 </p>
 <div class="example">
@@ -85,14 +88,15 @@ is equivalent to rounding towards zero.  If <var>x</var> is complex, return
    &rArr; -2    2
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFceil">ceil</a>, <a href="Utility-Functions.html#XREFfloor">floor</a>, <a href="Utility-Functions.html#XREFround">round</a>.
+<p><strong>See also:</strong> <a href="#XREFceil">ceil</a>, <a href="#XREFfloor">floor</a>, <a href="#XREFround">round</a>.
 </p></dd></dl>
 
 
 <a name="XREFfloor"></a><dl>
-<dt><a name="index-floor"></a>Mapping Function: <em></em> <strong>floor</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Return the largest integer not greater than <var>x</var>.  This is equivalent to
-rounding towards negative infinity.  If <var>x</var> is
+<dt><a name="index-floor"></a>: <em></em> <strong>floor</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Return the largest integer not greater than <var>x</var>.
+</p>
+<p>This is equivalent to rounding towards negative infinity.  If <var>x</var> is
 complex, return <code>floor (real (<var>x</var>)) + floor (imag (<var>x</var>)) * I</code>.
 </p>
 <div class="example">
@@ -100,13 +104,15 @@ complex, return <code>floor (real (<var>x</var>)) + floor (imag (<var>x</var>)) 
      &rArr; -3    2
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFceil">ceil</a>, <a href="Utility-Functions.html#XREFround">round</a>, <a href="Utility-Functions.html#XREFfix">fix</a>.
+<p><strong>See also:</strong> <a href="#XREFceil">ceil</a>, <a href="#XREFround">round</a>, <a href="#XREFfix">fix</a>.
 </p></dd></dl>
 
 
 <a name="XREFround"></a><dl>
-<dt><a name="index-round"></a>Mapping Function: <em></em> <strong>round</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Return the integer nearest to <var>x</var>.  If <var>x</var> is complex, return
+<dt><a name="index-round"></a>: <em></em> <strong>round</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Return the integer nearest to <var>x</var>.
+</p>
+<p>If <var>x</var> is complex, return
 <code>round (real (<var>x</var>)) + round (imag (<var>x</var>)) * I</code>.  If there
 are two nearest integers, return the one further away from zero.
 </p>
@@ -115,53 +121,70 @@ are two nearest integers, return the one further away from zero.
      &rArr; -3    3
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFceil">ceil</a>, <a href="Utility-Functions.html#XREFfloor">floor</a>, <a href="Utility-Functions.html#XREFfix">fix</a>, <a href="Utility-Functions.html#XREFroundb">roundb</a>.
+<p><strong>See also:</strong> <a href="#XREFceil">ceil</a>, <a href="#XREFfloor">floor</a>, <a href="#XREFfix">fix</a>, <a href="#XREFroundb">roundb</a>.
 </p></dd></dl>
 
 
 <a name="XREFroundb"></a><dl>
-<dt><a name="index-roundb"></a>Mapping Function: <em></em> <strong>roundb</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-roundb"></a>: <em></em> <strong>roundb</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return the integer nearest to <var>x</var>.  If there are two nearest
-integers, return the even one (banker&rsquo;s rounding).  If <var>x</var> is complex,
+integers, return the even one (banker&rsquo;s rounding).
+</p>
+<p>If <var>x</var> is complex,
 return <code>roundb (real (<var>x</var>)) + roundb (imag (<var>x</var>)) * I</code>.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFround">round</a>.
+<p><strong>See also:</strong> <a href="#XREFround">round</a>.
 </p></dd></dl>
 
 
 <a name="XREFmax"></a><dl>
-<dt><a name="index-max"></a>Built-in Function: <em></em> <strong>max</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-max-1"></a>Built-in Function: <em></em> <strong>max</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-max-2"></a>Built-in Function: <em></em> <strong>max</strong> <em>(<var>x</var>, [], <var>dim</var>)</em></dt>
-<dt><a name="index-max-3"></a>Built-in Function: <em></em> <strong>max</strong> <em>(<var>x</var>, <var>y</var>, <var>dim</var>)</em></dt>
-<dt><a name="index-max-4"></a>Built-in Function: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>max</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>For a vector argument, return the maximum value.  For a matrix
-argument, return the maximum value from each column, as a row
-vector, or over the dimension <var>dim</var> if defined, in which case <var>y</var>
-should be set to the empty matrix (it&rsquo;s ignored otherwise).  For two matrices
-(or a matrix and scalar), return the pair-wise maximum.
-Thus,
+<dt><a name="index-max"></a>: <em></em> <strong>max</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-max-1"></a>: <em></em> <strong>max</strong> <em>(<var>x</var>, [], <var>dim</var>)</em></dt>
+<dt><a name="index-max-2"></a>: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>max</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-max-3"></a>: <em></em> <strong>max</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><p>Find maximum values in the array <var>x</var>.
+</p>
+<p>For a vector argument, return the maximum value.  For a matrix argument,
+return a row vector with the maximum value of each column.  For a
+multi-dimensional array, <code>max</code> operates along the first non-singleton
+dimension.
+</p>
+<p>If the optional third argument <var>dim</var> is present then operate along
+this dimension.  In this case the second argument is ignored and should be
+set to the empty matrix.
+</p>
+<p>For two matrices (or a matrix and a scalar), return the pairwise maximum.
+</p>
+<p>Thus,
 </p>
 <div class="example">
 <pre class="example">max (max (<var>x</var>))
 </pre></div>
 
-<p>returns the largest element of the matrix <var>x</var>, and
+<p>returns the largest element of the 2-D matrix <var>x</var>, and
 </p>
 <div class="example">
 <pre class="example">max (2:5, pi)
     &rArr;  3.1416  3.1416  4.0000  5.0000
 </pre></div>
 
-<p>compares each element of the range <code>2:5</code> with <code>pi</code>, and
-returns a row vector of the maximum values.
+<p>compares each element of the range <code>2:5</code> with <code>pi</code>, and returns a
+row vector of the maximum values.
 </p>
 <p>For complex arguments, the magnitude of the elements are used for
-comparison.
+comparison.  If the magnitudes are identical, then the results are ordered
+by phase angle in the range (-pi, pi].  Hence,
 </p>
-<p>If called with one input and two output arguments,
-<code>max</code> also returns the first index of the
-maximum value(s).  Thus,
+<div class="example">
+<pre class="example">max ([-1 i 1 -i])
+    &rArr; -1
+</pre></div>
+
+<p>because all entries have magnitude 1, but -1 has the largest phase angle
+with value pi.
+</p>
+<p>If called with one input and two output arguments, <code>max</code> also returns
+the first index of the maximum value(s).  Thus,
 </p>
 <div class="example">
 <pre class="example">[x, ix] = max ([1, 3, 5, 2, 5])
@@ -169,43 +192,58 @@ maximum value(s).  Thus,
         ix = 3
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFmin">min</a>, <a href="Utility-Functions.html#XREFcummax">cummax</a>, <a href="Utility-Functions.html#XREFcummin">cummin</a>.
+<p><strong>See also:</strong> <a href="#XREFmin">min</a>, <a href="#XREFcummax">cummax</a>, <a href="#XREFcummin">cummin</a>.
 </p></dd></dl>
 
 
 <a name="XREFmin"></a><dl>
-<dt><a name="index-min"></a>Built-in Function: <em></em> <strong>min</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-min-1"></a>Built-in Function: <em></em> <strong>min</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-min-2"></a>Built-in Function: <em></em> <strong>min</strong> <em>(<var>x</var>, [], <var>dim</var>)</em></dt>
-<dt><a name="index-min-3"></a>Built-in Function: <em></em> <strong>min</strong> <em>(<var>x</var>, <var>y</var>, <var>dim</var>)</em></dt>
-<dt><a name="index-min-4"></a>Built-in Function: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>min</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>For a vector argument, return the minimum value.  For a matrix
-argument, return the minimum value from each column, as a row
-vector, or over the dimension <var>dim</var> if defined, in which case <var>y</var>
-should be set to the empty matrix (it&rsquo;s ignored otherwise).  For two matrices
-(or a matrix and scalar), return the pair-wise minimum.
-Thus,
+<dt><a name="index-min"></a>: <em></em> <strong>min</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-min-1"></a>: <em></em> <strong>min</strong> <em>(<var>x</var>, [], <var>dim</var>)</em></dt>
+<dt><a name="index-min-2"></a>: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>min</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-min-3"></a>: <em></em> <strong>min</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><p>Find minimum values in the array <var>x</var>.
+</p>
+<p>For a vector argument, return the minimum value.  For a matrix argument,
+return a row vector with the minimum value of each column.  For a
+multi-dimensional array, <code>min</code> operates along the first non-singleton
+dimension.
+</p>
+<p>If the optional third argument <var>dim</var> is present then operate along
+this dimension.  In this case the second argument is ignored and should be
+set to the empty matrix.
+</p>
+<p>For two matrices (or a matrix and a scalar), return the pairwise minimum.
+</p>
+<p>Thus,
 </p>
 <div class="example">
 <pre class="example">min (min (<var>x</var>))
 </pre></div>
 
-<p>returns the smallest element of <var>x</var>, and
+<p>returns the smallest element of the 2-D matrix <var>x</var>, and
 </p>
 <div class="example">
 <pre class="example">min (2:5, pi)
     &rArr;  2.0000  3.0000  3.1416  3.1416
 </pre></div>
 
-<p>compares each element of the range <code>2:5</code> with <code>pi</code>, and
-returns a row vector of the minimum values.
+<p>compares each element of the range <code>2:5</code> with <code>pi</code>, and returns a
+row vector of the minimum values.
 </p>
 <p>For complex arguments, the magnitude of the elements are used for
-comparison.
+comparison.  If the magnitudes are identical, then the results are ordered
+by phase angle in the range (-pi, pi].  Hence,
 </p>
-<p>If called with one input and two output arguments,
-<code>min</code> also returns the first index of the
-minimum value(s).  Thus,
+<div class="example">
+<pre class="example">min ([-1 i 1 -i])
+    &rArr; -i
+</pre></div>
+
+<p>because all entries have magnitude 1, but -i has the smallest phase angle
+with value -pi/2.
+</p>
+<p>If called with one input and two output arguments, <code>min</code> also returns
+the first index of the minimum value(s).  Thus,
 </p>
 <div class="example">
 <pre class="example">[x, ix] = min ([1, 3, 0, 2, 0])
@@ -213,14 +251,14 @@ minimum value(s).  Thus,
         ix = 3
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFmax">max</a>, <a href="Utility-Functions.html#XREFcummin">cummin</a>, <a href="Utility-Functions.html#XREFcummax">cummax</a>.
+<p><strong>See also:</strong> <a href="#XREFmax">max</a>, <a href="#XREFcummin">cummin</a>, <a href="#XREFcummax">cummax</a>.
 </p></dd></dl>
 
 
 <a name="XREFcummax"></a><dl>
-<dt><a name="index-cummax"></a>Built-in Function: <em></em> <strong>cummax</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-cummax-1"></a>Built-in Function: <em></em> <strong>cummax</strong> <em>(<var>x</var>, <var>dim</var>)</em></dt>
-<dt><a name="index-cummax-2"></a>Built-in Function: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>cummax</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-cummax"></a>: <em></em> <strong>cummax</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cummax-1"></a>: <em></em> <strong>cummax</strong> <em>(<var>x</var>, <var>dim</var>)</em></dt>
+<dt><a name="index-cummax-2"></a>: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>cummax</strong> <em>(&hellip;)</em></dt>
 <dd><p>Return the cumulative maximum values along dimension <var>dim</var>.
 </p>
 <p>If <var>dim</var> is unspecified it defaults to column-wise operation.  For
@@ -242,14 +280,14 @@ iw = 1  2  2  4  4  4
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFcummin">cummin</a>, <a href="Utility-Functions.html#XREFmax">max</a>, <a href="Utility-Functions.html#XREFmin">min</a>.
+<p><strong>See also:</strong> <a href="#XREFcummin">cummin</a>, <a href="#XREFmax">max</a>, <a href="#XREFmin">min</a>.
 </p></dd></dl>
 
 
 <a name="XREFcummin"></a><dl>
-<dt><a name="index-cummin"></a>Built-in Function: <em></em> <strong>cummin</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-cummin-1"></a>Built-in Function: <em></em> <strong>cummin</strong> <em>(<var>x</var>, <var>dim</var>)</em></dt>
-<dt><a name="index-cummin-2"></a>Built-in Function: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>cummin</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cummin"></a>: <em></em> <strong>cummin</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cummin-1"></a>: <em></em> <strong>cummin</strong> <em>(<var>x</var>, <var>dim</var>)</em></dt>
+<dt><a name="index-cummin-2"></a>: <em>[<var>w</var>, <var>iw</var>] =</em> <strong>cummin</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return the cumulative minimum values along dimension <var>dim</var>.
 </p>
 <p>If <var>dim</var> is unspecified it defaults to column-wise operation.  For
@@ -271,18 +309,21 @@ iw = 1  2  2  4  4  6
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFcummax">cummax</a>, <a href="Utility-Functions.html#XREFmin">min</a>, <a href="Utility-Functions.html#XREFmax">max</a>.
+<p><strong>See also:</strong> <a href="#XREFcummax">cummax</a>, <a href="#XREFmin">min</a>, <a href="#XREFmax">max</a>.
 </p></dd></dl>
 
 
 <a name="XREFhypot"></a><dl>
-<dt><a name="index-hypot"></a>Built-in Function: <em></em> <strong>hypot</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-hypot-1"></a>Built-in Function: <em></em> <strong>hypot</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, &hellip;)</em></dt>
+<dt><a name="index-hypot"></a>: <em></em> <strong>hypot</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-hypot-1"></a>: <em></em> <strong>hypot</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, &hellip;)</em></dt>
 <dd><p>Compute the element-by-element square root of the sum of the squares of
-<var>x</var> and <var>y</var>.  This is equivalent to
-<code>sqrt (<var>x</var>.^2 + <var>y</var>.^2)</code>, but calculated in a manner that
+<var>x</var> and <var>y</var>.
+</p>
+<p>This is equivalent to
+<code>sqrt (<var>x</var>.^2 + <var>y</var>.^2)</code>, but is calculated in a manner that
 avoids overflows for large values of <var>x</var> or <var>y</var>.
-<code>hypot</code> can also be called with more than 2 arguments; in this case,
+</p>
+<p><code>hypot</code> can also be called with more than 2 arguments; in this case,
 the arguments are accumulated from left to right:
 </p>
 <div class="example">
@@ -293,32 +334,31 @@ hypot (hypot (hypot (<var>x</var>, <var>y</var>), <var>z</var>), <var>w</var>), 
 
 
 <a name="XREFgradient"></a><dl>
-<dt><a name="index-gradient"></a>Function File: <em><var>dx</var> =</em> <strong>gradient</strong> <em>(<var>m</var>)</em></dt>
-<dt><a name="index-gradient-1"></a>Function File: <em>[<var>dx</var>, <var>dy</var>, <var>dz</var>, &hellip;] =</em> <strong>gradient</strong> <em>(<var>m</var>)</em></dt>
-<dt><a name="index-gradient-2"></a>Function File: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>m</var>, <var>s</var>)</em></dt>
-<dt><a name="index-gradient-3"></a>Function File: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>m</var>, <var>x</var>, <var>y</var>, <var>z</var>, &hellip;)</em></dt>
-<dt><a name="index-gradient-4"></a>Function File: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>f</var>, <var>x0</var>)</em></dt>
-<dt><a name="index-gradient-5"></a>Function File: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>f</var>, <var>x0</var>, <var>s</var>)</em></dt>
-<dt><a name="index-gradient-6"></a>Function File: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>f</var>, <var>x0</var>, <var>x</var>, <var>y</var>, &hellip;)</em></dt>
+<dt><a name="index-gradient"></a>: <em><var>dx</var> =</em> <strong>gradient</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-gradient-1"></a>: <em>[<var>dx</var>, <var>dy</var>, <var>dz</var>, &hellip;] =</em> <strong>gradient</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-gradient-2"></a>: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>m</var>, <var>s</var>)</em></dt>
+<dt><a name="index-gradient-3"></a>: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>m</var>, <var>x</var>, <var>y</var>, <var>z</var>, &hellip;)</em></dt>
+<dt><a name="index-gradient-4"></a>: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>f</var>, <var>x0</var>)</em></dt>
+<dt><a name="index-gradient-5"></a>: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>f</var>, <var>x0</var>, <var>s</var>)</em></dt>
+<dt><a name="index-gradient-6"></a>: <em>[&hellip;] =</em> <strong>gradient</strong> <em>(<var>f</var>, <var>x0</var>, <var>x</var>, <var>y</var>, &hellip;)</em></dt>
 <dd>
-<p>Calculate the gradient of sampled data or a function.  If <var>m</var>
-is a vector, calculate the one-dimensional gradient of <var>m</var>.  If
-<var>m</var> is a matrix the gradient is calculated for each dimension.
+<p>Calculate the gradient of sampled data or a function.
 </p>
-<p><code>[<var>dx</var>, <var>dy</var>] = gradient (<var>m</var>)</code> calculates the one
-dimensional gradient for <var>x</var> and <var>y</var> direction if <var>m</var> is a
+<p>If <var>m</var> is a vector, calculate the one-dimensional gradient of <var>m</var>.
+If <var>m</var> is a matrix the gradient is calculated for each dimension.
+</p>
+<p><code>[<var>dx</var>, <var>dy</var>] = gradient (<var>m</var>)</code> calculates the
+one-dimensional gradient for <var>x</var> and <var>y</var> direction if <var>m</var> is a
 matrix.  Additional return arguments can be use for multi-dimensional
 matrices.
 </p>
-<p>A constant spacing between two points can be provided by the
-<var>s</var> parameter.  If <var>s</var> is a scalar, it is assumed to be the spacing
-for all dimensions.
-Otherwise, separate values of the spacing can be supplied by
+<p>A constant spacing between two points can be provided by the <var>s</var>
+parameter.  If <var>s</var> is a scalar, it is assumed to be the spacing for all
+dimensions.  Otherwise, separate values of the spacing can be supplied by
 the <var>x</var>, &hellip; arguments.  Scalar values specify an equidistant
-spacing.
-Vector values for the <var>x</var>, &hellip; arguments specify the coordinate for
-that
-dimension.  The length must match their respective dimension of <var>m</var>.
+spacing.  Vector values for the <var>x</var>, &hellip; arguments specify the
+coordinate for that dimension.  The length must match their respective
+dimension of <var>m</var>.
 </p>
 <p>At boundary points a linear extrapolation is applied.  Interior points
 are calculated with the first approximation of the numerical gradient
@@ -328,23 +368,26 @@ are calculated with the first approximation of the numerical gradient
 </pre></div>
 
 <p>If the first argument <var>f</var> is a function handle, the gradient of the
-function at the points in <var>x0</var> is approximated using central
-difference.  For example, <code>gradient (@cos, 0)</code> approximates the
-gradient of the cosine function in the point <em>x0 = 0</em>.  As with
-sampled data, the spacing values between the points from which the
-gradient is estimated can be set via the <var>s</var> or <var>dx</var>,
-<var>dy</var>, &hellip; arguments.  By default a spacing of 1 is used.
+function at the points in <var>x0</var> is approximated using central difference.
+For example, <code>gradient (@cos, 0)</code> approximates the gradient of the
+cosine function in the point <em>x0 = 0</em>.  As with sampled data, the
+spacing values between the points from which the gradient is estimated can
+be set via the <var>s</var> or <var>dx</var>, <var>dy</var>, &hellip; arguments.  By default
+a spacing of 1 is used.
 </p>
-<p><strong>See also:</strong> <a href="Finding-Elements-and-Checking-Conditions.html#XREFdiff">diff</a>, <a href="Utility-Functions.html#XREFdel2">del2</a>.
+<p><strong>See also:</strong> <a href="Finding-Elements-and-Checking-Conditions.html#XREFdiff">diff</a>, <a href="#XREFdel2">del2</a>.
 </p></dd></dl>
 
 
 <a name="XREFdot"></a><dl>
-<dt><a name="index-dot"></a>Built-in Function: <em></em> <strong>dot</strong> <em>(<var>x</var>, <var>y</var>, <var>dim</var>)</em></dt>
-<dd><p>Compute the dot product of two vectors.  If <var>x</var> and <var>y</var>
-are matrices, calculate the dot products along the first
-non-singleton dimension.  If the optional argument <var>dim</var> is
-given, calculate the dot products along this dimension.
+<dt><a name="index-dot"></a>: <em></em> <strong>dot</strong> <em>(<var>x</var>, <var>y</var>, <var>dim</var>)</em></dt>
+<dd><p>Compute the dot product of two vectors.
+</p>
+<p>If <var>x</var> and <var>y</var> are matrices, calculate the dot products along the
+first non-singleton dimension.
+</p>
+<p>If the optional argument <var>dim</var> is given, calculate the dot products
+along this dimension.
 </p>
 <p>This is equivalent to
 <code>sum (conj (<var>X</var>) .* <var>Y</var>, <var>dim</var>)</code>,
@@ -352,38 +395,43 @@ but avoids forming a temporary array and is faster.  When <var>X</var> and
 <var>Y</var> are column vectors, the result is equivalent to
 <code><var>X</var>' * <var>Y</var></code>.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFcross">cross</a>, <a href="Utility-Functions.html#XREFdivergence">divergence</a>.
+<p><strong>See also:</strong> <a href="#XREFcross">cross</a>, <a href="#XREFdivergence">divergence</a>.
 </p></dd></dl>
 
 
 <a name="XREFcross"></a><dl>
-<dt><a name="index-cross"></a>Function File: <em></em> <strong>cross</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-cross-1"></a>Function File: <em></em> <strong>cross</strong> <em>(<var>x</var>, <var>y</var>, <var>dim</var>)</em></dt>
-<dd><p>Compute the vector cross product of two 3-dimensional vectors
-<var>x</var> and <var>y</var>.
+<dt><a name="index-cross"></a>: <em></em> <strong>cross</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-cross-1"></a>: <em></em> <strong>cross</strong> <em>(<var>x</var>, <var>y</var>, <var>dim</var>)</em></dt>
+<dd><p>Compute the vector cross product of two 3-dimensional vectors <var>x</var> and
+<var>y</var>.
+</p>
+<p>If <var>x</var> and <var>y</var> are matrices, the cross product is applied along the
+first dimension with three elements.
+</p>
+<p>The optional argument  <var>dim</var> forces the cross product to be calculated
+along the specified dimension.
+</p>
+<p>Example Code:
 </p>
 <div class="example">
 <pre class="example">cross ([1,1,0], [0,1,1])
      &rArr; [ 1; -1; 1 ]
 </pre></div>
 
-<p>If <var>x</var> and <var>y</var> are matrices, the cross product is applied
-along the first dimension with 3 elements.  The optional argument
-<var>dim</var> forces the cross product to be calculated along
-the specified dimension.
-</p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFdot">dot</a>, <a href="Utility-Functions.html#XREFcurl">curl</a>, <a href="Utility-Functions.html#XREFdivergence">divergence</a>.
+
+<p><strong>See also:</strong> <a href="#XREFdot">dot</a>, <a href="#XREFcurl">curl</a>, <a href="#XREFdivergence">divergence</a>.
 </p></dd></dl>
 
 
 <a name="XREFdivergence"></a><dl>
-<dt><a name="index-divergence"></a>Function File: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-divergence-1"></a>Function File: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-divergence-2"></a>Function File: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>x</var>, <var>y</var>, <var>fx</var>, <var>fy</var>)</em></dt>
-<dt><a name="index-divergence-3"></a>Function File: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>fx</var>, <var>fy</var>)</em></dt>
+<dt><a name="index-divergence"></a>: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-divergence-1"></a>: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-divergence-2"></a>: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>x</var>, <var>y</var>, <var>fx</var>, <var>fy</var>)</em></dt>
+<dt><a name="index-divergence-3"></a>: <em><var>div</var> =</em> <strong>divergence</strong> <em>(<var>fx</var>, <var>fy</var>)</em></dt>
 <dd><p>Calculate divergence of a vector field given by the arrays <var>fx</var>,
 <var>fy</var>, and <var>fz</var> or <var>fx</var>, <var>fy</var> respectively.
 </p>
+
 <div class="example">
 <pre class="example">                  d               d               d
 div F(x,y,z)  =   -- F(x,y,z)  +  -- F(x,y,z)  +  -- F(x,y,z)
@@ -394,16 +442,16 @@ div F(x,y,z)  =   -- F(x,y,z)  +  -- F(x,y,z)  +  -- F(x,y,z)
 <var>y</var>, <var>z</var> or <var>x</var>, <var>y</var> respectively.
 </p>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFcurl">curl</a>, <a href="Utility-Functions.html#XREFgradient">gradient</a>, <a href="Utility-Functions.html#XREFdel2">del2</a>, <a href="Utility-Functions.html#XREFdot">dot</a>.
+<p><strong>See also:</strong> <a href="#XREFcurl">curl</a>, <a href="#XREFgradient">gradient</a>, <a href="#XREFdel2">del2</a>, <a href="#XREFdot">dot</a>.
 </p></dd></dl>
 
 
 <a name="XREFcurl"></a><dl>
-<dt><a name="index-curl"></a>Function File: <em>[<var>cx</var>, <var>cy</var>, <var>cz</var>, <var>v</var>] =</em> <strong>curl</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-curl-1"></a>Function File: <em>[<var>cz</var>, <var>v</var>] =</em> <strong>curl</strong> <em>(<var>x</var>, <var>y</var>, <var>fx</var>, <var>fy</var>)</em></dt>
-<dt><a name="index-curl-2"></a>Function File: <em>[&hellip;] =</em> <strong>curl</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-curl-3"></a>Function File: <em>[&hellip;] =</em> <strong>curl</strong> <em>(<var>fx</var>, <var>fy</var>)</em></dt>
-<dt><a name="index-curl-4"></a>Function File: <em><var>v</var> =</em> <strong>curl</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-curl"></a>: <em>[<var>cx</var>, <var>cy</var>, <var>cz</var>, <var>v</var>] =</em> <strong>curl</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-curl-1"></a>: <em>[<var>cz</var>, <var>v</var>] =</em> <strong>curl</strong> <em>(<var>x</var>, <var>y</var>, <var>fx</var>, <var>fy</var>)</em></dt>
+<dt><a name="index-curl-2"></a>: <em>[&hellip;] =</em> <strong>curl</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-curl-3"></a>: <em>[&hellip;] =</em> <strong>curl</strong> <em>(<var>fx</var>, <var>fy</var>)</em></dt>
+<dt><a name="index-curl-4"></a>: <em><var>v</var> =</em> <strong>curl</strong> <em>(&hellip;)</em></dt>
 <dd><p>Calculate curl of vector field given by the arrays <var>fx</var>, <var>fy</var>, and
 <var>fz</var> or <var>fx</var>, <var>fy</var> respectively.
 </p>
@@ -420,18 +468,19 @@ for two-dimensional input.  For three-dimensional input the scalar
 rotation is calculated at each grid point in direction of the vector field
 at that point.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFdivergence">divergence</a>, <a href="Utility-Functions.html#XREFgradient">gradient</a>, <a href="Utility-Functions.html#XREFdel2">del2</a>, <a href="Utility-Functions.html#XREFcross">cross</a>.
+<p><strong>See also:</strong> <a href="#XREFdivergence">divergence</a>, <a href="#XREFgradient">gradient</a>, <a href="#XREFdel2">del2</a>, <a href="#XREFcross">cross</a>.
 </p></dd></dl>
 
 
 <a name="XREFdel2"></a><dl>
-<dt><a name="index-del2"></a>Function File: <em><var>d</var> =</em> <strong>del2</strong> <em>(<var>M</var>)</em></dt>
-<dt><a name="index-del2-1"></a>Function File: <em><var>d</var> =</em> <strong>del2</strong> <em>(<var>M</var>, <var>h</var>)</em></dt>
-<dt><a name="index-del2-2"></a>Function File: <em><var>d</var> =</em> <strong>del2</strong> <em>(<var>M</var>, <var>dx</var>, <var>dy</var>, &hellip;)</em></dt>
+<dt><a name="index-del2"></a>: <em><var>d</var> =</em> <strong>del2</strong> <em>(<var>M</var>)</em></dt>
+<dt><a name="index-del2-1"></a>: <em><var>d</var> =</em> <strong>del2</strong> <em>(<var>M</var>, <var>h</var>)</em></dt>
+<dt><a name="index-del2-2"></a>: <em><var>d</var> =</em> <strong>del2</strong> <em>(<var>M</var>, <var>dx</var>, <var>dy</var>, &hellip;)</em></dt>
 <dd>
 <p>Calculate the discrete Laplace
 operator.
-For a 2-dimensional matrix <var>M</var> this is defined as
+</p>
+<p>For a 2-dimensional matrix <var>M</var> this is defined as
 </p>
 <div class="example">
 <pre class="example">      1    / d^2            d^2         \
@@ -439,8 +488,8 @@ D  = --- * | ---  M(x,y) +  ---  M(x,y) |
       4    \ dx^2           dy^2        /
 </pre></div>
 
-<p>For N-dimensional arrays the sum in parentheses is expanded to include second
-derivatives over the additional higher dimensions.
+<p>For N-dimensional arrays the sum in parentheses is expanded to include
+second derivatives over the additional higher dimensions.
 </p>
 <p>The spacing between evaluation points may be defined by <var>h</var>, which is a
 scalar defining the equidistant spacing in all dimensions.  Alternatively,
@@ -454,61 +503,61 @@ length of the spacing vectors must match the respective dimension of
 calculated from the linear extrapolation of interior points.
 </p>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFgradient">gradient</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFdiff">diff</a>.
+<p><strong>See also:</strong> <a href="#XREFgradient">gradient</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFdiff">diff</a>.
 </p></dd></dl>
 
 
 <a name="XREFfactorial"></a><dl>
-<dt><a name="index-factorial"></a>Function File: <em></em> <strong>factorial</strong> <em>(<var>n</var>)</em></dt>
-<dd><p>Return the factorial of <var>n</var> where <var>n</var> is a positive integer.  If
-<var>n</var> is a scalar, this is equivalent to <code>prod (1:<var>n</var>)</code>.  For
-vector or matrix arguments, return the factorial of each element in the
-array.  For non-integers see the generalized factorial function
-<code>gamma</code>.
+<dt><a name="index-factorial"></a>: <em></em> <strong>factorial</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Return the factorial of <var>n</var> where <var>n</var> is a real non-negative
+integer.
 </p>
-<p><strong>See also:</strong> <a href="Sums-and-Products.html#XREFprod">prod</a>, <a href="Special-Functions.html#XREFgamma">gamma</a>.
+<p>If <var>n</var> is a scalar, this is equivalent to <code>prod (1:<var>n</var>)</code>.  For
+vector or matrix arguments, return the factorial of each element in the
+array.
+</p>
+<p>For non-integers see the generalized factorial function <code>gamma</code>.
+Note that the factorial function grows large quite quickly, and even
+with double precision values overflow will occur if <var>n</var> &gt; 171.  For
+such cases consider <code>gammaln</code>.
+</p>
+<p><strong>See also:</strong> <a href="Sums-and-Products.html#XREFprod">prod</a>, <a href="Special-Functions.html#XREFgamma">gamma</a>, <a href="Special-Functions.html#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 
 <a name="XREFfactor"></a><dl>
-<dt><a name="index-factor"></a>Function File: <em><var>p</var> =</em> <strong>factor</strong> <em>(<var>q</var>)</em></dt>
-<dt><a name="index-factor-1"></a>Function File: <em>[<var>p</var>, <var>n</var>] =</em> <strong>factor</strong> <em>(<var>q</var>)</em></dt>
-<dd>
-<p>Return the prime factorization of <var>q</var>.  That is,
-<code>prod (<var>p</var>) == <var>q</var></code> and every element of <var>p</var> is a prime
-number.  If <code><var>q</var> == 1</code>, return 1.
+<dt><a name="index-factor"></a>: <em><var>pf</var> =</em> <strong>factor</strong> <em>(<var>q</var>)</em></dt>
+<dt><a name="index-factor-1"></a>: <em>[<var>pf</var>, <var>n</var>] =</em> <strong>factor</strong> <em>(<var>q</var>)</em></dt>
+<dd><p>Return the prime factorization of <var>q</var>.
 </p>
-<p>With two output arguments, return the unique primes <var>p</var> and
-their multiplicities.  That is, <code>prod (<var>p</var> .^ <var>n</var>) ==
-<var>q</var></code>.
+<p>The prime factorization is defined as <code>prod (<var>pf</var>) == <var>q</var></code>
+where every element of <var>pf</var> is a prime number.  If <code><var>q</var> == 1</code>,
+return 1.
 </p>
-<p>Implementation Note: The input <var>q</var> must not be greater than
-<code>bitmax</code> (9.0072e+15) in order to factor correctly.
+<p>With two output arguments, return the unique prime factors <var>pf</var> and
+their multiplicities.  That is,
+<code>prod (<var>pf</var> .^ <var>n</var>) == <var>q</var></code>.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFgcd">gcd</a>, <a href="Utility-Functions.html#XREFlcm">lcm</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
+<p>Implementation Note: The input <var>q</var> must be less than
+<code>flintmax</code> (9.0072e+15) in order to factor correctly.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgcd">gcd</a>, <a href="#XREFlcm">lcm</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>, <a href="#XREFprimes">primes</a>.
 </p></dd></dl>
 
 
 <a name="XREFgcd"></a><dl>
-<dt><a name="index-gcd"></a>Built-in Function: <em><var>g</var> =</em> <strong>gcd</strong> <em>(<var>a1</var>, <var>a2</var>, &hellip;)</em></dt>
-<dt><a name="index-gcd-1"></a>Built-in Function: <em>[<var>g</var>, <var>v1</var>, &hellip;] =</em> <strong>gcd</strong> <em>(<var>a1</var>, <var>a2</var>, &hellip;)</em></dt>
-<dd>
-<p>Compute the greatest common divisor of <var>a1</var>, <var>a2</var>, &hellip;.  If more
-than one argument is given all arguments must be the same size or scalar.
-In this case the greatest common divisor is calculated for each element
-individually.  All elements must be ordinary or Gaussian (complex)
-integers.  Note that for Gaussian integers, the gcd is not unique up to
-units (multiplication by 1, -1, <var>i</var> or -<var>i</var>), so an arbitrary
-greatest common divisor amongst four possible is returned.
+<dt><a name="index-gcd"></a>: <em><var>g</var> =</em> <strong>gcd</strong> <em>(<var>a1</var>, <var>a2</var>, &hellip;)</em></dt>
+<dt><a name="index-gcd-1"></a>: <em>[<var>g</var>, <var>v1</var>, &hellip;] =</em> <strong>gcd</strong> <em>(<var>a1</var>, <var>a2</var>, &hellip;)</em></dt>
+<dd><p>Compute the greatest common divisor of <var>a1</var>, <var>a2</var>, &hellip;.
 </p>
-<p>Example code:
+<p>If more than one argument is given then all arguments must be the same size
+or scalar.  In this case the greatest common divisor is calculated for each
+element individually.  All elements must be ordinary or Gaussian (complex)
+integers.  Note that for Gaussian integers, the gcd is only unique up to a
+phase factor (multiplication by 1, -1, i, or -i), so an arbitrary greatest
+common divisor among the four possible is returned.
 </p>
-<div class="example">
-<pre class="example">gcd ([15, 9], [20, 18])
-   &rArr;  5  9
-</pre></div>
-
-<p>Optional return arguments <var>v1</var>, etc., contain integer vectors such
+<p>Optional return arguments <var>v1</var>, &hellip;, contain integer vectors such
 that,
 </p>
 
@@ -517,27 +566,36 @@ that,
 </pre></div>
 
 
+<p>Example code:
+</p>
+<div class="example">
+<pre class="example">gcd ([15, 9], [20, 18])
+   &rArr;  5  9
+</pre></div>
 
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFlcm">lcm</a>, <a href="Utility-Functions.html#XREFfactor">factor</a>.
+
+<p><strong>See also:</strong> <a href="#XREFlcm">lcm</a>, <a href="#XREFfactor">factor</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
 </p></dd></dl>
 
 
 <a name="XREFlcm"></a><dl>
-<dt><a name="index-lcm"></a>Mapping Function: <em></em> <strong>lcm</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-lcm-1"></a>Mapping Function: <em></em> <strong>lcm</strong> <em>(<var>x</var>, <var>y</var>, &hellip;)</em></dt>
-<dd><p>Compute the least common multiple of <var>x</var> and <var>y</var>,
-or of the list of all arguments.  All elements must be the same size or
-scalar.
+<dt><a name="index-lcm"></a>: <em></em> <strong>lcm</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-lcm-1"></a>: <em></em> <strong>lcm</strong> <em>(<var>x</var>, <var>y</var>, &hellip;)</em></dt>
+<dd><p>Compute the least common multiple of <var>x</var> and <var>y</var>, or of the list of
+all arguments.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFfactor">factor</a>, <a href="Utility-Functions.html#XREFgcd">gcd</a>.
+<p>All elements must be numeric and of the same size or scalar.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfactor">factor</a>, <a href="#XREFgcd">gcd</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
 </p></dd></dl>
 
 
 <a name="XREFchop"></a><dl>
-<dt><a name="index-chop"></a>Function File: <em></em> <strong>chop</strong> <em>(<var>x</var>, <var>ndigits</var>, <var>base</var>)</em></dt>
+<dt><a name="index-chop"></a>: <em></em> <strong>chop</strong> <em>(<var>x</var>, <var>ndigits</var>, <var>base</var>)</em></dt>
 <dd><p>Truncate elements of <var>x</var> to a length of <var>ndigits</var> such that the
-resulting numbers are exactly divisible by <var>base</var>.  If <var>base</var> is not
-specified it defaults to 10.
+resulting numbers are exactly divisible by <var>base</var>.
+</p>
+<p>If <var>base</var> is not specified it defaults to 10.
 </p>
 <div class="example">
 <pre class="example">chop (-pi, 5, 10)
@@ -549,74 +607,110 @@ chop (-pi, 5, 5)
 
 
 <a name="XREFrem"></a><dl>
-<dt><a name="index-rem"></a>Mapping Function: <em></em> <strong>rem</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-fmod"></a>Mapping Function: <em></em> <strong>fmod</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dd><p>Return the remainder of the division <code><var>x</var> / <var>y</var></code>, computed
-using the expression
+<dt><a name="index-rem"></a>: <em></em> <strong>rem</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><p>Return the remainder of the division <code><var>x</var> / <var>y</var></code>.
+</p>
+<p>The remainder is computed using the expression
 </p>
 <div class="example">
 <pre class="example">x - y .* fix (x ./ y)
 </pre></div>
 
-<p>An error message is printed if the dimensions of the arguments do not
-agree, or if either of the arguments is complex.
+<p>An error message is printed if the dimensions of the arguments do not agree,
+or if either argument is complex.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFmod">mod</a>.
+<p>Programming Notes: Floating point numbers within a few eps of an integer
+will be rounded to an integer before computation for compatibility with
+<small>MATLAB</small>.
+</p>
+<p>By convention,
+</p>
+<div class="example">
+<pre class="example">rem (<var>x</var>, 0) = NaN  if <var>x</var> is a floating point variable
+rem (<var>x</var>, 0) = 0    if <var>x</var> is an integer variable
+rem (<var>x</var>, <var>y</var>)        returns a value with the signbit from <var>x</var>
+</pre></div>
+
+<p>For the opposite conventions see the <code>mod</code> function.  In general,
+<code>rem</code> is best when computing the remainder after division of two
+<em>positive</em> numbers.  For negative numbers, or when the values are
+periodic, <code>mod</code> is a better choice.
+</p>
+<p><strong>See also:</strong> <a href="#XREFmod">mod</a>.
 </p></dd></dl>
 
 
 <a name="XREFmod"></a><dl>
-<dt><a name="index-mod"></a>Mapping Function: <em></em> <strong>mod</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dd><p>Compute the modulo of <var>x</var> and <var>y</var>.  Conceptually this is given by
+<dt><a name="index-mod"></a>: <em></em> <strong>mod</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><p>Compute the modulo of <var>x</var> and <var>y</var>.
+</p>
+<p>Conceptually this is given by
 </p>
 <div class="example">
 <pre class="example">x - y .* floor (x ./ y)
 </pre></div>
 
-<p>and is written such that the correct modulus is returned for
-integer types.  This function handles negative values correctly.  That
-is, <code>mod (-1, 3)</code> is 2, not -1, as <code>rem (-1, 3)</code> returns.
-<code>mod (<var>x</var>, 0)</code> returns <var>x</var>.
+<p>and is written such that the correct modulus is returned for integer types.
+This function handles negative values correctly.  That is,
+<code>mod&nbsp;<span class="nolinebreak">(-1,</span>&nbsp;3)</code><!-- /@w --> is 2, not -1, as <code>rem&nbsp;<span class="nolinebreak">(-1,</span>&nbsp;3)</code><!-- /@w --> returns.
 </p>
 <p>An error results if the dimensions of the arguments do not agree, or if
 either of the arguments is complex.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFrem">rem</a>.
+<p>Programming Notes: Floating point numbers within a few eps of an integer
+will be rounded to an integer before computation for compatibility with
+<small>MATLAB</small>.
+</p>
+<p>By convention,
+</p>
+<div class="example">
+<pre class="example">mod (<var>x</var>, 0) = <var>x</var>
+mod (<var>x</var>, <var>y</var>)      returns a value with the signbit from <var>y</var>
+</pre></div>
+
+<p>For the opposite conventions see the <code>rem</code> function.  In general,
+<code>mod</code> is a better choice than <code>rem</code> when any of the inputs are
+negative numbers or when the values are periodic.
+</p>
+<p><strong>See also:</strong> <a href="#XREFrem">rem</a>.
 </p></dd></dl>
 
 
 <a name="XREFprimes"></a><dl>
-<dt><a name="index-primes"></a>Function File: <em></em> <strong>primes</strong> <em>(<var>n</var>)</em></dt>
-<dd>
-<p>Return all primes up to <var>n</var>.
+<dt><a name="index-primes"></a>: <em></em> <strong>primes</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>Return all primes up to <var>n</var>.
 </p>
-<p>The algorithm used is the Sieve of Eratosthenes.
+<p>The output data class (double, single, uint32, etc.) is the same as the
+input class of <var>n</var>.  The algorithm used is the Sieve of Eratosthenes.
 </p>
-<p>Note that if you need a specific number of primes you can use the
-fact that the distance from one prime to the next is, on average,
-proportional to the logarithm of the prime.  Integrating, one finds
-that there are about <em>k</em> primes less than
+<p>Notes: If you need a specific number of primes you can use the fact that the
+distance from one prime to the next is, on average, proportional to the
+logarithm of the prime.  Integrating, one finds that there are about
+<em>k</em> primes less than
 k*log (5*k).
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFlist_005fprimes">list_primes</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
+<p>See also <code>list_primes</code> if you need a specific number <var>n</var> of primes.
+</p>
+<p><strong>See also:</strong> <a href="#XREFlist_005fprimes">list_primes</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
 </p></dd></dl>
 
 
 <a name="XREFlist_005fprimes"></a><dl>
-<dt><a name="index-list_005fprimes"></a>Function File: <em></em> <strong>list_primes</strong> <em>()</em></dt>
-<dt><a name="index-list_005fprimes-1"></a>Function File: <em></em> <strong>list_primes</strong> <em>(<var>n</var>)</em></dt>
-<dd><p>List the first <var>n</var> primes.  If <var>n</var> is unspecified, the first
-25 primes are listed.
+<dt><a name="index-list_005fprimes"></a>: <em></em> <strong>list_primes</strong> <em>()</em></dt>
+<dt><a name="index-list_005fprimes-1"></a>: <em></em> <strong>list_primes</strong> <em>(<var>n</var>)</em></dt>
+<dd><p>List the first <var>n</var> primes.
 </p>
-<p>The algorithm used is from page 218 of the TeXbook.
+<p>If <var>n</var> is unspecified, the first 25 primes are listed.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFprimes">primes</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
+<p><strong>See also:</strong> <a href="#XREFprimes">primes</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisprime">isprime</a>.
 </p></dd></dl>
 
 
 <a name="XREFsign"></a><dl>
-<dt><a name="index-sign"></a>Mapping Function: <em></em> <strong>sign</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Compute the <em>signum</em> function, which is defined as
+<dt><a name="index-sign"></a>: <em></em> <strong>sign</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Compute the <em>signum</em> function.
+</p>
+<p>This is defined as
 </p>
 <div class="example">
 <pre class="example">           -1, x &lt; 0;
@@ -627,27 +721,28 @@ sign (x) =  0, x = 0;
 
 <p>For complex arguments, <code>sign</code> returns <code>x ./ abs (<var>x</var>)</code>.
 </p>
-<p>Note that <code>sign (-0.0)</code> is 0.
-Although IEEE 754 floating point
+<p>Note that <code>sign (-0.0)</code> is 0.  Although IEEE 754 floating point
 allows zero to be signed, 0.0 and -0.0 compare equal.  If you must test
 whether zero is signed, use the <code>signbit</code> function.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFsignbit">signbit</a>.
+<p><strong>See also:</strong> <a href="#XREFsignbit">signbit</a>.
 </p></dd></dl>
 
 
 <a name="XREFsignbit"></a><dl>
-<dt><a name="index-signbit"></a>Mapping Function: <em></em> <strong>signbit</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Return logical true if the value of <var>x</var> has its sign bit set.
-Otherwise return logical false.  This behavior is consistent with the other
-logical functions.  See<a href="Logical-Values.html#Logical-Values">Logical Values</a>.  The behavior differs from the
-C language function which returns non-zero if the sign bit is set.
+<dt><a name="index-signbit"></a>: <em></em> <strong>signbit</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Return logical true if the value of <var>x</var> has its sign bit set and false
+otherwise.
+</p>
+<p>This behavior is consistent with the other logical functions.
+See <a href="Logical-Values.html#Logical-Values">Logical Values</a>.  The behavior differs from the C language function
+which returns nonzero if the sign bit is set.
 </p>
 <p>This is not the same as <code>x &lt; 0.0</code>, because IEEE 754 floating point
 allows zero to be signed.  The comparison <code>-0.0 &lt; 0.0</code> is false,
 but <code>signbit (-0.0)</code> will return a nonzero value.
 </p>
-<p><strong>See also:</strong> <a href="Utility-Functions.html#XREFsign">sign</a>.
+<p><strong>See also:</strong> <a href="#XREFsign">sign</a>.
 </p></dd></dl>
 
 

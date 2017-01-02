@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Cell Arrays of Strings</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Cell-Arrays-of-Strings"></a>
 <div class="header">
 <p>
@@ -82,9 +81,16 @@ c = cellstr (a)
 </pre></div>
 
 <a name="XREFcellstr"></a><dl>
-<dt><a name="index-cellstr"></a>Built-in Function: <em></em> <strong>cellstr</strong> <em>(<var>string</var>)</em></dt>
-<dd><p>Create a new cell array object from the elements of the string
-array <var>string</var>.
+<dt><a name="index-cellstr"></a>: <em><var>cstr</var> =</em> <strong>cellstr</strong> <em>(<var>strmat</var>)</em></dt>
+<dd><p>Create a new cell array object from the elements of the string array
+<var>strmat</var>.
+</p>
+<p>Each row of <var>strmat</var> becomes an element of <var>cstr</var>.  Any trailing
+spaces in a row are deleted before conversion.
+</p>
+<p>To convert back from a cellstr to a character array use <code>char</code>.
+</p>
+<p><strong>See also:</strong> <a href="Creating-Cell-Arrays.html#XREFcell">cell</a>, <a href="Concatenating-Strings.html#XREFchar">char</a>.
 </p></dd></dl>
 
 
@@ -107,15 +113,17 @@ strcmp (&quot;hello&quot;, c)
 <code>char</code>, <code>strvcat</code>, <code>strcat</code> (see <a href="Concatenating-Strings.html#Concatenating-Strings">Concatenating Strings</a>), <code>strcmp</code>, <code>strncmp</code>, <code>strcmpi</code>,
 <code>strncmpi</code> (see <a href="Comparing-Strings.html#Comparing-Strings">Comparing Strings</a>), <code>str2double</code>,
 <code>deblank</code>, <code>strtrim</code>, <code>strtrunc</code>, <code>strfind</code>,
-<code>strmatch</code>, , <code>regexp</code>, <code>regexpi</code> (see <a href="Manipulating-Strings.html#Manipulating-Strings">Manipulating Strings</a>) and <code>str2double</code> (see <a href="String-Conversions.html#String-Conversions">String Conversions</a>).
+<code>strmatch</code>, , <code>regexp</code>, <code>regexpi</code>
+(see <a href="Manipulating-Strings.html#Manipulating-Strings">Manipulating Strings</a>) and <code>str2double</code>
+(see <a href="String-Conversions.html#String-Conversions">String Conversions</a>).
 </p>
 <p>The function <code>iscellstr</code> can be used to test if an object is a
 cell array of strings.
 </p>
 <a name="XREFiscellstr"></a><dl>
-<dt><a name="index-iscellstr"></a>Built-in Function: <em></em> <strong>iscellstr</strong> <em>(<var>cell</var>)</em></dt>
-<dd><p>Return true if every element of the cell array <var>cell</var> is a
-character string.
+<dt><a name="index-iscellstr"></a>: <em></em> <strong>iscellstr</strong> <em>(<var>cell</var>)</em></dt>
+<dd><p>Return true if every element of the cell array <var>cell</var> is a character
+string.
 </p>
 <p><strong>See also:</strong> <a href="Character-Arrays.html#XREFischar">ischar</a>.
 </p></dd></dl>

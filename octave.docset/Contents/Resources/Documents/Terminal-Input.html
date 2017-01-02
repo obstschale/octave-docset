@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Terminal Input</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Terminal-Input"></a>
 <div class="header">
 <p>
@@ -65,9 +64,11 @@ used for managing an interactive dialog with a user, and the
 <code>keyboard</code> function is normally used for doing simple debugging.
 </p>
 <a name="XREFinput"></a><dl>
-<dt><a name="index-input"></a>Built-in Function: <em><var>ans</var> =</em> <strong>input</strong> <em>(<var>prompt</var>)</em></dt>
-<dt><a name="index-input-1"></a>Built-in Function: <em><var>ans</var> =</em> <strong>input</strong> <em>(<var>prompt</var>, &quot;s&quot;)</em></dt>
-<dd><p>Print a prompt and wait for user input.  For example,
+<dt><a name="index-input"></a>: <em><var>ans</var> =</em> <strong>input</strong> <em>(<var>prompt</var>)</em></dt>
+<dt><a name="index-input-1"></a>: <em><var>ans</var> =</em> <strong>input</strong> <em>(<var>prompt</var>, &quot;s&quot;)</em></dt>
+<dd><p>Print <var>prompt</var> and wait for user input.
+</p>
+<p>For example,
 </p>
 <div class="example">
 <pre class="example">input (&quot;Pick a number, any number! &quot;)
@@ -80,49 +81,63 @@ used for managing an interactive dialog with a user, and the
 </pre></div>
 
 <p>and waits for the user to enter a value.  The string entered by the user
-is evaluated as an expression, so it may be a literal constant, a
-variable name, or any other valid expression.
+is evaluated as an expression, so it may be a literal constant, a variable
+name, or any other valid Octave code.
 </p>
-<p>Currently, <code>input</code> only returns one value, regardless of the number
-of values produced by the evaluation of the expression.
+<p>The number of return arguments, their size, and their class depend on the
+expression entered.
 </p>
-<p>If you are only interested in getting a literal string value, you can
-call <code>input</code> with the character string <code>&quot;s&quot;</code> as the second
-argument.  This tells Octave to return the string entered by the user
-directly, without evaluating it first.
+<p>If you are only interested in getting a literal string value, you can call
+<code>input</code> with the character string <code>&quot;s&quot;</code> as the second argument.
+This tells Octave to return the string entered by the user directly, without
+evaluating it first.
 </p>
-<p>Because there may be output waiting to be displayed by the pager, it is
-a good idea to always call <code>fflush (stdout)</code> before calling
-<code>input</code>.  This will ensure that all pending output is written to
-the screen before your prompt.
+<p>Because there may be output waiting to be displayed by the pager, it is a
+good idea to always call <code>fflush (stdout)</code> before calling <code>input</code>.
+ This will ensure that all pending output is written to the screen before
+your prompt.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Input.html#XREFyes_005for_005fno">yes_or_no</a>, <a href="Terminal-Input.html#XREFkbhit">kbhit</a>.
+<p><strong>See also:</strong> <a href="#XREFyes_005for_005fno">yes_or_no</a>, <a href="#XREFkbhit">kbhit</a>, <a href="Timing-Utilities.html#XREFpause">pause</a>, <a href="#XREFmenu">menu</a>, <a href="I_002fO-Dialogs.html#XREFlistdlg">listdlg</a>.
 </p></dd></dl>
 
 
 <a name="XREFmenu"></a><dl>
-<dt><a name="index-menu"></a>Function File: <em></em> <strong>menu</strong> <em>(<var>title</var>, <var>opt1</var>, &hellip;)</em></dt>
-<dd><p>Print a title string followed by a series of options.  Each option will
-be printed along with a number.  The return value is the number of the
-option selected by the user.  This function is useful for interactive
-programs.  There is no limit to the number of options that may be passed
-in, but it may be confusing to present more than will fit easily on one
-screen.
+<dt><a name="index-menu"></a>: <em><var>choice</var> =</em> <strong>menu</strong> <em>(<var>title</var>, <var>opt1</var>, &hellip;)</em></dt>
+<dt><a name="index-menu-1"></a>: <em><var>choice</var> =</em> <strong>menu</strong> <em>(<var>title</var>, {<var>opt1</var>, &hellip;})</em></dt>
+<dd><p>Display a menu with heading <var>title</var> and options <var>opt1</var>, &hellip;,
+and wait for user input.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFdisp">disp</a>, <a href="Formatted-Output.html#XREFprintf">printf</a>, <a href="Terminal-Input.html#XREFinput">input</a>.
+<p>If the GUI is running, the menu is displayed graphically using
+<code>listdlg</code>.  Otherwise, the title and menu options are printed on the
+console.
+</p>
+<p><var>title</var> is a string and the options may be input as individual strings
+or as a cell array of strings.
+</p>
+<p>The return value <var>choice</var> is the number of the option selected by the
+user counting from 1.  If the user aborts the dialog or makes an invalid
+selection then 0 is returned.
+</p>
+<p>This function is useful for interactive programs.  There is no limit to the
+number of options that may be passed in, but it may be confusing to present
+more than will fit easily on one screen.
+</p>
+<p><strong>See also:</strong> <a href="#XREFinput">input</a>, <a href="I_002fO-Dialogs.html#XREFlistdlg">listdlg</a>.
 </p></dd></dl>
 
 
 <a name="XREFyes_005for_005fno"></a><dl>
-<dt><a name="index-yes_005for_005fno"></a>Built-in Function: <em><var>ans</var> =</em> <strong>yes_or_no</strong> <em>(&quot;<var>prompt</var>&quot;)</em></dt>
-<dd><p>Ask the user a yes-or-no question.  Return logical true if the answer is yes
-or false if the answer is no.  Takes one argument, <var>prompt</var>, which is
-the string to display when asking the question.  <var>prompt</var> should end in
-a space; <code>yes-or-no</code> adds the string &lsquo;<samp>(yes or no) </samp>&rsquo; to it.  The
-user must confirm the answer with <tt class="key">RET</tt> and can edit it until it has
-been confirmed.
+<dt><a name="index-yes_005for_005fno"></a>: <em><var>ans</var> =</em> <strong>yes_or_no</strong> <em>(&quot;<var>prompt</var>&quot;)</em></dt>
+<dd><p>Ask the user a yes-or-no question.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Input.html#XREFinput">input</a>.
+<p>Return logical true if the answer is yes or false if the answer is no.
+</p>
+<p>Takes one argument, <var>prompt</var>, which is the string to display when asking
+the question.  <var>prompt</var> should end in a space; <code>yes-or-no</code> adds the
+string &lsquo;<samp>(yes or no) </samp>&rsquo; to it.  The user must confirm the answer with
+<tt class="key">RET</tt> and can edit it until it has been confirmed.
+</p>
+<p><strong>See also:</strong> <a href="#XREFinput">input</a>.
 </p></dd></dl>
 
 
@@ -134,10 +149,13 @@ character from the keyboard without requiring the user to type a
 carriage return.
 </p>
 <a name="XREFkbhit"></a><dl>
-<dt><a name="index-kbhit"></a>Built-in Function: <em></em> <strong>kbhit</strong> <em>()</em></dt>
-<dt><a name="index-kbhit-1"></a>Built-in Function: <em></em> <strong>kbhit</strong> <em>(1)</em></dt>
-<dd><p>Read a single keystroke from the keyboard.  If called with an
-argument, don&rsquo;t wait for a keypress.  For example,
+<dt><a name="index-kbhit"></a>: <em></em> <strong>kbhit</strong> <em>()</em></dt>
+<dt><a name="index-kbhit-1"></a>: <em></em> <strong>kbhit</strong> <em>(1)</em></dt>
+<dd><p>Read a single keystroke from the keyboard.
+</p>
+<p>If called with an argument, don&rsquo;t wait for a keypress.
+</p>
+<p>For example,
 </p>
 <div class="example">
 <pre class="example">x = kbhit ();
@@ -153,7 +171,7 @@ it is typed.
 <p>is identical to the above example, but doesn&rsquo;t wait for a keypress,
 returning the empty string if no key is available.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Input.html#XREFinput">input</a>.
+<p><strong>See also:</strong> <a href="#XREFinput">input</a>, <a href="Timing-Utilities.html#XREFpause">pause</a>.
 </p></dd></dl>
 
 

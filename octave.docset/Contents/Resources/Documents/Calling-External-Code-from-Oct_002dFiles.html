@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Calling External Code from Oct-Files</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Calling-External-Code-from-Oct_002dFiles"></a>
 <div class="header">
 <p>
@@ -111,49 +110,40 @@ given in the following example, where the C++ wrapper is
 extern &quot;C&quot;
 {
   F77_RET_T
-  F77_FUNC (fortsub, FORTSUB)
-    (const int&amp;, double*, F77_CHAR_ARG_DECL F77_CHAR_ARG_LEN_DECL);
+  F77_FUNC (fortransub, FORTSUB)
+    (const F77_INT&amp;, F77_DBLE*, F77_CHAR_ARG_DECL F77_CHAR_ARG_LEN_DECL);
 }
 
-DEFUN_DLD (fortdemo, args, , &quot;Fortran Demo&quot;)
+DEFUN_DLD (fortrandemo, args, , &quot;Fortran Demo&quot;)
 {
-  octave_value_list retval;
-  int nargin = args.length ();
-
-  if (nargin != 1)
+  if (args.length () != 1)
     print_usage ();
-  else
-    {
-      NDArray a = args(0).array_value ();
-      if (! error_state)
-        {
-          double *av = a.fortran_vec ();
-          octave_idx_type na = a.numel ();
-          OCTAVE_LOCAL_BUFFER (char, ctmp, 128);
 
-          F77_XFCN (fortsub, FORTSUB,
-                    (na, av, ctmp F77_CHAR_ARG_LEN (128)));
+  NDArray a = args(0).array_value ();
 
-          retval(1) = std::string (ctmp);
-          retval(0) = a;
-        }
-    }
-  return retval;
+  double *av = a.fortran_vec ();
+  octave_idx_type na = a.numel ();
+
+  OCTAVE_LOCAL_BUFFER (char, ctmp, 128);
+
+  F77_XFCN (fortransub, FORTSUB,
+            (na, av, ctmp F77_CHAR_ARG_LEN (128)));
+
+  return ovl (a, std::string (ctmp));
 }
-</pre><pre class="example">
 </pre></div>
 
 <p>and the Fortran function is
 </p>
 <div class="example">
-<pre class="verbatim">      subroutine fortsub (n, a, s)
+<pre class="verbatim">      subroutine fortransub (n, a, s)
       implicit none
       character*(*) s
       real*8 a(*)
       integer*4 i, n, ioerr
       do i = 1, n
         if (a(i) .eq. 0d0) then
-          call xstopx ('fortsub: divide by zero')
+          call xstopx ('fortransub: divide by zero')
         else
           a(i) = 1d0 / a(i)
         endif
@@ -162,12 +152,11 @@ DEFUN_DLD (fortdemo, args, , &quot;Fortran Demo&quot;)
      $       'There are ', n,
      $       ' values in the input vector', char(0)
       if (ioerr .ne. 0) then
-        call xstopx ('fortsub: error writing string')
+        call xstopx ('fortransub: error writing string')
       endif
       return
       end
 
-</pre><pre class="example">
 </pre></div>
 
 <p>This example demonstrates most of the features needed to link to an
@@ -176,13 +165,13 @@ as exception handling.  Both the Fortran and C++ files need to be compiled
 in order for the example to work.
 </p>
 <div class="example">
-<pre class="example">mkoctfile fortdemo.cc fortsub.f
-[b, s] = fortdemo (1:3)
+<pre class="example">mkoctfile fortrandemo.cc fortransub.f
+[b, s] = fortrandemo (1:3)
 &rArr;
   b = 1.00000   0.50000   0.33333
   s = There are   3 values in the input vector
-[b, s] = fortdemo (0:3)
-error: fortdemo: fortsub: divide by zero
+[b, s] = fortrandemo (0:3)
+error: fortrandemo: fortransub: divide by zero
 </pre></div>
 
 <hr>

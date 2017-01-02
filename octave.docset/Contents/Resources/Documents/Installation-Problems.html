@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Installation Problems</title>
 
@@ -14,21 +14,21 @@
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Installation.html#Installation" rel="up" title="Installation">
-<link href="Emacs-Octave-Support.html#Emacs-Octave-Support" rel="next" title="Emacs Octave Support">
+<link href="Grammar-and-Parser.html#Grammar-and-Parser" rel="next" title="Grammar and Parser">
 <link href="Compiling-Octave-with-64_002dbit-Indexing.html#Compiling-Octave-with-64_002dbit-Indexing" rel="prev" title="Compiling Octave with 64-bit Indexing">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Installation-Problems"></a>
 <div class="header">
 <p>
@@ -57,7 +56,7 @@ Previous: <a href="Compiling-Octave-with-64_002dbit-Indexing.html#Compiling-Octa
 </div>
 <hr>
 <a name="Installation-Problems-1"></a>
-<h3 class="section">G.4 Installation Problems</h3>
+<h3 class="section">E.4 Installation Problems</h3>
 
 <p>This section contains a list of problems (and some apparent problems
 that don&rsquo;t really mean anything is wrong) that may show up during
@@ -103,7 +102,7 @@ constants.  The fix appears to be to use
 </pre></div>
 
 <p>in the kernel configuration files (typically found in the directory
-<samp>/sys/i386/conf</samp>.  After making this change, you&rsquo;ll need to rebuild
+<samp>/sys/i386/conf</samp>).  After making this change, you&rsquo;ll need to rebuild
 the kernel, install it, and reboot.
 </p>
 </li><li> If you encounter errors like
@@ -198,6 +197,24 @@ work on SunOS systems.  This is apparently due to having
 <code><span class="nolinebreak">G_HAVE_SYS_WAIT</span></code><!-- /@w --> defined to be 0 instead of 1 when compiling
 <code>libg++</code>.
 
+</li><li> On systems where the reference <small>BLAS</small> library is used the following
+matrix-by-vector multiplication incorrectly handles NaN values of the
+form <code>NaN * 0</code>.
+
+<div class="example">
+<pre class="example">[NaN, 1; 0, 0] * [0; 1]
+&rArr;
+[ 1
+  0 ]
+
+correct result &rArr;
+[ NaN
+  0   ]
+</pre></div>
+
+<p>Install a different <small>BLAS</small> library such as OpenBLAS or ATLAS to correct
+this issue.
+</p>
 </li><li> On NeXT systems, linking to <samp>libsys_s.a</samp> may fail to resolve the
 following functions
 
@@ -252,7 +269,7 @@ directory to the include search path by specifying (for example)
 <code>CFLAGS</code>, <code>CXXFLAGS</code>, <code>FFLAGS</code>, and <code>LDFLAGS</code>.  Passing
 them as options to the configure script also records them in the
 <samp>config.status</samp> file.  By default, <code>CPPFLAGS</code> and <code>LDFLAGS</code>
-are empty, <code>CFLAGS</code> and <code>CXXFLAGS</code> are set to <code>&quot;-g -O&quot;</code> and
+are empty, <code>CFLAGS</code> and <code>CXXFLAGS</code> are set to <code>&quot;-g -O2&quot;</code> and
 <code>FFLAGS</code> is set to <code>&quot;-O&quot;</code>.
 
 </li></ul>

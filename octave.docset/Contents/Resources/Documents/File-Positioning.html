@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>File Positioning</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="File-Positioning"></a>
 <div class="header">
 <p>
@@ -63,19 +62,19 @@ Previous: <a href="EOF-and-Errors.html#EOF-and-Errors" accesskey="p" rel="prev">
 the file pointer for a given file.
 </p>
 <a name="XREFftell"></a><dl>
-<dt><a name="index-ftell"></a>Built-in Function: <em></em> <strong>ftell</strong> <em>(<var>fid</var>)</em></dt>
-<dd><p>Return the position of the file pointer as the number of characters
-from the beginning of the file <var>fid</var>.
+<dt><a name="index-ftell"></a>: <em><var>pos</var> =</em> <strong>ftell</strong> <em>(<var>fid</var>)</em></dt>
+<dd><p>Return the position of the file pointer as the number of characters from the
+beginning of the file specified by file descriptor <var>fid</var>.
 </p>
-<p><strong>See also:</strong> <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="#XREFfseek">fseek</a>, <a href="#XREFfrewind">frewind</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFfseek"></a><dl>
-<dt><a name="index-fseek"></a>Built-in Function: <em></em> <strong>fseek</strong> <em>(<var>fid</var>, <var>offset</var>)</em></dt>
-<dt><a name="index-fseek-1"></a>Built-in Function: <em></em> <strong>fseek</strong> <em>(<var>fid</var>, <var>offset</var>, <var>origin</var>)</em></dt>
-<dt><a name="index-fseek-2"></a>Built-in Function: <em><var>status</var> =</em> <strong>fseek</strong> <em>(&hellip;)</em></dt>
-<dd><p>Set the file pointer to any location within the file <var>fid</var>.
+<dt><a name="index-fseek"></a>: <em></em> <strong>fseek</strong> <em>(<var>fid</var>, <var>offset</var>)</em></dt>
+<dt><a name="index-fseek-1"></a>: <em></em> <strong>fseek</strong> <em>(<var>fid</var>, <var>offset</var>, <var>origin</var>)</em></dt>
+<dt><a name="index-fseek-2"></a>: <em><var>status</var> =</em> <strong>fseek</strong> <em>(&hellip;)</em></dt>
+<dd><p>Set the file pointer to the location <var>offset</var> within the file <var>fid</var>.
 </p>
 <p>The pointer is positioned <var>offset</var> characters from the <var>origin</var>,
 which may be one of the predefined variables <code><span class="nolinebreak">SEEK_CUR</span></code><!-- /@w --> (current
@@ -85,18 +84,18 @@ file) or strings <code>&quot;cof&quot;</code>, <code>&quot;bof&quot;</code> or <
 be positive, negative, or zero but not all combinations of <var>origin</var> and
 <var>offset</var> can be realized.
 </p>
-<p>Return 0 on success and -1 on error.
+<p><code>fseek</code> returns 0 on success and -1 on error.
 </p>
-<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="#XREFfrewind">frewind</a>, <a href="#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFSEEK_005fSET"></a><dl>
-<dt><a name="index-SEEK_005fSET"></a>Built-in Function: <em></em> <strong>SEEK_SET</strong> <em>()</em></dt>
-<dt><a name="index-SEEK_005fCUR"></a>Built-in Function: <em></em> <strong>SEEK_CUR</strong> <em>()</em></dt>
-<dt><a name="index-SEEK_005fEND"></a>Built-in Function: <em></em> <strong>SEEK_END</strong> <em>()</em></dt>
-<dd><p>Return the numerical value to pass to <code>fseek</code> to perform
-one of the following actions:
+<dt><a name="index-SEEK_005fSET"></a>: <em></em> <strong>SEEK_SET</strong> <em>()</em></dt>
+<dt><a name="index-SEEK_005fCUR"></a>: <em></em> <strong>SEEK_CUR</strong> <em>()</em></dt>
+<dt><a name="index-SEEK_005fEND"></a>: <em></em> <strong>SEEK_END</strong> <em>()</em></dt>
+<dd><p>Return the numerical value to pass to <code>fseek</code> to perform one of the
+following actions:
 </p>
 <dl compact="compact">
 <dt><code>SEEK_SET</code></dt>
@@ -112,17 +111,20 @@ one of the following actions:
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="File-Positioning.html#XREFfseek">fseek</a>.
+<p><strong>See also:</strong> <a href="#XREFfseek">fseek</a>.
 </p></dd></dl>
 
 
 <a name="XREFfrewind"></a><dl>
-<dt><a name="index-frewind"></a>Built-in Function: <em></em> <strong>frewind</strong> <em>(<var>fid</var>)</em></dt>
-<dd><p>Move the file pointer to the beginning of the file <var>fid</var>, returning
-0 for success, and -1 if an error was encountered.  It is equivalent to
-<code>fseek (<var>fid</var>, 0, SEEK_SET)</code>.
+<dt><a name="index-frewind"></a>: <em></em> <strong>frewind</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-frewind-1"></a>: <em><var>status</var> =</em> <strong>frewind</strong> <em>(<var>fid</var>)</em></dt>
+<dd><p>Move the file pointer to the beginning of the file specified by file
+descriptor <var>fid</var>.
 </p>
-<p><strong>See also:</strong> <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><code>frewind</code> returns 0 for success, and -1 if an error is encountered.  It
+is equivalent to <code>fseek (<var>fid</var>, 0, SEEK_SET)</code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfseek">fseek</a>, <a href="#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 

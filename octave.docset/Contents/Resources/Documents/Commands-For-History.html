@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Commands For History</title>
+<title>Commands for History</title>
 
-<meta name="description" content="GNU Octave: Commands For History">
-<meta name="keywords" content="GNU Octave: Commands For History">
+<meta name="description" content="GNU Octave: Commands for History">
+<meta name="keywords" content="GNU Octave: Commands for History">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -15,20 +15,20 @@
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Command-Line-Editing.html#Command-Line-Editing" rel="up" title="Command Line Editing">
 <link href="Customizing-readline.html#Customizing-readline" rel="next" title="Customizing readline">
-<link href="Commands-For-Completion.html#Commands-For-Completion" rel="prev" title="Commands For Completion">
+<link href="Commands-for-Completion.html#Commands-for-Completion" rel="prev" title="Commands for Completion">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,15 +48,15 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
-<a name="Commands-For-History"></a>
+<body lang="en">
+<a name="Commands-for-History"></a>
 <div class="header">
 <p>
-Next: <a href="Customizing-readline.html#Customizing-readline" accesskey="n" rel="next">Customizing readline</a>, Previous: <a href="Commands-For-Completion.html#Commands-For-Completion" accesskey="p" rel="prev">Commands For Completion</a>, Up: <a href="Command-Line-Editing.html#Command-Line-Editing" accesskey="u" rel="up">Command Line Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Customizing-readline.html#Customizing-readline" accesskey="n" rel="next">Customizing readline</a>, Previous: <a href="Commands-for-Completion.html#Commands-for-Completion" accesskey="p" rel="prev">Commands for Completion</a>, Up: <a href="Command-Line-Editing.html#Command-Line-Editing" accesskey="u" rel="up">Command Line Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Commands-For-Manipulating-The-History"></a>
-<h4 class="subsection">2.4.5 Commands For Manipulating The History</h4>
+<a name="Commands-for-Manipulating-the-History"></a>
+<h4 class="subsection">2.4.5 Commands for Manipulating the History</h4>
 <a name="index-command-history"></a>
 <a name="index-input-history"></a>
 <a name="index-history-of-commands"></a>
@@ -115,12 +114,14 @@ list, Octave provides three functions for viewing, editing, and
 re-running chunks of commands from the history list.
 </p>
 <a name="XREFhistory"></a><dl>
-<dt><a name="index-history-1"></a>Command: <em></em> <strong>history</strong></dt>
-<dt><a name="index-history-2"></a>Command: <em></em> <strong>history</strong> <em><var>opt1</var> &hellip;</em></dt>
-<dt><a name="index-history-3"></a>Built-in Function: <em><var>h</var> =</em> <strong>history</strong> <em>()</em></dt>
-<dt><a name="index-history-4"></a>Built-in Function: <em><var>h</var> =</em> <strong>history</strong> <em>(<var>opt1</var>, &hellip;)</em></dt>
+<dt><a name="index-history-1"></a>: <em></em> <strong>history</strong></dt>
+<dt><a name="index-history-2"></a>: <em></em> <strong>history</strong> <em><var>opt1</var> &hellip;</em></dt>
+<dt><a name="index-history-3"></a>: <em><var>h</var> =</em> <strong>history</strong> <em>()</em></dt>
+<dt><a name="index-history-4"></a>: <em><var>h</var> =</em> <strong>history</strong> <em>(<var>opt1</var>, &hellip;)</em></dt>
 <dd><p>If invoked with no arguments, <code>history</code> displays a list of commands
-that you have executed.  Valid options are:
+that you have executed.
+</p>
+<p>Valid options are:
 </p>
 <dl compact="compact">
 <dt><code><var>n</var></code></dt>
@@ -155,15 +156,16 @@ typed without displaying line numbers, use the command
 </p>
 <p>If invoked with a single output argument, the history will be saved to that
 argument as a cell string and will not be output to screen.
+</p>
+<p><strong>See also:</strong> <a href="#XREFedit_005fhistory">edit_history</a>, <a href="#XREFrun_005fhistory">run_history</a>.
 </p></dd></dl>
 
 
 <a name="XREFedit_005fhistory"></a><dl>
-<dt><a name="index-edit_005fhistory"></a>Command: <em></em> <strong>edit_history</strong></dt>
-<dt><a name="index-edit_005fhistory-1"></a>Command: <em></em> <strong>edit_history</strong> <em><var>cmd_number</var></em></dt>
-<dt><a name="index-edit_005fhistory-2"></a>Command: <em></em> <strong>edit_history</strong> <em><var>first</var> <var>last</var></em></dt>
-<dd><p>Edit the history list using the editor named by the variable
-<code>EDITOR</code><!-- /@w -->.
+<dt><a name="index-edit_005fhistory"></a>: <em></em> <strong>edit_history</strong></dt>
+<dt><a name="index-edit_005fhistory-1"></a>: <em></em> <strong>edit_history</strong> <em><var>cmd_number</var></em></dt>
+<dt><a name="index-edit_005fhistory-2"></a>: <em></em> <strong>edit_history</strong> <em><var>first</var> <var>last</var></em></dt>
+<dd><p>Edit the history list using the editor named by the variable <code>EDITOR</code>.
 </p>
 <p>The commands to be edited are first copied to a temporary file.  When you
 exit the editor, Octave executes the commands that remain in the file.  It
@@ -189,22 +191,23 @@ edit_history -1
 last command reverses the list of commands before they are placed in the
 buffer to be edited.
 </p>
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFrun_005fhistory">run_history</a>.
+<p><strong>See also:</strong> <a href="#XREFrun_005fhistory">run_history</a>, <a href="#XREFhistory">history</a>.
 </p></dd></dl>
 
 
 <a name="XREFrun_005fhistory"></a><dl>
-<dt><a name="index-run_005fhistory"></a>Command: <em></em> <strong>run_history</strong></dt>
-<dt><a name="index-run_005fhistory-1"></a>Command: <em></em> <strong>run_history</strong> <em><var>cmd_number</var></em></dt>
-<dt><a name="index-run_005fhistory-2"></a>Command: <em></em> <strong>run_history</strong> <em><var>first</var> <var>last</var></em></dt>
+<dt><a name="index-run_005fhistory"></a>: <em></em> <strong>run_history</strong></dt>
+<dt><a name="index-run_005fhistory-1"></a>: <em></em> <strong>run_history</strong> <em><var>cmd_number</var></em></dt>
+<dt><a name="index-run_005fhistory-2"></a>: <em></em> <strong>run_history</strong> <em><var>first</var> <var>last</var></em></dt>
 <dd><p>Run commands from the history list.
 </p>
 <p>When invoked with no arguments, run the previously executed command;
-With one argument, run the specified command <var>cmd_number</var>;
-With two arguments, run the list of commands between <var>first</var> and
+</p>
+<p>With one argument, run the specified command <var>cmd_number</var>;
+</p>
+<p>With two arguments, run the list of commands between <var>first</var> and
 <var>last</var>.  Command number specifiers may also be negative where -1
-refers to the most recently executed command.
-For example, the command
+refers to the most recently executed command.  For example, the command
 </p>
 <div class="example">
 <pre class="example">run_history
@@ -235,7 +238,7 @@ run_history -1 -2
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFedit_005fhistory">edit_history</a>.
+<p><strong>See also:</strong> <a href="#XREFedit_005fhistory">edit_history</a>, <a href="#XREFhistory">history</a>.
 </p></dd></dl>
 
 
@@ -243,9 +246,9 @@ run_history -1 -2
 is saved.
 </p>
 <a name="XREFhistory_005fsave"></a><dl>
-<dt><a name="index-history_005fsave"></a>Built-in Function: <em><var>val</var> =</em> <strong>history_save</strong> <em>()</em></dt>
-<dt><a name="index-history_005fsave-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>history_save</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-history_005fsave-2"></a>Built-in Function: <em></em> <strong>history_save</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-history_005fsave"></a>: <em><var>val</var> =</em> <strong>history_save</strong> <em>()</em></dt>
+<dt><a name="index-history_005fsave-1"></a>: <em><var>old_val</var> =</em> <strong>history_save</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-history_005fsave-2"></a>: <em></em> <strong>history_save</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether commands entered
 on the command line are saved in the history file.
 </p>
@@ -253,17 +256,18 @@ on the command line are saved in the history file.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFhistory_005fcontrol">history_control</a>, <a href="Commands-For-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-For-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-For-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
+<p><strong>See also:</strong> <a href="#XREFhistory_005fcontrol">history_control</a>, <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
 </p></dd></dl>
 
 
 <a name="XREFhistory_005fcontrol"></a><dl>
-<dt><a name="index-history_005fcontrol"></a>Built-in Function: <em><var>val</var> =</em> <strong>history_control</strong> <em>()</em></dt>
-<dt><a name="index-history_005fcontrol-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>history_control</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-history_005fcontrol"></a>: <em><var>val</var> =</em> <strong>history_control</strong> <em>()</em></dt>
+<dt><a name="index-history_005fcontrol-1"></a>: <em><var>old_val</var> =</em> <strong>history_control</strong> <em>(<var>new_val</var>)</em></dt>
 <dd><p>Query or set the internal variable that specifies how commands are saved
-to the history list.  The default value is an empty character string,
-but may be overridden by the environment variable
-<code><span class="nolinebreak">OCTAVE_HISTCONTROL</span></code><!-- /@w -->.
+to the history list.
+</p>
+<p>The default value is an empty character string, but may be overridden by the
+environment variable <code><span class="nolinebreak">OCTAVE_HISTCONTROL</span></code><!-- /@w -->.
 </p>
 <p>The value of <code>history_control</code> is a colon-separated list of values
 controlling how commands are saved on the history list.  If the list
@@ -277,41 +281,45 @@ line is saved.  Any value not in the above list is ignored.  If
 <code>history_control</code> is the empty string, all commands are saved on
 the history list, subject to the value of <code>history_save</code>.
 </p>
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-For-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-For-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="Commands-For-History.html#XREFhistory_005fsave">history_save</a>.
+<p><strong>See also:</strong> <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="#XREFhistory_005fsave">history_save</a>.
 </p></dd></dl>
 
 
 <a name="XREFhistory_005ffile"></a><dl>
-<dt><a name="index-history_005ffile"></a>Built-in Function: <em><var>val</var> =</em> <strong>history_file</strong> <em>()</em></dt>
-<dt><a name="index-history_005ffile-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>history_file</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-history_005ffile"></a>: <em><var>val</var> =</em> <strong>history_file</strong> <em>()</em></dt>
+<dt><a name="index-history_005ffile-1"></a>: <em><var>old_val</var> =</em> <strong>history_file</strong> <em>(<var>new_val</var>)</em></dt>
 <dd><p>Query or set the internal variable that specifies the name of the
-file used to store command history.  The default value is
-<samp>~/.octave_hist</samp>, but may be overridden by the environment
-variable <code><span class="nolinebreak">OCTAVE_HISTFILE</span></code><!-- /@w -->.
+file used to store command history.
 </p>
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-For-History.html#XREFhistory_005fsave">history_save</a>, <a href="Commands-For-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
+<p>The default value is <samp>~/.octave_hist</samp>, but may be overridden by the
+environment variable <code><span class="nolinebreak">OCTAVE_HISTFILE</span></code><!-- /@w -->.
+</p>
+<p><strong>See also:</strong> <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005fsave">history_save</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
 </p></dd></dl>
 
 
 <a name="XREFhistory_005fsize"></a><dl>
-<dt><a name="index-history_005fsize"></a>Built-in Function: <em><var>val</var> =</em> <strong>history_size</strong> <em>()</em></dt>
-<dt><a name="index-history_005fsize-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>history_size</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-history_005fsize"></a>: <em><var>val</var> =</em> <strong>history_size</strong> <em>()</em></dt>
+<dt><a name="index-history_005fsize-1"></a>: <em><var>old_val</var> =</em> <strong>history_size</strong> <em>(<var>new_val</var>)</em></dt>
 <dd><p>Query or set the internal variable that specifies how many entries
-to store in the history file.  The default value is <code>1000</code>,
-but may be overridden by the environment variable <code><span class="nolinebreak">OCTAVE_HISTSIZE</span></code><!-- /@w -->.
+to store in the history file.
 </p>
-<p><strong>See also:</strong> <a href="Commands-For-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-For-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="Commands-For-History.html#XREFhistory_005fsave">history_save</a>.
+<p>The default value is <code>1000</code>, but may be overridden by the environment
+variable <code><span class="nolinebreak">OCTAVE_HISTSIZE</span></code><!-- /@w -->.
+</p>
+<p><strong>See also:</strong> <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="#XREFhistory_005fsave">history_save</a>.
 </p></dd></dl>
 
 
 <a name="XREFhistory_005ftimestamp_005fformat_005fstring"></a><dl>
-<dt><a name="index-history_005ftimestamp_005fformat_005fstring"></a>Built-in Function: <em><var>val</var> =</em> <strong>history_timestamp_format_string</strong> <em>()</em></dt>
-<dt><a name="index-history_005ftimestamp_005fformat_005fstring-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>history_timestamp_format_string</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-history_005ftimestamp_005fformat_005fstring-2"></a>Built-in Function: <em></em> <strong>history_timestamp_format_string</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-history_005ftimestamp_005fformat_005fstring"></a>: <em><var>val</var> =</em> <strong>history_timestamp_format_string</strong> <em>()</em></dt>
+<dt><a name="index-history_005ftimestamp_005fformat_005fstring-1"></a>: <em><var>old_val</var> =</em> <strong>history_timestamp_format_string</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-history_005ftimestamp_005fformat_005fstring-2"></a>: <em></em> <strong>history_timestamp_format_string</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the format string
 for the comment line that is written to the history file when Octave
-exits.  The format string is passed to <code>strftime</code>.  The default
-value is
+exits.
+</p>
+<p>The format string is passed to <code>strftime</code>.  The default value is
 </p>
 <div class="example">
 <pre class="example">&quot;# Octave VERSION, %a %b %d %H:%M:%S %Y %Z &lt;USER@HOST&gt;&quot;
@@ -321,34 +329,33 @@ value is
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Commands-For-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-For-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-For-History.html#XREFhistory_005fsave">history_save</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005fsave">history_save</a>.
 </p></dd></dl>
 
 
 <a name="XREFEDITOR"></a><dl>
-<dt><a name="index-EDITOR"></a>Built-in Function: <em><var>val</var> =</em> <strong>EDITOR</strong> <em>()</em></dt>
-<dt><a name="index-EDITOR-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>EDITOR</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-EDITOR-2"></a>Built-in Function: <em></em> <strong>EDITOR</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-EDITOR"></a>: <em><var>val</var> =</em> <strong>EDITOR</strong> <em>()</em></dt>
+<dt><a name="index-EDITOR-1"></a>: <em><var>old_val</var> =</em> <strong>EDITOR</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-EDITOR-2"></a>: <em></em> <strong>EDITOR</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that specifies the default text editor.
 </p>
 <p>The default value is taken from the environment variable <code>EDITOR</code><!-- /@w -->
-when Octave starts.  If the
-environment variable is not initialized, <code>EDITOR</code><!-- /@w --> will be set to
-<code>&quot;emacs&quot;</code>.
+when Octave starts.  If the environment variable is not initialized,
+<code>EDITOR</code><!-- /@w --> will be set to <code>&quot;emacs&quot;</code>.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 
-<p><strong>See also:</strong> <a href="Function-Files.html#XREFedit">edit</a>, <a href="Commands-For-History.html#XREFedit_005fhistory">edit_history</a>.
+<p><strong>See also:</strong> <a href="Function-Files.html#XREFedit">edit</a>, <a href="#XREFedit_005fhistory">edit_history</a>.
 </p></dd></dl>
 
 
 <hr>
 <div class="header">
 <p>
-Next: <a href="Customizing-readline.html#Customizing-readline" accesskey="n" rel="next">Customizing readline</a>, Previous: <a href="Commands-For-Completion.html#Commands-For-Completion" accesskey="p" rel="prev">Commands For Completion</a>, Up: <a href="Command-Line-Editing.html#Command-Line-Editing" accesskey="u" rel="up">Command Line Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Customizing-readline.html#Customizing-readline" accesskey="n" rel="next">Customizing readline</a>, Previous: <a href="Commands-for-Completion.html#Commands-for-Completion" accesskey="p" rel="prev">Commands for Completion</a>, Up: <a href="Command-Line-Editing.html#Command-Line-Editing" accesskey="u" rel="up">Command Line Editing</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

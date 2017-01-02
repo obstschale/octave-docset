@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Variables</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Variables"></a>
 <div class="header">
 <p>
@@ -90,9 +89,9 @@ See <a href="Assignment-Ops.html#Assignment-Ops">Assignment Expressions</a>.
 </p>
 <p>There is one built-in variable with a special meaning.  The <code>ans</code> variable
 always contains the result of the last computation, where the output wasn&rsquo;t
-assigned to any variable.  The code <code>a = cos (pi)</code> will assign the value -1
-to the variable <code>a</code>, but will not change the value of <code>ans</code>.  However,
-the code <code>cos (pi)</code> will set the value of <code>ans</code> to -1.
+assigned to any variable.  The code <code>a = cos (pi)</code> will assign the value
+-1 to the variable <code>a</code>, but will not change the value of <code>ans</code>.
+However, the code <code>cos (pi)</code> will set the value of <code>ans</code> to -1.
 </p>
 <p>Variables in Octave do not have fixed types, so it is possible to first
 store a numeric value in a variable and then to later use the same name
@@ -102,8 +101,10 @@ before they have been given a value.  Doing so results in an error.
 <a name="index-ans"></a>
 <a name="XREFans"></a><dl>
 <dt><a name="index-ans-1"></a>Automatic Variable: <strong>ans</strong></dt>
-<dd><p>The most recently computed result that was not
-explicitly assigned to a variable.  For example, after the expression
+<dd><p>The most recently computed result that was not explicitly assigned to a
+variable.
+</p>
+<p>For example, after the expression
 </p>
 <div class="example">
 <pre class="example">3^2 + 4^2
@@ -114,7 +115,7 @@ explicitly assigned to a variable.  For example, after the expression
 
 
 <a name="XREFisvarname"></a><dl>
-<dt><a name="index-isvarname"></a>Built-in Function: <em></em> <strong>isvarname</strong> <em>(<var>name</var>)</em></dt>
+<dt><a name="index-isvarname"></a>: <em></em> <strong>isvarname</strong> <em>(<var>name</var>)</em></dt>
 <dd><p>Return true if <var>name</var> is a valid variable name.
 </p>
 <p><strong>See also:</strong> <a href="Keywords.html#XREFiskeyword">iskeyword</a>, <a href="Status-of-Variables.html#XREFexist">exist</a>, <a href="Status-of-Variables.html#XREFwho">who</a>.
@@ -122,23 +123,12 @@ explicitly assigned to a variable.  For example, after the expression
 
 
 <a name="XREFgenvarname"></a><dl>
-<dt><a name="index-genvarname"></a>Function File: <em><var>varname</var> =</em> <strong>genvarname</strong> <em>(<var>str</var>)</em></dt>
-<dt><a name="index-genvarname-1"></a>Function File: <em><var>varname</var> =</em> <strong>genvarname</strong> <em>(<var>str</var>, <var>exclusions</var>)</em></dt>
-<dd><p>Create unique variable(s) from <var>str</var>.  If <var>exclusions</var> is
-given, then the variable(s) will be unique to each other and to
-<var>exclusions</var> (<var>exclusions</var> may be either a string or a cellstr).
+<dt><a name="index-genvarname"></a>: <em><var>varname</var> =</em> <strong>genvarname</strong> <em>(<var>str</var>)</em></dt>
+<dt><a name="index-genvarname-1"></a>: <em><var>varname</var> =</em> <strong>genvarname</strong> <em>(<var>str</var>, <var>exclusions</var>)</em></dt>
+<dd><p>Create valid unique variable name(s) from <var>str</var>.
 </p>
-<p>If <var>str</var> is a cellstr, then a unique variable is created for each
-cell in <var>str</var>.
-</p>
-<div class="example">
-<pre class="example">x = 3.141;
-genvarname (&quot;x&quot;, who ())
-  &rArr; x1
-</pre></div>
-
-<p>If <var>wanted</var> is a cell array, genvarname will make sure the returned
-strings are distinct:
+<p>If <var>str</var> is a cellstr, then a unique variable is created for each cell
+in <var>str</var>.
 </p>
 <div class="example">
 <pre class="example">genvarname ({&quot;foo&quot;, &quot;foo&quot;})
@@ -149,9 +139,19 @@ strings are distinct:
      }
 </pre></div>
 
-<p>Note that the result is a char array/cell array of strings, not the
-variables themselves.  To define a variable, <code>eval()</code> can be
-used.  The following trivial example sets <code>x</code> to <code>42</code>.
+<p>If <var>exclusions</var> is given, then the variable(s) will be unique to each
+other and to <var>exclusions</var> (<var>exclusions</var> may be either a string or a
+cellstr).
+</p>
+<div class="example">
+<pre class="example">x = 3.141;
+genvarname (&quot;x&quot;, who ())
+  &rArr; x1
+</pre></div>
+
+<p>Note that the result is a char array or cell array of strings, not the
+variables themselves.  To define a variable, <code>eval()</code> can be used.
+The following trivial example sets <code>x</code> to <code>42</code>.
 </p>
 <div class="example">
 <pre class="example">name = genvarname (&quot;x&quot;);
@@ -159,7 +159,7 @@ eval ([name &quot; = 42&quot;]);
   &rArr; x =  42
 </pre></div>
 
-<p>Also, this can be useful for creating unique struct field names.
+<p>This can be useful for creating unique struct field names.
 </p>
 <div class="example">
 <pre class="example">x = struct ();
@@ -174,33 +174,34 @@ endfor
      }
 </pre></div>
 
-<p>Since variable names may only contain letters, digits and underscores,
-genvarname replaces any sequence of disallowed characters with
-an underscore.  Also, variables may not begin with a digit; in this
-case an underscore is added before the variable name.
+<p>Since variable names may only contain letters, digits, and underscores,
+<code>genvarname</code> will replace any sequence of disallowed characters with
+an underscore.  Also, variables may not begin with a digit; in this case
+an &lsquo;<samp>x</samp>&rsquo; is added before the variable name.
 </p>
 <p>Variable names beginning and ending with two underscores <code>&quot;__&quot;</code> are
-valid but they are used internally by octave and should generally be
-avoided, therefore genvarname will not generate such names.
+valid, but they are used internally by Octave and should generally be
+avoided; therefore, <code>genvarname</code> will not generate such names.
 </p>
-<p>genvarname will also make sure that returned names do not clash with
+<p><code>genvarname</code> will also ensure that returned names do not clash with
 keywords such as <code>&quot;for&quot;</code> and <code>&quot;if&quot;</code>.  A number will be
 appended if necessary.  Note, however, that this does <strong>not</strong> include
-function names, such as <code>&quot;sin&quot;</code>.  Such names should be included in
-<var>avoid</var> if necessary.
+function names such as <code>&quot;sin&quot;</code>.  Such names should be included in
+<var>exclusions</var> if necessary.
 </p>
-<p><strong>See also:</strong> <a href="Variables.html#XREFisvarname">isvarname</a>, <a href="Status-of-Variables.html#XREFexist">exist</a>, <a href="Temporary-Files.html#XREFtmpnam">tmpnam</a>, <a href="Evaluation.html#XREFeval">eval</a>.
+<p><strong>See also:</strong> <a href="#XREFisvarname">isvarname</a>, <a href="Keywords.html#XREFiskeyword">iskeyword</a>, <a href="Status-of-Variables.html#XREFexist">exist</a>, <a href="Status-of-Variables.html#XREFwho">who</a>, <a href="Temporary-Files.html#XREFtempname">tempname</a>, <a href="Evaluation.html#XREFeval">eval</a>.
 </p></dd></dl>
 
 
 <a name="XREFnamelengthmax"></a><dl>
-<dt><a name="index-namelengthmax"></a>Function File: <em></em> <strong>namelengthmax</strong> <em>()</em></dt>
-<dd><p>Return the <small>MATLAB</small> compatible maximum variable name length.  Octave is
-capable of storing strings up to <em>2^{31} - 1</em> in length.
-However for <small>MATLAB</small> compatibility all variable, function,
-and structure field names should be shorter than the length supplied by
-<code>namelengthmax</code>.  In particular variables stored to a <small>MATLAB</small> file
-format will have their names truncated to this length.
+<dt><a name="index-namelengthmax"></a>: <em></em> <strong>namelengthmax</strong> <em>()</em></dt>
+<dd><p>Return the <small>MATLAB</small> compatible maximum variable name length.
+</p>
+<p>Octave is capable of storing strings up to <em>2^{31} - 1</em> in length.
+However for <small>MATLAB</small> compatibility all variable, function, and structure
+field names should be shorter than the length returned by
+<code>namelengthmax</code>.  In particular, variables stored to a <small>MATLAB</small> file
+format (<samp>*.mat</samp>) will have their names truncated to this length.
 </p></dd></dl>
 
 

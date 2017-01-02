@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Process ID Information</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Process-ID-Information"></a>
 <div class="header">
 <p>
@@ -60,44 +59,56 @@ Next: <a href="Environment-Variables.html#Environment-Variables" accesskey="n" r
 <h3 class="section">36.6 Process, Group, and User IDs</h3>
 
 <a name="XREFgetpgrp"></a><dl>
-<dt><a name="index-getpgrp"></a>Built-in Function: <em>pgid =</em> <strong>getpgrp</strong> <em>()</em></dt>
+<dt><a name="index-getpgrp"></a>: <em>pgid =</em> <strong>getpgrp</strong> <em>()</em></dt>
 <dd><p>Return the process group id of the current process.
 </p></dd></dl>
 
 
 <a name="XREFgetpid"></a><dl>
-<dt><a name="index-getpid"></a>Built-in Function: <em>pid =</em> <strong>getpid</strong> <em>()</em></dt>
+<dt><a name="index-getpid"></a>: <em>pid =</em> <strong>getpid</strong> <em>()</em></dt>
 <dd><p>Return the process id of the current process.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgetppid">getppid</a>.
 </p></dd></dl>
 
 
 <a name="XREFgetppid"></a><dl>
-<dt><a name="index-getppid"></a>Built-in Function: <em>pid =</em> <strong>getppid</strong> <em>()</em></dt>
+<dt><a name="index-getppid"></a>: <em>pid =</em> <strong>getppid</strong> <em>()</em></dt>
 <dd><p>Return the process id of the parent process.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgetpid">getpid</a>.
 </p></dd></dl>
 
 
 <a name="XREFgeteuid"></a><dl>
-<dt><a name="index-geteuid"></a>Built-in Function: <em>euid =</em> <strong>geteuid</strong> <em>()</em></dt>
+<dt><a name="index-geteuid"></a>: <em>euid =</em> <strong>geteuid</strong> <em>()</em></dt>
 <dd><p>Return the effective user id of the current process.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgetuid">getuid</a>.
 </p></dd></dl>
 
 
 <a name="XREFgetuid"></a><dl>
-<dt><a name="index-getuid"></a>Built-in Function: <em>uid =</em> <strong>getuid</strong> <em>()</em></dt>
+<dt><a name="index-getuid"></a>: <em>uid =</em> <strong>getuid</strong> <em>()</em></dt>
 <dd><p>Return the real user id of the current process.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgeteuid">geteuid</a>.
 </p></dd></dl>
 
 
 <a name="XREFgetegid"></a><dl>
-<dt><a name="index-getegid"></a>Built-in Function: <em>egid =</em> <strong>getegid</strong> <em>()</em></dt>
+<dt><a name="index-getegid"></a>: <em>egid =</em> <strong>getegid</strong> <em>()</em></dt>
 <dd><p>Return the effective group id of the current process.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgetgid">getgid</a>.
 </p></dd></dl>
 
 
 <a name="XREFgetgid"></a><dl>
-<dt><a name="index-getgid"></a>Built-in Function: <em>gid =</em> <strong>getgid</strong> <em>()</em></dt>
+<dt><a name="index-getgid"></a>: <em>gid =</em> <strong>getgid</strong> <em>()</em></dt>
 <dd><p>Return the real group id of the current process.
+</p>
+<p><strong>See also:</strong> <a href="#XREFgetegid">getegid</a>.
 </p></dd></dl>
 
 

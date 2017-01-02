@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Structures with Mex-Files</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Structures-with-Mex_002dFiles"></a>
 <div class="header">
 <p>
@@ -109,7 +108,7 @@ mexFunction (int nlhs, mxArray* plhs[],
   const char *keys[] = { &quot;this&quot;, &quot;that&quot; };
 
   if (nrhs != 1 || ! mxIsStruct (prhs[0]))
-    mexErrMsgTxt (&quot;expects struct&quot;);
+    mexErrMsgTxt (&quot;ARG1 must be a struct&quot;);
 
   for (i = 0; i &lt; mxGetNumberOfFields (prhs[0]); i++)
     for (j = 0; j &lt; mxGetNumberOfElements (prhs[0]); j++)
@@ -133,7 +132,6 @@ mexFunction (int nlhs, mxArray* plhs[],
   if (nlhs)
     plhs[0] = v;
 }
-</pre><pre class="example">
 </pre></div>
 
 <p>An example of the behavior of this function within Octave is then
@@ -141,32 +139,22 @@ mexFunction (int nlhs, mxArray* plhs[],
 <div class="example">
 <pre class="example">a(1).f1 = &quot;f11&quot;; a(1).f2 = &quot;f12&quot;;
 a(2).f1 = &quot;f21&quot;; a(2).f2 = &quot;f22&quot;;
-b = mystruct (a)
-&rArr; field f1(0) = f11
+b = mystruct (a);
+&rArr;  field f1(0) = f11
     field f1(1) = f21
     field f2(0) = f12
     field f2(1) = f22
-    b =
-    {
-      this =
+b
+&rArr; 2x2 struct array containing the fields:
 
-      (,
-        [1] = this1
-        [2] = this2
-        [3] = this3
-        [4] = this4
-      ,)
+     this
+     that
 
-      that =
+b(3)
+&rArr; scalar structure containing the fields:
 
-      (,
-        [1] = that1
-        [2] = that2
-        [3] = that3
-        [4] = that4
-      ,)
-
-    }
+     this = this3
+     that = that3
 </pre></div>
 
 <hr>

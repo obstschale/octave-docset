@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Test Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Test-Functions"></a>
 <div class="header">
 <p>
@@ -60,60 +59,103 @@ Next: <a href="Demonstration-Functions.html#Demonstration-Functions" accesskey="
 <h3 class="section">B.1 Test Functions</h3>
 
 <a name="XREFtest"></a><dl>
-<dt><a name="index-test"></a>Command: <em></em> <strong>test</strong> <em><var>name</var></em></dt>
-<dt><a name="index-test-1"></a>Command: <em></em> <strong>test</strong> <em><var>name</var> quiet|normal|verbose</em></dt>
-<dt><a name="index-test-2"></a>Function File: <em></em> <strong>test</strong> <em>(&quot;<var>name</var>&quot;, &quot;quiet|normal|verbose&quot;, <var>fid</var>)</em></dt>
-<dt><a name="index-test-3"></a>Function File: <em></em> <strong>test</strong> <em>([], &quot;explain&quot;, <var>fid</var>)</em></dt>
-<dt><a name="index-test-4"></a>Function File: <em><var>success</var> =</em> <strong>test</strong> <em>(&hellip;)</em></dt>
-<dt><a name="index-test-5"></a>Function File: <em>[<var>n</var>, <var>max</var>] =</em> <strong>test</strong> <em>(&hellip;)</em></dt>
-<dt><a name="index-test-6"></a>Function File: <em>[<var>code</var>, <var>idx</var>] =</em> <strong>test</strong> <em>(&quot;<var>name</var>&quot;, &quot;grabdemo&quot;)</em></dt>
+<dt><a name="index-test"></a>: <em></em> <strong>test</strong> <em><var>name</var></em></dt>
+<dt><a name="index-test-1"></a>: <em></em> <strong>test</strong> <em><var>name</var> quiet|normal|verbose</em></dt>
+<dt><a name="index-test-2"></a>: <em></em> <strong>test</strong> <em>(&quot;<var>name</var>&quot;, &quot;quiet|normal|verbose&quot;, <var>fid</var>)</em></dt>
+<dt><a name="index-test-3"></a>: <em></em> <strong>test</strong> <em>(&quot;<var>name</var>&quot;, &quot;quiet|normal|verbose&quot;, <var>fname</var>)</em></dt>
+<dt><a name="index-test-4"></a>: <em><var>success</var> =</em> <strong>test</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-test-5"></a>: <em>[<var>n</var>, <var>nmax</var>, <var>nxfail</var>, <var>nskip</var>] =</em> <strong>test</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-test-6"></a>: <em>[<var>code</var>, <var>idx</var>] =</em> <strong>test</strong> <em>(&quot;<var>name</var>&quot;, &quot;grabdemo&quot;)</em></dt>
+<dt><a name="index-test-7"></a>: <em></em> <strong>test</strong> <em>([], &quot;explain&quot;, <var>fid</var>)</em></dt>
+<dt><a name="index-test-8"></a>: <em></em> <strong>test</strong> <em>([], &quot;explain&quot;, <var>fname</var>)</em></dt>
 <dd>
-<p>Perform tests from the first file in the loadpath matching <var>name</var>.
-<code>test</code> can be called as a command or as a function.  Called with
-a single argument <var>name</var>, the tests are run interactively and stop
-after the first error is encountered.
+<p>Perform built-in self-tests from the first file in the loadpath matching
+<var>name</var>.
 </p>
-<p>With a second argument the tests which are performed and the amount of
-output is selected.
+<p><code>test</code> can be called in either command or functional form.  The exact
+operation of test is determined by a combination of mode (interactive or
+batch), reporting level (<code>&quot;quiet&quot;</code>, <code>&quot;normal&quot;</code>,
+<code>&quot;verbose&quot;</code>), and whether a logfile or summary output variable is
+used.
+</p>
+<p>The default mode when <code>test</code> is called from the command line is
+interactive.  In this mode, tests will be run until the first error is
+encountered, or all tests complete successfully.  In batch mode, all tests
+are run regardless of any failures, and the results are collected for
+reporting.  Tests which require user interaction, i.e., demo blocks,
+are never run in batch mode.
+</p>
+<p>Batch mode is enabled by either 1) specifying a logfile using the third
+argument <var>fname</var> or <var>fid</var>, or 2) requesting an output argument
+such as <var>success</var>, <var>n</var>, etc.
+</p>
+<p>The optional second argument determines the amount of output to generate and
+which types of tests to run.  The default value is <code>&quot;normal&quot;</code>.
+Requesting an output argument will suppress printing the final summary
+message and any intermediate warnings, unless verbose reporting is
+enabled.
 </p>
 <dl compact="compact">
 <dt><code>&quot;quiet&quot;</code></dt>
-<dd><p>Don&rsquo;t report all the tests as they happen, just the errors.
+<dd><p>Print a summary message when all tests pass, or print an error with the
+results of the first bad test when a failure occurs.  Don&rsquo;t run tests which
+require user interaction.
 </p>
 </dd>
 <dt><code>&quot;normal&quot;</code></dt>
-<dd><p>Report all tests as they happen, but don&rsquo;t do tests which require
-user interaction.
+<dd><p>Display warning messages about skipped tests or failing xtests during test
+execution.
+Print a summary message when all tests pass, or print an error with the
+results of the first bad test when a failure occurs.  Don&rsquo;t run tests which
+require user interaction.
 </p>
 </dd>
 <dt><code>&quot;verbose&quot;</code></dt>
-<dd><p>Do tests which require user interaction.
+<dd><p>Display tests before execution.  Print all warning messages.  In interactive
+mode, run all tests including those which require user interaction.
 </p></dd>
 </dl>
 
-<p>The argument <var>fid</var> can be used to allow batch processing.  Errors
-can be written to the already open file defined by <var>fid</var>, and
-hopefully when Octave crashes this file will tell you what was happening
-when it did.  You can use <code>stdout</code> if you want to see the results as
-they happen.  You can also give a file name rather than an <var>fid</var>, in
-which case the contents of the file will be replaced with the log from
-the current test.
-</p>
-<p>Called with a single output argument <var>success</var>, <code>test</code> returns
-true if all of the tests were successful.  Called with two output arguments
-<var>n</var> and <var>max</var>, the number of successful tests and the total number
-of tests in the file <var>name</var> are returned.
-</p>
-<p>If the second argument is the string <code>&quot;grabdemo&quot;</code>, the contents of
-the demo blocks are extracted but not executed.  Code for all code blocks
-is concatenated and returned as <var>code</var> with <var>idx</var> being a vector
-of positions of the ends of the demo blocks.
-</p>
-<p>If the second argument is <code>&quot;explain&quot;</code>, then <var>name</var> is ignored
-and an explanation of the line markers used is written to the file
+<p>The optional third input argument specifies a logfile where results of the
+tests should be written.  The logfile may be a character string
+(<var>fname</var>) or an open file descriptor ID (<var>fid</var>).  To enable batch
+processing, but still print the results to the screen, use <code>stdout</code> for
 <var>fid</var>.
 </p>
-<p><strong>See also:</strong> <a href="Test-Functions.html#XREFassert">assert</a>, <a href="Test-Functions.html#XREFfail">fail</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Demonstration-Functions.html#XREFdemo">demo</a>, <a href="Demonstration-Functions.html#XREFexample">example</a>.
+<p>When called with just a single output argument <var>success</var>, <code>test</code>
+returns true if all of the tests were successful.  If called with more
+than one output argument then the number of successful tests (<var>n</var>),
+the total number of tests in the file (<var>nmax</var>), the number of xtest
+failures (<var>nxfail</var>), and the number of skipped tests (<var>nskip</var>) are
+returned.
+</p>
+<p>Example
+</p>
+<div class="example">
+<pre class="example">test sind
+&rArr;
+PASSES 5 out of 5 tests
+
+[n, nmax] = test (&quot;sind&quot;)
+&rArr;
+n =  5
+nmax =  5
+</pre></div>
+
+<p>Additional Calling Syntaxes
+</p>
+<p>If the second argument is the string <code>&quot;grabdemo&quot;</code>, the contents of
+any built-in demo blocks are extracted but not executed.  The text for all
+code blocks is concatenated and returned as <var>code</var> with <var>idx</var> being
+a vector of positions of the ends of each demo block.  For an easier way to
+extract demo blocks from files, See <a href="Demonstration-Functions.html#XREFexample">example</a>.
+</p>
+<p>If the second argument is <code>&quot;explain&quot;</code> then <var>name</var> is ignored and
+an explanation of the line markers used in <code>test</code> output reports is
+written to the file specified by <var>fname</var> or <var>fid</var>.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFassert">assert</a>, <a href="#XREFfail">fail</a>, <a href="Demonstration-Functions.html#XREFdemo">demo</a>, <a href="Demonstration-Functions.html#XREFexample">example</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
 </p></dd></dl>
 
 
@@ -132,8 +174,8 @@ A block is defined by indentation as in Python.  Lines beginning with
 <p>For example:
 </p>
 <div class="example">
-<pre class="example">%!test error (&quot;this test fails!&quot;);
-%!test &quot;test doesn't fail. it doesn't generate an error&quot;;
+<pre class="example">%!test error (&quot;this test fails!&quot;)
+%!test &quot;test doesn't fail.  it doesn't generate an error&quot;
 </pre></div>
 
 <p>When a test fails, you will see something like:
@@ -173,8 +215,8 @@ with <code>assert</code> the previous test is reduced to:
 absolutely or relatively.  For example, the following all succeed:
 </p>
 <div class="example">
-<pre class="example">%!test assert (1+eps, 1, 2*eps)          # absolute error
-%!test assert (100+100*eps, 100, -2*eps) # relative error
+<pre class="example">%!test assert (1+eps, 1, 2*eps)           # absolute error
+%!test assert (100+100*eps, 100, -2*eps)  # relative error
 </pre></div>
 
 <p>You can also do the comparison yourself, but still have assert
@@ -210,8 +252,8 @@ for <code>svds</code> begin with
 <pre class="example">%!testif HAVE_ARPACK
 </pre></div>
 
-<p>Review <samp>config.h</samp> or <code>octave_config_info (&quot;features&quot;)</code> to see some
-of the possible values to check.
+<p>Review <samp>config.h</samp> or <code>__octave_config_info__ (&quot;build_features&quot;)</code>
+to see some of the possible values to check.
 </p>
 <p>Sometimes during development there is a test that should work but is
 known to fail.  You still want to leave the test in because when the
@@ -240,9 +282,9 @@ is empty), and then uses it in several subsequent tests.
 <div class="example">
 <pre class="example">%!shared <var>a</var>
 %! <var>a</var> = [1, 2, 3; 4, 5, 6];
-%!assert (kron ([1; 2], <var>a</var>), [ <var>a</var>; 2*<var>a</var> ]);
-%!assert (kron ([1, 2], <var>a</var>), [ <var>a</var>, 2*<var>a</var> ]);
-%!assert (kron ([1,2; 3,4], <var>a</var>), [ <var>a</var>,2*<var>a</var>; 3*<var>a</var>,4*<var>a</var> ]);
+%!assert (kron ([1; 2], <var>a</var>), [ <var>a</var>; 2*<var>a</var> ])
+%!assert (kron ([1, 2], <var>a</var>), [ <var>a</var>, 2*<var>a</var> ])
+%!assert (kron ([1,2; 3,4], <var>a</var>), [ <var>a</var>,2*<var>a</var>; 3*<var>a</var>,4*<var>a</var> ])
 </pre></div>
 
 <p>You can share several variables at the same time:
@@ -257,7 +299,7 @@ is empty), and then uses it in several subsequent tests.
 <pre class="example">%!function <var>a</var> = fn (<var>b</var>)
 %!  <var>a</var> = 2*<var>b</var>;
 %!endfunction
-%!assert (fn(2), 4);
+%!assert (fn(2), 4)
 </pre></div>
 
 <p>Note that all previous variables and values are lost when a new
@@ -272,7 +314,7 @@ The following is nearly identical to the example above, but does nothing.
 <pre class="example">%!function <var>a</var> = fn (<var>b</var>)
 %!  <var>a</var> = 2*<var>b</var>;
 %!endfunction
-%! assert (fn(2), 4);
+%!assert (fn(2), 4)
 </pre></div>
 
 <p>Because there is a space after &lsquo;<samp>%!</samp>&rsquo; the <code>assert</code> statement does
@@ -284,19 +326,19 @@ is correct using an optional regular expression <code>&lt;pattern&gt;</code>.
 For example:
 </p>
 <div class="example">
-<pre class="example">%!error &lt;passes!&gt; error (&quot;this test passes!&quot;);
+<pre class="example">%!error &lt;passes!&gt; error (&quot;this test passes!&quot;)
 </pre></div>
 
 <p>If the code doesn&rsquo;t generate an error, the test fails.  For example:
 </p>
 <div class="example">
-<pre class="example">%!error &quot;this is an error because it succeeds.&quot;;
+<pre class="example">%!error &quot;this is an error because it succeeds.&quot;
 </pre></div>
 
 <p>produces
 </p>
 <div class="example">
-<pre class="example">  ***** error &quot;this is an error because it succeeds.&quot;;
+<pre class="example">  ***** error &quot;this is an error because it succeeds.&quot;
 !!!!! test failed: no error
 </pre></div>
 
@@ -339,36 +381,36 @@ in the log file but not executed.  For example:
 </pre></div>
 
 <p>The following trivial code snippet provides examples for the use of
-fail, assert, error and xtest:
+fail, assert, error, and xtest:
 </p>
 <div class="example">
 <pre class="example">function output = must_be_zero (<var>input</var>)
   if (<var>input</var> != 0)
-    error (&quot;Non-zero input!&quot;)
+    error (&quot;Nonzero input!&quot;)
   endif
   output = input;
 endfunction
 
-%!fail (&quot;must_be_zero (1)&quot;);
-%!assert (must_be_zero (0), 0);
-%!error &lt;Non-zero&gt; must_be_zero (1);
-%!xtest error (&quot;This code generates an error&quot;);
+%!fail (&quot;must_be_zero (1)&quot;)
+%!assert (must_be_zero (0), 0)
+%!error &lt;Nonzero&gt; must_be_zero (1)
+%!xtest error (&quot;This code generates an error&quot;)
 </pre></div>
 
-<p>When putting this a file <samp>must_be_zero.m</samp>, and running the test, we see
+<p>When putting this in a file <samp>must_be_zero.m</samp>, and running the test, we see
 </p>
 <div class="example">
 <pre class="example">test must_be_zero verbose
 
 &rArr;
 &gt;&gt;&gt;&gt;&gt; /path/to/must_be_zero.m
-  ***** fail (&quot;must_be_zero (1)&quot;);
-  ***** assert (must_be_zero (0), 0);
-  ***** error &lt;Non-zero&gt; must_be_zero (1);
-  ***** xtest error (&quot;This code generates an error&quot;);
+***** fail (&quot;must_be_zero (1)&quot;)
+***** assert (must_be_zero (0), 0)
+***** error &lt;Nonzero&gt; must_be_zero (1)
+***** xtest error (&quot;This code generates an error&quot;)
 !!!!! known failure
 This code generates an error
-PASSES 4 out of 4 tests (1 expected failures)
+PASSES 3 out of 4 tests (1 expected failure)
 </pre></div>
 
 <a name="Block-type-summary_003a"></a>
@@ -376,52 +418,101 @@ PASSES 4 out of 4 tests (1 expected failures)
 
 <dl compact="compact">
 <dt><code>%!test</code></dt>
-<dd><p>check that entire block is correct
+<dt><code>%!test &lt;MESSAGE&gt;</code></dt>
+<dd><p>Check that entire block is correct.  If <code>&lt;MESSAGE&gt;</code> is present, the
+test block is interpreted as for <code>xtest</code>.
 </p>
 </dd>
 <dt><code>%!testif HAVE_XXX</code></dt>
-<dd><p>check block only if Octave was compiled with feature HAVE_XXX.
+<dt><code>%!testif HAVE_XXX, HAVE_YYY, &hellip;</code></dt>
+<dt><code>%!testif &hellip; &lt;MESSAGE&gt;</code></dt>
+<dd><p>Check block only if Octave was compiled with feature HAVE_XXX.  If
+<code>&lt;MESSAGE&gt;</code> is present, the test block is interpreted as for
+<code>xtest</code>.
 </p>
 </dd>
 <dt><code>%!xtest</code></dt>
-<dd><p>check block, report a test failure but do not abort testing.
+<dt><code>%!xtest &lt;MESSAGE&gt;</code></dt>
+<dd><p>Check block, report a test failure but do not abort testing.  If
+<code>&lt;MESSAGE&gt;</code> is present, then the text of the message is displayed
+if the test fails, like this:
+</p>
+<div class="example">
+<pre class="example">!!!!! Known bug:  MESSAGE
+</pre></div>
+
+<p>If the message is an integer, it is interpreted as a bug ID for the
+Octave bug tracker and reported as
+</p>
+<div class="example">
+<pre class="example">!!!!! Known bug: http://octave.org/testfailure/?BUG-ID
+</pre></div>
+
+<p>in which BUG-ID is the integer bug number.  The intent is to allow
+clearer documentation of known problems.
 </p>
 </dd>
 <dt><code>%!error</code></dt>
-<dd><p>check for correct error message
-</p>
-</dd>
+<dt><code>%!error &lt;MESSAGE&gt;</code></dt>
 <dt><code>%!warning</code></dt>
-<dd><p>check for correct warning message
+<dt><code>%!warning &lt;MESSAGE&gt;</code></dt>
+<dd><p>Check for correct error or warning message.  If <code>&lt;MESSAGE&gt;</code> is
+supplied it is interpreted as a regular expression pattern that is
+expected to match the error or warning message.
 </p>
 </dd>
 <dt><code>%!demo</code></dt>
-<dd><p>demo only executes in interactive mode
+<dd><p>Demo only executes in interactive mode.
 </p>
 </dd>
 <dt><code>%!#</code></dt>
-<dd><p>comment: ignore everything within the block
+<dd><p>Comment.  Ignore everything within the block
 </p>
 </dd>
 <dt><code>%!shared x,y,z</code></dt>
-<dd><p>declare variables for use in multiple tests
+<dd><p>Declare variables for use in multiple tests.
 </p>
 </dd>
 <dt><code>%!function</code></dt>
-<dd><p>define a function for use in multiple tests
+<dd><p>Define a function for use in multiple tests.
 </p>
 </dd>
 <dt><code>%!endfunction</code></dt>
-<dd><p>close a function definition
+<dd><p>Close a function definition.
 </p>
 </dd>
 <dt><code>%!assert (x, y, tol)</code></dt>
-<dd><p>shorthand for <code>%!test assert (x, y, tol)</code>
-</p></dd>
+<dt><code>%!assert &lt;MESSAGE&gt; (x, y, tol)</code></dt>
+<dt><code>%!fail (CODE, PATTERN)</code></dt>
+<dt><code>%!fail &lt;MESSAGE&gt; (CODE, PATTERN)</code></dt>
+<dd><p>Shorthand for <code>%!test assert (x, y, tol)</code> or
+<code>%!test fail (CODE, PATTERN)</code>.  If <code>&lt;MESSAGE&gt;</code> is present, the
+test block is interpreted as for <code>xtest</code>.
+</p>
+</dd>
 </dl>
 
-<p>You can also create test scripts for builtins and your own C++
-functions.  To do so put a file with the bare function name (no .m
+<a name="test_002dmessage_002danchor"></a>
+<p>When coding tests the Octave convention is that lines that begin with a block
+type do not have a semicolon at the end.  Any code that is within a block,
+however, is normal Octave code and usually will have a trailing semicolon.
+For example,
+</p>
+<div class="example">
+<pre class="example">## bare block instantiation
+%!assert (sin (0), 0)
+</pre></div>
+
+<p>but
+</p>
+<div class="example">
+<pre class="example">## test block with normal Octave code
+%!test
+%! assert (sin (0), 0);
+</pre></div>
+
+<p>You can also create test scripts for built-in functions and your own C++
+functions.  To do so, put a file with the bare function name (no .m
 extension) in a directory in the load path and it will be discovered by
 the <code>test</code> function.  Alternatively, you can embed tests directly in your
 C++ code:
@@ -445,84 +536,96 @@ path and the user will have to remember to type
 <code>test (&quot;funcname.cc&quot;)</code>.
 </p>
 <a name="XREFassert"></a><dl>
-<dt><a name="index-assert"></a>Function File: <em></em> <strong>assert</strong> <em>(<var>cond</var>)</em></dt>
-<dt><a name="index-assert-1"></a>Function File: <em></em> <strong>assert</strong> <em>(<var>cond</var>, <var>errmsg</var>, &hellip;)</em></dt>
-<dt><a name="index-assert-2"></a>Function File: <em></em> <strong>assert</strong> <em>(<var>cond</var>, <var>msg_id</var>, <var>errmsg</var>, &hellip;)</em></dt>
-<dt><a name="index-assert-3"></a>Function File: <em></em> <strong>assert</strong> <em>(<var>observed</var>, <var>expected</var>)</em></dt>
-<dt><a name="index-assert-4"></a>Function File: <em></em> <strong>assert</strong> <em>(<var>observed</var>, <var>expected</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-assert"></a>: <em></em> <strong>assert</strong> <em>(<var>cond</var>)</em></dt>
+<dt><a name="index-assert-1"></a>: <em></em> <strong>assert</strong> <em>(<var>cond</var>, <var>errmsg</var>)</em></dt>
+<dt><a name="index-assert-2"></a>: <em></em> <strong>assert</strong> <em>(<var>cond</var>, <var>errmsg</var>, &hellip;)</em></dt>
+<dt><a name="index-assert-3"></a>: <em></em> <strong>assert</strong> <em>(<var>cond</var>, <var>msg_id</var>, <var>errmsg</var>, &hellip;)</em></dt>
+<dt><a name="index-assert-4"></a>: <em></em> <strong>assert</strong> <em>(<var>observed</var>, <var>expected</var>)</em></dt>
+<dt><a name="index-assert-5"></a>: <em></em> <strong>assert</strong> <em>(<var>observed</var>, <var>expected</var>, <var>tol</var>)</em></dt>
 <dd>
-<p>Produce an error if the specified condition is not met.  <code>assert</code> can
-be called in three different ways.
+<p>Produce an error if the specified condition is not met.
+</p>
+<p><code>assert</code> can be called in three different ways.
 </p>
 <dl compact="compact">
 <dt><code>assert (<var>cond</var>)</code></dt>
+<dt><code>assert (<var>cond</var>, <var>errmsg</var>)</code></dt>
 <dt><code>assert (<var>cond</var>, <var>errmsg</var>, &hellip;)</code></dt>
 <dt><code>assert (<var>cond</var>, <var>msg_id</var>, <var>errmsg</var>, &hellip;)</code></dt>
-<dd><p>Called with a single argument <var>cond</var>, <code>assert</code> produces an
-error if <var>cond</var> is zero.  When called with more than one argument the
-additional arguments are passed to the <code>error</code> function.
+<dd><p>Called with a single argument <var>cond</var>, <code>assert</code> produces an error if
+<var>cond</var> is false (numeric zero).
+</p>
+<p>Any additional arguments are passed to the <code>error</code> function for
+processing.
 </p>
 </dd>
 <dt><code>assert (<var>observed</var>, <var>expected</var>)</code></dt>
-<dd><p>Produce an error if observed is not the same as expected.  Note that
-<var>observed</var> and <var>expected</var> can be scalars, vectors, matrices,
-strings, cell arrays, or structures.
+<dd><p>Produce an error if observed is not the same as expected.
+</p>
+<p>Note that <var>observed</var> and <var>expected</var> can be scalars, vectors,
+matrices, strings, cell arrays, or structures.
 </p>
 </dd>
 <dt><code>assert (<var>observed</var>, <var>expected</var>, <var>tol</var>)</code></dt>
 <dd><p>Produce an error if observed is not the same as expected but equality
 comparison for numeric data uses a tolerance <var>tol</var>.
-If <var>tol</var> is positive then it is an absolute tolerance which will produce
+</p>
+<p>If <var>tol</var> is positive then it is an absolute tolerance which will produce
 an error if <code>abs (<var>observed</var> - <var>expected</var>) &gt; abs (<var>tol</var>)</code>.
-If <var>tol</var> is negative then it is a relative tolerance which will produce
+</p>
+<p>If <var>tol</var> is negative then it is a relative tolerance which will produce
 an error if <code>abs (<var>observed</var> - <var>expected</var>) &gt;
-abs (<var>tol</var> * <var>expected</var>)</code>.  If <var>expected</var> is zero <var>tol</var> will
-always be interpreted as an absolute tolerance.  If <var>tol</var> is not scalar
-its dimensions must agree with those of <var>observed</var> and <var>expected</var>
-and tests are performed on an element-wise basis.
+abs (<var>tol</var> * <var>expected</var>)</code>.
+</p>
+<p>If <var>expected</var> is zero <var>tol</var> will always be interpreted as an
+absolute tolerance.
+</p>
+<p>If <var>tol</var> is not scalar its dimensions must agree with those of
+<var>observed</var> and <var>expected</var> and tests are performed on an
+element-by-element basis.
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="Test-Functions.html#XREFtest">test</a>, <a href="Test-Functions.html#XREFfail">fail</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
+<p><strong>See also:</strong> <a href="#XREFfail">fail</a>, <a href="#XREFtest">test</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Comparison-Ops.html#XREFisequal">isequal</a>.
 </p></dd></dl>
 
 
 <a name="XREFfail"></a><dl>
-<dt><a name="index-fail"></a>Function File: <em></em> <strong>fail</strong> <em>(<var>code</var>)</em></dt>
-<dt><a name="index-fail-1"></a>Function File: <em></em> <strong>fail</strong> <em>(<var>code</var>, <var>pattern</var>)</em></dt>
-<dt><a name="index-fail-2"></a>Function File: <em></em> <strong>fail</strong> <em>(<var>code</var>, &quot;warning&quot;, <var>pattern</var>)</em></dt>
+<dt><a name="index-fail"></a>: <em></em> <strong>fail</strong> <em>(<var>code</var>)</em></dt>
+<dt><a name="index-fail-1"></a>: <em></em> <strong>fail</strong> <em>(<var>code</var>, <var>pattern</var>)</em></dt>
+<dt><a name="index-fail-2"></a>: <em></em> <strong>fail</strong> <em>(<var>code</var>, &quot;warning&quot;)</em></dt>
+<dt><a name="index-fail-3"></a>: <em></em> <strong>fail</strong> <em>(<var>code</var>, &quot;warning&quot;, <var>pattern</var>)</em></dt>
 <dd>
 <p>Return true if <var>code</var> fails with an error message matching
-<var>pattern</var>, otherwise produce an error.  Note that <var>code</var>
-is a string and if <var>code</var> runs successfully, the error produced is:
+<var>pattern</var>, otherwise produce an error.
+</p>
+<p><var>code</var> must be in the form of a string that is passed to the Octave
+interpreter via the <code>evalin</code> function, i.e., a (quoted) string constant
+or a string variable.
+</p>
+<p>Note that if <var>code</var> runs successfully, rather than failing, the error
+printed is:
 </p>
 <div class="example">
 <pre class="example">          expected error &lt;.&gt; but got none
 </pre></div>
 
-
-<p>Code must be in the form of a string that may be passed by
-<code>fail</code> to the Octave interpreter via the <code>evalin</code> function,
-that is, a (quoted) string constant or a string variable.
-</p>
-<p>If called with two arguments, the behavior is similar to
-<code>fail (<var>code</var>)</code>, except the return value will only be true if
-code fails with an error message containing pattern (case sensitive).
-If the code fails with a different error to that given in pattern,
-the message produced is:
+<p>If called with two arguments, the return value will be true only if
+<var>code</var> fails with an error message containing <var>pattern</var>
+(case sensitive).  If the code fails with a different error than the one
+specified in <var>pattern</var> then the message produced is:
 </p>
 <div class="example">
-<pre class="example">          expected &lt;pattern&gt;
+<pre class="example">          expected &lt;<var>pattern</var>&gt;
           but got &lt;text of actual error&gt;
 </pre></div>
 
 <p>The angle brackets are not part of the output.
 </p>
-<p>Called with three arguments, the behavior is similar to
-<code>fail (<var>code</var>, <var>pattern</var>)</code>, but produces an error if no
-warning is given during code execution or if the code fails.
+<p>When called with the <code>&quot;warning&quot;</code> option <code>fail</code> will produce an
+error if executing the code produces no warning.
 </p>
-<p><strong>See also:</strong> <a href="Test-Functions.html#XREFassert">assert</a>.
+<p><strong>See also:</strong> <a href="#XREFassert">assert</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
 </p></dd></dl>
 
 

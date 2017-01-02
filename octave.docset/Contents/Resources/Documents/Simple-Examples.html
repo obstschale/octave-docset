@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Simple Examples</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Simple-Examples"></a>
 <div class="header">
 <p>
@@ -63,7 +62,7 @@ Next: <a href="Conventions.html#Conventions" accesskey="n" rel="next">Convention
 before doing that, it might be helpful to give a sampling of some of its
 capabilities.
 </p>
-<p>If you are new to Octave, I recommend that you try these examples to
+<p>If you are new to Octave, we recommend that you try these examples to
 begin learning Octave by using it.  Lines marked like so, &lsquo;<samp>octave:13&gt;</samp>&rsquo;,
 are lines you type, ending each with a carriage return.  Octave will
 respond with an answer, or by displaying a graph.
@@ -82,6 +81,7 @@ of a circle&rsquo;s circumference to its diameter (pi) are pre-defined.
 <p>For example, to verify Euler&rsquo;s Identity,
 </p><div class="display">
 <pre class="display">
+
  i*pi
 e     = -1
 </pre></div>
@@ -162,7 +162,7 @@ use the left division operator, &lsquo;<samp>\</samp>&rsquo;:
 </pre></div>
 
 <p>This is conceptually equivalent to
-<code>inv (a) * b</code>,
+<code>inv (A) * b</code>,
 but avoids computing the inverse of a matrix directly.
 </p>
 <p>If the coefficient matrix is singular, Octave will print a warning
@@ -259,9 +259,10 @@ output time corresponds to the initial condition given above)
 </pre></div>
 
 <p>The function <code>lsode</code> uses the Livermore Solver for Ordinary
-Differential Equations, described in A. C. Hindmarsh, <cite>ODEPACK, a
-Systematized Collection of ODE Solvers</cite>, in: Scientific Computing, R. S.
-Stepleman et al. (Eds.), North-Holland, Amsterdam, 1983, pages 55&ndash;64.
+Differential Equations, described in A. C. Hindmarsh,
+<cite>ODEPACK, a Systematized Collection of ODE Solvers</cite>, in: Scientific
+Computing, R. S. Stepleman et al. (Eds.), North-Holland, Amsterdam,
+1983, pages 55&ndash;64.
 </p>
 <a name="Producing-Graphical-Output"></a>
 <h4 class="subsection">1.2.6 Producing Graphical Output</h4>
@@ -280,11 +281,11 @@ a separate window to display the plot.
 command.  For example,
 </p>
 <div class="example">
-<pre class="example">print -deps foo.eps
+<pre class="example">print -dpdf foo.pdf
 </pre></div>
 
-<p>will create a file called <samp>foo.eps</samp> that contains a rendering of
-the current plot in Encapsulated PostScript format.  The command
+<p>will create a file called <samp>foo.pdf</samp> that contains a rendering of
+the current plot in Portable Document Format.  The command
 </p>
 <div class="example">
 <pre class="example">help print
@@ -317,12 +318,12 @@ because both forms of the documentation are created from the same input
 file.
 </p>
 <p>In order to get good help you first need to know the name of the command
-that you want to use.  This name of the function may not always be
+that you want to use.  The name of this function may not always be
 obvious, but a good place to start is to type <code>help --list</code>.
 This will show you all the operators, keywords, built-in functions,
 and loadable functions available in the current session of Octave.  An
 alternative is to search the documentation using the <code>lookfor</code>
-function.  This function is described in <a href="Getting-Help.html#Getting-Help">Getting Help</a>.
+function (described in <a href="Getting-Help.html#Getting-Help">Getting Help</a>).
 </p>
 <p>Once you know the name of the function you wish to use, you can get more
 help on the function by simply including the name as an argument to help.
@@ -336,7 +337,7 @@ For example,
 </p>
 <p>Octave sends output that is too long to fit on one screen through a
 pager like <code>less</code> or <code>more</code>.  Type a <tt class="key">RET</tt> to advance one
-line, a <tt class="key">SPC</tt> to advance one page, and <tt class="key">q</tt> to exit the pager.
+line, a <tt class="key">SPC</tt> to advance one page, and <tt class="key">q</tt> to quit the pager.
 </p>
 <p>The part of Octave&rsquo;s help facility that allows you to read the complete
 text of the printed manual from within Octave normally uses a separate

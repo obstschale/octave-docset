@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>EOF and Errors</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="EOF-and-Errors"></a>
 <div class="header">
 <p>
@@ -80,56 +79,68 @@ line.  This has the potential advantage of removing the loop in the
 above code.
 </p>
 <a name="XREFfeof"></a><dl>
-<dt><a name="index-feof"></a>Built-in Function: <em></em> <strong>feof</strong> <em>(<var>fid</var>)</em></dt>
-<dd><p>Return 1 if an end-of-file condition has been encountered for a given
-file and 0 otherwise.  Note that it will only return 1 if the end of the
-file has already been encountered, not if the next read operation will
-result in an end-of-file condition.
+<dt><a name="index-feof"></a>: <em><var>status</var> =</em> <strong>feof</strong> <em>(<var>fid</var>)</em></dt>
+<dd><p>Return 1 if an end-of-file condition has been encountered for the file
+specified by file descriptor <var>fid</var> and 0 otherwise.
 </p>
-<p><strong>See also:</strong> <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p>Note that <code>feof</code> will only return 1 if the end of the file has already
+been encountered, not if the next read operation will result in an
+end-of-file condition.
+</p>
+<p><strong>See also:</strong> <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="#XREFfclear">fclear</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFferror"></a><dl>
-<dt><a name="index-ferror"></a>Built-in Function: <em>[<var>err</var>, <var>msg</var>] =</em> <strong>ferror</strong> <em>(<var>fid</var>)</em></dt>
-<dt><a name="index-ferror-1"></a>Built-in Function: <em>[<var>err</var>, <var>msg</var>] =</em> <strong>ferror</strong> <em>(<var>fid</var>, &quot;clear&quot;)</em></dt>
-<dd><p>Return 1 if an error condition has been encountered for the file ID
-<var>fid</var> and 0 otherwise.  Note that it will only return 1 if an error
-has already been encountered, not if the next operation will result in
-an error condition.
+<dt><a name="index-ferror"></a>: <em><var>msg</var> =</em> <strong>ferror</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-ferror-1"></a>: <em>[<var>msg</var>, <var>err</var>] =</em> <strong>ferror</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-ferror-2"></a>: <em>[&hellip;] =</em> <strong>ferror</strong> <em>(<var>fid</var>, &quot;clear&quot;)</em></dt>
+<dd><p>Query the error status of the stream specified by file descriptor <var>fid</var>
 </p>
-<p>The second argument is optional.  If it is supplied, also clear the
-error condition.
+<p>If an error condition exists then return a string <var>msg</var> describing the
+error.  Otherwise, return an empty string <code>&quot;&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="EOF-and-Errors.html#XREFfclear">fclear</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p>The second input <code>&quot;clear&quot;</code> is optional.  If supplied, the error
+state on the stream will be cleared.
+</p>
+<p>The optional second output is a numeric indication of the error status.
+<var>err</var> is 1 if an error condition has been encountered and 0 otherwise.
+</p>
+<p>Note that <code>ferror</code> indicates if an error has already occurred, not
+whether the next operation will result in an error condition.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfclear">fclear</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFfclear"></a><dl>
-<dt><a name="index-fclear"></a>Built-in Function: <em></em> <strong>fclear</strong> <em>(<var>fid</var>)</em></dt>
-<dd><p>Clear the stream state for the specified file.
+<dt><a name="index-fclear"></a>: <em></em> <strong>fclear</strong> <em>(<var>fid</var>)</em></dt>
+<dd><p>Clear the stream state for the file specified by the file descriptor
+<var>fid</var>.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="#XREFferror">ferror</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFfreport"></a><dl>
-<dt><a name="index-freport"></a>Built-in Function: <em></em> <strong>freport</strong> <em>()</em></dt>
+<dt><a name="index-freport"></a>: <em></em> <strong>freport</strong> <em>()</em></dt>
 <dd><p>Print a list of which files have been opened, and whether they are open
-for reading, writing, or both.  For example:
+for reading, writing, or both.
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">freport ()
 
-     -|  number  mode  name
-     -|
-     -|       0     r  stdin
-     -|       1     w  stdout
-     -|       2     w  stderr
-     -|       3     r  myfile
+     -|  number  mode  arch       name
+     -|  ------  ----  ----       ----
+     -|     0     r    ieee-le    stdin
+     -|     1     w    ieee-le    stdout
+     -|     2     w    ieee-le    stderr
+     -|     3     r    ieee-le    myfile
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>.
+<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="Opening-and-Closing-Files.html#XREFis_005fvalid_005ffile_005fid">is_valid_file_id</a>.
 </p></dd></dl>
 
 

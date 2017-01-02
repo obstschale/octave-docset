@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Binary I/O</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Binary-I_002fO"></a>
 <div class="header">
 <p>
@@ -66,9 +65,13 @@ of integer data and convert among the supported floating point formats
 as the data are read.
 </p>
 <a name="XREFfread"></a><dl>
-<dt><a name="index-fread"></a>Built-in Function: <em>[<var>val</var>, <var>count</var>] =</em> <strong>fread</strong> <em>(<var>fid</var>, <var>size</var>, <var>precision</var>, <var>skip</var>, <var>arch</var>)</em></dt>
-<dd><p>Read binary data of type <var>precision</var> from the specified file ID
-<var>fid</var>.
+<dt><a name="index-fread"></a>: <em><var>val</var> =</em> <strong>fread</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-fread-1"></a>: <em><var>val</var> =</em> <strong>fread</strong> <em>(<var>fid</var>, <var>size</var>)</em></dt>
+<dt><a name="index-fread-2"></a>: <em><var>val</var> =</em> <strong>fread</strong> <em>(<var>fid</var>, <var>size</var>, <var>precision</var>)</em></dt>
+<dt><a name="index-fread-3"></a>: <em><var>val</var> =</em> <strong>fread</strong> <em>(<var>fid</var>, <var>size</var>, <var>precision</var>, <var>skip</var>)</em></dt>
+<dt><a name="index-fread-4"></a>: <em><var>val</var> =</em> <strong>fread</strong> <em>(<var>fid</var>, <var>size</var>, <var>precision</var>, <var>skip</var>, <var>arch</var>)</em></dt>
+<dt><a name="index-fread-5"></a>: <em>[<var>val</var>, <var>count</var>] =</em> <strong>fread</strong> <em>(&hellip;)</em></dt>
+<dd><p>Read binary data from the file specified by the file descriptor <var>fid</var>.
 </p>
 <p>The optional argument <var>size</var> specifies the amount of data to read
 and may be one of
@@ -232,31 +235,40 @@ a complete block of 3 values.
 for the file.  Valid values are
 </p>
 <dl compact="compact">
-<dt><code><code>&quot;native&quot;</code></code></dt>
+<dt><code>&quot;native&quot;</code> or <code>&quot;n&quot;</code></dt>
 <dd><p>The format of the current machine.
 </p>
 </dd>
-<dt><code>&quot;ieee-be&quot;</code></dt>
+<dt><code>&quot;ieee-be&quot;</code> or <code>&quot;b&quot;</code></dt>
 <dd><p>IEEE big endian.
 </p>
 </dd>
-<dt><code>&quot;ieee-le&quot;</code></dt>
+<dt><code>&quot;ieee-le&quot;</code> or <code>&quot;l&quot;</code></dt>
 <dd><p>IEEE little endian.
 </p></dd>
 </dl>
 
-<p>The data read from the file is returned in <var>val</var>, and the number of
-values read is returned in <code>count</code>
+<p>If no <var>arch</var> is given the value used in the call to <code>fopen</code> which
+created the file descriptor is used.  Otherwise, the value specified with
+<code>fread</code> overrides that of <code>fopen</code> and determines the data format.
 </p>
-<p><strong>See also:</strong> <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p>The output argument <var>val</var> contains the data read from the file.
+</p>
+<p>The optional return value <var>count</var> contains the number of elements read.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfwrite">fwrite</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFfwrite"></a><dl>
-<dt><a name="index-fwrite"></a>Built-in Function: <em><var>count</var> =</em> <strong>fwrite</strong> <em>(<var>fid</var>, <var>data</var>, <var>precision</var>, <var>skip</var>, <var>arch</var>)</em></dt>
-<dd><p>Write data in binary form of type <var>precision</var> to the specified file
-ID <var>fid</var>, returning the number of values successfully written to the
-file.
+<dt><a name="index-fwrite"></a>: <em></em> <strong>fwrite</strong> <em>(<var>fid</var>, <var>data</var>)</em></dt>
+<dt><a name="index-fwrite-1"></a>: <em></em> <strong>fwrite</strong> <em>(<var>fid</var>, <var>data</var>, <var>precision</var>)</em></dt>
+<dt><a name="index-fwrite-2"></a>: <em></em> <strong>fwrite</strong> <em>(<var>fid</var>, <var>data</var>, <var>precision</var>, <var>skip</var>)</em></dt>
+<dt><a name="index-fwrite-3"></a>: <em></em> <strong>fwrite</strong> <em>(<var>fid</var>, <var>data</var>, <var>precision</var>, <var>skip</var>, <var>arch</var>)</em></dt>
+<dt><a name="index-fwrite-4"></a>: <em><var>count</var> =</em> <strong>fwrite</strong> <em>(&hellip;)</em></dt>
+<dd><p>Write data in binary form to the file specified by the file descriptor
+<var>fid</var>, returning the number of values <var>count</var> successfully written
+to the file.
 </p>
 <p>The argument <var>data</var> is a matrix of values that are to be written to
 the file.  The values are extracted in column-major order.
@@ -267,7 +279,7 @@ optional, and are interpreted as described for <code>fread</code>.
 <p>The behavior of <code>fwrite</code> is undefined if the values in <var>data</var>
 are too large to fit in the specified precision.
 </p>
-<p><strong>See also:</strong> <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="#XREFfread">fread</a>, <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Running Configure and Make</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Running-Configure-and-Make"></a>
 <div class="header">
 <p>
@@ -57,7 +56,7 @@ Next: <a href="Compiling-Octave-with-64_002dbit-Indexing.html#Compiling-Octave-w
 </div>
 <hr>
 <a name="Running-Configure-and-Make-1"></a>
-<h3 class="section">G.2 Running Configure and Make</h3>
+<h3 class="section">E.2 Running Configure and Make</h3>
 
 <ul>
 <li> Run the shell script <samp>configure</samp>.  This will determine the features
@@ -261,15 +260,10 @@ features not generally available in all versions of make.  Modifying
 Octave&rsquo;s makefiles to work with other make programs is probably not
 worth your time; instead, we simply recommend installing GNU Make.
 </p>
-<p>There are currently two options for plotting in Octave: (1) the external
-program gnuplot, or (2) the internal graphics engine using OpenGL and
-FLTK.  Gnuplot is a command-driven interactive function plotting
-program.  Gnuplot is copyrighted, but freely distributable.  As of
-Octave release 3.4, gnuplot is the default option for plotting.  But,
-the internal graphics engine is nearly 100% compatible, certainly for
-most ordinary plots, and users are encouraged to test it.  It is
-anticipated that the internal engine will become the default option at
-the next major release of Octave.
+<p>There are currently three options for plotting in Octave: the external
+program gnuplot, the internal graphics engine using OpenGL coupled with
+either FLTK or Qt widgets.  Gnuplot is a command-driven interactive
+function plotting program.
 </p>
 <p>To compile Octave, you will need a recent version of <code>g++</code> or other
 ANSI C++ compiler.  In addition, you will need a Fortran 77 compiler or
@@ -283,9 +277,9 @@ Texinfo.
 </p>
 <p>GNU Make, <code>gcc</code> (and <code>libstdc++</code>), <code>gnuplot</code>,
 <code>bison</code>, <code>flex</code>, and Texinfo are all available from many
-anonymous ftp archives.  The primary site is <a href="http://www.gnu.org/software/octave/doc/interpreter/ftp.gnu.org">ftp.gnu.org</a>, but it
+anonymous ftp archives.  The primary site is <a href="ftp.gnu.org">ftp.gnu.org</a>, but it
 is often very busy.  A list of sites that mirror the software on
-<a href="http://www.gnu.org/software/octave/doc/interpreter/ftp.gnu.org">ftp.gnu.org</a> is available by anonymous ftp from
+<a href="ftp.gnu.org">ftp.gnu.org</a> is available by anonymous ftp from
 <a href="ftp://ftp.gnu.org/pub/gnu/GNUinfo/FTP">ftp://ftp.gnu.org/pub/gnu/GNUinfo/FTP</a>.
 </p>
 <p>Octave requires approximately 1.4 GB of disk storage to unpack and

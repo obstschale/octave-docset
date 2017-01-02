@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Convex Hull</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Convex-Hull"></a>
 <div class="header">
 <p>
@@ -65,8 +64,8 @@ and <code>convhulln</code> to calculate the convex hull of 2-dimensional and
 N-dimensional sets of points.
 </p>
 <a name="XREFconvhull"></a><dl>
-<dt><a name="index-convhull"></a>Function File: <em><var>H</var> =</em> <strong>convhull</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-convhull-1"></a>Function File: <em><var>H</var> =</em> <strong>convhull</strong> <em>(<var>x</var>, <var>y</var>, <var>options</var>)</em></dt>
+<dt><a name="index-convhull"></a>: <em><var>H</var> =</em> <strong>convhull</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-convhull-1"></a>: <em><var>H</var> =</em> <strong>convhull</strong> <em>(<var>x</var>, <var>y</var>, <var>options</var>)</em></dt>
 <dd><p>Compute the convex hull of the set of points defined by the
 arrays <var>x</var> and <var>y</var>.  The hull <var>H</var> is an index vector into
 the set of points and specifies which points form the enclosing hull.
@@ -83,22 +82,25 @@ To append user options to the defaults it is necessary to repeat the
 default arguments in <var>options</var>.  Use a null string to pass no arguments.
 </p>
 
-<p><strong>See also:</strong> <a href="Convex-Hull.html#XREFconvhulln">convhulln</a>, <a href="Delaunay-Triangulation.html#XREFdelaunay">delaunay</a>, <a href="Voronoi-Diagrams.html#XREFvoronoi">voronoi</a>.
+<p><strong>See also:</strong> <a href="#XREFconvhulln">convhulln</a>, <a href="Delaunay-Triangulation.html#XREFdelaunay">delaunay</a>, <a href="Voronoi-Diagrams.html#XREFvoronoi">voronoi</a>.
 </p></dd></dl>
 
 
 <a name="XREFconvhulln"></a><dl>
-<dt><a name="index-convhulln"></a>Loadable Function: <em><var>h</var> =</em> <strong>convhulln</strong> <em>(<var>pts</var>)</em></dt>
-<dt><a name="index-convhulln-1"></a>Loadable Function: <em><var>h</var> =</em> <strong>convhulln</strong> <em>(<var>pts</var>, <var>options</var>)</em></dt>
-<dt><a name="index-convhulln-2"></a>Loadable Function: <em>[<var>h</var>, <var>v</var>] =</em> <strong>convhulln</strong> <em>(&hellip;)</em></dt>
-<dd><p>Compute the convex hull of the set of points <var>pts</var> which is a matrix
-of size [n, dim] containing n points in a space of dimension dim.
-The hull <var>h</var> is an index vector into the set of points and specifies
+<dt><a name="index-convhulln"></a>: <em><var>h</var> =</em> <strong>convhulln</strong> <em>(<var>pts</var>)</em></dt>
+<dt><a name="index-convhulln-1"></a>: <em><var>h</var> =</em> <strong>convhulln</strong> <em>(<var>pts</var>, <var>options</var>)</em></dt>
+<dt><a name="index-convhulln-2"></a>: <em>[<var>h</var>, <var>v</var>] =</em> <strong>convhulln</strong> <em>(&hellip;)</em></dt>
+<dd><p>Compute the convex hull of the set of points <var>pts</var>.
+</p>
+<p><var>pts</var> is a matrix of size [n, dim] containing n points in a space of
+dimension dim.
+</p>
+<p>The hull <var>h</var> is an index vector into the set of points and specifies
 which points form the enclosing hull.
 </p>
-<p>An optional second argument, which must be a string or cell array of strings,
-contains options passed to the underlying qhull command.
-See the documentation for the Qhull library for details
+<p>An optional second argument, which must be a string or cell array of
+strings, contains options passed to the underlying qhull command.  See the
+documentation for the Qhull library for details
 <a href="http://www.qhull.org/html/qh-quick.htm#options">http://www.qhull.org/html/qh-quick.htm#options</a>.
 The default options depend on the dimension of the input:
 </p>
@@ -116,8 +118,7 @@ default arguments in <var>options</var>.  Use a null string to pass no arguments
 <p>If the second output <var>v</var> is requested the volume of the enclosing
 convex hull is calculated.
 </p>
-
-<p><strong>See also:</strong> <a href="Convex-Hull.html#XREFconvhull">convhull</a>, <a href="Delaunay-Triangulation.html#XREFdelaunayn">delaunayn</a>, <a href="Voronoi-Diagrams.html#XREFvoronoin">voronoin</a>.
+<p><strong>See also:</strong> <a href="#XREFconvhull">convhull</a>, <a href="Delaunay-Triangulation.html#XREFdelaunayn">delaunayn</a>, <a href="Voronoi-Diagrams.html#XREFvoronoin">voronoin</a>.
 </p></dd></dl>
 
 
@@ -131,7 +132,7 @@ plot (x(k), y(k), &quot;r-&quot;, x, y, &quot;b+&quot;);
 axis ([-3.05, 3.05, -0.05, 1.05]);
 </pre></div>
 
-<p>The output of the above can be seen in <a href="Convex-Hull.html#fig_003aconvhull">Figure 30.5</a>.
+<p>The output of the above can be seen in <a href="#fig_003aconvhull">Figure 30.5</a>.
 </p>
 <div class="float"><a name="fig_003aconvhull"></a>
 <div align="center"><img src="convhull.png" alt="convhull">

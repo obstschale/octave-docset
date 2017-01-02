@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Recovering From Errors</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Recovering-From-Errors"></a>
 <div class="header">
 <p>
@@ -78,17 +77,18 @@ For example:
 <div class="example">
 <pre class="example">function rand42
   old_state = rand (&quot;state&quot;);
-  restore_state = onCleanup (@() rand (&quot;state&quot;, old_state);
+  restore_state = onCleanup (@() rand (&quot;state&quot;, old_state));
   rand (&quot;state&quot;, 42);
   &hellip;
 endfunction  # rand generator state restored by onCleanup
 </pre></div>
 
 <a name="XREFonCleanup"></a><dl>
-<dt><a name="index-onCleanup"></a>Built-in Function: <em><var>c</var> =</em> <strong>onCleanup</strong> <em>(<var>action</var>)</em></dt>
+<dt><a name="index-onCleanup"></a>: <em><var>obj</var> =</em> <strong>onCleanup</strong> <em>(<var>function</var>)</em></dt>
 <dd><p>Create a special object that executes a given function upon destruction.
-If the object is copied to multiple variables (or cell or struct array
-elements) or returned from a function, <var>action</var> will be executed after
+</p>
+<p>If the object is copied to multiple variables (or cell or struct array
+elements) or returned from a function, <var>function</var> will be executed after
 clearing the last copy of the object.  Note that if multiple local onCleanup
 variables are created, the order in which they are called is unspecified.
 For similar functionality See <a href="The-unwind_005fprotect-Statement.html#The-unwind_005fprotect-Statement">The unwind_protect Statement</a>.
