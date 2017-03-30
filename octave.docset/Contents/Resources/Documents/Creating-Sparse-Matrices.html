@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Creating Sparse Matrices</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Creating-Sparse-Matrices"></a>
 <div class="header">
 <p>
@@ -93,10 +92,10 @@ matrix.
 </p>
 <p>Another typical sparse matrix that is often needed is a random distribution
 of random elements.  The functions <em>sprand</em> and <em>sprandn</em> perform
-this for uniform and normal random distributions of elements.  They have exactly
-the same calling convention, where <code>sprand (<var>r</var>, <var>c</var>, <var>d</var>)</code>,
-creates an <var>r</var>-by-<var>c</var> sparse matrix with a density of filled
-elements of <var>d</var>.
+this for uniform and normal random distributions of elements.  They have
+exactly the same calling convention, where <code>sprand (<var>r</var>, <var>c</var>,
+<var>d</var>)</code>, creates an <var>r</var>-by-<var>c</var> sparse matrix with a density of
+filled elements of <var>d</var>.
 </p>
 <p>Other functions of interest that directly create sparse matrices, are
 <em>diag</em> or its generalization <em>spdiags</em>, that can take the
@@ -111,25 +110,27 @@ that corresponds to this.  For example,
 diagonal defined.
 </p>
 <a name="XREFspdiags"></a><dl>
-<dt><a name="index-spdiags"></a>Function File: <em>[<var>b</var>, <var>c</var>] =</em> <strong>spdiags</strong> <em>(<var>A</var>)</em></dt>
-<dt><a name="index-spdiags-1"></a>Function File: <em><var>b</var> =</em> <strong>spdiags</strong> <em>(<var>A</var>, <var>c</var>)</em></dt>
-<dt><a name="index-spdiags-2"></a>Function File: <em><var>b</var> =</em> <strong>spdiags</strong> <em>(<var>v</var>, <var>c</var>, <var>A</var>)</em></dt>
-<dt><a name="index-spdiags-3"></a>Function File: <em><var>b</var> =</em> <strong>spdiags</strong> <em>(<var>v</var>, <var>c</var>, <var>m</var>, <var>n</var>)</em></dt>
-<dd><p>A generalization of the function <code>diag</code>.  Called with a single
-input argument, the non-zero diagonals <var>c</var> of <var>A</var> are extracted.
-With two arguments the diagonals to extract are given by the vector
-<var>c</var>.
+<dt><a name="index-spdiags"></a>: <em><var>B</var> =</em> <strong>spdiags</strong> <em>(<var>A</var>)</em></dt>
+<dt><a name="index-spdiags-1"></a>: <em>[<var>B</var>, <var>d</var>] =</em> <strong>spdiags</strong> <em>(<var>A</var>)</em></dt>
+<dt><a name="index-spdiags-2"></a>: <em><var>B</var> =</em> <strong>spdiags</strong> <em>(<var>A</var>, <var>d</var>)</em></dt>
+<dt><a name="index-spdiags-3"></a>: <em><var>A</var> =</em> <strong>spdiags</strong> <em>(<var>v</var>, <var>d</var>, <var>A</var>)</em></dt>
+<dt><a name="index-spdiags-4"></a>: <em><var>A</var> =</em> <strong>spdiags</strong> <em>(<var>v</var>, <var>d</var>, <var>m</var>, <var>n</var>)</em></dt>
+<dd><p>A generalization of the function <code>diag</code>.
 </p>
-<p>The other two forms of <code>spdiags</code> modify the input matrix by
-replacing the diagonals.  They use the columns of <var>v</var> to replace
-the columns represented by the vector <var>c</var>.  If the sparse matrix
-<var>A</var> is defined then the diagonals of this matrix are replaced.
-Otherwise a matrix of <var>m</var> by <var>n</var> is created with the
-diagonals given by <var>v</var>.
+<p>Called with a single input argument, the nonzero diagonals <var>d</var> of
+<var>A</var> are extracted.
 </p>
-<p>Negative values of <var>c</var> represent diagonals below the main
-diagonal, and positive values of <var>c</var> diagonals above the main
-diagonal.
+<p>With two arguments the diagonals to extract are given by the vector <var>d</var>.
+</p>
+<p>The other two forms of <code>spdiags</code> modify the input matrix by replacing
+the diagonals.  They use the columns of <var>v</var> to replace the diagonals
+represented by the vector <var>d</var>.  If the sparse matrix <var>A</var> is
+defined then the diagonals of this matrix are replaced.  Otherwise a
+matrix of <var>m</var> by <var>n</var> is created with the diagonals given by the
+columns of <var>v</var>.
+</p>
+<p>Negative values of <var>d</var> represent diagonals below the main diagonal, and
+positive values of <var>d</var> diagonals above the main diagonal.
 </p>
 <p>For example:
 </p>
@@ -142,74 +143,97 @@ diagonal.
       0  0  0  4
 </pre></div>
 
-</dd></dl>
+
+<p><strong>See also:</strong> <a href="Rearranging-Matrices.html#XREFdiag">diag</a>.
+</p></dd></dl>
 
 
 <a name="XREFspeye"></a><dl>
-<dt><a name="index-speye"></a>Function File: <em><var>y</var> =</em> <strong>speye</strong> <em>(<var>m</var>)</em></dt>
-<dt><a name="index-speye-1"></a>Function File: <em><var>y</var> =</em> <strong>speye</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
-<dt><a name="index-speye-2"></a>Function File: <em><var>y</var> =</em> <strong>speye</strong> <em>(<var>sz</var>)</em></dt>
-<dd><p>Return a sparse identity matrix.  This is significantly more
-efficient than <code>sparse (eye (<var>m</var>))</code> as the full matrix
-is not constructed.
+<dt><a name="index-speye"></a>: <em><var>s</var> =</em> <strong>speye</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
+<dt><a name="index-speye-1"></a>: <em><var>s</var> =</em> <strong>speye</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-speye-2"></a>: <em><var>s</var> =</em> <strong>speye</strong> <em>(<var>sz</var>)</em></dt>
+<dd><p>Return a sparse identity matrix of size <var>m</var>x<var>n</var>.
 </p>
-<p>Called with a single argument a square matrix of size <var>m</var> by
-<var>m</var> is created.  Otherwise a matrix of <var>m</var> by <var>n</var> is
-created.  If called with a single vector argument, this argument
-is taken to be the size of the matrix to create.
+<p>The implementation is significantly more efficient than
+<code>sparse (eye (<var>m</var>))</code> as the full matrix is not constructed.
+</p>
+<p>Called with a single argument a square matrix of size
+<var>m</var>-by-<var>m</var> is created.  If called with a single vector argument
+<var>sz</var>, this argument is taken to be the size of the matrix to create.
+</p>
+<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>, <a href="#XREFspdiags">spdiags</a>, <a href="Special-Utility-Matrices.html#XREFeye">eye</a>.
 </p></dd></dl>
 
 
 <a name="XREFspones"></a><dl>
-<dt><a name="index-spones"></a>Function File: <em><var>r</var> =</em> <strong>spones</strong> <em>(<var>S</var>)</em></dt>
-<dd><p>Replace the non-zero entries of <var>S</var> with ones.  This creates a
-sparse matrix with the same structure as <var>S</var>.
+<dt><a name="index-spones"></a>: <em><var>r</var> =</em> <strong>spones</strong> <em>(<var>S</var>)</em></dt>
+<dd><p>Replace the nonzero entries of <var>S</var> with ones.
+</p>
+<p>This creates a sparse matrix with the same structure as <var>S</var>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>, <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandn">sprandn</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="Function-Application.html#XREFspfun">spfun</a>, <a href="Information.html#XREFspy">spy</a>.
 </p></dd></dl>
 
 
 <a name="XREFsprand"></a><dl>
-<dt><a name="index-sprand"></a>Function File: <em></em> <strong>sprand</strong> <em>(<var>m</var>, <var>n</var>, <var>d</var>)</em></dt>
-<dt><a name="index-sprand-1"></a>Function File: <em></em> <strong>sprand</strong> <em>(<var>s</var>)</em></dt>
-<dd><p>Generate a random sparse matrix.  The size of the matrix will be
-<var>m</var> by <var>n</var>, with a density of values given by <var>d</var>.
-<var>d</var> should be between 0 and 1.  Values will be uniformly
-distributed between 0 and 1.
+<dt><a name="index-sprand"></a>: <em></em> <strong>sprand</strong> <em>(<var>m</var>, <var>n</var>, <var>d</var>)</em></dt>
+<dt><a name="index-sprand-1"></a>: <em></em> <strong>sprand</strong> <em>(<var>m</var>, <var>n</var>, <var>d</var>, <var>rc</var>)</em></dt>
+<dt><a name="index-sprand-2"></a>: <em></em> <strong>sprand</strong> <em>(<var>s</var>)</em></dt>
+<dd><p>Generate a sparse matrix with uniformly distributed random values.
 </p>
-<p>If called with a single matrix argument, a random sparse matrix is
-generated wherever the matrix <var>S</var> is non-zero.
+<p>The size of the matrix is <var>m</var>x<var>n</var> with a density of values <var>d</var>.
+<var>d</var> must be between 0 and 1.  Values will be uniformly distributed on
+the interval (0, 1).
 </p>
-<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsprandn">sprandn</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandsym">sprandsym</a>.
+<p>If called with a single matrix argument, a sparse matrix is generated with
+random values wherever the matrix <var>s</var> is nonzero.
+</p>
+<p>If called with a scalar fourth argument <var>rc</var>, a random sparse matrix
+with reciprocal condition number <var>rc</var> is generated.  If <var>rc</var> is
+a vector, then it specifies the first singular values of the generated
+matrix (<code>length (<var>rc</var>) &lt;= min (<var>m</var>, <var>n</var>)</code>).
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFsprandn">sprandn</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="Special-Utility-Matrices.html#XREFrand">rand</a>.
 </p></dd></dl>
 
 
 <a name="XREFsprandn"></a><dl>
-<dt><a name="index-sprandn"></a>Function File: <em></em> <strong>sprandn</strong> <em>(<var>m</var>, <var>n</var>, <var>d</var>)</em></dt>
-<dt><a name="index-sprandn-1"></a>Function File: <em></em> <strong>sprandn</strong> <em>(<var>s</var>)</em></dt>
-<dd><p>Generate a random sparse matrix.  The size of the matrix will be
-<var>m</var> by <var>n</var>, with a density of values given by <var>d</var>.
-<var>d</var> should be between 0 and 1.  Values will be normally
-distributed with mean of zero and variance 1.
+<dt><a name="index-sprandn"></a>: <em></em> <strong>sprandn</strong> <em>(<var>m</var>, <var>n</var>, <var>d</var>)</em></dt>
+<dt><a name="index-sprandn-1"></a>: <em></em> <strong>sprandn</strong> <em>(<var>m</var>, <var>n</var>, <var>d</var>, <var>rc</var>)</em></dt>
+<dt><a name="index-sprandn-2"></a>: <em></em> <strong>sprandn</strong> <em>(<var>s</var>)</em></dt>
+<dd><p>Generate a sparse matrix with normally distributed random values.
 </p>
-<p>If called with a single matrix argument, a random sparse matrix is
-generated wherever the matrix <var>S</var> is non-zero.
+<p>The size of the matrix is <var>m</var>x<var>n</var> with a density of values <var>d</var>.
+<var>d</var> must be between 0 and 1.  Values will be normally distributed with a
+mean of 0 and a variance of 1.
 </p>
-<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsprand">sprand</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandsym">sprandsym</a>.
+<p>If called with a single matrix argument, a sparse matrix is generated with
+random values wherever the matrix <var>s</var> is nonzero.
+</p>
+<p>If called with a scalar fourth argument <var>rc</var>, a random sparse matrix
+with reciprocal condition number <var>rc</var> is generated.  If <var>rc</var> is
+a vector, then it specifies the first singular values of the generated
+matrix (<code>length (<var>rc</var>) &lt;= min (<var>m</var>, <var>n</var>)</code>).
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>.
 </p></dd></dl>
 
 
 <a name="XREFsprandsym"></a><dl>
-<dt><a name="index-sprandsym"></a>Function File: <em></em> <strong>sprandsym</strong> <em>(<var>n</var>, <var>d</var>)</em></dt>
-<dt><a name="index-sprandsym-1"></a>Function File: <em></em> <strong>sprandsym</strong> <em>(<var>s</var>)</em></dt>
-<dd><p>Generate a symmetric random sparse matrix.  The size of the matrix will be
-<var>n</var> by <var>n</var>, with a density of values given by <var>d</var>.
-<var>d</var> should be between 0 and 1.  Values will be normally
-distributed with mean of zero and variance 1.
+<dt><a name="index-sprandsym"></a>: <em></em> <strong>sprandsym</strong> <em>(<var>n</var>, <var>d</var>)</em></dt>
+<dt><a name="index-sprandsym-1"></a>: <em></em> <strong>sprandsym</strong> <em>(<var>s</var>)</em></dt>
+<dd><p>Generate a symmetric random sparse matrix.
 </p>
-<p>If called with a single matrix argument, a random sparse matrix is
-generated wherever the matrix <var>S</var> is non-zero in its lower
-triangular part.
+<p>The size of the matrix will be <var>n</var>x<var>n</var>, with a density of values
+given by <var>d</var>.  <var>d</var> must be between 0 and 1 inclusive.  Values will
+be normally distributed with a mean of zero and a variance of 1.
 </p>
-<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsprand">sprand</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandn">sprandn</a>.
+<p>If called with a single matrix argument, a random sparse matrix is generated
+wherever the matrix <var>s</var> is nonzero in its lower triangular part.
+</p>
+<p><strong>See also:</strong> <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandn">sprandn</a>, <a href="#XREFspones">spones</a>, <a href="#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 
@@ -271,21 +295,22 @@ as much as possible to minimize the number of assignments and reduce the
 number of memory allocations.
 </p>
 <a name="XREFfull"></a><dl>
-<dt><a name="index-full"></a>Built-in Function: <em><var>FM</var> =</em> <strong>full</strong> <em>(<var>SM</var>)</em></dt>
-<dd><p>Return a full storage matrix from a sparse, diagonal, permutation matrix
+<dt><a name="index-full"></a>: <em><var>FM</var> =</em> <strong>full</strong> <em>(<var>SM</var>)</em></dt>
+<dd><p>Return a full storage matrix from a sparse, diagonal, or permutation matrix,
 or a range.
 </p>
-<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
+<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>, <a href="Information.html#XREFissparse">issparse</a>.
 </p></dd></dl>
 
 
 <a name="XREFspalloc"></a><dl>
-<dt><a name="index-spalloc"></a>Built-in Function: <em><var>s</var> =</em> <strong>spalloc</strong> <em>(<var>m</var>, <var>n</var>, <var>nz</var>)</em></dt>
+<dt><a name="index-spalloc"></a>: <em><var>s</var> =</em> <strong>spalloc</strong> <em>(<var>m</var>, <var>n</var>, <var>nz</var>)</em></dt>
 <dd><p>Create an <var>m</var>-by-<var>n</var> sparse matrix with pre-allocated space for at
-most <var>nz</var> nonzero elements.  This is useful for building the matrix
-incrementally by a sequence of indexed assignments.  Subsequent indexed
-assignments will reuse the pre-allocated memory, provided they are of one of
-the simple forms
+most <var>nz</var> nonzero elements.
+</p>
+<p>This is useful for building a matrix incrementally by a sequence of indexed
+assignments.  Subsequent indexed assignments after <code>spalloc</code> will reuse
+the pre-allocated memory, provided they are of one of the simple forms
 </p>
 <ul>
 <li> <code><var>s</var>(I:J) = <var>x</var></code>
@@ -306,70 +331,93 @@ the simple forms
 </li></ul>
 
 <p>Partial movement of data may still occur, but in general the assignment will
-be more memory and time-efficient under these circumstances.  In particular,
-it is possible to efficiently build a pre-allocated sparse matrix from
+be more memory and time efficient under these circumstances.  In particular,
+it is possible to efficiently build a pre-allocated sparse matrix from a
 contiguous block of columns.
 </p>
 <p>The amount of pre-allocated memory for a given matrix may be queried using
 the function <code>nzmax</code>.
 </p>
-<p><strong>See also:</strong> <a href="Information.html#XREFnzmax">nzmax</a>, <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
+<p><strong>See also:</strong> <a href="Information.html#XREFnzmax">nzmax</a>, <a href="#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 
 <a name="XREFsparse"></a><dl>
-<dt><a name="index-sparse"></a>Built-in Function: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>a</var>)</em></dt>
-<dt><a name="index-sparse-1"></a>Built-in Function: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>sv</var>, <var>m</var>, <var>n</var>, <var>nzmax</var>)</em></dt>
-<dt><a name="index-sparse-2"></a>Built-in Function: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>sv</var>)</em></dt>
-<dt><a name="index-sparse-3"></a>Built-in Function: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>s</var>, <var>m</var>, <var>n</var>, &quot;unique&quot;)</em></dt>
-<dt><a name="index-sparse-4"></a>Built-in Function: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
-<dd><p>Create a sparse matrix from the full matrix or row, column, value triplets.
-If <var>a</var> is a full matrix, convert it to a sparse matrix representation,
+<dt><a name="index-sparse"></a>: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>a</var>)</em></dt>
+<dt><a name="index-sparse-1"></a>: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>sv</var>, <var>m</var>, <var>n</var>)</em></dt>
+<dt><a name="index-sparse-2"></a>: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>sv</var>)</em></dt>
+<dt><a name="index-sparse-3"></a>: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
+<dt><a name="index-sparse-4"></a>: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>s</var>, <var>m</var>, <var>n</var>, &quot;unique&quot;)</em></dt>
+<dt><a name="index-sparse-5"></a>: <em><var>s</var> =</em> <strong>sparse</strong> <em>(<var>i</var>, <var>j</var>, <var>sv</var>, <var>m</var>, <var>n</var>, <var>nzmax</var>)</em></dt>
+<dd><p>Create a sparse matrix from a full matrix, or row, column, value triplets.
+</p>
+<p>If <var>a</var> is a full matrix, convert it to a sparse matrix representation,
 removing all zero values in the process.
 </p>
-<p>Given the integer index vectors <var>i</var> and <var>j</var>, a 1-by-<code>nnz</code> vector
-of real of complex values <var>sv</var>, overall dimensions <var>m</var> and <var>n</var>
-of the sparse matrix.  The argument <code>nzmax</code> is ignored but accepted for
-compatibility with <small>MATLAB</small>.  If <var>m</var> or <var>n</var> are not specified
-their values are derived from the maximum index in the vectors <var>i</var> and
-<var>j</var> as given by <code><var>m</var> = max (<var>i</var>)</code>,
-<code><var>n</var> = max (<var>j</var>)</code>.
+<p>Given the integer index vectors <var>i</var> and <var>j</var>, and a 1-by-<code>nnz</code>
+vector of real or complex values <var>sv</var>, construct the sparse matrix
+<code>S(<var>i</var>(<var>k</var>),<var>j</var>(<var>k</var>)) = <var>sv</var>(<var>k</var>)</code> with overall
+dimensions <var>m</var> and <var>n</var>.  If any of <var>sv</var>, <var>i</var> or <var>j</var> are
+scalars, they are expanded to have a common size.
 </p>
-<p><strong>Note</strong>: if multiple values are specified with the same
-<var>i</var>, <var>j</var> indices, the corresponding values in <var>s</var> will
-be added.  See <code>accumarray</code> for an example of how to produce different
-behavior, such as taking the minimum instead.
+<p>If <var>m</var> or <var>n</var> are not specified their values are derived from the
+maximum index in the vectors <var>i</var> and <var>j</var> as given by
+<code><var>m</var> = max (<var>i</var>)</code>, <code><var>n</var> = max (<var>j</var>)</code>.
 </p>
-<p>The following are all equivalent:
+<p><strong>Note</strong>: if multiple values are specified with the same <var>i</var>,
+<var>j</var> indices, the corresponding value in <var>s</var> will be the sum of the
+values at the repeated location.  See <code>accumarray</code> for an example of
+how to produce different behavior, such as taking the minimum instead.
+</p>
+<p>If the option <code>&quot;unique&quot;</code> is given, and more than one value is
+specified at the same <var>i</var>, <var>j</var> indices, then the last specified
+value will be used.
+</p>
+<p><code>sparse (<var>m</var>, <var>n</var>)</code> will create an empty <var>m</var>x<var>n</var> sparse
+matrix and is equivalent to <code>sparse ([], [], [], <var>m</var>, <var>n</var>)</code>
+</p>
+<p>The argument <code>nzmax</code> is ignored but accepted for compatibility with
+<small>MATLAB</small>.
+</p>
+<p>Example 1 (sum at repeated indices):
 </p>
 <div class="example">
-<pre class="example">s = sparse (i, j, s, m, n)
-s = sparse (i, j, s, m, n, &quot;summation&quot;)
-s = sparse (i, j, s, m, n, &quot;sum&quot;)
+<pre class="example"><var>i</var> = [1 1 2]; <var>j</var> = [1 1 2]; <var>sv</var> = [3 4 5];
+sparse (<var>i</var>, <var>j</var>, <var>sv</var>, 3, 4)
+&rArr;
+Compressed Column Sparse (rows = 3, cols = 4, nnz = 2 [17%])
+
+  (1, 1) -&gt;  7
+  (2, 2) -&gt;  5
 </pre></div>
 
-<p>Given the option <code>&quot;unique&quot;</code>, if more than two values are specified
-for the same <var>i</var>, <var>j</var> indices, the last specified value will be
-used.
+<p>Example 2 (&quot;unique&quot; option):
 </p>
-<p><code>sparse (<var>m</var>, <var>n</var>)</code> is equivalent to
-<code>sparse ([], [], [], <var>m</var>, <var>n</var>, 0)</code>
-</p>
-<p>If any of <var>sv</var>, <var>i</var> or <var>j</var> are scalars, they are expanded
-to have a common size.
-</p>
-<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFfull">full</a>, <a href="Accumulation.html#XREFaccumarray">accumarray</a>.
+<div class="example">
+<pre class="example"><var>i</var> = [1 1 2]; <var>j</var> = [1 1 2]; <var>sv</var> = [3 4 5];
+sparse (<var>i</var>, <var>j</var>, <var>sv</var>, 3, 4, &quot;unique&quot;)
+&rArr;
+Compressed Column Sparse (rows = 3, cols = 4, nnz = 2 [17%])
+
+  (1, 1) -&gt;  4
+  (2, 2) -&gt;  5
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFfull">full</a>, <a href="Accumulation.html#XREFaccumarray">accumarray</a>, <a href="#XREFspalloc">spalloc</a>, <a href="#XREFspdiags">spdiags</a>, <a href="#XREFspeye">speye</a>, <a href="#XREFspones">spones</a>, <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandn">sprandn</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="#XREFspconvert">spconvert</a>, <a href="Function-Application.html#XREFspfun">spfun</a>.
 </p></dd></dl>
 
 
 <a name="XREFspconvert"></a><dl>
-<dt><a name="index-spconvert"></a>Function File: <em><var>x</var> =</em> <strong>spconvert</strong> <em>(<var>m</var>)</em></dt>
-<dd><p>This function converts for a simple sparse matrix format easily
-produced by other programs into Octave&rsquo;s internal sparse format.  The
-input <var>x</var> is either a 3 or 4 column real matrix, containing
-the row, column, real and imaginary parts of the elements of the
-sparse matrix.  An element with a zero real and imaginary part can
-be used to force a particular matrix size.
+<dt><a name="index-spconvert"></a>: <em><var>x</var> =</em> <strong>spconvert</strong> <em>(<var>m</var>)</em></dt>
+<dd><p>Convert a simple sparse matrix format easily generated by other programs
+into Octave&rsquo;s internal sparse format.
+</p>
+<p>The input <var>m</var> is either a 3 or 4 column real matrix, containing the
+row, column, real, and imaginary parts of the elements of the sparse
+matrix.  An element with a zero real and imaginary part can be used to
+force a particular matrix size.
+</p>
+<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 

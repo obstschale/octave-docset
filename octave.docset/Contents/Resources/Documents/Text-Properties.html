@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Text Properties</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Text-Properties"></a>
 <div class="header">
 <p>
@@ -62,95 +61,259 @@ Next: <a href="Image-Properties.html#Image-Properties" accesskey="n" rel="next">
 
 <p>The <code>text</code> properties are:
 </p>
+
+
 <dl compact="compact">
-<dt><code>__modified__</code></dt>
-<dt><code>__myhandle__</code></dt>
-<dt><code>backgroundcolor</code></dt>
-<dt><code>beingdeleted</code></dt>
-<dt><code>busyaction</code></dt>
-<dt><code>buttondownfcn</code></dt>
-<dt><code>children</code></dt>
-<dt><code>clipping</code></dt>
-<dt><code>color</code></dt>
-<dd><p>The color of the text.  See <a href="Colors.html#Colors">Colors</a>.
-</p>
+<dd>
+<a name="XREFtext_005f_005fmodified_005f_005f"></a><a name="index-text-_005f_005fmodified_005f_005f"></a>
 </dd>
-<dt><code>createfcn</code></dt>
-<dt><code>deletefcn</code></dt>
-<dt><code>displayname</code></dt>
-<dd><p>The text of the legend entry corresponding to this line.
-</p>
+<dt><code>__modified__</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFtextbackgroundcolor"></a><a name="index-text-backgroundcolor"></a>
 </dd>
-<dt><code>edgecolor</code></dt>
-<dt><code>editing</code></dt>
-<dt><code>erasemode</code></dt>
-<dt><code>fontangle</code></dt>
-<dd><p>Flag whether the font is italic or normal.  Valid values are <code>&quot;normal&quot;</code>,
-<code>&quot;italic&quot;</code>, and <code>&quot;oblique&quot;</code>.
+<dt><code>backgroundcolor</code>: colorspec, def. <code>&quot;none&quot;</code></dt>
+<dd><p>Background area is not yet implemented for text objects.  <code>backgroundcolor</code> is unused.
 </p>
+
+<a name="XREFtextbeingdeleted"></a><a name="index-text-beingdeleted"></a>
 </dd>
-<dt><code>fontname</code></dt>
+<dt><code>beingdeleted</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextbusyaction"></a><a name="index-text-busyaction"></a>
+</dd>
+<dt><code>busyaction</code>: <code>&quot;cancel&quot;</code> | {<code>&quot;queue&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFtextbuttondownfcn"></a><a name="index-text-buttondownfcn"></a>
+</dd>
+<dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd>
+
+
+<a name="XREFtextchildren"></a><a name="index-text-children"></a>
+</dd>
+<dt><code>children</code> (read-only): vector of graphics handles, def. <code>[](0x1)</code></dt>
+<dd><p><code>children</code> is unused.
+</p>
+
+<a name="XREFtextclipping"></a><a name="index-text-clipping"></a>
+</dd>
+<dt><code>clipping</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>clipping</code> is <code>&quot;on&quot;</code>, the text is clipped in its parent axes limits.
+</p>
+
+<a name="XREFtextcolor"></a><a name="index-text-color"></a>
+</dd>
+<dt><code>color</code>: colorspec, def. <code>[0   0   0]</code></dt>
+<dd><p>Color of the text.  See <a href="Colors.html#Colors">colorspec</a>.
+</p>
+
+<a name="XREFtextcreatefcn"></a><a name="index-text-createfcn"></a>
+</dd>
+<dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p>Callback function executed immediately after text has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaulttextcreatefcn&quot;, 'disp (&quot;text created!&quot;)')</code>.
+</p>
+
+<a name="XREFtextdeletefcn"></a><a name="index-text-deletefcn"></a>
+</dd>
+<dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p>Callback function executed immediately before text is deleted.
+</p>
+
+<a name="XREFtextdisplayname"></a><a name="index-text-displayname"></a>
+</dd>
+<dt><code>displayname</code>: def. <code>&quot;&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextedgecolor"></a><a name="index-text-edgecolor"></a>
+</dd>
+<dt><code>edgecolor</code>: colorspec, def. <code>&quot;none&quot;</code></dt>
+<dd><p>Background area is not yet implemented for text objects.  <code>edgecolor</code> is unused.
+</p>
+
+<a name="XREFtextediting"></a><a name="index-text-editing"></a>
+</dd>
+<dt><code>editing</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextextent"></a><a name="index-text-extent"></a>
+</dd>
+<dt><code>extent</code> (read-only): def. <code>[0.000000  -0.005843   0.000000   0.032136]</code></dt>
+<dd>
+
+
+<a name="XREFtextfontangle"></a><a name="index-text-fontangle"></a>
+</dd>
+<dt><code>fontangle</code>: <code>&quot;italic&quot;</code> | {<code>&quot;normal&quot;</code>} | <code>&quot;oblique&quot;</code></dt>
+<dd><p>Flag whether the font is italic or normal.  <code>fontangle</code> is currently unused.
+</p>
+
+<a name="XREFtextfontname"></a><a name="index-text-fontname"></a>
+</dd>
+<dt><code>fontname</code>: string, def. <code>&quot;*&quot;</code></dt>
 <dd><p>The font used for the text.
 </p>
+
+<a name="XREFtextfontsize"></a><a name="index-text-fontsize"></a>
 </dd>
-<dt><code>fontsize</code></dt>
-<dd><p>The size of the font, in points to use.
+<dt><code>fontsize</code>: scalar, def. <code>10</code></dt>
+<dd><p>The font size of the text as measured in <code>fontunits</code>.
 </p>
+
+<a name="XREFtextfontunits"></a><a name="index-text-fontunits"></a>
 </dd>
-<dt><code>fontunits</code></dt>
-<dt><code>fontweight</code></dt>
-<dd><p>Flag whether the font is bold, etc.  Valid values are <code>&quot;normal&quot;</code>,
-<code>&quot;bold&quot;</code>, <code>&quot;demi&quot;</code>, or <code>&quot;light&quot;</code>.
+<dt><code>fontunits</code>: <code>&quot;centimeters&quot;</code> | <code>&quot;inches&quot;</code> | <code>&quot;normalized&quot;</code> | <code>&quot;pixels&quot;</code> | {<code>&quot;points&quot;</code>}</dt>
+<dd><p>The units used to interpret <code>fontsize</code> property.
 </p>
+
+<a name="XREFtextfontweight"></a><a name="index-text-fontweight"></a>
 </dd>
-<dt><code>handlevisibility</code></dt>
-<dt><code>hittest</code></dt>
-<dt><code>horizontalalignment</code></dt>
-<dd><p>May be <code>&quot;left&quot;</code>, <code>&quot;center&quot;</code>, or <code>&quot;right&quot;</code>.
+<dt><code>fontweight</code>: <code>&quot;bold&quot;</code> | <code>&quot;demi&quot;</code> | <code>&quot;light&quot;</code> | {<code>&quot;normal&quot;</code>}</dt>
+<dd><p>Control variant of base font used: bold, light, normal, etc.
 </p>
+
+<a name="XREFtexthandlevisibility"></a><a name="index-text-handlevisibility"></a>
 </dd>
-<dt><code>interpreter</code></dt>
-<dd><p>Determines how the text is rendered.  Valid values are <code>&quot;none&quot;</code>,
-<code>&quot;tex&quot;</code>, or <code>&quot;latex&quot;</code>.
+<dt><code>handlevisibility</code>: <code>&quot;callback&quot;</code> | <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>handlevisibility</code> is <code>&quot;off&quot;</code>, the text&rsquo;s handle is not visible in its parent&rsquo;s &quot;children&quot; property.
 </p>
+
+<a name="XREFtexthittest"></a><a name="index-text-hittest"></a>
 </dd>
-<dt><code>interruptible</code></dt>
-<dt><code>linestyle</code></dt>
-<dt><code>linewidth</code></dt>
-<dt><code>margin</code></dt>
-<dt><code>parent</code></dt>
-<dt><code>position</code></dt>
-<dd><p>The coordinates of the text object.
+<dt><code>hittest</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFtexthorizontalalignment"></a><a name="index-text-horizontalalignment"></a>
+</dd>
+<dt><code>horizontalalignment</code>: <code>&quot;center&quot;</code> | {<code>&quot;left&quot;</code>} | <code>&quot;right&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextinterpreter"></a><a name="index-text-interpreter"></a>
+</dd>
+<dt><code>interpreter</code>: <code>&quot;latex&quot;</code> | <code>&quot;none&quot;</code> | {<code>&quot;tex&quot;</code>}</dt>
+<dd><p>Control the way the <code>&quot;string&quot;</code> property is interpreted.
+See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp;of&nbsp;the&nbsp;interpreter&nbsp;property<!-- /@w --></a>.
 </p>
+
+<a name="XREFtextinterruptible"></a><a name="index-text-interruptible"></a>
 </dd>
-<dt><code>rotation</code></dt>
+<dt><code>interruptible</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFtextlinestyle"></a><a name="index-text-linestyle"></a>
+</dd>
+<dt><code>linestyle</code>: {<code>&quot;-&quot;</code>} | <code>&quot;--&quot;</code> | <code>&quot;-.&quot;</code> | <code>&quot;:&quot;</code> | <code>&quot;none&quot;</code></dt>
+<dd><p>Background area is not yet implemented for text objects.  <code>linestyle</code> is unused.
+</p>
+
+<a name="XREFtextlinewidth"></a><a name="index-text-linewidth"></a>
+</dd>
+<dt><code>linewidth</code>: scalar, def. <code>0.50000</code></dt>
+<dd><p>Background area is not yet implemented for text objects.  <code>linewidth</code> is unused.
+</p>
+
+<a name="XREFtextmargin"></a><a name="index-text-margin"></a>
+</dd>
+<dt><code>margin</code>: scalar, def. <code>2</code></dt>
+<dd><p>Background area is not yet implemented for text objects.  <code>margin</code> is unused.
+</p>
+
+<a name="XREFtextparent"></a><a name="index-text-parent"></a>
+</dd>
+<dt><code>parent</code>: graphics handle</dt>
+<dd><p>Handle of the parent graphics object.
+</p>
+
+<a name="XREFtextposition"></a><a name="index-text-position"></a>
+</dd>
+<dt><code>position</code>: four-element vector, def. <code>[0   0   0]</code></dt>
+<dd><p>Vector <code>[X0 Y0 Z0]</code> where X0, Y0 and Z0 indicate the position of the text anchor as defined by <code>verticalalignment</code> and <code>horizontalalignment</code>.
+</p>
+
+<a name="XREFtextrotation"></a><a name="index-text-rotation"></a>
+</dd>
+<dt><code>rotation</code>: scalar, def. <code>0</code></dt>
 <dd><p>The angle of rotation for the displayed text, measured in degrees.
 </p>
+
+<a name="XREFtextselected"></a><a name="index-text-selected"></a>
 </dd>
-<dt><code>selected</code></dt>
-<dt><code>selectionhighlight</code></dt>
-<dt><code>string</code></dt>
-<dd><p>The character string contained by the text object.
+<dt><code>selected</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextselectionhighlight"></a><a name="index-text-selectionhighlight"></a>
+</dd>
+<dt><code>selectionhighlight</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFtextstring"></a><a name="index-text-string"></a>
+</dd>
+<dt><code>string</code>: string, def. <code>&quot;&quot;</code></dt>
+<dd><p>The text object string content.
+</p>
+
+<a name="XREFtexttag"></a><a name="index-text-tag"></a>
+</dd>
+<dt><code>tag</code>: string, def. <code>&quot;&quot;</code></dt>
+<dd><p>A user-defined string to label the graphics object.
+</p>
+
+<a name="XREFtexttype"></a><a name="index-text-type"></a>
+</dd>
+<dt><code>type</code> (read-only): string</dt>
+<dd><p>Class name of the graphics object.  <code>type</code> is always <code>&quot;text&quot;</code>
+</p>
+
+<a name="XREFtextuicontextmenu"></a><a name="index-text-uicontextmenu"></a>
+</dd>
+<dt><code>uicontextmenu</code>: graphics handle, def. <code>[](0x0)</code></dt>
+<dd><p>Graphics handle of the uicontextmenu object that is currently associated to this text object.
+</p>
+
+<a name="XREFtextunits"></a><a name="index-text-units"></a>
+</dd>
+<dt><code>units</code>: <code>&quot;centimeters&quot;</code> | {<code>&quot;data&quot;</code>} | <code>&quot;inches&quot;</code> | <code>&quot;normalized&quot;</code> | <code>&quot;pixels&quot;</code> | <code>&quot;points&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextuserdata"></a><a name="index-text-userdata"></a>
+</dd>
+<dt><code>userdata</code>: Any Octave data, def. <code>[](0x0)</code></dt>
+<dd><p>User-defined data to associate with the graphics object.
+</p>
+
+<a name="XREFtextverticalalignment"></a><a name="index-text-verticalalignment"></a>
+</dd>
+<dt><code>verticalalignment</code>: <code>&quot;baseline&quot;</code> | <code>&quot;bottom&quot;</code> | <code>&quot;cap&quot;</code> | {<code>&quot;middle&quot;</code>} | <code>&quot;top&quot;</code></dt>
+<dd>
+
+
+<a name="XREFtextvisible"></a><a name="index-text-visible"></a>
+</dd>
+<dt><code>visible</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>visible</code> is <code>&quot;off&quot;</code>, the text is not rendered on screen.
 </p>
 </dd>
-<dt><code>tag</code></dt>
-<dt><code>type</code></dt>
-<dt><code>uicontextmenu</code></dt>
-<dt><code>units</code></dt>
-<dd><p>May be <code>&quot;normalized&quot;</code> or <code>&quot;graph&quot;</code>.
-</p>
-</dd>
-<dt><code>userdata</code></dt>
-<dt><code>verticalalignment</code></dt>
-<dt><code>visible</code></dt>
-<dt><code>xlim</code></dt>
-<dt><code>xliminclude</code></dt>
-<dt><code>ylim</code></dt>
-<dt><code>yliminclude</code></dt>
-<dt><code>zlim</code></dt>
-<dt><code>zliminclude</code></dt>
 </dl>
 
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Image-Properties.html#Image-Properties" accesskey="n" rel="next">Image Properties</a>, Previous: <a href="Line-Properties.html#Line-Properties" accesskey="p" rel="prev">Line Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

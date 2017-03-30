@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>External Packages</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="External-Packages"></a>
 <div class="header">
 <p>
@@ -57,16 +56,17 @@ Previous: <a href="Build-Tools.html#Build-Tools" accesskey="p" rel="prev">Build 
 </div>
 <hr>
 <a name="External-Packages-1"></a>
-<h4 class="subsection">G.1.3 External Packages</h4>
+<h4 class="subsection">E.1.3 External Packages</h4>
 
 <p>The following external packages are required:
 </p>
 <dl compact="compact">
 <dt>BLAS</dt>
-<dd><p>Basic Linear Algebra Subroutine library
-(<a href="http://www.netlib.org/blas">http://www.netlib.org/blas</a>).  Accelerated <small>BLAS</small> libraries such as
-ATLAS (<a href="http://math-atlas.sourceforge.net">http://math-atlas.sourceforge.net</a>) are recommeded for
-better performance.
+<dd><p>Basic Linear Algebra Subroutine library.  Accelerated <small>BLAS</small> libraries such
+as OpenBLAS (<a href="http://www.openblas.net/">http://www.openblas.net/</a>) or
+ATLAS (<a href="http://math-atlas.sourceforge.net">http://math-atlas.sourceforge.net</a>) are recommended for best
+performance.  The reference implementation (<a href="http://www.netlib.org/blas">http://www.netlib.org/blas</a>)
+is slow, unmaintained, and suffers from certain bugs in corner case inputs.
 </p>
 </dd>
 <dt>LAPACK</dt>
@@ -82,7 +82,7 @@ better performance.
 </p>
 <dl compact="compact">
 <dt>GNU Readline</dt>
-<dd><p>Command-line editing library (<a href="http://www.gnu.org/software/octave/doc/interpreter/www.gnu.org/s/readline">www.gnu.org/s/readline</a>).
+<dd><p>Command-line editing library (<a href="www.gnu.org/s/readline">www.gnu.org/s/readline</a>).
 </p></dd>
 </dl>
 
@@ -134,7 +134,8 @@ GPLK is required for the function <code>glpk</code>.
 </dd>
 <dt>gl2ps</dt>
 <dd><p>OpenGL to PostScript printing library (<a href="http://www.geuz.org/gl2ps/">http://www.geuz.org/gl2ps/</a>).
-gl2ps is required for printing when using the FLTK toolkit.
+gl2ps is required for printing when using OpenGL-based
+graphics toolkits (currently either FLTK or Qt).
 </p>
 </dd>
 <dt>gnuplot</dt>
@@ -152,6 +153,13 @@ functions.
 <dd><p>Library for manipulating portable data files
 (<a href="http://www.hdfgroup.org/HDF5">http://www.hdfgroup.org/HDF5</a>).  <small>HDF5</small> is required for Octave&rsquo;s
 <code>load</code> and <code>save</code> commands to read and write HDF data files.
+</p>
+</dd>
+<dt>Java Development Kit</dt>
+<dd><p>Java programming language compiler and libraries.  The OpenJDK free
+software implementation is recommended (<a href="http://openjdk.java.net/">http://openjdk.java.net/</a>),
+although other JDK implementations may work.  Java is required to be able
+to call Java functions from within Octave.
 </p>
 </dd>
 <dt>LLVM</dt>
@@ -172,8 +180,7 @@ interpretation and rendering.
 <dt>Qhull</dt>
 <dd><p>Computational geometry library (<a href="http://www.qhull.org">http://www.qhull.org</a>).  Qhull is
 required to provide the functions <code>convhull</code>, <code>convhulln</code>,
-<code>delaunay</code>, <code>delaunay3</code>, <code>delaunayn</code>, <code>voronoi</code>, and
-<code>voronoin</code>.
+<code>delaunay</code>, <code>delaunayn</code>, <code>voronoi</code>, and <code>voronoin</code>.
 </p>
 </dd>
 <dt>QRUPDATE</dt>

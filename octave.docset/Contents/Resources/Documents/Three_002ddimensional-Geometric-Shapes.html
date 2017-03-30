@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Three-dimensional Geometric Shapes</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Three_002ddimensional-Geometric-Shapes"></a>
 <div class="header">
 <p>
@@ -60,11 +59,11 @@ Previous: <a href="Three_002ddimensional-Function-Plotting.html#Three_002ddimens
 <h4 class="subsubsection">15.2.2.3 Three-dimensional Geometric Shapes</h4>
 
 <a name="XREFcylinder"></a><dl>
-<dt><a name="index-cylinder"></a>Command: <em></em> <strong>cylinder</strong></dt>
-<dt><a name="index-cylinder-1"></a>Function File: <em></em> <strong>cylinder</strong> <em>(<var>r</var>)</em></dt>
-<dt><a name="index-cylinder-2"></a>Function File: <em></em> <strong>cylinder</strong> <em>(<var>r</var>, <var>n</var>)</em></dt>
-<dt><a name="index-cylinder-3"></a>Function File: <em></em> <strong>cylinder</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-cylinder-4"></a>Function File: <em>[<var>x</var>, <var>y</var>, <var>z</var>] =</em> <strong>cylinder</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-cylinder"></a>: <em></em> <strong>cylinder</strong></dt>
+<dt><a name="index-cylinder-1"></a>: <em></em> <strong>cylinder</strong> <em>(<var>r</var>)</em></dt>
+<dt><a name="index-cylinder-2"></a>: <em></em> <strong>cylinder</strong> <em>(<var>r</var>, <var>n</var>)</em></dt>
+<dt><a name="index-cylinder-3"></a>: <em></em> <strong>cylinder</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-cylinder-4"></a>: <em>[<var>x</var>, <var>y</var>, <var>z</var>] =</em> <strong>cylinder</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D unit cylinder.
 </p>
 <p>The optional input <var>r</var> is a vector specifying the radius along the
@@ -72,7 +71,7 @@ unit z-axis.  The default is [1 1] indicating radius 1 at <code>Z == 0</code>
 and at <code>Z == 1</code>.
 </p>
 <p>The optional input <var>n</var> determines the number of faces around the
-the circumference of the cylinder.  The default value is 20.
+circumference of the cylinder.  The default value is 20.
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
@@ -89,19 +88,19 @@ surf (x, y, z);
 title (&quot;a cone&quot;);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Geometric-Shapes.html#XREFellipsoid">ellipsoid</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>, <a href="Three_002ddimensional-Geometric-Shapes.html#XREFsphere">sphere</a>.
+<p><strong>See also:</strong> <a href="#XREFellipsoid">ellipsoid</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>, <a href="#XREFsphere">sphere</a>.
 </p></dd></dl>
 
 
 <a name="XREFsphere"></a><dl>
-<dt><a name="index-sphere"></a>Function File: <em></em> <strong>sphere</strong> <em>()</em></dt>
-<dt><a name="index-sphere-1"></a>Function File: <em></em> <strong>sphere</strong> <em>(<var>n</var>)</em></dt>
-<dt><a name="index-sphere-2"></a>Function File: <em></em> <strong>sphere</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-sphere-3"></a>Function File: <em>[<var>x</var>, <var>y</var>, <var>z</var>] =</em> <strong>sphere</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-sphere"></a>: <em></em> <strong>sphere</strong> <em>()</em></dt>
+<dt><a name="index-sphere-1"></a>: <em></em> <strong>sphere</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-sphere-2"></a>: <em></em> <strong>sphere</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-sphere-3"></a>: <em>[<var>x</var>, <var>y</var>, <var>z</var>] =</em> <strong>sphere</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D unit sphere.
 </p>
 <p>The optional input <var>n</var> determines the number of faces around the
-the circumference of the sphere.  The default value is 20.
+circumference of the sphere.  The default value is 20.
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
@@ -119,22 +118,22 @@ axis equal;
 title (&quot;sphere of radius 3&quot;);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Geometric-Shapes.html#XREFcylinder">cylinder</a>, <a href="Three_002ddimensional-Geometric-Shapes.html#XREFellipsoid">ellipsoid</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>.
+<p><strong>See also:</strong> <a href="#XREFcylinder">cylinder</a>, <a href="#XREFellipsoid">ellipsoid</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>.
 </p></dd></dl>
 
 
 <a name="XREFellipsoid"></a><dl>
-<dt><a name="index-ellipsoid"></a>Function File: <em></em> <strong>ellipsoid</strong> <em>(<var>xc</var>, <var>yc</var>, <var>zc</var>, <var>xr</var>, <var>yr</var>, <var>zr</var>, <var>n</var>)</em></dt>
-<dt><a name="index-ellipsoid-1"></a>Function File: <em></em> <strong>ellipsoid</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ellipsoid-2"></a>Function File: <em></em> <strong>ellipsoid</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ellipsoid-3"></a>Function File: <em>[<var>x</var>, <var>y</var>, <var>z</var>] =</em> <strong>ellipsoid</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ellipsoid"></a>: <em></em> <strong>ellipsoid</strong> <em>(<var>xc</var>, <var>yc</var>, <var>zc</var>, <var>xr</var>, <var>yr</var>, <var>zr</var>, <var>n</var>)</em></dt>
+<dt><a name="index-ellipsoid-1"></a>: <em></em> <strong>ellipsoid</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ellipsoid-2"></a>: <em></em> <strong>ellipsoid</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ellipsoid-3"></a>: <em>[<var>x</var>, <var>y</var>, <var>z</var>] =</em> <strong>ellipsoid</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D ellipsoid.
 </p>
 <p>The inputs <var>xc</var>, <var>yc</var>, <var>zc</var> specify the center of the ellipsoid.
 The inputs <var>xr</var>, <var>yr</var>, <var>zr</var> specify the semi-major axis lengths.
 </p>
 <p>The optional input <var>n</var> determines the number of faces around the
-the circumference of the cylinder.  The default value is 20.
+circumference of the cylinder.  The default value is 20.
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
@@ -143,7 +142,7 @@ rather than the current axes returned by <code>gca</code>.
 <code>meshgrid</code> format, such that <code>surf (<var>x</var>, <var>y</var>, <var>z</var>)</code>
 generates the ellipsoid.
 </p>
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Geometric-Shapes.html#XREFcylinder">cylinder</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>, <a href="Three_002ddimensional-Geometric-Shapes.html#XREFsphere">sphere</a>.
+<p><strong>See also:</strong> <a href="#XREFcylinder">cylinder</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>, <a href="#XREFsphere">sphere</a>.
 </p></dd></dl>
 
 

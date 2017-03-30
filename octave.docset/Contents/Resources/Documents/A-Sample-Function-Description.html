@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>A Sample Function Description</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="A-Sample-Function-Description"></a>
 <div class="header">
 <p>
@@ -65,15 +64,25 @@ appears first.  It is followed on the same line by a list of parameters.
 The names used for the parameters are also used in the body of the
 description.
 </p>
+<p>After all of the calling forms have been enumerated, the next line is a
+concise one-sentence summary of the function.
+</p>
+<p>After the summary there may be documentation on the inputs and outputs,
+examples of function usage, notes about the algorithm used, and references
+to related functions.
+</p>
 <p>Here is a description of an imaginary function <code>foo</code>:
 </p>
 <dl>
-<dt><a name="index-foo"></a>Function File: <em></em> <strong>foo</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-foo-1"></a>Function File: <em></em> <strong>foo</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-foo-2"></a>Function File: <em></em> <strong>foo</strong> <em>(<var>x</var>, <var>y</var>, &hellip;)</em></dt>
+<dt><a name="index-foo"></a>: <em></em> <strong>foo</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-foo-1"></a>: <em></em> <strong>foo</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-foo-2"></a>: <em></em> <strong>foo</strong> <em>(<var>x</var>, <var>y</var>, &hellip;)</em></dt>
 <dd><p>The function <code>foo</code> subtracts <var>x</var> from <var>y</var>, then adds the
-remaining arguments to the result.  If <var>y</var> is not supplied, then the
-number 19 is used by default.
+remaining arguments to the result.
+</p>
+<p>If <var>y</var> is not supplied, then the number 19 is used by default.
+</p>
+<p>Example:
 </p>
 <div class="example">
 <pre class="example">foo (1, [3, 5], 3, 9)
@@ -89,7 +98,9 @@ foo (5)
 &equiv;
 <var>x</var> - <var>w</var> + <var>y</var> + &hellip;
 </pre></div>
-</dd></dl>
+
+<p><b>See also:</b> bar
+</p></dd></dl>
 
 <p>Any parameter whose name contains the name of a type (e.g.,
 <var>integer</var> or <var>matrix</var>) is expected to be of that
@@ -99,9 +110,7 @@ specifically in the description of the function.  In some sections,
 features common to parameters of several functions are described at the
 beginning.
 </p>
-<p>Functions in Octave may be defined in several different ways.  The
-category name for functions may include another name that indicates the
-way that the function is defined.  These additional tags include
+<p>Functions in Octave may be defined in several different ways:
 </p>
 <dl compact="compact">
 <dt>Function File</dt>
@@ -131,6 +140,9 @@ arguments.
 </p></dd>
 </dl>
 
+<p>Use <code>which</code> or <code>exist</code> to determine the category of a function
+and where it resides.
+</p>
 <hr>
 <div class="header">
 <p>

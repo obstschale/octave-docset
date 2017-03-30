@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Compiling Octave with 64-bit Indexing</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Compiling-Octave-with-64_002dbit-Indexing"></a>
 <div class="header">
 <p>
@@ -57,7 +56,7 @@ Next: <a href="Installation-Problems.html#Installation-Problems" accesskey="n" r
 </div>
 <hr>
 <a name="Compiling-Octave-with-64_002dbit-Indexing-1"></a>
-<h3 class="section">G.3 Compiling Octave with 64-bit Indexing</h3>
+<h3 class="section">E.3 Compiling Octave with 64-bit Indexing</h3>
 
 <p>Note: the following only applies to systems that have 64-bit pointers.
 Configuring Octave with <samp>--enable-64</samp> cannot magically make a
@@ -67,12 +66,12 @@ Configuring Octave with <samp>--enable-64</samp> cannot magically make a
 array sizes when using the default 32-bit indexing mode:
 </p>
 <div class="example">
-<pre class="example">double:         16GB
-single:          8GB
-uint64, int64:  16GB
-uint32, int32:   8GB
-uint16, int16:   4GB
-uint8, int8:     2GB
+<pre class="example">double:         16 GB
+single:          8 GB
+uint64, int64:  16 GB
+uint32, int32:   8 GB
+uint16, int16:   4 GB
+uint8, int8:     2 GB
 </pre></div>
 
 <p>In each case, the limit is really (approximately) <em>2^{31}</em> elements
@@ -117,7 +116,7 @@ although there may be some differences.
 <li> <small>BLAS</small> and <small>LAPACK</small> (<a href="http://www.netlib.org/lapack">http://www.netlib.org/lapack</a>)
 
 <p>Reference versions for both libraries are included in the reference
-<small>LAPACK</small> 3.2.1 distribution from <a href="http://www.gnu.org/software/octave/doc/interpreter/netlib.org">netlib.org</a>.
+<small>LAPACK</small> 3.2.1 distribution from <a href="netlib.org">netlib.org</a>.
 </p>
 <ul class="no-bullet">
 <li>- Copy the file <samp>make.inc.example</samp> and name it <samp>make.inc</samp>.
@@ -175,11 +174,22 @@ done
 
 <p>Other systems may require a different solution.
 </p>
+</li><li> <small>ARPACK</small> (http://forge.scilab.org/index.php/p/arpack-ng/)
+
+<ul class="no-bullet">
+<li>- Add <samp>-fdefault-integer-8</samp> to <code>FFLAGS</code> when running configure.
+
+</li><li>- Run <code>make</code> to build the library.
+
+</li><li>- Run <code>make install</code> to install the library.
+</li></ul>
+
 </li><li> ATLAS instead of reference <small>BLAS</small> and <small>LAPACK</small>
 
 <p>Suggestions on how to compile ATLAS would be most welcome.
 </p>
 </li><li> <small>GLPK</small>
+
 </li><li> Qhull (<a href="http://www.qhull.org">http://www.qhull.org</a>)
 
 <p>Both <small>GLPK</small> and Qhull use <code>int</code> internally so maximum problem

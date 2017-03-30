@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Uicontextmenu Properties</title>
+
+<meta name="description" content="GNU Octave: Uicontextmenu Properties">
+<meta name="keywords" content="GNU Octave: Uicontextmenu Properties">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Graphics-Object-Properties.html#Graphics-Object-Properties" rel="up" title="Graphics Object Properties">
+<link href="Uipanel-Properties.html#Uipanel-Properties" rel="next" title="Uipanel Properties">
+<link href="Uibuttongroup-Properties.html#Uibuttongroup-Properties" rel="prev" title="Uibuttongroup Properties">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
+
+
+</head>
+
+<body lang="en">
+<a name="Uicontextmenu-Properties"></a>
+<div class="header">
+<p>
+Next: <a href="Uipanel-Properties.html#Uipanel-Properties" accesskey="n" rel="next">Uipanel Properties</a>, Previous: <a href="Uibuttongroup-Properties.html#Uibuttongroup-Properties" accesskey="p" rel="prev">Uibuttongroup Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Uicontextmenu-Properties-1"></a>
+<h4 class="subsubsection">15.3.3.12 Uicontextmenu Properties</h4>
+<a name="index-uicontextmenu-properties"></a>
+
+<p>The <code>uicontextmenu</code> properties are:
+</p>
+
+
+<dl compact="compact">
+<dd>
+<a name="XREFuicontextmenu_005f_005fmodified_005f_005f"></a><a name="index-uicontextmenu-_005f_005fmodified_005f_005f"></a>
+</dd>
+<dt><code>__modified__</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFuicontextmenubeingdeleted"></a><a name="index-uicontextmenu-beingdeleted"></a>
+</dd>
+<dt><code>beingdeleted</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFuicontextmenubusyaction"></a><a name="index-uicontextmenu-busyaction"></a>
+</dd>
+<dt><code>busyaction</code>: <code>&quot;cancel&quot;</code> | {<code>&quot;queue&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFuicontextmenubuttondownfcn"></a><a name="index-uicontextmenu-buttondownfcn"></a>
+</dd>
+<dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p><code>buttondownfcn</code> is unused.
+</p>
+
+<a name="XREFuicontextmenucallback"></a><a name="index-uicontextmenu-callback"></a>
+</dd>
+<dt><code>callback</code>: def. <code>[](0x0)</code></dt>
+<dd>
+
+
+<a name="XREFuicontextmenuchildren"></a><a name="index-uicontextmenu-children"></a>
+</dd>
+<dt><code>children</code> (read-only): vector of graphics handles, def. <code>[](0x1)</code></dt>
+<dd><p>Graphics handles of the uicontextmenu&rsquo;s children.
+</p>
+
+<a name="XREFuicontextmenuclipping"></a><a name="index-uicontextmenu-clipping"></a>
+</dd>
+<dt><code>clipping</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>clipping</code> is <code>&quot;on&quot;</code>, the uicontextmenu is clipped in its parent axes limits.
+</p>
+
+<a name="XREFuicontextmenucreatefcn"></a><a name="index-uicontextmenu-createfcn"></a>
+</dd>
+<dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p>Callback function executed immediately after uicontextmenu has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultuicontextmenucreatefcn&quot;, 'disp (&quot;uicontextmenu created!&quot;)')</code>.
+</p>
+
+<a name="XREFuicontextmenudeletefcn"></a><a name="index-uicontextmenu-deletefcn"></a>
+</dd>
+<dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
+<dd><p>Callback function executed immediately before uicontextmenu is deleted.
+</p>
+
+<a name="XREFuicontextmenuhandlevisibility"></a><a name="index-uicontextmenu-handlevisibility"></a>
+</dd>
+<dt><code>handlevisibility</code>: <code>&quot;callback&quot;</code> | <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>handlevisibility</code> is <code>&quot;off&quot;</code>, the uicontextmenu&rsquo;s handle is not visible in its parent&rsquo;s &quot;children&quot; property.
+</p>
+
+<a name="XREFuicontextmenuhittest"></a><a name="index-uicontextmenu-hittest"></a>
+</dd>
+<dt><code>hittest</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFuicontextmenuinterruptible"></a><a name="index-uicontextmenu-interruptible"></a>
+</dd>
+<dt><code>interruptible</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFuicontextmenuparent"></a><a name="index-uicontextmenu-parent"></a>
+</dd>
+<dt><code>parent</code>: graphics handle</dt>
+<dd><p>Handle of the parent graphics object.
+</p>
+
+<a name="XREFuicontextmenuposition"></a><a name="index-uicontextmenu-position"></a>
+</dd>
+<dt><code>position</code>: def. <code>[0   0]</code></dt>
+<dd>
+
+
+<a name="XREFuicontextmenuselected"></a><a name="index-uicontextmenu-selected"></a>
+</dd>
+<dt><code>selected</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
+<dd>
+
+
+<a name="XREFuicontextmenuselectionhighlight"></a><a name="index-uicontextmenu-selectionhighlight"></a>
+</dd>
+<dt><code>selectionhighlight</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd>
+
+
+<a name="XREFuicontextmenutag"></a><a name="index-uicontextmenu-tag"></a>
+</dd>
+<dt><code>tag</code>: string, def. <code>&quot;&quot;</code></dt>
+<dd><p>A user-defined string to label the graphics object.
+</p>
+
+<a name="XREFuicontextmenutype"></a><a name="index-uicontextmenu-type"></a>
+</dd>
+<dt><code>type</code> (read-only): string</dt>
+<dd><p>Class name of the graphics object.  <code>type</code> is always <code>&quot;uicontextmenu&quot;</code>
+</p>
+
+<a name="XREFuicontextmenuuicontextmenu"></a><a name="index-uicontextmenu-uicontextmenu"></a>
+</dd>
+<dt><code>uicontextmenu</code>: graphics handle, def. <code>[](0x0)</code></dt>
+<dd><p>Graphics handle of the uicontextmenu object that is currently associated to this uicontextmenu object.
+</p>
+
+<a name="XREFuicontextmenuuserdata"></a><a name="index-uicontextmenu-userdata"></a>
+</dd>
+<dt><code>userdata</code>: Any Octave data, def. <code>[](0x0)</code></dt>
+<dd><p>User-defined data to associate with the graphics object.
+</p>
+
+<a name="XREFuicontextmenuvisible"></a><a name="index-uicontextmenu-visible"></a>
+</dd>
+<dt><code>visible</code>: <code>&quot;off&quot;</code> | {<code>&quot;on&quot;</code>}</dt>
+<dd><p>If <code>visible</code> is <code>&quot;off&quot;</code>, the uicontextmenu is not rendered on screen.
+</p>
+</dd>
+</dl>
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Uipanel-Properties.html#Uipanel-Properties" accesskey="n" rel="next">Uipanel Properties</a>, Previous: <a href="Uibuttongroup-Properties.html#Uibuttongroup-Properties" accesskey="p" rel="prev">Uibuttongroup Properties</a>, Up: <a href="Graphics-Object-Properties.html#Graphics-Object-Properties" accesskey="u" rel="up">Graphics Object Properties</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

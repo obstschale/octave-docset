@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Identifying Points in Triangulation</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Identifying-Points-in-Triangulation"></a>
 <div class="header">
 <p>
@@ -120,23 +119,28 @@ of each of the simplices of the N-simplex and test the values of
 Barycentric coordinates are not explicitly formed.
 </p>
 <a name="XREFtsearch"></a><dl>
-<dt><a name="index-tsearch"></a>Loadable Function: <em><var>idx</var> =</em> <strong>tsearch</strong> <em>(<var>x</var>, <var>y</var>, <var>t</var>, <var>xi</var>, <var>yi</var>)</em></dt>
-<dd><p>Search for the enclosing Delaunay convex hull.  For <code><var>t</var> =
-delaunay (<var>x</var>, <var>y</var>)</code>, finds the index in <var>t</var> containing the
-points <code>(<var>xi</var>, <var>yi</var>)</code>.  For points outside the convex hull,
-<var>idx</var> is NaN.
+<dt><a name="index-tsearch"></a>: <em><var>idx</var> =</em> <strong>tsearch</strong> <em>(<var>x</var>, <var>y</var>, <var>t</var>, <var>xi</var>, <var>yi</var>)</em></dt>
+<dd><p>Search for the enclosing Delaunay convex hull.
+</p>
+<p>For <code><var>t</var> = delaunay (<var>x</var>, <var>y</var>)</code>, finds the index in <var>t</var>
+containing the points <code>(<var>xi</var>, <var>yi</var>)</code>.  For points outside the
+convex hull, <var>idx</var> is NaN.
 </p>
 <p><strong>See also:</strong> <a href="Delaunay-Triangulation.html#XREFdelaunay">delaunay</a>, <a href="Delaunay-Triangulation.html#XREFdelaunayn">delaunayn</a>.
 </p></dd></dl>
 
 
 <a name="XREFtsearchn"></a><dl>
-<dt><a name="index-tsearchn"></a>Function File: <em>[<var>idx</var>, <var>p</var>] =</em> <strong>tsearchn</strong> <em>(<var>x</var>, <var>t</var>, <var>xi</var>)</em></dt>
-<dd><p>Search for the enclosing Delaunay convex hull.  For <code><var>t</var> =
-delaunayn (<var>x</var>)</code>, finds the index in <var>t</var> containing the
-points <var>xi</var>.  For points outside the convex hull, <var>idx</var> is NaN.
-If requested <code>tsearchn</code> also returns the Barycentric coordinates <var>p</var>
-of the enclosing triangles.
+<dt><a name="index-tsearchn"></a>: <em><var>idx</var> =</em> <strong>tsearchn</strong> <em>(<var>x</var>, <var>t</var>, <var>xi</var>)</em></dt>
+<dt><a name="index-tsearchn-1"></a>: <em>[<var>idx</var>, <var>p</var>] =</em> <strong>tsearchn</strong> <em>(<var>x</var>, <var>t</var>, <var>xi</var>)</em></dt>
+<dd><p>Search for the enclosing Delaunay convex hull.
+</p>
+<p>For <code><var>t</var> = delaunayn (<var>x</var>)</code>, finds the index in <var>t</var>
+containing the points <var>xi</var>.  For points outside the convex hull,
+<var>idx</var> is NaN.
+</p>
+<p>If requested <code>tsearchn</code> also returns the Barycentric coordinates
+<var>p</var> of the enclosing triangles.
 </p>
 <p><strong>See also:</strong> <a href="Delaunay-Triangulation.html#XREFdelaunay">delaunay</a>, <a href="Delaunay-Triangulation.html#XREFdelaunayn">delaunayn</a>.
 </p></dd></dl>
@@ -175,28 +179,30 @@ point of the tessellation does not have to be one of the vertexes of the
 N-simplex within which the desired point is found.
 </p>
 <a name="XREFdsearch"></a><dl>
-<dt><a name="index-dsearch"></a>Function File: <em><var>idx</var> =</em> <strong>dsearch</strong> <em>(<var>x</var>, <var>y</var>, <var>tri</var>, <var>xi</var>, <var>yi</var>)</em></dt>
-<dt><a name="index-dsearch-1"></a>Function File: <em><var>idx</var> =</em> <strong>dsearch</strong> <em>(<var>x</var>, <var>y</var>, <var>tri</var>, <var>xi</var>, <var>yi</var>, <var>s</var>)</em></dt>
-<dd><p>Return the index <var>idx</var> or the closest point in <code><var>x</var>, <var>y</var></code>
-to the elements <code>[<var>xi</var>(:), <var>yi</var>(:)]</code>.  The variable <var>s</var> is
-accepted for compatibility but is ignored.
+<dt><a name="index-dsearch"></a>: <em><var>idx</var> =</em> <strong>dsearch</strong> <em>(<var>x</var>, <var>y</var>, <var>tri</var>, <var>xi</var>, <var>yi</var>)</em></dt>
+<dt><a name="index-dsearch-1"></a>: <em><var>idx</var> =</em> <strong>dsearch</strong> <em>(<var>x</var>, <var>y</var>, <var>tri</var>, <var>xi</var>, <var>yi</var>, <var>s</var>)</em></dt>
+<dd><p>Return the index <var>idx</var> of the closest point in <code><var>x</var>, <var>y</var></code>
+to the elements <code>[<var>xi</var>(:), <var>yi</var>(:)]</code>.
 </p>
-<p><strong>See also:</strong> <a href="Identifying-Points-in-Triangulation.html#XREFdsearchn">dsearchn</a>, <a href="Identifying-Points-in-Triangulation.html#XREFtsearch">tsearch</a>.
+<p>The variable <var>s</var> is accepted for compatibility but is ignored.
+</p>
+<p><strong>See also:</strong> <a href="#XREFdsearchn">dsearchn</a>, <a href="#XREFtsearch">tsearch</a>.
 </p></dd></dl>
 
 
 <a name="XREFdsearchn"></a><dl>
-<dt><a name="index-dsearchn"></a>Function File: <em><var>idx</var> =</em> <strong>dsearchn</strong> <em>(<var>x</var>, <var>tri</var>, <var>xi</var>)</em></dt>
-<dt><a name="index-dsearchn-1"></a>Function File: <em><var>idx</var> =</em> <strong>dsearchn</strong> <em>(<var>x</var>, <var>tri</var>, <var>xi</var>, <var>outval</var>)</em></dt>
-<dt><a name="index-dsearchn-2"></a>Function File: <em><var>idx</var> =</em> <strong>dsearchn</strong> <em>(<var>x</var>, <var>xi</var>)</em></dt>
-<dt><a name="index-dsearchn-3"></a>Function File: <em>[<var>idx</var>, <var>d</var>] =</em> <strong>dsearchn</strong> <em>(&hellip;)</em></dt>
-<dd><p>Return the index <var>idx</var> or the closest point in <var>x</var> to the elements
-<var>xi</var>.  If <var>outval</var> is supplied, then the values of <var>xi</var> that are
-not contained within one of the simplices <var>tri</var> are set to
-<var>outval</var>.  Generally, <var>tri</var> is returned from <code>delaunayn
-(<var>x</var>)</code>.
+<dt><a name="index-dsearchn"></a>: <em><var>idx</var> =</em> <strong>dsearchn</strong> <em>(<var>x</var>, <var>tri</var>, <var>xi</var>)</em></dt>
+<dt><a name="index-dsearchn-1"></a>: <em><var>idx</var> =</em> <strong>dsearchn</strong> <em>(<var>x</var>, <var>tri</var>, <var>xi</var>, <var>outval</var>)</em></dt>
+<dt><a name="index-dsearchn-2"></a>: <em><var>idx</var> =</em> <strong>dsearchn</strong> <em>(<var>x</var>, <var>xi</var>)</em></dt>
+<dt><a name="index-dsearchn-3"></a>: <em>[<var>idx</var>, <var>d</var>] =</em> <strong>dsearchn</strong> <em>(&hellip;)</em></dt>
+<dd><p>Return the index <var>idx</var> of the closest point in <var>x</var> to the elements
+<var>xi</var>.
 </p>
-<p><strong>See also:</strong> <a href="Identifying-Points-in-Triangulation.html#XREFdsearch">dsearch</a>, <a href="Identifying-Points-in-Triangulation.html#XREFtsearch">tsearch</a>.
+<p>If <var>outval</var> is supplied, then the values of <var>xi</var> that are not
+contained within one of the simplices <var>tri</var> are set to <var>outval</var>.
+Generally, <var>tri</var> is returned from <code>delaunayn (<var>x</var>)</code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFdsearch">dsearch</a>, <a href="#XREFtsearch">tsearch</a>.
 </p></dd></dl>
 
 

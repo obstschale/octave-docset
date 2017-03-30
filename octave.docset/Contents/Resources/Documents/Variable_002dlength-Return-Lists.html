@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Variable-length Return Lists</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Variable_002dlength-Return-Lists"></a>
 <div class="header">
 <p>
@@ -93,11 +92,12 @@ element of the input (output) parameter list, then it is not special,
 and is handled the same as any other parameter name.
 </p>
 <a name="XREFdeal"></a><dl>
-<dt><a name="index-deal"></a>Function File: <em>[<var>r1</var>, <var>r2</var>, &hellip;, <var>rn</var>] =</em> <strong>deal</strong> <em>(<var>a</var>)</em></dt>
-<dt><a name="index-deal-1"></a>Function File: <em>[<var>r1</var>, <var>r2</var>, &hellip;, <var>rn</var>] =</em> <strong>deal</strong> <em>(<var>a1</var>, <var>a2</var>, &hellip;, <var>an</var>)</em></dt>
+<dt><a name="index-deal"></a>: <em>[<var>r1</var>, <var>r2</var>, &hellip;, <var>rn</var>] =</em> <strong>deal</strong> <em>(<var>a</var>)</em></dt>
+<dt><a name="index-deal-1"></a>: <em>[<var>r1</var>, <var>r2</var>, &hellip;, <var>rn</var>] =</em> <strong>deal</strong> <em>(<var>a1</var>, <var>a2</var>, &hellip;, <var>an</var>)</em></dt>
 <dd>
 <p>Copy the input parameters into the corresponding output parameters.
-If only one input parameter is supplied, its value is copied to each
+</p>
+<p>If only a single input parameter is supplied, its value is copied to each
 of the outputs.
 </p>
 <p>For example,
@@ -125,7 +125,26 @@ c = z;
 <div class="example">
 <pre class="example">a = b = c = x;
 </pre></div>
-</dd></dl>
+
+<p>Programming Note: <code>deal</code> is often used with comma separated lists
+derived from cell arrays or structures.  This is unnecessary as the
+interpreter can perform the same action without the overhead of a function
+call.  For example:
+</p>
+<div class="example">
+<pre class="example">c = {[1 2], &quot;Three&quot;, 4};
+[x, y, z] = c{:}
+&rArr;
+   x =
+
+      1   2
+
+   y = Three
+   z =  4
+</pre></div>
+
+<p><strong>See also:</strong> <a href="Processing-Data-in-Cell-Arrays.html#XREFcell2struct">cell2struct</a>, <a href="Processing-Data-in-Structures.html#XREFstruct2cell">struct2cell</a>, <a href="Special-Utility-Matrices.html#XREFrepmat">repmat</a>.
+</p></dd></dl>
 
 
 <hr>

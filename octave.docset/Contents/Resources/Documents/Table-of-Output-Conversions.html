@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Table of Output Conversions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Table-of-Output-Conversions"></a>
 <div class="header">
 <p>
@@ -113,10 +112,24 @@ See <a href="Floating_002dPoint-Conversions.html#Floating_002dPoint-Conversions"
 </dl>
 
 <p>If the syntax of a conversion specification is invalid, unpredictable
-things will happen, so don&rsquo;t do this.  If there aren&rsquo;t enough function
-arguments provided to supply values for all the conversion
-specifications in the template string, or if the arguments are not of
-the correct types, the results are unpredictable.  If you supply more
+things will happen, so don&rsquo;t do this.  In particular, <small>MATLAB</small> allows
+a bare percentage sign &lsquo;<samp>%</samp>&rsquo; with no subsequent conversion character.
+Octave will emit an error and stop if it sees such code.  When the string
+variable to be processed cannot be guaranteed to be free of potential format
+codes it is better to use the two argument form of any of the <code>printf</code>
+functions and set the format string to <code>%s</code>.  Alternatively, for code
+which is not required to be backwards-compatible with <small>MATLAB</small> the
+Octave function <code>puts</code> or <code>disp</code> can be used.
+</p>
+<div class="example">
+<pre class="example">printf (strvar);        # Unsafe if strvar contains format codes
+printf (&quot;%s&quot;, strvar);  # Safe
+puts (strvar);          # Safe
+</pre></div>
+
+<p>If there aren&rsquo;t enough function arguments provided to supply values for all
+the conversion specifications in the template string, or if the arguments are
+not of the correct types, the results are unpredictable.  If you supply more
 arguments than conversion specifications, the extra argument values are
 simply ignored; this is sometimes useful.
 </p>

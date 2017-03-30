@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Storage of Sparse Matrices</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Storage-of-Sparse-Matrices"></a>
 <div class="header">
 <p>
@@ -67,13 +66,13 @@ create their own oct-files.
 </p>
 <p>There are many different means of storing sparse matrix data.  What all
 of the methods have in common is that they attempt to reduce the complexity
-and storage given a-priori knowledge of the particular class of problems
+and storage given a priori knowledge of the particular class of problems
 that will be solved.  A good summary of the available techniques for storing
-sparse matrix is given by Saad <a name="DOCF8" href="Storage-of-Sparse-Matrices.html#FOOT8"><sup>8</sup></a>.
+sparse matrix is given by Saad <a name="DOCF8" href="#FOOT8"><sup>8</sup></a>.
 With full matrices, knowledge of the point of an element of the matrix
 within the matrix is implied by its position in the computers memory.
 However, this is not the case for sparse matrices, and so the positions
-of the non-zero elements of the matrix must equally be stored.
+of the nonzero elements of the matrix must equally be stored.
 </p>
 <p>An obvious way to do this is by storing the elements of the matrix as
 triplets, with two elements being their position in the array
@@ -82,13 +81,13 @@ easy to grasp, but requires more storage than is strictly needed.
 </p>
 <p>The storage technique used within Octave is the compressed column
 format.  It is similar to the Yale format.
-<a name="DOCF9" href="Storage-of-Sparse-Matrices.html#FOOT9"><sup>9</sup></a>
+<a name="DOCF9" href="#FOOT9"><sup>9</sup></a>
 In this format the position of each element in a row and the data are
 stored as previously.  However, if we assume that all elements in the
 same column are stored adjacent in the computers memory, then we only
-need to store information on the number of non-zero elements in each
+need to store information on the number of nonzero elements in each
 column, rather than their positions.  Thus assuming that the matrix has
-more non-zero elements than there are columns in the matrix, we win in
+more nonzero elements than there are columns in the matrix, we win in
 terms of the amount of memory used.
 </p>
 <p>In fact, the column index contains one more element than the number of
@@ -100,7 +99,7 @@ C is.
 <div class="example">
 <pre class="example">  for (j = 0; j &lt; nc; j++)
     for (i = cidx(j); i &lt; cidx(j+1); i++)
-       printf (&quot;non-zero element (%i,%i) is %d\n&quot;,
+       printf (&quot;nonzero element (%i,%i) is %d\n&quot;,
            ridx(i), j, data(i));
 </pre></div>
 
@@ -113,7 +112,7 @@ above applies to an example matrix.  Consider the matrix
     0   0   0  4
 </pre></div>
 
-<p>The non-zero elements of this matrix are
+<p>The nonzero elements of this matrix are
 </p>
 <div class="example">
 <pre class="example">   (1, 1)  &rArr; 1
@@ -158,11 +157,11 @@ it adds complexity and speed problems elsewhere.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT8" href="Storage-of-Sparse-Matrices.html#DOCF8">(8)</a></h3>
-<p>Y. Saad &quot;SPARSKIT: A basic toolkit
-for sparse matrix computation&quot;, 1994,
+<h3><a name="FOOT8" href="#DOCF8">(8)</a></h3>
+<p>Y. Saad &quot;SPARSKIT: A basic
+toolkit for sparse matrix computation&quot;, 1994,
 <a href="http://www-users.cs.umn.edu/~saad/software/SPARSKIT/paper.ps">http://www-users.cs.umn.edu/~saad/software/SPARSKIT/paper.ps</a></p>
-<h3><a name="FOOT9" href="Storage-of-Sparse-Matrices.html#DOCF9">(9)</a></h3>
+<h3><a name="FOOT9" href="#DOCF9">(9)</a></h3>
 <p><a href="http://en.wikipedia.org/wiki/Sparse_matrix#Yale_format">http://en.wikipedia.org/wiki/Sparse_matrix#Yale_format</a></p>
 </div>
 <hr>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Linear Algebra</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Linear-Algebra"></a>
 <div class="header">
 <p>
@@ -58,11 +57,21 @@ Next: <a href="Vectorization-and-Faster-Code-Execution.html#Vectorization-and-Fa
 <hr>
 <a name="Linear-Algebra-1"></a>
 <h2 class="chapter">18 Linear Algebra</h2>
+<a name="index-linear-algebra"></a>
 
-<p>This chapter documents the linear algebra functions of Octave.
+<p>This chapter documents the linear algebra functions provided in Octave.
 Reference material for many of these functions may be found in
-Golub and Van Loan, <cite>Matrix Computations, 2nd Ed.</cite>, Johns Hopkins,
-1989, and in the <cite><small>LAPACK</small> Users&rsquo; Guide</cite>, SIAM, 1992.
+Golub and Van Loan, <cite>Matrix Computations, 2nd Ed.</cite>,
+Johns Hopkins, 1989, and in the <cite><small>LAPACK</small> Users&rsquo; Guide</cite>, SIAM, 1992.
+The <cite><small>LAPACK</small> Users&rsquo; Guide</cite> is available at:
+<cite>http://www.netlib.org/lapack/lug/</cite>
+</p>
+<p>A common text for engineering courses is G. Strang,
+<cite>Linear Algebra and Its Applications, 4th Edition</cite>. It has become a
+widespread reference for linear algebra.  An alternative is P. Lax
+<cite>Linear Algebra and Its Applications</cite>, and also is a good choice.  It
+claims to be suitable for high school students with substantial mathematical
+interests as well as first-year undergraduates.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="Techniques-Used-for-Linear-Algebra.html#Techniques-Used-for-Linear-Algebra" accesskey="1">Techniques Used for Linear Algebra</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">

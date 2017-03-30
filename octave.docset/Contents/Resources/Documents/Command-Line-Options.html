@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Command Line Options</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Command-Line-Options"></a>
 <div class="header">
 <p>
@@ -164,8 +163,7 @@ commands in the system or user startup files that use the
 <dd><a name="index-_002d_002dinteractive"></a>
 <a name="index-_002di"></a>
 <p>Force interactive behavior.  This can be useful for running Octave via a
-remote shell command or inside an Emacs shell buffer.  For another way
-to run Octave within Emacs, see <a href="Emacs-Octave-Support.html#Emacs-Octave-Support">Emacs Octave Support</a>.
+remote shell command or inside an Emacs shell buffer.
 </p>
 </dd>
 <dt><code>--jit-compiler</code></dt>
@@ -269,16 +267,18 @@ user preferences to the following values
 <div class="example">
 <pre class="example">PS1                             = &quot;&gt;&gt; &quot;
 PS2                             = &quot;&quot;
-allow_noninteger_range_as_index = true
 beep_on_error                   = true
 confirm_recursive_rmdir         = false
 crash_dumps_octave_core         = false
-save_default_options            = &quot;-mat-binary&quot;
-do_braindead_shortcircuit_evaluation = true
+disable_diagonal_matrix         = true
+disable_permutation_matrix      = true
+disable_range                   = true
 fixed_point_format              = true
 history_timestamp_format_string = &quot;%%-- %D %I:%M %p --%%&quot;
 page_screen_output              = false
 print_empty_dimensions          = false
+save_default_options            = &quot;-mat-binary&quot;
+struct_levels_to_print          = 0
 </pre></div>
 
 <p>and disable the following warnings
@@ -288,9 +288,10 @@ print_empty_dimensions          = false
 Octave:fopen-file-in-path
 Octave:function-name-clash
 Octave:load-file-in-path
+Octave:possible-matlab-short-circuit-operator
 </pre></div>
 
-<p>Note that this does not enable the <code>Octave:matlab-incompatible</code>
+<p>Note that this does not enable the <code>Octave:language-extension</code>
 warning, which you might want if you want to be told about writing code
 that works in Octave but not <small>MATLAB</small> (see <a href="Issuing-Warnings.html#XREFwarning">warning</a>,
 <a href="Issuing-Warnings.html#XREFwarning_005fids">warning_ids</a>).
@@ -321,9 +322,10 @@ about the command line, including the number of arguments and all of the
 options.
 </p>
 <a name="XREFargv"></a><dl>
-<dt><a name="index-argv"></a>Built-in Function: <em></em> <strong>argv</strong> <em>()</em></dt>
-<dd><p>Return the command line arguments passed to Octave.  For example,
-if you invoked Octave using the command
+<dt><a name="index-argv"></a>: <em></em> <strong>argv</strong> <em>()</em></dt>
+<dd><p>Return the command line arguments passed to Octave.
+</p>
+<p>For example, if you invoked Octave using the command
 </p>
 <div class="example">
 <pre class="example">octave --no-line-editing --silent
@@ -332,23 +334,23 @@ if you invoked Octave using the command
 <p><code>argv</code> would return a cell array of strings with the elements
 <samp>--no-line-editing</samp> and <samp>--silent</samp>.
 </p>
-<p>If you write an executable Octave script, <code>argv</code> will return the
-list of arguments passed to the script.  See <a href="Executable-Octave-Programs.html#Executable-Octave-Programs">Executable Octave Programs</a>,
-for an example of how to create an executable Octave script.
+<p>If you write an executable Octave script, <code>argv</code> will return the list
+of arguments passed to the script.  See <a href="Executable-Octave-Programs.html#Executable-Octave-Programs">Executable Octave Programs</a>, for
+an example of how to create an executable Octave script.
 </p></dd></dl>
 
 
 <a name="XREFprogram_005fname"></a><dl>
-<dt><a name="index-program_005fname"></a>Built-in Function: <em></em> <strong>program_name</strong> <em>()</em></dt>
+<dt><a name="index-program_005fname"></a>: <em></em> <strong>program_name</strong> <em>()</em></dt>
 <dd><p>Return the last component of the value returned by
 <code>program_invocation_name</code>.
 </p>
-<p><strong>See also:</strong> <a href="Command-Line-Options.html#XREFprogram_005finvocation_005fname">program_invocation_name</a>.
+<p><strong>See also:</strong> <a href="#XREFprogram_005finvocation_005fname">program_invocation_name</a>.
 </p></dd></dl>
 
 
 <a name="XREFprogram_005finvocation_005fname"></a><dl>
-<dt><a name="index-program_005finvocation_005fname"></a>Built-in Function: <em></em> <strong>program_invocation_name</strong> <em>()</em></dt>
+<dt><a name="index-program_005finvocation_005fname"></a>: <em></em> <strong>program_invocation_name</strong> <em>()</em></dt>
 <dd><p>Return the name that was typed at the shell prompt to run Octave.
 </p>
 <p>If executing a script from the command line (e.g., <code>octave foo.m</code>)
@@ -356,7 +358,7 @@ or using an executable Octave script, the program name is set to the
 name of the script.  See <a href="Executable-Octave-Programs.html#Executable-Octave-Programs">Executable Octave Programs</a>, for an example of
 how to create an executable Octave script.
 </p>
-<p><strong>See also:</strong> <a href="Command-Line-Options.html#XREFprogram_005fname">program_name</a>.
+<p><strong>See also:</strong> <a href="#XREFprogram_005fname">program_name</a>.
 </p></dd></dl>
 
 

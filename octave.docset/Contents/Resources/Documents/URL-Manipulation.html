@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>URL Manipulation</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="URL-Manipulation"></a>
 <div class="header">
 <p>
@@ -60,33 +59,37 @@ Next: <a href="Base64-and-Binary-Data-Transmission.html#Base64-and-Binary-Data-T
 <h4 class="subsection">36.4.2 URL Manipulation</h4>
 
 <a name="XREFurlread"></a><dl>
-<dt><a name="index-urlread"></a>Loadable Function: <em><var>s</var> =</em> <strong>urlread</strong> <em>(<var>url</var>)</em></dt>
-<dt><a name="index-urlread-1"></a>Loadable Function: <em>[<var>s</var>, <var>success</var>] =</em> <strong>urlread</strong> <em>(<var>url</var>)</em></dt>
-<dt><a name="index-urlread-2"></a>Loadable Function: <em>[<var>s</var>, <var>success</var>, <var>message</var>] =</em> <strong>urlread</strong> <em>(<var>url</var>)</em></dt>
-<dt><a name="index-urlread-3"></a>Loadable Function: <em>[&hellip;] =</em> <strong>urlread</strong> <em>(<var>url</var>, <var>method</var>, <var>param</var>)</em></dt>
+<dt><a name="index-urlread"></a>: <em><var>s</var> =</em> <strong>urlread</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-urlread-1"></a>: <em>[<var>s</var>, <var>success</var>] =</em> <strong>urlread</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-urlread-2"></a>: <em>[<var>s</var>, <var>success</var>, <var>message</var>] =</em> <strong>urlread</strong> <em>(<var>url</var>)</em></dt>
+<dt><a name="index-urlread-3"></a>: <em>[&hellip;] =</em> <strong>urlread</strong> <em>(<var>url</var>, <var>method</var>, <var>param</var>)</em></dt>
 <dd><p>Download a remote file specified by its <var>url</var> and return its content
-in string <var>s</var>.  For example:
+in string <var>s</var>.
+</p>
+<p>For example:
 </p>
 <div class="example">
-<pre class="example">s = urlread (&quot;ftp://ftp.octave.org/pub/octave/README&quot;);
+<pre class="example">s = urlread (&quot;ftp://ftp.octave.org/pub/README&quot;);
 </pre></div>
 
 <p>The variable <var>success</var> is 1 if the download was successful,
 otherwise it is 0 in which case <var>message</var> contains an error
-message.  If no output argument is specified and an error occurs,
-then the error is signaled through Octave&rsquo;s error handling mechanism.
+message.
 </p>
-<p>This function uses libcurl.  Curl supports, among others, the HTTP,
-FTP and FILE protocols.  Username and password may be specified in the
-URL.  For example:
+<p>If no output argument is specified and an error occurs, then the error is
+signaled through Octave&rsquo;s error handling mechanism.
+</p>
+<p>This function uses libcurl.  Curl supports, among others, the HTTP, FTP, and
+FILE protocols.  Username and password may be specified in the URL.  For
+example:
 </p>
 <div class="example">
 <pre class="example">s = urlread (&quot;http://user:password@example.com/file.txt&quot;);
 </pre></div>
 
 <p>GET and POST requests can be specified by <var>method</var> and <var>param</var>.
-The parameter <var>method</var> is either &lsquo;<samp>get</samp>&rsquo; or &lsquo;<samp>post</samp>&rsquo;
-and <var>param</var> is a cell array of parameter and value pairs.
+The parameter <var>method</var> is either &lsquo;<samp>get</samp>&rsquo; or &lsquo;<samp>post</samp>&rsquo; and
+<var>param</var> is a cell array of parameter and value pairs.
 For example:
 </p>
 <div class="example">
@@ -94,32 +97,36 @@ For example:
             {&quot;query&quot;, &quot;octave&quot;});
 </pre></div>
 
-<p><strong>See also:</strong> <a href="URL-Manipulation.html#XREFurlwrite">urlwrite</a>.
+<p><strong>See also:</strong> <a href="#XREFurlwrite">urlwrite</a>.
 </p></dd></dl>
 
 
 <a name="XREFurlwrite"></a><dl>
-<dt><a name="index-urlwrite"></a>Loadable Function: <em></em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
-<dt><a name="index-urlwrite-1"></a>Loadable Function: <em><var>f</var> =</em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
-<dt><a name="index-urlwrite-2"></a>Loadable Function: <em>[<var>f</var>, <var>success</var>] =</em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
-<dt><a name="index-urlwrite-3"></a>Loadable Function: <em>[<var>f</var>, <var>success</var>, <var>message</var>] =</em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
+<dt><a name="index-urlwrite"></a>: <em></em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
+<dt><a name="index-urlwrite-1"></a>: <em><var>f</var> =</em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
+<dt><a name="index-urlwrite-2"></a>: <em>[<var>f</var>, <var>success</var>] =</em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
+<dt><a name="index-urlwrite-3"></a>: <em>[<var>f</var>, <var>success</var>, <var>message</var>] =</em> <strong>urlwrite</strong> <em>(<var>url</var>, <var>localfile</var>)</em></dt>
 <dd><p>Download a remote file specified by its <var>url</var> and save it as
-<var>localfile</var>.  For example:
+<var>localfile</var>.
+</p>
+<p>For example:
 </p>
 <div class="example">
-<pre class="example">urlwrite (&quot;ftp://ftp.octave.org/pub/octave/README&quot;,
+<pre class="example">urlwrite (&quot;ftp://ftp.octave.org/pub/README&quot;,
           &quot;README.txt&quot;);
 </pre></div>
 
-<p>The full path of the downloaded file is returned in <var>f</var>.  The
-variable <var>success</var> is 1 if the download was successful,
-otherwise it is 0 in which case <var>message</var> contains an error
-message.  If no output argument is specified and an error occurs,
-then the error is signaled through Octave&rsquo;s error handling mechanism.
+<p>The full path of the downloaded file is returned in <var>f</var>.
 </p>
-<p>This function uses libcurl.  Curl supports, among others, the HTTP,
-FTP and FILE protocols.  Username and password may be specified in
-the URL, for example:
+<p>The variable <var>success</var> is 1 if the download was successful,
+otherwise it is 0 in which case <var>message</var> contains an error message.
+</p>
+<p>If no output argument is specified and an error occurs, then the error is
+signaled through Octave&rsquo;s error handling mechanism.
+</p>
+<p>This function uses libcurl.  Curl supports, among others, the HTTP, FTP, and
+FILE protocols.  Username and password may be specified in the URL, for
+example:
 </p>
 <div class="example">
 <pre class="example">urlwrite (&quot;http://username:password@example.com/file.txt&quot;,
@@ -127,8 +134,8 @@ the URL, for example:
 </pre></div>
 
 <p>GET and POST requests can be specified by <var>method</var> and <var>param</var>.
-The parameter <var>method</var> is either &lsquo;<samp>get</samp>&rsquo; or &lsquo;<samp>post</samp>&rsquo;
-and <var>param</var> is a cell array of parameter and value pairs.
+The parameter <var>method</var> is either &lsquo;<samp>get</samp>&rsquo; or &lsquo;<samp>post</samp>&rsquo; and
+<var>param</var> is a cell array of parameter and value pairs.
 For example:
 </p>
 <div class="example">
@@ -136,7 +143,7 @@ For example:
           &quot;get&quot;, {&quot;query&quot;, &quot;octave&quot;});
 </pre></div>
 
-<p><strong>See also:</strong> <a href="URL-Manipulation.html#XREFurlread">urlread</a>.
+<p><strong>See also:</strong> <a href="#XREFurlread">urlread</a>.
 </p></dd></dl>
 
 

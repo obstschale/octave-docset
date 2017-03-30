@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Temporary Files</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Temporary-Files"></a>
 <div class="header">
 <p>
@@ -65,58 +64,90 @@ within Octave needs to access data.  When Octave exits all temporary
 files will be deleted, so this step need not be executed manually.
 </p>
 <a name="XREFmkstemp"></a><dl>
-<dt><a name="index-mkstemp"></a>Built-in Function: <em>[<var>fid</var>, <var>name</var>, <var>msg</var>] =</em> <strong>mkstemp</strong> <em>(<var>template</var>, <var>delete</var>)</em></dt>
-<dd><p>Return the file ID corresponding to a new temporary file with a unique
-name created from <var>template</var>.  The last six characters of <var>template</var>
-must be <code>XXXXXX</code> and these are replaced with a string that makes the
-filename unique.  The file is then created with mode read/write and
-permissions that are system dependent (on GNU/Linux systems, the permissions
-will be 0600 for versions of glibc 2.0.7 and later).  The file is opened
-in binary mode and with the <code><span class="nolinebreak">O_EXCL</span></code><!-- /@w --> flag.
+<dt><a name="index-mkstemp"></a>: <em>[<var>fid</var>, <var>name</var>, <var>msg</var>] =</em> <strong>mkstemp</strong> <em>(&quot;<var>template</var>&quot;)</em></dt>
+<dt><a name="index-mkstemp-1"></a>: <em>[<var>fid</var>, <var>name</var>, <var>msg</var>] =</em> <strong>mkstemp</strong> <em>(&quot;<var>template</var>&quot;, <var>delete</var>)</em></dt>
+<dd><p>Return the file descriptor <var>fid</var> corresponding to a new temporary file
+with a unique name created from <var>template</var>.
 </p>
-<p>If the optional argument <var>delete</var> is supplied and is true,
-the file will be deleted automatically when Octave exits.
+<p>The last six characters of <var>template</var> must be <code>&quot;XXXXXX&quot;</code> and
+these are replaced with a string that makes the filename unique.  The file
+is then created with mode read/write and permissions that are system
+dependent (on GNU/Linux systems, the permissions will be 0600 for versions
+of glibc 2.0.7 and later).  The file is opened in binary mode and with the
+<code><span class="nolinebreak">O_EXCL</span></code><!-- /@w --> flag.
 </p>
-<p>If successful, <var>fid</var> is a valid file ID, <var>name</var> is the name of
-the file, and <var>msg</var> is an empty string.  Otherwise, <var>fid</var>
-is -1, <var>name</var> is empty, and <var>msg</var> contains a system-dependent
-error message.
+<p>If the optional argument <var>delete</var> is supplied and is true, the file will
+be deleted automatically when Octave exits.
 </p>
-<p><strong>See also:</strong> <a href="Temporary-Files.html#XREFtmpfile">tmpfile</a>, <a href="Temporary-Files.html#XREFtmpnam">tmpnam</a>, <a href="Filesystem-Utilities.html#XREFP_005ftmpdir">P_tmpdir</a>.
+<p>If successful, <var>fid</var> is a valid file ID, <var>name</var> is the name of the
+file, and <var>msg</var> is an empty string.  Otherwise, <var>fid</var> is -1,
+<var>name</var> is empty, and <var>msg</var> contains a system-dependent error
+message.
+</p>
+<p><strong>See also:</strong> <a href="#XREFtempname">tempname</a>, <a href="#XREFtempdir">tempdir</a>, <a href="#XREFP_005ftmpdir">P_tmpdir</a>, <a href="#XREFtmpfile">tmpfile</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFtmpfile"></a><dl>
-<dt><a name="index-tmpfile"></a>Built-in Function: <em>[<var>fid</var>, <var>msg</var>] =</em> <strong>tmpfile</strong> <em>()</em></dt>
+<dt><a name="index-tmpfile"></a>: <em>[<var>fid</var>, <var>msg</var>] =</em> <strong>tmpfile</strong> <em>()</em></dt>
 <dd><p>Return the file ID corresponding to a new temporary file with a unique
-name.  The file is opened in binary read/write (<code>&quot;w+b&quot;</code>) mode.
-The file will be deleted automatically when it is closed or when Octave
-exits.
+name.
+</p>
+<p>The file is opened in binary read/write (<code>&quot;w+b&quot;</code>) mode and will be
+deleted automatically when it is closed or when Octave exits.
 </p>
 <p>If successful, <var>fid</var> is a valid file ID and <var>msg</var> is an empty
 string.  Otherwise, <var>fid</var> is -1 and <var>msg</var> contains a
 system-dependent error message.
 </p>
-<p><strong>See also:</strong> <a href="Temporary-Files.html#XREFtmpnam">tmpnam</a>, <a href="Temporary-Files.html#XREFmkstemp">mkstemp</a>, <a href="Filesystem-Utilities.html#XREFP_005ftmpdir">P_tmpdir</a>.
+<p><strong>See also:</strong> <a href="#XREFtempname">tempname</a>, <a href="#XREFmkstemp">mkstemp</a>, <a href="#XREFtempdir">tempdir</a>, <a href="#XREFP_005ftmpdir">P_tmpdir</a>.
 </p></dd></dl>
 
 
-<a name="XREFtmpnam"></a><a name="index-octave_005ftmp_005ffile_005fname"></a>
-
-<dl>
-<dt><a name="index-tmpnam"></a>Built-in Function: <em></em> <strong>tmpnam</strong> <em>()</em></dt>
-<dt><a name="index-tmpnam-1"></a>Built-in Function: <em></em> <strong>tmpnam</strong> <em>(<var>dir</var>)</em></dt>
-<dt><a name="index-tmpnam-2"></a>Built-in Function: <em></em> <strong>tmpnam</strong> <em>(<var>dir</var>, <var>prefix</var>)</em></dt>
-<dd><p>Return a unique temporary file name as a string.
+<a name="XREFtempname"></a><dl>
+<dt><a name="index-tempname"></a>: <em><var>fname</var> =</em> <strong>tempname</strong> <em>()</em></dt>
+<dt><a name="index-tempname-1"></a>: <em><var>fname</var> =</em> <strong>tempname</strong> <em>(<var>dir</var>)</em></dt>
+<dt><a name="index-tempname-2"></a>: <em><var>fname</var> =</em> <strong>tempname</strong> <em>(<var>dir</var>, <var>prefix</var>)</em></dt>
+<dd><p>Return a unique temporary filename as a string.
 </p>
 <p>If <var>prefix</var> is omitted, a value of <code>&quot;oct-&quot;</code> is used.
-If <var>dir</var> is also omitted, the default directory for temporary files
-is used.  If <var>dir</var> is provided, it must exist, otherwise the default
-directory for temporary files is used.  Since the named file is not
-opened, by <code>tmpnam</code>, it is possible (though relatively unlikely)
-that it will not be available by the time your program attempts to open it.
 </p>
-<p><strong>See also:</strong> <a href="Temporary-Files.html#XREFtmpfile">tmpfile</a>, <a href="Temporary-Files.html#XREFmkstemp">mkstemp</a>, <a href="Filesystem-Utilities.html#XREFP_005ftmpdir">P_tmpdir</a>.
+<p>If <var>dir</var> is also omitted, the default directory for temporary files
+(<code>P_tmpdir</code>) is used.  If <var>dir</var> is provided, it must exist,
+otherwise the default directory for temporary files is used.
+</p>
+<p>Programming Note: Because the named file is not opened by <code>tempname</code>,
+it is possible, though relatively unlikely, that it will not be available
+by the time your program attempts to open it.  If this is a concern,
+see <code>tmpfile</code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFmkstemp">mkstemp</a>, <a href="#XREFtempdir">tempdir</a>, <a href="#XREFP_005ftmpdir">P_tmpdir</a>, <a href="#XREFtmpfile">tmpfile</a>.
+</p></dd></dl>
+
+
+<a name="XREFtempdir"></a><dl>
+<dt><a name="index-tempdir"></a>: <em><var>dir</var> =</em> <strong>tempdir</strong> <em>()</em></dt>
+<dd><p>Return the name of the host system&rsquo;s directory for temporary files.
+</p>
+<p>The directory name is taken first from the environment variable
+<code>TMPDIR</code>.  If that does not exist the system default returned by
+<code>P_tmpdir</code> is used.
+</p>
+<p><strong>See also:</strong> <a href="#XREFP_005ftmpdir">P_tmpdir</a>, <a href="#XREFtempname">tempname</a>, <a href="#XREFmkstemp">mkstemp</a>, <a href="#XREFtmpfile">tmpfile</a>.
+</p></dd></dl>
+
+
+<a name="XREFP_005ftmpdir"></a><dl>
+<dt><a name="index-P_005ftmpdir"></a>: <em></em> <strong>P_tmpdir</strong> <em>()</em></dt>
+<dd><p>Return the name of the host system&rsquo;s <strong>default</strong> directory for
+temporary files.
+</p>
+<p>Programming Note: The value returned by <code>P_tmpdir</code> is always the
+default location.  This value may not agree with that returned from
+<code>tempdir</code> if the user has overridden the default with the <code>TMPDIR</code>
+environment variable.
+</p>
+<p><strong>See also:</strong> <a href="#XREFtempdir">tempdir</a>, <a href="#XREFtempname">tempname</a>, <a href="#XREFmkstemp">mkstemp</a>, <a href="#XREFtmpfile">tmpfile</a>.
 </p></dd></dl>
 
 

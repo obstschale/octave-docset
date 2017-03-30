@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Simple Output</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Simple-Output"></a>
 <div class="header">
 <p>
@@ -72,10 +71,15 @@ fclose (fid);
 </pre></div>
 
 <a name="XREFfputs"></a><dl>
-<dt><a name="index-fputs"></a>Built-in Function: <em></em> <strong>fputs</strong> <em>(<var>fid</var>, <var>string</var>)</em></dt>
-<dd><p>Write a string to a file with no formatting.
+<dt><a name="index-fputs"></a>: <em></em> <strong>fputs</strong> <em>(<var>fid</var>, <var>string</var>)</em></dt>
+<dt><a name="index-fputs-1"></a>: <em><var>status</var> =</em> <strong>fputs</strong> <em>(<var>fid</var>, <var>string</var>)</em></dt>
+<dd><p>Write the string <var>string</var> to the file with file descriptor <var>fid</var>.
 </p>
-<p>Return a non-negative number on success and EOF on error.
+<p>The string is written to the file with no additional formatting.  Use
+<code>fdisp</code> instead to automatically append a newline character appropriate
+for the local machine.
+</p>
+<p>Return a non-negative number on success or EOF on error.
 </p>
 <p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
@@ -86,12 +90,16 @@ to the screen.  The <code>puts</code> function works just like <code>fputs</code
 except it doesn&rsquo;t take a file pointer as its input.
 </p>
 <a name="XREFputs"></a><dl>
-<dt><a name="index-puts"></a>Built-in Function: <em></em> <strong>puts</strong> <em>(<var>string</var>)</em></dt>
+<dt><a name="index-puts"></a>: <em></em> <strong>puts</strong> <em>(<var>string</var>)</em></dt>
+<dt><a name="index-puts-1"></a>: <em><var>status</var> =</em> <strong>puts</strong> <em>(<var>string</var>)</em></dt>
 <dd><p>Write a string to the standard output with no formatting.
+</p>
+<p>The string is written verbatim to the standard output.  Use <code>disp</code> to
+automatically append a newline character appropriate for the local machine.
 </p>
 <p>Return a non-negative number on success and EOF on error.
 </p>
-<p><strong>See also:</strong> <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Terminal-Output.html#XREFdisp">disp</a>.
+<p><strong>See also:</strong> <a href="#XREFfputs">fputs</a>, <a href="Terminal-Output.html#XREFdisp">disp</a>.
 </p></dd></dl>
 
 

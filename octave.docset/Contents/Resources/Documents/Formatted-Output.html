@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Formatted Output</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Formatted-Output"></a>
 <div class="header">
 <p>
@@ -66,8 +65,12 @@ modeled after the C language functions of the same name, but they
 interpret the format template differently in order to improve the
 performance of printing vector and matrix values.
 </p>
+<p>Implementation Note: For compatibility with <small>MATLAB</small>, escape sequences in
+the template string (e.g., <code>&quot;\n&quot;</code> =&gt; newline) are
+expanded even when the template string is defined with single quotes.
+</p>
 <a name="XREFprintf"></a><dl>
-<dt><a name="index-printf"></a>Built-in Function: <em></em> <strong>printf</strong> <em>(<var>template</var>, &hellip;)</em></dt>
+<dt><a name="index-printf"></a>: <em></em> <strong>printf</strong> <em>(<var>template</var>, &hellip;)</em></dt>
 <dd><p>Print optional arguments under the control of the template string
 <var>template</var> to the stream <code>stdout</code> and return the number of
 characters printed.
@@ -75,29 +78,48 @@ characters printed.
 <p>See the Formatted Output section of the GNU Octave manual for a
 complete description of the syntax of the template string.
 </p>
-<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="Formatted-Input.html#XREFscanf">scanf</a>.
+<p>Implementation Note: For compatibility with <small>MATLAB</small>, escape sequences in
+the template string (e.g., <code>&quot;\n&quot;</code> =&gt; newline) are
+expanded even when the template string is defined with single quotes.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfprintf">fprintf</a>, <a href="#XREFsprintf">sprintf</a>, <a href="Formatted-Input.html#XREFscanf">scanf</a>.
 </p></dd></dl>
 
 
 <a name="XREFfprintf"></a><dl>
-<dt><a name="index-fprintf"></a>Built-in Function: <em></em> <strong>fprintf</strong> <em>(<var>fid</var>, <var>template</var>, &hellip;)</em></dt>
-<dd><p>This function is just like <code>printf</code>, except that the output is
-written to the stream <var>fid</var> instead of <code>stdout</code>.
-If <var>fid</var> is omitted, the output is written to <code>stdout</code>.
+<dt><a name="index-fprintf"></a>: <em></em> <strong>fprintf</strong> <em>(<var>fid</var>, <var>template</var>, &hellip;)</em></dt>
+<dt><a name="index-fprintf-1"></a>: <em></em> <strong>fprintf</strong> <em>(<var>template</var>, &hellip;)</em></dt>
+<dt><a name="index-fprintf-2"></a>: <em><var>numbytes</var> =</em> <strong>fprintf</strong> <em>(&hellip;)</em></dt>
+<dd><p>This function is equivalent to <code>printf</code>, except that the output is
+written to the file descriptor <var>fid</var> instead of <code>stdout</code>.
 </p>
-<p><strong>See also:</strong> <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Formatted-Output.html#XREFprintf">printf</a>, <a href="Formatted-Output.html#XREFsprintf">sprintf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p>If <var>fid</var> is omitted, the output is written to <code>stdout</code> making the
+function exactly equivalent to <code>printf</code>.
+</p>
+<p>The optional output returns the number of bytes written to the file.
+</p>
+<p>Implementation Note: For compatibility with <small>MATLAB</small>, escape sequences in
+the template string (e.g., <code>&quot;\n&quot;</code> =&gt; newline) are
+expanded even when the template string is defined with single quotes.
+</p>
+<p><strong>See also:</strong> <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="#XREFprintf">printf</a>, <a href="#XREFsprintf">sprintf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFsprintf"></a><dl>
-<dt><a name="index-sprintf"></a>Built-in Function: <em></em> <strong>sprintf</strong> <em>(<var>template</var>, &hellip;)</em></dt>
+<dt><a name="index-sprintf"></a>: <em></em> <strong>sprintf</strong> <em>(<var>template</var>, &hellip;)</em></dt>
 <dd><p>This is like <code>printf</code>, except that the output is returned as a
-string.  Unlike the C library function, which requires you to provide a
-suitably sized string as an argument, Octave&rsquo;s <code>sprintf</code> function
-returns the string, automatically sized to hold all of the items
-converted.
+string.
 </p>
-<p><strong>See also:</strong> <a href="Formatted-Output.html#XREFprintf">printf</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Formatted-Input.html#XREFsscanf">sscanf</a>.
+<p>Unlike the C library function, which requires you to provide a suitably
+sized string as an argument, Octave&rsquo;s <code>sprintf</code> function returns the
+string, automatically sized to hold all of the items converted.
+</p>
+<p>Implementation Note: For compatibility with <small>MATLAB</small>, escape sequences in
+the template string (e.g., <code>&quot;\n&quot;</code> =&gt; newline) are
+expanded even when the template string is defined with single quotes.
+</p>
+<p><strong>See also:</strong> <a href="#XREFprintf">printf</a>, <a href="#XREFfprintf">fprintf</a>, <a href="Formatted-Input.html#XREFsscanf">sscanf</a>.
 </p></dd></dl>
 
 

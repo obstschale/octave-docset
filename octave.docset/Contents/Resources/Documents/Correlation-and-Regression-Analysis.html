@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Correlation and Regression Analysis</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Correlation-and-Regression-Analysis"></a>
 <div class="header">
 <p>
@@ -61,10 +60,10 @@ Next: <a href="Distributions.html#Distributions" accesskey="n" rel="next">Distri
 
 
 <a name="XREFcov"></a><dl>
-<dt><a name="index-cov"></a>Function File: <em></em> <strong>cov</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-cov-1"></a>Function File: <em></em> <strong>cov</strong> <em>(<var>x</var>, <var>opt</var>)</em></dt>
-<dt><a name="index-cov-2"></a>Function File: <em></em> <strong>cov</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-cov-3"></a>Function File: <em></em> <strong>cov</strong> <em>(<var>x</var>, <var>y</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-cov"></a>: <em></em> <strong>cov</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-cov-1"></a>: <em></em> <strong>cov</strong> <em>(<var>x</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-cov-2"></a>: <em></em> <strong>cov</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-cov-3"></a>: <em></em> <strong>cov</strong> <em>(<var>x</var>, <var>y</var>, <var>opt</var>)</em></dt>
 <dd><p>Compute the covariance matrix.
 </p>
 <p>If each row of <var>x</var> and <var>y</var> is an observation, and each column is
@@ -94,13 +93,22 @@ covariance [default]
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="Correlation-and-Regression-Analysis.html#XREFcorr">corr</a>.
+<p>Compatibility Note:: Octave always treats rows of <var>x</var> and <var>y</var>
+as multivariate random variables.
+For two inputs, however, <small>MATLAB</small> treats <var>x</var> and <var>y</var> as two
+univariate distributions regardless of their shapes, and will calculate
+<code>cov ([<var>x</var>(:), <var>y</var>(:)])</code> whenever the number of elements in
+<var>x</var> and <var>y</var> are equal.  This will result in a 2x2 matrix.
+Code relying on <small>MATLAB</small>&rsquo;s definition will need to be changed when
+running in Octave.
+</p>
+<p><strong>See also:</strong> <a href="#XREFcorr">corr</a>.
 </p></dd></dl>
 
 
 <a name="XREFcorr"></a><dl>
-<dt><a name="index-corr"></a>Function File: <em></em> <strong>corr</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-corr-1"></a>Function File: <em></em> <strong>corr</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-corr"></a>: <em></em> <strong>corr</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-corr-1"></a>: <em></em> <strong>corr</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Compute matrix of correlation coefficients.
 </p>
 <p>If each row of <var>x</var> and <var>y</var> is an observation and each column is
@@ -115,40 +123,40 @@ a variable, then the (<var>i</var>,&nbsp;<var>j</var><span class="nolinebreak">)
 <p>If called with one argument, compute <code>corr (<var>x</var>, <var>x</var>)</code>,
 the correlation between the columns of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Correlation-and-Regression-Analysis.html#XREFcov">cov</a>.
+<p><strong>See also:</strong> <a href="#XREFcov">cov</a>.
 </p></dd></dl>
 
 
 <a name="XREFspearman"></a><dl>
-<dt><a name="index-spearman"></a>Function File: <em></em> <strong>spearman</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-spearman-1"></a>Function File: <em></em> <strong>spearman</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-spearman"></a>: <em></em> <strong>spearman</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-spearman-1"></a>: <em></em> <strong>spearman</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><a name="index-Spearman_0027s-Rho"></a>
 <p>Compute Spearman&rsquo;s rank correlation coefficient <var>rho</var>.
 </p>
 <p>For two data vectors <var>x</var> and <var>y</var>, Spearman&rsquo;s <var>rho</var> is the
 correlation coefficient of the ranks of <var>x</var> and <var>y</var>.
 </p>
-<p>If <var>x</var> and <var>y</var> are drawn from independent distributions,
-<var>rho</var> has zero mean and variance <code>1 / (n - 1)</code>, and is
-asymptotically normally distributed.
+<p>If <var>x</var> and <var>y</var> are drawn from independent distributions, <var>rho</var>
+has zero mean and variance <code>1 / (n - 1)</code>, and is asymptotically
+normally distributed.
 </p>
-<p><code>spearman (<var>x</var>)</code> is equivalent to <code>spearman (<var>x</var>,
-<var>x</var>)</code>.
+<p><code>spearman (<var>x</var>)</code> is equivalent to
+<code>spearman (<var>x</var>, <var>x</var>)</code>.
 </p>
-<p><strong>See also:</strong> <a href="Basic-Statistical-Functions.html#XREFranks">ranks</a>, <a href="Correlation-and-Regression-Analysis.html#XREFkendall">kendall</a>.
+<p><strong>See also:</strong> <a href="Basic-Statistical-Functions.html#XREFranks">ranks</a>, <a href="#XREFkendall">kendall</a>.
 </p></dd></dl>
 
 
 <a name="XREFkendall"></a><dl>
-<dt><a name="index-kendall"></a>Function File: <em></em> <strong>kendall</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-kendall-1"></a>Function File: <em></em> <strong>kendall</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-kendall"></a>: <em></em> <strong>kendall</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-kendall-1"></a>: <em></em> <strong>kendall</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><a name="index-Kendall_0027s-Tau"></a>
 <p>Compute Kendall&rsquo;s <var>tau</var>.
 </p>
-<p>For two data vectors <var>x</var>, <var>y</var> of common length <var>n</var>,
-Kendall&rsquo;s <var>tau</var> is the correlation of the signs of all rank
-differences of <var>x</var> and <var>y</var>; i.e., if both <var>x</var> and
-<var>y</var> have distinct entries, then
+<p>For two data vectors <var>x</var>, <var>y</var> of common length <var>n</var>, Kendall&rsquo;s
+<var>tau</var> is the correlation of the signs of all rank differences of
+<var>x</var> and <var>y</var>; i.e., if both <var>x</var> and <var>y</var> have distinct
+entries, then
 </p>
 
 <div class="example">
@@ -168,14 +176,14 @@ Kendall&rsquo;s <var>tau</var> is asymptotically normal with mean 0 and variance
 <p><code>kendall (<var>x</var>)</code> is equivalent to <code>kendall (<var>x</var>,
 <var>x</var>)</code>.
 </p>
-<p><strong>See also:</strong> <a href="Basic-Statistical-Functions.html#XREFranks">ranks</a>, <a href="Correlation-and-Regression-Analysis.html#XREFspearman">spearman</a>.
+<p><strong>See also:</strong> <a href="Basic-Statistical-Functions.html#XREFranks">ranks</a>, <a href="#XREFspearman">spearman</a>.
 </p></dd></dl>
 
 
 
 
 <a name="XREFlogistic_005fregression"></a><dl>
-<dt><a name="index-logistic_005fregression"></a>Function File: <em>[<var>theta</var>, <var>beta</var>, <var>dev</var>, <var>dl</var>, <var>d2l</var>, <var>p</var>] =</em> <strong>logistic_regression</strong> <em>(<var>y</var>, <var>x</var>, <var>print</var>, <var>theta</var>, <var>beta</var>)</em></dt>
+<dt><a name="index-logistic_005fregression"></a>: <em>[<var>theta</var>, <var>beta</var>, <var>dev</var>, <var>dl</var>, <var>d2l</var>, <var>p</var>] =</em> <strong>logistic_regression</strong> <em>(<var>y</var>, <var>x</var>, <var>print</var>, <var>theta</var>, <var>beta</var>)</em></dt>
 <dd><p>Perform ordinal logistic regression.
 </p>
 <p>Suppose <var>y</var> takes values in <var>k</var> ordered categories, and let

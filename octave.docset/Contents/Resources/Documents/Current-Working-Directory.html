@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Current Working Directory</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Current-Working-Directory"></a>
 <div class="header">
 <p>
@@ -60,10 +59,10 @@ Next: <a href="Password-Database-Functions.html#Password-Database-Functions" acc
 <h3 class="section">36.8 Current Working Directory</h3>
 
 <a name="XREFcd"></a><dl>
-<dt><a name="index-cd-3"></a>Command: <em></em> <strong>cd</strong> <em><var>dir</var></em></dt>
-<dt><a name="index-cd-4"></a>Command: <em></em> <strong>cd</strong></dt>
-<dt><a name="index-cd-5"></a>Built-in Function: <em><var>old_dir</var> =</em> <strong>cd</strong> <em><var>dir</var></em></dt>
-<dt><a name="index-chdir-1"></a>Command: <em></em> <strong>chdir</strong> <em>&hellip;</em></dt>
+<dt><a name="index-cd-2"></a>: <em></em> <strong>cd</strong> <em><var>dir</var></em></dt>
+<dt><a name="index-cd-3"></a>: <em></em> <strong>cd</strong></dt>
+<dt><a name="index-cd-4"></a>: <em><var>old_dir</var> =</em> <strong>cd</strong> <em>(<var>dir</var>)</em></dt>
+<dt><a name="index-chdir"></a>: <em></em> <strong>chdir</strong> <em>&hellip;</em></dt>
 <dd><p>Change the current working directory to <var>dir</var>.
 </p>
 <p>If <var>dir</var> is omitted, the current directory is changed to the user&rsquo;s home
@@ -85,16 +84,32 @@ calling formats.
 <p>Compatibility Note: When called with no arguments, <small>MATLAB</small> prints the
 present working directory rather than changing to the user&rsquo;s home directory.
 </p>
-<p><strong>See also:</strong> <a href="Current-Working-Directory.html#XREFpwd">pwd</a>, <a href="Filesystem-Utilities.html#XREFmkdir">mkdir</a>, <a href="Filesystem-Utilities.html#XREFrmdir">rmdir</a>, <a href="Current-Working-Directory.html#XREFdir">dir</a>, <a href="Current-Working-Directory.html#XREFls">ls</a>.
+<p><strong>See also:</strong> <a href="#XREFpwd">pwd</a>, <a href="Filesystem-Utilities.html#XREFmkdir">mkdir</a>, <a href="Filesystem-Utilities.html#XREFrmdir">rmdir</a>, <a href="#XREFdir">dir</a>, <a href="#XREFls">ls</a>.
 </p></dd></dl>
 
 
 <a name="XREFls"></a><dl>
-<dt><a name="index-ls"></a>Command: <em></em> <strong>ls</strong></dt>
-<dt><a name="index-ls-1"></a>Command: <em></em> <strong>ls</strong> <em>filenames</em></dt>
-<dt><a name="index-ls-2"></a>Command: <em></em> <strong>ls</strong> <em>options</em></dt>
-<dt><a name="index-ls-3"></a>Command: <em></em> <strong>ls</strong> <em>options filenames</em></dt>
-<dd><p>List directory contents.  For example:
+<dt><a name="index-ls"></a>: <em></em> <strong>ls</strong></dt>
+<dt><a name="index-ls-1"></a>: <em></em> <strong>ls</strong> <em><var>filenames</var></em></dt>
+<dt><a name="index-ls-2"></a>: <em></em> <strong>ls</strong> <em><var>options</var></em></dt>
+<dt><a name="index-ls-3"></a>: <em></em> <strong>ls</strong> <em><var>options</var> <var>filenames</var></em></dt>
+<dt><a name="index-ls-4"></a>: <em><var>list</var> =</em> <strong>ls</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>List directory contents.
+</p>
+<p>The <code>ls</code> command is implemented by calling the native operating
+system&rsquo;s directory listing command&mdash;available <var>options</var> will vary from
+system to system.
+</p>
+<p>Filenames are subject to shell expansion if they contain any wildcard
+characters &lsquo;<samp>*</samp>&rsquo;, &lsquo;<samp>?</samp>&rsquo;, &lsquo;<samp>[]</samp>&rsquo;.  To find a literal example of a
+wildcard character the wildcard must be escaped using the backslash operator
+&lsquo;<samp>\</samp>&rsquo;.
+</p>
+<p>If the optional output <var>list</var> is requested then <code>ls</code> returns a
+character array with one row for each file/directory name.
+</p>
+<p>Example usage on a UNIX-like system:
 </p>
 <div class="example">
 <pre class="example">ls -l
@@ -103,32 +118,24 @@ present working directory rather than changing to the user&rsquo;s home director
      -| -rw-r--r--   1 jwe  users  1315 Aug 17 23:14 bar.m
 </pre></div>
 
-<p>The <code>dir</code> and <code>ls</code> commands are implemented by calling your
-system&rsquo;s directory listing command, so the available options will vary
-from system to system.
-</p>
-<p>Filenames are subject to shell expansion if they contain any wildcard
-characters &lsquo;<samp>*</samp>&rsquo;, &lsquo;<samp>?</samp>&rsquo;, &lsquo;<samp>[]</samp>&rsquo;.  If you want to find a
-literal example of a wildcard character you must escape it using the
-backslash operator &lsquo;<samp>\</samp>&rsquo;.
-</p>
-<p><strong>See also:</strong> <a href="Current-Working-Directory.html#XREFdir">dir</a>, <a href="Filesystem-Utilities.html#XREFreaddir">readdir</a>, <a href="Filesystem-Utilities.html#XREFglob">glob</a>, <a href="Status-of-Variables.html#XREFwhat">what</a>, <a href="Filesystem-Utilities.html#XREFstat">stat</a>, <a href="Filesystem-Utilities.html#XREFfilesep">filesep</a>, <a href="Current-Working-Directory.html#XREFls_005fcommand">ls_command</a>.
+
+<p><strong>See also:</strong> <a href="#XREFdir">dir</a>, <a href="Filesystem-Utilities.html#XREFreaddir">readdir</a>, <a href="Filesystem-Utilities.html#XREFglob">glob</a>, <a href="Status-of-Variables.html#XREFwhat">what</a>, <a href="Filesystem-Utilities.html#XREFstat">stat</a>, <a href="Filesystem-Utilities.html#XREFfilesep">filesep</a>, <a href="#XREFls_005fcommand">ls_command</a>.
 </p></dd></dl>
 
 
 <a name="XREFls_005fcommand"></a><dl>
-<dt><a name="index-ls_005fcommand"></a>Function File: <em><var>val</var> =</em> <strong>ls_command</strong> <em>()</em></dt>
-<dt><a name="index-ls_005fcommand-1"></a>Function File: <em><var>old_val</var> =</em> <strong>ls_command</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-ls_005fcommand"></a>: <em><var>val</var> =</em> <strong>ls_command</strong> <em>()</em></dt>
+<dt><a name="index-ls_005fcommand-1"></a>: <em><var>old_val</var> =</em> <strong>ls_command</strong> <em>(<var>new_val</var>)</em></dt>
 <dd><p>Query or set the shell command used by Octave&rsquo;s <code>ls</code> command.
 </p>
-<p><strong>See also:</strong> <a href="Current-Working-Directory.html#XREFls">ls</a>.
+<p><strong>See also:</strong> <a href="#XREFls">ls</a>.
 </p></dd></dl>
 
 
 <a name="XREFdir"></a><dl>
-<dt><a name="index-dir-1"></a>Function File: <em></em> <strong>dir</strong></dt>
-<dt><a name="index-dir-2"></a>Function File: <em></em> <strong>dir</strong> <em>(<var>directory</var>)</em></dt>
-<dt><a name="index-dir-3"></a>Function File: <em>[<var>list</var>] =</em> <strong>dir</strong> <em>(<var>directory</var>)</em></dt>
+<dt><a name="index-dir-1"></a>: <em></em> <strong>dir</strong></dt>
+<dt><a name="index-dir-2"></a>: <em></em> <strong>dir</strong> <em>(<var>directory</var>)</em></dt>
+<dt><a name="index-dir-3"></a>: <em>[<var>list</var>] =</em> <strong>dir</strong> <em>(<var>directory</var>)</em></dt>
 <dd><p>Display file listing for directory <var>directory</var>.
 </p>
 <p>If <var>directory</var> is not specified then list the present working directory.
@@ -166,25 +173,25 @@ information about the named file.  <var>directory</var> may also be a list rathe
 than a single directory or file.
 </p>
 <p><var>directory</var> is subject to shell expansion if it contains any wildcard
-characters &lsquo;<samp>*</samp>&rsquo;, &lsquo;<samp>?</samp>&rsquo;, &lsquo;<samp>[]</samp>&rsquo;.  If you want to find a
-literal example of a wildcard character you must escape it using the
-backslash operator &lsquo;<samp>\</samp>&rsquo;.
+characters &lsquo;<samp>*</samp>&rsquo;, &lsquo;<samp>?</samp>&rsquo;, &lsquo;<samp>[]</samp>&rsquo;.  To find a literal example of a
+wildcard character the wildcard must be escaped using the backslash operator
+&lsquo;<samp>\</samp>&rsquo;.
 </p>
-<p>Note that for symbolic links, <code>dir</code> returns information about
-the file that the symbolic link points to rather than the link itself.
+<p>Note that for symbolic links, <code>dir</code> returns information about the
+file that the symbolic link points to rather than the link itself.
 However, if the link points to a nonexistent file, <code>dir</code> returns
 information about the link.
 </p>
-<p><strong>See also:</strong> <a href="Current-Working-Directory.html#XREFls">ls</a>, <a href="Filesystem-Utilities.html#XREFreaddir">readdir</a>, <a href="Filesystem-Utilities.html#XREFglob">glob</a>, <a href="Status-of-Variables.html#XREFwhat">what</a>, <a href="Filesystem-Utilities.html#XREFstat">stat</a>.
+<p><strong>See also:</strong> <a href="#XREFls">ls</a>, <a href="Filesystem-Utilities.html#XREFreaddir">readdir</a>, <a href="Filesystem-Utilities.html#XREFglob">glob</a>, <a href="Status-of-Variables.html#XREFwhat">what</a>, <a href="Filesystem-Utilities.html#XREFstat">stat</a>, <a href="Filesystem-Utilities.html#XREFlstat">lstat</a>.
 </p></dd></dl>
 
 
 <a name="XREFpwd"></a><dl>
-<dt><a name="index-pwd"></a>Built-in Function: <em></em> <strong>pwd</strong> <em>()</em></dt>
-<dt><a name="index-pwd-1"></a>Built-in Function: <em><var>dir</var> =</em> <strong>pwd</strong> <em>()</em></dt>
+<dt><a name="index-pwd"></a>: <em></em> <strong>pwd</strong> <em>()</em></dt>
+<dt><a name="index-pwd-1"></a>: <em><var>dir</var> =</em> <strong>pwd</strong> <em>()</em></dt>
 <dd><p>Return the current working directory.
 </p>
-<p><strong>See also:</strong> <a href="Current-Working-Directory.html#XREFcd">cd</a>, <a href="Current-Working-Directory.html#XREFdir">dir</a>, <a href="Current-Working-Directory.html#XREFls">ls</a>, <a href="Filesystem-Utilities.html#XREFmkdir">mkdir</a>, <a href="Filesystem-Utilities.html#XREFrmdir">rmdir</a>.
+<p><strong>See also:</strong> <a href="#XREFcd">cd</a>, <a href="#XREFdir">dir</a>, <a href="#XREFls">ls</a>, <a href="Filesystem-Utilities.html#XREFmkdir">mkdir</a>, <a href="Filesystem-Utilities.html#XREFrmdir">rmdir</a>.
 </p></dd></dl>
 
 

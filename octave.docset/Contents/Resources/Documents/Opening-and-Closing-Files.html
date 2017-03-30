@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Opening and Closing Files</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Opening-and-Closing-Files"></a>
 <div class="header">
 <p>
@@ -75,10 +74,15 @@ fclose (fid);
 </pre></div>
 
 <a name="XREFfopen"></a><dl>
-<dt><a name="index-fopen"></a>Built-in Function: <em>[<var>fid</var>, <var>msg</var>] =</em> <strong>fopen</strong> <em>(<var>name</var>, <var>mode</var>, <var>arch</var>)</em></dt>
-<dt><a name="index-fopen-1"></a>Built-in Function: <em><var>fid_list</var> =</em> <strong>fopen</strong> <em>(&quot;all&quot;)</em></dt>
-<dt><a name="index-fopen-2"></a>Built-in Function: <em>[<var>file</var>, <var>mode</var>, <var>arch</var>] =</em> <strong>fopen</strong> <em>(<var>fid</var>)</em></dt>
-<dd><p>The first form of the <code>fopen</code> function opens the named file with
+<dt><a name="index-fopen"></a>: <em><var>fid</var> =</em> <strong>fopen</strong> <em>(<var>name</var>)</em></dt>
+<dt><a name="index-fopen-1"></a>: <em><var>fid</var> =</em> <strong>fopen</strong> <em>(<var>name</var>, <var>mode</var>)</em></dt>
+<dt><a name="index-fopen-2"></a>: <em><var>fid</var> =</em> <strong>fopen</strong> <em>(<var>name</var>, <var>mode</var>, <var>arch</var>)</em></dt>
+<dt><a name="index-fopen-3"></a>: <em>[<var>fid</var>, <var>msg</var>] =</em> <strong>fopen</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-fopen-4"></a>: <em><var>fid_list</var> =</em> <strong>fopen</strong> <em>(&quot;all&quot;)</em></dt>
+<dt><a name="index-fopen-5"></a>: <em>[<var>file</var>, <var>mode</var>, <var>arch</var>] =</em> <strong>fopen</strong> <em>(<var>fid</var>)</em></dt>
+<dd><p>Open a file for low-level I/O or query open files and file descriptors.
+</p>
+<p>The first form of the <code>fopen</code> function opens the named file with
 the specified mode (read-write, read-only, etc.) and architecture
 interpretation (IEEE big endian, IEEE little endian, etc.), and returns
 an integer value that may be used to refer to the file later.  If an
@@ -113,7 +117,7 @@ produce unexpected results.
 <p>The possible values &lsquo;<samp>mode</samp>&rsquo; may have are
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>r</samp>&rsquo;</dt>
+<dt>&lsquo;<samp>r</samp>&rsquo; (default)</dt>
 <dd><p>Open a file for reading.
 </p>
 </dd>
@@ -141,10 +145,10 @@ file.
 </dl>
 
 <p>Append a <code>&quot;t&quot;</code> to the mode string to open the file in text mode or a
-<code>&quot;b&quot;</code> to open in binary mode.  On Windows and Macintosh systems, text
-mode reading and writing automatically converts linefeeds to the
-appropriate line end character for the system (carriage-return linefeed
-on Windows, carriage-return on Macintosh).  The default if no mode is
+<code>&quot;b&quot;</code> to open in binary mode.  On Windows and Macintosh systems,
+text mode reading and writing automatically converts linefeeds to the
+appropriate line end character for the system (carriage-return linefeed on
+Windows, carriage-return on Macintosh).  The default when no mode is
 specified is binary mode.
 </p>
 <p>Additionally, you may append a <code>&quot;z&quot;</code> to the mode string to open a
@@ -155,42 +159,49 @@ must also open the file in binary mode.
 for the file.  Valid values for <var>arch</var> are:
 </p>
 <dl compact="compact">
-<dt>&lsquo;<samp>native</samp>&rsquo;</dt>
-<dd><p>The format of the current machine (this is the default).
+<dt><code>&quot;native&quot;</code> or <code>&quot;n&quot;</code> (default)</dt>
+<dd><p>The format of the current machine.
 </p>
 </dd>
-<dt>&lsquo;<samp>ieee-be</samp>&rsquo;</dt>
+<dt><code>&quot;ieee-be&quot;</code> or <code>&quot;b&quot;</code></dt>
 <dd><p>IEEE big endian format.
 </p>
 </dd>
-<dt>&lsquo;<samp>ieee-le</samp>&rsquo;</dt>
+<dt><code>&quot;ieee-le&quot;</code> or <code>&quot;l&quot;</code></dt>
 <dd><p>IEEE little endian format.
 </p></dd>
 </dl>
 
-<p>however, conversions are currently only supported for &lsquo;<samp>native</samp>&rsquo;
+<p>However, conversions are currently only supported for &lsquo;<samp>native</samp>&rsquo;,
 &lsquo;<samp>ieee-be</samp>&rsquo;, and &lsquo;<samp>ieee-le</samp>&rsquo; formats.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="EOF-and-Errors.html#XREFferror">ferror</a>, <a href="EOF-and-Errors.html#XREFfclear">fclear</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>.
+<p>When opening a new file that does not yet exist, permissions will be set to
+<code>0666 - <var>umask</var></code>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfclose">fclose</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="EOF-and-Errors.html#XREFferror">ferror</a>, <a href="EOF-and-Errors.html#XREFfclear">fclear</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>, <a href="Filesystem-Utilities.html#XREFumask">umask</a>.
 </p></dd></dl>
 
 
 <a name="XREFfclose"></a><dl>
-<dt><a name="index-fclose"></a>Built-in Function: <em></em> <strong>fclose</strong> <em>(<var>fid</var>)</em></dt>
-<dt><a name="index-fclose-1"></a>Built-in Function: <em></em> <strong>fclose</strong> <em>(&quot;all&quot;)</em></dt>
-<dd><p>Close the specified file.  If successful, <code>fclose</code> returns 0,
-otherwise, it returns -1.  The second form of the <code>fclose</code> call closes
-all open files except <code>stdout</code>, <code>stderr</code>, and <code>stdin</code>.
+<dt><a name="index-fclose"></a>: <em></em> <strong>fclose</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-fclose-1"></a>: <em></em> <strong>fclose</strong> <em>(&quot;all&quot;)</em></dt>
+<dt><a name="index-fclose-2"></a>: <em><var>status</var> =</em> <strong>fclose</strong> <em>(&quot;all&quot;)</em></dt>
+<dd><p>Close the file specified by the file descriptor <var>fid</var>.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>.
+<p>If successful, <code>fclose</code> returns 0, otherwise, it returns -1.  The
+second form of the <code>fclose</code> call closes all open files except
+<code>stdin</code>, <code>stdout</code>, <code>stderr</code>, and any FIDs associated
+with gnuplot.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfopen">fopen</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>.
 </p></dd></dl>
 
 
 <a name="XREFis_005fvalid_005ffile_005fid"></a><dl>
-<dt><a name="index-is_005fvalid_005ffile_005fid"></a>Function File: <em></em> <strong>is_valid_file_id</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-is_005fvalid_005ffile_005fid"></a>: <em></em> <strong>is_valid_file_id</strong> <em>(<var>fid</var>)</em></dt>
 <dd><p>Return true if <var>fid</var> refers to an open file.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="EOF-and-Errors.html#XREFfreport">freport</a>, <a href="#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 

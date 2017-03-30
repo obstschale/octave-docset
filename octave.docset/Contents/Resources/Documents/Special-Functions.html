@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Special Functions</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Special-Functions"></a>
 <div class="header">
 <p>
@@ -60,9 +59,8 @@ Next: <a href="Rational-Approximations.html#Rational-Approximations" accesskey="
 <h3 class="section">17.6 Special Functions</h3>
 
 <a name="XREFairy"></a><dl>
-<dt><a name="index-airy"></a>Built-in Function: <em>[<var>a</var>, <var>ierr</var>] =</em> <strong>airy</strong> <em>(<var>k</var>, <var>z</var>, <var>opt</var>)</em></dt>
-<dd><p>Compute Airy functions of the first and second kind, and their
-derivatives.
+<dt><a name="index-airy"></a>: <em>[<var>a</var>, <var>ierr</var>] =</em> <strong>airy</strong> <em>(<var>k</var>, <var>z</var>, <var>opt</var>)</em></dt>
+<dd><p>Compute Airy functions of the first and second kind, and their derivatives.
 </p>
 <div class="example">
 <pre class="example"> K   Function   Scale factor (if &quot;opt&quot; is supplied)
@@ -100,39 +98,39 @@ return <code>NaN</code>.
 
 
 <a name="XREFbesselj"></a><dl>
-<dt><a name="index-besselj"></a>Built-in Function: <em>[<var>j</var>, <var>ierr</var>] =</em> <strong>besselj</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
-<dt><a name="index-bessely"></a>Built-in Function: <em>[<var>y</var>, <var>ierr</var>] =</em> <strong>bessely</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
-<dt><a name="index-besseli"></a>Built-in Function: <em>[<var>i</var>, <var>ierr</var>] =</em> <strong>besseli</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
-<dt><a name="index-besselk"></a>Built-in Function: <em>[<var>k</var>, <var>ierr</var>] =</em> <strong>besselk</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
-<dt><a name="index-besselh"></a>Built-in Function: <em>[<var>h</var>, <var>ierr</var>] =</em> <strong>besselh</strong> <em>(<var>alpha</var>, <var>k</var>, <var>x</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-besselj"></a>: <em>[<var>j</var>, <var>ierr</var>] =</em> <strong>besselj</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-bessely"></a>: <em>[<var>y</var>, <var>ierr</var>] =</em> <strong>bessely</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-besseli"></a>: <em>[<var>i</var>, <var>ierr</var>] =</em> <strong>besseli</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-besselk"></a>: <em>[<var>k</var>, <var>ierr</var>] =</em> <strong>besselk</strong> <em>(<var>alpha</var>, <var>x</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-besselh"></a>: <em>[<var>h</var>, <var>ierr</var>] =</em> <strong>besselh</strong> <em>(<var>alpha</var>, <var>k</var>, <var>x</var>, <var>opt</var>)</em></dt>
 <dd><p>Compute Bessel or Hankel functions of various kinds:
 </p>
 <dl compact="compact">
 <dt><code>besselj</code></dt>
-<dd><p>Bessel functions of the first kind.  If the argument <var>opt</var> is supplied,
-the result is multiplied by <code>exp (-abs (imag (<var>x</var>)))</code>.
+<dd><p>Bessel functions of the first kind.  If the argument <var>opt</var> is 1 or true,
+the result is multiplied by <code>exp&nbsp;<span class="nolinebreak">(-abs</span>&nbsp;(imag&nbsp;(<var>x</var>)))</code><!-- /@w -->.
 </p>
 </dd>
 <dt><code>bessely</code></dt>
-<dd><p>Bessel functions of the second kind.  If the argument <var>opt</var> is supplied,
-the result is multiplied by <code>exp (-abs (imag (<var>x</var>)))</code>.
+<dd><p>Bessel functions of the second kind.  If the argument <var>opt</var> is 1 or
+true, the result is multiplied by <code>exp (-abs (imag (<var>x</var>)))</code>.
 </p>
 </dd>
 <dt><code>besseli</code></dt>
 <dd>
-<p>Modified Bessel functions of the first kind.  If the argument <var>opt</var> is
-supplied, the result is multiplied by <code>exp (-abs (real (<var>x</var>)))</code>.
+<p>Modified Bessel functions of the first kind.  If the argument <var>opt</var> is 1
+or true, the result is multiplied by <code>exp (-abs (real (<var>x</var>)))</code>.
 </p>
 </dd>
 <dt><code>besselk</code></dt>
 <dd>
 <p>Modified Bessel functions of the second kind.  If the argument <var>opt</var> is
-supplied, the result is multiplied by <code>exp (<var>x</var>)</code>.
+1 or true, the result is multiplied by <code>exp (<var>x</var>)</code>.
 </p>
 </dd>
 <dt><code>besselh</code></dt>
 <dd><p>Compute Hankel functions of the first (<var>k</var> = 1) or second (<var>k</var>
-= 2) kind.  If the argument <var>opt</var> is supplied, the result is multiplied
+= 2) kind.  If the argument <var>opt</var> is 1 or true, the result is multiplied
 by <code>exp (-I*<var>x</var>)</code> for <var>k</var> = 1 or <code>exp (I*<var>x</var>)</code> for
 <var>k</var> = 2.
 </p></dd>
@@ -170,21 +168,30 @@ return <code>NaN</code>.
 
 
 <a name="XREFbeta"></a><dl>
-<dt><a name="index-beta"></a>Mapping Function: <em></em> <strong>beta</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd><p>For real inputs, return the Beta function,
+<dt><a name="index-beta"></a>: <em></em> <strong>beta</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Compute the Beta function for real inputs <var>a</var> and <var>b</var>.
+</p>
+<p>The Beta function definition is
 </p>
 <div class="example">
 <pre class="example">beta (a, b) = gamma (a) * gamma (b) / gamma (a + b).
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbetaln">betaln</a>, <a href="Special-Functions.html#XREFbetainc">betainc</a>.
+<p>The Beta function can grow quite large and it is often more useful to work
+with the logarithm of the output rather than the function directly.
+See <a href="#XREFbetaln">betaln</a>, for computing the logarithm of the Beta function
+in an efficient manner.
+</p>
+<p><strong>See also:</strong> <a href="#XREFbetaln">betaln</a>, <a href="#XREFbetainc">betainc</a>, <a href="#XREFbetaincinv">betaincinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFbetainc"></a><dl>
-<dt><a name="index-betainc"></a>Mapping Function: <em></em> <strong>betainc</strong> <em>(<var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
-<dd><p>Return the regularized incomplete Beta function,
+<dt><a name="index-betainc"></a>: <em></em> <strong>betainc</strong> <em>(<var>x</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Compute the regularized incomplete Beta function.
+</p>
+<p>The regularized incomplete Beta function is defined by
 </p>
 <div class="smallexample">
 <pre class="smallexample">                                   x
@@ -199,38 +206,46 @@ betainc (x, a, b) = -----------   | t^(a-1) (1-t)^(b-1) dt.
 scalars.  If <var>x</var> is a scalar, <var>a</var> and <var>b</var> must be of
 compatible dimensions.
 </p>
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbetaincinv">betaincinv</a>, <a href="Special-Functions.html#XREFbeta">beta</a>, <a href="Special-Functions.html#XREFbetaln">betaln</a>.
+<p><strong>See also:</strong> <a href="#XREFbetaincinv">betaincinv</a>, <a href="#XREFbeta">beta</a>, <a href="#XREFbetaln">betaln</a>.
 </p></dd></dl>
 
 
 <a name="XREFbetaincinv"></a><dl>
-<dt><a name="index-betaincinv"></a>Mapping Function: <em></em> <strong>betaincinv</strong> <em>(<var>y</var>, <var>a</var>, <var>b</var>)</em></dt>
-<dd><p>Compute the inverse of the incomplete Beta function, i.e., <var>x</var> such that
+<dt><a name="index-betaincinv"></a>: <em></em> <strong>betaincinv</strong> <em>(<var>y</var>, <var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Compute the inverse of the incomplete Beta function.
+</p>
+<p>The inverse is the value <var>x</var> such that
 </p>
 <div class="example">
 <pre class="example"><var>y</var> == betainc (<var>x</var>, <var>a</var>, <var>b</var>)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbetainc">betainc</a>, <a href="Special-Functions.html#XREFbeta">beta</a>, <a href="Special-Functions.html#XREFbetaln">betaln</a>.
+<p><strong>See also:</strong> <a href="#XREFbetainc">betainc</a>, <a href="#XREFbeta">beta</a>, <a href="#XREFbetaln">betaln</a>.
 </p></dd></dl>
 
 
 <a name="XREFbetaln"></a><dl>
-<dt><a name="index-betaln"></a>Mapping Function: <em></em> <strong>betaln</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
-<dd><p>Return the natural logarithm of the Beta function,
+<dt><a name="index-betaln"></a>: <em></em> <strong>betaln</strong> <em>(<var>a</var>, <var>b</var>)</em></dt>
+<dd><p>Compute the natural logarithm of the Beta function for real inputs <var>a</var>
+and <var>b</var>.
+</p>
+<p><code>betaln</code> is defined as
 </p>
 <div class="example">
 <pre class="example">betaln (a, b) = log (beta (a, b))
 </pre></div>
 
-<p>calculated in a way to reduce the occurrence of underflow.
+<p>and is calculated in a way to reduce the occurrence of underflow.
 </p>
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbeta">beta</a>, <a href="Special-Functions.html#XREFbetainc">betainc</a>, <a href="Special-Functions.html#XREFgammaln">gammaln</a>.
+<p>The Beta function can grow quite large and it is often more useful to work
+with the logarithm of the output rather than the function directly.
+</p>
+<p><strong>See also:</strong> <a href="#XREFbeta">beta</a>, <a href="#XREFbetainc">betainc</a>, <a href="#XREFbetaincinv">betaincinv</a>, <a href="#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 
 <a name="XREFbincoeff"></a><dl>
-<dt><a name="index-bincoeff"></a>Mapping Function: <em></em> <strong>bincoeff</strong> <em>(<var>n</var>, <var>k</var>)</em></dt>
+<dt><a name="index-bincoeff"></a>: <em></em> <strong>bincoeff</strong> <em>(<var>n</var>, <var>k</var>)</em></dt>
 <dd><p>Return the binomial coefficient of <var>n</var> and <var>k</var>, defined as
 </p>
 <div class="example">
@@ -258,61 +273,63 @@ big arguments.
 
 
 <a name="XREFcommutation_005fmatrix"></a><dl>
-<dt><a name="index-commutation_005fmatrix"></a>Function File: <em></em> <strong>commutation_matrix</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
+<dt><a name="index-commutation_005fmatrix"></a>: <em></em> <strong>commutation_matrix</strong> <em>(<var>m</var>, <var>n</var>)</em></dt>
 <dd><p>Return the commutation matrix
- K(m,n)
- which is the unique
+K(m,n)
+which is the unique
 <var>m</var>*<var>n</var> by <var>m</var>*<var>n</var>
- matrix such that
+matrix such that
 <em>K(m,n) * vec(A) = vec(A')</em>
- for all
+for all
 <em>m</em> by <em>n</em>
- matrices
+matrices
 <em>A</em>.
 </p>
 <p>If only one argument <var>m</var> is given,
 <em>K(m,m)</em>
- is returned.
+is returned.
 </p>
-<p>See Magnus and Neudecker (1988), <cite>Matrix Differential Calculus with
-Applications in Statistics and Econometrics.</cite>
+<p>See Magnus and Neudecker (1988), <cite>Matrix Differential
+Calculus with Applications in Statistics and Econometrics.</cite>
 </p></dd></dl>
 
 
 <a name="XREFduplication_005fmatrix"></a><dl>
-<dt><a name="index-duplication_005fmatrix"></a>Function File: <em></em> <strong>duplication_matrix</strong> <em>(<var>n</var>)</em></dt>
+<dt><a name="index-duplication_005fmatrix"></a>: <em></em> <strong>duplication_matrix</strong> <em>(<var>n</var>)</em></dt>
 <dd><p>Return the duplication matrix
 <em>Dn</em>
- which is the unique
+which is the unique
 <em>n^2</em> by <em>n*(n+1)/2</em>
- matrix such that
+matrix such that
 <em>Dn vech (A) = vec (A)</em>
- for all symmetric
+for all symmetric
 <em>n</em> by <em>n</em>
- matrices
+matrices
 <em>A</em>.
 </p>
-<p>See Magnus and Neudecker (1988), Matrix differential calculus with
-applications in statistics and econometrics.
+<p>See Magnus and Neudecker (1988), <cite>Matrix Differential
+Calculus with Applications in Statistics and Econometrics.</cite>
 </p></dd></dl>
 
 
 <a name="XREFdawson"></a><dl>
-<dt><a name="index-dawson"></a>Mapping Function: <em></em> <strong>dawson</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Compute the Dawson (scaled imaginary error) function,
+<dt><a name="index-dawson"></a>: <em></em> <strong>dawson</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Compute the Dawson (scaled imaginary error) function.
+</p>
+<p>The Dawson function is defined as
 </p>
 <div class="example">
 <pre class="example">(sqrt (pi) / 2) * exp (-z^2) * erfi (z)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFellipj"></a><dl>
-<dt><a name="index-ellipj"></a>Built-in Function: <em>[<var>sn</var>, <var>cn</var>, <var>dn</var>, <var>err</var>] =</em> <strong>ellipj</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
-<dt><a name="index-ellipj-1"></a>Built-in Function: <em>[<var>sn</var>, <var>cn</var>, <var>dn</var>, <var>err</var>] =</em> <strong>ellipj</strong> <em>(<var>u</var>, <var>m</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-ellipj"></a>: <em>[<var>sn</var>, <var>cn</var>, <var>dn</var>, <var>err</var>] =</em> <strong>ellipj</strong> <em>(<var>u</var>, <var>m</var>)</em></dt>
+<dt><a name="index-ellipj-1"></a>: <em>[<var>sn</var>, <var>cn</var>, <var>dn</var>, <var>err</var>] =</em> <strong>ellipj</strong> <em>(<var>u</var>, <var>m</var>, <var>tol</var>)</em></dt>
 <dd><p>Compute the Jacobi elliptic functions <var>sn</var>, <var>cn</var>, and <var>dn</var>
 of complex argument <var>u</var> and real parameter <var>m</var>.
 </p>
@@ -345,35 +362,64 @@ return <code>NaN</code>.
 and 16.15), Dover, 1965.
 </p>
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFellipke">ellipke</a>.
+<p><strong>See also:</strong> <a href="#XREFellipke">ellipke</a>.
 </p></dd></dl>
 
 
 <a name="XREFellipke"></a><dl>
-<dt><a name="index-ellipke"></a>Function File: <em><var>k</var> =</em> <strong>ellipke</strong> <em>(<var>m</var>)</em></dt>
-<dt><a name="index-ellipke-1"></a>Function File: <em><var>k</var> =</em> <strong>ellipke</strong> <em>(<var>m</var>, <var>tol</var>)</em></dt>
-<dt><a name="index-ellipke-2"></a>Function File: <em>[<var>k</var>, <var>e</var>] =</em> <strong>ellipke</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ellipke"></a>: <em><var>k</var> =</em> <strong>ellipke</strong> <em>(<var>m</var>)</em></dt>
+<dt><a name="index-ellipke-1"></a>: <em><var>k</var> =</em> <strong>ellipke</strong> <em>(<var>m</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-ellipke-2"></a>: <em>[<var>k</var>, <var>e</var>] =</em> <strong>ellipke</strong> <em>(&hellip;)</em></dt>
 <dd><p>Compute complete elliptic integrals of the first K(<var>m</var>) and second
 E(<var>m</var>) kind.
 </p>
 <p><var>m</var> must be a scalar or real array with -Inf &le; <var>m</var> &le; 1.
 </p>
-<p>The optional input <var>tol</var> is currently ignored (<small>MATLAB</small> uses this
-to allow a faster, less accurate approximation).
+<p>The optional input <var>tol</var> controls the stopping tolerance of the
+algorithm and defaults to <code>eps (class (<var>m</var>))</code>.  The tolerance can
+be increased to compute a faster, less accurate approximation.
 </p>
-<p>Called with only one output, elliptic integrals of the first kind are
+<p>When called with one output only elliptic integrals of the first kind are
 returned.
 </p>
+<p>Mathematical Note:
+</p>
+<p>Elliptic integrals of the first kind are defined as
+</p>
+
+<div class="example">
+<pre class="example">         1
+        /               dt
+K (m) = | ------------------------------
+        / sqrt ((1 - t^2)*(1 - m*t^2))
+       0
+</pre></div>
+
+
+<p>Elliptic integrals of the second kind are defined as
+</p>
+
+<div class="example">
+<pre class="example">         1
+        /  sqrt (1 - m*t^2)
+E (m) = |  ------------------ dt
+        /  sqrt (1 - t^2)
+       0
+</pre></div>
+
+
 <p>Reference: Milton Abramowitz and Irene A. Stegun,
 <cite>Handbook of Mathematical Functions</cite>, Chapter 17, Dover, 1965.
 </p>
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFellipj">ellipj</a>.
+<p><strong>See also:</strong> <a href="#XREFellipj">ellipj</a>.
 </p></dd></dl>
 
 
 <a name="XREFerf"></a><dl>
-<dt><a name="index-erf"></a>Mapping Function: <em></em> <strong>erf</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Compute the error function,
+<dt><a name="index-erf"></a>: <em></em> <strong>erf</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Compute the error function.
+</p>
+<p>The error function is defined as
 </p>
 <div class="example">
 <pre class="example">                        z
@@ -384,71 +430,81 @@ erf (z) = --------- *  | e^(-t^2) dt
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFerfc"></a><dl>
-<dt><a name="index-erfc"></a>Mapping Function: <em></em> <strong>erfc</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Compute the complementary error function,
+<dt><a name="index-erfc"></a>: <em></em> <strong>erfc</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Compute the complementary error function.
+</p>
+<p>The complementary error function is defined as
 <code>1&nbsp;<span class="nolinebreak">-</span>&nbsp;erf&nbsp;(<var>z</var>)</code><!-- /@w -->.
 </p>
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerfcinv">erfcinv</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfinv">erfinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFerfcx"></a><dl>
-<dt><a name="index-erfcx"></a>Mapping Function: <em></em> <strong>erfcx</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Compute the scaled complementary error function,
+<dt><a name="index-erfcx"></a>: <em></em> <strong>erfcx</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Compute the scaled complementary error function.
+</p>
+<p>The scaled complementary error function is defined as
 </p>
 <div class="example">
 <pre class="example">exp (z^2) * erfc (z)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFerfi"></a><dl>
-<dt><a name="index-erfi"></a>Mapping Function: <em></em> <strong>erfi</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Compute the imaginary error function,
+<dt><a name="index-erfi"></a>: <em></em> <strong>erfi</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Compute the imaginary error function.
+</p>
+<p>The imaginary error function is defined as
 </p>
 <div class="example">
 <pre class="example">-i * erf (i*z)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFerfinv"></a><dl>
-<dt><a name="index-erfinv"></a>Mapping Function: <em></em> <strong>erfinv</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Compute the inverse error function, i.e., <var>y</var> such that
+<dt><a name="index-erfinv"></a>: <em></em> <strong>erfinv</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Compute the inverse error function.
+</p>
+<p>The inverse error function is defined such that
 </p>
 <div class="example">
 <pre class="example">erf (<var>y</var>) == <var>x</var>
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerf">erf</a>, <a href="#XREFerfc">erfc</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFerfcinv"></a><dl>
-<dt><a name="index-erfcinv"></a>Mapping Function: <em></em> <strong>erfcinv</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Compute the inverse complementary error function, i.e., <var>y</var> such that
+<dt><a name="index-erfcinv"></a>: <em></em> <strong>erfcinv</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Compute the inverse complementary error function.
+</p>
+<p>The inverse complementary error function is defined such that
 </p>
 <div class="example">
 <pre class="example">erfc (<var>y</var>) == <var>x</var>
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>.
+<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>.
 </p></dd></dl>
 
 
 <a name="XREFexpint"></a><dl>
-<dt><a name="index-expint"></a>Function File: <em></em> <strong>expint</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-expint"></a>: <em></em> <strong>expint</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Compute the exponential integral:
 </p>
 <div class="example">
@@ -461,7 +517,7 @@ E_1 (x) = | exp (-t)/t dt
 
 <p>Note: For compatibility, this functions uses the <small>MATLAB</small> definition
 of the exponential integral.  Most other sources refer to this particular
-value as <em>E_1 (x)</em>, and the exponential integral is
+value as <em>E_1 (x)</em>, and the exponential integral as
 </p>
 <div class="example">
 <pre class="example">            infinity
@@ -477,8 +533,10 @@ Ei (x) = - | exp (-t)/t dt
 
 
 <a name="XREFgamma"></a><dl>
-<dt><a name="index-gamma"></a>Mapping Function: <em></em> <strong>gamma</strong> <em>(<var>z</var>)</em></dt>
-<dd><p>Compute the Gamma function,
+<dt><a name="index-gamma"></a>: <em></em> <strong>gamma</strong> <em>(<var>z</var>)</em></dt>
+<dd><p>Compute the Gamma function.
+</p>
+<p>The Gamma function is defined as
 </p>
 <div class="example">
 <pre class="example">             infinity
@@ -489,15 +547,23 @@ gamma (z) = | t^(z-1) exp (-t) dt.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgammainc">gammainc</a>, <a href="Special-Functions.html#XREFlgamma">lgamma</a>.
+<p>Programming Note: The gamma function can grow quite large even for small
+input values.  In many cases it may be preferable to use the natural
+logarithm of the gamma function (<code>gammaln</code>) in calculations to minimize
+loss of precision.  The final result is then
+<code>exp (<var>result_using_gammaln</var>).</code>
+</p>
+<p><strong>See also:</strong> <a href="#XREFgammainc">gammainc</a>, <a href="#XREFgammaln">gammaln</a>, <a href="Utility-Functions.html#XREFfactorial">factorial</a>.
 </p></dd></dl>
 
 
 <a name="XREFgammainc"></a><dl>
-<dt><a name="index-gammainc"></a>Mapping Function: <em></em> <strong>gammainc</strong> <em>(<var>x</var>, <var>a</var>)</em></dt>
-<dt><a name="index-gammainc-1"></a>Mapping Function: <em></em> <strong>gammainc</strong> <em>(<var>x</var>, <var>a</var>, &quot;lower&quot;)</em></dt>
-<dt><a name="index-gammainc-2"></a>Mapping Function: <em></em> <strong>gammainc</strong> <em>(<var>x</var>, <var>a</var>, &quot;upper&quot;)</em></dt>
-<dd><p>Compute the normalized incomplete gamma function,
+<dt><a name="index-gammainc"></a>: <em></em> <strong>gammainc</strong> <em>(<var>x</var>, <var>a</var>)</em></dt>
+<dt><a name="index-gammainc-1"></a>: <em></em> <strong>gammainc</strong> <em>(<var>x</var>, <var>a</var>, &quot;lower&quot;)</em></dt>
+<dt><a name="index-gammainc-2"></a>: <em></em> <strong>gammainc</strong> <em>(<var>x</var>, <var>a</var>, &quot;upper&quot;)</em></dt>
+<dd><p>Compute the normalized incomplete gamma function.
+</p>
+<p>This is defined as
 </p>
 <div class="example">
 <pre class="example">                                x
@@ -508,7 +574,8 @@ gammainc (x, a) = ---------    | exp (-t) t^(a-1) dt
 </pre></div>
 
 <p>with the limiting value of 1 as <var>x</var> approaches infinity.
-The standard notation is <em>P(a,x)</em>, e.g., Abramowitz and Stegun (6.5.1).
+The standard notation is <em>P(a,x)</em>, e.g., Abramowitz and
+Stegun (6.5.1).
 </p>
 <p>If <var>a</var> is scalar, then <code>gammainc (<var>x</var>, <var>a</var>)</code> is returned
 for each element of <var>x</var> and vice versa.
@@ -524,29 +591,34 @@ integrated from <var>x</var> to infinity is calculated.  It should be noted that
 <pre class="example">gammainc (<var>x</var>, <var>a</var>) &equiv; 1 - gammainc (<var>x</var>, <var>a</var>, &quot;upper&quot;)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgamma">gamma</a>, <a href="Special-Functions.html#XREFlgamma">lgamma</a>.
+<p><strong>See also:</strong> <a href="#XREFgamma">gamma</a>, <a href="#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 
 <a name="XREFlegendre"></a><dl>
-<dt><a name="index-legendre"></a>Function File: <em><var>l</var> =</em> <strong>legendre</strong> <em>(<var>n</var>, <var>x</var>)</em></dt>
-<dt><a name="index-legendre-1"></a>Function File: <em><var>l</var> =</em> <strong>legendre</strong> <em>(<var>n</var>, <var>x</var>, <var>normalization</var>)</em></dt>
-<dd><p>Compute the Legendre function of degree <var>n</var> and order
-<var>m</var> = 0 &hellip; N.  The optional argument, <var>normalization</var>,
-may be one of <code>&quot;unnorm&quot;</code>, <code>&quot;sch&quot;</code>, or <code>&quot;norm&quot;</code>.
-The default is <code>&quot;unnorm&quot;</code>.  The value of <var>n</var> must be a
-non-negative scalar integer.
+<dt><a name="index-legendre"></a>: <em><var>l</var> =</em> <strong>legendre</strong> <em>(<var>n</var>, <var>x</var>)</em></dt>
+<dt><a name="index-legendre-1"></a>: <em><var>l</var> =</em> <strong>legendre</strong> <em>(<var>n</var>, <var>x</var>, <var>normalization</var>)</em></dt>
+<dd><p>Compute the associated Legendre function of degree <var>n</var> and order
+<var>m</var> = 0 &hellip; <var>n</var>.
 </p>
-<p>If the optional argument <var>normalization</var> is missing or is
-<code>&quot;unnorm&quot;</code>, compute the Legendre function of degree <var>n</var> and
-order <var>m</var> and return all values for <var>m</var> = 0 &hellip; <var>n</var>.
-The return value has one dimension more than <var>x</var>.
+<p>The value <var>n</var> must be a real non-negative integer.
 </p>
-<p>The Legendre Function of degree <var>n</var> and order <var>m</var>:
+<p><var>x</var> is a vector with real-valued elements in the range [-1, 1].
+</p>
+<p>The optional argument <var>normalization</var> may be one of <code>&quot;unnorm&quot;</code>,
+<code>&quot;sch&quot;</code>, or <code>&quot;norm&quot;</code>.  The default if no normalization is given
+is <code>&quot;unnorm&quot;</code>.
+</p>
+<p>When the optional argument <var>normalization</var> is <code>&quot;unnorm&quot;</code>, compute
+the associated Legendre function of degree <var>n</var> and order <var>m</var> and
+return all values for <var>m</var> = 0 &hellip; <var>n</var>.  The return value has one
+dimension more than <var>x</var>.
+</p>
+<p>The associated Legendre function of degree <var>n</var> and order <var>m</var>:
 </p>
 
 <div class="example">
-<pre class="example"> m        m       2  m/2   d^m
+<pre class="example"> m         m      2  m/2   d^m
 P(x) = (-1) * (1-x  )    * ----  P(x)
  n                         dx^m   n
 </pre></div>
@@ -573,12 +645,12 @@ m=2 |  0.00000 | -2.56500 | -4.32000
 m=3 |  0.00000 | -1.24229 | -3.24000
 </pre></div>
 
-<p>If the optional argument <code>normalization</code> is <code>&quot;sch&quot;</code>,
-compute the Schmidt semi-normalized associated Legendre function.
-The Schmidt semi-normalized associated Legendre function is related
-to the unnormalized Legendre functions by the following:
+<p>When the optional argument <code>normalization</code> is <code>&quot;sch&quot;</code>, compute
+the Schmidt semi-normalized associated Legendre function.  The Schmidt
+semi-normalized associated Legendre function is related to the unnormalized
+Legendre functions by the following:
 </p>
-<p>For Legendre functions of degree n and order 0:
+<p>For Legendre functions of degree <var>n</var> and order 0:
 </p>
 
 <div class="example">
@@ -598,10 +670,10 @@ SP(x) = P(x) * (-1)  * [-------]
 </pre></div>
 
 
-<p>If the optional argument <var>normalization</var> is <code>&quot;norm&quot;</code>,
-compute the fully normalized associated Legendre function.
-The fully normalized associated Legendre function is related
-to the unnormalized Legendre functions by the following:
+<p>When the optional argument <var>normalization</var> is <code>&quot;norm&quot;</code>, compute
+the fully normalized associated Legendre function.  The fully normalized
+associated Legendre function is related to the unnormalized associated
+Legendre functions by the following:
 </p>
 <p>For Legendre functions of degree <var>n</var> and order <var>m</var>
 </p>
@@ -616,11 +688,38 @@ NP(x) = P(x) * (-1)  * [-------------]
 
 
 <a name="XREFgammaln"></a><a name="XREFlgamma"></a><dl>
-<dt><a name="index-lgamma"></a>Mapping Function: <em></em> <strong>lgamma</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-gammaln"></a>Mapping Function: <em></em> <strong>gammaln</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-gammaln"></a>: <em></em> <strong>gammaln</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-lgamma"></a>: <em></em> <strong>lgamma</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return the natural logarithm of the gamma function of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgamma">gamma</a>, <a href="Special-Functions.html#XREFgammainc">gammainc</a>.
+<p><strong>See also:</strong> <a href="#XREFgamma">gamma</a>, <a href="#XREFgammainc">gammainc</a>.
+</p></dd></dl>
+
+
+<a name="XREFpsi"></a><dl>
+<dt><a name="index-psi"></a>: <em></em> <strong>psi</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-psi-1"></a>: <em></em> <strong>psi</strong> <em>(<var>k</var>, <var>z</var>)</em></dt>
+<dd><p>Compute the psi (polygamma) function.
+</p>
+<p>The polygamma functions are the <var>k</var>th derivative of the logarithm
+of the gamma function.  If unspecified, <var>k</var> defaults to zero.  A value
+of zero computes the digamma function, a value of 1, the trigamma function,
+and so on.
+</p>
+<p>The digamma function is defined:
+</p>
+
+<div class="example">
+<pre class="example">psi (z) = d (log (gamma (z))) / dx
+</pre></div>
+
+
+<p>When computing the digamma function (when <var>k</var> equals zero), <var>z</var>
+can have any value real or complex value.  However, for polygamma functions
+(<var>k</var> higher than 0), <var>z</var> must be real and non-negative.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFgamma">gamma</a>, <a href="#XREFgammainc">gammainc</a>, <a href="#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 

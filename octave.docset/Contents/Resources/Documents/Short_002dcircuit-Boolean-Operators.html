@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Short-circuit Boolean Operators</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Short_002dcircuit-Boolean-Operators"></a>
 <div class="header">
 <p>
@@ -75,7 +74,7 @@ using the equivalent of the operation <code>all (<var>boolean1</var>(:))</code>.
 If it is false, the result of the overall expression is 0.  If it is
 true, the expression <var>boolean2</var> is evaluated and converted to a
 scalar using the equivalent of the operation <code>all
-(<var>boolean1</var>(:))</code>.  If it is true, the result of the overall expression
+(<var>boolean2</var>(:))</code>.  If it is true, the result of the overall expression
 is 1.  Otherwise, the result of the overall expression is 0.
 </p>
 <p><strong>Warning:</strong> there is one exception to the rule of evaluating
@@ -92,7 +91,7 @@ using the equivalent of the operation <code>all (<var>boolean1</var>(:))</code>.
 If it is true, the result of the overall expression is 1.  If it is
 false, the expression <var>boolean2</var> is evaluated and converted to a
 scalar using the equivalent of the operation <code>all
-(<var>boolean1</var>(:))</code>.  If it is true, the result of the overall expression
+(<var>boolean2</var>(:))</code>.  If it is true, the result of the overall expression
 is 1.  Otherwise, the result of the overall expression is 0.
 </p>
 <p><strong>Warning:</strong> the truth value of an empty matrix is always <code>false</code>,
@@ -145,13 +144,15 @@ operands for the operator &lsquo;<samp>&amp;</samp>&rsquo;.
 </p>
 <p><small>MATLAB</small> has special behavior that allows the operators &lsquo;<samp>&amp;</samp>&rsquo; and
 &lsquo;<samp>|</samp>&rsquo; to short-circuit when used in the truth expression for <code>if</code> and
-<code>while</code> statements.  The Octave parser may be instructed to behave in the
-same manner, but its use is strongly discouraged.
+<code>while</code> statements.  Octave also behaves the same way by default,
+though the use of the &lsquo;<samp>&amp;</samp>&rsquo; and &lsquo;<samp>|</samp>&rsquo; operators in this way is
+strongly discouraged.  Instead, you should use the &lsquo;<samp>&amp;&amp;</samp>&rsquo; and &lsquo;<samp>||</samp>&rsquo;
+operators that always have short-circuit behavior.
 </p>
 <a name="XREFdo_005fbraindead_005fshortcircuit_005fevaluation"></a><dl>
-<dt><a name="index-do_005fbraindead_005fshortcircuit_005fevaluation"></a>Built-in Function: <em><var>val</var> =</em> <strong>do_braindead_shortcircuit_evaluation</strong> <em>()</em></dt>
-<dt><a name="index-do_005fbraindead_005fshortcircuit_005fevaluation-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>do_braindead_shortcircuit_evaluation</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-do_005fbraindead_005fshortcircuit_005fevaluation-2"></a>Built-in Function: <em></em> <strong>do_braindead_shortcircuit_evaluation</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-do_005fbraindead_005fshortcircuit_005fevaluation"></a>: <em><var>val</var> =</em> <strong>do_braindead_shortcircuit_evaluation</strong> <em>()</em></dt>
+<dt><a name="index-do_005fbraindead_005fshortcircuit_005fevaluation-1"></a>: <em><var>old_val</var> =</em> <strong>do_braindead_shortcircuit_evaluation</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-do_005fbraindead_005fshortcircuit_005fevaluation-2"></a>: <em></em> <strong>do_braindead_shortcircuit_evaluation</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether Octave will
 do short-circuit evaluation of &lsquo;<samp>|</samp>&rsquo; and &lsquo;<samp>&amp;</samp>&rsquo; operators inside the
 conditions of if or while statements.
@@ -173,14 +174,16 @@ short-circuiting is not important, it can be replaced by the <code>ifelse</code>
 function.
 </p>
 <a name="XREFmerge"></a><dl>
-<dt><a name="index-merge"></a>Built-in Function: <em></em> <strong>merge</strong> <em>(<var>mask</var>, <var>tval</var>, <var>fval</var>)</em></dt>
-<dt><a name="index-ifelse"></a>Built-in Function: <em></em> <strong>ifelse</strong> <em>(<var>mask</var>, <var>tval</var>, <var>fval</var>)</em></dt>
+<dt><a name="index-merge"></a>: <em></em> <strong>merge</strong> <em>(<var>mask</var>, <var>tval</var>, <var>fval</var>)</em></dt>
+<dt><a name="index-ifelse"></a>: <em></em> <strong>ifelse</strong> <em>(<var>mask</var>, <var>tval</var>, <var>fval</var>)</em></dt>
 <dd><p>Merge elements of <var>true_val</var> and <var>false_val</var>, depending on the
-value of <var>mask</var>.  If <var>mask</var> is a logical scalar, the other two
-arguments can be arbitrary values.  Otherwise, <var>mask</var> must be a logical
-array, and <var>tval</var>, <var>fval</var> should be arrays of matching class, or
-cell arrays.  In the scalar mask case, <var>tval</var> is returned if <var>mask</var>
-is true, otherwise <var>fval</var> is returned.
+value of <var>mask</var>.
+</p>
+<p>If <var>mask</var> is a logical scalar, the other two arguments can be arbitrary
+values.  Otherwise, <var>mask</var> must be a logical array, and <var>tval</var>,
+<var>fval</var> should be arrays of matching class, or cell arrays.  In the
+scalar mask case, <var>tval</var> is returned if <var>mask</var> is true, otherwise
+<var>fval</var> is returned.
 </p>
 <p>In the array mask case, both <var>tval</var> and <var>fval</var> must be either
 scalars or arrays with dimensions equal to <var>mask</var>.  The result is
@@ -191,8 +194,8 @@ constructed as follows:
 result(! mask) = fval(! mask);
 </pre></div>
 
-<p><var>mask</var> can also be arbitrary numeric type, in which case
-it is first converted to logical.
+<p><var>mask</var> can also be arbitrary numeric type, in which case it is first
+converted to logical.
 </p>
 <p><strong>See also:</strong> <a href="Logical-Values.html#XREFlogical">logical</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFdiff">diff</a>.
 </p></dd></dl>

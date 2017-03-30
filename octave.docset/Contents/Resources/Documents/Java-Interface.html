@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Java Interface</title>
 
@@ -13,22 +13,22 @@
 <link href="index.html#Top" rel="start" title="Top">
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
-<link href="index.html#Top" rel="up" title="Top">
+<link href="External-Code-Interface.html#External-Code-Interface" rel="up" title="External Code Interface">
 <link href="Java-Interface-Functions.html#Java-Interface-Functions" rel="next" title="Java Interface Functions">
-<link href="Hashing-Functions.html#Hashing-Functions" rel="prev" title="Hashing Functions">
+<link href="Standalone-Programs.html#Standalone-Programs" rel="prev" title="Standalone Programs">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,15 +48,15 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Java-Interface"></a>
 <div class="header">
 <p>
-Next: <a href="Packages.html#Packages" accesskey="n" rel="next">Packages</a>, Previous: <a href="System-Utilities.html#System-Utilities" accesskey="p" rel="prev">System Utilities</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="Standalone-Programs.html#Standalone-Programs" accesskey="p" rel="prev">Standalone Programs</a>, Up: <a href="External-Code-Interface.html#External-Code-Interface" accesskey="u" rel="up">External Code Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <a name="Java-Interface-1"></a>
-<h2 class="chapter">37 Java Interface</h2>
+<h3 class="section">A.4 Java Interface</h3>
 
 <a name="index-using-Octave-with-Java"></a>
 <a name="index-Java_002c-using-with-Octave"></a>
@@ -69,15 +68,17 @@ Next: <a href="Packages.html#Packages" accesskey="n" rel="next">Packages</a>, Pr
 <p>The Java Interface is designed for calling Java functions from within Octave.
 If you want to do the reverse, and call Octave from within Java, try
 a library like
-<code>javaOctave</code> (<a href="http://kenai.com/projects/javaOctave">http://kenai.com/projects/javaOctave</a>) or
-<code>joPas</code> (<a href="http://jopas.sourceforge.net">http://jopas.sourceforge.net</a>).
+<code>javaOctave</code> (<a href="https://kenai.com/projects/javaoctave/pages/Home">https://kenai.com/projects/javaoctave/pages/Home</a>) or
+<code>joPas</code> (<a href="http://jopas.sourceforge.net/">http://jopas.sourceforge.net/</a>).
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="Java-Interface-Functions.html#Java-Interface-Functions" accesskey="1">Java Interface Functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="Dialog-Box-Functions.html#Dialog-Box-Functions" accesskey="2">Dialog Box Functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" accesskey="2">Making Java Classes Available</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="FAQ-_002d-Frequently-asked-Questions.html#FAQ-_002d-Frequently-asked-Questions" accesskey="3">FAQ - Frequently asked Questions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" accesskey="3">Creating an Instance of a Java Class</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Handling-Java-Memory-Limitations.html#Handling-Java-Memory-Limitations" accesskey="4">Handling Java Memory Limitations</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 

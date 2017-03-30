@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Matlab-compatible solvers</title>
+
+<meta name="description" content="GNU Octave: Matlab-compatible solvers">
+<meta name="keywords" content="GNU Octave: Matlab-compatible solvers">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Ordinary-Differential-Equations.html#Ordinary-Differential-Equations" rel="up" title="Ordinary Differential Equations">
+<link href="Differential_002dAlgebraic-Equations.html#Differential_002dAlgebraic-Equations" rel="next" title="Differential-Algebraic Equations">
+<link href="Ordinary-Differential-Equations.html#Ordinary-Differential-Equations" rel="prev" title="Ordinary Differential Equations">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="assets/octave.css">
+
+
+</head>
+
+<body lang="en">
+<a name="Matlab_002dcompatible-solvers"></a>
+<div class="header">
+<p>
+Up: <a href="Ordinary-Differential-Equations.html#Ordinary-Differential-Equations" accesskey="u" rel="up">Ordinary Differential Equations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="Matlab_002dcompatible-solvers-1"></a>
+<h4 class="subsection">24.1.1 Matlab-compatible solvers</h4>
+
+<p>Octave also provides a set of solvers for initial value problems for Ordinary
+Differential Equations that have a <small>MATLAB</small>-compatible interface.
+The options for this class of methods are set using the functions.
+</p>
+<ul>
+<li> <code>odeset</code>
+
+</li><li> <code>odeget</code>
+</li></ul>
+
+<p>Currently implemented solvers are:
+</p>
+<ul>
+<li> Runge-Kutta methods
+
+<ul>
+<li> <code>ode45</code> Integrates a system of non&ndash;stiff ordinary differential equations
+    (non&ndash;stiff ODEs and DAEs) using second order Dormand-Prince
+    method.  This is a fourth&ndash;order accurate integrator therefore the local
+    error normally expected is <em>O(h^5)</em>.  This solver requires six
+    function evaluations per integration step.
+
+</li><li> <code>ode23</code> Integrates a system of non&ndash;stiff ordinary differential equations
+    (non-stiff ODEs and DAEs) using second order Bogacki-Shampine
+    method.  This is a second-order accurate integrator therefore the local
+    error normally expected is <em>O(h^3)</em>.  This solver requires three
+    function evaluations per integration step.
+  </li></ul>
+</li></ul>
+
+
+<a name="XREFode45"></a><dl>
+<dt><a name="index-ode45"></a>: <em>[<var>t</var>, <var>y</var>] =</em> <strong>ode45</strong> <em>(<var>fun</var>, <var>trange</var>, <var>init</var>)</em></dt>
+<dt><a name="index-ode45-1"></a>: <em>[<var>t</var>, <var>y</var>] =</em> <strong>ode45</strong> <em>(<var>fun</var>, <var>trange</var>, <var>init</var>, <var>ode_opt</var>)</em></dt>
+<dt><a name="index-ode45-2"></a>: <em>[<var>t</var>, <var>y</var>, <var>te</var>, <var>ye</var>, <var>ie</var>] =</em> <strong>ode45</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ode45-3"></a>: <em><var>solution</var> =</em> <strong>ode45</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Solve a set of non-stiff Ordinary Differential Equations (non-stiff ODEs)
+with the well known explicit Dormand-Prince method of order 4.
+</p>
+<p><var>fun</var> is a function handle, inline function, or string containing the
+name of the function that defines the ODE: <code>y' = f(t,y)</code>.  The function
+must accept two inputs where the first is time <var>t</var> and the second is a
+column vector of unknowns <var>y</var>.
+</p>
+<p><var>trange</var> specifies the time interval over which the ODE will be
+evaluated.  Typically, it is a two-element vector specifying the initial and
+final times (<code>[tinit, tfinal]</code>).  If there are more than two elements
+then the solution will also be evaluated at these intermediate time
+instances.
+</p>
+<p>By default, <code>ode45</code> uses an adaptive timestep with the
+<code>integrate_adaptive</code> algorithm.  The tolerance for the timestep
+computation may be changed by using the options <code>&quot;RelTol&quot;</code>
+and <code>&quot;AbsTol&quot;</code>.
+</p>
+<p><var>init</var> contains the initial value for the unknowns.  If it is a row
+vector then the solution <var>y</var> will be a matrix in which each column is
+the solution for the corresponding initial value in <var>init</var>.
+</p>
+<p>The optional fourth argument <var>ode_opt</var> specifies non-default options to
+the ODE solver.  It is a structure generated by <code>odeset</code>.
+</p>
+<p>The function typically returns two outputs.  Variable <var>t</var> is a
+column vector and contains the times where the solution was found.  The
+output <var>y</var> is a matrix in which each column refers to a different
+unknown of the problem and each row corresponds to a time in <var>t</var>.
+</p>
+<p>The output can also be returned as a structure <var>solution</var> which
+has a field <var>x</var> containing a row vector of times where the solution
+was evaluated and a field <var>y</var> containing the solution matrix such
+that each column corresponds to a time in <var>x</var>.
+Use <code>fieldnames (<var>solution</var>)</code> to see the other fields and
+additional information returned.
+</p>
+<p>If using the <code>&quot;Events&quot;</code> option then three additional outputs may
+be returned.  <var>te</var> holds the time when an Event function returned a
+zero.  <var>ye</var> holds the value of the solution at time <var>te</var>.  <var>ie</var>
+contains an index indicating which Event function was triggered in the case
+of multiple Event functions.
+</p>
+<p>Example: Solve the Van der Pol equation
+</p>
+<div class="example">
+<pre class="example">fvdp = @(<var>t</var>,<var>y</var>) [<var>y</var>(2); (1 - <var>y</var>(1)^2) * <var>y</var>(2) - <var>y</var>(1)];
+[<var>t</var>,<var>y</var>] = ode45 (fvdp, [0, 20], [2, 0]);
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>, <a href="#XREFodeget">odeget</a>, <a href="#XREFode23">ode23</a>.
+</p></dd></dl>
+
+
+<a name="XREFode23"></a><dl>
+<dt><a name="index-ode23"></a>: <em>[<var>t</var>, <var>y</var>] =</em> <strong>ode23</strong> <em>(<var>fun</var>, <var>trange</var>, <var>init</var>)</em></dt>
+<dt><a name="index-ode23-1"></a>: <em>[<var>t</var>, <var>y</var>] =</em> <strong>ode23</strong> <em>(<var>fun</var>, <var>trange</var>, <var>init</var>, <var>ode_opt</var>)</em></dt>
+<dt><a name="index-ode23-2"></a>: <em>[<var>t</var>, <var>y</var>, <var>te</var>, <var>ye</var>, <var>ie</var>] =</em> <strong>ode23</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ode23-3"></a>: <em><var>solution</var> =</em> <strong>ode23</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Solve a set of non-stiff Ordinary Differential Equations (non-stiff ODEs)
+with the well known explicit Bogacki-Shampine method of order 3.
+For the definition of this method see
+<a href="http://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods">http://en.wikipedia.org/wiki/List_of_Runge%E2%80%93Kutta_methods</a>.
+</p>
+<p><var>fun</var> is a function handle, inline function, or string containing the
+name of the function that defines the ODE: <code>y' = f(t,y)</code>.  The function
+must accept two inputs where the first is time <var>t</var> and the second is a
+column vector of unknowns <var>y</var>.
+</p>
+<p><var>trange</var> specifies the time interval over which the ODE will be
+evaluated.  Typically, it is a two-element vector specifying the initial and
+final times (<code>[tinit, tfinal]</code>).  If there are more than two elements
+then the solution will also be evaluated at these intermediate time
+instances.
+</p>
+<p>By default, <code>ode23</code> uses an adaptive timestep with the
+<code>integrate_adaptive</code> algorithm.  The tolerance for the timestep
+computation may be changed by using the options <code>&quot;RelTol&quot;</code>
+and <code>&quot;AbsTol&quot;</code>.
+</p>
+<p><var>init</var> contains the initial value for the unknowns.  If it is a row
+vector then the solution <var>y</var> will be a matrix in which each column is
+the solution for the corresponding initial value in <var>init</var>.
+</p>
+<p>The optional fourth argument <var>ode_opt</var> specifies non-default options to
+the ODE solver.  It is a structure generated by <code>odeset</code>.
+</p>
+<p>The function typically returns two outputs.  Variable <var>t</var> is a
+column vector and contains the times where the solution was found.  The
+output <var>y</var> is a matrix in which each column refers to a different
+unknown of the problem and each row corresponds to a time in <var>t</var>.
+</p>
+<p>The output can also be returned as a structure <var>solution</var> which
+has a field <var>x</var> containing a row vector of times where the solution
+was evaluated and a field <var>y</var> containing the solution matrix such
+that each column corresponds to a time in <var>x</var>.
+Use <code>fieldnames (<var>solution</var>)</code> to see the other fields and
+additional information returned.
+</p>
+<p>If using the <code>&quot;Events&quot;</code> option then three additional outputs may
+be returned.  <var>te</var> holds the time when an Event function returned a
+zero.  <var>ye</var> holds the value of the solution at time <var>te</var>.  <var>ie</var>
+contains an index indicating which Event function was triggered in the case
+of multiple Event functions.
+</p>
+<p>This function can be called with two output arguments: <var>t</var> and <var>y</var>.
+Variable <var>t</var> is a column vector and contains the time stamps, instead
+<var>y</var> is a matrix in which each column refers to a different unknown of
+the problem and the rows number is the same of <var>t</var> rows number so
+that each row of <var>y</var> contains the values of all unknowns at the time
+value contained in the corresponding row in <var>t</var>.
+</p>
+<p>Example: Solve the Van der Pol equation
+</p>
+<div class="example">
+<pre class="example">fvdp = @(<var>t</var>,<var>y</var>) [<var>y</var>(2); (1 - <var>y</var>(1)^2) * <var>y</var>(2) - <var>y</var>(1)];
+[<var>t</var>,<var>y</var>] = ode23 (fvdp, [0, 20], [2, 0]);
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>, <a href="#XREFodeget">odeget</a>, <a href="#XREFode45">ode45</a>.
+</p></dd></dl>
+
+
+<a name="XREFodeset"></a><dl>
+<dt><a name="index-odeset"></a>: <em><var>odestruct</var> =</em> <strong>odeset</strong> <em>()</em></dt>
+<dt><a name="index-odeset-1"></a>: <em><var>odestruct</var> =</em> <strong>odeset</strong> <em>(<var>&quot;field1&quot;</var>, <var>value1</var>, <var>&quot;field2&quot;</var>, <var>value2</var>, &hellip;)</em></dt>
+<dt><a name="index-odeset-2"></a>: <em><var>odestruct</var> =</em> <strong>odeset</strong> <em>(<var>oldstruct</var>, <var>&quot;field1&quot;</var>, <var>value1</var>, <var>&quot;field2&quot;</var>, <var>value2</var>, &hellip;)</em></dt>
+<dt><a name="index-odeset-3"></a>: <em><var>odestruct</var> =</em> <strong>odeset</strong> <em>(<var>oldstruct</var>, <var>newstruct</var>)</em></dt>
+<dt><a name="index-odeset-4"></a>: <em></em> <strong>odeset</strong> <em>()</em></dt>
+<dd>
+<p>Create or modify an ODE options structure.
+</p>
+<p>When called with no input argument and one output argument, return a new ODE
+options structure that contains all possible fields initialized to their
+default values.  If no output argument is requested, display a list of
+the common ODE solver options along with their default value.
+</p>
+<p>If called with name-value input argument pairs <var>&quot;field1&quot;</var>,
+<var>&quot;value1&quot;</var>, <var>&quot;field2&quot;</var>, <var>&quot;value2&quot;</var>, &hellip; return a new
+ODE options structure with all the most common option fields
+initialized, <strong>and</strong> set the values of the fields <var>&quot;field1&quot;</var>,
+<var>&quot;field2&quot;</var>, &hellip; to the values <var>value1</var>, <var>value2</var>,
+&hellip;.
+</p>
+<p>If called with an input structure <var>oldstruct</var> then overwrite the
+values of the options <var>&quot;field1&quot;</var>, <var>&quot;field2&quot;</var>, &hellip; with
+new values <var>value1</var>, <var>value2</var>, &hellip; and return the
+modified structure.
+</p>
+<p>When called with two input ODE options structures <var>oldstruct</var> and
+<var>newstruct</var> overwrite all values from the structure
+<var>oldstruct</var> with new values from the structure <var>newstruct</var>.
+Empty values in <var>newstruct</var> will not overwrite values in
+<var>oldstruct</var>.
+</p>
+<p>The most commonly used ODE options, which are always assigned a value
+by <code>odeset</code>, are the following:
+</p>
+<dl compact="compact">
+<dt>AbsTol</dt>
+<dd><p>Absolute error tolerance.
+</p>
+</dd>
+<dt>BDF</dt>
+<dd><p>Use BDF formulas in implicit multistep methods.
+<strong>Note:</strong> This option is not yet implemented.
+</p>
+</dd>
+<dt>Events</dt>
+<dd><p>Event function. An event function must have the form
+<code>[value, isterminal, direction] = my_events_f (t, y)</code>
+</p>
+</dd>
+<dt>InitialSlope</dt>
+<dd><p>Consistent initial slope vector for DAE solvers.
+</p>
+</dd>
+<dt>InitialStep</dt>
+<dd><p>Initial time step size.
+</p>
+</dd>
+<dt>Jacobian</dt>
+<dd><p>Jacobian matrix, specified as a constant matrix or a function of
+time and state.
+</p>
+</dd>
+<dt>JConstant</dt>
+<dd><p>Specify whether the Jacobian is a constant matrix or depends on the
+state.
+</p>
+</dd>
+<dt>JPattern</dt>
+<dd><p>If the Jacobian matrix is sparse and non-constant but maintains a
+constant sparsity pattern, specify the sparsity pattern.
+</p>
+</dd>
+<dt>Mass</dt>
+<dd><p>Mass matrix, specified as a constant matrix or a function of
+time and state.
+</p>
+</dd>
+<dt>MassSingular</dt>
+<dd><p>Specify whether the mass matrix is singular. Accepted values include
+<code>&quot;yes&quot;</code>, <code>&quot;no&quot;</code>, <code>&quot;maybe&quot;</code>.
+</p>
+</dd>
+<dt>MaxOrder</dt>
+<dd><p>Maximum order of formula.
+</p>
+</dd>
+<dt>MaxStep</dt>
+<dd><p>Maximum time step value.
+</p>
+</dd>
+<dt>MStateDependence</dt>
+<dd><p>Specify whether the mass matrix depends on the state or only on time.
+</p>
+</dd>
+<dt>MvPattern</dt>
+<dd><p>If the mass matrix is sparse and non-constant but maintains a
+constant sparsity pattern, specify the sparsity pattern.
+<strong>Note:</strong> This option is not yet implemented.
+</p>
+</dd>
+<dt>NonNegative</dt>
+<dd><p>Specify elements of the state vector that are expected to remain
+nonnegative during the simulation.
+</p>
+</dd>
+<dt>NormControl</dt>
+<dd><p>Control error relative to the 2-norm of the solution, rather than its
+absolute value.
+</p>
+</dd>
+<dt>OutputFcn</dt>
+<dd><p>Function to monitor the state during the simulation. For the form of
+the function to use see <code>odeplot</code>.
+</p>
+</dd>
+<dt>OutputSel</dt>
+<dd><p>Indices of elements of the state vector to be passed to the output
+monitoring function.
+</p>
+</dd>
+<dt>Refine</dt>
+<dd><p>Specify whether output should be returned only at the end of each
+time step or also at intermediate time instances. The value should be
+a scalar indicating the number of equally spaced time points to use
+within each timestep at which to return output.
+<strong>Note:</strong> This option is not yet implemented.
+</p>
+</dd>
+<dt>RelTol</dt>
+<dd><p>Relative error tolerance.
+</p>
+</dd>
+<dt>Stats</dt>
+<dd><p>Print solver statistics after simulation.
+</p>
+</dd>
+<dt>Vectorized</dt>
+<dd><p>Specify whether <code>odefun</code> can be passed multiple values of the
+state at once.
+</p>
+</dd>
+</dl>
+
+<p>Field names that are not in the above list are also accepted and
+added to the result structure.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFodeget">odeget</a>.
+</p></dd></dl>
+
+
+<a name="XREFodeget"></a><dl>
+<dt><a name="index-odeget"></a>: <em><var>val</var> =</em> <strong>odeget</strong> <em>(<var>ode_opt</var>, <var>field</var>)</em></dt>
+<dt><a name="index-odeget-1"></a>: <em><var>val</var> =</em> <strong>odeget</strong> <em>(<var>ode_opt</var>, <var>field</var>, <var>default</var>)</em></dt>
+<dd>
+<p>Query the value of the property <var>field</var> in the ODE options structure
+<var>ode_opt</var>.
+</p>
+<p>If called with two input arguments and the first input argument
+<var>ode_opt</var> is an ODE option structure and the second input argument
+<var>field</var> is a string specifying an option name, then return the option
+value <var>val</var> corresponding to <var>field</var> from <var>ode_opt</var>.
+</p>
+<p>If called with an optional third input argument, and <var>field</var> is
+not set in the structure <var>ode_opt</var>, then return the default value
+<var>default</var> instead.
+</p>
+<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>.
+</p></dd></dl>
+
+
+<a name="XREFodeplot"></a><dl>
+<dt><a name="index-odeplot"></a>: <em><var>stop_solve</var> =</em> <strong>odeplot</strong> <em>(<var>t</var>, <var>y</var>, <var>flag</var>)</em></dt>
+<dd>
+<p>Open a new figure window and plot the solution of an ode problem at each
+time step during the integration.
+</p>
+<p>The types and values of the input parameters <var>t</var> and <var>y</var> depend on
+the input <var>flag</var> that is of type string.  Valid values of <var>flag</var>
+are:
+</p>
+<dl compact="compact">
+<dt><samp><code>&quot;init&quot;</code></samp></dt>
+<dd><p>The input <var>t</var> must be a column vector of length 2 with the first and
+last time step (<code>[<var>tfirst</var> <var>tlast</var>]</code>.  The input <var>y</var>
+contains the initial conditions for the ode problem (<var>y0</var>).
+</p>
+</dd>
+<dt><samp><code>&quot;&quot;</code></samp></dt>
+<dd><p>The input <var>t</var> must be a scalar double specifying the time for which
+the solution in input <var>y</var> was calculated.
+</p>
+</dd>
+<dt><samp><code>&quot;done&quot;</code></samp></dt>
+<dd><p>The inputs should be empty, but are ignored if they are present.
+</p></dd>
+</dl>
+
+<p><code>odeplot</code> always returns false, i.e., don&rsquo;t stop the ode solver.
+</p>
+<p>Example: solve an anonymous implementation of the
+<code>&quot;Van der Pol&quot;</code> equation and display the results while
+solving.
+</p>
+<div class="example">
+<pre class="example">fvdp = @(t,y) [y(2); (1 - y(1)^2) * y(2) - y(1)];
+
+opt = odeset (&quot;OutputFcn&quot;, @odeplot, &quot;RelTol&quot;, 1e-6);
+sol = ode45 (fvdp, [0 20], [2 0], opt);
+</pre></div>
+
+<p>Background Information:
+This function is called by an ode solver function if it was specified in
+the <code>&quot;OutputFcn&quot;</code> property of an options structure created with
+<code>odeset</code>.  The ode solver will initially call the function with the
+syntax <code>odeplot ([<var>tfirst</var>, <var>tlast</var>], <var>y0</var>, &quot;init&quot;)</code>.  The
+function initializes internal variables, creates a new figure window, and
+sets the x limits of the plot.  Subsequently, at each time step during the
+integration the ode solver calls <code>odeplot (<var>t</var>, <var>y</var>, [])</code>.
+At the end of the solution the ode solver calls
+<code>odeplot ([], [], &quot;done&quot;)</code> so that odeplot can perform any clean-up
+actions required.
+</p>
+<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>, <a href="#XREFodeget">odeget</a>, <a href="#XREFode23">ode23</a>, <a href="#XREFode45">ode45</a>.
+</p></dd></dl>
+
+
+<hr>
+<div class="header">
+<p>
+Up: <a href="Ordinary-Differential-Equations.html#Ordinary-Differential-Equations" accesskey="u" rel="up">Ordinary Differential Equations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Two-dimensional Function Plotting</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Two_002ddimensional-Function-Plotting"></a>
 <div class="header">
 <p>
@@ -58,8 +57,9 @@ Next: <a href="Two_002ddimensional-Geometric-Shapes.html#Two_002ddimensional-Geo
 <hr>
 <a name="Two_002ddimensional-Function-Plotting-1"></a>
 <h4 class="subsubsection">15.2.1.2 Two-dimensional Function Plotting</h4>
+<a name="index-plotting_002c-two_002ddimensional-functions"></a>
 
-<p>Octave can plot a function from a function handle inline function or
+<p>Octave can plot a function from a function handle, inline function, or
 string defining the function without the user needing to explicitly
 create the data to be plotted.  The function <code>fplot</code> also generates
 two-dimensional plots with linear axes using a function name and limits
@@ -74,11 +74,11 @@ example,
 legend displaying the name of the plotted function.
 </p>
 <a name="XREFfplot"></a><dl>
-<dt><a name="index-fplot"></a>Function File: <em></em> <strong>fplot</strong> <em>(<var>fn</var>, <var>limits</var>)</em></dt>
-<dt><a name="index-fplot-1"></a>Function File: <em></em> <strong>fplot</strong> <em>(&hellip;, <var>tol</var>)</em></dt>
-<dt><a name="index-fplot-2"></a>Function File: <em></em> <strong>fplot</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-fplot-3"></a>Function File: <em></em> <strong>fplot</strong> <em>(&hellip;, <var>fmt</var>)</em></dt>
-<dt><a name="index-fplot-4"></a>Function File: <em>[<var>x</var>, <var>y</var>] =</em> <strong>fplot</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-fplot"></a>: <em></em> <strong>fplot</strong> <em>(<var>fn</var>, <var>limits</var>)</em></dt>
+<dt><a name="index-fplot-1"></a>: <em></em> <strong>fplot</strong> <em>(&hellip;, <var>tol</var>)</em></dt>
+<dt><a name="index-fplot-2"></a>: <em></em> <strong>fplot</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-fplot-3"></a>: <em></em> <strong>fplot</strong> <em>(&hellip;, <var>fmt</var>)</em></dt>
+<dt><a name="index-fplot-4"></a>: <em>[<var>x</var>, <var>y</var>] =</em> <strong>fplot</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a function <var>fn</var> within the range defined by <var>limits</var>.
 </p>
 <p><var>fn</var> is a function handle, inline function, or string containing the
@@ -115,11 +115,19 @@ be plotted manually with <code>plot (<var>x</var>, <var>y</var>)</code>.
 fplot (&quot;[cos(x), sin(x)]&quot;, [0, 2*pi])
 </pre></div>
 
-<p>Note: <code>fplot</code> works best with continuous functions.  Functions with
+<p>Programming Notes:
+</p>
+<p><code>fplot</code> works best with continuous functions.  Functions with
 discontinuities are unlikely to plot well.  This restriction may be removed
 in the future.
 </p>
-<p><strong>See also:</strong> <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
+<p><code>fplot</code> requires that the function accept and return a vector argument.
+Consider this when writing user-defined functions and use <code>.*</code>,
+<code>./</code>, etc.  See the function <code>vectorize</code> for potentially
+converting inline or anonymous functions to vectorized versions.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFezplot">ezplot</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Basic-Vectorization.html#XREFvectorize">vectorize</a>.
 </p></dd></dl>
 
 
@@ -128,13 +136,13 @@ function include <code>ezplot</code>, <code>ezcontour</code>, <code>ezcontourf</
 <code>ezpolar</code>.
 </p>
 <a name="XREFezplot"></a><dl>
-<dt><a name="index-ezplot"></a>Function File: <em></em> <strong>ezplot</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezplot-1"></a>Function File: <em></em> <strong>ezplot</strong> <em>(<var>f2v</var>)</em></dt>
-<dt><a name="index-ezplot-2"></a>Function File: <em></em> <strong>ezplot</strong> <em>(<var>fx</var>, <var>fy</var>)</em></dt>
-<dt><a name="index-ezplot-3"></a>Function File: <em></em> <strong>ezplot</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezplot-4"></a>Function File: <em></em> <strong>ezplot</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezplot-5"></a>Function File: <em></em> <strong>ezplot</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezplot-6"></a>Function File: <em><var>h</var> =</em> <strong>ezplot</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezplot"></a>: <em></em> <strong>ezplot</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezplot-1"></a>: <em></em> <strong>ezplot</strong> <em>(<var>f2v</var>)</em></dt>
+<dt><a name="index-ezplot-2"></a>: <em></em> <strong>ezplot</strong> <em>(<var>fx</var>, <var>fy</var>)</em></dt>
+<dt><a name="index-ezplot-3"></a>: <em></em> <strong>ezplot</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezplot-4"></a>: <em></em> <strong>ezplot</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezplot-5"></a>: <em></em> <strong>ezplot</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezplot-6"></a>: <em><var>h</var> =</em> <strong>ezplot</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the 2-D curve defined by the function <var>f</var>.
 </p>
@@ -177,16 +185,16 @@ rather than the current axes returned by <code>gca</code>.
 the created line objects.
 </p>
 
-<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezplot3">ezplot3</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezpolar">ezpolar</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontour">ezcontour</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontourf">ezcontourf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezplot3">ezplot3</a>, <a href="#XREFezpolar">ezpolar</a>, <a href="#XREFezcontour">ezcontour</a>, <a href="#XREFezcontourf">ezcontourf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>.
 </p></dd></dl>
 
 
 <a name="XREFezcontour"></a><dl>
-<dt><a name="index-ezcontour"></a>Function File: <em></em> <strong>ezcontour</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezcontour-1"></a>Function File: <em></em> <strong>ezcontour</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezcontour-2"></a>Function File: <em></em> <strong>ezcontour</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezcontour-3"></a>Function File: <em></em> <strong>ezcontour</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezcontour-4"></a>Function File: <em><var>h</var> =</em> <strong>ezcontour</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezcontour"></a>: <em></em> <strong>ezcontour</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezcontour-1"></a>: <em></em> <strong>ezcontour</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezcontour-2"></a>: <em></em> <strong>ezcontour</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezcontour-3"></a>: <em></em> <strong>ezcontour</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezcontour-4"></a>: <em><var>h</var> =</em> <strong>ezcontour</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the contour lines of a function.
 </p>
@@ -213,16 +221,16 @@ ezcontour (f, [-3, 3]);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontourf">ezcontourf</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFezcontourf">ezcontourf</a>, <a href="#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>.
 </p></dd></dl>
 
 
 <a name="XREFezcontourf"></a><dl>
-<dt><a name="index-ezcontourf"></a>Function File: <em></em> <strong>ezcontourf</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezcontourf-1"></a>Function File: <em></em> <strong>ezcontourf</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezcontourf-2"></a>Function File: <em></em> <strong>ezcontourf</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezcontourf-3"></a>Function File: <em></em> <strong>ezcontourf</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezcontourf-4"></a>Function File: <em><var>h</var> =</em> <strong>ezcontourf</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezcontourf"></a>: <em></em> <strong>ezcontourf</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezcontourf-1"></a>: <em></em> <strong>ezcontourf</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezcontourf-2"></a>: <em></em> <strong>ezcontourf</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezcontourf-3"></a>: <em></em> <strong>ezcontourf</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezcontourf-4"></a>: <em><var>h</var> =</em> <strong>ezcontourf</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the filled contour lines of a function.
 </p>
@@ -249,16 +257,16 @@ ezcontourf (f, [-3, 3]);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcontourf">contourf</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontour">ezcontour</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcontourf">contourf</a>, <a href="#XREFezcontour">ezcontour</a>, <a href="#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>.
 </p></dd></dl>
 
 
 <a name="XREFezpolar"></a><dl>
-<dt><a name="index-ezpolar"></a>Function File: <em></em> <strong>ezpolar</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezpolar-1"></a>Function File: <em></em> <strong>ezpolar</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezpolar-2"></a>Function File: <em></em> <strong>ezpolar</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezpolar-3"></a>Function File: <em></em> <strong>ezpolar</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezpolar-4"></a>Function File: <em><var>h</var> =</em> <strong>ezpolar</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezpolar"></a>: <em></em> <strong>ezpolar</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezpolar-1"></a>: <em></em> <strong>ezpolar</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezpolar-2"></a>: <em></em> <strong>ezpolar</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezpolar-3"></a>: <em></em> <strong>ezpolar</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezpolar-4"></a>: <em><var>h</var> =</em> <strong>ezpolar</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot a 2-D function in polar coordinates.
 </p>
@@ -286,7 +294,7 @@ rather than the current axes returned by <code>gca</code>.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFpolar">polar</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFpolar">polar</a>, <a href="#XREFezplot">ezplot</a>.
 </p></dd></dl>
 
 

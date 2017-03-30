@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Empty Matrices</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Empty-Matrices"></a>
 <div class="header">
 <p>
@@ -60,11 +59,11 @@ Up: <a href="Matrices.html#Matrices" accesskey="u" rel="up">Matrices</a> &nbsp; 
 <h4 class="subsection">4.1.1 Empty Matrices</h4>
 
 <p>A matrix may have one or both dimensions zero, and operations on empty
-matrices are handled as described by Carl de Boor in <cite>An Empty
-Exercise</cite>, SIGNUM, Volume 25, pages 2-6, 1990 and C. N. Nett and W. M.
-Haddad, in <cite>A System-Theoretic Appropriate Realization of the Empty
-Matrix Concept</cite>, IEEE Transactions on Automatic Control, Volume 38,
-Number 5, May 1993.
+matrices are handled as described by Carl de Boor in
+<cite>An Empty Exercise</cite>, SIGNUM, Volume 25, pages 2-6, 1990 and
+C. N. Nett and W. M. Haddad, in
+<cite>A System-Theoretic Appropriate Realization of the Empty Matrix Concept</cite>,
+IEEE Transactions on Automatic Control, Volume 38, Number 5, May 1993.
 Briefly, given a scalar <var>s</var>, an <var>m</var> by
 <var>n</var> matrix <code>M(mxn)</code>, and an <var>m</var> by <var>n</var> empty matrix
 <code>[](mxn)</code> (with either one or both dimensions equal to zero), the
@@ -88,12 +87,13 @@ empty matrix symbol, &lsquo;<samp>[]</samp>&rsquo;.  The built-in variable
 <code>print_empty_dimensions</code> controls this behavior.
 </p>
 <a name="XREFprint_005fempty_005fdimensions"></a><dl>
-<dt><a name="index-print_005fempty_005fdimensions"></a>Built-in Function: <em><var>val</var> =</em> <strong>print_empty_dimensions</strong> <em>()</em></dt>
-<dt><a name="index-print_005fempty_005fdimensions-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>print_empty_dimensions</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-print_005fempty_005fdimensions-2"></a>Built-in Function: <em></em> <strong>print_empty_dimensions</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
-<dd><p>Query or set the internal variable that controls whether the
-dimensions of empty matrices are printed along with the empty matrix
-symbol, &lsquo;<samp>[]</samp>&rsquo;.  For example, the expression
+<dt><a name="index-print_005fempty_005fdimensions"></a>: <em><var>val</var> =</em> <strong>print_empty_dimensions</strong> <em>()</em></dt>
+<dt><a name="index-print_005fempty_005fdimensions-1"></a>: <em><var>old_val</var> =</em> <strong>print_empty_dimensions</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-print_005fempty_005fdimensions-2"></a>: <em></em> <strong>print_empty_dimensions</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dd><p>Query or set the internal variable that controls whether the dimensions of
+empty matrices are printed along with the empty matrix symbol, &lsquo;<samp>[]</samp>&rsquo;.
+</p>
+<p>For example, the expression
 </p>
 <div class="example">
 <pre class="example">zeros (3, 0)

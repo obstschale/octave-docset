@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Three-Dimensional Plots</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Three_002dDimensional-Plots"></a>
 <div class="header">
 <p>
@@ -58,6 +57,7 @@ Next: <a href="Plot-Annotations.html#Plot-Annotations" accesskey="n" rel="next">
 <hr>
 <a name="Three_002dDimensional-Plots-1"></a>
 <h4 class="subsection">15.2.2 Three-Dimensional Plots</h4>
+<a name="index-plotting_002c-three_002ddimensional"></a>
 
 <p>The function <code>mesh</code> produces mesh surface plots.  For example,
 </p>
@@ -69,7 +69,7 @@ tz = sin (r) ./ r;
 mesh (tx, ty, tz);
 </pre></div>
 
-<p>produces the familiar &ldquo;sombrero&rdquo; plot shown in <a href="Three_002dDimensional-Plots.html#fig_003amesh">Figure 15.5</a>.  Note
+<p>produces the familiar &ldquo;sombrero&rdquo; plot shown in <a href="#fig_003amesh">Figure 15.5</a>.  Note
 the use of the function <code>meshgrid</code> to create matrices of X and Y
 coordinates to use for plotting the Z data.  The <code>ndgrid</code> function
 is similar to <code>meshgrid</code>, but works for N-dimensional matrices.
@@ -91,7 +91,7 @@ z = linspace (0, 1, numel (t));
 plot3 (r.*sin(t), r.*cos(t), z);
 </pre></div>
 
-<p>displays the spiral in three dimensions shown in <a href="Three_002dDimensional-Plots.html#fig_003aplot3">Figure 15.6</a>.
+<p>displays the spiral in three dimensions shown in <a href="#fig_003aplot3">Figure 15.6</a>.
 </p>
 <div class="float"><a name="fig_003aplot3"></a>
 <div align="center"><img src="plot3.png" alt="plot3">
@@ -101,12 +101,12 @@ plot3 (r.*sin(t), r.*cos(t), z);
 three-dimensional plots.
 </p>
 <a name="XREFmesh"></a><dl>
-<dt><a name="index-mesh"></a>Function File: <em></em> <strong>mesh</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-mesh-1"></a>Function File: <em></em> <strong>mesh</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-mesh-2"></a>Function File: <em></em> <strong>mesh</strong> <em>(&hellip;, <var>c</var>)</em></dt>
-<dt><a name="index-mesh-3"></a>Function File: <em></em> <strong>mesh</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-mesh-4"></a>Function File: <em></em> <strong>mesh</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-mesh-5"></a>Function File: <em><var>h</var> =</em> <strong>mesh</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-mesh"></a>: <em></em> <strong>mesh</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-mesh-1"></a>: <em></em> <strong>mesh</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-mesh-2"></a>: <em></em> <strong>mesh</strong> <em>(&hellip;, <var>c</var>)</em></dt>
+<dt><a name="index-mesh-3"></a>: <em></em> <strong>mesh</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-mesh-4"></a>: <em></em> <strong>mesh</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-mesh-5"></a>: <em><var>h</var> =</em> <strong>mesh</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D wireframe mesh.
 </p>
 <p>The wireframe mesh is plotted using rectangles.  The vertices of the
@@ -135,17 +135,17 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="#XREFmeshz">meshz</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
 <a name="XREFmeshc"></a><dl>
-<dt><a name="index-meshc"></a>Function File: <em></em> <strong>meshc</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-meshc-1"></a>Function File: <em></em> <strong>meshc</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-meshc-2"></a>Function File: <em></em> <strong>meshc</strong> <em>(&hellip;, <var>c</var>)</em></dt>
-<dt><a name="index-meshc-3"></a>Function File: <em></em> <strong>meshc</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-meshc-4"></a>Function File: <em></em> <strong>meshc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-meshc-5"></a>Function File: <em><var>h</var> =</em> <strong>meshc</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-meshc"></a>: <em></em> <strong>meshc</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-meshc-1"></a>: <em></em> <strong>meshc</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-meshc-2"></a>: <em></em> <strong>meshc</strong> <em>(&hellip;, <var>c</var>)</em></dt>
+<dt><a name="index-meshc-3"></a>: <em></em> <strong>meshc</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-meshc-4"></a>: <em></em> <strong>meshc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-meshc-5"></a>: <em><var>h</var> =</em> <strong>meshc</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D wireframe mesh with underlying contour lines.
 </p>
 <p>The wireframe mesh is plotted using rectangles.  The vertices of the
@@ -174,17 +174,17 @@ rather than the current axes returned by <code>gca</code>.
 handle to the created surface object and to the created contour plot.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshz">meshz</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurfc">surfc</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
 <a name="XREFmeshz"></a><dl>
-<dt><a name="index-meshz"></a>Function File: <em></em> <strong>meshz</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-meshz-1"></a>Function File: <em></em> <strong>meshz</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-meshz-2"></a>Function File: <em></em> <strong>meshz</strong> <em>(&hellip;, <var>c</var>)</em></dt>
-<dt><a name="index-meshz-3"></a>Function File: <em></em> <strong>meshz</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-meshz-4"></a>Function File: <em></em> <strong>meshz</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-meshz-5"></a>Function File: <em><var>h</var> =</em> <strong>meshz</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-meshz"></a>: <em></em> <strong>meshz</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-meshz-1"></a>: <em></em> <strong>meshz</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-meshz-2"></a>: <em></em> <strong>meshz</strong> <em>(&hellip;, <var>c</var>)</em></dt>
+<dt><a name="index-meshz-3"></a>: <em></em> <strong>meshz</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-meshz-4"></a>: <em></em> <strong>meshz</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-meshz-5"></a>: <em><var>h</var> =</em> <strong>meshz</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D wireframe mesh with a surrounding curtain.
 </p>
 <p>The wireframe mesh is plotted using rectangles.  The vertices of the
@@ -192,7 +192,7 @@ rectangles [<var>x</var>, <var>y</var>] are typically the output of <code>meshgr
 over a 2-D rectangular region in the x-y plane.  <var>z</var> determines the
 height above the plane of each vertex.  If only a single <var>z</var> matrix is
 given, then it is plotted over the meshgrid
-<code><var>x</var> = 1:columns (<var>z</var>), <var>y</var> = 1:rows (<var>z</var>)</code>.
+<code><var>x</var> = 0:columns (<var>z</var>) - 1, <var>y</var> = 0:rows (<var>z</var>) - 1</code>.
 Thus, columns of <var>z</var> correspond to different <var>x</var> values and rows
 of <var>z</var> correspond to different <var>y</var> values.
 </p>
@@ -213,19 +213,20 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFwaterfall">waterfall</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFwaterfall">waterfall</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
 <a name="XREFhidden"></a><dl>
-<dt><a name="index-hidden"></a>Command: <em></em> <strong>hidden</strong></dt>
-<dt><a name="index-hidden-1"></a>Command: <em></em> <strong>hidden</strong> <em>&quot;on&quot;</em></dt>
-<dt><a name="index-hidden-2"></a>Command: <em></em> <strong>hidden</strong> <em>&quot;off&quot;</em></dt>
-<dt><a name="index-hidden-3"></a>Function File: <em><var>mode</var> =</em> <strong>hidden</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-hidden"></a>: <em></em> <strong>hidden</strong></dt>
+<dt><a name="index-hidden-1"></a>: <em></em> <strong>hidden</strong> <em>on</em></dt>
+<dt><a name="index-hidden-2"></a>: <em></em> <strong>hidden</strong> <em>off</em></dt>
+<dt><a name="index-hidden-3"></a>: <em><var>mode</var> =</em> <strong>hidden</strong> <em>(&hellip;)</em></dt>
 <dd><p>Control mesh hidden line removal.
 </p>
 <p>When called with no argument the hidden line removal state is toggled.
-When called with one of the modes <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> the state
+</p>
+<p>When called with one of the modes <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code> the state
 is set accordingly.
 </p>
 <p>The optional output argument <var>mode</var> is the current state.
@@ -237,17 +238,17 @@ objects behind the mesh can be seen through the faces (openings) of the
 mesh, although the mesh grid lines are still opaque.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="Three_002dDimensional-Plots.html#XREFwaterfall">waterfall</a>.
+<p><strong>See also:</strong> <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="#XREFmeshz">meshz</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="#XREFwaterfall">waterfall</a>.
 </p></dd></dl>
 
 
 <a name="XREFsurf"></a><dl>
-<dt><a name="index-surf"></a>Function File: <em></em> <strong>surf</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-surf-1"></a>Function File: <em></em> <strong>surf</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-surf-2"></a>Function File: <em></em> <strong>surf</strong> <em>(&hellip;, <var>c</var>)</em></dt>
-<dt><a name="index-surf-3"></a>Function File: <em></em> <strong>surf</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-surf-4"></a>Function File: <em></em> <strong>surf</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-surf-5"></a>Function File: <em><var>h</var> =</em> <strong>surf</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-surf"></a>: <em></em> <strong>surf</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-surf-1"></a>: <em></em> <strong>surf</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-surf-2"></a>: <em></em> <strong>surf</strong> <em>(&hellip;, <var>c</var>)</em></dt>
+<dt><a name="index-surf-3"></a>: <em></em> <strong>surf</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-surf-4"></a>: <em></em> <strong>surf</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-surf-5"></a>: <em><var>h</var> =</em> <strong>surf</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D surface mesh.
 </p>
 <p>The surface mesh is plotted using shaded rectangles.  The vertices of the
@@ -279,17 +280,17 @@ surface object.
 <code>shading</code> command or by using <code>set</code> to control surface object
 properties.
 </p>
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="#XREFsurfc">surfc</a>, <a href="#XREFsurfl">surfl</a>, <a href="#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
 <a name="XREFsurfc"></a><dl>
-<dt><a name="index-surfc"></a>Function File: <em></em> <strong>surfc</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-surfc-1"></a>Function File: <em></em> <strong>surfc</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-surfc-2"></a>Function File: <em></em> <strong>surfc</strong> <em>(&hellip;, <var>c</var>)</em></dt>
-<dt><a name="index-surfc-3"></a>Function File: <em></em> <strong>surfc</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-surfc-4"></a>Function File: <em></em> <strong>surfc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-surfc-5"></a>Function File: <em><var>h</var> =</em> <strong>surfc</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-surfc"></a>: <em></em> <strong>surfc</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-surfc-1"></a>: <em></em> <strong>surfc</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-surfc-2"></a>: <em></em> <strong>surfc</strong> <em>(&hellip;, <var>c</var>)</em></dt>
+<dt><a name="index-surfc-3"></a>: <em></em> <strong>surfc</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-surfc-4"></a>: <em></em> <strong>surfc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-surfc-5"></a>: <em><var>h</var> =</em> <strong>surfc</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D surface mesh with underlying contour lines.
 </p>
 <p>The surface mesh is plotted using shaded rectangles.  The vertices of the
@@ -321,21 +322,20 @@ surface object.
 <code>shading</code> command or by using <code>set</code> to control surface object
 properties.
 </p>
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="#XREFsurf">surf</a>, <a href="#XREFsurfl">surfl</a>, <a href="#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
 <a name="XREFsurfl"></a><dl>
-<dt><a name="index-surfl"></a>Function File: <em></em> <strong>surfl</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-surfl-1"></a>Function File: <em></em> <strong>surfl</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-surfl-2"></a>Function File: <em></em> <strong>surfl</strong> <em>(&hellip;, <var>lsrc</var>)</em></dt>
-<dt><a name="index-surfl-3"></a>Function File: <em></em> <strong>surfl</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>lsrc</var>, <var>P</var>)</em></dt>
-<dt><a name="index-surfl-4"></a>Function File: <em></em> <strong>surfl</strong> <em>(&hellip;, &quot;cdata&quot;)</em></dt>
-<dt><a name="index-surfl-5"></a>Function File: <em></em> <strong>surfl</strong> <em>(&hellip;, &quot;light&quot;)</em></dt>
-<dt><a name="index-surfl-6"></a>Function File: <em></em> <strong>surfl</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-surfl-7"></a>Function File: <em><var>h</var> =</em> <strong>surfl</strong> <em>(&hellip;)</em></dt>
-<dd>
-<p>Plot a 3-D surface using shading based on various lighting models.
+<dt><a name="index-surfl"></a>: <em></em> <strong>surfl</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-surfl-1"></a>: <em></em> <strong>surfl</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-surfl-2"></a>: <em></em> <strong>surfl</strong> <em>(&hellip;, <var>lsrc</var>)</em></dt>
+<dt><a name="index-surfl-3"></a>: <em></em> <strong>surfl</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>lsrc</var>, <var>P</var>)</em></dt>
+<dt><a name="index-surfl-4"></a>: <em></em> <strong>surfl</strong> <em>(&hellip;, &quot;cdata&quot;)</em></dt>
+<dt><a name="index-surfl-5"></a>: <em></em> <strong>surfl</strong> <em>(&hellip;, &quot;light&quot;)</em></dt>
+<dt><a name="index-surfl-6"></a>: <em></em> <strong>surfl</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-surfl-7"></a>: <em><var>h</var> =</em> <strong>surfl</strong> <em>(&hellip;)</em></dt>
+<dd><p>Plot a 3-D surface using shading based on various lighting models.
 </p>
 <p>The surface mesh is plotted using shaded rectangles.  The vertices of the
 rectangles [<var>x</var>, <var>y</var>] are typically the output of <code>meshgrid</code>.
@@ -351,9 +351,9 @@ surface object to give the impression of a lighted surface.
 <strong>Warning:</strong> The alternative mode <code>&quot;light&quot;</code> mode which creates a
 light object to illuminate the surface is not implemented (yet).
 </p>
-<p>The light source location can be specified using <var>lsrc</var>.  It can be given
-as a 2-element vector [azimuth, elevation] in degrees, or as a 3-element
-vector [lx, ly, lz].  The default value is rotated 45 degrees
+<p>The light source location can be specified using <var>lsrc</var>.  It can be
+given as a 2-element vector [azimuth, elevation] in degrees, or as a
+3-element vector [lx, ly, lz].  The default value is rotated 45 degrees
 counterclockwise to the current view.
 </p>
 <p>The material properties of the surface can specified using a 4-element
@@ -381,229 +381,332 @@ surfl (peaks);
 shading interp;
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFdiffuse">diffuse</a>, <a href="Three_002dDimensional-Plots.html#XREFspecular">specular</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="#XREFdiffuse">diffuse</a>, <a href="#XREFspecular">specular</a>, <a href="#XREFsurf">surf</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
 <a name="XREFsurfnorm"></a><dl>
-<dt><a name="index-surfnorm"></a>Function File: <em></em> <strong>surfnorm</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-surfnorm-1"></a>Function File: <em></em> <strong>surfnorm</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-surfnorm-2"></a>Function File: <em>[<var>nx</var>, <var>ny</var>, <var>nz</var>] =</em> <strong>surfnorm</strong> <em>(&hellip;)</em></dt>
-<dt><a name="index-surfnorm-3"></a>Function File: <em></em> <strong>surfnorm</strong> <em>(<var>h</var>, &hellip;)</em></dt>
-<dd><p>Find the vectors normal to a meshgridded surface.  The meshed gridded
-surface is defined by <var>x</var>, <var>y</var>, and <var>z</var>.  If <var>x</var> and
-<var>y</var> are not defined, then it is assumed that they are given by
+<dt><a name="index-surfnorm"></a>: <em></em> <strong>surfnorm</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-surfnorm-1"></a>: <em></em> <strong>surfnorm</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-surfnorm-2"></a>: <em></em> <strong>surfnorm</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-surfnorm-3"></a>: <em></em> <strong>surfnorm</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-surfnorm-4"></a>: <em>[<var>nx</var>, <var>ny</var>, <var>nz</var>] =</em> <strong>surfnorm</strong> <em>(&hellip;)</em></dt>
+<dd><p>Find the vectors normal to a meshgridded surface.
+</p>
+<p>If <var>x</var> and <var>y</var> are vectors, then a typical vertex is
+(<var>x</var>(j), <var>y</var>(i), <var>z</var>(i,j)).  Thus, columns of <var>z</var> correspond
+to different <var>x</var> values and rows of <var>z</var> correspond to different
+<var>y</var> values.  If only a single input <var>z</var> is given then <var>x</var> is
+taken to be <code>1:rows (<var>z</var>)</code> and <var>y</var> is
+<code>1:columns (<var>z</var>)</code>.
+</p>
+<p>If no return arguments are requested, a surface plot with the normal
+vectors to the surface is plotted.
+</p>
+<p>Any property/value input pairs are assigned to the surface object.
+</p>
+<p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
+rather than the current axes returned by <code>gca</code>.
+</p>
+<p>If output arguments are requested then the components of the normal
+vectors are returned in <var>nx</var>, <var>ny</var>, and <var>nz</var> and no plot is
+made.  The normal vectors are unnormalized (magnitude != 1).  To normalize,
+use
 </p>
 <div class="example">
-<pre class="example">[<var>x</var>, <var>y</var>] = meshgrid (1:rows (<var>z</var>),
-                   1:columns (<var>z</var>));
+<pre class="example">mag = sqrt (nx.^2 + ny.^2 + nz.^2);
+nx ./= len;  ny ./= len;  nz ./= len;
 </pre></div>
 
-<p>If no return arguments are requested, a surface plot with the normal
-vectors to the surface is plotted.  Otherwise the components of the normal
-vectors at the mesh gridded points are returned in <var>nx</var>, <var>ny</var>,
-and <var>nz</var>.
-</p>
-<p>The normal vectors are calculated by taking the cross product of the
-diagonals of each of the quadrilaterals in the meshgrid to find the
-normal vectors of the centers of these quadrilaterals.  The four nearest
-normal vectors to the meshgrid points are then averaged to obtain the
-normal to the surface at the meshgridded points.
-</p>
 <p>An example of the use of <code>surfnorm</code> is
 </p>
 <div class="example">
 <pre class="example">surfnorm (peaks (25));
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Two_002dDimensional-Plots.html#XREFquiver3">quiver3</a>.
+<p>Algorithm: The normal vectors are calculated by taking the cross product
+of the diagonals of each of the quadrilateral faces in the meshgrid to find
+the normal vectors at the center of each face.  Next, for each meshgrid
+point the four nearest normal vectors are averaged to obtain the final
+normal to the surface at the meshgrid point.
+</p>
+<p>For surface objects, the <code>&quot;VertexNormals&quot;</code> property contains
+equivalent information, except possibly near the boundary of the surface
+where different interpolation schemes may yield slightly different values.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFisonormals">isonormals</a>, <a href="Two_002dDimensional-Plots.html#XREFquiver3">quiver3</a>, <a href="#XREFsurf">surf</a>, <a href="#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
 <a name="XREFisosurface"></a><dl>
-<dt><a name="index-isosurface"></a>Function File: <em>[<var>fv</var>] =</em> <strong>isosurface</strong> <em>(<var>val</var>, <var>iso</var>)</em></dt>
-<dt><a name="index-isosurface-1"></a>Function File: <em>[<var>fv</var>] =</em> <strong>isosurface</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>iso</var>)</em></dt>
-<dt><a name="index-isosurface-2"></a>Function File: <em>[<var>fv</var>] =</em> <strong>isosurface</strong> <em>(&hellip;, &quot;noshare&quot;, &quot;verbose&quot;)</em></dt>
-<dt><a name="index-isosurface-3"></a>Function File: <em>[<var>fvc</var>] =</em> <strong>isosurface</strong> <em>(&hellip;, <var>col</var>)</em></dt>
-<dt><a name="index-isosurface-4"></a>Function File: <em>[<var>f</var>, <var>v</var>] =</em> <strong>isosurface</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>iso</var>)</em></dt>
-<dt><a name="index-isosurface-5"></a>Function File: <em>[<var>f</var>, <var>v</var>, <var>c</var>] =</em> <strong>isosurface</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>iso</var>, <var>col</var>)</em></dt>
-<dt><a name="index-isosurface-6"></a>Function File: <em></em> <strong>isosurface</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>iso</var>, <var>col</var>, <var>opt</var>)</em></dt>
+<dt><a name="index-isosurface"></a>: <em><var>fv</var> =</em> <strong>isosurface</strong> <em>(<var>v</var>, <var>isoval</var>)</em></dt>
+<dt><a name="index-isosurface-1"></a>: <em><var>fv</var> =</em> <strong>isosurface</strong> <em>(<var>v</var>)</em></dt>
+<dt><a name="index-isosurface-2"></a>: <em><var>fv</var> =</em> <strong>isosurface</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>isoval</var>)</em></dt>
+<dt><a name="index-isosurface-3"></a>: <em><var>fv</var> =</em> <strong>isosurface</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>)</em></dt>
+<dt><a name="index-isosurface-4"></a>: <em><var>fvc</var> =</em> <strong>isosurface</strong> <em>(&hellip;, <var>col</var>)</em></dt>
+<dt><a name="index-isosurface-5"></a>: <em><var>fv</var> =</em> <strong>isosurface</strong> <em>(&hellip;, &quot;noshare&quot;)</em></dt>
+<dt><a name="index-isosurface-6"></a>: <em><var>fv</var> =</em> <strong>isosurface</strong> <em>(&hellip;, &quot;verbose&quot;)</em></dt>
+<dt><a name="index-isosurface-7"></a>: <em>[<var>f</var>, <var>v</var>] =</em> <strong>isosurface</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-isosurface-8"></a>: <em>[<var>f</var>, <var>v</var>, <var>c</var>] =</em> <strong>isosurface</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-isosurface-9"></a>: <em></em> <strong>isosurface</strong> <em>(&hellip;)</em></dt>
 <dd>
-<p>If called with one output argument and the first input argument
-<var>val</var> is a three-dimensional array that contains the data of an
-isosurface geometry and the second input argument <var>iso</var> keeps the
-isovalue as a scalar value then return a structure array <var>fv</var>
-that contains the fields <var>Faces</var> and <var>Vertices</var> at computed
-points <code>[x, y, z] = meshgrid (1:l, 1:m, 1:n)</code>.  The output
-argument <var>fv</var> can directly be taken as an input argument for the
-<code>patch</code> function.
+<p>Calculate isosurface of 3-D volume data.
 </p>
-<p>If called with further input arguments <var>x</var>, <var>y</var> and <var>z</var>
-which are three&ndash;dimensional arrays with the same size than <var>val</var>
-then the volume data is taken at those given points.
+<p>An isosurface connects points with the same value and is analogous to a
+contour plot, but in three dimensions.
 </p>
-<p>The string input argument <code>&quot;noshare&quot;</code> is only for compatibility and
-has no effect.  If given the string input argument
-<code>&quot;verbose&quot;</code> then print messages to the command line interface about the
-current progress.
+<p>The input argument <var>v</var> is a three-dimensional array that contains data
+sampled over a volume.
 </p>
-<p>If called with the input argument <var>col</var> which is a
-three-dimensional array of the same size than <var>val</var> then take
-those values for the interpolation of coloring the isosurface
-geometry.  Add the field <var>FaceVertexCData</var> to the structure
-array <var>fv</var>.
+<p>The input <var>isoval</var> is a scalar that specifies the value for the
+isosurface.  If <var>isoval</var> is omitted or empty, a &quot;good&quot; value
+for an isosurface is determined from <var>v</var>.
 </p>
-<p>If called with two or three output arguments then return the
-information about the faces <var>f</var>, vertices <var>v</var> and color data
-<var>c</var> as separate arrays instead of a single structure array.
+<p>When called with a single output argument <code>isosurface</code> returns a
+structure array <var>fv</var> that contains the fields <var>faces</var> and
+<var>vertices</var> computed at the points
+<code>[<var>x</var>, <var>y</var>, <var>z</var>] = meshgrid (1:l, 1:m, 1:n)</code> where
+<code>[l, m, n] = size (<var>v</var>)</code>.  The output <var>fv</var> can be
+used directly as input to the <code>patch</code> function.
 </p>
-<p>If called with no output argument then directly process the
-isosurface geometry with the <code>patch</code> command.
+<p>If called with additional input arguments <var>x</var>, <var>y</var>, and <var>z</var>
+that are three-dimensional arrays with the same size as <var>v</var> or
+vectors with lengths corresponding to the dimensions of <var>v</var>, then the
+volume data is taken at the specified points.  If <var>x</var>, <var>y</var>, or
+<var>z</var> are empty, the grid corresponds to the indices (<code>1:n</code>) in
+the respective direction (see <a href="#XREFmeshgrid">meshgrid</a>).
+</p>
+<p>The optional input argument <var>col</var>, which is a three-dimensional array
+of the same size as <var>v</var>, specifies coloring of the isosurface.  The
+color data is interpolated, as necessary, to match <var>isoval</var>.  The
+output structure array, in this case, has the additional field
+<var>facevertexcdata</var>.
+</p>
+<p>If given the string input argument <code>&quot;noshare&quot;</code>, vertices may be
+returned multiple times for different faces.  The default behavior is to
+eliminate vertices shared by adjacent faces with <code>unique</code> which may be
+time consuming.
+</p>
+<p>The string input argument <code>&quot;verbose&quot;</code> is supported for <small>MATLAB</small>
+compatibility, but has no effect.
+</p>
+<p>Any string arguments must be passed after the other arguments.
+</p>
+<p>If called with two or three output arguments, return the information about
+the faces <var>f</var>, vertices <var>v</var>, and color data <var>c</var> as separate
+arrays instead of a single structure array.
+</p>
+<p>If called with no output argument, the isosurface geometry is directly
+plotted with the <code>patch</code> command and a light object is added to
+the axes if not yet present.
 </p>
 <p>For example,
 </p>
 <div class="example">
 <pre class="example">[x, y, z] = meshgrid (1:5, 1:5, 1:5);
-val = rand (5, 5, 5);
-isosurface (x, y, z, val, .5);
+v = rand (5, 5, 5);
+isosurface (x, y, z, v, .5);
 </pre></div>
 
 <p>will directly draw a random isosurface geometry in a graphics window.
-Another example for an isosurface geometry with different additional
-coloring
+</p>
+<p>An example of an isosurface geometry with different additional coloring:
 </p>
 <div class="smallexample">
 <pre class="smallexample">N = 15;    # Increase number of vertices in each direction
 iso = .4;  # Change isovalue to .1 to display a sphere
 lin = linspace (0, 2, N);
 [x, y, z] = meshgrid (lin, lin, lin);
-c = abs ((x-.5).^2 + (y-.5).^2 + (z-.5).^2);
-figure (); # Open another figure window
+v = abs ((x-.5).^2 + (y-.5).^2 + (z-.5).^2);
+figure ();
 
 subplot (2,2,1); view (-38, 20);
-[f, v] = isosurface (x, y, z, c, iso);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;EdgeColor&quot;, &quot;none&quot;);
-set (gca, &quot;PlotBoxAspectRatioMode&quot;, &quot;manual&quot;, ...
-          &quot;PlotBoxAspectRatio&quot;, [1 1 1]);
-# set (p, &quot;FaceColor&quot;, &quot;green&quot;, &quot;FaceLighting&quot;, &quot;phong&quot;);
-# light (&quot;Position&quot;, [1 1 5]); # Available with the JHandles package
+[f, vert] = isosurface (x, y, z, v, iso);
+p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, vert, &quot;EdgeColor&quot;, &quot;none&quot;);
+pbaspect ([1 1 1]);
+isonormals (x, y, z, v, p)
+set (p, &quot;FaceColor&quot;, &quot;green&quot;, &quot;FaceLighting&quot;, &quot;gouraud&quot;);
+light (&quot;Position&quot;, [1 1 5]);
 
 subplot (2,2,2); view (-38, 20);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;EdgeColor&quot;, &quot;blue&quot;);
-set (gca, &quot;PlotBoxAspectRatioMode&quot;, &quot;manual&quot;, ...
-          &quot;PlotBoxAspectRatio&quot;, [1 1 1]);
-# set (p, &quot;FaceColor&quot;, &quot;none&quot;, &quot;FaceLighting&quot;, &quot;phong&quot;);
-# light (&quot;Position&quot;, [1 1 5]);
+p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, vert, &quot;EdgeColor&quot;, &quot;blue&quot;);
+pbaspect ([1 1 1]);
+isonormals (x, y, z, v, p)
+set (p, &quot;FaceColor&quot;, &quot;none&quot;, &quot;EdgeLighting&quot;, &quot;gouraud&quot;);
+light (&quot;Position&quot;, [1 1 5]);
 
 subplot (2,2,3); view (-38, 20);
-[f, v, c] = isosurface (x, y, z, c, iso, y);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;FaceVertexCData&quot;, c, ...
+[f, vert, c] = isosurface (x, y, z, v, iso, y);
+p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, vert, &quot;FaceVertexCData&quot;, c, ...
            &quot;FaceColor&quot;, &quot;interp&quot;, &quot;EdgeColor&quot;, &quot;none&quot;);
-set (gca, &quot;PlotBoxAspectRatioMode&quot;, &quot;manual&quot;, ...
-          &quot;PlotBoxAspectRatio&quot;, [1 1 1]);
-# set (p, &quot;FaceLighting&quot;, &quot;phong&quot;);
-# light (&quot;Position&quot;, [1 1 5]);
+pbaspect ([1 1 1]);
+isonormals (x, y, z, v, p)
+set (p, &quot;FaceLighting&quot;, &quot;gouraud&quot;);
+light (&quot;Position&quot;, [1 1 5]);
 
 subplot (2,2,4); view (-38, 20);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;FaceVertexCData&quot;, c, ...
+p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, vert, &quot;FaceVertexCData&quot;, c, ...
            &quot;FaceColor&quot;, &quot;interp&quot;, &quot;EdgeColor&quot;, &quot;blue&quot;);
-set (gca, &quot;PlotBoxAspectRatioMode&quot;, &quot;manual&quot;, ...
-          &quot;PlotBoxAspectRatio&quot;, [1 1 1]);
-# set (p, &quot;FaceLighting&quot;, &quot;phong&quot;);
-# light (&quot;Position&quot;, [1 1 5]);
+pbaspect ([1 1 1]);
+isonormals (x, y, z, v, p)
+set (p, &quot;FaceLighting&quot;, &quot;gouraud&quot;);
+light (&quot;Position&quot;, [1 1 5]);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>, <a href="Three_002dDimensional-Plots.html#XREFisocolors">isocolors</a>.
+<p><strong>See also:</strong> <a href="#XREFisonormals">isonormals</a>, <a href="#XREFisocolors">isocolors</a>, <a href="#XREFisocaps">isocaps</a>, <a href="#XREFsmooth3">smooth3</a>, <a href="#XREFreducevolume">reducevolume</a>, <a href="#XREFreducepatch">reducepatch</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
 <a name="XREFisonormals"></a><dl>
-<dt><a name="index-isonormals"></a>Function File: <em>[<var>n</var>] =</em> <strong>isonormals</strong> <em>(<var>val</var>, <var>v</var>)</em></dt>
-<dt><a name="index-isonormals-1"></a>Function File: <em>[<var>n</var>] =</em> <strong>isonormals</strong> <em>(<var>val</var>, <var>p</var>)</em></dt>
-<dt><a name="index-isonormals-2"></a>Function File: <em>[<var>n</var>] =</em> <strong>isonormals</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>v</var>)</em></dt>
-<dt><a name="index-isonormals-3"></a>Function File: <em>[<var>n</var>] =</em> <strong>isonormals</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>p</var>)</em></dt>
-<dt><a name="index-isonormals-4"></a>Function File: <em>[<var>n</var>] =</em> <strong>isonormals</strong> <em>(&hellip;, &quot;negate&quot;)</em></dt>
-<dt><a name="index-isonormals-5"></a>Function File: <em></em> <strong>isonormals</strong> <em>(&hellip;, <var>p</var>)</em></dt>
+<dt><a name="index-isonormals"></a>: <em>[<var>vn</var>] =</em> <strong>isonormals</strong> <em>(<var>val</var>, <var>vert</var>)</em></dt>
+<dt><a name="index-isonormals-1"></a>: <em>[<var>vn</var>] =</em> <strong>isonormals</strong> <em>(<var>val</var>, <var>hp</var>)</em></dt>
+<dt><a name="index-isonormals-2"></a>: <em>[<var>vn</var>] =</em> <strong>isonormals</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>vert</var>)</em></dt>
+<dt><a name="index-isonormals-3"></a>: <em>[<var>vn</var>] =</em> <strong>isonormals</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>hp</var>)</em></dt>
+<dt><a name="index-isonormals-4"></a>: <em>[<var>vn</var>] =</em> <strong>isonormals</strong> <em>(&hellip;, &quot;negate&quot;)</em></dt>
+<dt><a name="index-isonormals-5"></a>: <em></em> <strong>isonormals</strong> <em>(<var>val</var>, <var>hp</var>)</em></dt>
+<dt><a name="index-isonormals-6"></a>: <em></em> <strong>isonormals</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>val</var>, <var>hp</var>)</em></dt>
+<dt><a name="index-isonormals-7"></a>: <em></em> <strong>isonormals</strong> <em>(&hellip;, &quot;negate&quot;)</em></dt>
 <dd>
-<p>If called with one output argument and the first input argument
-<var>val</var> is a three-dimensional array that contains the data for an
-isosurface geometry and the second input argument <var>v</var> keeps the
-vertices of an isosurface then return the normals <var>n</var> in form of
-a matrix with the same size than <var>v</var> at computed points
+<p>Calculate normals to an isosurface.
+</p>
+<p>The vertex normals <var>vn</var> are calculated from the gradient of the
+3-dimensional array <var>val</var> (size: lxmxn) with the data for an
+isosurface geometry.  The normals point towards lower values in <var>val</var>.
+</p>
+<p>If called with one output argument <var>vn</var> and the second input argument
+<var>vert</var> holds the vertices of an isosurface, the normals <var>vn</var> are
+calculated at the vertices <var>vert</var> on a grid given by
 <code>[x, y, z] = meshgrid (1:l, 1:m, 1:n)</code>.  The output argument
-<var>n</var> can be taken to manually set <var>VertexNormals</var> of a patch.
+<var>vn</var> has the same size as <var>vert</var> and can be used to set the
+<code>&quot;VertexNormals&quot;</code> property of the corresponding patch.
 </p>
-<p>If called with further input arguments <var>x</var>, <var>y</var> and <var>z</var>
-which are three&ndash;dimensional arrays with the same size than <var>val</var>
-then the volume data is taken at those given points.  Instead of the
-vertices data <var>v</var> a patch handle <var>p</var> can be passed to this
-function.
+<p>If called with further input arguments <var>x</var>, <var>y</var>, and <var>z</var>
+which are 3-dimensional arrays with the same size as <var>val</var>,
+the volume data is taken at these points.  Instead of the vertex data
+<var>vert</var>, a patch handle <var>hp</var> can be passed to this function.
 </p>
-<p>If given the string input argument <code>&quot;negate&quot;</code> as last input argument
-then compute the reverse vector normals of an isosurface geometry.
+<p>If the last input argument is the string <code>&quot;negate&quot;</code>, compute the
+reverse vector normals of an isosurface geometry (i.e., pointed towards
+higher values in <var>val</var>).
 </p>
-<p>If no output argument is given then directly redraw the patch that is
-given by the patch handle <var>p</var>.
+<p>If no output argument is given, the property <code>&quot;VertexNormals&quot;</code> of
+the patch associated with the patch handle <var>hp</var> is changed directly.
 </p>
-<p>For example:
+
+<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisocolors">isocolors</a>, <a href="#XREFsmooth3">smooth3</a>.
+</p></dd></dl>
+
+
+<a name="XREFisocaps"></a><dl>
+<dt><a name="index-isocaps"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(<var>v</var>, <var>isoval</var>)</em></dt>
+<dt><a name="index-isocaps-1"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(<var>v</var>)</em></dt>
+<dt><a name="index-isocaps-2"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>isoval</var>)</em></dt>
+<dt><a name="index-isocaps-3"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>)</em></dt>
+<dt><a name="index-isocaps-4"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(&hellip;, <var>which_caps</var>)</em></dt>
+<dt><a name="index-isocaps-5"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(&hellip;, <var>which_plane</var>)</em></dt>
+<dt><a name="index-isocaps-6"></a>: <em><var>fvc</var> =</em> <strong>isocaps</strong> <em>(&hellip;, <code>&quot;verbose&quot;</code>)</em></dt>
+<dt><a name="index-isocaps-7"></a>: <em>[<var>faces</var>, <var>vertices</var>, <var>fvcdata</var>] =</em> <strong>isocaps</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-isocaps-8"></a>: <em></em> <strong>isocaps</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Create end-caps for isosurfaces of 3-D data.
 </p>
-<div class="smallexample">
-<pre class="smallexample">function [] = isofinish (p)
-  set (gca, &quot;PlotBoxAspectRatioMode&quot;, &quot;manual&quot;, ...
-            &quot;PlotBoxAspectRatio&quot;, [1 1 1]);
-  set (p, &quot;VertexNormals&quot;, -get (p,&quot;VertexNormals&quot;)); # Revert normals
-  set (p, &quot;FaceColor&quot;, &quot;interp&quot;);
-  ## set (p, &quot;FaceLighting&quot;, &quot;phong&quot;);
-  ## light (&quot;Position&quot;, [1 1 5]); # Available with JHandles
-endfunction
+<p>This function places caps at the open ends of isosurfaces.
+</p>
+<p>The input argument <var>v</var> is a three-dimensional array that contains data
+sampled over a volume.
+</p>
+<p>The input <var>isoval</var> is a scalar that specifies the value for the
+isosurface.  If <var>isoval</var> is omitted or empty, a &quot;good&quot; value
+for an isosurface is determined from <var>v</var>.
+</p>
+<p>When called with a single output argument, <code>isocaps</code> returns a
+structure array <var>fvc</var> with the fields: <code>faces</code>, <code>vertices</code>,
+and <code>facevertexcdata</code>.  The results are computed at the points
+<code>[<var>x</var>, <var>y</var>, <var>z</var>] = meshgrid (1:l, 1:m, 1:n)</code> where
+<code>[l, m, n] = size (<var>v</var>)</code>.  The output <var>fvc</var> can be used
+directly as input to the <code>patch</code> function.
+</p>
+<p>If called with additional input arguments <var>x</var>, <var>y</var>, and <var>z</var>
+that are three-dimensional arrays with the same size as <var>v</var> or
+vectors with lengths corresponding to the dimensions of <var>v</var>, then the
+volume data is taken at the specified points.  If <var>x</var>, <var>y</var>, or
+<var>z</var> are empty, the grid corresponds to the indices (<code>1:n</code>) in
+the respective direction (see <a href="#XREFmeshgrid">meshgrid</a>).
+</p>
+<p>The optional parameter <var>which_caps</var> can have one of the following
+string values which defines how the data will be enclosed:
+</p>
+<dl compact="compact">
+<dt><code>&quot;above&quot;</code>, <code>&quot;a&quot;</code> (default)</dt>
+<dd><p>for end-caps that enclose the data above <var>isoval</var>.
+</p>
+</dd>
+<dt><code>&quot;below&quot;</code>, <code>&quot;b&quot;</code></dt>
+<dd><p>for end-caps that enclose the data below <var>isoval</var>.
+</p></dd>
+</dl>
 
-N = 15;    # Increase number of vertices in each direction
-iso = .4;  # Change isovalue to .1 to display a sphere
-lin = linspace (0, 2, N);
-[x, y, z] = meshgrid (lin, lin, lin);
-c = abs ((x-.5).^2 + (y-.5).^2 + (z-.5).^2);
-figure (); # Open another figure window
+<p>The optional parameter <var>which_plane</var> can have one of the following
+string values to define which end-cap should be drawn:
+</p>
+<dl compact="compact">
+<dt><code>&quot;all&quot;</code> (default)</dt>
+<dd><p>for all of the end-caps.
+</p>
+</dd>
+<dt><code>&quot;xmin&quot;</code></dt>
+<dd><p>for end-caps at the lower x-plane of the data.
+</p>
+</dd>
+<dt><code>&quot;xmax&quot;</code></dt>
+<dd><p>for end-caps at the upper x-plane of the data.
+</p>
+</dd>
+<dt><code>&quot;ymin&quot;</code></dt>
+<dd><p>for end-caps at the lower y-plane of the data.
+</p>
+</dd>
+<dt><code>&quot;ymax&quot;</code></dt>
+<dd><p>for end-caps at the upper y-plane of the data.
+</p>
+</dd>
+<dt><code>&quot;zmin&quot;</code></dt>
+<dd><p>for end-caps at the lower z-plane of the data.
+</p>
+</dd>
+<dt><code>&quot;zmax&quot;</code></dt>
+<dd><p>for end-caps at the upper z-plane of the data.
+</p></dd>
+</dl>
 
-subplot (2,2,1); view (-38, 20);
-[f, v, cdat] = isosurface (x, y, z, c, iso, y);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;FaceVertexCData&quot;, cdat, ...
-           &quot;FaceColor&quot;, &quot;interp&quot;, &quot;EdgeColor&quot;, &quot;none&quot;);
-isofinish (p); ## Call user function isofinish
+<p>The string input argument <code>&quot;verbose&quot;</code> is supported for <small>MATLAB</small>
+compatibility, but has no effect.
+</p>
+<p>If called with two or three output arguments, the data for faces
+<var>faces</var>, vertices <var>vertices</var>, and the color data
+<var>facevertexcdata</var> are returned in separate arrays instead of a single
+structure.
+</p>
+<p>If called with no output argument, the end-caps are drawn directly in the
+current figure with the <code>patch</code> command.
+</p>
 
-subplot (2,2,2); view (-38, 20);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;FaceVertexCData&quot;, cdat, ...
-           &quot;FaceColor&quot;, &quot;interp&quot;, &quot;EdgeColor&quot;, &quot;none&quot;);
-isonormals (x, y, z, c, p); # Directly modify patch
-isofinish (p);
-
-subplot (2,2,3); view (-38, 20);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;FaceVertexCData&quot;, cdat, ...
-           &quot;FaceColor&quot;, &quot;interp&quot;, &quot;EdgeColor&quot;, &quot;none&quot;);
-n = isonormals (x, y, z, c, v); # Compute normals of isosurface
-set (p, &quot;VertexNormals&quot;, n);    # Manually set vertex normals
-isofinish (p);
-
-subplot (2,2,4); view (-38, 20);
-p = patch (&quot;Faces&quot;, f, &quot;Vertices&quot;, v, &quot;FaceVertexCData&quot;, cdat, ...
-           &quot;FaceColor&quot;, &quot;interp&quot;, &quot;EdgeColor&quot;, &quot;none&quot;);
-isonormals (x, y, z, c, v, &quot;negate&quot;); # Use reverse directly
-isofinish (p);
-</pre></div>
-
-
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisocolors">isocolors</a>.
+<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
 <a name="XREFisocolors"></a><dl>
-<dt><a name="index-isocolors"></a>Function File: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>c</var>, <var>v</var>)</em></dt>
-<dt><a name="index-isocolors-1"></a>Function File: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>c</var>, <var>v</var>)</em></dt>
-<dt><a name="index-isocolors-2"></a>Function File: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>r</var>, <var>g</var>, <var>b</var>, <var>v</var>)</em></dt>
-<dt><a name="index-isocolors-3"></a>Function File: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>r</var>, <var>g</var>, <var>b</var>, <var>v</var>)</em></dt>
-<dt><a name="index-isocolors-4"></a>Function File: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(&hellip;, <var>p</var>)</em></dt>
-<dt><a name="index-isocolors-5"></a>Function File: <em></em> <strong>isocolors</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-isocolors"></a>: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>c</var>, <var>v</var>)</em></dt>
+<dt><a name="index-isocolors-1"></a>: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>c</var>, <var>v</var>)</em></dt>
+<dt><a name="index-isocolors-2"></a>: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>r</var>, <var>g</var>, <var>b</var>, <var>v</var>)</em></dt>
+<dt><a name="index-isocolors-3"></a>: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(<var>r</var>, <var>g</var>, <var>b</var>, <var>v</var>)</em></dt>
+<dt><a name="index-isocolors-4"></a>: <em>[<var>cd</var>] =</em> <strong>isocolors</strong> <em>(&hellip;, <var>p</var>)</em></dt>
+<dt><a name="index-isocolors-5"></a>: <em></em> <strong>isocolors</strong> <em>(&hellip;)</em></dt>
 <dd>
+<p>Compute isosurface colors.
+</p>
 <p>If called with one output argument and the first input argument
 <var>c</var> is a three-dimensional array that contains color values and
 the second input argument <var>v</var> keeps the vertices of a geometry
@@ -629,12 +732,12 @@ change the colors of a patch that is given by the patch handle
 <p>For example:
 </p>
 <div class="example">
-<pre class="example">function [] = isofinish (p)
+<pre class="example">function isofinish (p)
   set (gca, &quot;PlotBoxAspectRatioMode&quot;, &quot;manual&quot;, ...
             &quot;PlotBoxAspectRatio&quot;, [1 1 1]);
   set (p, &quot;FaceColor&quot;, &quot;interp&quot;);
   ## set (p, &quot;FaceLighting&quot;, &quot;flat&quot;);
-  ## light (&quot;Position&quot;, [1 1 5]); ## Available with JHandles
+  ## light (&quot;Position&quot;, [1 1 5]);  # Available with JHandles
 endfunction
 
 N = 15;    # Increase number of vertices in each direction
@@ -673,35 +776,195 @@ isofinish (p);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>.
+<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>.
+</p></dd></dl>
+
+
+<a name="XREFsmooth3"></a><dl>
+<dt><a name="index-smooth3"></a>: <em><var>smoothed_data</var> =</em> <strong>smooth3</strong> <em>(<var>data</var>)</em></dt>
+<dt><a name="index-smooth3-1"></a>: <em><var>smoothed_data</var> =</em> <strong>smooth3</strong> <em>(<var>data</var>, <var>method</var>)</em></dt>
+<dt><a name="index-smooth3-2"></a>: <em><var>smoothed_data</var> =</em> <strong>smooth3</strong> <em>(<var>data</var>, <var>method</var>, <var>sz</var>)</em></dt>
+<dt><a name="index-smooth3-3"></a>: <em><var>smoothed_data</var> =</em> <strong>smooth3</strong> <em>(<var>data</var>, <var>method</var>, <var>sz</var>, <var>std_dev</var>)</em></dt>
+<dd><p>Smooth values of 3-dimensional matrix <var>data</var>.
+</p>
+<p>This function can be used, for example, to reduce the impact of noise in
+<var>data</var> before calculating isosurfaces.
+</p>
+<p><var>data</var> must be a non-singleton 3-dimensional matrix.  The smoothed data
+from this matrix is returned in <var>smoothed_data</var> which is of the same
+size as <var>data</var>.
+</p>
+<p>The option input <var>method</var> determines which convolution kernel is used
+for the smoothing process.  Possible choices:
+</p>
+<dl compact="compact">
+<dt><code>&quot;box&quot;</code>, <code>&quot;b&quot;</code> (default)</dt>
+<dd><p>to use a convolution kernel with sharp edges.
+</p>
+</dd>
+<dt><code>&quot;gaussian&quot;</code>, <code>&quot;g&quot;</code></dt>
+<dd><p>to use a convolution kernel that is represented by a non-correlated
+trivariate normal distribution function.
+</p></dd>
+</dl>
+
+<p><var>sz</var> is either a vector of 3 elements representing the size of the
+convolution kernel in x-, y- and z-direction or a scalar, in which case
+the same size is used in all three dimensions.  The default value is 3.
+</p>
+<p>When <var>method</var> is <code>&quot;gaussian&quot;</code>, <var>std_dev</var> defines the standard
+deviation of the trivariate normal distribution function.  <var>std_dev</var> is
+either a vector of 3 elements representing the standard deviation of the
+Gaussian convolution kernel in x-, y- and z-directions or a scalar, in which
+case the same value is used in all three dimensions.  The default value is
+0.65.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+</p></dd></dl>
+
+
+<a name="XREFreducevolume"></a><dl>
+<dt><a name="index-reducevolume"></a>: <em>[<var>nx</var>, <var>ny</var>, <var>nz</var>, <var>nv</var>] =</em> <strong>reducevolume</strong> <em>(<var>v</var>, <var>r</var>)</em></dt>
+<dt><a name="index-reducevolume-1"></a>: <em>[<var>nx</var>, <var>ny</var>, <var>nz</var>, <var>nv</var>] =</em> <strong>reducevolume</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>r</var>)</em></dt>
+<dt><a name="index-reducevolume-2"></a>: <em><var>nv</var> =</em> <strong>reducevolume</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Reduce the volume of the dataset in <var>v</var> according to the values in
+<var>r</var>.
+</p>
+<p><var>v</var> is a matrix that is non-singleton in the first 3 dimensions.
+</p>
+<p><var>r</var> can either be a vector of 3 elements representing the reduction
+factors in the x-, y-, and z-directions or a scalar, in which case the same
+reduction factor is used in all three dimensions.
+</p>
+<p><code>reducevolume</code> reduces the number of elements of <var>v</var> by taking
+only every <var>r</var>-th element in the respective dimension.
+</p>
+<p>Optionally, <var>x</var>, <var>y</var>, and <var>z</var> can be supplied to represent the
+set of coordinates of <var>v</var>.  They can either be matrices of the same size
+as <var>v</var> or vectors with sizes according to the dimensions of <var>v</var>, in
+which case they are expanded to matrices (see <a href="#XREFmeshgrid">meshgrid</a>).
+</p>
+<p>If <code>reducevolume</code> is called with two arguments then <var>x</var>, <var>y</var>,
+and <var>z</var> are assumed to match the respective indices of <var>v</var>.
+</p>
+<p>The reduced matrix is returned in <var>nv</var>.
+</p>
+<p>Optionally, the reduced set of coordinates are returned in <var>nx</var>,
+<var>ny</var>, and <var>nz</var>, respectively.
+</p>
+<p>Examples:
+</p>
+<div class="example">
+<pre class="example"><var>v</var> = reshape (1:6*8*4, [6 8 4]);
+<var>nv</var> = reducevolume (<var>v</var>, [4 3 2]);
+</pre></div>
+
+<div class="example">
+<pre class="example"><var>v</var> = reshape (1:6*8*4, [6 8 4]);
+<var>x</var> = 1:3:24;  <var>y</var> = -14:5:11;  <var>z</var> = linspace (16, 18, 4);
+[<var>nx</var>, <var>ny</var>, <var>nz</var>, <var>nv</var>] = reducevolume (<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, [4 3 2]);
+</pre></div>
+
+
+<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>.
+</p></dd></dl>
+
+
+<a name="XREFreducepatch"></a><dl>
+<dt><a name="index-reducepatch"></a>: <em><var>reduced_fv</var> =</em> <strong>reducepatch</strong> <em>(<var>fv</var>)</em></dt>
+<dt><a name="index-reducepatch-1"></a>: <em><var>reduced_fv</var> =</em> <strong>reducepatch</strong> <em>(<var>faces</var>, <var>vertices</var>)</em></dt>
+<dt><a name="index-reducepatch-2"></a>: <em><var>reduced_fv</var> =</em> <strong>reducepatch</strong> <em>(<var>patch_handle</var>)</em></dt>
+<dt><a name="index-reducepatch-3"></a>: <em></em> <strong>reducepatch</strong> <em>(<var>patch_handle</var>)</em></dt>
+<dt><a name="index-reducepatch-4"></a>: <em><var>reduced_fv</var> =</em> <strong>reducepatch</strong> <em>(&hellip;, <var>reduction_factor</var>)</em></dt>
+<dt><a name="index-reducepatch-5"></a>: <em><var>reduced_fv</var> =</em> <strong>reducepatch</strong> <em>(&hellip;, &quot;fast&quot;)</em></dt>
+<dt><a name="index-reducepatch-6"></a>: <em><var>reduced_fv</var> =</em> <strong>reducepatch</strong> <em>(&hellip;, &quot;verbose&quot;)</em></dt>
+<dt><a name="index-reducepatch-7"></a>: <em>[<var>reduced_faces</var>, <var>reduces_vertices</var>] =</em> <strong>reducepatch</strong> <em>(&hellip;)</em></dt>
+<dd>
+<p>Reduce the number of faces and vertices in a patch object while retaining
+the overall shape of the patch.
+</p>
+<p>The input patch can be represented by a structure <var>fv</var> with the
+fields <code>faces</code> and <code>vertices</code>, by two matrices <var>faces</var> and
+<var>vertices</var> (see, e.g., the result of <code>isosurface</code>), or by a
+handle to a patch object <var>patch_handle</var> (see <a href="Graphics-Objects.html#XREFpatch">patch</a>).
+</p>
+<p>The number of faces and vertices in the patch is reduced by iteratively
+collapsing the shortest edge of the patch to its midpoint (as discussed,
+e.g., here:
+<a href="http://libigl.github.io/libigl/tutorial/tutorial.html#meshdecimation">http://libigl.github.io/libigl/tutorial/tutorial.html#meshdecimation</a>).
+</p>
+<p>Currently, only patches consisting of triangles are supported.  The
+resulting patch also consists only of triangles.
+</p>
+<p>If <code>reducepatch</code> is called with a handle to a valid patch
+<var>patch_handle</var>, and without any output arguments, then the given
+patch is updated immediately.
+</p>
+<p>If the <var>reduction_factor</var> is omitted, the resulting structure
+<var>reduced_fv</var> includes approximately 50% of the faces of the original
+patch.  If <var>reduction_factor</var> is a fraction between 0 (excluded) and 1
+(excluded), a patch with approximately the corresponding fraction of faces
+is determined.
+If <var>reduction_factor</var> is an integer greater than or equal to 1, the
+resulting patch has approximately <var>reduction_factor</var> faces.  Depending
+on the geometry of the patch, the resulting number of faces can differ from
+the given value of <var>reduction_factor</var>.  This is especially true when
+many shared vertices are detected.
+</p>
+<p>For the reduction, it is necessary that vertices of touching faces are
+shared.  Shared vertices are detected automatically.  This detection can be
+skipped by passing the optional string argument <code>&quot;fast&quot;</code>.
+</p>
+<p>With the optional string arguments <code>&quot;verbose&quot;</code>, additional status
+messages are printed to the command window.
+</p>
+<p>Any string input arguments must be passed after all other arguments.
+</p>
+<p>If called with one output argument, the reduced faces and vertices are
+returned in a structure <var>reduced_fv</var> with the fields <code>faces</code> and
+<code>vertices</code> (see the one output option of <code>isosurface</code>).
+</p>
+<p>If called with two output arguments, the reduced faces and vertices are
+returned in two separate matrices <var>reduced_faces</var> and
+<var>reduced_vertices</var>.
+</p>
+
+<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>, <a href="#XREFreducevolume">reducevolume</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
 <a name="XREFshrinkfaces"></a><dl>
-<dt><a name="index-shrinkfaces"></a>Function File: <em></em> <strong>shrinkfaces</strong> <em>(<var>p</var>, <var>sf</var>)</em></dt>
-<dt><a name="index-shrinkfaces-1"></a>Function File: <em><var>nfv</var> =</em> <strong>shrinkfaces</strong> <em>(<var>p</var>, <var>sf</var>)</em></dt>
-<dt><a name="index-shrinkfaces-2"></a>Function File: <em><var>nfv</var> =</em> <strong>shrinkfaces</strong> <em>(<var>fv</var>, <var>sf</var>)</em></dt>
-<dt><a name="index-shrinkfaces-3"></a>Function File: <em><var>nfv</var> =</em> <strong>shrinkfaces</strong> <em>(<var>f</var>, <var>v</var>, <var>sf</var>)</em></dt>
-<dt><a name="index-shrinkfaces-4"></a>Function File: <em>[<var>nf</var>, <var>nv</var>] =</em> <strong>shrinkfaces</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-shrinkfaces"></a>: <em></em> <strong>shrinkfaces</strong> <em>(<var>p</var>, <var>sf</var>)</em></dt>
+<dt><a name="index-shrinkfaces-1"></a>: <em><var>nfv</var> =</em> <strong>shrinkfaces</strong> <em>(<var>p</var>, <var>sf</var>)</em></dt>
+<dt><a name="index-shrinkfaces-2"></a>: <em><var>nfv</var> =</em> <strong>shrinkfaces</strong> <em>(<var>fv</var>, <var>sf</var>)</em></dt>
+<dt><a name="index-shrinkfaces-3"></a>: <em><var>nfv</var> =</em> <strong>shrinkfaces</strong> <em>(<var>f</var>, <var>v</var>, <var>sf</var>)</em></dt>
+<dt><a name="index-shrinkfaces-4"></a>: <em>[<var>nf</var>, <var>nv</var>] =</em> <strong>shrinkfaces</strong> <em>(&hellip;)</em></dt>
 <dd>
-<p>Reduce the faces area for a given patch, structure or explicit faces
-and points matrices by a scale factor <var>sf</var>.  The structure
-<var>fv</var> must contain the fields <code>&quot;faces&quot;</code> and <code>&quot;vertices&quot;</code>.
-If the factor <var>sf</var> is omitted then a default of 0.3 is used.
+<p>Reduce the size of faces in a patch by the shrink factor <var>sf</var>.
 </p>
-<p>Given a patch handle as the first input argument and no output
-parameters, perform the shrinking of the patch faces in place and
-redraw the patch.
+<p>The patch object can be specified by a graphics handle (<var>p</var>), a patch
+structure (<var>fv</var>) with the fields <code>&quot;faces&quot;</code> and <code>&quot;vertices&quot;</code>,
+or as two separate matrices (<var>f</var>, <var>v</var>) of faces and vertices.
+</p>
+<p>The shrink factor <var>sf</var> is a positive number specifying the percentage
+of the original area the new face will occupy.  If no factor is given the
+default is 0.3 (a reduction to 30% of the original size).  A factor greater
+than 1.0 will result in the expansion of faces.
+</p>
+<p>Given a patch handle as the first input argument and no output parameters,
+perform the shrinking of the patch faces in place and redraw the patch.
 </p>
 <p>If called with one output argument, return a structure with fields
 <code>&quot;faces&quot;</code>, <code>&quot;vertices&quot;</code>, and <code>&quot;facevertexcdata&quot;</code>
-containing the data after shrinking which can then directly be used as an
-input argument for the <code>patch</code> function.
+containing the data after shrinking.  This structure can be used directly
+as an input argument to the <code>patch</code> function.
 </p>
-<p>Performing the shrinking on faces which are not convex can lead to
-undesired results.
+<p><strong>Caution:</strong>: Performing the shrink operation on faces which are not
+convex can lead to undesirable results.
 </p>
-<p>For example,
+<p>Example: a triangulated 3/4 circle and the corresponding shrunken version.
 </p>
 <div class="example">
 <pre class="example">[phi r] = meshgrid (linspace (0, 1.5*pi, 16), linspace (1, 2, 4));
@@ -715,47 +978,200 @@ axis equal
 grid on
 </pre></div>
 
-<p>draws a triangulated 3/4 circle and the corresponding shrunken
-version.
-</p>
+
 <p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
 <a name="XREFdiffuse"></a><dl>
-<dt><a name="index-diffuse"></a>Function File: <em></em> <strong>diffuse</strong> <em>(<var>sx</var>, <var>sy</var>, <var>sz</var>, <var>lv</var>)</em></dt>
-<dd><p>Calculate diffuse reflection strength of a surface defined by the normal
+<dt><a name="index-diffuse"></a>: <em></em> <strong>diffuse</strong> <em>(<var>sx</var>, <var>sy</var>, <var>sz</var>, <var>lv</var>)</em></dt>
+<dd><p>Calculate the diffuse reflection strength of a surface defined by the normal
 vector elements <var>sx</var>, <var>sy</var>, <var>sz</var>.
 </p>
-<p>The light source location vector <var>lv</var> can be given as 2-element vector
-[azimuth, elevation] in degrees or as 3-element vector [lx, ly, lz].
+<p>The light source location vector <var>lv</var> can be given as a 2-element vector
+[azimuth, elevation] in degrees or as a 3-element vector [x, y, z].
 </p>
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFspecular">specular</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>.
+<p><strong>See also:</strong> <a href="#XREFspecular">specular</a>, <a href="#XREFsurfl">surfl</a>.
 </p></dd></dl>
 
 
 <a name="XREFspecular"></a><dl>
-<dt><a name="index-specular"></a>Function File: <em></em> <strong>specular</strong> <em>(<var>sx</var>, <var>sy</var>, <var>sz</var>, <var>lv</var>, <var>vv</var>)</em></dt>
-<dt><a name="index-specular-1"></a>Function File: <em></em> <strong>specular</strong> <em>(<var>sx</var>, <var>sy</var>, <var>sz</var>, <var>lv</var>, <var>vv</var>, <var>se</var>)</em></dt>
-<dd><p>Calculate specular reflection strength of a surface defined by the normal
-vector elements <var>sx</var>, <var>sy</var>, <var>sz</var> using Phong&rsquo;s approximation.
+<dt><a name="index-specular"></a>: <em></em> <strong>specular</strong> <em>(<var>sx</var>, <var>sy</var>, <var>sz</var>, <var>lv</var>, <var>vv</var>)</em></dt>
+<dt><a name="index-specular-1"></a>: <em></em> <strong>specular</strong> <em>(<var>sx</var>, <var>sy</var>, <var>sz</var>, <var>lv</var>, <var>vv</var>, <var>se</var>)</em></dt>
+<dd><p>Calculate the specular reflection strength of a surface defined by the
+normal vector elements <var>sx</var>, <var>sy</var>, <var>sz</var> using Phong&rsquo;s
+approximation.
 </p>
-<p>The light source location and viewer location vectors can be specified using
-parameter <var>lv</var> and <var>vv</var> respectively.  The location vectors can
+<p>The light source location and viewer location vectors are specified using
+parameters <var>lv</var> and <var>vv</var> respectively.  The location vectors can
 given as 2-element vectors [azimuth, elevation] in degrees or as 3-element
 vectors [x, y, z].
 </p>
-<p>An optional sixth argument describes the specular exponent (spread) <var>se</var>.
+<p>An optional sixth argument specifies the specular exponent (spread)
+<var>se</var>.  If not given, <var>se</var> defaults to 10.
 </p>
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFdiffuse">diffuse</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>.
+<p><strong>See also:</strong> <a href="#XREFdiffuse">diffuse</a>, <a href="#XREFsurfl">surfl</a>.
+</p></dd></dl>
+
+
+<a name="XREFlighting"></a><dl>
+<dt><a name="index-lighting"></a>: <em></em> <strong>lighting</strong> <em>(<var>type</var>)</em></dt>
+<dt><a name="index-lighting-1"></a>: <em></em> <strong>lighting</strong> <em>(<var>hax</var>, <var>type</var>)</em></dt>
+<dd><p>Set the lighting of patch or surface graphic objects.
+</p>
+<p>Valid arguments for <var>type</var> are
+</p>
+<dl compact="compact">
+<dt><code>&quot;flat&quot;</code></dt>
+<dd><p>Draw objects with faceted lighting effects.
+</p>
+</dd>
+<dt><code>&quot;gouraud&quot;</code></dt>
+<dd><p>Draw objects with linear interpolation of the lighting effects between the
+vertices.
+</p>
+</dd>
+<dt><code>&quot;none&quot;</code></dt>
+<dd><p>Draw objects without light and shadow effects.
+</p></dd>
+</dl>
+
+<p>If the first argument <var>hax</var> is an axes handle, then change the lighting
+effects of objects in this axis, rather than the current axes returned by
+<code>gca</code>.
+</p>
+<p>The lighting effects are only visible if at least one light object is
+present and visible in the same axes.
+</p>
+
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>, <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFshading">shading</a>.
+</p></dd></dl>
+
+
+<a name="XREFmaterial"></a><dl>
+<dt><a name="index-material"></a>: <em></em> <strong>material</strong> <em>shiny</em></dt>
+<dt><a name="index-material-1"></a>: <em></em> <strong>material</strong> <em>dull</em></dt>
+<dt><a name="index-material-2"></a>: <em></em> <strong>material</strong> <em>metal</em></dt>
+<dt><a name="index-material-3"></a>: <em></em> <strong>material</strong> <em>default</em></dt>
+<dt><a name="index-material-4"></a>: <em></em> <strong>material</strong> <em>([<var>as</var>, <var>ds</var>, <var>ss</var>])</em></dt>
+<dt><a name="index-material-5"></a>: <em></em> <strong>material</strong> <em>([<var>as</var>, <var>ds</var>, <var>ss</var>, <var>se</var>])</em></dt>
+<dt><a name="index-material-6"></a>: <em></em> <strong>material</strong> <em>([<var>as</var>, <var>ds</var>, <var>ss</var>, <var>se</var>, <var>scr</var>])</em></dt>
+<dt><a name="index-material-7"></a>: <em></em> <strong>material</strong> <em>(<var>hlist</var>, &hellip;)</em></dt>
+<dt><a name="index-material-8"></a>: <em><var>mtypes</var> =</em> <strong>material</strong> <em>()</em></dt>
+<dt><a name="index-material-9"></a>: <em><var>refl_props</var> =</em> <strong>material</strong> <em>(<var>mtype_string</var>)</em></dt>
+<dd><p>Set reflectance properties for the lighting of surfaces and patches.
+</p>
+<p>This function changes the ambient, diffuse, and specular strengths, as well
+as the specular exponent and specular color reflectance, of all
+<code>patch</code> and <code>surface</code> objects in the current axes.  This can be
+used to simulate, to some extent, the reflectance properties of certain
+materials when used with <code>light</code>.
+</p>
+<p>When called with a string, the aforementioned properties are set
+according to the values in the following table:
+</p>
+<table>
+<thead><tr><th width="0%"></th><th width="20%"><var>mtype</var></th><th width="15%">ambient- strength</th><th width="15%">diffuse-
+strength</th><th width="15%">specular- strength</th><th width="15%">specular- exponent</th><th width="15%">specular-
+color- reflectance</th><th width="0%"></th></tr></thead>
+<tr><td width="0%"></td><td width="20%"><code>&quot;shiny&quot;</code></td><td width="15%">0.3</td><td width="15%">0.6</td><td width="15%">0.9</td><td width="15%">20</td><td width="15%">1.0</td><td width="0%"></td></tr>
+<tr><td width="0%"></td><td width="20%"><code>&quot;dull&quot;</code></td><td width="15%">0.3</td><td width="15%">0.8</td><td width="15%">0.0</td><td width="15%">10</td><td width="15%">1.0</td><td width="0%"></td></tr>
+<tr><td width="0%"></td><td width="20%"><code>&quot;metal&quot;</code></td><td width="15%">0.3</td><td width="15%">0.3</td><td width="15%">1.0</td><td width="15%">25</td><td width="15%">0.5</td><td width="0%"></td></tr>
+<tr><td width="0%"></td><td width="20%"><code>&quot;default&quot;</code></td><td width="15%"><code>&quot;default&quot;</code></td><td width="15%"><code>&quot;default&quot;</code></td><td width="15%"><code>&quot;default&quot;</code></td><td width="15%"><code>&quot;default&quot;</code></td><td width="15%"><code>&quot;default&quot;</code></td><td width="0%"></td></tr>
+</table>
+
+<p>When called with a vector of three elements, the ambient, diffuse, and
+specular strengths of all <code>patch</code> and <code>surface</code> objects in the
+current axes are updated.  An optional fourth vector element updates the
+specular exponent, and an optional fifth vector element updates the
+specular color reflectance.
+</p>
+<p>A list of graphic handles can also be passed as the first argument.  In
+this case, the properties of these handles and all child <code>patch</code> and
+<code>surface</code> objects will be updated.
+</p>
+<p>Additionally, <code>material</code> can be called with a single output argument.
+If called without input arguments, a column cell vector <var>mtypes</var> with
+the strings for all available materials is returned.  If the one input
+argument <var>mtype_string</var> is the name of a material, a 1x5 cell vector
+<var>refl_props</var> with the reflectance properties of that material is
+returned.  In both cases, no graphic properties are changed.
+</p>
+
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>, <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>.
+</p></dd></dl>
+
+
+<a name="XREFcamlight"></a><dl>
+<dt><a name="index-camlight"></a>: <em></em> <strong>camlight</strong> <em></em></dt>
+<dt><a name="index-camlight-1"></a>: <em></em> <strong>camlight</strong> <em>right</em></dt>
+<dt><a name="index-camlight-2"></a>: <em></em> <strong>camlight</strong> <em>left</em></dt>
+<dt><a name="index-camlight-3"></a>: <em></em> <strong>camlight</strong> <em>headlight</em></dt>
+<dt><a name="index-camlight-4"></a>: <em></em> <strong>camlight</strong> <em>(<var>az</var>, <var>el</var>)</em></dt>
+<dt><a name="index-camlight-5"></a>: <em></em> <strong>camlight</strong> <em>(&hellip;, <var>style</var>)</em></dt>
+<dt><a name="index-camlight-6"></a>: <em></em> <strong>camlight</strong> <em>(<var>hl</var>, &hellip;)</em></dt>
+<dt><a name="index-camlight-7"></a>: <em><var>h</var> =</em> <strong>camlight</strong> <em>(&hellip;)</em></dt>
+<dd><p>Add a light object to a figure using a simple interface.
+</p>
+<p>When called with no arguments, a light object is added to the current plot
+and is placed slightly above and to the right of the camera&rsquo;s current
+position: this is equivalent to <code>camlight right</code>.  The commands
+<code>camlight left</code> and <code>camlight headlight</code> behave similarly with
+the placement being either left of the camera position or centered on the
+camera position.
+</p>
+<p>For more control, the light position can be specified by an azimuthal
+rotation <var>az</var> and an elevation angle <var>el</var>, both in degrees,
+relative to the current properties of the camera.
+</p>
+<p>The optional string <var>style</var> specifies whether the light is a local point
+source (<code>&quot;local&quot;</code>, the default) or placed at infinite distance
+(<code>&quot;infinite&quot;</code>).
+</p>
+<p>If the first argument <var>hl</var> is a handle to a light object, then act on
+this light object rather than creating a new object.
+</p>
+<p>The optional return value <var>h</var> is a graphics handle to the light object.
+This can be used to move or further change properties of the light object.
+</p>
+<p>Examples:
+</p>
+<p>Add a light object to a plot
+</p>
+<div class="example">
+<pre class="example">sphere (36);
+camlight
+</pre></div>
+
+<p>Position the light source exactly
+</p>
+<div class="example">
+<pre class="example">camlight (45, 30);
+</pre></div>
+
+<p>Here the light is first pitched upwards from the camera position by 30
+degrees.  It is then yawed by 45 degrees to the right.  Both rotations are
+centered around the camera target.
+</p>
+<p>Return a handle to further manipulate the light object
+</p>
+<div class="example">
+<pre class="example">clf
+sphere (36);
+hl = camlight (&quot;left&quot;);
+set (hl, &quot;color&quot;, &quot;r&quot;);
+</pre></div>
+
+
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>.
 </p></dd></dl>
 
 
 <a name="XREFmeshgrid"></a><dl>
-<dt><a name="index-meshgrid"></a>Function File: <em>[<var>xx</var>, <var>yy</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-meshgrid-1"></a>Function File: <em>[<var>xx</var>, <var>yy</var>, <var>zz</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-meshgrid-2"></a>Function File: <em>[<var>xx</var>, <var>yy</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-meshgrid-3"></a>Function File: <em>[<var>xx</var>, <var>yy</var>, <var>zz</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-meshgrid"></a>: <em>[<var>xx</var>, <var>yy</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-meshgrid-1"></a>: <em>[<var>xx</var>, <var>yy</var>, <var>zz</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-meshgrid-2"></a>: <em>[<var>xx</var>, <var>yy</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-meshgrid-3"></a>: <em>[<var>xx</var>, <var>yy</var>, <var>zz</var>] =</em> <strong>meshgrid</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Given vectors of <var>x</var> and <var>y</var> coordinates, return matrices <var>xx</var>
 and <var>yy</var> corresponding to a full 2-D grid.
 </p>
@@ -788,19 +1204,20 @@ input.  Some core functions expect <code>meshgrid</code> input and others expect
 <code>ndgrid</code> input.  Check the documentation for the function in question
 to determine the proper input format.
 </p>
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFndgrid">ndgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>.
+<p><strong>See also:</strong> <a href="#XREFndgrid">ndgrid</a>, <a href="#XREFmesh">mesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>.
 </p></dd></dl>
 
 
 <a name="XREFndgrid"></a><dl>
-<dt><a name="index-ndgrid"></a>Function File: <em>[<var>y1</var>, <var>y2</var>, &hellip;, <var>y</var>n] =</em> <strong>ndgrid</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;, <var>x</var>n)</em></dt>
-<dt><a name="index-ndgrid-1"></a>Function File: <em>[<var>y1</var>, <var>y2</var>, &hellip;, <var>y</var>n] =</em> <strong>ndgrid</strong> <em>(<var>x</var>)</em></dt>
-<dd><p>Given n vectors <var>x1</var>, &hellip;, <var>x</var>n, <code>ndgrid</code> returns
-n arrays of dimension n.  The elements of the i-th output argument
-contains the elements of the vector <var>x</var>i repeated over all
-dimensions different from the i-th dimension.  Calling ndgrid with
-only one input argument <var>x</var> is equivalent to calling ndgrid with
-all n input arguments equal to <var>x</var>:
+<dt><a name="index-ndgrid"></a>: <em>[<var>y1</var>, <var>y2</var>, &hellip;, <var>y</var>n] =</em> <strong>ndgrid</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;, <var>x</var>n)</em></dt>
+<dt><a name="index-ndgrid-1"></a>: <em>[<var>y1</var>, <var>y2</var>, &hellip;, <var>y</var>n] =</em> <strong>ndgrid</strong> <em>(<var>x</var>)</em></dt>
+<dd><p>Given n vectors <var>x1</var>, &hellip;, <var>x</var>n, <code>ndgrid</code> returns n
+arrays of dimension n.
+</p>
+<p>The elements of the i-th output argument contains the elements of the
+vector <var>x</var>i repeated over all dimensions different from the i-th
+dimension.  Calling ndgrid with only one input argument <var>x</var> is
+equivalent to calling ndgrid with all n input arguments equal to <var>x</var>:
 </p>
 <p>[<var>y1</var>, <var>y2</var>, &hellip;, <var>y</var>n] = ndgrid (<var>x</var>, &hellip;, <var>x</var>)
 </p>
@@ -810,18 +1227,18 @@ comparison to <code>meshgrid</code>.  Some core functions expect <code>meshgrid<
 input and others expect <code>ndgrid</code> input.  Check the documentation for
 the function in question to determine the proper input format.
 </p>
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
+<p><strong>See also:</strong> <a href="#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
 <a name="XREFplot3"></a><dl>
-<dt><a name="index-plot3"></a>Function File: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-plot3-1"></a>Function File: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>prop</var>, <var>value</var>, &hellip;)</em></dt>
-<dt><a name="index-plot3-2"></a>Function File: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>fmt</var>)</em></dt>
-<dt><a name="index-plot3-3"></a>Function File: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>cplx</var>)</em></dt>
-<dt><a name="index-plot3-4"></a>Function File: <em></em> <strong>plot3</strong> <em>(<var>cplx</var>)</em></dt>
-<dt><a name="index-plot3-5"></a>Function File: <em></em> <strong>plot3</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-plot3-6"></a>Function File: <em><var>h</var> =</em> <strong>plot3</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-plot3"></a>: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-plot3-1"></a>: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>prop</var>, <var>value</var>, &hellip;)</em></dt>
+<dt><a name="index-plot3-2"></a>: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>fmt</var>)</em></dt>
+<dt><a name="index-plot3-3"></a>: <em></em> <strong>plot3</strong> <em>(<var>x</var>, <var>cplx</var>)</em></dt>
+<dt><a name="index-plot3-4"></a>: <em></em> <strong>plot3</strong> <em>(<var>cplx</var>)</em></dt>
+<dt><a name="index-plot3-5"></a>: <em></em> <strong>plot3</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-plot3-6"></a>: <em><var>h</var> =</em> <strong>plot3</strong> <em>(&hellip;)</em></dt>
 <dd><p>Produce 3-D plots.
 </p>
 <p>Many different combinations of arguments are possible.  The simplest
@@ -893,13 +1310,13 @@ plot3 (z, exp (2i*pi*z), &quot;;complex sinusoid;&quot;);
 
 
 <a name="XREFview"></a><dl>
-<dt><a name="index-view"></a>Function File: <em></em> <strong>view</strong> <em>(<var>azimuth</var>, <var>elevation</var>)</em></dt>
-<dt><a name="index-view-1"></a>Function File: <em></em> <strong>view</strong> <em>([<var>azimuth</var> <var>elevation</var>])</em></dt>
-<dt><a name="index-view-2"></a>Function File: <em></em> <strong>view</strong> <em>([<var>x</var> <var>y</var> <var>z</var>])</em></dt>
-<dt><a name="index-view-3"></a>Function File: <em></em> <strong>view</strong> <em>(2)</em></dt>
-<dt><a name="index-view-4"></a>Function File: <em></em> <strong>view</strong> <em>(3)</em></dt>
-<dt><a name="index-view-5"></a>Function File: <em></em> <strong>view</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-view-6"></a>Function File: <em>[<var>azimuth</var>, <var>elevation</var>] =</em> <strong>view</strong> <em>()</em></dt>
+<dt><a name="index-view"></a>: <em></em> <strong>view</strong> <em>(<var>azimuth</var>, <var>elevation</var>)</em></dt>
+<dt><a name="index-view-1"></a>: <em></em> <strong>view</strong> <em>([<var>azimuth</var> <var>elevation</var>])</em></dt>
+<dt><a name="index-view-2"></a>: <em></em> <strong>view</strong> <em>([<var>x</var> <var>y</var> <var>z</var>])</em></dt>
+<dt><a name="index-view-3"></a>: <em></em> <strong>view</strong> <em>(2)</em></dt>
+<dt><a name="index-view-4"></a>: <em></em> <strong>view</strong> <em>(3)</em></dt>
+<dt><a name="index-view-5"></a>: <em></em> <strong>view</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-view-6"></a>: <em>[<var>azimuth</var>, <var>elevation</var>] =</em> <strong>view</strong> <em>()</em></dt>
 <dd><p>Query or set the viewpoint for the current axes.
 </p>
 <p>The parameters <var>azimuth</var> and <var>elevation</var> can be given as two
@@ -915,18 +1332,19 @@ and <var>elevation</var>&nbsp;=&nbsp;30<!-- /@w -->, which is the default for 3-
 <p>If the first argument <var>hax</var> is an axes handle, then operate on
 this axis rather than the current axes returned by <code>gca</code>.
 </p>
-<p>If no inputs are given, return the current <var>azimuth</var> and <var>elevation</var>.
+<p>If no inputs are given, return the current <var>azimuth</var> and
+<var>elevation</var>.
 </p></dd></dl>
 
 
 <a name="XREFslice"></a><dl>
-<dt><a name="index-slice"></a>Function File: <em></em> <strong>slice</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>sx</var>, <var>sy</var>, <var>sz</var>)</em></dt>
-<dt><a name="index-slice-1"></a>Function File: <em></em> <strong>slice</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
-<dt><a name="index-slice-2"></a>Function File: <em></em> <strong>slice</strong> <em>(<var>v</var>, <var>sx</var>, <var>sy</var>, <var>sz</var>)</em></dt>
-<dt><a name="index-slice-3"></a>Function File: <em></em> <strong>slice</strong> <em>(<var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
-<dt><a name="index-slice-4"></a>Function File: <em></em> <strong>slice</strong> <em>(&hellip;, <var>method</var>)</em></dt>
-<dt><a name="index-slice-5"></a>Function File: <em></em> <strong>slice</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-slice-6"></a>Function File: <em><var>h</var> =</em> <strong>slice</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-slice"></a>: <em></em> <strong>slice</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>sx</var>, <var>sy</var>, <var>sz</var>)</em></dt>
+<dt><a name="index-slice-1"></a>: <em></em> <strong>slice</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
+<dt><a name="index-slice-2"></a>: <em></em> <strong>slice</strong> <em>(<var>v</var>, <var>sx</var>, <var>sy</var>, <var>sz</var>)</em></dt>
+<dt><a name="index-slice-3"></a>: <em></em> <strong>slice</strong> <em>(<var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
+<dt><a name="index-slice-4"></a>: <em></em> <strong>slice</strong> <em>(&hellip;, <var>method</var>)</em></dt>
+<dt><a name="index-slice-5"></a>: <em></em> <strong>slice</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-slice-6"></a>: <em><var>h</var> =</em> <strong>slice</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot slices of 3-D data/scalar fields.
 </p>
 <p>Each element of the 3-dimensional array <var>v</var> represents a scalar value at
@@ -988,16 +1406,20 @@ slice (x, y, z, v, xi, yi, zi);
 
 
 <a name="XREFribbon"></a><dl>
-<dt><a name="index-ribbon"></a>Function File: <em></em> <strong>ribbon</strong> <em>(<var>y</var>)</em></dt>
-<dt><a name="index-ribbon-1"></a>Function File: <em></em> <strong>ribbon</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-ribbon-2"></a>Function File: <em></em> <strong>ribbon</strong> <em>(<var>x</var>, <var>y</var>, <var>width</var>)</em></dt>
-<dt><a name="index-ribbon-3"></a>Function File: <em></em> <strong>ribbon</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ribbon-4"></a>Function File: <em><var>h</var> =</em> <strong>ribbon</strong> <em>(&hellip;)</em></dt>
-<dd><p>Plot a ribbon plot for the columns of <var>y</var> vs. <var>x</var>.
+<dt><a name="index-ribbon"></a>: <em></em> <strong>ribbon</strong> <em>(<var>y</var>)</em></dt>
+<dt><a name="index-ribbon-1"></a>: <em></em> <strong>ribbon</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-ribbon-2"></a>: <em></em> <strong>ribbon</strong> <em>(<var>x</var>, <var>y</var>, <var>width</var>)</em></dt>
+<dt><a name="index-ribbon-3"></a>: <em></em> <strong>ribbon</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ribbon-4"></a>: <em><var>h</var> =</em> <strong>ribbon</strong> <em>(&hellip;)</em></dt>
+<dd><p>Draw a ribbon plot for the columns of <var>y</var> vs. <var>x</var>.
+</p>
+<p>If <var>x</var> is omitted, a vector containing the row numbers is assumed
+(<code>1:rows (Y)</code>).  Alternatively, <var>x</var> can also be a vector with
+same number of elements as rows of <var>y</var> in which case the same
+<var>x</var> is used for each column of <var>y</var>.
 </p>
 <p>The optional parameter <var>width</var> specifies the width of a single ribbon
-(default is 0.75).  If <var>x</var> is omitted, a vector containing the
-row numbers is assumed (<code>1:rows (Y)</code>).
+(default is 0.75).
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
@@ -1005,13 +1427,13 @@ rather than the current axes returned by <code>gca</code>.
 <p>The optional return value <var>h</var> is a vector of graphics handles to
 the surface objects representing each ribbon.
 </p>
-<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFwaterfall">waterfall</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFwaterfall">waterfall</a>.
 </p></dd></dl>
 
 
 <a name="XREFshading"></a><dl>
-<dt><a name="index-shading"></a>Function File: <em></em> <strong>shading</strong> <em>(<var>type</var>)</em></dt>
-<dt><a name="index-shading-1"></a>Function File: <em></em> <strong>shading</strong> <em>(<var>hax</var>, <var>type</var>)</em></dt>
+<dt><a name="index-shading"></a>: <em></em> <strong>shading</strong> <em>(<var>type</var>)</em></dt>
+<dt><a name="index-shading-1"></a>: <em></em> <strong>shading</strong> <em>(<var>hax</var>, <var>type</var>)</em></dt>
 <dd><p>Set the shading of patch or surface graphic objects.
 </p>
 <p>Valid arguments for <var>type</var> are
@@ -1022,11 +1444,11 @@ the surface objects representing each ribbon.
 </p>
 </dd>
 <dt><code>&quot;faceted&quot;</code></dt>
-<dd><p>Single colored patches with visible edges.
+<dd><p>Single colored patches with black edges.
 </p>
 </dd>
 <dt><code>&quot;interp&quot;</code></dt>
-<dd><p>Color between patch vertices are interpolated and the patch edges are
+<dd><p>Colors between patch vertices are interpolated and the patch edges are
 invisible.
 </p></dd>
 </dl>
@@ -1034,19 +1456,19 @@ invisible.
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFfill">fill</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFlighting">lighting</a>.
 </p></dd></dl>
 
 
 <a name="XREFscatter3"></a><dl>
-<dt><a name="index-scatter3"></a>Function File: <em></em> <strong>scatter3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-scatter3-1"></a>Function File: <em></em> <strong>scatter3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>s</var>)</em></dt>
-<dt><a name="index-scatter3-2"></a>Function File: <em></em> <strong>scatter3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>s</var>, <var>c</var>)</em></dt>
-<dt><a name="index-scatter3-3"></a>Function File: <em></em> <strong>scatter3</strong> <em>(&hellip;, <var>style</var>)</em></dt>
-<dt><a name="index-scatter3-4"></a>Function File: <em></em> <strong>scatter3</strong> <em>(&hellip;, &quot;filled&quot;)</em></dt>
-<dt><a name="index-scatter3-5"></a>Function File: <em></em> <strong>scatter3</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>)</em></dt>
-<dt><a name="index-scatter3-6"></a>Function File: <em></em> <strong>scatter3</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-scatter3-7"></a>Function File: <em><var>h</var> =</em> <strong>scatter3</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-scatter3"></a>: <em></em> <strong>scatter3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-scatter3-1"></a>: <em></em> <strong>scatter3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>s</var>)</em></dt>
+<dt><a name="index-scatter3-2"></a>: <em></em> <strong>scatter3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>s</var>, <var>c</var>)</em></dt>
+<dt><a name="index-scatter3-3"></a>: <em></em> <strong>scatter3</strong> <em>(&hellip;, <var>style</var>)</em></dt>
+<dt><a name="index-scatter3-4"></a>: <em></em> <strong>scatter3</strong> <em>(&hellip;, &quot;filled&quot;)</em></dt>
+<dt><a name="index-scatter3-5"></a>: <em></em> <strong>scatter3</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>)</em></dt>
+<dt><a name="index-scatter3-6"></a>: <em></em> <strong>scatter3</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-scatter3-7"></a>: <em><var>h</var> =</em> <strong>scatter3</strong> <em>(&hellip;)</em></dt>
 <dd><p>Draw a 3-D scatter plot.
 </p>
 <p>A marker is plotted at each point defined by the coordinates in the vectors
@@ -1060,8 +1482,8 @@ used.
 <p>The color of the markers is determined by <var>c</var>, which can be a string
 defining a fixed color; a 3-element vector giving the red, green, and blue
 components of the color; a vector of the same length as <var>x</var> that gives
-a scaled index into the current colormap; or an Nx3 matrix defining
-the RGB color of each marker individually.
+a scaled index into the current colormap; or an Nx3 matrix
+defining the RGB color of each marker individually.
 </p>
 <p>The marker to use can be changed with the <var>style</var> argument, that is a
 string defining a marker in the same manner as the <code>plot</code> command.
@@ -1088,12 +1510,12 @@ scatter3 (x(:), y(:), z(:), [], z(:));
 
 
 <a name="XREFwaterfall"></a><dl>
-<dt><a name="index-waterfall"></a>Function File: <em></em> <strong>waterfall</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
-<dt><a name="index-waterfall-1"></a>Function File: <em></em> <strong>waterfall</strong> <em>(<var>z</var>)</em></dt>
-<dt><a name="index-waterfall-2"></a>Function File: <em></em> <strong>waterfall</strong> <em>(&hellip;, <var>c</var>)</em></dt>
-<dt><a name="index-waterfall-3"></a>Function File: <em></em> <strong>waterfall</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-waterfall-4"></a>Function File: <em></em> <strong>waterfall</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-waterfall-5"></a>Function File: <em><var>h</var> =</em> <strong>waterfall</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-waterfall"></a>: <em></em> <strong>waterfall</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>)</em></dt>
+<dt><a name="index-waterfall-1"></a>: <em></em> <strong>waterfall</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-waterfall-2"></a>: <em></em> <strong>waterfall</strong> <em>(&hellip;, <var>c</var>)</em></dt>
+<dt><a name="index-waterfall-3"></a>: <em></em> <strong>waterfall</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-waterfall-4"></a>: <em></em> <strong>waterfall</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-waterfall-5"></a>: <em><var>h</var> =</em> <strong>waterfall</strong> <em>(&hellip;)</em></dt>
 <dd><p>Plot a 3-D waterfall plot.
 </p>
 <p>A waterfall plot is similar to a <code>meshz</code> plot except only
@@ -1125,7 +1547,7 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFribbon">ribbon</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="#XREFmeshz">meshz</a>, <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFribbon">ribbon</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 

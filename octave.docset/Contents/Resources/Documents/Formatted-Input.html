@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Formatted Input</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Formatted-Input"></a>
 <div class="header">
 <p>
@@ -65,8 +64,8 @@ functions.  One can be used to extract vectors of data from a file, and
 the other is more &lsquo;C-like&rsquo;.
 </p>
 <a name="XREFfscanf"></a><dl>
-<dt><a name="index-fscanf"></a>Built-in Function: <em>[<var>val</var>, <var>count</var>, <var>errmsg</var>] =</em> <strong>fscanf</strong> <em>(<var>fid</var>, <var>template</var>, <var>size</var>)</em></dt>
-<dt><a name="index-fscanf-1"></a>Built-in Function: <em>[<var>v1</var>, <var>v2</var>, &hellip;, <var>count</var>, <var>errmsg</var>] =</em> <strong>fscanf</strong> <em>(<var>fid</var>, <var>template</var>, &quot;C&quot;)</em></dt>
+<dt><a name="index-fscanf"></a>: <em>[<var>val</var>, <var>count</var>, <var>errmsg</var>] =</em> <strong>fscanf</strong> <em>(<var>fid</var>, <var>template</var>, <var>size</var>)</em></dt>
+<dt><a name="index-fscanf-1"></a>: <em>[<var>v1</var>, <var>v2</var>, &hellip;, <var>count</var>, <var>errmsg</var>] =</em> <strong>fscanf</strong> <em>(<var>fid</var>, <var>template</var>, &quot;C&quot;)</em></dt>
 <dd><p>In the first form, read from <var>fid</var> according to <var>template</var>,
 returning the result in the matrix <var>val</var>.
 </p>
@@ -97,8 +96,7 @@ of <var>nr</var>, the last column is padded with zeros.
 
 <p>If <var>size</var> is omitted, a value of <code>Inf</code> is assumed.
 </p>
-<p>A string is returned if <var>template</var> specifies only character
-conversions.
+<p>A string is returned if <var>template</var> specifies only character conversions.
 </p>
 <p>The number of items successfully read is returned in <var>count</var>.
 </p>
@@ -113,32 +111,32 @@ conversions is returned in <var>count</var>
 <p>See the Formatted Input section of the GNU Octave manual for a
 complete description of the syntax of the template string.
 </p>
-<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Formatted-Input.html#XREFscanf">scanf</a>, <a href="Formatted-Input.html#XREFsscanf">sscanf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="#XREFscanf">scanf</a>, <a href="#XREFsscanf">sscanf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFscanf"></a><dl>
-<dt><a name="index-scanf"></a>Built-in Function: <em>[<var>val</var>, <var>count</var>, <var>errmsg</var>] =</em> <strong>scanf</strong> <em>(<var>template</var>, <var>size</var>)</em></dt>
-<dt><a name="index-scanf-1"></a>Built-in Function: <em>[<var>v1</var>, <var>v2</var>, &hellip;, <var>count</var>, <var>errmsg</var>]] =</em> <strong>scanf</strong> <em>(<var>template</var>, &quot;C&quot;)</em></dt>
+<dt><a name="index-scanf"></a>: <em>[<var>val</var>, <var>count</var>, <var>errmsg</var>] =</em> <strong>scanf</strong> <em>(<var>template</var>, <var>size</var>)</em></dt>
+<dt><a name="index-scanf-1"></a>: <em>[<var>v1</var>, <var>v2</var>, &hellip;, <var>count</var>, <var>errmsg</var>]] =</em> <strong>scanf</strong> <em>(<var>template</var>, &quot;C&quot;)</em></dt>
 <dd><p>This is equivalent to calling <code>fscanf</code> with <var>fid</var> = <code>stdin</code>.
 </p>
-<p>It is currently not useful to call <code>scanf</code> in interactive
-programs.
+<p>It is currently not useful to call <code>scanf</code> in interactive programs.
 </p>
-<p><strong>See also:</strong> <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Formatted-Input.html#XREFsscanf">sscanf</a>, <a href="Formatted-Output.html#XREFprintf">printf</a>.
+<p><strong>See also:</strong> <a href="#XREFfscanf">fscanf</a>, <a href="#XREFsscanf">sscanf</a>, <a href="Formatted-Output.html#XREFprintf">printf</a>.
 </p></dd></dl>
 
 
 <a name="XREFsscanf"></a><dl>
-<dt><a name="index-sscanf"></a>Built-in Function: <em>[<var>val</var>, <var>count</var>, <var>errmsg</var>, <var>pos</var>] =</em> <strong>sscanf</strong> <em>(<var>string</var>, <var>template</var>, <var>size</var>)</em></dt>
-<dt><a name="index-sscanf-1"></a>Built-in Function: <em>[<var>v1</var>, <var>v2</var>, &hellip;, <var>count</var>, <var>errmsg</var>] =</em> <strong>sscanf</strong> <em>(<var>string</var>, <var>template</var>, &quot;C&quot;)</em></dt>
+<dt><a name="index-sscanf"></a>: <em>[<var>val</var>, <var>count</var>, <var>errmsg</var>, <var>pos</var>] =</em> <strong>sscanf</strong> <em>(<var>string</var>, <var>template</var>, <var>size</var>)</em></dt>
+<dt><a name="index-sscanf-1"></a>: <em>[<var>v1</var>, <var>v2</var>, &hellip;, <var>count</var>, <var>errmsg</var>] =</em> <strong>sscanf</strong> <em>(<var>string</var>, <var>template</var>, &quot;C&quot;)</em></dt>
 <dd><p>This is like <code>fscanf</code>, except that the characters are taken from the
-string <var>string</var> instead of from a stream.  Reaching the end of the
-string is treated as an end-of-file condition.  In addition to the values
-returned by <code>fscanf</code>, the index of the next character to be read
-is returned in <var>pos</var>.
+string <var>string</var> instead of from a stream.
 </p>
-<p><strong>See also:</strong> <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Formatted-Input.html#XREFscanf">scanf</a>, <a href="Formatted-Output.html#XREFsprintf">sprintf</a>.
+<p>Reaching the end of the string is treated as an end-of-file condition.  In
+addition to the values returned by <code>fscanf</code>, the index of the next
+character to be read is returned in <var>pos</var>.
+</p>
+<p><strong>See also:</strong> <a href="#XREFfscanf">fscanf</a>, <a href="#XREFscanf">scanf</a>, <a href="Formatted-Output.html#XREFsprintf">sprintf</a>.
 </p></dd></dl>
 
 

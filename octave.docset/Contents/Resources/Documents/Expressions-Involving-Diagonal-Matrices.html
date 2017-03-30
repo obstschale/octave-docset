@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Expressions Involving Diagonal Matrices</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Expressions-Involving-Diagonal-Matrices"></a>
 <div class="header">
 <p>
@@ -58,6 +57,7 @@ Next: <a href="Expressions-Involving-Permutation-Matrices.html#Expressions-Invol
 <hr>
 <a name="Expressions-Involving-Diagonal-Matrices-1"></a>
 <h4 class="subsection">21.2.1 Expressions Involving Diagonal Matrices</h4>
+<a name="index-diagonal-matrix-expressions"></a>
 
 <p>Assume <var>D</var> is a diagonal matrix.  If <var>M</var> is a full matrix,
 then <code>D*M</code> will scale the rows of <var>M</var>.  That means,
@@ -87,6 +87,7 @@ then <code>D*M</code> is equivalent to
 <p>i.e., null rows are appended to the result.
 The situation for right-multiplication <code>M*D</code> is analogous.
 </p>
+<a name="index-pseudoinverse-1"></a>
 <p>The expressions <code>D \ M</code> and <code>M / D</code> perform inverse scaling.
 They are equivalent to solving a diagonal (or rectangular diagonal)
 in a least-squares minimum-norm sense.  In exact arithmetic, this is
@@ -97,12 +98,12 @@ by its reciprocal.
 The matrix division algorithms do, in fact, use division rather than
 multiplication by reciprocals for better numerical accuracy; otherwise, they
 honor the above definition.  Note that a diagonal matrix is never truncated due
-to ill-conditioning; otherwise, it would not be much useful for scaling.  This
+to ill-conditioning; otherwise, it would not be of much use for scaling.  This
 is typically consistent with linear algebra needs.  A full matrix that only
-happens to be diagonal (an is thus not a special object) is of course treated
+happens to be diagonal (and is thus not a special object) is of course treated
 normally.
 </p>
-<p>Multiplication and division by diagonal matrices works efficiently also when
+<p>Multiplication and division by diagonal matrices work efficiently also when
 combined with sparse matrices, i.e., <code>D*S</code>, where <var>D</var> is a diagonal
 matrix and <var>S</var> is a sparse matrix scales the rows of the sparse matrix and
 returns a sparse matrix.  The expressions <code>S*D</code>, <code>D\S</code>, <code>S/D</code>
@@ -141,10 +142,10 @@ elements.  Thus,
 <p>is an efficient method of augmenting the diagonal of a matrix.  Subtraction
 works analogically.
 </p>
-<p>When involved in expressions with other element-by-element operators, <code>.*</code>,
-<code>./</code>, <code>.\</code> or <code>.^</code>, an implicit conversion to full matrix will
-take place.  This is not always strictly necessary but chosen to facilitate
-better consistency with <small>MATLAB</small>.
+<p>When involved in expressions with other element-by-element operators,
+<code>.*</code>, <code>./</code>, <code>.\</code> or <code>.^</code>, an implicit conversion to full
+matrix will take place.  This is not always strictly necessary but chosen to
+facilitate better consistency with <small>MATLAB</small>.
 </p>
 <hr>
 <div class="header">

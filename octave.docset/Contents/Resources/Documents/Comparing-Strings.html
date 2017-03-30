@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Comparing Strings</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Comparing-Strings"></a>
 <div class="header">
 <p>
@@ -76,7 +75,7 @@ sensitive.  <code>strncmp</code> compares only the first <code>N</code> characte
 corresponding functions for case-insensitive comparison.
 </p>
 <a name="XREFstrcmp"></a><dl>
-<dt><a name="index-strcmp"></a>Built-in Function: <em></em> <strong>strcmp</strong> <em>(<var>s1</var>, <var>s2</var>)</em></dt>
+<dt><a name="index-strcmp"></a>: <em></em> <strong>strcmp</strong> <em>(<var>s1</var>, <var>s2</var>)</em></dt>
 <dd><p>Return 1 if the character strings <var>s1</var> and <var>s2</var> are the same,
 and 0 otherwise.
 </p>
@@ -90,14 +89,14 @@ or character string.
 function returns 1 if the character strings are equal, and 0 otherwise.
 This is just the opposite of the corresponding C library function.
 </p>
-<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>.
+<p><strong>See also:</strong> <a href="#XREFstrcmpi">strcmpi</a>, <a href="#XREFstrncmp">strncmp</a>, <a href="#XREFstrncmpi">strncmpi</a>.
 </p></dd></dl>
 
 
 <a name="XREFstrncmp"></a><dl>
-<dt><a name="index-strncmp"></a>Built-in Function: <em></em> <strong>strncmp</strong> <em>(<var>s1</var>, <var>s2</var>, <var>n</var>)</em></dt>
-<dd><p>Return 1 if the first <var>n</var> characters of strings <var>s1</var> and <var>s2</var> are
-the same, and 0 otherwise.
+<dt><a name="index-strncmp"></a>: <em></em> <strong>strncmp</strong> <em>(<var>s1</var>, <var>s2</var>, <var>n</var>)</em></dt>
+<dd><p>Return 1 if the first <var>n</var> characters of strings <var>s1</var> and <var>s2</var>
+are the same, and 0 otherwise.
 </p>
 <div class="example">
 <pre class="example">strncmp (&quot;abce&quot;, &quot;abcd&quot;, 3)
@@ -119,12 +118,12 @@ or character string.
 function returns 1 if the character strings are equal, and 0 otherwise.
 This is just the opposite of the corresponding C library function.
 </p>
-<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>, <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>.
+<p><strong>See also:</strong> <a href="#XREFstrncmpi">strncmpi</a>, <a href="#XREFstrcmp">strcmp</a>, <a href="#XREFstrcmpi">strcmpi</a>.
 </p></dd></dl>
 
 
 <a name="XREFstrcmpi"></a><dl>
-<dt><a name="index-strcmpi"></a>Built-in Function: <em></em> <strong>strcmpi</strong> <em>(<var>s1</var>, <var>s2</var>)</em></dt>
+<dt><a name="index-strcmpi"></a>: <em></em> <strong>strcmpi</strong> <em>(<var>s1</var>, <var>s2</var>)</em></dt>
 <dd><p>Return 1 if the character strings <var>s1</var> and <var>s2</var> are the same,
 disregarding case of alphabetic characters, and 0 otherwise.
 </p>
@@ -140,12 +139,12 @@ This is just the opposite of the corresponding C library function.
 </p>
 <p><strong>Caution:</strong> National alphabets are not supported.
 </p>
-<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>.
+<p><strong>See also:</strong> <a href="#XREFstrcmp">strcmp</a>, <a href="#XREFstrncmp">strncmp</a>, <a href="#XREFstrncmpi">strncmpi</a>.
 </p></dd></dl>
 
 
 <a name="XREFstrncmpi"></a><dl>
-<dt><a name="index-strncmpi"></a>Built-in Function: <em></em> <strong>strncmpi</strong> <em>(<var>s1</var>, <var>s2</var>, <var>n</var>)</em></dt>
+<dt><a name="index-strncmpi"></a>: <em></em> <strong>strncmpi</strong> <em>(<var>s1</var>, <var>s2</var>, <var>n</var>)</em></dt>
 <dd><p>Return 1 if the first <var>n</var> character of <var>s1</var> and <var>s2</var> are the
 same, disregarding case of alphabetic characters, and 0 otherwise.
 </p>
@@ -161,46 +160,7 @@ This is just the opposite of the corresponding C library function.
 </p>
 <p><strong>Caution:</strong> National alphabets are not supported.
 </p>
-<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>.
-</p></dd></dl>
-
-
-<a name="XREFvalidatestring"></a><dl>
-<dt><a name="index-validatestring"></a>Function File: <em><var>validstr</var> =</em> <strong>validatestring</strong> <em>(<var>str</var>, <var>strarray</var>)</em></dt>
-<dt><a name="index-validatestring-1"></a>Function File: <em><var>validstr</var> =</em> <strong>validatestring</strong> <em>(<var>str</var>, <var>strarray</var>, <var>funcname</var>)</em></dt>
-<dt><a name="index-validatestring-2"></a>Function File: <em><var>validstr</var> =</em> <strong>validatestring</strong> <em>(<var>str</var>, <var>strarray</var>, <var>funcname</var>, <var>varname</var>)</em></dt>
-<dt><a name="index-validatestring-3"></a>Function File: <em><var>validstr</var> =</em> <strong>validatestring</strong> <em>(&hellip;, <var>position</var>)</em></dt>
-<dd><p>Verify that <var>str</var> is an element, or substring of an element, in
-<var>strarray</var>.
-</p>
-<p>When <var>str</var> is a character string to be tested, and <var>strarray</var> is a
-cellstr of valid values, then <var>validstr</var> will be the validated form
-of <var>str</var> where validation is defined as <var>str</var> being a member
-or substring of <var>validstr</var>.  This is useful for both verifying
-and expanding short options, such as <code>&quot;r&quot;</code>, to their longer forms,
-such as <code>&quot;red&quot;</code>.  If <var>str</var> is a substring of <var>validstr</var>, and
-there are multiple matches, the shortest match will be returned if all
-matches are substrings of each other.  Otherwise, an error will be raised
-because the expansion of <var>str</var> is ambiguous.  All comparisons are case
-insensitive.
-</p>
-<p>The additional inputs <var>funcname</var>, <var>varname</var>, and <var>position</var>
-are optional and will make any generated validation error message more
-specific.
-</p>
-<p>Examples:
-</p>
-<div class="smallexample">
-<pre class="smallexample">validatestring (&quot;r&quot;, {&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;})
-&rArr; &quot;red&quot;
-
-validatestring (&quot;b&quot;, {&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;black&quot;})
-&rArr; error: validatestring: multiple unique matches were found for 'b':
-   blue, black
-</pre></div>
-
-
-<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>.
+<p><strong>See also:</strong> <a href="#XREFstrncmp">strncmp</a>, <a href="#XREFstrcmp">strcmp</a>, <a href="#XREFstrcmpi">strcmpi</a>.
 </p></dd></dl>
 
 

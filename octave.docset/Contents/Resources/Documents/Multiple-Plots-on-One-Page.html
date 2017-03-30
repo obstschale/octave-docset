@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Multiple Plots on One Page</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Multiple-Plots-on-One-Page"></a>
 <div class="header">
 <p>
@@ -58,6 +57,7 @@ Next: <a href="Multiple-Plot-Windows.html#Multiple-Plot-Windows" accesskey="n" r
 <hr>
 <a name="Multiple-Plots-on-One-Page-1"></a>
 <h4 class="subsection">15.2.4 Multiple Plots on One Page</h4>
+<a name="index-plotting_002c-multiple-plots-per-figure"></a>
 
 <p>Octave can display more than one plot in a single figure.  The simplest
 way to do this is to use the <code>subplot</code> function to divide the plot
@@ -78,20 +78,20 @@ area active.  The grid of plot areas created by <code>subplot</code> is
 numbered in column-major order (top to bottom, left to right).
 </p>
 <a name="XREFsubplot"></a><dl>
-<dt><a name="index-subplot"></a>Function File: <em></em> <strong>subplot</strong> <em>(<var>rows</var>, <var>cols</var>, <var>index</var>)</em></dt>
-<dt><a name="index-subplot-1"></a>Function File: <em></em> <strong>subplot</strong> <em>(<var>rcn</var>)</em></dt>
-<dt><a name="index-subplot-2"></a>Function File: <em></em> <strong>subplot</strong> <em>(<var>hax</var>)</em></dt>
-<dt><a name="index-subplot-3"></a>Function File: <em></em> <strong>subplot</strong> <em>(&hellip;, &quot;align&quot;)</em></dt>
-<dt><a name="index-subplot-4"></a>Function File: <em></em> <strong>subplot</strong> <em>(&hellip;, &quot;replace&quot;)</em></dt>
-<dt><a name="index-subplot-5"></a>Function File: <em></em> <strong>subplot</strong> <em>(&hellip;, &quot;position&quot;, <var>pos</var>)</em></dt>
-<dt><a name="index-subplot-6"></a>Function File: <em></em> <strong>subplot</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
-<dt><a name="index-subplot-7"></a>Function File: <em><var>hax</var> =</em> <strong>subplot</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-subplot"></a>: <em></em> <strong>subplot</strong> <em>(<var>rows</var>, <var>cols</var>, <var>index</var>)</em></dt>
+<dt><a name="index-subplot-1"></a>: <em></em> <strong>subplot</strong> <em>(<var>rcn</var>)</em></dt>
+<dt><a name="index-subplot-2"></a>: <em></em> <strong>subplot</strong> <em>(<var>hax</var>)</em></dt>
+<dt><a name="index-subplot-3"></a>: <em></em> <strong>subplot</strong> <em>(&hellip;, &quot;align&quot;)</em></dt>
+<dt><a name="index-subplot-4"></a>: <em></em> <strong>subplot</strong> <em>(&hellip;, &quot;replace&quot;)</em></dt>
+<dt><a name="index-subplot-5"></a>: <em></em> <strong>subplot</strong> <em>(&hellip;, &quot;position&quot;, <var>pos</var>)</em></dt>
+<dt><a name="index-subplot-6"></a>: <em></em> <strong>subplot</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-subplot-7"></a>: <em><var>hax</var> =</em> <strong>subplot</strong> <em>(&hellip;)</em></dt>
 <dd><p>Set up a plot grid with <var>rows</var> by <var>cols</var> subwindows and set the
 current axes for plotting (<code>gca</code>) to the location given by <var>index</var>.
 </p>
 <p>If only one numeric argument is supplied, then it must be a three digit
-value specifying the number of rows in digit 1, the number of
-columns in digit 2, and the plot index in digit 3.
+value specifying the number of rows in digit 1, the number of columns in
+digit 2, and the plot index in digit 3.
 </p>
 <p>The plot index runs row-wise; First, all columns in a row are numbered
 and then the next row is filled.

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Installing and Removing Packages</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Installing-and-Removing-Packages"></a>
 <div class="header">
 <p>
@@ -57,7 +56,7 @@ Next: <a href="Using-Packages.html#Using-Packages" accesskey="n" rel="next">Usin
 </div>
 <hr>
 <a name="Installing-and-Removing-Packages-1"></a>
-<h3 class="section">38.1 Installing and Removing Packages</h3>
+<h3 class="section">37.1 Installing and Removing Packages</h3>
 
 <p>Assuming a package is available in the file <samp>image-1.0.0.tar.gz</samp>
 it can be installed from the Octave prompt with the command
@@ -121,10 +120,13 @@ it may not function correctly.  Because of this it is not recommended
 to disable dependency checking.
 </p>
 <a name="XREFpkg"></a><dl>
-<dt><a name="index-pkg-1"></a>Command: <em></em> <strong>pkg</strong> <em><var>command</var> <var>pkg_name</var></em></dt>
-<dt><a name="index-pkg-2"></a>Command: <em></em> <strong>pkg</strong> <em><var>command</var> <var>option</var> <var>pkg_name</var></em></dt>
-<dd><p>Manage packages (groups of add-on functions) for Octave.  Different actions
-are available depending on the value of <var>command</var>.
+<dt><a name="index-pkg-1"></a>: <em></em> <strong>pkg</strong> <em><var>command</var> <var>pkg_name</var></em></dt>
+<dt><a name="index-pkg-2"></a>: <em></em> <strong>pkg</strong> <em><var>command</var> <var>option</var> <var>pkg_name</var></em></dt>
+<dt><a name="index-pkg-3"></a>: <em>[<var>out1</var>, &hellip;] =</em> <strong>pkg</strong> <em>(<var>command</var>, &hellip; )</em></dt>
+<dd><p>Manage or query packages (groups of add-on functions) for Octave.
+</p>
+<p>Different actions are available depending on the value of <var>command</var>
+and on return arguments.
 </p>
 <p>Available commands:
 </p>
@@ -148,16 +150,6 @@ is possible to install a package even when it depends on another package
 which is not installed on the system.  <strong>Use this option with care.</strong>
 </p>
 </dd>
-<dt><code>-noauto</code></dt>
-<dd><p>The package manager will not automatically load the installed package
-when starting Octave.  This overrides any setting within the package.
-</p>
-</dd>
-<dt><code>-auto</code></dt>
-<dd><p>The package manager will automatically load the installed package when
-starting Octave.  This overrides any setting within the package.
-</p>
-</dd>
 <dt><code>-local</code></dt>
 <dd><p>A local installation (package available only to current user) is forced,
 even if the user has system privileges.
@@ -171,6 +163,12 @@ the user doesn&rsquo;t normally have system privileges.
 <dt><code>-forge</code></dt>
 <dd><p>Install a package directly from the Octave-Forge repository.  This
 requires an internet connection and the cURL library.
+</p>
+<p><em>Security risk</em>: no verification of the package is performed
+before the installation.  There are no signature for packages, or
+checksums to confirm the correct file was downloaded.  It has the
+same security issues as manually downloading the package from the
+Octave Forge repository and installing it.
 </p>
 </dd>
 <dt><code>-verbose</code></dt>
@@ -210,34 +208,37 @@ possible to use the functions provided by the package.  For example,
 <pre class="example">pkg load image
 </pre></div>
 
-<p>adds the <code>image</code> package to the path.  It is possible to load all
-installed packages at once with the keyword &lsquo;<samp>all</samp>&rsquo;.  Usage:
+<p>adds the <code>image</code> package to the path.
 </p>
-<div class="example">
-<pre class="example">pkg load all
-</pre></div>
-
 </dd>
 <dt>&lsquo;<samp>unload</samp>&rsquo;</dt>
 <dd><p>Remove named packages from the path.  After unloading a package it is
-no longer possible to use the functions provided by the package.  It is
-possible to unload all installed packages at once with the keyword
-&lsquo;<samp>all</samp>&rsquo;.  Usage:
+no longer possible to use the functions provided by the package.
 </p>
-<div class="example">
-<pre class="example">pkg unload all
-</pre></div>
-
 </dd>
 <dt>&lsquo;<samp>list</samp>&rsquo;</dt>
 <dd><p>Show the list of currently installed packages.  For example,
 </p>
 <div class="example">
+<pre class="example">pkg list
+</pre></div>
+
+<p>will produce a short report with the package name, version, and installation
+directory for each installed package.  Supply a package name to limit
+reporting to a particular package.  For example:
+</p>
+<div class="example">
+<pre class="example">pkg list image
+</pre></div>
+
+<p>If a single return argument is requested then <code>pkg</code> returns a cell
+array where each element is a structure with information on a single
+package.
+</p>
+<div class="example">
 <pre class="example">installed_packages = pkg (&quot;list&quot;)
 </pre></div>
 
-<p>returns a cell array containing a structure for each installed package.
-</p>
 <p>If two output arguments are requested <code>pkg</code> splits the list of
 installed packages into those which were installed by the current user,
 and those which were installed by the system administrator.
@@ -246,7 +247,7 @@ and those which were installed by the system administrator.
 <pre class="example">[user_packages, system_packages] = pkg (&quot;list&quot;)
 </pre></div>
 
-<p>The option <code>&quot;-forge&quot;</code> lists packages available at the Octave-Forge
+<p>The <code>&quot;-forge&quot;</code> option lists packages available at the Octave-Forge
 repository.  This requires an internet connection and the cURL library.
 For example:
 </p>
@@ -256,15 +257,22 @@ For example:
 
 </dd>
 <dt>&lsquo;<samp>describe</samp>&rsquo;</dt>
-<dd><p>Show a short description of the named installed packages, with the option
-<code>&quot;-verbose&quot;</code> also list functions provided by the package.  For example,
+<dd><p>Show a short description of installed packages.  With the option
+<code>&quot;-verbose&quot;</code> also list functions provided by the package.  For
+example,
 </p>
 <div class="example">
-<pre class="example">pkg describe -verbose all
+<pre class="example">pkg describe -verbose
 </pre></div>
 
 <p>will describe all installed packages and the functions they provide.
-If one output is requested a cell of structure containing the
+Display can be limited to a set of packages:
+</p>
+<div class="example">
+<pre class="example">pkg describe control signal # describe control and signal packages
+</pre></div>
+
+<p>If one output is requested a cell of structure containing the
 description and list of functions of each package is returned as
 output rather than printed on screen:
 </p>
@@ -272,7 +280,7 @@ output rather than printed on screen:
 <pre class="example">desc = pkg (&quot;describe&quot;, &quot;secs1d&quot;, &quot;image&quot;)
 </pre></div>
 
-<p>If any of the requested packages is not installed, pkg returns an
+<p>If any of the requested packages is not installed, <code>pkg</code> returns an
 error, unless a second output is requested:
 </p>
 <div class="example">
@@ -359,18 +367,12 @@ all other options are ignored.
 <dt>&lsquo;<samp>rebuild</samp>&rsquo;</dt>
 <dd><p>Rebuild the package database from the installed directories.  This can
 be used in cases where the package database has been corrupted.
-It can also take the <samp>-auto</samp> and <samp>-noauto</samp> options to allow the
-autoloading state of a package to be changed.  For example,
-</p>
-<div class="example">
-<pre class="example">pkg rebuild -noauto image
-</pre></div>
-
-<p>will remove the autoloading status of the image package.
 </p>
 </dd>
 </dl>
-</dd></dl>
+
+<p><strong>See also:</strong> <a href="System-Information.html#XREFver">ver</a>, <a href="Getting-Help.html#XREFnews">news</a>.
+</p></dd></dl>
 
 
 <hr>

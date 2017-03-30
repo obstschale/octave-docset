@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Ranges</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Ranges"></a>
 <div class="header">
 <p>
@@ -76,17 +75,17 @@ For example, the range
 <pre class="example">1 : 5
 </pre></div>
 
-<p>defines the set of values &lsquo;<samp>[ 1, 2, 3, 4, 5 ]</samp>&rsquo;, and the range
+<p>defines the set of values <code>[ 1, 2, 3, 4, 5 ]</code>, and the range
 </p>
 <div class="example">
 <pre class="example">1 : 3 : 5
 </pre></div>
 
-<p>defines the set of values &lsquo;<samp>[ 1, 4 ]</samp>&rsquo;.
+<p>defines the set of values <code>[ 1, 4 ]</code>.
 </p>
 <p>Although a range constant specifies a row vector, Octave does <em>not</em>
-convert range constants to vectors unless it is necessary to do so.
-This allows you to write a constant like &lsquo;<samp>1 : 10000</samp>&rsquo; without using
+normally convert range constants to vectors unless it is necessary to do so.
+This allows you to write a constant like <code>1 : 10000</code> without using
 80,000 bytes of storage on a typical 32-bit workstation.
 </p>
 <p>A common example of when it does become necessary to convert ranges into
@@ -107,6 +106,27 @@ bytes of memory, the expression
 <p>defines <var>y</var> to be of type <code>matrix</code> and occupies 88 bytes of
 memory.
 </p>
+<p>This space saving optimization may be disabled using the function
+<em>disable_range</em>.
+</p>
+<a name="XREFdisable_005frange"></a><dl>
+<dt><a name="index-disable_005frange"></a>: <em><var>val</var> =</em> <strong>disable_range</strong> <em>()</em></dt>
+<dt><a name="index-disable_005frange-1"></a>: <em><var>old_val</var> =</em> <strong>disable_range</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-disable_005frange-2"></a>: <em></em> <strong>disable_range</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dd><p>Query or set the internal variable that controls whether ranges are stored
+in a special space-efficient format.
+</p>
+<p>The default value is true.  If this option is disabled Octave will store
+ranges as full matrices.
+</p>
+<p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
+variable is changed locally for the function and any subroutines it calls.
+The original variable value is restored when exiting the function.
+</p>
+<p><strong>See also:</strong> <a href="Basic-Usage.html#XREFdisable_005fdiagonal_005fmatrix">disable_diagonal_matrix</a>, <a href="Basic-Usage.html#XREFdisable_005fpermutation_005fmatrix">disable_permutation_matrix</a>.
+</p></dd></dl>
+
+
 <p>Note that the upper (or lower, if the increment is negative) bound on
 the range is not always included in the set of values, and that ranges
 defined by floating point values can produce surprising results because
@@ -124,16 +144,16 @@ that it is safe to do so.  For instance, doing
 <pre class="example">a = 2*(1:1e7) - 1;
 </pre></div>
 
-<p>will produce the same result as &lsquo;<samp>1:2:2e7-1</samp>&rsquo;, but without ever forming a
+<p>will produce the same result as <code>1:2:2e7-1</code>, but without ever forming a
 vector with ten million elements.
 </p>
-<p>Using zero as an increment in the colon notation, as &lsquo;<samp>1:0:1</samp>&rsquo; is not
+<p>Using zero as an increment in the colon notation, as <code>1:0:1</code> is not
 allowed, because a division by zero would occur in determining the number of
 range elements.  However, ranges with zero increment (i.e., all elements equal)
 are useful, especially in indexing, and Octave allows them to be constructed
-using the built-in function <em>ones</em>.  Note that because a range must be a row
-vector, &lsquo;<samp>ones (1, 10)</samp>&rsquo; produces a range, while &lsquo;<samp>ones (10, 1)</samp>&rsquo; does
-not.
+using the built-in function <code>ones</code>.  Note that because a range must be a
+row vector, <code>ones (1, 10)</code> produces a range, while <code>ones (10, 1)</code>
+does not.
 </p>
 <p>When Octave parses a range expression, it examines the elements of the
 expression to determine whether they are all constants.  If they are, it

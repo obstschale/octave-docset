@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Base64 and Binary Data Transmission</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Base64-and-Binary-Data-Transmission"></a>
 <div class="header">
 <p>
@@ -64,23 +63,25 @@ encode binary data in Base64 for transmission and to decode the data upon
 reception.
 </p>
 <a name="XREFbase64_005fencode"></a><dl>
-<dt><a name="index-base64_005fencode"></a>Built-in Function: <em><var>s</var> =</em> <strong>base64_encode</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-base64_005fencode"></a>: <em><var>s</var> =</em> <strong>base64_encode</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Encode a double matrix or array <var>x</var> into the base64 format string
 <var>s</var>.
 </p>
 
-<p><strong>See also:</strong> <a href="Base64-and-Binary-Data-Transmission.html#XREFbase64_005fdecode">base64_decode</a>.
+<p><strong>See also:</strong> <a href="#XREFbase64_005fdecode">base64_decode</a>.
 </p></dd></dl>
 
 
 <a name="XREFbase64_005fdecode"></a><dl>
-<dt><a name="index-base64_005fdecode"></a>Built-in Function: <em><var>x</var> =</em> <strong>base64_decode</strong> <em>(<var>s</var>)</em></dt>
-<dt><a name="index-base64_005fdecode-1"></a>Built-in Function: <em><var>x</var> =</em> <strong>base64_decode</strong> <em>(<var>s</var>, <var>dims</var>)</em></dt>
+<dt><a name="index-base64_005fdecode"></a>: <em><var>x</var> =</em> <strong>base64_decode</strong> <em>(<var>s</var>)</em></dt>
+<dt><a name="index-base64_005fdecode-1"></a>: <em><var>x</var> =</em> <strong>base64_decode</strong> <em>(<var>s</var>, <var>dims</var>)</em></dt>
 <dd><p>Decode the double matrix or array <var>x</var> from the base64 encoded string
-<var>s</var>.  The optional input parameter <var>dims</var> should be a vector
-containing the dimensions of the decoded array.
+<var>s</var>.
 </p>
-<p><strong>See also:</strong> <a href="Base64-and-Binary-Data-Transmission.html#XREFbase64_005fencode">base64_encode</a>.
+<p>The optional input parameter <var>dims</var> should be a vector containing the
+dimensions of the decoded array.
+</p>
+<p><strong>See also:</strong> <a href="#XREFbase64_005fencode">base64_encode</a>.
 </p></dd></dl>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Rational Approximations</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Rational-Approximations"></a>
 <div class="header">
 <p>
@@ -60,11 +59,13 @@ Next: <a href="Coordinate-Transformations.html#Coordinate-Transformations" acces
 <h3 class="section">17.7 Rational Approximations</h3>
 
 <a name="XREFrat"></a><dl>
-<dt><a name="index-rat"></a>Function File: <em><var>s</var> =</em> <strong>rat</strong> <em>(<var>x</var>, <var>tol</var>)</em></dt>
-<dt><a name="index-rat-1"></a>Function File: <em>[<var>n</var>, <var>d</var>] =</em> <strong>rat</strong> <em>(<var>x</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-rat"></a>: <em><var>s</var> =</em> <strong>rat</strong> <em>(<var>x</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-rat-1"></a>: <em>[<var>n</var>, <var>d</var>] =</em> <strong>rat</strong> <em>(<var>x</var>, <var>tol</var>)</em></dt>
 <dd>
-<p>Find a rational approximation to <var>x</var> within the tolerance defined
-by <var>tol</var> using a continued fraction expansion.  For example:
+<p>Find a rational approximation to <var>x</var> within the tolerance defined by
+<var>tol</var> using a continued fraction expansion.
+</p>
+<p>For example:
 </p>
 <div class="example">
 <pre class="example">rat (pi) = 3 + 1/(7 + 1/16) = 355/113
@@ -72,17 +73,18 @@ rat (e) = 3 + 1/(-4 + 1/(2 + 1/(5 + 1/(-2 + 1/(-7)))))
         = 1457/536
 </pre></div>
 
-<p>Called with two arguments returns the numerator and denominator separately
-as two matrices.
+<p>When called with two output arguments return the numerator and denominator
+separately as two matrices.
 </p>
-<p><strong>See also:</strong> <a href="Rational-Approximations.html#XREFrats">rats</a>.
+<p><strong>See also:</strong> <a href="#XREFrats">rats</a>.
 </p></dd></dl>
 
 
 <a name="XREFrats"></a><dl>
-<dt><a name="index-rats"></a>Built-in Function: <em></em> <strong>rats</strong> <em>(<var>x</var>, <var>len</var>)</em></dt>
+<dt><a name="index-rats"></a>: <em></em> <strong>rats</strong> <em>(<var>x</var>, <var>len</var>)</em></dt>
 <dd><p>Convert <var>x</var> into a rational approximation represented as a string.
-You can convert the string back into a matrix as follows:
+</p>
+<p>The string can be converted back into a matrix as follows:
 </p>
 <div class="example">
 <pre class="example">r = rats (hilb (4));
@@ -92,7 +94,10 @@ x = str2num (r)
 <p>The optional second argument defines the maximum length of the string
 representing the elements of <var>x</var>.  By default <var>len</var> is 9.
 </p>
-<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="Rational-Approximations.html#XREFrat">rat</a>.
+<p>If the length of the smallest possible rational approximation exceeds
+<var>len</var>, an asterisk (*) padded with spaces will be returned instead.
+</p>
+<p><strong>See also:</strong> <a href="Terminal-Output.html#XREFformat">format</a>, <a href="#XREFrat">rat</a>.
 </p></dd></dl>
 
 

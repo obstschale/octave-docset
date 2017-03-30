@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Statistical Plots</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Statistical-Plots"></a>
 <div class="header">
 <p>
@@ -69,11 +68,11 @@ using the <code>hist</code> function as described in
 <a href="Two_002dDimensional-Plots.html#Two_002dDimensional-Plots">Two-Dimensional Plots</a>.
 </p>
 <a name="XREFqqplot"></a><dl>
-<dt><a name="index-qqplot"></a>Function File: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>)</em></dt>
-<dt><a name="index-qqplot-1"></a>Function File: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dt><a name="index-qqplot-2"></a>Function File: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>, <var>dist</var>)</em></dt>
-<dt><a name="index-qqplot-3"></a>Function File: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>, <var>y</var>, <var>params</var>)</em></dt>
-<dt><a name="index-qqplot-4"></a>Function File: <em></em> <strong>qqplot</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-qqplot"></a>: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>)</em></dt>
+<dt><a name="index-qqplot-1"></a>: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-qqplot-2"></a>: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>, <var>dist</var>)</em></dt>
+<dt><a name="index-qqplot-3"></a>: <em>[<var>q</var>, <var>s</var>] =</em> <strong>qqplot</strong> <em>(<var>x</var>, <var>y</var>, <var>params</var>)</em></dt>
+<dt><a name="index-qqplot-4"></a>: <em></em> <strong>qqplot</strong> <em>(&hellip;)</em></dt>
 <dd><p>Perform a QQ-plot (quantile plot).
 </p>
 <p>If F is the CDF of the distribution <var>dist</var> with parameters
@@ -106,29 +105,32 @@ distribution on [2,4] and <var>x</var>, use
 
 
 <a name="XREFppplot"></a><dl>
-<dt><a name="index-ppplot"></a>Function File: <em>[<var>p</var>, <var>y</var>] =</em> <strong>ppplot</strong> <em>(<var>x</var>, <var>dist</var>, <var>params</var>)</em></dt>
+<dt><a name="index-ppplot"></a>: <em>[<var>p</var>, <var>y</var>] =</em> <strong>ppplot</strong> <em>(<var>x</var>, <var>dist</var>, <var>params</var>)</em></dt>
 <dd><p>Perform a PP-plot (probability plot).
 </p>
 <p>If F is the CDF of the distribution <var>dist</var> with parameters
-<var>params</var> and <var>x</var> a sample vector of length <var>n</var>, the
-PP-plot graphs ordinate <var>y</var>(<var>i</var>) = F (<var>i</var>-th largest
-element of <var>x</var>) versus abscissa <var>p</var>(<var>i</var>) = (<var>i</var> -
-0.5)/<var>n</var>.  If the sample comes from F, the pairs will
-approximately follow a straight line.
+<var>params</var> and <var>x</var> a sample vector of length <var>n</var>, the PP-plot
+graphs ordinate <var>y</var>(<var>i</var>) = F (<var>i</var>-th largest element of
+<var>x</var>) versus abscissa <var>p</var>(<var>i</var>) = (<var>i</var> - 0.5)/<var>n</var>.  If
+the sample comes from F, the pairs will approximately follow a straight
+line.
 </p>
-<p>The default for <var>dist</var> is the standard normal distribution.  The
-optional argument <var>params</var> contains a list of parameters of
-<var>dist</var>.  For example, for a probability plot of the uniform
-distribution on [2,4] and <var>x</var>, use
+<p>The default for <var>dist</var> is the standard normal distribution.
+</p>
+<p>The optional argument <var>params</var> contains a list of parameters of
+<var>dist</var>.
+</p>
+<p>For example, for a probability plot of the uniform distribution on [2,4]
+and <var>x</var>, use
 </p>
 <div class="example">
 <pre class="example">ppplot (x, &quot;uniform&quot;, 2, 4)
 </pre></div>
 
-<p><var>dist</var> can be any string for which a function <var>dist_cdf</var>
-that calculates the CDF of distribution <var>dist</var> exists.
+<p><var>dist</var> can be any string for which a function <var>dist_cdf</var> that
+calculates the CDF of distribution <var>dist</var> exists.
 </p>
-<p>If no output arguments are given, the data are plotted directly.
+<p>If no output is requested then the data are plotted immediately.
 </p></dd></dl>
 
 

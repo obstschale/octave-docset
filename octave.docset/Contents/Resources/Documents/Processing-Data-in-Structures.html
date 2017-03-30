@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Processing Data in Structures</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Processing-Data-in-Structures"></a>
 <div class="header">
 <p>
@@ -69,11 +68,12 @@ See <a href="Function-Application.html#XREFstructfun">structfun</a>.
 be converted to another type of container before being treated.
 </p>
 <a name="XREFstruct2cell"></a><dl>
-<dt><a name="index-struct2cell"></a>Built-in Function: <em></em> <strong>struct2cell</strong> <em>(<var>S</var>)</em></dt>
+<dt><a name="index-struct2cell"></a>: <em><var>c</var> =</em> <strong>struct2cell</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Create a new cell array from the objects stored in the struct object.
-If <var>f</var> is the number of fields in the structure, the resulting
-cell array will have a dimension vector corresponding to
-<code>[<var>F</var> size(<var>S</var>)]</code>.  For example:
+</p>
+<p>If <var>f</var> is the number of fields in the structure, the resulting cell
+array will have a dimension vector corresponding to
+<code>[<var>f</var> size(<var>s</var>)]</code>.  For example:
 </p>
 <div class="example">
 <pre class="example">s = struct (&quot;name&quot;, {&quot;Peter&quot;, &quot;Hannah&quot;, &quot;Robert&quot;},

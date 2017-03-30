@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Keywords</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Keywords"></a>
 <div class="header">
 <p>
@@ -57,7 +56,7 @@ Next: <a href="Parser.html#Parser" accesskey="n" rel="next">Parser</a>, Up: <a h
 </div>
 <hr>
 <a name="Keywords-1"></a>
-<h3 class="section">I.1 Keywords</h3>
+<h3 class="section">F.1 Keywords</h3>
 <a name="index-keywords"></a>
 
 <p>The following identifiers are keywords, and may not be used as variable
@@ -76,19 +75,19 @@ or function names:
 <tr><td width="33%"><code>function</code></td><td width="33%"><code>global</code></td><td width="33%"><code>if</code></td></tr>
 <tr><td width="33%"><code>methods</code></td><td width="33%"><code>otherwise</code></td><td width="33%"><code>parfor</code></td></tr>
 <tr><td width="33%"><code>persistent</code></td><td width="33%"><code>properties</code></td><td width="33%"><code>return</code></td></tr>
-<tr><td width="33%"><code>static</code></td><td width="33%"><code>switch</code></td><td width="33%"><code>try</code></td></tr>
-<tr><td width="33%"><code>until</code></td><td width="33%"><code>unwind_protect</code></td><td width="33%"><code>unwind_protect_cleanup</code></td></tr>
-<tr><td width="33%"><code>while</code></td></tr>
+<tr><td width="33%"><code>switch</code></td><td width="33%"><code>try</code></td><td width="33%"><code>until</code></td></tr>
+<tr><td width="33%"><code>unwind_protect</code></td><td width="33%"><code>unwind_protect_cleanup</code></td><td width="33%"><code>while</code></td></tr>
 </table>
 
 <p>The function <code>iskeyword</code> can be used to quickly check whether an
 identifier is reserved by Octave.
 </p>
 <a name="XREFiskeyword"></a><dl>
-<dt><a name="index-iskeyword"></a>Built-in Function: <em></em> <strong>iskeyword</strong> <em>()</em></dt>
-<dt><a name="index-iskeyword-1"></a>Built-in Function: <em></em> <strong>iskeyword</strong> <em>(<var>name</var>)</em></dt>
-<dd><p>Return true if <var>name</var> is an Octave keyword.  If <var>name</var>
-is omitted, return a list of keywords.
+<dt><a name="index-iskeyword"></a>: <em></em> <strong>iskeyword</strong> <em>()</em></dt>
+<dt><a name="index-iskeyword-1"></a>: <em></em> <strong>iskeyword</strong> <em>(<var>name</var>)</em></dt>
+<dd><p>Return true if <var>name</var> is an Octave keyword.
+</p>
+<p>If <var>name</var> is omitted, return a list of keywords.
 </p>
 <p><strong>See also:</strong> <a href="Variables.html#XREFisvarname">isvarname</a>, <a href="Status-of-Variables.html#XREFexist">exist</a>.
 </p></dd></dl>

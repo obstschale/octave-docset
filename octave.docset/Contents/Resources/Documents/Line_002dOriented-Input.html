@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Line-Oriented Input</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Line_002dOriented-Input"></a>
 <div class="header">
 <p>
@@ -74,11 +73,13 @@ fclose (fid);
 the line &lsquo;<samp>Free Software is needed for Free Science</samp>&rsquo;.
 </p>
 <a name="XREFfgetl"></a><dl>
-<dt><a name="index-fgetl"></a>Built-in Function: <em><var>str</var> =</em> <strong>fgetl</strong> <em>(<var>fid</var>)</em></dt>
-<dt><a name="index-fgetl-1"></a>Built-in Function: <em><var>str</var> =</em> <strong>fgetl</strong> <em>(<var>fid</var>, <var>len</var>)</em></dt>
+<dt><a name="index-fgetl"></a>: <em><var>str</var> =</em> <strong>fgetl</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-fgetl-1"></a>: <em><var>str</var> =</em> <strong>fgetl</strong> <em>(<var>fid</var>, <var>len</var>)</em></dt>
 <dd><p>Read characters from a file, stopping after a newline, or EOF,
-or <var>len</var> characters have been read.  The characters read, excluding
-the possible trailing newline, are returned as a string.
+or <var>len</var> characters have been read.
+</p>
+<p>The characters read, excluding the possible trailing newline, are returned
+as a string.
 </p>
 <p>If <var>len</var> is omitted, <code>fgetl</code> reads until the next newline
 character.
@@ -87,16 +88,18 @@ character.
 </p>
 <p>To read a line and return the terminating newline see <code>fgets</code>.
 </p>
-<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="#XREFfgets">fgets</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFfgets"></a><dl>
-<dt><a name="index-fgets"></a>Built-in Function: <em><var>str</var> =</em> <strong>fgets</strong> <em>(<var>fid</var>)</em></dt>
-<dt><a name="index-fgets-1"></a>Built-in Function: <em><var>str</var> =</em> <strong>fgets</strong> <em>(<var>fid</var>, <var>len</var>)</em></dt>
+<dt><a name="index-fgets"></a>: <em><var>str</var> =</em> <strong>fgets</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-fgets-1"></a>: <em><var>str</var> =</em> <strong>fgets</strong> <em>(<var>fid</var>, <var>len</var>)</em></dt>
 <dd><p>Read characters from a file, stopping after a newline, or EOF,
-or <var>len</var> characters have been read.  The characters read, including
-the possible trailing newline, are returned as a string.
+or <var>len</var> characters have been read.
+</p>
+<p>The characters read, including the possible trailing newline, are returned
+as a string.
 </p>
 <p>If <var>len</var> is omitted, <code>fgets</code> reads until the next newline
 character.
@@ -105,17 +108,19 @@ character.
 </p>
 <p>To read a line and discard the terminating newline see <code>fgetl</code>.
 </p>
-<p><strong>See also:</strong> <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
 <a name="XREFfskipl"></a><dl>
-<dt><a name="index-fskipl"></a>Built-in Function: <em><var>nlines</var> =</em> <strong>fskipl</strong> <em>(<var>fid</var>)</em></dt>
-<dt><a name="index-fskipl-1"></a>Built-in Function: <em><var>nlines</var> =</em> <strong>fskipl</strong> <em>(<var>fid</var>, <var>count</var>)</em></dt>
-<dt><a name="index-fskipl-2"></a>Built-in Function: <em><var>nlines</var> =</em> <strong>fskipl</strong> <em>(<var>fid</var>, Inf)</em></dt>
-<dd><p>Read and skip <var>count</var> lines from the file descriptor <var>fid</var>.
-<code>fskipl</code> discards characters until an end-of-line is encountered exactly
-<var>count</var>-times, or until the end-of-file marker is found.
+<dt><a name="index-fskipl"></a>: <em><var>nlines</var> =</em> <strong>fskipl</strong> <em>(<var>fid</var>)</em></dt>
+<dt><a name="index-fskipl-1"></a>: <em><var>nlines</var> =</em> <strong>fskipl</strong> <em>(<var>fid</var>, <var>count</var>)</em></dt>
+<dt><a name="index-fskipl-2"></a>: <em><var>nlines</var> =</em> <strong>fskipl</strong> <em>(<var>fid</var>, Inf)</em></dt>
+<dd><p>Read and skip <var>count</var> lines from the file specified by the file
+descriptor <var>fid</var>.
+</p>
+<p><code>fskipl</code> discards characters until an end-of-line is encountered
+exactly <var>count</var>-times, or until the end-of-file marker is found.
 </p>
 <p>If <var>count</var> is omitted, it defaults to 1.  <var>count</var> may also be
 <code>Inf</code>, in which case lines are skipped until the end of the file.
@@ -123,7 +128,7 @@ This form is suitable for counting the number of lines in a file.
 </p>
 <p>Returns the number of lines skipped (end-of-line sequences encountered).
 </p>
-<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="#XREFfgetl">fgetl</a>, <a href="#XREFfgets">fgets</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 

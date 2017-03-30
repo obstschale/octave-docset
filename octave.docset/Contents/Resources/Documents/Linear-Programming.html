@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Linear Programming</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Linear-Programming"></a>
 <div class="header">
 <p>
@@ -73,9 +72,10 @@ function.  That is, Octave can solve
 <p>The <code>glpk</code> function also supports variations of this problem.
 </p>
 <a name="XREFglpk"></a><dl>
-<dt><a name="index-glpk"></a>Function File: <em>[<var>xopt</var>, <var>fmin</var>, <var>errnum</var>, <var>extra</var>] =</em> <strong>glpk</strong> <em>(<var>c</var>, <var>A</var>, <var>b</var>, <var>lb</var>, <var>ub</var>, <var>ctype</var>, <var>vartype</var>, <var>sense</var>, <var>param</var>)</em></dt>
-<dd><p>Solve a linear program using the GNU <small>GLPK</small> library.  Given three
-arguments, <code>glpk</code> solves the following standard LP:
+<dt><a name="index-glpk"></a>: <em>[<var>xopt</var>, <var>fmin</var>, <var>errnum</var>, <var>extra</var>] =</em> <strong>glpk</strong> <em>(<var>c</var>, <var>A</var>, <var>b</var>, <var>lb</var>, <var>ub</var>, <var>ctype</var>, <var>vartype</var>, <var>sense</var>, <var>param</var>)</em></dt>
+<dd><p>Solve a linear program using the GNU <small>GLPK</small> library.
+</p>
+<p>Given three arguments, <code>glpk</code> solves the following standard LP:
 </p>
 <div class="example">
 <pre class="example">min C'*x
@@ -115,26 +115,24 @@ arguments, <code>glpk</code> solves the following standard LP:
 </p>
 </dd>
 <dt><var>b</var></dt>
-<dd><p>A column array containing the right-hand side value for each constraint
-in the constraint matrix.
+<dd><p>A column array containing the right-hand side value for each constraint in
+the constraint matrix.
 </p>
 </dd>
 <dt><var>lb</var></dt>
-<dd><p>An array containing the lower bound on each of the variables.  If
-<var>lb</var> is not supplied, the default lower bound for the variables is
-zero.
+<dd><p>An array containing the lower bound on each of the variables.  If <var>lb</var>
+is not supplied, the default lower bound for the variables is zero.
 </p>
 </dd>
 <dt><var>ub</var></dt>
-<dd><p>An array containing the upper bound on each of the variables.  If
-<var>ub</var> is not supplied, the default upper bound is assumed to be
-infinite.
+<dd><p>An array containing the upper bound on each of the variables.  If <var>ub</var>
+is not supplied, the default upper bound is assumed to be infinite.
 </p>
 </dd>
 <dt><var>ctype</var></dt>
 <dd><p>An array of characters containing the sense of each constraint in the
-constraint matrix.  Each element of the array may be one of the
-following values
+constraint matrix.  Each element of the array may be one of the following
+values
 </p>
 <dl compact="compact">
 <dt><code>&quot;F&quot;</code></dt>
@@ -155,7 +153,7 @@ following values
 </dd>
 <dt><code>&quot;D&quot;</code></dt>
 <dd><p>An inequality constraint with both upper and lower bounds
-(<code>A(i,:)*x &gt;= -b(i)</code> <em>and</em> (<code>A(i,:)*x &lt;= b(i)</code>).
+(<code>A(i,:)*x &gt;= -b(i)</code>) <em>and</em> (<code>A(i,:)*x &lt;= b(i)</code>).
 </p></dd>
 </dl>
 
@@ -175,15 +173,15 @@ following values
 
 </dd>
 <dt><var>sense</var></dt>
-<dd><p>If <var>sense</var> is 1, the problem is a minimization.  If <var>sense</var> is
--1, the problem is a maximization.  The default value is 1.
+<dd><p>If <var>sense</var> is 1, the problem is a minimization.  If <var>sense</var> is -1,
+the problem is a maximization.  The default value is 1.
 </p>
 </dd>
 <dt><var>param</var></dt>
 <dd><p>A structure containing the following parameters used to define the
 behavior of solver.  Missing elements in the structure take on default
-values, so you only need to set the elements that you wish to change
-from the default.
+values, so you only need to set the elements that you wish to change from
+the default.
 </p>
 <p>Integer parameters:
 </p>
@@ -276,9 +274,8 @@ stop the search.
 </p>
 </dd>
 <dt><code>outfrq (default: 200)</code></dt>
-<dd><p>Output frequency, in iterations.  This parameter specifies how
-frequently the solver sends information about the solution to the
-standard output.
+<dd><p>Output frequency, in iterations.  This parameter specifies how frequently
+the solver sends information about the solution to the standard output.
 </p>
 </dd>
 <dt><code>branch (default: 4)</code></dt>
@@ -369,14 +366,13 @@ will be ignored.
 </dd>
 <dt><code>outdly (default: 0)</code></dt>
 <dd><p>Output delay, in seconds.  This parameter specifies how long the solver
-should delay sending information about the solution to the standard
-output.
+should delay sending information about the solution to the standard output.
 </p>
 </dd>
 <dt><code>save (default: 0)</code></dt>
-<dd><p>If this parameter is nonzero, save a copy of the problem in
-CPLEX LP format to the file <samp>&quot;outpb.lp&quot;</samp>.  There is currently no
-way to change the name of the output file.
+<dd><p>If this parameter is nonzero, save a copy of the problem in CPLEX LP
+format to the file <samp>&quot;outpb.lp&quot;</samp>.  There is currently no way to change
+the name of the output file.
 </p></dd>
 </dl>
 
@@ -396,34 +392,34 @@ have a detailed understanding of its purpose.
 </p>
 </dd>
 <dt><code>tolpiv (default: 1e-10)</code></dt>
-<dd><p>Relative tolerance used to choose eligible pivotal elements of the
-simplex table.  It is not recommended that you change this parameter unless
-you have a detailed understanding of its purpose.
+<dd><p>Relative tolerance used to choose eligible pivotal elements of the simplex
+table.  It is not recommended that you change this parameter unless you have
+a detailed understanding of its purpose.
 </p>
 </dd>
 <dt><code>objll (default: -DBL_MAX)</code></dt>
-<dd><p>Lower limit of the objective function.  If the objective
-function reaches this limit and continues decreasing, the solver stops
-the search.  This parameter is used in the dual simplex method only.
+<dd><p>Lower limit of the objective function.  If the objective function reaches
+this limit and continues decreasing, the solver stops the search.  This
+parameter is used in the dual simplex method only.
 </p>
 </dd>
 <dt><code>objul (default: +DBL_MAX)</code></dt>
-<dd><p>Upper limit of the objective function.  If the objective
-function reaches this limit and continues increasing, the solver stops
-the search.  This parameter is used in the dual simplex only.
+<dd><p>Upper limit of the objective function.  If the objective function reaches
+this limit and continues increasing, the solver stops the search.  This
+parameter is used in the dual simplex only.
 </p>
 </dd>
 <dt><code>tolint (default: 1e-5)</code></dt>
 <dd><p>Relative tolerance used to check if the current basic solution is integer
-feasible.  It is not recommended that you change this parameter unless
-you have a detailed understanding of its purpose.
+feasible.  It is not recommended that you change this parameter unless you
+have a detailed understanding of its purpose.
 </p>
 </dd>
 <dt><code>tolobj (default: 1e-7)</code></dt>
-<dd><p>Relative tolerance used to check if the value of the objective function
-is not better than in the best known integer feasible solution.  It is
-not recommended that you change this parameter unless you have a
-detailed understanding of its purpose.
+<dd><p>Relative tolerance used to check if the value of the objective function is
+not better than in the best known integer feasible solution.  It is not
+recommended that you change this parameter unless you have a detailed
+understanding of its purpose.
 </p></dd>
 </dl>
 </dd>

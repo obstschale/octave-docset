@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Bit Manipulations</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Bit-Manipulations"></a>
 <div class="header">
 <p>
@@ -64,33 +63,35 @@ values on a bit by bit basis.  The basic functions to set and obtain the
 values of individual bits are <code>bitset</code> and <code>bitget</code>.
 </p>
 <a name="XREFbitset"></a><dl>
-<dt><a name="index-bitset"></a>Function File: <em><var>C</var> =</em> <strong>bitset</strong> <em>(<var>A</var>, <var>n</var>)</em></dt>
-<dt><a name="index-bitset-1"></a>Function File: <em><var>C</var> =</em> <strong>bitset</strong> <em>(<var>A</var>, <var>n</var>, <var>val</var>)</em></dt>
-<dd><p>Set or reset bit(s) <var>n</var> of unsigned integers in <var>A</var>.
-<var>val</var> = 0 resets and <var>val</var> = 1 sets the bits.
-The lowest significant bit is: <var>n</var> = 1.  All variables must be the
-same size or scalars.
+<dt><a name="index-bitset"></a>: <em><var>C</var> =</em> <strong>bitset</strong> <em>(<var>A</var>, <var>n</var>)</em></dt>
+<dt><a name="index-bitset-1"></a>: <em><var>C</var> =</em> <strong>bitset</strong> <em>(<var>A</var>, <var>n</var>, <var>val</var>)</em></dt>
+<dd><p>Set or reset bit(s) <var>n</var> of the unsigned integers in <var>A</var>.
+</p>
+<p><var>val</var> = 0 resets and <var>val</var> = 1 sets the bits.
+The least significant bit is <var>n</var> = 1.  All variables must be the same
+size or scalars.
 </p>
 <div class="example">
 <pre class="example">dec2bin (bitset (10, 1))
   &rArr; 1011
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitand">bitand</a>, <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitxor">bitxor</a>, <a href="Bit-Manipulations.html#XREFbitget">bitget</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitshift">bitshift</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+<p><strong>See also:</strong> <a href="#XREFbitand">bitand</a>, <a href="#XREFbitor">bitor</a>, <a href="#XREFbitxor">bitxor</a>, <a href="#XREFbitget">bitget</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="#XREFbitshift">bitshift</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
 <a name="XREFbitget"></a><dl>
-<dt><a name="index-bitget"></a>Function File: <em><var>c</var> =</em> <strong>bitget</strong> <em>(<var>A</var>, <var>n</var>)</em></dt>
-<dd><p>Return the status of bit(s) <var>n</var> of unsigned integers in <var>A</var>
-the lowest significant bit is <var>n</var> = 1.
+<dt><a name="index-bitget"></a>: <em><var>c</var> =</em> <strong>bitget</strong> <em>(<var>A</var>, <var>n</var>)</em></dt>
+<dd><p>Return the status of bit(s) <var>n</var> of the unsigned integers in <var>A</var>.
+</p>
+<p>The least significant bit is <var>n</var> = 1.
 </p>
 <div class="example">
 <pre class="example">bitget (100, 8:-1:1)
 &rArr; 0  1  1  0  0  1  0  0
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitand">bitand</a>, <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitxor">bitxor</a>, <a href="Bit-Manipulations.html#XREFbitset">bitset</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitshift">bitshift</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+<p><strong>See also:</strong> <a href="#XREFbitand">bitand</a>, <a href="#XREFbitor">bitor</a>, <a href="#XREFbitxor">bitxor</a>, <a href="#XREFbitset">bitset</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="#XREFbitshift">bitshift</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
@@ -120,52 +121,37 @@ bits of the native floating point format representation of <code>10</code>.
 </p>
 <p>As the maximum value that can be represented by a number is important
 for bit manipulation, particularly when forming masks, Octave supplies
-the function <code>bitmax</code>.
-</p>
-<a name="XREFbitmax"></a><dl>
-<dt><a name="index-bitmax"></a>Built-in Function: <em></em> <strong>bitmax</strong> <em>()</em></dt>
-<dt><a name="index-bitmax-1"></a>Built-in Function: <em></em> <strong>bitmax</strong> <em>(&quot;double&quot;)</em></dt>
-<dt><a name="index-bitmax-2"></a>Built-in Function: <em></em> <strong>bitmax</strong> <em>(&quot;single&quot;)</em></dt>
-<dd><p>Return the largest integer that can be represented within a floating point
-value.  The default class is <code>&quot;double&quot;</code>, but <code>&quot;single&quot;</code> is a
-valid option.  On IEEE-754 compatible systems, <code>bitmax</code> is
-<em>2^{53} - 1</em><!-- /@w --> for <code>&quot;double&quot;</code> and <em>2^{24} -1</em><!-- /@w --> for
-<code>&quot;single&quot;</code>.
-</p>
-<p><strong>See also:</strong> <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Mathematical-Constants.html#XREFrealmax">realmax</a>, <a href="Mathematical-Constants.html#XREFrealmin">realmin</a>.
-</p></dd></dl>
-
-
-<p>This is the double precision version of the function <code>intmax</code>,
-previously discussed.
+two utility functions: <code>flintmax</code> for floating point integers, and
+<code>intmax</code> for integer objects (<code>uint8</code>, <code>int64</code>, etc.).
 </p>
 <p>Octave also includes the basic bitwise &rsquo;and&rsquo;, &rsquo;or&rsquo;, and &rsquo;exclusive or&rsquo;
 operators.
 </p>
 <a name="XREFbitand"></a><dl>
-<dt><a name="index-bitand"></a>Built-in Function: <em></em> <strong>bitand</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dt><a name="index-bitand"></a>: <em></em> <strong>bitand</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dd><p>Return the bitwise AND of non-negative integers.
-<var>x</var>, <var>y</var> must be in the range [0,bitmax]
 </p>
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitxor">bitxor</a>, <a href="Bit-Manipulations.html#XREFbitset">bitset</a>, <a href="Bit-Manipulations.html#XREFbitget">bitget</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitshift">bitshift</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+<p><var>x</var>, <var>y</var> must be in the range [0,intmax]
+</p>
+<p><strong>See also:</strong> <a href="#XREFbitor">bitor</a>, <a href="#XREFbitxor">bitxor</a>, <a href="#XREFbitset">bitset</a>, <a href="#XREFbitget">bitget</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="#XREFbitshift">bitshift</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
 <a name="XREFbitor"></a><dl>
-<dt><a name="index-bitor"></a>Built-in Function: <em></em> <strong>bitor</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dd><p>Return the bitwise OR of non-negative integers.
-<var>x</var>, <var>y</var> must be in the range [0,bitmax]
+<dt><a name="index-bitor"></a>: <em></em> <strong>bitor</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><p>Return the bitwise OR of non-negative integers <var>x</var> and <var>y</var>.
 </p>
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitxor">bitxor</a>, <a href="Bit-Manipulations.html#XREFbitset">bitset</a>, <a href="Bit-Manipulations.html#XREFbitget">bitget</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitshift">bitshift</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+
+<p><strong>See also:</strong> <a href="#XREFbitor">bitor</a>, <a href="#XREFbitxor">bitxor</a>, <a href="#XREFbitset">bitset</a>, <a href="#XREFbitget">bitget</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="#XREFbitshift">bitshift</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
 <a name="XREFbitxor"></a><dl>
-<dt><a name="index-bitxor"></a>Built-in Function: <em></em> <strong>bitxor</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
-<dd><p>Return the bitwise XOR of non-negative integers.
-<var>x</var>, <var>y</var> must be in the range [0,bitmax]
+<dt><a name="index-bitxor"></a>: <em></em> <strong>bitxor</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
+<dd><p>Return the bitwise XOR of non-negative integers <var>x</var> and <var>y</var>.
 </p>
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitand">bitand</a>, <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitset">bitset</a>, <a href="Bit-Manipulations.html#XREFbitget">bitget</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitshift">bitshift</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+
+<p><strong>See also:</strong> <a href="#XREFbitand">bitand</a>, <a href="#XREFbitor">bitor</a>, <a href="#XREFbitset">bitset</a>, <a href="#XREFbitget">bitget</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="#XREFbitshift">bitshift</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
@@ -175,9 +161,10 @@ mask against which the value is negated must be defined.  Octave&rsquo;s
 bitwise &rsquo;not&rsquo; operator is <code>bitcmp</code>.
 </p>
 <a name="XREFbitcmp"></a><dl>
-<dt><a name="index-bitcmp"></a>Function File: <em></em> <strong>bitcmp</strong> <em>(<var>A</var>, <var>k</var>)</em></dt>
-<dd><p>Return the <var>k</var>-bit complement of integers in <var>A</var>.  If
-<var>k</var> is omitted <code>k = log2 (bitmax) + 1</code> is assumed.
+<dt><a name="index-bitcmp"></a>: <em></em> <strong>bitcmp</strong> <em>(<var>A</var>, <var>k</var>)</em></dt>
+<dd><p>Return the <var>k</var>-bit complement of integers in <var>A</var>.
+</p>
+<p>If <var>k</var> is omitted <code>k = log2 (flintmax) + 1</code> is assumed.
 </p>
 <div class="example">
 <pre class="example">bitcmp (7,4)
@@ -188,20 +175,22 @@ dec2bin (bitcmp (11, 6))
   &rArr; 110100
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitand">bitand</a>, <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitxor">bitxor</a>, <a href="Bit-Manipulations.html#XREFbitset">bitset</a>, <a href="Bit-Manipulations.html#XREFbitget">bitget</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitshift">bitshift</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+
+<p><strong>See also:</strong> <a href="#XREFbitand">bitand</a>, <a href="#XREFbitor">bitor</a>, <a href="#XREFbitxor">bitxor</a>, <a href="#XREFbitset">bitset</a>, <a href="#XREFbitget">bitget</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="#XREFbitshift">bitshift</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 
 <p>Octave also includes the ability to left-shift and right-shift values bitwise.
 </p>
 <a name="XREFbitshift"></a><dl>
-<dt><a name="index-bitshift"></a>Built-in Function: <em></em> <strong>bitshift</strong> <em>(<var>a</var>, <var>k</var>)</em></dt>
-<dt><a name="index-bitshift-1"></a>Built-in Function: <em></em> <strong>bitshift</strong> <em>(<var>a</var>, <var>k</var>, <var>n</var>)</em></dt>
-<dd><p>Return a <var>k</var> bit shift of <var>n</var>-digit unsigned
-integers in <var>a</var>.  A positive <var>k</var> leads to a left shift;
-A negative value to a right shift.  If <var>n</var> is omitted it defaults
-to log2(bitmax)+1.
-<var>n</var> must be in the range [1,log2(bitmax)+1] usually [1,33].
+<dt><a name="index-bitshift"></a>: <em></em> <strong>bitshift</strong> <em>(<var>a</var>, <var>k</var>)</em></dt>
+<dt><a name="index-bitshift-1"></a>: <em></em> <strong>bitshift</strong> <em>(<var>a</var>, <var>k</var>, <var>n</var>)</em></dt>
+<dd><p>Return a <var>k</var> bit shift of <var>n</var>-digit unsigned integers in <var>a</var>.
+</p>
+<p>A positive <var>k</var> leads to a left shift; A negative value to a right shift.
+</p>
+<p>If <var>n</var> is omitted it defaults to 64.
+<var>n</var> must be in the range [1,64].
 </p>
 <div class="example">
 <pre class="example">bitshift (eye (3), 1)
@@ -210,11 +199,12 @@ to log2(bitmax)+1.
 0 2 0
 0 0 2
 </pre><pre class="example">
+
 bitshift (10, [-2, -1, 0, 1, 2])
 &rArr; 2   5  10  20  40
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Bit-Manipulations.html#XREFbitand">bitand</a>, <a href="Bit-Manipulations.html#XREFbitor">bitor</a>, <a href="Bit-Manipulations.html#XREFbitxor">bitxor</a>, <a href="Bit-Manipulations.html#XREFbitset">bitset</a>, <a href="Bit-Manipulations.html#XREFbitget">bitget</a>, <a href="Bit-Manipulations.html#XREFbitcmp">bitcmp</a>, <a href="Bit-Manipulations.html#XREFbitmax">bitmax</a>.
+<p><strong>See also:</strong> <a href="#XREFbitand">bitand</a>, <a href="#XREFbitor">bitor</a>, <a href="#XREFbitxor">bitxor</a>, <a href="#XREFbitset">bitset</a>, <a href="#XREFbitget">bitget</a>, <a href="#XREFbitcmp">bitcmp</a>, <a href="Integer-Data-Types.html#XREFintmax">intmax</a>, <a href="Integer-Data-Types.html#XREFflintmax">flintmax</a>.
 </p></dd></dl>
 
 

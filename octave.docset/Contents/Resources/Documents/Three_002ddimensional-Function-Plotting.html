@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Three-dimensional Function Plotting</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Three_002ddimensional-Function-Plotting"></a>
 <div class="header">
 <p>
@@ -60,11 +59,12 @@ Next: <a href="Three_002ddimensional-Geometric-Shapes.html#Three_002ddimensional
 <h4 class="subsubsection">15.2.2.2 Three-dimensional Function Plotting</h4>
 
 <a name="XREFezplot3"></a><dl>
-<dt><a name="index-ezplot3"></a>Function File: <em></em> <strong>ezplot3</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-ezplot3-1"></a>Function File: <em></em> <strong>ezplot3</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezplot3-2"></a>Function File: <em></em> <strong>ezplot3</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezplot3-3"></a>Function File: <em></em> <strong>ezplot3</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezplot3-4"></a>Function File: <em><var>h</var> =</em> <strong>ezplot3</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezplot3"></a>: <em></em> <strong>ezplot3</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-ezplot3-1"></a>: <em></em> <strong>ezplot3</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezplot3-2"></a>: <em></em> <strong>ezplot3</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezplot3-3"></a>: <em></em> <strong>ezplot3</strong> <em>(&hellip;, &quot;animate&quot;)</em></dt>
+<dt><a name="index-ezplot3-4"></a>: <em></em> <strong>ezplot3</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezplot3-5"></a>: <em><var>h</var> =</em> <strong>ezplot3</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot a parametrically defined curve in three dimensions.
 </p>
@@ -79,6 +79,9 @@ values of <var>t</var>.
 <p><var>n</var> is a scalar defining the number of points to use in plotting the
 function.
 </p>
+<p>If the <code>&quot;animate&quot;</code> option is given then the plotting is animated
+in the style of <code>comet3</code>.
+</p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
@@ -92,18 +95,18 @@ ezplot3 (fx, fy, fz, [0, 10*pi], 100);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFplot3">plot3</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFplot3">plot3</a>, <a href="Two_002dDimensional-Plots.html#XREFcomet3">comet3</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="#XREFezmesh">ezmesh</a>, <a href="#XREFezsurf">ezsurf</a>.
 </p></dd></dl>
 
 
 <a name="XREFezmesh"></a><dl>
-<dt><a name="index-ezmesh"></a>Function File: <em></em> <strong>ezmesh</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezmesh-1"></a>Function File: <em></em> <strong>ezmesh</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-ezmesh-2"></a>Function File: <em></em> <strong>ezmesh</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezmesh-3"></a>Function File: <em></em> <strong>ezmesh</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezmesh-4"></a>Function File: <em></em> <strong>ezmesh</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
-<dt><a name="index-ezmesh-5"></a>Function File: <em></em> <strong>ezmesh</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezmesh-6"></a>Function File: <em><var>h</var> =</em> <strong>ezmesh</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezmesh"></a>: <em></em> <strong>ezmesh</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezmesh-1"></a>: <em></em> <strong>ezmesh</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-ezmesh-2"></a>: <em></em> <strong>ezmesh</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezmesh-3"></a>: <em></em> <strong>ezmesh</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezmesh-4"></a>: <em></em> <strong>ezmesh</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
+<dt><a name="index-ezmesh-5"></a>: <em></em> <strong>ezmesh</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezmesh-6"></a>: <em><var>h</var> =</em> <strong>ezmesh</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the mesh defined by a function.
 </p>
@@ -147,18 +150,18 @@ ezmesh (fx, fy, fz, [-pi, pi, -pi/2, pi/2], 20);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="#XREFezmeshc">ezmeshc</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="#XREFezsurf">ezsurf</a>, <a href="#XREFezsurfc">ezsurfc</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>.
 </p></dd></dl>
 
 
 <a name="XREFezmeshc"></a><dl>
-<dt><a name="index-ezmeshc"></a>Function File: <em></em> <strong>ezmeshc</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezmeshc-1"></a>Function File: <em></em> <strong>ezmeshc</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-ezmeshc-2"></a>Function File: <em></em> <strong>ezmeshc</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezmeshc-3"></a>Function File: <em></em> <strong>ezmeshc</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezmeshc-4"></a>Function File: <em></em> <strong>ezmeshc</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
-<dt><a name="index-ezmeshc-5"></a>Function File: <em></em> <strong>ezmeshc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezmeshc-6"></a>Function File: <em><var>h</var> =</em> <strong>ezmeshc</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezmeshc"></a>: <em></em> <strong>ezmeshc</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezmeshc-1"></a>: <em></em> <strong>ezmeshc</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-ezmeshc-2"></a>: <em></em> <strong>ezmeshc</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezmeshc-3"></a>: <em></em> <strong>ezmeshc</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezmeshc-4"></a>: <em></em> <strong>ezmeshc</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
+<dt><a name="index-ezmeshc-5"></a>: <em></em> <strong>ezmeshc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezmeshc-6"></a>: <em><var>h</var> =</em> <strong>ezmeshc</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the mesh and contour lines defined by a function.
 </p>
@@ -194,18 +197,18 @@ ezmeshc (f, [-3, 3]);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="#XREFezmesh">ezmesh</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="#XREFezsurf">ezsurf</a>, <a href="#XREFezsurfc">ezsurfc</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>.
 </p></dd></dl>
 
 
 <a name="XREFezsurf"></a><dl>
-<dt><a name="index-ezsurf"></a>Function File: <em></em> <strong>ezsurf</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezsurf-1"></a>Function File: <em></em> <strong>ezsurf</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-ezsurf-2"></a>Function File: <em></em> <strong>ezsurf</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezsurf-3"></a>Function File: <em></em> <strong>ezsurf</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezsurf-4"></a>Function File: <em></em> <strong>ezsurf</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
-<dt><a name="index-ezsurf-5"></a>Function File: <em></em> <strong>ezsurf</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezsurf-6"></a>Function File: <em><var>h</var> =</em> <strong>ezsurf</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezsurf"></a>: <em></em> <strong>ezsurf</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezsurf-1"></a>: <em></em> <strong>ezsurf</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-ezsurf-2"></a>: <em></em> <strong>ezsurf</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezsurf-3"></a>: <em></em> <strong>ezsurf</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezsurf-4"></a>: <em></em> <strong>ezsurf</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
+<dt><a name="index-ezsurf-5"></a>: <em></em> <strong>ezsurf</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezsurf-6"></a>: <em><var>h</var> =</em> <strong>ezsurf</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the surface defined by a function.
 </p>
@@ -249,18 +252,18 @@ ezsurf (fx, fy, fz, [-pi, pi, -pi/2, pi/2], 20);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="#XREFezsurfc">ezsurfc</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="#XREFezmesh">ezmesh</a>, <a href="#XREFezmeshc">ezmeshc</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>.
 </p></dd></dl>
 
 
 <a name="XREFezsurfc"></a><dl>
-<dt><a name="index-ezsurfc"></a>Function File: <em></em> <strong>ezsurfc</strong> <em>(<var>f</var>)</em></dt>
-<dt><a name="index-ezsurfc-1"></a>Function File: <em></em> <strong>ezsurfc</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
-<dt><a name="index-ezsurfc-2"></a>Function File: <em></em> <strong>ezsurfc</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
-<dt><a name="index-ezsurfc-3"></a>Function File: <em></em> <strong>ezsurfc</strong> <em>(&hellip;, <var>n</var>)</em></dt>
-<dt><a name="index-ezsurfc-4"></a>Function File: <em></em> <strong>ezsurfc</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
-<dt><a name="index-ezsurfc-5"></a>Function File: <em></em> <strong>ezsurfc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
-<dt><a name="index-ezsurfc-6"></a>Function File: <em><var>h</var> =</em> <strong>ezsurfc</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ezsurfc"></a>: <em></em> <strong>ezsurfc</strong> <em>(<var>f</var>)</em></dt>
+<dt><a name="index-ezsurfc-1"></a>: <em></em> <strong>ezsurfc</strong> <em>(<var>fx</var>, <var>fy</var>, <var>fz</var>)</em></dt>
+<dt><a name="index-ezsurfc-2"></a>: <em></em> <strong>ezsurfc</strong> <em>(&hellip;, <var>dom</var>)</em></dt>
+<dt><a name="index-ezsurfc-3"></a>: <em></em> <strong>ezsurfc</strong> <em>(&hellip;, <var>n</var>)</em></dt>
+<dt><a name="index-ezsurfc-4"></a>: <em></em> <strong>ezsurfc</strong> <em>(&hellip;, &quot;circ&quot;)</em></dt>
+<dt><a name="index-ezsurfc-5"></a>: <em></em> <strong>ezsurfc</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
+<dt><a name="index-ezsurfc-6"></a>: <em><var>h</var> =</em> <strong>ezsurfc</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Plot the surface and contour lines defined by a function.
 </p>
@@ -296,7 +299,7 @@ ezsurfc (f, [-3, 3]);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="#XREFezsurf">ezsurf</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="#XREFezmesh">ezmesh</a>, <a href="#XREFezmeshc">ezmeshc</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>.
 </p></dd></dl>
 
 

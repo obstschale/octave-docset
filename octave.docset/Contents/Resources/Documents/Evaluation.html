@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Evaluation</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Evaluation"></a>
 <div class="header">
 <p>
@@ -68,21 +67,24 @@ been computed and stored in a string, which is exactly what the
 <code>eval</code> function lets you do.
 </p>
 <a name="XREFeval"></a><dl>
-<dt><a name="index-eval"></a>Built-in Function: <em></em> <strong>eval</strong> <em>(<var>try</var>)</em></dt>
-<dt><a name="index-eval-1"></a>Built-in Function: <em></em> <strong>eval</strong> <em>(<var>try</var>, <var>catch</var>)</em></dt>
+<dt><a name="index-eval"></a>: <em></em> <strong>eval</strong> <em>(<var>try</var>)</em></dt>
+<dt><a name="index-eval-1"></a>: <em></em> <strong>eval</strong> <em>(<var>try</var>, <var>catch</var>)</em></dt>
 <dd><p>Parse the string <var>try</var> and evaluate it as if it were an Octave
-program.  If that fails, evaluate the optional string <var>catch</var>.
-The string <var>try</var> is evaluated in the current context,
-so any results remain available after <code>eval</code> returns.
+program.
 </p>
-<p>The following example makes the variable <var>A</var> with the approximate
-value 3.1416 available.
+<p>If execution fails, evaluate the optional string <var>catch</var>.
+</p>
+<p>The string <var>try</var> is evaluated in the current context, so any results
+remain available after <code>eval</code> returns.
+</p>
+<p>The following example creates the variable <var>A</var> with the approximate
+value of 3.1416 in the current workspace.
 </p>
 <div class="example">
 <pre class="example">eval (&quot;A = acos(-1);&quot;);
 </pre></div>
 
-<p>If an error occurs during the evaluation of <var>try</var> the <var>catch</var>
+<p>If an error occurs during the evaluation of <var>try</var> then the <var>catch</var>
 string is evaluated, as the following example shows:
 </p>
 <div class="example">
@@ -92,11 +94,45 @@ string is evaluated, as the following example shows:
         This is a bad example
 </pre></div>
 
-<p>Consider using try/catch blocks instead if you are only using <code>eval</code>
-as an error-capturing mechanism rather than for the execution of arbitrary
-code strings.
+<p>Programming Note: if you are only using <code>eval</code> as an error-capturing
+mechanism, rather than for the execution of arbitrary code strings,
+Consider using try/catch blocks or unwind_protect/unwind_protect_cleanup
+blocks instead.  These techniques have higher performance and don&rsquo;t
+introduce the security considerations that the evaluation of arbitrary code
+does.
 </p>
-<p><strong>See also:</strong> <a href="Evaluation-in-a-Different-Context.html#XREFevalin">evalin</a>.
+<p><strong>See also:</strong> <a href="Evaluation-in-a-Different-Context.html#XREFevalin">evalin</a>, <a href="#XREFevalc">evalc</a>, <a href="Evaluation-in-a-Different-Context.html#XREFassignin">assignin</a>, <a href="Calling-a-Function-by-its-Name.html#XREFfeval">feval</a>.
+</p></dd></dl>
+
+
+<p>The <code>evalc</code> function additionally captures any console output
+produced by the evaluated expression.
+</p>
+<a name="XREFevalc"></a><dl>
+<dt><a name="index-evalc"></a>: <em><var>s</var> =</em> <strong>evalc</strong> <em>(<var>try</var>)</em></dt>
+<dt><a name="index-evalc-1"></a>: <em><var>s</var> =</em> <strong>evalc</strong> <em>(<var>try</var>, <var>catch</var>)</em></dt>
+<dd><p>Parse and evaluate the string <var>try</var> as if it were an Octave program,
+while capturing the output into the return variable <var>s</var>.
+</p>
+<p>If execution fails, evaluate the optional string <var>catch</var>.
+</p>
+<p>This function behaves like <code>eval</code>, but any output or warning messages
+which would normally be written to the console are captured and returned in
+the string <var>s</var>.
+</p>
+<p>The <code>diary</code> is disabled during the execution of this function.  When
+<code>system</code> is used, any output produced by external programs is
+<em>not</em> captured, unless their output is captured by the <code>system</code>
+function itself.
+</p>
+<div class="example">
+<pre class="example">s = evalc (&quot;t = 42&quot;), t
+  &rArr; s = t =  42
+
+  &rArr; t =  42
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFeval">eval</a>, <a href="Diary-and-Echo-Commands.html#XREFdiary">diary</a>.
 </p></dd></dl>
 
 
@@ -107,6 +143,11 @@ code strings.
 </td></tr>
 </table>
 
+<hr>
+<div class="header">
+<p>
+Next: <a href="Statements.html#Statements" accesskey="n" rel="next">Statements</a>, Previous: <a href="Expressions.html#Expressions" accesskey="p" rel="prev">Expressions</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
 
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Techniques Used for Linear Algebra</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Techniques-Used-for-Linear-Algebra"></a>
 <div class="header">
 <p>
@@ -58,19 +57,20 @@ Next: <a href="Basic-Matrix-Functions.html#Basic-Matrix-Functions" accesskey="n"
 <hr>
 <a name="Techniques-Used-for-Linear-Algebra-1"></a>
 <h3 class="section">18.1 Techniques Used for Linear Algebra</h3>
+<a name="index-linear-algebra_002c-techniques"></a>
 
-<p>Octave includes a polymorphic solver, that selects an appropriate
-matrix factorization depending on the properties of the matrix itself.
+<p>Octave includes a polymorphic solver that selects an appropriate matrix
+factorization depending on the properties of the matrix itself.
 Generally, the cost of determining the matrix type is small relative to
-the cost of factorizing the matrix itself, but in any case the matrix
-type is cached once it is calculated, so that it is not re-determined
-each time it is used in a linear equation.
+the cost of factorizing the matrix itself.  In any case the matrix type
+is cached once it is calculated so that it is not re-determined each
+time it is used in a linear equation.
 </p>
-<p>The selection tree for how the linear equation is solve or a matrix
-inverse is form is given by
+<p>The selection tree for how the linear equation is solved or a matrix
+inverse is formed is given by:
 </p>
 <ol>
-<li> If the matrix is upper or lower triangular sparse a forward or
+<li> If the matrix is upper or lower triangular sparse use a forward or
 backward substitution using the <small>LAPACK</small> xTRTRS function, and goto 4.
 
 
@@ -93,10 +93,10 @@ will lead to unpredictable results, and so <code>matrix_type</code> should be
 used with care.
 </p>
 <p>It should be noted that the test for whether a matrix is a candidate for
-Cholesky&nbsp;factorization, performed above and by the <code>matrix_type</code>
-function, does not give a certainty that the matrix is
+Cholesky&nbsp;factorization, performed above, and by the <code>matrix_type</code>
+function, does not make certain that the matrix is
 Hermitian.  However, the attempt to factorize the matrix will quickly
-flag a non-Hermitian matrix.
+detect a non-Hermitian matrix.
 </p>
 <hr>
 <div class="header">

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Multi-dimensional Interpolation</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Multi_002ddimensional-Interpolation"></a>
 <div class="header">
 <p>
@@ -64,58 +63,55 @@ similar capabilities.  Methods using Delaunay tessellation are described
 in <a href="Interpolation-on-Scattered-Data.html#Interpolation-on-Scattered-Data">Interpolation on Scattered Data</a>.
 </p>
 <a name="XREFinterp2"></a><dl>
-<dt><a name="index-interp2"></a>Function File: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>xi</var>, <var>yi</var>)</em></dt>
-<dt><a name="index-interp2-1"></a>Function File: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>Z</var>, <var>xi</var>, <var>yi</var>)</em></dt>
-<dt><a name="index-interp2-2"></a>Function File: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>Z</var>, <var>n</var>)</em></dt>
-<dt><a name="index-interp2-3"></a>Function File: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(&hellip;, <var>method</var>)</em></dt>
-<dt><a name="index-interp2-4"></a>Function File: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(&hellip;, <var>method</var>, <var>extrapval</var>)</em></dt>
+<dt><a name="index-interp2"></a>: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>xi</var>, <var>yi</var>)</em></dt>
+<dt><a name="index-interp2-1"></a>: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>z</var>, <var>xi</var>, <var>yi</var>)</em></dt>
+<dt><a name="index-interp2-2"></a>: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>z</var>, <var>n</var>)</em></dt>
+<dt><a name="index-interp2-3"></a>: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(<var>z</var>)</em></dt>
+<dt><a name="index-interp2-4"></a>: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(&hellip;, <var>method</var>)</em></dt>
+<dt><a name="index-interp2-5"></a>: <em><var>zi</var> =</em> <strong>interp2</strong> <em>(&hellip;, <var>method</var>, <var>extrap</var>)</em></dt>
 <dd>
-<p>Two-dimensional interpolation.  <var>x</var>, <var>y</var> and <var>z</var> describe a
-surface function.  If <var>x</var> and <var>y</var> are vectors their length
-must correspondent to the size of <var>z</var>.  <var>x</var> and <var>y</var> must be
-monotonic.  If they are matrices they must have the <code>meshgrid</code>
-format.
+<p>Two-dimensional interpolation.
 </p>
-<dl compact="compact">
-<dt><code>interp2 (<var>x</var>, <var>y</var>, <var>Z</var>, <var>xi</var>, <var>yi</var>, &hellip;)</code></dt>
-<dd><p>Returns a matrix corresponding to the points described by the
-matrices <var>xi</var>, <var>yi</var>.
+<p>Interpolate reference data <var>x</var>, <var>y</var>, <var>z</var> to determine <var>zi</var>
+at the coordinates <var>xi</var>, <var>yi</var>.  The reference data <var>x</var>, <var>y</var>
+can be matrices, as returned by <code>meshgrid</code>, in which case the sizes of
+<var>x</var>, <var>y</var>, and <var>z</var> must be equal.  If <var>x</var>, <var>y</var> are
+vectors describing a grid then <code>length (<var>x</var>) == columns (<var>z</var>)</code>
+and <code>length (<var>y</var>) == rows (<var>z</var>)</code>.  In either case the input
+data must be strictly monotonic.
 </p>
-<p>If the last argument is a string, the interpolation method can
-be specified.  The method can be <code>&quot;linear&quot;</code>, <code>&quot;nearest&quot;</code> or
-<code>&quot;cubic&quot;</code>.  If it is omitted <code>&quot;linear&quot;</code> interpolation is
-assumed.
+<p>If called without <var>x</var>, <var>y</var>, and just a single reference data matrix
+<var>z</var>, the 2-D region
+<code><var>x</var> = 1:columns (<var>z</var>), <var>y</var> = 1:rows (<var>z</var>)</code> is assumed.
+This saves memory if the grid is regular and the distance between points is
+not important.
 </p>
-</dd>
-<dt><code>interp2 (<var>z</var>, <var>xi</var>, <var>yi</var>)</code></dt>
-<dd><p>Assumes <code><var>x</var> = 1:rows (<var>z</var>)</code> and <code><var>y</var> =
-1:columns (<var>z</var>)</code>
+<p>If called with a single reference data matrix <var>z</var> and a refinement
+value <var>n</var>, then perform interpolation over a grid where each original
+interval has been recursively subdivided <var>n</var> times.  This results in
+<code>2^<var>n</var>-1</code> additional points for every interval in the original
+grid.  If <var>n</var> is omitted a value of 1 is used.  As an example, the
+interval [0,1] with <code><var>n</var>==2</code> results in a refined interval with
+points at [0, 1/4, 1/2, 3/4, 1].
 </p>
-</dd>
-<dt><code>interp2 (<var>z</var>, <var>n</var>)</code></dt>
-<dd><p>Interleaves the matrix <var>z</var> n-times.  If <var>n</var> is omitted a value
-of <code><var>n</var> = 1</code> is assumed.
-</p></dd>
-</dl>
-
-<p>The variable <var>method</var> defines the method to use for the
-interpolation.  It can take one of the following values
+<p>The interpolation <var>method</var> is one of:
 </p>
 <dl compact="compact">
 <dt><code>&quot;nearest&quot;</code></dt>
 <dd><p>Return the nearest neighbor.
 </p>
 </dd>
-<dt><code>&quot;linear&quot;</code></dt>
+<dt><code>&quot;linear&quot;</code> (default)</dt>
 <dd><p>Linear interpolation from nearest neighbors.
 </p>
 </dd>
 <dt><code>&quot;pchip&quot;</code></dt>
-<dd><p>Piecewise cubic Hermite interpolating polynomial.
+<dd><p>Piecewise cubic Hermite interpolating polynomial&mdash;shape-preserving
+interpolation with smooth first derivative.
 </p>
 </dd>
 <dt><code>&quot;cubic&quot;</code></dt>
-<dd><p>Cubic interpolation from four nearest neighbors.
+<dd><p>Cubic interpolation (same as <code>&quot;pchip&quot;</code>).
 </p>
 </dd>
 <dt><code>&quot;spline&quot;</code></dt>
@@ -124,52 +120,66 @@ throughout the curve.
 </p></dd>
 </dl>
 
-<p>If a scalar value <var>extrapval</var> is defined as the final value, then
-values outside the mesh as set to this value.  Note that in this case
-<var>method</var> must be defined as well.  If <var>extrapval</var> is not
-defined then NA is assumed.
+<p><var>extrap</var> is a scalar number.  It replaces values beyond the endpoints
+with <var>extrap</var>.  Note that if <var>extrapval</var> is used, <var>method</var> must
+be specified as well.  If <var>extrap</var> is omitted and the <var>method</var> is
+<code>&quot;spline&quot;</code>, then the extrapolated values of the <code>&quot;spline&quot;</code> are
+used.  Otherwise the default <var>extrap</var> value for any other <var>method</var>
+is <code>&quot;NA&quot;</code>.
 </p>
-
-<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="#XREFinterp3">interp3</a>, <a href="#XREFinterpn">interpn</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
 <a name="XREFinterp3"></a><dl>
-<dt><a name="index-interp3"></a>Function File: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
-<dt><a name="index-interp3-1"></a>Function File: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
-<dt><a name="index-interp3-2"></a>Function File: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>v</var>, <var>m</var>)</em></dt>
-<dt><a name="index-interp3-3"></a>Function File: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>v</var>)</em></dt>
-<dt><a name="index-interp3-4"></a>Function File: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(&hellip;, <var>method</var>)</em></dt>
-<dt><a name="index-interp3-5"></a>Function File: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(&hellip;, <var>method</var>, <var>extrapval</var>)</em></dt>
+<dt><a name="index-interp3"></a>: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
+<dt><a name="index-interp3-1"></a>: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>v</var>, <var>xi</var>, <var>yi</var>, <var>zi</var>)</em></dt>
+<dt><a name="index-interp3-2"></a>: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>v</var>, <var>n</var>)</em></dt>
+<dt><a name="index-interp3-3"></a>: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(<var>v</var>)</em></dt>
+<dt><a name="index-interp3-4"></a>: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(&hellip;, <var>method</var>)</em></dt>
+<dt><a name="index-interp3-5"></a>: <em><var>vi</var> =</em> <strong>interp3</strong> <em>(&hellip;, <var>method</var>, <var>extrapval</var>)</em></dt>
 <dd>
-<p>Perform 3-dimensional interpolation.  Each element of the 3-dimensional
-array <var>v</var> represents a value at a location given by the parameters
-<var>x</var>, <var>y</var>, and <var>z</var>.  The parameters <var>x</var>, <var>x</var>, and
-<var>z</var> are either 3-dimensional arrays of the same size as the array
-<var>v</var> in the <code>&quot;meshgrid&quot;</code> format or vectors.  The parameters
-<var>xi</var>, etc. respect a similar format to <var>x</var>, etc., and they
-represent the points at which the array <var>vi</var> is interpolated.
+<p>Three-dimensional interpolation.
 </p>
-<p>If <var>x</var>, <var>y</var>, <var>z</var> are omitted, they are assumed to be
-<code>x = 1 : size (<var>v</var>, 2)</code>, <code>y = 1 : size (<var>v</var>, 1)</code> and
-<code>z = 1 : size (<var>v</var>, 3)</code>.  If <var>m</var> is specified, then
-the interpolation adds a point half way between each of the interpolation
-points.  This process is performed <var>m</var> times.  If only <var>v</var> is
-specified, then <var>m</var> is assumed to be <code>1</code>.
+<p>Interpolate reference data <var>x</var>, <var>y</var>, <var>z</var>, <var>v</var> to determine
+<var>vi</var> at the coordinates <var>xi</var>, <var>yi</var>, <var>zi</var>.  The reference
+data <var>x</var>, <var>y</var>, <var>z</var> can be matrices, as returned by
+<code>meshgrid</code>, in which case the sizes of <var>x</var>, <var>y</var>, <var>z</var>, and
+<var>v</var> must be equal.  If <var>x</var>, <var>y</var>, <var>z</var> are vectors describing
+a cubic grid then <code>length (<var>x</var>) == columns (<var>v</var>)</code>,
+<code>length (<var>y</var>) == rows (<var>v</var>)</code>, and
+<code>length (<var>z</var>) == size (<var>v</var>, 3)</code>.  In either case the input
+data must be strictly monotonic.
 </p>
-<p>Method is one of:
+<p>If called without <var>x</var>, <var>y</var>, <var>z</var>, and just a single reference
+data matrix <var>v</var>, the 3-D region
+<code><var>x</var> = 1:columns (<var>v</var>), <var>y</var> = 1:rows (<var>v</var>),
+<var>z</var> = 1:size (<var>v</var>, 3)</code> is assumed.
+This saves memory if the grid is regular and the distance between points is
+not important.
+</p>
+<p>If called with a single reference data matrix <var>v</var> and a refinement
+value <var>n</var>, then perform interpolation over a 3-D grid where each
+original interval has been recursively subdivided <var>n</var> times.  This
+results in <code>2^<var>n</var>-1</code> additional points for every interval in the
+original grid.  If <var>n</var> is omitted a value of 1 is used.  As an
+example, the interval [0,1] with <code><var>n</var>==2</code> results in a refined
+interval with points at [0, 1/4, 1/2, 3/4, 1].
+</p>
+<p>The interpolation <var>method</var> is one of:
 </p>
 <dl compact="compact">
 <dt><code>&quot;nearest&quot;</code></dt>
 <dd><p>Return the nearest neighbor.
 </p>
 </dd>
-<dt><code>&quot;linear&quot;</code></dt>
+<dt><code>&quot;linear&quot;</code> (default)</dt>
 <dd><p>Linear interpolation from nearest neighbors.
 </p>
 </dd>
 <dt><code>&quot;cubic&quot;</code></dt>
-<dd><p>Cubic interpolation from four nearest neighbors (not implemented yet).
+<dd><p>Piecewise cubic Hermite interpolating polynomial&mdash;shape-preserving
+interpolation with smooth first derivative (not implemented yet).
 </p>
 </dd>
 <dt><code>&quot;spline&quot;</code></dt>
@@ -178,26 +188,28 @@ throughout the curve.
 </p></dd>
 </dl>
 
-<p>The default method is <code>&quot;linear&quot;</code>.
+<p><var>extrapval</var> is a scalar number.  It replaces values beyond the endpoints
+with <var>extrapval</var>.  Note that if <var>extrapval</var> is used, <var>method</var>
+must be specified as well.  If <var>extrapval</var> is omitted and the
+<var>method</var> is <code>&quot;spline&quot;</code>, then the extrapolated values of the
+<code>&quot;spline&quot;</code> are used.  Otherwise the default <var>extrapval</var> value for
+any other <var>method</var> is <code>&quot;NA&quot;</code>.
 </p>
-<p>If <var>extrap</var> is the string <code>&quot;extrap&quot;</code>, then extrapolate values
-beyond the endpoints.  If <var>extrap</var> is a number, replace values beyond
-the endpoints with that number.  If <var>extrap</var> is missing, assume NA.
-</p>
-<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>, <a href="One_002ddimensional-Interpolation.html#XREFspline">spline</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="#XREFinterp2">interp2</a>, <a href="#XREFinterpn">interpn</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
 <a name="XREFinterpn"></a><dl>
-<dt><a name="index-interpn"></a>Function File: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;, <var>v</var>, <var>y1</var>, <var>y2</var>, &hellip;)</em></dt>
-<dt><a name="index-interpn-1"></a>Function File: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>v</var>, <var>y1</var>, <var>y2</var>, &hellip;)</em></dt>
-<dt><a name="index-interpn-2"></a>Function File: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>v</var>, <var>m</var>)</em></dt>
-<dt><a name="index-interpn-3"></a>Function File: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>v</var>)</em></dt>
-<dt><a name="index-interpn-4"></a>Function File: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(&hellip;, <var>method</var>)</em></dt>
-<dt><a name="index-interpn-5"></a>Function File: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(&hellip;, <var>method</var>, <var>extrapval</var>)</em></dt>
+<dt><a name="index-interpn"></a>: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>x1</var>, <var>x2</var>, &hellip;, <var>v</var>, <var>y1</var>, <var>y2</var>, &hellip;)</em></dt>
+<dt><a name="index-interpn-1"></a>: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>v</var>, <var>y1</var>, <var>y2</var>, &hellip;)</em></dt>
+<dt><a name="index-interpn-2"></a>: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>v</var>, <var>m</var>)</em></dt>
+<dt><a name="index-interpn-3"></a>: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(<var>v</var>)</em></dt>
+<dt><a name="index-interpn-4"></a>: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(&hellip;, <var>method</var>)</em></dt>
+<dt><a name="index-interpn-5"></a>: <em><var>vi</var> =</em> <strong>interpn</strong> <em>(&hellip;, <var>method</var>, <var>extrapval</var>)</em></dt>
 <dd>
 <p>Perform <var>n</var>-dimensional interpolation, where <var>n</var> is at least two.
-Each element of the <var>n</var>-dimensional array <var>v</var> represents a value
+</p>
+<p>Each element of the <var>n</var>-dimensional array <var>v</var> represents a value
 at a location given by the parameters <var>x1</var>, <var>x2</var>, &hellip;, <var>xn</var>.
 The parameters <var>x1</var>, <var>x2</var>, &hellip;, <var>xn</var> are either
 <var>n</var>-dimensional arrays of the same size as the array <var>v</var> in
@@ -211,19 +223,24 @@ the interpolation adds a point half way between each of the interpolation
 points.  This process is performed <var>m</var> times.  If only <var>v</var> is
 specified, then <var>m</var> is assumed to be <code>1</code>.
 </p>
-<p>Method is one of:
+<p>The interpolation <var>method</var> is one of:
 </p>
 <dl compact="compact">
 <dt><code>&quot;nearest&quot;</code></dt>
 <dd><p>Return the nearest neighbor.
 </p>
 </dd>
-<dt><code>&quot;linear&quot;</code></dt>
+<dt><code>&quot;linear&quot;</code> (default)</dt>
 <dd><p>Linear interpolation from nearest neighbors.
 </p>
 </dd>
+<dt><code>&quot;pchip&quot;</code></dt>
+<dd><p>Piecewise cubic Hermite interpolating polynomial&mdash;shape-preserving
+interpolation with smooth first derivative (not implemented yet).
+</p>
+</dd>
 <dt><code>&quot;cubic&quot;</code></dt>
-<dd><p>Cubic interpolation from four nearest neighbors (not implemented yet).
+<dd><p>Cubic interpolation (same as <code>&quot;pchip&quot;</code> [not implemented yet]).
 </p>
 </dd>
 <dt><code>&quot;spline&quot;</code></dt>
@@ -234,11 +251,14 @@ throughout the curve.
 
 <p>The default method is <code>&quot;linear&quot;</code>.
 </p>
-<p>If <var>extrapval</var> is the scalar value, use it to replace the values
-beyond the endpoints with that number.  If <var>extrapval</var> is missing,
-assume NA.
+<p><var>extrapval</var> is a scalar number.  It replaces values beyond the endpoints
+with <var>extrapval</var>.  Note that if <var>extrapval</var> is used, <var>method</var>
+must be specified as well.  If <var>extrapval</var> is omitted and the
+<var>method</var> is <code>&quot;spline&quot;</code>, then the extrapolated values of the
+<code>&quot;spline&quot;</code> are used.  Otherwise the default <var>extrapval</var> value for
+any other <var>method</var> is <code>&quot;NA&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>, <a href="One_002ddimensional-Interpolation.html#XREFspline">spline</a>, <a href="Three_002dDimensional-Plots.html#XREFndgrid">ndgrid</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="#XREFinterp2">interp2</a>, <a href="#XREFinterp3">interp3</a>, <a href="One_002ddimensional-Interpolation.html#XREFspline">spline</a>, <a href="Three_002dDimensional-Plots.html#XREFndgrid">ndgrid</a>.
 </p></dd></dl>
 
 
@@ -266,29 +286,12 @@ mesh (zi, yi, squeeze (vi2(1,:,:)));
 <p>where <code>vi</code> and <code>vi2</code> are identical.  The reversal of the
 dimensions is treated in the <code>meshgrid</code> and <code>ndgrid</code> functions
 respectively.
-The result of this code can be seen in <a href="Multi_002ddimensional-Interpolation.html#fig_003ainterpn">Figure 29.4</a>.
+The result of this code can be seen in <a href="#fig_003ainterpn">Figure 29.4</a>.
 </p>
 <div class="float"><a name="fig_003ainterpn"></a>
 <div align="center"><img src="interpn.png" alt="interpn">
 </div>
 <div class="float-caption"><p><strong>Figure 29.4: </strong>Demonstration of the use of <code>interpn</code></p></div></div>
-<p>In additional the support function <code>bicubic</code> that underlies the
-cubic interpolation of <code>interp2</code> function can be called directly.
-</p>
-<a name="XREFbicubic"></a><dl>
-<dt><a name="index-bicubic"></a>Function File: <em><var>zi</var> =</em> <strong>bicubic</strong> <em>(<var>x</var>, <var>y</var>, <var>z</var>, <var>xi</var>, <var>yi</var>, <var>extrapval</var>)</em></dt>
-<dd>
-<p>Return a matrix <var>zi</var> corresponding to the bicubic
-interpolations at <var>xi</var> and <var>yi</var> of the data supplied
-as <var>x</var>, <var>y</var> and <var>z</var>.  Points outside the grid are set
-to <var>extrapval</var>.
-</p>
-<p>See <a href="http://wiki.woodpecker.org.cn/moin/Octave/Bicubic">http://wiki.woodpecker.org.cn/moin/Octave/Bicubic</a>
-for further information.
-</p>
-<p><strong>See also:</strong> <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>.
-</p></dd></dl>
-
 
 
 <hr>

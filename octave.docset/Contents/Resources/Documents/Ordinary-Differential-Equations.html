@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Ordinary Differential Equations</title>
 
@@ -14,21 +14,21 @@
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Differential-Equations.html#Differential-Equations" rel="up" title="Differential Equations">
-<link href="Differential_002dAlgebraic-Equations.html#Differential_002dAlgebraic-Equations" rel="next" title="Differential-Algebraic Equations">
+<link href="Matlab_002dcompatible-solvers.html#Matlab_002dcompatible-solvers" rel="next" title="Matlab-compatible solvers">
 <link href="Differential-Equations.html#Differential-Equations" rel="prev" title="Differential Equations">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Ordinary-Differential-Equations"></a>
 <div class="header">
 <p>
@@ -73,9 +72,11 @@ dt
 
 
 <a name="XREFlsode"></a><dl>
-<dt><a name="index-lsode"></a>Built-in Function: <em>[<var>x</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>lsode</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>t</var>)</em></dt>
-<dt><a name="index-lsode-1"></a>Built-in Function: <em>[<var>x</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>lsode</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
-<dd><p>Solve the set of differential equations
+<dt><a name="index-lsode"></a>: <em>[<var>x</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>lsode</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>t</var>)</em></dt>
+<dt><a name="index-lsode-1"></a>: <em>[<var>x</var>, <var>istate</var>, <var>msg</var>] =</em> <strong>lsode</strong> <em>(<var>fcn</var>, <var>x_0</var>, <var>t</var>, <var>t_crit</var>)</em></dt>
+<dd><p>Ordinary Differential Equation (ODE) solver.
+</p>
+<p>The set of differential equations to solve is
 </p>
 <div class="example">
 <pre class="example">dx
@@ -158,25 +159,28 @@ parameters for <code>lsode</code>.
 
 
 <a name="XREFlsode_005foptions"></a><dl>
-<dt><a name="index-lsode_005foptions"></a>Built-in Function: <em></em> <strong>lsode_options</strong> <em>()</em></dt>
-<dt><a name="index-lsode_005foptions-1"></a>Built-in Function: <em>val =</em> <strong>lsode_options</strong> <em>(<var>opt</var>)</em></dt>
-<dt><a name="index-lsode_005foptions-2"></a>Built-in Function: <em></em> <strong>lsode_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
+<dt><a name="index-lsode_005foptions"></a>: <em></em> <strong>lsode_options</strong> <em>()</em></dt>
+<dt><a name="index-lsode_005foptions-1"></a>: <em>val =</em> <strong>lsode_options</strong> <em>(<var>opt</var>)</em></dt>
+<dt><a name="index-lsode_005foptions-2"></a>: <em></em> <strong>lsode_options</strong> <em>(<var>opt</var>, <var>val</var>)</em></dt>
 <dd><p>Query or set options for the function <code>lsode</code>.
-When called with no arguments, the names of all available options and
+</p>
+<p>When called with no arguments, the names of all available options and
 their current values are displayed.
-Given one argument, return the value of the corresponding option.
-When called with two arguments, <code>lsode_options</code> set the option
+</p>
+<p>Given one argument, return the value of the option <var>opt</var>.
+</p>
+<p>When called with two arguments, <code>lsode_options</code> sets the option
 <var>opt</var> to value <var>val</var>.
 </p>
 <p>Options include
 </p>
 <dl compact="compact">
-<dt><code><code>&quot;absolute tolerance&quot;</code></code></dt>
+<dt><code>&quot;absolute tolerance&quot;</code></dt>
 <dd><p>Absolute tolerance.  May be either vector or scalar.  If a vector, it
 must match the dimension of the state vector.
 </p>
 </dd>
-<dt><code><code>&quot;relative tolerance&quot;</code></code></dt>
+<dt><code>&quot;relative tolerance&quot;</code></dt>
 <dd><p>Relative tolerance parameter.  Unlike the absolute tolerance, this
 parameter may only be a scalar.
 </p>
@@ -188,7 +192,7 @@ parameter may only be a scalar.
 </pre></div>
 
 </dd>
-<dt><code><code>&quot;integration method&quot;</code></code></dt>
+<dt><code>&quot;integration method&quot;</code></dt>
 <dd><p>A string specifying the method of integration to use to solve the ODE
 system.  Valid values are
 </p>
@@ -207,27 +211,27 @@ compute a finite difference approximation of the Jacobian matrix.
 </dl>
 
 </dd>
-<dt><code><code>&quot;initial step size&quot;</code></code></dt>
+<dt><code>&quot;initial step size&quot;</code></dt>
 <dd><p>The step size to be attempted on the first step (default is determined
 automatically).
 </p>
 </dd>
-<dt><code><code>&quot;maximum order&quot;</code></code></dt>
+<dt><code>&quot;maximum order&quot;</code></dt>
 <dd><p>Restrict the maximum order of the solution method.  If using the Adams
 method, this option must be between 1 and 12.  Otherwise, it must be
 between 1 and 5, inclusive.
 </p>
 </dd>
-<dt><code><code>&quot;maximum step size&quot;</code></code></dt>
+<dt><code>&quot;maximum step size&quot;</code></dt>
 <dd><p>Setting the maximum stepsize will avoid passing over very large
 regions  (default is not specified).
 </p>
 </dd>
-<dt><code><code>&quot;minimum step size&quot;</code></code></dt>
+<dt><code>&quot;minimum step size&quot;</code></dt>
 <dd><p>The minimum absolute step size allowed (default is 0).
 </p>
 </dd>
-<dt><code><code>&quot;step limit&quot;</code></code></dt>
+<dt><code>&quot;step limit&quot;</code></dt>
 <dd><p>Maximum number of steps allowed (default is 100000).
 </p></dd>
 </dl>
@@ -271,14 +275,20 @@ A more efficient set of output points might be
         logspace(log10(304), log10(500), 150)];
 </pre></div>
 
-<p>See Alan C. Hindmarsh, <cite>ODEPACK, A Systematized Collection of ODE
-Solvers</cite>, in Scientific Computing, R. S. Stepleman, editor, (1983) for
-more information about the inner workings of <code>lsode</code>.
+<p>See Alan C. Hindmarsh,
+<cite>ODEPACK, A Systematized Collection of ODE Solvers</cite>,
+in Scientific Computing, R. S. Stepleman, editor, (1983)
+for more information about the inner workings of <code>lsode</code>.
 </p>
 <p>An m-file for the differential equation used above is included with the
 Octave distribution in the examples directory under the name
 <samp>oregonator.m</samp>.
 </p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Matlab_002dcompatible-solvers.html#Matlab_002dcompatible-solvers" accesskey="1">Matlab-compatible solvers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
 <hr>
 <div class="header">
 <p>

@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Advanced Indexing</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Advanced-Indexing"></a>
 <div class="header">
 <p>
@@ -213,61 +212,112 @@ endfor
 result.
 </p>
 <a name="XREFsub2ind"></a><dl>
-<dt><a name="index-sub2ind"></a>Function File: <em><var>ind</var> =</em> <strong>sub2ind</strong> <em>(<var>dims</var>, <var>i</var>, <var>j</var>)</em></dt>
-<dt><a name="index-sub2ind-1"></a>Function File: <em><var>ind</var> =</em> <strong>sub2ind</strong> <em>(<var>dims</var>, <var>s1</var>, <var>s2</var>, &hellip;, <var>sN</var>)</em></dt>
-<dd><p>Convert subscripts to a linear index.
+<dt><a name="index-sub2ind"></a>: <em><var>ind</var> =</em> <strong>sub2ind</strong> <em>(<var>dims</var>, <var>i</var>, <var>j</var>)</em></dt>
+<dt><a name="index-sub2ind-1"></a>: <em><var>ind</var> =</em> <strong>sub2ind</strong> <em>(<var>dims</var>, <var>s1</var>, <var>s2</var>, &hellip;, <var>sN</var>)</em></dt>
+<dd><p>Convert subscripts to linear indices.
 </p>
-<p>The following example shows how to convert the two-dimensional
-index <code>(2,3)</code> of a 3-by-3 matrix to a linear index.  The matrix
-is linearly indexed moving from one column to next, filling up
-all rows in each column.
+<p>Assume the following 3-by-3 matrices.  The left matrix contains the
+subscript tuples for each matrix element.  Those are converted to
+linear indices shown in the right matrix.  The matrices are linearly
+indexed moving from one column to next, filling up all rows in each
+column.
 </p>
 <div class="example">
-<pre class="example">linear_index = sub2ind ([3, 3], 2, 3)
-&rArr; 8
+<pre class="example">[(1,1), (1,2), (1,3)]     [1, 4, 7]
+[(2,1), (2,2), (2,3)] ==&gt; [2, 5, 8]
+[(3,1), (3,2), (3,3)]     [3, 6, 9]
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Advanced-Indexing.html#XREFind2sub">ind2sub</a>.
+<p>The following example shows how to convert the two-dimensional indices
+<code>(2,1)</code> and <code>(2,3)</code> of a 3-by-3 matrix to a linear index.
+</p>
+<div class="example">
+<pre class="example">s1 = [2, 2];
+s2 = [1, 3];
+ind = sub2ind ([3, 3], s1, s2)
+&rArr; ind =  2   8
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFind2sub">ind2sub</a>.
 </p></dd></dl>
 
 
 <a name="XREFind2sub"></a><dl>
-<dt><a name="index-ind2sub"></a>Function File: <em>[<var>s1</var>, <var>s2</var>, &hellip;, <var>sN</var>] =</em> <strong>ind2sub</strong> <em>(<var>dims</var>, <var>ind</var>)</em></dt>
-<dd><p>Convert a linear index to subscripts.
+<dt><a name="index-ind2sub"></a>: <em>[<var>s1</var>, <var>s2</var>, &hellip;, <var>sN</var>] =</em> <strong>ind2sub</strong> <em>(<var>dims</var>, <var>ind</var>)</em></dt>
+<dd><p>Convert linear indices to subscripts.
 </p>
-<p>The following example shows how to convert the linear index <code>8</code>
-in a 3-by-3 matrix into a subscript.  The matrix is linearly indexed
-moving from one column to next, filling up all rows in each column.
+<p>Assume the following 3-by-3 matrices.  The left matrix contains
+the linear indices <var>ind</var> for each matrix element.  Those are
+converted to subscript tuples shown in the right matrix.  The
+matrices are linearly indexed moving from one column to next,
+filling up all rows in each column.
 </p>
 <div class="example">
-<pre class="example">[r, c] = ind2sub ([3, 3], 8)
-    &rArr; r =  2
-    &rArr; c =  3
+<pre class="example">[1, 4, 7]     [(1,1), (1,2), (1,3)]
+[2, 5, 8] ==&gt; [(2,1), (2,2), (2,3)]
+[3, 6, 9]     [(3,1), (3,2), (3,3)]
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Advanced-Indexing.html#XREFsub2ind">sub2ind</a>.
+<p>The following example shows how to convert the linear indices
+<code>2</code> and <code>8</code> in a 3-by-3 matrix into a subscripts.
+</p>
+<div class="example">
+<pre class="example">ind = [2, 8];
+[r, c] = ind2sub ([3, 3], ind)
+    &rArr; r =  2   2
+    &rArr; c =  1   3
+</pre></div>
+
+<p>If the number of subscripts exceeds the number of dimensions, the
+exceeded dimensions are treated as <code>1</code>.  On the other hand,
+if less subscripts than dimensions are provided, the exceeding
+dimensions are merged.  For clarity see the following examples:
+</p>
+<div class="example">
+<pre class="example">ind = [2, 8];
+dims = [3, 3];
+% same as dims = [3, 3, 1]
+[r, c, s] = ind2sub (dims, ind)
+    &rArr; r =  2   2
+    &rArr; c =  1   3
+    &rArr; s =  1   1
+% same as dims = 9
+r = ind2sub (dims, ind)
+    &rArr; r =  2   8
+</pre></div>
+
+<p><strong>See also:</strong> <a href="#XREFsub2ind">sub2ind</a>.
 </p></dd></dl>
 
 
 <a name="XREFisindex"></a><dl>
-<dt><a name="index-isindex"></a>Built-in Function: <em></em> <strong>isindex</strong> <em>(<var>ind</var>)</em></dt>
-<dt><a name="index-isindex-1"></a>Built-in Function: <em></em> <strong>isindex</strong> <em>(<var>ind</var>, <var>n</var>)</em></dt>
-<dd><p>Return true if <var>ind</var> is a valid index.  Valid indices are
-either positive integers (although possibly of real data type), or logical
-arrays.  If present, <var>n</var> specifies the maximum extent of the dimension
-to be indexed.  When possible the internal result is cached so that
-subsequent indexing using <var>ind</var> will not perform the check again.
+<dt><a name="index-isindex"></a>: <em></em> <strong>isindex</strong> <em>(<var>ind</var>)</em></dt>
+<dt><a name="index-isindex-1"></a>: <em></em> <strong>isindex</strong> <em>(<var>ind</var>, <var>n</var>)</em></dt>
+<dd><p>Return true if <var>ind</var> is a valid index.
+</p>
+<p>Valid indices are either positive integers (although possibly of real data
+type), or logical arrays.
+</p>
+<p>If present, <var>n</var> specifies the maximum extent of the dimension to be
+indexed.  When possible the internal result is cached so that subsequent
+indexing using <var>ind</var> will not perform the check again.
+</p>
+<p>Implementation Note: Strings are first converted to double values before the
+checks for valid indices are made.  Unless a string contains the NULL
+character &quot;\0&quot;, it will always be a valid index.
 </p></dd></dl>
 
 
 <a name="XREFallow_005fnoninteger_005frange_005fas_005findex"></a><dl>
-<dt><a name="index-allow_005fnoninteger_005frange_005fas_005findex"></a>Built-in Function: <em><var>val</var> =</em> <strong>allow_noninteger_range_as_index</strong> <em>()</em></dt>
-<dt><a name="index-allow_005fnoninteger_005frange_005fas_005findex-1"></a>Built-in Function: <em><var>old_val</var> =</em> <strong>allow_noninteger_range_as_index</strong> <em>(<var>new_val</var>)</em></dt>
-<dt><a name="index-allow_005fnoninteger_005frange_005fas_005findex-2"></a>Built-in Function: <em></em> <strong>allow_noninteger_range_as_index</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
+<dt><a name="index-allow_005fnoninteger_005frange_005fas_005findex"></a>: <em><var>val</var> =</em> <strong>allow_noninteger_range_as_index</strong> <em>()</em></dt>
+<dt><a name="index-allow_005fnoninteger_005frange_005fas_005findex-1"></a>: <em><var>old_val</var> =</em> <strong>allow_noninteger_range_as_index</strong> <em>(<var>new_val</var>)</em></dt>
+<dt><a name="index-allow_005fnoninteger_005frange_005fas_005findex-2"></a>: <em></em> <strong>allow_noninteger_range_as_index</strong> <em>(<var>new_val</var>, &quot;local&quot;)</em></dt>
 <dd><p>Query or set the internal variable that controls whether non-integer
-ranges are allowed as indices.  This might be useful for <small>MATLAB</small>
-compatibility; however, it is still not entirely compatible because
-<small>MATLAB</small> treats the range expression differently in different contexts.
+ranges are allowed as indices.
+</p>
+<p>This might be useful for <small>MATLAB</small> compatibility; however, it is still not
+entirely compatible because <small>MATLAB</small> treats the range expression
+differently in different contexts.
 </p>
 <p>When called from inside a function with the <code>&quot;local&quot;</code> option, the
 variable is changed locally for the function and any subroutines it calls.

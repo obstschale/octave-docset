@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 5.2, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
 <head>
 <title>Overloading and Autoloading</title>
 
@@ -19,16 +19,16 @@
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
 blockquote.smallquotation {font-size: smaller}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-div.indentedblock {margin-left: 3.2em}
 div.lisp {margin-left: 3.2em}
 div.smalldisplay {margin-left: 3.2em}
 div.smallexample {margin-left: 3.2em}
-div.smallindentedblock {margin-left: 3.2em; font-size: smaller}
 div.smalllisp {margin-left: 3.2em}
-kbd {font-style:oblique}
+kbd {font-style: oblique}
 pre.display {font-family: inherit}
 pre.format {font-family: inherit}
 pre.menu-comment {font-family: serif}
@@ -37,10 +37,9 @@ pre.smalldisplay {font-family: inherit; font-size: smaller}
 pre.smallexample {font-size: smaller}
 pre.smallformat {font-family: inherit; font-size: smaller}
 pre.smalllisp {font-size: smaller}
-span.nocodebreak {white-space:nowrap}
-span.nolinebreak {white-space:nowrap}
-span.roman {font-family:serif; font-weight:normal}
-span.sansserif {font-family:sans-serif; font-weight:normal}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
@@ -49,7 +48,7 @@ ul.no-bullet {list-style: none}
 
 </head>
 
-<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+<body lang="en">
 <a name="Overloading-and-Autoloading"></a>
 <div class="header">
 <p>
@@ -68,13 +67,13 @@ user overloading and call the default function associated with a specific
 type.  The <code>builtin</code> function exists for this purpose.
 </p>
 <a name="XREFbuiltin"></a><dl>
-<dt><a name="index-builtin"></a>Loadable Function: <em>[&hellip;] =</em> <strong>builtin</strong> <em>(<var>f</var>, &hellip;)</em></dt>
-<dd><p>Call the base function <var>f</var> even if <var>f</var> is overloaded to
-another function for the given type signature.
+<dt><a name="index-builtin"></a>: <em>[&hellip;] =</em> <strong>builtin</strong> <em>(<var>f</var>, &hellip;)</em></dt>
+<dd><p>Call the base function <var>f</var> even if <var>f</var> is overloaded to another
+function for the given type signature.
 </p>
-<p>This is normally useful when doing object-oriented programming and there
-is a requirement to call one of Octave&rsquo;s base functions rather than
-the overloaded one of a new class.
+<p>This is normally useful when doing object-oriented programming and there is
+a requirement to call one of Octave&rsquo;s base functions rather than the
+overloaded one of a new class.
 </p>
 <p>A trivial example which redefines the <code>sin</code> function to be the
 <code>cos</code> function shows how <code>builtin</code> works.
@@ -106,26 +105,27 @@ amount of disk space used by Octave.  Instead Octave supplies the
 file a certain function will be found.
 </p>
 <a name="XREFautoload"></a><dl>
-<dt><a name="index-autoload"></a>Built-in Function: <em></em> <strong>autoload</strong> <em>(<var>function</var>, <var>file</var>)</em></dt>
-<dt><a name="index-autoload-1"></a>Built-in Function: <em></em> <strong>autoload</strong> <em>(&hellip;, &quot;remove&quot;)</em></dt>
+<dt><a name="index-autoload"></a>: <em><var>autoload_map</var> =</em> <strong>autoload</strong> <em>()</em></dt>
+<dt><a name="index-autoload-1"></a>: <em></em> <strong>autoload</strong> <em>(<var>function</var>, <var>file</var>)</em></dt>
+<dt><a name="index-autoload-2"></a>: <em></em> <strong>autoload</strong> <em>(&hellip;, &quot;remove&quot;)</em></dt>
 <dd><p>Define <var>function</var> to autoload from <var>file</var>.
 </p>
-<p>The second argument, <var>file</var>, should be an absolute file name or
-a file name in the same directory as the function or script from which
-the autoload command was run.  <var>file</var> should not depend on the
-Octave load path.
+<p>The second argument, <var>file</var>, should be an absolute filename or a file
+name in the same directory as the function or script from which the autoload
+command was run.  <var>file</var> <em>should not</em> depend on the Octave load
+path.
 </p>
-<p>Normally, calls to <code>autoload</code> appear in PKG_ADD script files that
-are evaluated when a directory is added to Octave&rsquo;s load path.  To
-avoid having to hardcode directory names in <var>file</var>, if <var>file</var>
-is in the same directory as the PKG_ADD script then
+<p>Normally, calls to <code>autoload</code> appear in PKG_ADD script files that are
+evaluated when a directory is added to Octave&rsquo;s load path.  To avoid having
+to hardcode directory names in <var>file</var>, if <var>file</var> is in the same
+directory as the PKG_ADD script then
 </p>
 <div class="example">
 <pre class="example">autoload (&quot;foo&quot;, &quot;bar.oct&quot;);
 </pre></div>
 
 <p>will load the function <code>foo</code> from the file <code>bar.oct</code>.  The above
-usage when <code>bar.oct</code> is not in the same directory or usages such as
+usage when <code>bar.oct</code> is not in the same directory, or usages such as
 </p>
 <div class="example">
 <pre class="example">autoload (&quot;foo&quot;, file_in_loadpath (&quot;bar.oct&quot;))
@@ -135,7 +135,7 @@ usage when <code>bar.oct</code> is not in the same directory or usages such as
 </p>
 <p>With no arguments, return a structure containing the current autoload map.
 </p>
-<p>If a third argument &rsquo;remove&rsquo; is given, the function is cleared and
+<p>If a third argument <code>&quot;remove&quot;</code> is given, the function is cleared and
 not loaded anymore during the current Octave session.
 </p>
 
