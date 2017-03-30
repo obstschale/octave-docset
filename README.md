@@ -22,7 +22,13 @@ To manually install a docket in Zeal you need to download the [docset](https://g
 
 ### Generate docset
 
-The docset is generated with a [Python script](https://github.com/obstschale/octave-docset/blob/master/octdoc2set.py) and the [original HTML documentation](http://www.gnu.org/software/octave/support.html). To generate the docset manually, download the documentation and the script and run `python octdoc2set.py`. (`sqlite3` package needed)
+The docset is generated with a [Python script](https://github.com/obstschale/octave-docset/blob/master/octdoc2set.py) and the [original HTML documentation](http://www.gnu.org/software/octave/support.html). To generate the docset simply clone the repository and you have to change the version variable in `build.sh` (check the link whether the doc version really exists). Then run `./build.sh`. The script will download the docs and will create an `Octave.tgz` file, which is ready for a pull request for [Kapeli/Dash-User-Contributions](https://github.com/Kapeli/Dash-User-Contributions).
+
+### Requirements
+
+sqlite3==3.8.x
+beautifulsoup4==4.5.1
+bs4==0.0.1
 
 ### Report Bugs
 
