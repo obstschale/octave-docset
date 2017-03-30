@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Input Parameter Checking in Oct-Files</title>
+<title>GNU Octave: Input Parameter Checking in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Input Parameter Checking in Oct-Files">
 <meta name="keywords" content="GNU Octave: Input Parameter Checking in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,26 +58,26 @@ Next: <a href="Exception-and-Error-Handling-in-Oct_002dFiles.html#Exception-and-
 <a name="Input-Parameter-Checking-in-Oct_002dFiles-1"></a>
 <h4 class="subsection">A.1.11 Input Parameter Checking in Oct-Files</h4>
 
-<p>As oct-files are compiled functions they open up the possibility of
-crashing Octave through careless function calls or memory faults.
-It is quite important that each and every function have a sufficient level
-of parameter checking to ensure that Octave behaves well.
+<p>Because oct-files are compiled functions they open up the possibility of
+crashing Octave through careless function calls or memory faults.  It is quite
+important that each and every function have a sufficient level of parameter
+checking to ensure that Octave behaves well.
 </p>
-<p>The minimum requirement, as previously discussed, is to check the number
-of input arguments before using them to avoid referencing a nonexistent
-argument.  However, in some cases this might not be sufficient as the
-underlying code imposes further constraints.  For example, an external
-function call might be undefined if the input arguments are not
-integers, or if one of the arguments is zero, or if the input is complex
-and a real value was expected.  Therefore, oct-files often need additional
-input parameter checking.
+<p>The minimum requirement, as previously discussed, is to check the number of
+input arguments before using them to avoid referencing a nonexistent argument.
+However, in some cases this might not be sufficient as the underlying code
+imposes further constraints.  For example, an external function call might be
+undefined if the input arguments are not integers, or if one of the arguments
+is zero, or if the input is complex and a real value was expected.  Therefore,
+oct-files often need additional input parameter checking.
 </p>
-<p>There are several functions within Octave that can be useful for the
-purposes of parameter checking.  These include the methods of the
-octave_value class like <code>is_real_matrix</code>, <code>is_numeric_type</code>, etc.
-Often, with a knowledge of the Octave m-file language, you can guess at what
-the corresponding C++ routine will.  In addition there are some more
-specialized input validation functions of which a few are demonstrated below.
+<p>There are several functions within Octave that can be useful for the purposes
+of parameter checking.  These include the methods of the <code>octave_value</code>
+class like <code>is_real_matrix</code>, <code>is_numeric_type</code>, etc. (See
+<samp>ov.h</samp>).  Often, with a knowledge of the Octave m-file language, you can
+guess at what the corresponding C++ routine will.  In addition there are some
+more specialized input validation functions of which a few are demonstrated
+below.
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;octave/oct.h&gt;

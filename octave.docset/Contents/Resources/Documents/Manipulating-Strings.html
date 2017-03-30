@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manipulating Strings</title>
+<title>GNU Octave: Manipulating Strings</title>
 
 <meta name="description" content="GNU Octave: Manipulating Strings">
 <meta name="keywords" content="GNU Octave: Manipulating Strings">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -92,7 +92,7 @@ deblank ([&quot; abc   &quot;; &quot;   def   &quot;])
      &rArr;  [&quot; abc  &quot; ; &quot;   def&quot;]
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstrtrim">strtrim</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrtrim">strtrim</a>.
 </p></dd></dl>
 
 
@@ -114,7 +114,7 @@ strtrim ([&quot; abc   &quot;; &quot;   def   &quot;])
      &rArr;  [&quot;abc  &quot;  ; &quot;  def&quot;]
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFdeblank">deblank</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFdeblank">deblank</a>.
 </p></dd></dl>
 
 
@@ -148,7 +148,7 @@ findstr (&quot;abababa&quot;, &quot;aba&quot;, 0)
 <p><strong>Caution:</strong> <code>findstr</code> is scheduled for deprecation.  Use
 <code>strfind</code> in all new code.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstrfind">strfind</a>, <a href="#XREFstrmatch">strmatch</a>, <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrfind">strfind</a>, <a href="Manipulating-Strings.html#XREFstrmatch">strmatch</a>, <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>.
 </p></dd></dl>
 
 
@@ -189,7 +189,7 @@ string <var>s</var>, or 0 if no occurrence is found.
 If <var>direction</var> is <code>&quot;last&quot;</code>, return the last element found.
 </p>
 
-<p><strong>See also:</strong> <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>, <a href="#XREFrindex">rindex</a>.
+<p><strong>See also:</strong> <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>, <a href="Manipulating-Strings.html#XREFrindex">rindex</a>.
 </p></dd></dl>
 
 
@@ -212,7 +212,7 @@ found.
 <var>direction</var> set to <code>&quot;last&quot;</code>.
 </p>
 
-<p><strong>See also:</strong> <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>, <a href="#XREFindex">index</a>.
+<p><strong>See also:</strong> <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>, <a href="Manipulating-Strings.html#XREFindex">index</a>.
 </p></dd></dl>
 
 
@@ -255,7 +255,7 @@ strfind ({&quot;abababa&quot;, &quot;bebebe&quot;, &quot;ab&quot;}, &quot;aba&qu
         }
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFfindstr">findstr</a>, <a href="#XREFstrmatch">strmatch</a>, <a href="#XREFregexp">regexp</a>, <a href="#XREFregexpi">regexpi</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFfindstr">findstr</a>, <a href="Manipulating-Strings.html#XREFstrmatch">strmatch</a>, <a href="Manipulating-Strings.html#XREFregexp">regexp</a>, <a href="Manipulating-Strings.html#XREFregexpi">regexpi</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>.
 </p></dd></dl>
 
 
@@ -281,7 +281,7 @@ supported.
       &rArr; 'Octave*Scilab*Lush*Yorick'
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstrsplit">strsplit</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrsplit">strsplit</a>.
 </p></dd></dl>
 
 
@@ -314,7 +314,7 @@ strmatch (&quot;apple&quot;, [&quot;apple  &quot;; &quot;apple juice&quot;; &quo
 <code>strncmp</code> (normal case), or <code>strcmp</code> (<code>&quot;exact&quot;</code> case), or
 <code>regexp</code> in all new code.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstrfind">strfind</a>, <a href="#XREFfindstr">findstr</a>, <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrfind">strfind</a>, <a href="Manipulating-Strings.html#XREFfindstr">findstr</a>, <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrncmp">strncmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="Comparing-Strings.html#XREFstrncmpi">strncmpi</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFfind">find</a>.
 </p></dd></dl>
 
 
@@ -347,7 +347,7 @@ at the first delimiter.
         rem = *27+31
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFindex">index</a>, <a href="#XREFstrsplit">strsplit</a>, <a href="#XREFstrchr">strchr</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFindex">index</a>, <a href="Manipulating-Strings.html#XREFstrsplit">strsplit</a>, <a href="Manipulating-Strings.html#XREFstrchr">strchr</a>, <a href="Character-Class-Functions.html#XREFisspace">isspace</a>.
 </p></dd></dl>
 
 
@@ -461,7 +461,7 @@ strsplit (&quot;a,\t,b, c&quot;, {',', ' ', '\t'}, &quot;collapsedelimiters&quot
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFostrsplit">ostrsplit</a>, <a href="#XREFstrjoin">strjoin</a>, <a href="#XREFstrtok">strtok</a>, <a href="#XREFregexp">regexp</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFostrsplit">ostrsplit</a>, <a href="Manipulating-Strings.html#XREFstrjoin">strjoin</a>, <a href="Manipulating-Strings.html#XREFstrtok">strtok</a>, <a href="Manipulating-Strings.html#XREFregexp">regexp</a>.
 </p></dd></dl>
 
 
@@ -498,7 +498,7 @@ ostrsplit ([&quot;a,b&quot; ; &quot;cde&quot;], &quot;,&quot;)
           }
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstrsplit">strsplit</a>, <a href="#XREFstrtok">strtok</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrsplit">strsplit</a>, <a href="Manipulating-Strings.html#XREFstrtok">strtok</a>.
 </p></dd></dl>
 
 
@@ -705,7 +705,7 @@ is done for each element and a cell array is returned.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFregexprep">regexprep</a>, <a href="#XREFstrfind">strfind</a>, <a href="#XREFfindstr">findstr</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFregexprep">regexprep</a>, <a href="Manipulating-Strings.html#XREFstrfind">strfind</a>, <a href="Manipulating-Strings.html#XREFfindstr">findstr</a>.
 </p></dd></dl>
 
 
@@ -979,7 +979,7 @@ are zero or more <code>'b'</code> characters at positions 1 and end-of-string.
 </dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFregexpi">regexpi</a>, <a href="#XREFstrfind">strfind</a>, <a href="#XREFregexprep">regexprep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFregexpi">regexpi</a>, <a href="Manipulating-Strings.html#XREFstrfind">strfind</a>, <a href="Manipulating-Strings.html#XREFregexprep">regexprep</a>.
 </p></dd></dl>
 
 
@@ -990,10 +990,10 @@ are zero or more <code>'b'</code> characters at positions 1 and end-of-string.
 <p>Case insensitive regular expression string matching.
 </p>
 <p>Search for <var>pat</var> in <var>str</var> and return the positions and substrings of
-any matches, or empty values if there are none.  See <a href="#XREFregexp">regexp</a>,
+any matches, or empty values if there are none.  See <a href="Manipulating-Strings.html#XREFregexp">regexp</a>,
 for details on the syntax of the search pattern.
 </p>
-<p><strong>See also:</strong> <a href="#XREFregexp">regexp</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFregexp">regexp</a>.
 </p></dd></dl>
 
 
@@ -1003,7 +1003,7 @@ for details on the syntax of the search pattern.
 <dd><p>Replace occurrences of pattern <var>pat</var> in <var>string</var> with <var>repstr</var>.
 </p>
 <p>The pattern is a regular expression as documented for <code>regexp</code>.
-See <a href="#XREFregexp">regexp</a>.
+See <a href="Manipulating-Strings.html#XREFregexp">regexp</a>.
 </p>
 <p>The replacement string may contain <code>$i</code>, which substitutes for the ith
 set of parentheses in the match string.  For example,
@@ -1034,7 +1034,7 @@ expansion use a second backslash before the escape sequence (e.g.,
 &quot;\\n&quot;) or use the <code>regexptranslate</code>
 function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFregexp">regexp</a>, <a href="#XREFregexpi">regexpi</a>, <a href="#XREFstrrep">strrep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFregexp">regexp</a>, <a href="Manipulating-Strings.html#XREFregexpi">regexpi</a>, <a href="Manipulating-Strings.html#XREFstrrep">strrep</a>.
 </p></dd></dl>
 
 
@@ -1070,7 +1070,7 @@ expressions are escaped so that they are treated literally.  For example:
 </dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFregexp">regexp</a>, <a href="#XREFregexpi">regexpi</a>, <a href="#XREFregexprep">regexprep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFregexp">regexp</a>, <a href="Manipulating-Strings.html#XREFregexpi">regexpi</a>, <a href="Manipulating-Strings.html#XREFregexprep">regexprep</a>.
 </p></dd></dl>
 
 
@@ -1102,7 +1102,7 @@ fclose (fid);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="String-Conversions.html#XREFstrjust">strjust</a>, <a href="#XREFstrsplit">strsplit</a>, <a href="#XREFdeblank">deblank</a>.
+<p><strong>See also:</strong> <a href="String-Conversions.html#XREFstrjust">strjust</a>, <a href="Manipulating-Strings.html#XREFstrsplit">strsplit</a>, <a href="Manipulating-Strings.html#XREFdeblank">deblank</a>.
 </p></dd></dl>
 
 

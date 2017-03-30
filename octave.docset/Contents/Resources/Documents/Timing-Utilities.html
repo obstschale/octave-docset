@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Timing Utilities</title>
+<title>GNU Octave: Timing Utilities</title>
 
 <meta name="description" content="GNU Octave: Timing Utilities">
 <meta name="keywords" content="GNU Octave: Timing Utilities">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -125,7 +125,7 @@ referred to as a <var>tm_struct</var>.
 1970.  For example, on Monday February 17, 1997 at 07:15:06 CUT, the value
 returned by <code>time</code> was 856163706.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstrftime">strftime</a>, <a href="#XREFstrptime">strptime</a>, <a href="#XREFlocaltime">localtime</a>, <a href="#XREFgmtime">gmtime</a>, <a href="#XREFmktime">mktime</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFweekday">weekday</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Timing-Utilities.html#XREFstrptime">strptime</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>, <a href="Timing-Utilities.html#XREFgmtime">gmtime</a>, <a href="Timing-Utilities.html#XREFmktime">mktime</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFweekday">weekday</a>.
 </p></dd></dl>
 
 
@@ -139,7 +139,7 @@ between today and Jan 1, 0000.
 </p>
 <p>The fractional part, <code>rem (now, 1)</code> corresponds to the current time.
 </p>
-<p><strong>See also:</strong> <a href="#XREFclock">clock</a>, <a href="#XREFdate">date</a>, <a href="#XREFdatenum">datenum</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>.
 </p></dd></dl>
 
 
@@ -157,7 +157,7 @@ integer), to the local time and return a string of the same form as
    &rArr; &quot;Mon Feb 17 01:15:06 1997\n&quot;
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFasctime">asctime</a>, <a href="#XREFtime">time</a>, <a href="#XREFlocaltime">localtime</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFasctime">asctime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>.
 </p></dd></dl>
 
 
@@ -186,7 +186,7 @@ return a time structure corresponding to CUT (Coordinated Universal Time).
         }
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstrftime">strftime</a>, <a href="#XREFstrptime">strptime</a>, <a href="#XREFlocaltime">localtime</a>, <a href="#XREFmktime">mktime</a>, <a href="#XREFtime">time</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFweekday">weekday</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Timing-Utilities.html#XREFstrptime">strptime</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>, <a href="Timing-Utilities.html#XREFmktime">mktime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFweekday">weekday</a>.
 </p></dd></dl>
 
 
@@ -213,7 +213,7 @@ return a time structure corresponding to the local time zone.
         }
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstrftime">strftime</a>, <a href="#XREFstrptime">strptime</a>, <a href="#XREFgmtime">gmtime</a>, <a href="#XREFmktime">mktime</a>, <a href="#XREFtime">time</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFweekday">weekday</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Timing-Utilities.html#XREFstrptime">strptime</a>, <a href="Timing-Utilities.html#XREFgmtime">gmtime</a>, <a href="Timing-Utilities.html#XREFmktime">mktime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFweekday">weekday</a>.
 </p></dd></dl>
 
 
@@ -229,7 +229,7 @@ seconds since the epoch.
      &rArr; 856163706
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstrftime">strftime</a>, <a href="#XREFstrptime">strptime</a>, <a href="#XREFlocaltime">localtime</a>, <a href="#XREFgmtime">gmtime</a>, <a href="#XREFtime">time</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFweekday">weekday</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Timing-Utilities.html#XREFstrptime">strptime</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>, <a href="Timing-Utilities.html#XREFgmtime">gmtime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFweekday">weekday</a>.
 </p></dd></dl>
 
 
@@ -247,7 +247,7 @@ format: <code>&quot;ddd mmm mm HH:MM:SS yyyy\n&quot;</code>.
 
 <p>This is equivalent to <code>ctime (time ())</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFctime">ctime</a>, <a href="#XREFlocaltime">localtime</a>, <a href="#XREFtime">time</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFctime">ctime</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>.
 </p></dd></dl>
 
 
@@ -437,7 +437,7 @@ determinable.
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFstrptime">strptime</a>, <a href="#XREFlocaltime">localtime</a>, <a href="#XREFgmtime">gmtime</a>, <a href="#XREFmktime">mktime</a>, <a href="#XREFtime">time</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFweekday">weekday</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrptime">strptime</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>, <a href="Timing-Utilities.html#XREFgmtime">gmtime</a>, <a href="Timing-Utilities.html#XREFmktime">mktime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFweekday">weekday</a>.
 </p></dd></dl>
 
 
@@ -450,7 +450,7 @@ the control of the format string <var>fmt</var>.
 position of last matched character plus 1.  Always check for this unless
 you&rsquo;re absolutely sure the date string will be parsed correctly.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstrftime">strftime</a>, <a href="#XREFlocaltime">localtime</a>, <a href="#XREFgmtime">gmtime</a>, <a href="#XREFmktime">mktime</a>, <a href="#XREFtime">time</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFweekday">weekday</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>, <a href="Timing-Utilities.html#XREFgmtime">gmtime</a>, <a href="Timing-Utilities.html#XREFmktime">mktime</a>, <a href="Timing-Utilities.html#XREFtime">time</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFweekday">weekday</a>.
 </p></dd></dl>
 
 
@@ -477,7 +477,7 @@ field has a fractional part after the decimal point for extended accuracy.
 <p><code>clock</code> is more accurate on systems that have the <code>gettimeofday</code>
 function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>, <a href="#XREFdatevec">datevec</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>.
 </p></dd></dl>
 
 
@@ -492,7 +492,7 @@ function.
   &rArr; &quot;20-Aug-1993&quot;
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFnow">now</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFlocaltime">localtime</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFlocaltime">localtime</a>.
 </p></dd></dl>
 
 
@@ -512,7 +512,7 @@ elapsed_time = etime (clock (), t0);
 <p>will set the variable <code>elapsed_time</code> to the number of seconds since the
 variable <code>t0</code> was set.
 </p>
-<p><strong>See also:</strong> <a href="#XREFtic">tic</a>, <a href="#XREFtoc">toc</a>, <a href="#XREFclock">clock</a>, <a href="#XREFcputime">cputime</a>, <a href="#XREFaddtodate">addtodate</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFtic">tic</a>, <a href="Timing-Utilities.html#XREFtoc">toc</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFcputime">cputime</a>, <a href="Timing-Utilities.html#XREFaddtodate">addtodate</a>.
 </p></dd></dl>
 
 
@@ -532,7 +532,7 @@ returns 0 for each of its output values.
 to check to see if <code>cputime</code> works by checking to see if the total
 CPU time used is nonzero.
 </p>
-<p><strong>See also:</strong> <a href="#XREFtic">tic</a>, <a href="#XREFtoc">toc</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFtic">tic</a>, <a href="Timing-Utilities.html#XREFtoc">toc</a>.
 </p></dd></dl>
 
 
@@ -550,7 +550,7 @@ CPU time used is nonzero.
    &rArr; 1
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFweekday">weekday</a>, <a href="#XREFeomday">eomday</a>, <a href="#XREFcalendar">calendar</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFweekday">weekday</a>, <a href="Timing-Utilities.html#XREFeomday">eomday</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>.
 </p></dd></dl>
 
 
@@ -592,7 +592,7 @@ should use the <code>cputime</code> function instead.  The <code>tic</code> and
 between the calls.  This may include time spent processing other jobs or
 doing nothing at all.
 </p>
-<p><strong>See also:</strong> <a href="#XREFtoc">toc</a>, <a href="#XREFcputime">cputime</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFtoc">toc</a>, <a href="Timing-Utilities.html#XREFcputime">cputime</a>.
 </p></dd></dl>
 
 
@@ -688,7 +688,7 @@ on the Gregorian calendar for more details.
 <p><strong>Warning:</strong> leap seconds are ignored.  A table of leap seconds is
 available on the Wikipedia entry for leap seconds.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdatestr">datestr</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFnow">now</a>, <a href="#XREFclock">clock</a>, <a href="#XREFdate">date</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFdate">date</a>.
 </p></dd></dl>
 
 
@@ -781,7 +781,7 @@ on whether the date portion or the time portion of <var>date</var> is empty.
 is returned.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFdate">date</a>, <a href="#XREFnow">now</a>, <a href="#XREFclock">clock</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFdate">date</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>.
 </p></dd></dl>
 
 
@@ -809,7 +809,7 @@ default to January 1st of the current year.
 will be referenced.  If not specified, it defaults to the current year minus
 50.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>, <a href="#XREFclock">clock</a>, <a href="#XREFnow">now</a>, <a href="#XREFdate">date</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>, <a href="Timing-Utilities.html#XREFclock">clock</a>, <a href="Timing-Utilities.html#XREFnow">now</a>, <a href="Timing-Utilities.html#XREFdate">date</a>.
 </p></dd></dl>
 
 
@@ -822,7 +822,7 @@ will be referenced.  If not specified, it defaults to the current year minus
 <code>&quot;hour&quot;</code>, <code>&quot;minute&quot;</code>, <code>&quot;second&quot;</code>, or
 <code>&quot;millisecond&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFetime">etime</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFetime">etime</a>.
 </p></dd></dl>
 
 
@@ -842,7 +842,7 @@ and month <var>m</var>.
 <p>If no output arguments are specified, print the calendar on the screen
 instead of returning a matrix.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>.
 </p></dd></dl>
 
 
@@ -874,7 +874,7 @@ then <var>s</var> will contain the abbreviated name of the weekday.  If
 </table>
 
 
-<p><strong>See also:</strong> <a href="#XREFeomday">eomday</a>, <a href="#XREFis_005fleap_005fyear">is_leap_year</a>, <a href="#XREFcalendar">calendar</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatevec">datevec</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFeomday">eomday</a>, <a href="Timing-Utilities.html#XREFis_005fleap_005fyear">is_leap_year</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>.
 </p></dd></dl>
 
 
@@ -882,7 +882,7 @@ then <var>s</var> will contain the abbreviated name of the weekday.  If
 <dt><a name="index-eomday"></a>: <em><var>e</var> =</em> <strong>eomday</strong> <em>(<var>y</var>, <var>m</var>)</em></dt>
 <dd><p>Return the last day of the month <var>m</var> for the year <var>y</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFweekday">weekday</a>, <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatevec">datevec</a>, <a href="#XREFis_005fleap_005fyear">is_leap_year</a>, <a href="#XREFcalendar">calendar</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFweekday">weekday</a>, <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatevec">datevec</a>, <a href="Timing-Utilities.html#XREFis_005fleap_005fyear">is_leap_year</a>, <a href="Timing-Utilities.html#XREFcalendar">calendar</a>.
 </p></dd></dl>
 
 
@@ -904,7 +904,7 @@ value is <code>&quot;x&quot;</code>.
 <code>datestr</code> accepts.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFdatenum">datenum</a>, <a href="#XREFdatestr">datestr</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFdatenum">datenum</a>, <a href="Timing-Utilities.html#XREFdatestr">datestr</a>.
 </p></dd></dl>
 
 

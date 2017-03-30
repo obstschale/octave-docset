@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Java Interface Functions</title>
+<title>GNU Octave: Java Interface Functions</title>
 
 <meta name="description" content="GNU Octave: Java Interface Functions">
 <meta name="keywords" content="GNU Octave: Java Interface Functions">
@@ -14,8 +14,8 @@
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Java-Interface.html#Java-Interface" rel="up" title="Java Interface">
-<link href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" rel="next" title="Making Java Classes Available">
-<link href="Java-Interface.html#Java-Interface" rel="prev" title="Java Interface">
+<link href="Test-and-Demo-Functions.html#Test-and-Demo-Functions" rel="next" title="Test and Demo Functions">
+<link href="Passing-parameters-to-the-JVM.html#Passing-parameters-to-the-JVM" rel="prev" title="Passing parameters to the JVM">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -52,17 +52,18 @@ ul.no-bullet {list-style: none}
 <a name="Java-Interface-Functions"></a>
 <div class="header">
 <p>
-Next: <a href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" accesskey="n" rel="next">Making Java Classes Available</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="Passing-parameters-to-the-JVM.html#Passing-parameters-to-the-JVM" accesskey="p" rel="prev">Passing parameters to the JVM</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <a name="Java-Interface-Functions-1"></a>
-<h4 class="subsection">A.4.1 Java Interface Functions</h4>
+<h4 class="subsection">A.4.4 Java Interface Functions</h4>
 
-<p>The following functions are the core of the Java Interface.  They provide
-a way to create a Java object, get and set its data fields, and call Java
-methods which return results to Octave.
+<p>The following functions are the core of the Java Interface.  They provide a way
+to create a Java object, get and set its data fields, and call Java methods
+which return results to Octave.
 </p>
 <a name="index-object_002c-creating-a-Java-object"></a>
+<a name="index-instance_002c-creating-a-Java-instance"></a>
 <a name="XREFjavaObject"></a><dl>
 <dt><a name="index-javaObject"></a>: <em><var>jobj</var> =</em> <strong>javaObject</strong> <em>(<var>classname</var>)</em></dt>
 <dt><a name="index-javaObject-1"></a>: <em><var>jobj</var> =</em> <strong>javaObject</strong> <em>(<var>classname</var>, <var>arg1</var>, &hellip;)</em></dt>
@@ -78,7 +79,7 @@ x = javaObject (&quot;java.lang.StringBuffer&quot;, &quot;Initial string&quot;)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFjavaMethod">javaMethod</a>, <a href="#XREFjavaArray">javaArray</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjavaMethod">javaMethod</a>, <a href="Java-Interface-Functions.html#XREFjavaArray">javaArray</a>.
 </p></dd></dl>
 
 
@@ -104,24 +105,24 @@ also be specified with individual integer arguments <var>m</var>, <var>n</var>, 
 jary(1,1) = &quot;Hello&quot;;
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFjavaObject">javaObject</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a>.
 </p></dd></dl>
 
 
-<p>There are many different variable types in Octave but only ones created through
-<code>javaObject</code> can use Java functions.  Before using Java with an unknown
-object the type can be checked with <code>isjava</code>.
+<p>There are many different variable types in Octave, but only ones created
+through <code>javaObject</code> can use Java functions.  Before using Java with an
+unknown object the type can be checked with <code>isjava</code>.
 </p>
 <a name="XREFisjava"></a><dl>
 <dt><a name="index-isjava"></a>: <em></em> <strong>isjava</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return true if <var>x</var> is a Java object.
 </p>
-<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>, <a href="Built_002din-Data-Types.html#XREFisa">isa</a>, <a href="#XREFjavaObject">javaObject</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>, <a href="Built_002din-Data-Types.html#XREFisa">isa</a>, <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a>.
 </p></dd></dl>
 
 
 <p>Once an object has been created it is natural to find out what fields the
-object has and to read (get) and write (set) them.
+object has, and to read (get) and write (set) them.
 </p>
 <a name="index-fields_002c-displaying-available-fields-of-a-Java-object"></a>
 <p>In Octave the <code>fieldnames</code> function for structures has been overloaded
@@ -146,11 +147,11 @@ fieldnames (dobj)
 </pre></div>
 
 <a name="index-field_002c-returning-value-of-Java-object-field"></a>
-<p>The analogy of objects with structures is carried over into reading and
-writing object fields.  To read a field the object is indexed with the
-&lsquo;<samp>.</samp>&rsquo; operator from structures.  This is the preferred method for reading
-fields, but Octave also provides a function interface to read fields with
-<code>java_get</code>.  An example of both styles is shown below.
+<p>The analogy of objects with structures is carried over into reading and writing
+object fields.  To read a field the object is indexed with the &lsquo;<samp>.</samp>&rsquo;
+operator from structures.  This is the preferred method for reading fields, but
+Octave also provides a function interface to read fields with <code>java_get</code>.
+An example of both styles is shown below.
 </p>
 <div class="example">
 <pre class="example">dobj = javaObject (&quot;java.lang.Double&quot;, pi);
@@ -177,7 +178,7 @@ equivalent
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFjava_005fset">java_set</a>, <a href="#XREFjavaMethod">javaMethod</a>, <a href="#XREFjavaObject">javaObject</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjava_005fset">java_set</a>, <a href="Java-Interface-Functions.html#XREFjavaMethod">javaMethod</a>, <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a>.
 </p></dd></dl>
 
 
@@ -200,13 +201,13 @@ equivalent
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFjava_005fget">java_get</a>, <a href="#XREFjavaMethod">javaMethod</a>, <a href="#XREFjavaObject">javaObject</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjava_005fget">java_get</a>, <a href="Java-Interface-Functions.html#XREFjavaMethod">javaMethod</a>, <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a>.
 </p></dd></dl>
 
 
 <a name="index-methods_002c-displaying-available-methods-of-a-Java-object"></a>
-<p>To see what functions can be called with an object use <code>methods</code>.
-For example, using the previously created <var>dobj</var>:
+<p>To see what functions can be called with an object use <code>methods</code>.  For
+example, using the previously created <var>dobj</var>:
 </p>
 <div class="example">
 <pre class="example">methods (dobj)
@@ -218,10 +219,10 @@ java.lang.String toString()
 &hellip;
 </pre></div>
 
-<p>To call a method of an object the same structure indexing operator &lsquo;<samp>.</samp>&rsquo;
-is used.  Octave also provides a functional interface to calling the methods
-of an object through <code>javaMethod</code>.  An example showing both styles is
-shown below.
+<p>To call a method of an object the same structure indexing operator &lsquo;<samp>.</samp>&rsquo; is
+used.  Octave also provides a functional interface to calling the methods of an
+object through <code>javaMethod</code>.  An example showing both styles is shown
+below.
 </p>
 <div class="example">
 <pre class="example">dobj = javaObject (&quot;java.lang.Double&quot;, pi);
@@ -253,20 +254,19 @@ equivalent
 <p><code>javaMethod</code> returns the result of the method invocation.
 </p>
 
-<p><strong>See also:</strong> <a href="Creating-a-Class.html#XREFmethods">methods</a>, <a href="#XREFjavaObject">javaObject</a>.
+<p><strong>See also:</strong> <a href="Creating-a-Class.html#XREFmethods">methods</a>, <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a>.
 </p></dd></dl>
 
 
-<p>The following three functions are used to display and modify the
-class path used by the Java Virtual Machine.  This is entirely separate
-from Octave&rsquo;s PATH variable and is used by the JVM to find the correct
-code to execute.
+<p>The following three functions are used to display and modify the class path
+used by the Java Virtual Machine.  This is entirely separate from Octave&rsquo;s
+<code>PATH</code> variable and is used by the JVM to find the correct code to execute.
 </p>
 <a name="index-classpath_002c-displaying"></a>
 <a name="index-classpath_002c-dynamic"></a>
-<a name="index-dynamic-classpath"></a>
+<a name="index-dynamic-classpath-1"></a>
 <a name="index-classpath_002c-static"></a>
-<a name="index-static-classpath"></a>
+<a name="index-static-classpath-1"></a>
 <a name="XREFjavaclasspath"></a><dl>
 <dt><a name="index-javaclasspath"></a>: <em></em> <strong>javaclasspath</strong> <em>()</em></dt>
 <dt><a name="index-javaclasspath-1"></a>: <em><var>dpath</var> =</em> <strong>javaclasspath</strong> <em>()</em></dt>
@@ -305,7 +305,7 @@ contain the static classpath.
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFjavaaddpath">javaaddpath</a>, <a href="#XREFjavarmpath">javarmpath</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjavaaddpath">javaaddpath</a>, <a href="Java-Interface-Functions.html#XREFjavarmpath">javarmpath</a>.
 </p></dd></dl>
 
 
@@ -323,7 +323,7 @@ contain the static classpath.
 found, or a <samp>.jar</samp> file containing Java classes.  Multiple paths may
 be added at once by specifying additional arguments.
 </p>
-<p><strong>See also:</strong> <a href="#XREFjavarmpath">javarmpath</a>, <a href="#XREFjavaclasspath">javaclasspath</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjavarmpath">javarmpath</a>, <a href="Java-Interface-Functions.html#XREFjavaclasspath">javaclasspath</a>.
 </p></dd></dl>
 
 
@@ -339,7 +339,7 @@ machine.
 or a <samp>.jar</samp> file containing Java classes.  Multiple paths may be
 removed at once by specifying additional arguments.
 </p>
-<p><strong>See also:</strong> <a href="#XREFjavaaddpath">javaaddpath</a>, <a href="#XREFjavaclasspath">javaclasspath</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjavaaddpath">javaaddpath</a>, <a href="Java-Interface-Functions.html#XREFjavaclasspath">javaclasspath</a>.
 </p></dd></dl>
 
 
@@ -410,7 +410,7 @@ Other features may be available if Octave was compiled with the Java
 Interface and Java is installed.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFusejava">usejava</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFusejava">usejava</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
 </p></dd></dl>
 
 
@@ -445,7 +445,7 @@ their behavior based on the availability of Java.  The feature
 desktop.  Other features may be available if Octave was compiled with the
 Java Interface and Java is installed.
 </p>
-<p><strong>See also:</strong> <a href="#XREFjavachk">javachk</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjavachk">javachk</a>.
 </p></dd></dl>
 
 
@@ -504,7 +504,7 @@ automatically converted to Octave matrices.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFjava_005funsigned_005fautoconversion">java_unsigned_autoconversion</a>, <a href="#XREFdebug_005fjava">debug_java</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjava_005funsigned_005fautoconversion">java_unsigned_autoconversion</a>, <a href="Java-Interface-Functions.html#XREFdebug_005fjava">debug_java</a>.
 </p></dd></dl>
 
 
@@ -522,7 +522,7 @@ of class uint8 or uint32 respectively.  The default value is true.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFjava_005fmatrix_005fautoconversion">java_matrix_autoconversion</a>, <a href="#XREFdebug_005fjava">debug_java</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjava_005fmatrix_005fautoconversion">java_matrix_autoconversion</a>, <a href="Java-Interface-Functions.html#XREFdebug_005fjava">debug_java</a>.
 </p></dd></dl>
 
 
@@ -538,14 +538,15 @@ is printed.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFjava_005fmatrix_005fautoconversion">java_matrix_autoconversion</a>, <a href="#XREFjava_005funsigned_005fautoconversion">java_unsigned_autoconversion</a>.
+<p><strong>See also:</strong> <a href="Java-Interface-Functions.html#XREFjava_005fmatrix_005fautoconversion">java_matrix_autoconversion</a>, <a href="Java-Interface-Functions.html#XREFjava_005funsigned_005fautoconversion">java_unsigned_autoconversion</a>.
 </p></dd></dl>
+
 
 
 <hr>
 <div class="header">
 <p>
-Next: <a href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" accesskey="n" rel="next">Making Java Classes Available</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="Passing-parameters-to-the-JVM.html#Passing-parameters-to-the-JVM" accesskey="p" rel="prev">Passing parameters to the JVM</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

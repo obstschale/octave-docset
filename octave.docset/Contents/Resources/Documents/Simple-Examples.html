@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Simple Examples</title>
+<title>GNU Octave: Simple Examples</title>
 
 <meta name="description" content="GNU Octave: Simple Examples">
 <meta name="keywords" content="GNU Octave: Simple Examples">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -63,9 +63,9 @@ before doing that, it might be helpful to give a sampling of some of its
 capabilities.
 </p>
 <p>If you are new to Octave, we recommend that you try these examples to
-begin learning Octave by using it.  Lines marked like so, &lsquo;<samp>octave:13&gt;</samp>&rsquo;,
-are lines you type, ending each with a carriage return.  Octave will
-respond with an answer, or by displaying a graph.
+begin learning Octave by using it.  Lines marked like so,
+&lsquo;<samp>octave:13&gt;</samp>&rsquo;, are lines you type, ending each with a carriage
+return.  Octave will respond with an answer, or by displaying a graph.
 </p>
 <a name="Elementary-Calculations"></a>
 <h4 class="subsection">1.2.1 Elementary Calculations</h4>
@@ -96,9 +96,9 @@ tolerance of the calculation.
 <a name="Creating-a-Matrix"></a>
 <h4 class="subsection">1.2.2 Creating a Matrix</h4>
 
-<p>Vectors and matrices are the basic building blocks for numerical analysis.
-To create a new matrix and store it in a variable so that you can
-refer to it later, type the command
+<p>Vectors and matrices are the basic building blocks for numerical
+analysis.  To create a new matrix and store it in a variable so that you
+can refer to it later, type the command
 </p>
 <div class="example">
 <pre class="example">octave:1&gt; A = [ 1, 1, 2; 3, 5, 8; 13, 21, 34 ]
@@ -128,9 +128,10 @@ matrix <code>B</code>, type the command
 <a name="Matrix-Arithmetic"></a>
 <h4 class="subsection">1.2.3 Matrix Arithmetic</h4>
 
-<p>Octave has a convenient operator notation for performing matrix
-arithmetic.  For example, to multiply the matrix <code>A</code> by a scalar
-value, type the command
+<p>Octave uses standard mathematical notation with the advantage over
+low-level languages that operators may act on scalars, vector, matrices,
+or N-dimensional arrays.  For example, to multiply the matrix <code>A</code>
+by a scalar value, type the command
 </p>
 <div class="example">
 <pre class="example">octave:4&gt; 2 * A
@@ -274,8 +275,7 @@ command
 <pre class="example">octave:1&gt; plot (t, x)
 </pre></div>
 
-<p>If you are using a graphical user interface, Octave will automatically create
-a separate window to display the plot.
+<p>Octave will automatically create a separate window to display the plot.
 </p>
 <p>To save a plot once it has been displayed on the screen, use the print
 command.  For example,
@@ -294,23 +294,8 @@ the current plot in Portable Document Format.  The command
 <p>explains more options for the <code>print</code> command and provides a list
 of additional output file formats.
 </p>
-<a name="Editing-What-You-Have-Typed"></a>
-<h4 class="subsection">1.2.7 Editing What You Have Typed</h4>
-
-<p>At the Octave prompt, you can recall, edit, and reissue previous
-commands using Emacs- or vi-style editing commands.  The default
-keybindings use Emacs-style commands.  For example, to recall the
-previous command, press <kbd>Control-p</kbd> (written <kbd>C-p</kbd> for
-short).  Doing this will normally bring back the previous line of input.
-<kbd>C-n</kbd> will bring up the next line of input, <kbd>C-b</kbd> will move
-the cursor backward on the line, <kbd>C-f</kbd> will move the cursor forward
-on the line, etc.
-</p>
-<p>A complete description of the command line editing capability is given
-in this manual, see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>.
-</p>
 <a name="Help-and-Documentation"></a>
-<h4 class="subsection">1.2.8 Help and Documentation</h4>
+<h4 class="subsection">1.2.7 Help and Documentation</h4>
 
 <p>Octave has an extensive help facility.  The same documentation that is
 available in printed form is also available from the Octave prompt,
@@ -344,6 +329,21 @@ text of the printed manual from within Octave normally uses a separate
 program called Info.  When you invoke Info you will be put into a menu
 driven program that contains the entire Octave manual.  Help for using
 Info is provided in this manual, see <a href="Getting-Help.html#Getting-Help">Getting Help</a>.
+</p>
+<a name="Editing-What-You-Have-Typed"></a>
+<h4 class="subsection">1.2.8 Editing What You Have Typed</h4>
+
+<p>At the Octave prompt, you can recall, edit, and reissue previous
+commands using Emacs- or vi-style editing commands.  The default
+keybindings use Emacs-style commands.  For example, to recall the
+previous command, press <kbd>Control-p</kbd> (written <kbd>C-p</kbd> for
+short).  Doing this will normally bring back the previous line of input.
+<kbd>C-n</kbd> will bring up the next line of input, <kbd>C-b</kbd> will move
+the cursor backward on the line, <kbd>C-f</kbd> will move the cursor forward
+on the line, etc.
+</p>
+<p>A complete description of the command line editing capability is given
+in this manual, see <a href="Command-Line-Editing.html#Command-Line-Editing">Command Line Editing</a>.
 </p>
 <hr>
 <div class="header">

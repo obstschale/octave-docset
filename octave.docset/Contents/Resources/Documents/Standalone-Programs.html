@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Standalone Programs</title>
+<title>GNU Octave: Standalone Programs</title>
 
 <meta name="description" content="GNU Octave: Standalone Programs">
 <meta name="keywords" content="GNU Octave: Standalone Programs">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,11 +58,10 @@ Next: <a href="Java-Interface.html#Java-Interface" accesskey="n" rel="next">Java
 <a name="Standalone-Programs-1"></a>
 <h3 class="section">A.3 Standalone Programs</h3>
 
-<p>The libraries Octave itself uses can be utilized in standalone
-applications.  These applications then have access, for example, to the
-array and matrix classes, as well as to all of the Octave algorithms.  The
-following C++ program, uses class Matrix from <samp>liboctave.a</samp> or
-<samp>liboctave.so</samp>.
+<p>The libraries Octave uses itself can be utilized in standalone applications.
+These applications then have access, for example, to the array and matrix
+classes, as well as to all of the Octave algorithms.  The following C++
+program, uses class Matrix from <samp>liboctave.a</samp> or <samp>liboctave.so</samp>.
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;iostream&gt;
@@ -86,8 +85,7 @@ main (void)
 }
 </pre></div>
 
-<p>mkoctfile can be used to build a standalone application with a
-command like
+<p>mkoctfile can be used to build a standalone application with a command like
 </p>
 <div class="example">
 <pre class="example">$ mkoctfile --link-stand-alone standalone.cc -o standalone
@@ -98,13 +96,12 @@ Hello Octave world!
 $
 </pre></div>
 
-<p>Note that the application <code>standalone</code> will be dynamically linked
-against the Octave libraries and any Octave support libraries.  The above
-allows the Octave math libraries to be used by an application.  It does
-not, however, allow the script files, oct-files, or built-in functions of
-Octave to be used by the application.  To do that the Octave interpreter
-needs to be initialized first.  An example of how to do this can then be
-seen in the code
+<p>Note that the application <code>standalone</code> will be dynamically linked against
+the Octave libraries and any Octave support libraries.  The above allows the
+Octave math libraries to be used by an application.  It does not, however,
+allow the script files, oct-files, or built-in functions of Octave to be used
+by the application.  To do that, the Octave interpreter needs to be initialized
+first.  An example of how to do this can then be seen in the code
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;iostream&gt;
@@ -153,18 +150,17 @@ GCD of [10, 15] is 5
 $
 </pre></div>
 
-<p>It is worth noting that, if only built-in functions are to be called from
-a C++ standalone program, then it does not need to initialize the
-interpreter to do so.  The general rule is that, for a built-in
-function named <code>function_name</code> in the interpreter, there will be
-a C++ function named <code>Ffunction_name</code> (note the prepended capital
-<code>F</code>) accessible in the C++ API.  The declarations for all built-in
-functions are collected in the header file <code>builtin-defun-decls.h</code>.
-This feature should be used with care as the list of built-in functions can
-change.  No guarantees can be made that a function that is currently built in
-won&rsquo;t be implemented as a .m file or as a dynamically linked function in the
-future.  An example of how to call built-in functions from C++ can be seen in
-the code
+<p>It is worth re-iterating that, if only built-in functions are to be called from
+a C++ standalone program then it does not need to initialize the interpreter.
+The general rule is that for a built-in function named <code>function_name</code> in
+the interpreter, there will be a C++ function named <code>Ffunction_name</code> (note
+the prepended capital <code>F</code>) accessible in the C++ API.  The declarations
+for all built-in functions are collected in the header file
+<code>builtin-defun-decls.h</code>.  This feature should be used with care as the
+list of built-in functions can change.  No guarantees can be made that a
+function that is currently a built-in won&rsquo;t be implemented as a .m file or as a
+dynamically linked function in the future.  An example of how to call built-in
+functions from C++ can be seen in the code
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;iostream&gt;
@@ -197,7 +193,7 @@ main (void)
 }
 </pre></div>
 
-<p>which, again, is compiled and run as a standalone application with
+<p>which is compiled and run as a standalone application with
 </p>
 <div class="example">
 <pre class="example">$ mkoctfile --link-stand-alone standalonebuiltin.cc -o standalonebuiltin

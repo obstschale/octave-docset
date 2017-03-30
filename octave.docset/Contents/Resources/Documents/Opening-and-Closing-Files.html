@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Opening and Closing Files</title>
+<title>GNU Octave: Opening and Closing Files</title>
 
 <meta name="description" content="GNU Octave: Opening and Closing Files">
 <meta name="keywords" content="GNU Octave: Opening and Closing Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -178,7 +178,7 @@ for the file.  Valid values for <var>arch</var> are:
 <p>When opening a new file that does not yet exist, permissions will be set to
 <code>0666 - <var>umask</var></code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfclose">fclose</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="EOF-and-Errors.html#XREFferror">ferror</a>, <a href="EOF-and-Errors.html#XREFfclear">fclear</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>, <a href="Filesystem-Utilities.html#XREFumask">umask</a>.
+<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="Line_002dOriented-Input.html#XREFfgets">fgets</a>, <a href="Line_002dOriented-Input.html#XREFfgetl">fgetl</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Simple-Output.html#XREFfputs">fputs</a>, <a href="Simple-File-I_002fO.html#XREFfdisp">fdisp</a>, <a href="Formatted-Output.html#XREFfprintf">fprintf</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>, <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="EOF-and-Errors.html#XREFferror">ferror</a>, <a href="EOF-and-Errors.html#XREFfclear">fclear</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>, <a href="Filesystem-Utilities.html#XREFumask">umask</a>.
 </p></dd></dl>
 
 
@@ -193,7 +193,7 @@ second form of the <code>fclose</code> call closes all open files except
 <code>stdin</code>, <code>stdout</code>, <code>stderr</code>, and any FIDs associated
 with gnuplot.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfopen">fopen</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>.
+<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Paging-Screen-Output.html#XREFfflush">fflush</a>, <a href="EOF-and-Errors.html#XREFfreport">freport</a>.
 </p></dd></dl>
 
 
@@ -201,7 +201,7 @@ with gnuplot.
 <dt><a name="index-is_005fvalid_005ffile_005fid"></a>: <em></em> <strong>is_valid_file_id</strong> <em>(<var>fid</var>)</em></dt>
 <dd><p>Return true if <var>fid</var> refers to an open file.
 </p>
-<p><strong>See also:</strong> <a href="EOF-and-Errors.html#XREFfreport">freport</a>, <a href="#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="EOF-and-Errors.html#XREFfreport">freport</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Two-Dimensional Plots</title>
+<title>GNU Octave: Two-Dimensional Plots</title>
 
 <meta name="description" content="GNU Octave: Two-Dimensional Plots">
 <meta name="keywords" content="GNU Octave: Two-Dimensional Plots">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -73,9 +73,12 @@ linear axes.  For example,
 <div class="example">
 <pre class="example">x = -10:0.1:10;
 plot (x, sin (x));
+xlabel (&quot;x&quot;);
+ylabel (&quot;sin (x)&quot;);
+title (&quot;Simple 2-D Plot&quot;);
 </pre></div>
 
-<p>displays a sine wave shown in <a href="#fig_003aplot">Figure 15.1</a>.  On most systems, this
+<p>displays a sine wave shown in <a href="Two_002dDimensional-Plots.html#fig_003aplot">Figure 15.1</a>.  On most systems, this
 command will open a separate plot window to display the graph.
 </p>
 <div class="float"><a name="fig_003aplot"></a>
@@ -259,7 +262,7 @@ the created line objects.
 or PNG, use the <code>print</code> command.
 </p>
 
-<p><strong>See also:</strong> <a href="Axis-Configuration.html#XREFaxis">axis</a>, <a href="Plot-Annotations.html#XREFbox">box</a>, <a href="Plot-Annotations.html#XREFgrid">grid</a>, <a href="Manipulation-of-Plot-Windows.html#XREFhold">hold</a>, <a href="Plot-Annotations.html#XREFlegend">legend</a>, <a href="Plot-Annotations.html#XREFtitle">title</a>, <a href="Plot-Annotations.html#XREFxlabel">xlabel</a>, <a href="Plot-Annotations.html#XREFylabel">ylabel</a>, <a href="Axis-Configuration.html#XREFxlim">xlim</a>, <a href="Axis-Configuration.html#XREFylim">ylim</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="#XREFerrorbar">errorbar</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFfplot">fplot</a>, <a href="Graphics-Objects.html#XREFline">line</a>, <a href="Three_002dDimensional-Plots.html#XREFplot3">plot3</a>, <a href="#XREFpolar">polar</a>, <a href="#XREFloglog">loglog</a>, <a href="#XREFsemilogx">semilogx</a>, <a href="#XREFsemilogy">semilogy</a>, <a href="Multiple-Plots-on-One-Page.html#XREFsubplot">subplot</a>.
+<p><strong>See also:</strong> <a href="Axis-Configuration.html#XREFaxis">axis</a>, <a href="Plot-Annotations.html#XREFbox">box</a>, <a href="Plot-Annotations.html#XREFgrid">grid</a>, <a href="Manipulation-of-Plot-Windows.html#XREFhold">hold</a>, <a href="Plot-Annotations.html#XREFlegend">legend</a>, <a href="Plot-Annotations.html#XREFtitle">title</a>, <a href="Plot-Annotations.html#XREFxlabel">xlabel</a>, <a href="Plot-Annotations.html#XREFylabel">ylabel</a>, <a href="Axis-Configuration.html#XREFxlim">xlim</a>, <a href="Axis-Configuration.html#XREFylim">ylim</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFezplot">ezplot</a>, <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, <a href="Two_002ddimensional-Function-Plotting.html#XREFfplot">fplot</a>, <a href="Graphics-Objects.html#XREFline">line</a>, <a href="Three_002dDimensional-Plots.html#XREFplot3">plot3</a>, <a href="Two_002dDimensional-Plots.html#XREFpolar">polar</a>, <a href="Two_002dDimensional-Plots.html#XREFloglog">loglog</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogx">semilogx</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogy">semilogy</a>, <a href="Multiple-Plots-on-One-Page.html#XREFsubplot">subplot</a>.
 </p></dd></dl>
 
 
@@ -303,7 +306,7 @@ ylabel (ax(1), &quot;Axis 1&quot;);
 ylabel (ax(2), &quot;Axis 2&quot;);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -328,7 +331,7 @@ rather than the current axes returned by <code>gca</code>.
 </p>
 <p>The optional return value <var>h</var> is a graphics handle to the created plot.
 </p>
-<p><strong>See also:</strong> <a href="#XREFplot">plot</a>, <a href="#XREFsemilogy">semilogy</a>, <a href="#XREFloglog">loglog</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogy">semilogy</a>, <a href="Two_002dDimensional-Plots.html#XREFloglog">loglog</a>.
 </p></dd></dl>
 
 
@@ -349,7 +352,7 @@ rather than the current axes returned by <code>gca</code>.
 </p>
 <p>The optional return value <var>h</var> is a graphics handle to the created plot.
 </p>
-<p><strong>See also:</strong> <a href="#XREFplot">plot</a>, <a href="#XREFsemilogx">semilogx</a>, <a href="#XREFloglog">loglog</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogx">semilogx</a>, <a href="Two_002dDimensional-Plots.html#XREFloglog">loglog</a>.
 </p></dd></dl>
 
 
@@ -370,7 +373,7 @@ rather than the current axes returned by <code>gca</code>.
 </p>
 <p>The optional return value <var>h</var> is a graphics handle to the created plot.
 </p>
-<p><strong>See also:</strong> <a href="#XREFplot">plot</a>, <a href="#XREFsemilogx">semilogx</a>, <a href="#XREFsemilogy">semilogy</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogx">semilogx</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogy">semilogy</a>.
 </p></dd></dl>
 
 
@@ -378,11 +381,18 @@ rather than the current axes returned by <code>gca</code>.
 are useful for displaying discrete data.  For example,
 </p>
 <div class="example">
-<pre class="example">hist (randn (10000, 1), 30);
+<pre class="example">randn (&quot;state&quot;, 1);
+hist (randn (10000, 1), 30);
+xlabel (&quot;Value&quot;);
+ylabel (&quot;Count&quot;);
+title (&quot;Histogram of 10,000 normally distributed random numbers&quot;);
 </pre></div>
 
 <p>produces the histogram of 10,000 normally distributed random numbers
-shown in <a href="#fig_003ahist">Figure 15.2</a>.
+shown in <a href="Two_002dDimensional-Plots.html#fig_003ahist">Figure 15.2</a>.  Note that, <code>randn (&quot;state&quot;, 1);</code>, initializes
+the random number generator for <code>randn</code> to a known value so that the
+returned values are reproducible; This guarantees that the figure produced
+is identical to the one in this manual.
 </p>
 <div class="float"><a name="fig_003ahist"></a>
 <div align="center"><img src="hist.png" alt="hist">
@@ -476,7 +486,7 @@ set (h(3), &quot;facecolor&quot;, &quot;b&quot;)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFbarh">barh</a>, <a href="#XREFhist">hist</a>, <a href="#XREFpie">pie</a>, <a href="#XREFplot">plot</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFbarh">barh</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFpie">pie</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -532,9 +542,9 @@ rather than the current axes returned by <code>gca</code>.
 </p>
 <p>The optional return value <var>h</var> is a graphics handle to the created
 bar series hggroup.  For a description of the use of the
-bar series, see <a href="#XREFbar">bar</a>.
+bar series, see <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbar">bar</a>, <a href="#XREFhist">hist</a>, <a href="#XREFpie">pie</a>, <a href="#XREFplot">plot</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFpie">pie</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -586,7 +596,7 @@ and <var>xx</var> (bin centers) such that <code>bar (<var>xx</var>, <var>nn</var
 plot the histogram.
 </p>
 
-<p><strong>See also:</strong> <a href="Basic-Statistical-Functions.html#XREFhistc">histc</a>, <a href="#XREFbar">bar</a>, <a href="#XREFpie">pie</a>, <a href="#XREFrose">rose</a>.
+<p><strong>See also:</strong> <a href="Basic-Statistical-Functions.html#XREFhistc">histc</a>, <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFpie">pie</a>, <a href="Two_002dDimensional-Plots.html#XREFrose">rose</a>.
 </p></dd></dl>
 
 
@@ -644,7 +654,7 @@ argument is provided, the plot is returned as an array of strings.
 Chapter 3, <cite>Exploratory Data Analysis</cite> by J. W. Tukey, Addison-Wesley,
 1977.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhist">hist</a>, <a href="#XREFprintd">printd</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFprintd">printd</a>.
 </p></dd></dl>
 
 
@@ -661,7 +671,7 @@ file is returned.
 <p>This function is intended to facilitate manipulation of the output of
 functions such as <code>stemleaf</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstemleaf">stemleaf</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFstemleaf">stemleaf</a>.
 </p></dd></dl>
 
 
@@ -705,7 +715,7 @@ plot (xs, ys);
 
 <p>are equivalent.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbar">bar</a>, <a href="#XREFhist">hist</a>, <a href="#XREFplot">plot</a>, <a href="#XREFstem">stem</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Two_002dDimensional-Plots.html#XREFstem">stem</a>.
 </p></dd></dl>
 
 
@@ -809,7 +819,7 @@ with the returned handle to change graphic properties of the baseline.
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFstem3">stem3</a>, <a href="#XREFbar">bar</a>, <a href="#XREFhist">hist</a>, <a href="#XREFplot">plot</a>, <a href="#XREFstairs">stairs</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFstem3">stem3</a>, <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Two_002dDimensional-Plots.html#XREFstairs">stairs</a>.
 </p></dd></dl>
 
 
@@ -839,7 +849,7 @@ rather than the current axes returned by <code>gca</code>.
 </p>
 <p>The optional return value <var>h</var> is a handle to the &quot;stem series&quot;
 hggroup containing the line and marker objects used for the plot.
-See <a href="#XREFstem">stem</a>, for a description of the &quot;stem series&quot;
+See <a href="Two_002dDimensional-Plots.html#XREFstem">stem</a>, for a description of the &quot;stem series&quot;
 object.
 </p>
 <p>Example:
@@ -853,7 +863,7 @@ stem3 (cos (theta), sin (theta), theta);
 </p>
 <p>Implementation Note: Color definitions with RGB-triples are not valid.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstem">stem</a>, <a href="#XREFbar">bar</a>, <a href="#XREFhist">hist</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFstem">stem</a>, <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -905,7 +915,7 @@ scatter (x, y, [], sqrt (x.^2 + y.^2));
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFscatter3">scatter3</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFscatter3">scatter3</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -957,7 +967,7 @@ and <var>pax</var> the corresponding axes objects.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFscatter">scatter</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFscatter">scatter</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1002,7 +1012,7 @@ Sold = [105, 30, 70, 10, 15, 20];
 pareto (Sold, Cheese);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFbar">bar</a>, <a href="#XREFbarh">barh</a>, <a href="#XREFhist">hist</a>, <a href="#XREFpie">pie</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFbarh">barh</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFpie">pie</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1047,7 +1057,7 @@ and bin 1.  This guarantees that all input <var>th</var> will be placed into one
 of the bins, but also means that for some combinations bin 1 and bin N may
 not be centered on the user&rsquo;s given values.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhist">hist</a>, <a href="#XREFpolar">polar</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFpolar">polar</a>.
 </p></dd></dl>
 
 
@@ -1091,7 +1101,7 @@ contour (x, y, z, 2:3)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontour">ezcontour</a>, <a href="#XREFcontourc">contourc</a>, <a href="#XREFcontourf">contourf</a>, <a href="#XREFcontour3">contour3</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontour">ezcontour</a>, <a href="Two_002dDimensional-Plots.html#XREFcontourc">contourc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontourf">contourf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour3">contour3</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p>
 </dd></dl>
 
@@ -1133,7 +1143,7 @@ comprising the contour lines.
 contourf (x, y, z, -7:9)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontourf">ezcontourf</a>, <a href="#XREFcontour">contour</a>, <a href="#XREFcontourc">contourc</a>, <a href="#XREFcontour3">contour3</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002ddimensional-Function-Plotting.html#XREFezcontourf">ezcontourf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Two_002dDimensional-Plots.html#XREFcontourc">contourc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour3">contour3</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1181,7 +1191,7 @@ contourc (x, y, z, 2:3)
         2.0000   1.0000   2.0000   2.0000   2.0000   1.5000
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFcontour">contour</a>, <a href="#XREFcontourf">contourf</a>, <a href="#XREFcontour3">contour3</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Two_002dDimensional-Plots.html#XREFcontourf">contourf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour3">contour3</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>.
 </p></dd></dl>
 
 
@@ -1227,7 +1237,7 @@ surf (peaks (19), &quot;facecolor&quot;, &quot;none&quot;, &quot;edgecolor&quot;
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFcontour">contour</a>, <a href="#XREFcontourc">contourc</a>, <a href="#XREFcontourf">contourf</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Two_002dDimensional-Plots.html#XREFcontourc">contourc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontourf">contourf</a>, <a href="Plot-Annotations.html#XREFclabel">clabel</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1236,14 +1246,19 @@ surf (peaks (19), &quot;facecolor&quot;, &quot;none&quot;, &quot;edgecolor&quot;
 example,
 </p>
 <div class="example">
-<pre class="example">x = 0:0.1:10;
+<pre class="example">rand (&quot;state&quot;, 2);
+x = 0:0.1:10;
 y = sin (x);
 lerr = 0.1 .* rand (size (x));
 uerr = 0.1 .* rand (size (x));
 errorbar (x, y, lerr, uerr);
+axis ([0, 10, -1.1, 1.1]);
+xlabel (&quot;x&quot;);
+ylabel (&quot;sin (x)&quot;);
+title (&quot;Errorbar plot of sin (x)&quot;);
 </pre></div>
 
-<p>produces the figure shown in <a href="#fig_003aerrorbar">Figure 15.3</a>.
+<p>produces the figure shown in <a href="Two_002dDimensional-Plots.html#fig_003aerrorbar">Figure 15.3</a>.
 </p>
 <div class="float"><a name="fig_003aerrorbar"></a>
 <div align="center"><img src="errorbar.png" alt="errorbar">
@@ -1395,7 +1410,7 @@ Errorbars for <var>y1</var> are drawn from <var>y1</var>-<var>ey</var> to
 <var>x</var> errorbars are drawn from <var>x</var>-<var>lx</var> to <var>x</var>+<var>ux</var>
 and <var>y</var> errorbars from <var>y</var>-<var>ly</var> to <var>y</var>+<var>uy</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsemilogxerr">semilogxerr</a>, <a href="#XREFsemilogyerr">semilogyerr</a>, <a href="#XREFloglogerr">loglogerr</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFsemilogxerr">semilogxerr</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogyerr">semilogyerr</a>, <a href="Two_002dDimensional-Plots.html#XREFloglogerr">loglogerr</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1422,14 +1437,14 @@ form is
 
 <p>which produces a semi-logarithmic plot of <var>y</var> versus <var>x</var>
 with errors in the <var>y</var>-scale defined by <var>ey</var> and the plot
-format defined by <var>fmt</var>.  See <a href="#XREFerrorbar">errorbar</a>, for available
+format defined by <var>fmt</var>.  See <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, for available
 formats and additional information.
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFerrorbar">errorbar</a>, <a href="#XREFsemilogyerr">semilogyerr</a>, <a href="#XREFloglogerr">loglogerr</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogyerr">semilogyerr</a>, <a href="Two_002dDimensional-Plots.html#XREFloglogerr">loglogerr</a>.
 </p></dd></dl>
 
 
@@ -1456,14 +1471,14 @@ form is
 
 <p>which produces a semi-logarithmic plot of <var>y</var> versus <var>x</var>
 with errors in the <var>y</var>-scale defined by <var>ey</var> and the plot
-format defined by <var>fmt</var>.  See <a href="#XREFerrorbar">errorbar</a>, for available
+format defined by <var>fmt</var>.  See <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, for available
 formats and additional information.
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFerrorbar">errorbar</a>, <a href="#XREFsemilogxerr">semilogxerr</a>, <a href="#XREFloglogerr">loglogerr</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogxerr">semilogxerr</a>, <a href="Two_002dDimensional-Plots.html#XREFloglogerr">loglogerr</a>.
 </p></dd></dl>
 
 
@@ -1489,13 +1504,13 @@ form is
 
 <p>which produces a double logarithm plot of <var>y</var> versus <var>x</var>
 with errors in the <var>y</var>-scale defined by <var>ey</var> and the plot
-format defined by <var>fmt</var>.  See <a href="#XREFerrorbar">errorbar</a>, for available
+format defined by <var>fmt</var>.  See <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, for available
 formats and additional information.
 </p>
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFerrorbar">errorbar</a>, <a href="#XREFsemilogxerr">semilogxerr</a>, <a href="#XREFsemilogyerr">semilogyerr</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFerrorbar">errorbar</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogxerr">semilogxerr</a>, <a href="Two_002dDimensional-Plots.html#XREFsemilogyerr">semilogyerr</a>.
 </p></dd></dl>
 
 
@@ -1505,9 +1520,10 @@ and linear.  For example,
 </p>
 <div class="example">
 <pre class="example">polar (0:0.1:10*pi, 0:0.1:10*pi);
+title (&quot;Example polar plot from 0 to 10*pi&quot;);
 </pre></div>
 
-<p>produces the spiral plot shown in <a href="#fig_003apolar">Figure 15.4</a>.
+<p>produces the spiral plot shown in <a href="Two_002dDimensional-Plots.html#fig_003apolar">Figure 15.4</a>.
 </p>
 <div class="float"><a name="fig_003apolar"></a>
 <div align="center"><img src="polar.png" alt="polar">
@@ -1542,7 +1558,7 @@ added to the original axes&ndash;<code>rtick</code>, <code>ttick</code>&ndash;wh
 radial (rho) direction; The second is a list of tick locations in the
 angular (theta) direction specified in degrees, i.e., in the range 0&ndash;359.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrose">rose</a>, <a href="#XREFcompass">compass</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFrose">rose</a>, <a href="Two_002dDimensional-Plots.html#XREFcompass">compass</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1577,7 +1593,7 @@ interpreted as percentages directly and are not normalized by <code>sum
 slice in the pie plot to represent the missing, unspecified percentage.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFpie3">pie3</a>, <a href="#XREFbar">bar</a>, <a href="#XREFhist">hist</a>, <a href="#XREFrose">rose</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFpie3">pie3</a>, <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFrose">rose</a>.
 </p></dd></dl>
 
 
@@ -1612,7 +1628,7 @@ interpreted as percentages directly and are not normalized by <code>sum
 slice in the pie plot to represent the missing, unspecified percentage.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFpie">pie</a>, <a href="#XREFbar">bar</a>, <a href="#XREFhist">hist</a>, <a href="#XREFrose">rose</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFpie">pie</a>, <a href="Two_002dDimensional-Plots.html#XREFbar">bar</a>, <a href="Two_002dDimensional-Plots.html#XREFhist">hist</a>, <a href="Two_002dDimensional-Plots.html#XREFrose">rose</a>.
 </p></dd></dl>
 
 
@@ -1661,7 +1677,7 @@ set (h, &quot;maxheadsize&quot;, 0.33);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFquiver3">quiver3</a>, <a href="#XREFcompass">compass</a>, <a href="#XREFfeather">feather</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFquiver3">quiver3</a>, <a href="Two_002dDimensional-Plots.html#XREFcompass">compass</a>, <a href="Two_002dDimensional-Plots.html#XREFfeather">feather</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1711,7 +1727,7 @@ set (h, &quot;maxheadsize&quot;, 0.33);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFquiver">quiver</a>, <a href="#XREFcompass">compass</a>, <a href="#XREFfeather">feather</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFquiver">quiver</a>, <a href="Two_002dDimensional-Plots.html#XREFcompass">compass</a>, <a href="Two_002dDimensional-Plots.html#XREFfeather">feather</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1744,7 +1760,7 @@ compass (eig (a));
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFpolar">polar</a>, <a href="#XREFfeather">feather</a>, <a href="#XREFquiver">quiver</a>, <a href="#XREFrose">rose</a>, <a href="#XREFplot">plot</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFpolar">polar</a>, <a href="Two_002dDimensional-Plots.html#XREFfeather">feather</a>, <a href="Two_002dDimensional-Plots.html#XREFquiver">quiver</a>, <a href="Two_002dDimensional-Plots.html#XREFrose">rose</a>, <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>.
 </p></dd></dl>
 
 
@@ -1776,7 +1792,7 @@ feather (sin (phi), cos (phi));
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFplot">plot</a>, <a href="#XREFquiver">quiver</a>, <a href="#XREFcompass">compass</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Two_002dDimensional-Plots.html#XREFquiver">quiver</a>, <a href="Two_002dDimensional-Plots.html#XREFcompass">compass</a>.
 </p></dd></dl>
 
 
@@ -1816,7 +1832,7 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="#XREFcontour">contour</a>, <a href="Displaying-Images.html#XREFimagesc">imagesc</a>.
+<p><strong>See also:</strong> <a href="Axis-Configuration.html#XREFcaxis">caxis</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Displaying-Images.html#XREFimagesc">imagesc</a>.
 </p></dd></dl>
 
 
@@ -1856,7 +1872,7 @@ area (t, y);
 legend (&quot;sin^2&quot;, &quot;cos^2&quot;, &quot;location&quot;, &quot;NorthEastOutside&quot;);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFplot">plot</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFplot">plot</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -1926,7 +1942,7 @@ time each point is displayed before moving to the next one.  The default for
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcomet3">comet3</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcomet3">comet3</a>.
 </p></dd></dl>
 
 
@@ -1948,42 +1964,7 @@ time each point is displayed before moving to the next one.  The default for
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcomet">comet</a>.
-</p></dd></dl>
-
-
-<a name="XREFframe2im"></a><dl>
-<dt><a name="index-frame2im"></a>: <em>[<var>x</var>, <var>map</var>] =</em> <strong>frame2im</strong> <em>(<var>f</var>)</em></dt>
-<dd><p>Convert movie frame to indexed image.
-</p>
-<p>A movie frame is simply a struct with the fields <code>&quot;cdata&quot;</code> and
-<code>&quot;colormap&quot;</code>.
-</p>
-<p>Support for N-dimensional images or movies is given when <var>f</var> is a
-struct array.  In such cases, <var>x</var> will be a MxNx1xK or MxNx3xK
-for indexed and RGB movies respectively, with each frame concatenated
-along the 4th dimension.
-</p>
-
-<p><strong>See also:</strong> <a href="#XREFim2frame">im2frame</a>.
-</p></dd></dl>
-
-
-<a name="XREFim2frame"></a><dl>
-<dt><a name="index-im2frame"></a>: <em></em> <strong>im2frame</strong> <em>(<var>rgb</var>)</em></dt>
-<dt><a name="index-im2frame-1"></a>: <em></em> <strong>im2frame</strong> <em>(<var>x</var>, <var>map</var>)</em></dt>
-<dd><p>Convert image to movie frame.
-</p>
-<p>A movie frame is simply a struct with the fields <code>&quot;cdata&quot;</code> and
-<code>&quot;colormap&quot;</code>.
-</p>
-<p>Support for N-dimensional images is given when each image projection,
-matrix sizes of MxN and MxNx3 for RGB images, is concatenated
-along the fourth dimension.  In such cases, the returned value is a struct
-array.
-</p>
-
-<p><strong>See also:</strong> <a href="#XREFframe2im">frame2im</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFcomet">comet</a>.
 </p></dd></dl>
 
 

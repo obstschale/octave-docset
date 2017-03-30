@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manipulating the Load Path</title>
+<title>GNU Octave: Manipulating the Load Path</title>
 
 <meta name="description" content="GNU Octave: Manipulating the Load Path">
 <meta name="keywords" content="GNU Octave: Manipulating the Load Path">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -97,7 +97,7 @@ directory names separated by <code>pathsep</code> are also accepted.  For exampl
 (note lack of .m extension) and runs it if it exists.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFpath">path</a>, <a href="#XREFrmpath">rmpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFpathdef">pathdef</a>, <a href="#XREFsavepath">savepath</a>, <a href="#XREFpathsep">pathsep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFrmpath">rmpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathdef">pathdef</a>, <a href="Manipulating-the-Load-Path.html#XREFsavepath">savepath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathsep">pathsep</a>.
 </p></dd></dl>
 
 
@@ -127,7 +127,7 @@ existence of a file named <samp>PKG_DEL</samp> (note lack of .m extension)
 and runs it if it exists.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFpath">path</a>, <a href="#XREFaddpath">addpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFpathdef">pathdef</a>, <a href="#XREFsavepath">savepath</a>, <a href="#XREFpathsep">pathsep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathdef">pathdef</a>, <a href="Manipulating-the-Load-Path.html#XREFsavepath">savepath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathsep">pathsep</a>.
 </p></dd></dl>
 
 
@@ -152,7 +152,7 @@ automatically restore the saved directory paths from the appropriate
 <samp>.octaverc</samp> file when starting up.  If a filename has been specified
 then the paths may be restored manually by calling <code>source <var>file</var></code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFpath">path</a>, <a href="#XREFaddpath">addpath</a>, <a href="#XREFrmpath">rmpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFpathdef">pathdef</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Manipulating-the-Load-Path.html#XREFrmpath">rmpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathdef">pathdef</a>.
 </p></dd></dl>
 
 
@@ -174,7 +174,7 @@ to the result and return it.
 </p>
 <p>No checks are made for duplicate elements.
 </p>
-<p><strong>See also:</strong> <a href="#XREFaddpath">addpath</a>, <a href="#XREFrmpath">rmpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFpathdef">pathdef</a>, <a href="#XREFsavepath">savepath</a>, <a href="#XREFpathsep">pathsep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Manipulating-the-Load-Path.html#XREFrmpath">rmpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathdef">pathdef</a>, <a href="Manipulating-the-Load-Path.html#XREFsavepath">savepath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathsep">pathsep</a>.
 </p></dd></dl>
 
 
@@ -195,7 +195,7 @@ The possible sources, in order of preference, are:
 </li><li> Octave&rsquo;s path prior to changes by any octaverc file.
 </li></ol>
 
-<p><strong>See also:</strong> <a href="#XREFpath">path</a>, <a href="#XREFaddpath">addpath</a>, <a href="#XREFrmpath">rmpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFsavepath">savepath</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Manipulating-the-Load-Path.html#XREFrmpath">rmpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFsavepath">savepath</a>.
 </p></dd></dl>
 
 
@@ -231,7 +231,7 @@ matches.
 array containing the list of all files that have the same name in the path.
 If no files are found, return an empty cell array.
 </p>
-<p><strong>See also:</strong> <a href="Filesystem-Utilities.html#XREFfile_005fin_005fpath">file_in_path</a>, <a href="#XREFdir_005fin_005floadpath">dir_in_loadpath</a>, <a href="#XREFpath">path</a>.
+<p><strong>See also:</strong> <a href="Filesystem-Utilities.html#XREFfile_005fin_005fpath">file_in_path</a>, <a href="Manipulating-the-Load-Path.html#XREFdir_005fin_005floadpath">dir_in_loadpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>.
 </p></dd></dl>
 
 
@@ -240,7 +240,7 @@ If no files are found, return an empty cell array.
 <dd><p>Restore Octave&rsquo;s path to its initial state at startup.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFpath">path</a>, <a href="#XREFaddpath">addpath</a>, <a href="#XREFrmpath">rmpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFpathdef">pathdef</a>, <a href="#XREFsavepath">savepath</a>, <a href="#XREFpathsep">pathsep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Manipulating-the-Load-Path.html#XREFrmpath">rmpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathdef">pathdef</a>, <a href="Manipulating-the-Load-Path.html#XREFsavepath">savepath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathsep">pathsep</a>.
 </p></dd></dl>
 
 
@@ -249,7 +249,7 @@ If no files are found, return an empty cell array.
 <dd><p>Return the command line path variable.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFpath">path</a>, <a href="#XREFaddpath">addpath</a>, <a href="#XREFrmpath">rmpath</a>, <a href="#XREFgenpath">genpath</a>, <a href="#XREFpathdef">pathdef</a>, <a href="#XREFsavepath">savepath</a>, <a href="#XREFpathsep">pathsep</a>.
+<p><strong>See also:</strong> <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>, <a href="Manipulating-the-Load-Path.html#XREFaddpath">addpath</a>, <a href="Manipulating-the-Load-Path.html#XREFrmpath">rmpath</a>, <a href="Manipulating-the-Load-Path.html#XREFgenpath">genpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathdef">pathdef</a>, <a href="Manipulating-the-Load-Path.html#XREFsavepath">savepath</a>, <a href="Manipulating-the-Load-Path.html#XREFpathsep">pathsep</a>.
 </p></dd></dl>
 
 
@@ -267,7 +267,7 @@ If no files are found, return an empty cell array.
 <p>If the optional second argument is supplied, return a cell array containing
 all name matches rather than just the first.
 </p>
-<p><strong>See also:</strong> <a href="Filesystem-Utilities.html#XREFfile_005fin_005fpath">file_in_path</a>, <a href="#XREFfile_005fin_005floadpath">file_in_loadpath</a>, <a href="#XREFpath">path</a>.
+<p><strong>See also:</strong> <a href="Filesystem-Utilities.html#XREFfile_005fin_005fpath">file_in_path</a>, <a href="Manipulating-the-Load-Path.html#XREFfile_005fin_005floadpath">file_in_loadpath</a>, <a href="Manipulating-the-Load-Path.html#XREFpath">path</a>.
 </p></dd></dl>
 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Matrices and Arrays in Oct-Files</title>
+<title>GNU Octave: Matrices and Arrays in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Matrices and Arrays in Oct-Files">
 <meta name="keywords" content="GNU Octave: Matrices and Arrays in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,27 +58,26 @@ Next: <a href="Character-Strings-in-Oct_002dFiles.html#Character-Strings-in-Oct_
 <a name="Matrices-and-Arrays-in-Oct_002dFiles-1"></a>
 <h4 class="subsection">A.1.2 Matrices and Arrays in Oct-Files</h4>
 
-<p>Octave supports a number of different array and matrix classes, the
-majority of which are based on the Array class.  The exception is the
-sparse matrix types discussed separately below.  There are three basic
-matrix types
+<p>Octave supports a number of different array and matrix classes, the majority of
+which are based on the <code>Array</code> class.  The exception are the sparse matrix
+types discussed separately below.  There are three basic matrix types:
 </p>
 <dl compact="compact">
 <dt><code>Matrix</code></dt>
-<dd><p>A double precision matrix class defined in <samp>dMatrix.h</samp>,
+<dd><p>A double precision matrix class defined in <samp>dMatrix.h</samp>
 </p>
 </dd>
 <dt><code>ComplexMatrix</code></dt>
-<dd><p>A complex matrix class defined in <samp>CMatrix.h</samp>, and
+<dd><p>A complex matrix class defined in <samp>CMatrix.h</samp>
 </p>
 </dd>
 <dt><code>BoolMatrix</code></dt>
-<dd><p>A boolean matrix class defined in <samp>boolMatrix.h</samp>.
+<dd><p>A boolean matrix class defined in <samp>boolMatrix.h</samp>
 </p></dd>
 </dl>
 
-<p>These are the basic two-dimensional matrix types of Octave.  In
-addition there are a number of multi-dimensional array types including
+<p>These are the basic two-dimensional matrix types of Octave.  In addition there
+are a number of multi-dimensional array types including
 </p>
 <dl compact="compact">
 <dt><code>NDArray</code></dt>
@@ -110,9 +109,8 @@ addition there are a number of multi-dimensional array types including
 </p></dd>
 </dl>
 
-<p>There are several basic ways of constructing matrices or
-multi-dimensional arrays.  Using the class <code>Matrix</code> as an example
-one can
+<p>There are several basic ways of constructing matrices or multi-dimensional
+arrays.  Using the class <code>Matrix</code> as an example one can
 </p>
 <ul>
 <li> Create an empty matrix or array with the empty constructor.  For example:
@@ -123,15 +121,15 @@ one can
 
 <p>This can be used for all matrix and array types.
 </p>
-</li><li> Define the dimensions of the matrix or array with a dim_vector which has
-the same characteristics as the vector returned from <code>size</code>.  For example:
+</li><li> Define the dimensions of the matrix or array with a dim_vector which has the
+same characteristics as the vector returned from <code>size</code>.  For example:
 
 <div class="example">
 <pre class="example">dim_vector dv (2, 3);  // 2 rows, 3 columns
 Matrix a (dv);
 </pre></div>
 
-<p>This can be used on all matrix and array types.
+<p>This can be used for all matrix and array types.
 </p>
 </li><li> Define the number of rows and columns in the matrix.  For example:
 
@@ -139,30 +137,30 @@ Matrix a (dv);
 <pre class="example">Matrix a (2, 2)
 </pre></div>
 
-<p>However, this constructor can only be used with matrix types.
+<p>This constructor can <strong>only</strong> be used with matrix types.
 </p></li></ul>
 
-<p>These types all share a number of basic methods and operators.  Many bear
-a resemblance to functions that exist in the interpreter.  A selection of
-useful methods include
+<p>These types all share a number of basic methods and operators.  Many bear a
+resemblance to functions that exist in the interpreter.  A selection of useful
+methods include
 </p>
 <dl>
 <dt><a name="index-operator"></a>Method: <em>T&amp;</em> <strong>operator</strong> <em>() (octave_idx_type)</em></dt>
 <dt><a name="index-elem"></a>Method: <em>T&amp;</em> <strong>elem</strong> <em>(octave_idx_type)</em></dt>
-<dd><p>The <code>()</code> operator or <code>elem</code> method allow the values of the
-matrix or array to be read or set.  These can take a single argument,
-which is of type <code>octave_idx_type</code>, that is the index into the matrix or
-array.  Additionally, the matrix type allows two argument versions of the
-<code>()</code> operator and elem method, giving the row and column index of the
-value to obtain or set.
+<dd><p>The <code>()</code> operator or <code>elem</code> method allow the values of the matrix or
+array to be read or set.  These methods take a single argument, which is of
+type <code>octave_idx_type</code>, that is the index into the matrix or array.
+Additionally, the matrix type allows two argument versions of the <code>()</code>
+operator and <code>elem</code> method, giving the row and column index of the value
+to get or set.
 </p></dd></dl>
 
 <p>Note that these functions do significant error checking and so in some
-circumstances the user might prefer to access the data of the array or
-matrix directly through the fortran_vec method discussed below.
+circumstances the user might prefer to access the data of the array or matrix
+directly through the <code>fortran_vec</code> method discussed below.
 </p>
 <dl>
-<dt><a name="index-octave_005fidx_005ftype"></a>Method: <em></em> <strong>octave_idx_type</strong> <em>numel (void) const</em></dt>
+<dt><a name="index-numel-2"></a>Method: <em>octave_idx_type</em> <strong>numel</strong> <em>(void) const</em></dt>
 <dd><p>The total number of elements in the matrix or array.
 </p></dd></dl>
 
@@ -173,33 +171,34 @@ matrix directly through the fortran_vec method discussed below.
 
 <dl>
 <dt><a name="index-dims"></a>Method: <em>dim_vector</em> <strong>dims</strong> <em>(void) const</em></dt>
-<dd><p>The dimensions of the matrix or array in value of type dim_vector.
+<dd><p>The dimensions of the matrix or array in value of type <code>dim_vector</code>.
 </p></dd></dl>
 
 <dl>
 <dt><a name="index-ndims-1"></a>Method: <em>int</em> <strong>ndims</strong> <em>(void) const</em></dt>
-<dd><p>The number of dimensions of the matrix or array.  Matrices are 2-D,
-but arrays can be N-dimensional.
+<dd><p>The number of dimensions of the matrix or array.  Matrices are always 2-D, but
+arrays can be N-dimensional.
 </p></dd></dl>
 
 <dl>
 <dt><a name="index-resize-3"></a>Method: <em>void</em> <strong>resize</strong> <em>(const dim_vector&amp;)</em></dt>
-<dd><p>A method taking either an argument of type <code>dim_vector</code>, or in the
-case of a matrix two arguments of type <code>octave_idx_type</code> defining
-the number of rows and columns in the matrix.
+<dt><a name="index-resize-4"></a>Method: <em>void</em> <strong>resize</strong> <em>(nrows, ncols)</em></dt>
+<dd><p>A method taking either an argument of type <code>dim_vector</code>, or, in the case
+of a matrix, two arguments of type <code>octave_idx_type</code> defining the number
+of rows and columns in the matrix.
 </p></dd></dl>
 
 <dl>
 <dt><a name="index-fortran_005fvec"></a>Method: <em>T*</em> <strong>fortran_vec</strong> <em>(void)</em></dt>
-<dd><p>This method returns a pointer to the underlying data of the matrix or
-array so that it can be manipulated directly, either within Octave or by
-an external library.
+<dd><p>This method returns a pointer to the underlying data of the matrix or array so
+that it can be manipulated directly, either within Octave or by an external
+library.
 </p></dd></dl>
 
-<p>Operators such an <code>+</code>, <code>-</code>, or <code>*</code> can be used on the
-majority of the matrix and array types.  In addition there are a number of
-methods that are of interest only for matrices such as <code>transpose</code>,
-<code>hermitian</code>, <code>solve</code>, etc.
+<p>Operators such as <code>+</code>, <code>-</code>, or <code>*</code> can be used on the majority
+of the matrix and array types.  In addition there are a number of methods that
+are of interest only for matrices such as <code>transpose</code>, <code>hermitian</code>,
+<code>solve</code>, etc.
 </p>
 <p>The typical way to extract a matrix or array from the input arguments of
 <code><span class="nolinebreak">DEFUN_DLD</span></code><!-- /@w --> function is as follows
@@ -219,23 +218,22 @@ DEFUN_DLD (addtwomatrices, args, , &quot;Add A to B&quot;)
 }
 </pre></div>
 
-<p>To avoid segmentation faults causing Octave to abort this function
-explicitly checks that there are sufficient arguments available before
-accessing these arguments.  It then obtains two multi-dimensional arrays
-of type <code>NDArray</code> and adds these together.  Note that the array_value
-method is called without using the <code>is_matrix_type</code> type.  If an
-error occurs when attempting to extract the value, Octave will print a
-message and throw an exception.  The reason to
-prefer this is that the arguments might be a type that is not an
-<code>NDArray</code>, but it would make sense to convert it to one.  The
-<code>array_value</code> method allows this conversion to be performed
-transparently if possible.  If you need to catch errors like this and
-perform some kind of cleanup or other operation, you can catch the
-<code>octave_execution_error</code> exception.
+<p>To avoid segmentation faults causing Octave to abort, this function explicitly
+checks that there are sufficient arguments available before accessing these
+arguments.  It then obtains two multi-dimensional arrays of type <code>NDArray</code>
+and adds these together.  Note that the <code>array_value</code> method is called
+without using the <code>is_matrix_type</code> method.  If an error occurs when
+attempting to extract the value, Octave will print a message and throw an
+exception.  The reason to prefer this coding structure is that the arguments
+might be a type which is not an <code>NDArray</code>, but for which it would make
+sense to convert them to one.  The <code>array_value</code> method allows this
+conversion to be performed transparently when possible.  If you need to catch
+errors like this, and perform some kind of cleanup or other operation, you can
+catch the <code>octave_execution_error</code> exception.
 </p>
-<p><code>A + B</code>, operating on two <code>NDArray</code>&rsquo;s returns an
-<code>NDArray</code>, which is cast to an <code>octave_value</code> on the return
-from the function.  An example of the use of this demonstration function is
+<p><code>A + B</code>, operating on two <code>NDArray</code> objects returns an
+<code>NDArray</code>, which is cast to an <code>octave_value</code> on the return from the
+function.  An example of the use of this demonstration function is
 </p>
 <div class="example">
 <pre class="example">addtwomatrices (ones (2, 2), eye (2, 2))

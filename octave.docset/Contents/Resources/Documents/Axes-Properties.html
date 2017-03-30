@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Axes Properties</title>
+<title>GNU Octave: Axes Properties</title>
 
 <meta name="description" content="GNU Octave: Axes Properties">
 <meta name="keywords" content="GNU Octave: Axes Properties">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -74,8 +74,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesactivepositionproperty"></a><a name="index-axes-activepositionproperty"></a>
 </dd>
 <dt><code>activepositionproperty</code>: {<code>&quot;outerposition&quot;</code>} | <code>&quot;position&quot;</code></dt>
-<dd>
-
+<dd><p>Specify which of <code>&quot;position&quot;</code> or <code>&quot;outerposition&quot;</code> properties takes precedence when axes annotations extent changes.  See <a href="Axes-Properties.html#XREFaxesposition">position&nbsp;property<!-- /@w --></a>, and <a href="Axes-Properties.html#XREFaxesposition">outerposition&nbsp;property<!-- /@w --></a>.
+</p>
 
 <a name="XREFaxesalim"></a><a name="index-axes-alim"></a>
 </dd>
@@ -92,7 +92,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesambientlightcolor"></a><a name="index-axes-ambientlightcolor"></a>
 </dd>
 <dt><code>ambientlightcolor</code>: def. <code>[1   1   1]</code></dt>
-<dd><p>Light is not yet implemented for axes objects.  <code>ambientlightcolor</code> is unused.
+<dd><p><code>ambientlightcolor</code> is unused.
 </p>
 
 <a name="XREFaxesbeingdeleted"></a><a name="index-axes-beingdeleted"></a>
@@ -110,7 +110,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesboxstyle"></a><a name="index-axes-boxstyle"></a>
 </dd>
 <dt><code>boxstyle</code>: {<code>&quot;back&quot;</code>} | <code>&quot;full&quot;</code></dt>
-<dd><p><code>boxstyle</code> is unused.
+<dd><p>For 3-D axes, control whether the <code>&quot;full&quot;</code> box is drawn or only the 3 <code>&quot;back&quot;</code> axes
 </p>
 
 <a name="XREFaxesbusyaction"></a><a name="index-axes-busyaction"></a>
@@ -122,8 +122,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesbuttondownfcn"></a><a name="index-axes-buttondownfcn"></a>
 </dd>
 <dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFaxescameraposition"></a><a name="index-axes-cameraposition"></a>
 </dd>
@@ -226,6 +226,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately after axes has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultaxescreatefcn&quot;, 'disp (&quot;axes created!&quot;)')</code>.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFaxescurrentpoint"></a><a name="index-axes-currentpoint"></a>
 </dd>
@@ -236,7 +238,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesdataaspectratio"></a><a name="index-axes-dataaspectratio"></a>
 </dd>
 <dt><code>dataaspectratio</code>: three-element vector, def. <code>[1   1   1]</code></dt>
-<dd><p>Specify the relative height and width of the data displayed in the axes.  Setting <code>dataaspectratio</code> to <code>[1,&nbsp;2]</code><!-- /@w --> causes the length of one unit as displayed on the x-axis to be the same as the length of 2 units on the y-axis.  Setting <code>dataaspectratio</code> also forces the <code>dataaspectratiomode</code> property to be set to <code>&quot;manual&quot;</code>.
+<dd><p>Specify the relative height and width of the data displayed in the axes.  Setting <code>dataaspectratio</code> to <code>[1,&nbsp;2]</code><!-- /@w --> causes the length of one unit as displayed on the x-axis to be the same as the length of 2 units on the y-axis.  See <a href="Aspect-Ratio.html#XREFdaspect">daspect function</a>.  Setting <code>dataaspectratio</code> also forces the <code>dataaspectratiomode</code> property to be set to <code>&quot;manual&quot;</code>.
 </p>
 
 <a name="XREFaxesdataaspectratiomode"></a><a name="index-axes-dataaspectratiomode"></a>
@@ -250,6 +252,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately before axes is deleted.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFaxesdrawmode"></a><a name="index-axes-drawmode"></a>
 </dd>
@@ -260,8 +264,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesfontangle"></a><a name="index-axes-fontangle"></a>
 </dd>
 <dt><code>fontangle</code>: <code>&quot;italic&quot;</code> | {<code>&quot;normal&quot;</code>}</dt>
-<dd>
-
+<dd><p>Control whether the font is italic or normal.
+</p>
 
 <a name="XREFaxesfontname"></a><a name="index-axes-fontname"></a>
 </dd>
@@ -272,7 +276,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesfontsize"></a><a name="index-axes-fontsize"></a>
 </dd>
 <dt><code>fontsize</code>: scalar, def. <code>10</code></dt>
-<dd><p>Size of the font used for axes annotations.  See <a href="#XREFaxesfontunits">fontunits&nbsp;property<!-- /@w --></a>.
+<dd><p>Size of the font used for axes annotations.  See <a href="Axes-Properties.html#XREFaxesfontunits">fontunits&nbsp;property<!-- /@w --></a>.
 </p>
 
 <a name="XREFaxesfontsmoothing"></a><a name="index-axes-fontsmoothing"></a>
@@ -290,8 +294,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesfontweight"></a><a name="index-axes-fontweight"></a>
 </dd>
 <dt><code>fontweight</code>: <code>&quot;bold&quot;</code> | {<code>&quot;normal&quot;</code>}</dt>
-<dd>
-
+<dd><p>Control variant of base font used: bold, demi, light, normal.
+</p>
 
 <a name="XREFaxesgridalpha"></a><a name="index-axes-gridalpha"></a>
 </dd>
@@ -344,7 +348,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxeslabelfontsizemultiplier"></a><a name="index-axes-labelfontsizemultiplier"></a>
 </dd>
 <dt><code>labelfontsizemultiplier</code>: def. <code>1.1000</code></dt>
-<dd><p><code>labelfontsizemultiplier</code> is unused.
+<dd><p>Ratio between the x/y/zlabel fontsize and the tick label fontsize
 </p>
 
 <a name="XREFaxeslayer"></a><a name="index-axes-layer"></a>
@@ -368,8 +372,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxeslinewidth"></a><a name="index-axes-linewidth"></a>
 </dd>
 <dt><code>linewidth</code>: def. <code>0.50000</code></dt>
-<dd>
-
+<dd><p>Width of the main axes lines
+</p>
 
 <a name="XREFaxesminorgridalpha"></a><a name="index-axes-minorgridalpha"></a>
 </dd>
@@ -410,13 +414,13 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesnextplot"></a><a name="index-axes-nextplot"></a>
 </dd>
 <dt><code>nextplot</code>: <code>&quot;add&quot;</code> | {<code>&quot;replace&quot;</code>} | <code>&quot;replacechildren&quot;</code></dt>
-<dd>
-
+<dd><p><code>nextplot</code> is used by high level plotting functions to decide what to do with graphics objects already present in the axes.  See <a href="Manipulation-of-Plot-Windows.html#XREFnewplot">newplot&nbsp;function<!-- /@w --></a>.  The state of <code>nextplot</code> is typically controlled using the <code>hold</code> function.  See <a href="Manipulation-of-Plot-Windows.html#XREFhold">hold&nbsp;function<!-- /@w --></a>.
+</p>
 
 <a name="XREFaxesouterposition"></a><a name="index-axes-outerposition"></a>
 </dd>
 <dt><code>outerposition</code>: four-element vector, def. <code>[0   0   1   1]</code></dt>
-<dd><p>Specify the position of the plot including titles, axes, and legend.  The four elements of the vector are the coordinates of the lower left corner and width and height of the plot, in units normalized to the width and height of the plot window.  For example, <code>[0.2, 0.3, 0.4, 0.5]</code> sets the lower left corner of the axes at <em>(0.2, 0.3)</em> and the width and height to be 0.4 and 0.5 respectively.  See <a href="#XREFaxesposition">position&nbsp;property<!-- /@w --></a>.
+<dd><p>Specify the position of the plot including titles, axes, and legend.  The four elements of the vector are the coordinates of the lower left corner and width and height of the plot, in units normalized to the width and height of the plot window.  For example, <code>[0.2, 0.3, 0.4, 0.5]</code> sets the lower left corner of the axes at <em>(0.2, 0.3)</em> and the width and height to be 0.4 and 0.5 respectively.  See <a href="Axes-Properties.html#XREFaxesposition">position&nbsp;property<!-- /@w --></a>.
 </p>
 
 <a name="XREFaxesparent"></a><a name="index-axes-parent"></a>
@@ -434,8 +438,8 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesplotboxaspectratio"></a><a name="index-axes-plotboxaspectratio"></a>
 </dd>
 <dt><code>plotboxaspectratio</code>: def. <code>[1   1   1]</code></dt>
-<dd>
-
+<dd><p>See <a href="Aspect-Ratio.html#XREFpbaspect">pbaspect function</a>.  Setting <code>plotboxaspectratio</code> also forces the <code>plotboxaspectratiomode</code> property to be set to <code>&quot;manual&quot;</code>.
+</p>
 
 <a name="XREFaxesplotboxaspectratiomode"></a><a name="index-axes-plotboxaspectratiomode"></a>
 </dd>
@@ -446,7 +450,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxesposition"></a><a name="index-axes-position"></a>
 </dd>
 <dt><code>position</code>: four-element vector, def. <code>[0.13000   0.11000   0.77500   0.81500]</code></dt>
-<dd><p>Specify the position of the plot excluding titles, axes, and legend.  The four elements of the vector are the coordinates of the lower left corner and width and height of the plot, in units normalized to the width and height of the plot window.  For example, <code>[0.2, 0.3, 0.4, 0.5]</code> sets the lower left corner of the axes at <em>(0.2, 0.3)</em> and the width and height to be 0.4 and 0.5 respectively.  See <a href="#XREFaxesouterposition">outerposition&nbsp;property<!-- /@w --></a>.
+<dd><p>Specify the position of the plot excluding titles, axes, and legend.  The four elements of the vector are the coordinates of the lower left corner and width and height of the plot, in units normalized to the width and height of the plot window.  For example, <code>[0.2, 0.3, 0.4, 0.5]</code> sets the lower left corner of the axes at <em>(0.2, 0.3)</em> and the width and height to be 0.4 and 0.5 respectively.  See <a href="Axes-Properties.html#XREFaxesouterposition">outerposition&nbsp;property<!-- /@w --></a>.
 </p>
 
 <a name="XREFaxesprojection"></a><a name="index-axes-projection"></a>
@@ -482,7 +486,7 @@ Next: <a href="Line-Properties.html#Line-Properties" accesskey="n" rel="next">Li
 <a name="XREFaxestickdir"></a><a name="index-axes-tickdir"></a>
 </dd>
 <dt><code>tickdir</code>: {<code>&quot;in&quot;</code>} | <code>&quot;out&quot;</code></dt>
-<dd><p>Control whether axes tick marks project &quot;in&quot; to the plot box or &quot;out&quot;.
+<dd><p>Control whether axes tick marks project &quot;in&quot; to the plot box or &quot;out&quot;.  Setting <code>tickdir</code> also forces the <code>tickdirmode</code> property to be set to <code>&quot;manual&quot;</code>.
 </p>
 
 <a name="XREFaxestickdirmode"></a><a name="index-axes-tickdirmode"></a>
@@ -506,9 +510,9 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 
 <a name="XREFaxestightinset"></a><a name="index-axes-tightinset"></a>
 </dd>
-<dt><code>tightinset</code> (read-only): def. <code>[0.042857   0.038106   0.000000   0.023810]</code></dt>
-<dd>
-
+<dt><code>tightinset</code> (read-only): four-element vector, def. <code>[0.044643   0.038106   0.000000   0.023810]</code></dt>
+<dd><p>Size of the <code>[left bottom right top]</code> margins around the axes that enclose labels and title annotations.
+</p>
 
 <a name="XREFaxestitle"></a><a name="index-axes-title"></a>
 </dd>
@@ -518,14 +522,14 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 
 <a name="XREFaxestitlefontsizemultiplier"></a><a name="index-axes-titlefontsizemultiplier"></a>
 </dd>
-<dt><code>titlefontsizemultiplier</code>: def. <code>1.1000</code></dt>
-<dd><p><code>titlefontsizemultiplier</code> is unused.
+<dt><code>titlefontsizemultiplier</code>: positive scalar, def. <code>1.1000</code></dt>
+<dd><p>Ratio between the title fontsize and the tick label fontsize
 </p>
 
 <a name="XREFaxestitlefontweight"></a><a name="index-axes-titlefontweight"></a>
 </dd>
 <dt><code>titlefontweight</code>: {<code>&quot;bold&quot;</code>} | <code>&quot;normal&quot;</code></dt>
-<dd><p><code>titlefontweight</code> is unused.
+<dd><p>Control variant of base font used for the axes title.
 </p>
 
 <a name="XREFaxestype"></a><a name="index-axes-type"></a>
@@ -543,8 +547,8 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 <a name="XREFaxesunits"></a><a name="index-axes-units"></a>
 </dd>
 <dt><code>units</code>: <code>&quot;centimeters&quot;</code> | <code>&quot;characters&quot;</code> | <code>&quot;inches&quot;</code> | {<code>&quot;normalized&quot;</code>} | <code>&quot;pixels&quot;</code> | <code>&quot;points&quot;</code></dt>
-<dd>
-
+<dd><p>Units used to interpret the <code>&quot;position&quot;</code>, <code>&quot;outerposition&quot;</code>, and <code>&quot;tightinset&quot;</code> properties.
+</p>
 
 <a name="XREFaxesuserdata"></a><a name="index-axes-userdata"></a>
 </dd>
@@ -567,26 +571,26 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 <a name="XREFaxesxaxislocation"></a><a name="index-axes-xaxislocation"></a>
 </dd>
 <dt><code>xaxislocation</code>: {<code>&quot;bottom&quot;</code>} | <code>&quot;origin&quot;</code> | <code>&quot;top&quot;</code> | <code>&quot;zero&quot;</code></dt>
-<dd>
-
+<dd><p>Control the x axis location.
+</p>
 
 <a name="XREFaxesxcolor"></a><a name="index-axes-xcolor"></a>
 </dd>
 <dt><code>xcolor</code>: {colorspec} | <code>&quot;none&quot;</code>, def. <code>[0.15000   0.15000   0.15000]</code></dt>
-<dd><p>Color of the x-axis.  See <a href="Colors.html#Colors">colorspec</a>.
+<dd><p>Color of the x-axis.  See <a href="Colors.html#Colors">colorspec</a>.  Setting <code>xcolor</code> also forces the <code>xcolormode</code> property to be set to <code>&quot;manual&quot;</code>.
 </p>
 
 <a name="XREFaxesxcolormode"></a><a name="index-axes-xcolormode"></a>
 </dd>
 <dt><code>xcolormode</code>: {<code>&quot;auto&quot;</code>} | <code>&quot;manual&quot;</code></dt>
-<dd><p><code>xcolormode</code> is unused.
-</p>
+<dd>
+
 
 <a name="XREFaxesxdir"></a><a name="index-axes-xdir"></a>
 </dd>
 <dt><code>xdir</code>: {<code>&quot;normal&quot;</code>} | <code>&quot;reverse&quot;</code></dt>
-<dd>
-
+<dd><p>Direction of the x axis: <code>&quot;normal&quot;</code> is left to right.
+</p>
 
 <a name="XREFaxesxgrid"></a><a name="index-axes-xgrid"></a>
 </dd>
@@ -603,7 +607,7 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 <a name="XREFaxesxlim"></a><a name="index-axes-xlim"></a>
 </dd>
 <dt><code>xlim</code>: two-element vector, def. <code>[0   1]</code></dt>
-<dd><p>Two-element vector <code>[xmin xmax]</code> specifying the limits for the x-axis.  Setting <code>xlim</code> also forces the <code>xlimmode</code> property to be set to <code>&quot;manual&quot;</code>.  See <a href="Axis-Configuration.html#XREFxlim">xlim&nbsp;function<!-- /@w --></a>.
+<dd><p>Two-element vector <code>[xmin xmax]</code> specifying the limits for the x-axis.  Setting <code>xlim</code> also forces the <code>xlimmode</code> property to be set to <code>&quot;manual&quot;</code>.   See <a href="Axis-Configuration.html#XREFxlim">xlim&nbsp;function<!-- /@w --></a>.
 </p>
 
 <a name="XREFaxesxlimmode"></a><a name="index-axes-xlimmode"></a>
@@ -663,8 +667,8 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 <a name="XREFaxesyaxislocation"></a><a name="index-axes-yaxislocation"></a>
 </dd>
 <dt><code>yaxislocation</code>: {<code>&quot;left&quot;</code>} | <code>&quot;origin&quot;</code> | <code>&quot;right&quot;</code> | <code>&quot;zero&quot;</code></dt>
-<dd>
-
+<dd><p>Control the y-axis location.
+</p>
 
 <a name="XREFaxesycolor"></a><a name="index-axes-ycolor"></a>
 </dd>
@@ -675,14 +679,14 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 <a name="XREFaxesycolormode"></a><a name="index-axes-ycolormode"></a>
 </dd>
 <dt><code>ycolormode</code>: {<code>&quot;auto&quot;</code>} | <code>&quot;manual&quot;</code></dt>
-<dd><p><code>ycolormode</code> is unused.
-</p>
+<dd>
+
 
 <a name="XREFaxesydir"></a><a name="index-axes-ydir"></a>
 </dd>
 <dt><code>ydir</code>: {<code>&quot;normal&quot;</code>} | <code>&quot;reverse&quot;</code></dt>
-<dd>
-
+<dd><p>Direction of the y-axis: <code>&quot;normal&quot;</code> is bottom to top.
+</p>
 
 <a name="XREFaxesygrid"></a><a name="index-axes-ygrid"></a>
 </dd>
@@ -765,8 +769,8 @@ See <a href="Use-of-the-interpreter-Property.html#XREFinterpreterusage">Use&nbsp
 <a name="XREFaxeszcolormode"></a><a name="index-axes-zcolormode"></a>
 </dd>
 <dt><code>zcolormode</code>: {<code>&quot;auto&quot;</code>} | <code>&quot;manual&quot;</code></dt>
-<dd><p><code>zcolormode</code> is unused.
-</p>
+<dd>
+
 
 <a name="XREFaxeszdir"></a><a name="index-axes-zdir"></a>
 </dd>

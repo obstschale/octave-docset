@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Issuing Warnings</title>
+<title>GNU Octave: Issuing Warnings</title>
 
 <meta name="description" content="GNU Octave: Issuing Warnings">
 <meta name="keywords" content="GNU Octave: Issuing Warnings">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -111,7 +111,7 @@ to go on.
 <p>The optional message identifier allows users to enable or disable
 warnings tagged by <var>id</var>.  A message identifier is of the form
 &quot;NAMESPACE:WARNING-NAME&quot;.  Octave&rsquo;s own warnings use the
-<code>&quot;Octave&quot;</code> namespace (see <a href="#XREFwarning_005fids">XREFwarning_ids</a>).  The special
+<code>&quot;Octave&quot;</code> namespace (see <a href="Issuing-Warnings.html#XREFwarning_005fids">XREFwarning_ids</a>).  The special
 identifier <code>&quot;all&quot;</code> may be used to set the state of all warnings.
 </p>
 <p>If the first argument is <code>&quot;on&quot;</code> or <code>&quot;off&quot;</code>,
@@ -148,7 +148,7 @@ disable escape sequence expansion use a second backslash before the sequence
 (e.g., <code>&quot;\\n&quot;</code>) or use the
 <code>regexptranslate</code> function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwarning_005fids">warning_ids</a>, <a href="#XREFlastwarn">lastwarn</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
+<p><strong>See also:</strong> <a href="Issuing-Warnings.html#XREFwarning_005fids">warning_ids</a>, <a href="Issuing-Warnings.html#XREFlastwarn">lastwarn</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
 </p></dd></dl>
 
 
@@ -165,7 +165,7 @@ message identifier.
 </p>
 <p>With two arguments, also set the last message identifier.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwarning">warning</a>, <a href="Catching-Errors.html#XREFlasterror">lasterror</a>, <a href="Catching-Errors.html#XREFlasterr">lasterr</a>.
+<p><strong>See also:</strong> <a href="Issuing-Warnings.html#XREFwarning">warning</a>, <a href="Catching-Errors.html#XREFlasterror">lasterror</a>, <a href="Catching-Errors.html#XREFlasterr">lasterr</a>.
 </p></dd></dl>
 
 
@@ -460,7 +460,7 @@ By default, the <code>Octave:reload-forces-clear</code> warning is enabled.
 <dd><p>If the <code>Octave:resize-on-range-error</code> warning is enabled, print a
 warning when a matrix is resized by an indexed assignment with
 indices outside the current bounds.
-By default, the ## <code>Octave:resize-on-range-error</code> warning is disabled.
+By default, the <code>Octave:resize-on-range-error</code> warning is disabled.
 </p>
 </dd>
 <dt><code>Octave:separator-insert</code></dt>

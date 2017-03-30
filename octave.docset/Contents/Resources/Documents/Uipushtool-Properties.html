@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Uipushtool Properties</title>
+<title>GNU Octave: Uipushtool Properties</title>
 
 <meta name="description" content="GNU Octave: Uipushtool Properties">
 <meta name="keywords" content="GNU Octave: Uipushtool Properties">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -118,11 +118,15 @@ Next: <a href="Uitoggletool-Properties.html#Uitoggletool-Properties" accesskey="
 <dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately after uipushtool has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultuipushtoolcreatefcn&quot;, 'disp (&quot;uipushtool created!&quot;)')</code>.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFuipushtooldeletefcn"></a><a name="index-uipushtool-deletefcn"></a>
 </dd>
 <dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately before uipushtool is deleted.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
 </p>
 
 <a name="XREFuipushtoolenable"></a><a name="index-uipushtool-enable"></a>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Cell Arrays in Oct-Files</title>
+<title>GNU Octave: Cell Arrays in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Cell Arrays in Oct-Files">
 <meta name="keywords" content="GNU Octave: Cell Arrays in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,10 +58,9 @@ Next: <a href="Structures-in-Oct_002dFiles.html#Structures-in-Oct_002dFiles" acc
 <a name="Cell-Arrays-in-Oct_002dFiles-1"></a>
 <h4 class="subsection">A.1.4 Cell Arrays in Oct-Files</h4>
 
-<p>Octave&rsquo;s cell type is also available from within oct-files.  A cell
-array is just an array of <code>octave_value</code>s, and thus each element of the
-cell array can be treated just like any other <code>octave_value</code>.  A simple
-example is
+<p>Octave&rsquo;s cell type is also available from within oct-files.  A cell array is
+just an <code>Array</code> of <code>octave_value</code>s, and thus each element of the cell
+array can be treated like any other <code>octave_value</code>.  A simple example is
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;octave/oct.h&gt;
@@ -87,10 +86,10 @@ DEFUN_DLD (celldemo, args, , &quot;Cell Demo&quot;)
 }
 </pre></div>
 
-<p>Note that cell arrays are used less often in standard oct-files and so
-the <samp>Cell.h</samp> header file must be explicitly included.  The rest of the
-example extracts the <code>octave_value</code>s one by one from the cell array and
-returns them as individual return arguments.  For example:
+<p>Note that cell arrays are used less often in standard oct-files and so the
+<samp>Cell.h</samp> header file must be explicitly included.  The rest of the example
+extracts the <code>octave_value</code>s one by one from the cell array and returns
+them as individual output arguments.  For example:
 </p>
 <div class="example">
 <pre class="example">[b1, b2, b3] = celldemo ({1, [1, 2], &quot;test&quot;})

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Representing Images</title>
+<title>GNU Octave: Representing Images</title>
 
 <meta name="description" content="GNU Octave: Representing Images">
 <meta name="keywords" content="GNU Octave: Representing Images">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -133,7 +133,7 @@ enforced.  Each function must decide what to do for values outside this
 range.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>, <a href="#XREFrgbplot">rgbplot</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Representing-Images.html#XREFrgbplot">rgbplot</a>.
 </p></dd></dl>
 
 
@@ -152,7 +152,7 @@ black and white images.
 <p>The output <var>img</var> is of class uint8 if <var>n</var> is less than or equal to
 256; Otherwise the return class is uint16.
 </p>
-<p><strong>See also:</strong> <a href="#XREFind2gray">ind2gray</a>, <a href="#XREFrgb2ind">rgb2ind</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFind2gray">ind2gray</a>, <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>.
 </p></dd></dl>
 
 
@@ -174,7 +174,7 @@ from <code>rgb2ntsc</code> which is <code>I = 0.299*R + 0.587*G + 0.114*B</code>
 Other possibilities include the value component from <code>rgb2hsv</code> or
 using a single color channel from <code>ind2rgb</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFgray2ind">gray2ind</a>, <a href="#XREFind2rgb">ind2rgb</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFgray2ind">gray2ind</a>, <a href="Representing-Images.html#XREFind2rgb">ind2rgb</a>.
 </p></dd></dl>
 
 
@@ -199,7 +199,7 @@ supported, both via a single input (<var>rgb</var>) or its three color channels
 as separate variables.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFind2rgb">ind2rgb</a>, <a href="Color-Conversion.html#XREFrgb2hsv">rgb2hsv</a>, <a href="Color-Conversion.html#XREFrgb2ntsc">rgb2ntsc</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFind2rgb">ind2rgb</a>, <a href="Color-Conversion.html#XREFrgb2hsv">rgb2hsv</a>, <a href="Color-Conversion.html#XREFrgb2ntsc">rgb2ntsc</a>.
 </p></dd></dl>
 
 
@@ -222,7 +222,42 @@ color matrices of size MxN may be returned.
 supported.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFrgb2ind">rgb2ind</a>, <a href="#XREFind2gray">ind2gray</a>, <a href="Color-Conversion.html#XREFhsv2rgb">hsv2rgb</a>, <a href="Color-Conversion.html#XREFntsc2rgb">ntsc2rgb</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>, <a href="Representing-Images.html#XREFind2gray">ind2gray</a>, <a href="Color-Conversion.html#XREFhsv2rgb">hsv2rgb</a>, <a href="Color-Conversion.html#XREFntsc2rgb">ntsc2rgb</a>.
+</p></dd></dl>
+
+
+<a name="XREFframe2im"></a><dl>
+<dt><a name="index-frame2im"></a>: <em>[<var>x</var>, <var>map</var>] =</em> <strong>frame2im</strong> <em>(<var>f</var>)</em></dt>
+<dd><p>Convert movie frame to indexed image.
+</p>
+<p>A movie frame is simply a struct with the fields <code>&quot;cdata&quot;</code> and
+<code>&quot;colormap&quot;</code>.
+</p>
+<p>Support for N-dimensional images or movies is given when <var>f</var> is a
+struct array.  In such cases, <var>x</var> will be a MxNx1xK or MxNx3xK
+for indexed and RGB movies respectively, with each frame concatenated
+along the 4th dimension.
+</p>
+
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFim2frame">im2frame</a>.
+</p></dd></dl>
+
+
+<a name="XREFim2frame"></a><dl>
+<dt><a name="index-im2frame"></a>: <em></em> <strong>im2frame</strong> <em>(<var>rgb</var>)</em></dt>
+<dt><a name="index-im2frame-1"></a>: <em></em> <strong>im2frame</strong> <em>(<var>x</var>, <var>map</var>)</em></dt>
+<dd><p>Convert image to movie frame.
+</p>
+<p>A movie frame is simply a struct with the fields <code>&quot;cdata&quot;</code> and
+<code>&quot;colormap&quot;</code>.
+</p>
+<p>Support for N-dimensional images is given when each image projection,
+matrix sizes of MxN and MxNx3 for RGB images, is concatenated
+along the fourth dimension.  In such cases, the returned value is a struct
+array.
+</p>
+
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFframe2im">frame2im</a>.
 </p></dd></dl>
 
 
@@ -285,7 +320,7 @@ command form, <code>colormap <var>map_name</var></code>.
 <tr><td width="15%">white</td><td width="85%">all white colormap (no colors).</td></tr>
 </table>
 
-<p><strong>See also:</strong> <a href="#XREFviridis">viridis</a>, <a href="#XREFjet">jet</a>, <a href="#XREFcubehelix">cubehelix</a>, <a href="#XREFhsv">hsv</a>, <a href="#XREFrainbow">rainbow</a>, <a href="#XREFhot">hot</a>, <a href="#XREFcool">cool</a>, <a href="#XREFspring">spring</a>, <a href="#XREFsummer">summer</a>, <a href="#XREFautumn">autumn</a>, <a href="#XREFwinter">winter</a>, <a href="#XREFgray">gray</a>, <a href="#XREFbone">bone</a>, <a href="#XREFcopper">copper</a>, <a href="#XREFpink">pink</a>, <a href="#XREFocean">ocean</a>, <a href="#XREFcolorcube">colorcube</a>, <a href="#XREFflag">flag</a>, <a href="#XREFlines">lines</a>, <a href="#XREFprism">prism</a>, <a href="#XREFwhite">white</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFviridis">viridis</a>, <a href="Representing-Images.html#XREFjet">jet</a>, <a href="Representing-Images.html#XREFcubehelix">cubehelix</a>, <a href="Representing-Images.html#XREFhsv">hsv</a>, <a href="Representing-Images.html#XREFrainbow">rainbow</a>, <a href="Representing-Images.html#XREFhot">hot</a>, <a href="Representing-Images.html#XREFcool">cool</a>, <a href="Representing-Images.html#XREFspring">spring</a>, <a href="Representing-Images.html#XREFsummer">summer</a>, <a href="Representing-Images.html#XREFautumn">autumn</a>, <a href="Representing-Images.html#XREFwinter">winter</a>, <a href="Representing-Images.html#XREFgray">gray</a>, <a href="Representing-Images.html#XREFbone">bone</a>, <a href="Representing-Images.html#XREFcopper">copper</a>, <a href="Representing-Images.html#XREFpink">pink</a>, <a href="Representing-Images.html#XREFocean">ocean</a>, <a href="Representing-Images.html#XREFcolorcube">colorcube</a>, <a href="Representing-Images.html#XREFflag">flag</a>, <a href="Representing-Images.html#XREFlines">lines</a>, <a href="Representing-Images.html#XREFprism">prism</a>, <a href="Representing-Images.html#XREFwhite">white</a>.
 </p></dd></dl>
 
 
@@ -316,7 +351,7 @@ visible rather than the individual color components.
 <p>Run <code>demo rgbplot</code> to see an example of <code>rgbplot</code> and each style
 option.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -329,7 +364,7 @@ This colormap ranges from red through orange to yellow.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -342,7 +377,7 @@ gray-blue shades.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -359,7 +394,7 @@ blue, and gray.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -371,7 +406,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -384,7 +419,7 @@ tone.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -411,7 +446,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 images&quot;</cite>, Bulletin of the Astronomical Society of India, 39, 289.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -424,7 +459,7 @@ black with each index change.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -437,7 +472,7 @@ of gray.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -450,7 +485,7 @@ red, orange, yellow, to white.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -467,7 +502,7 @@ maximum saturation and value.  The equivalent code is
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -480,7 +515,7 @@ cyan, green, yellow, red, to dark red.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -494,7 +529,7 @@ orange, yellow, purple, green, light blue, and dark red.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -507,7 +542,7 @@ of blue.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -522,7 +557,7 @@ shades of gray-pink.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -535,7 +570,7 @@ green, blue and violet with each index change.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -548,7 +583,7 @@ yellow, green, blue, to violet.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -560,7 +595,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -572,7 +607,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -585,7 +620,7 @@ blue, green, to yellow.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -597,7 +632,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -609,7 +644,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 <p>The argument <var>n</var> must be a scalar.
 If unspecified, the length of the current colormap, or 64, is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -621,7 +656,7 @@ If unspecified, the length of the current colormap, or 64, is used.
 <p>The returned colormap will have <var>n</var> rows.  If <var>n</var> is not defined
 then the size of the current colormap is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>, <a href="#XREFbrighten">brighten</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Representing-Images.html#XREFbrighten">brighten</a>.
 </p></dd></dl>
 
 
@@ -647,7 +682,7 @@ case <code>brighten</code> is applied to the colormap associated with this handl
 <p>If no output is specified then the result is written to the current
 colormap.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>, <a href="#XREFcontrast">contrast</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Representing-Images.html#XREFcontrast">contrast</a>.
 </p></dd></dl>
 
 
@@ -666,7 +701,7 @@ continuously until <kbd>Control-C</kbd> is pressed.
 color 3, etc.  A positive or negative increment is allowed and a higher
 value of <var>inc</var> will cause faster cycling through the colormap.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolormap">colormap</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFcolormap">colormap</a>.
 </p></dd></dl>
 
 
@@ -727,7 +762,7 @@ assigned the same value).
 less than or equal to 256.  Otherwise, the output image is of class double.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFrgb2ind">rgb2ind</a>, <a href="#XREFgray2ind">gray2ind</a>.
+<p><strong>See also:</strong> <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>, <a href="Representing-Images.html#XREFgray2ind">gray2ind</a>.
 </p></dd></dl>
 
 

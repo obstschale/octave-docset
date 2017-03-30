@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Signal Processing</title>
+<title>GNU Octave: Signal Processing</title>
 
 <meta name="description" content="GNU Octave: Signal Processing">
 <meta name="keywords" content="GNU Octave: Signal Processing">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -85,7 +85,7 @@ smaller than the dimension along which the FFT is calculated, then
 <p>If called with three arguments, <var>dim</var> is an integer specifying the
 dimension of the matrix along which the FFT is performed
 </p>
-<p><strong>See also:</strong> <a href="#XREFifft">ifft</a>, <a href="#XREFfft2">fft2</a>, <a href="#XREFfftn">fftn</a>, <a href="#XREFfftw">fftw</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFifft">ifft</a>, <a href="Signal-Processing.html#XREFfft2">fft2</a>, <a href="Signal-Processing.html#XREFfftn">fftn</a>, <a href="Signal-Processing.html#XREFfftw">fftw</a>.
 </p></dd></dl>
 
 
@@ -111,7 +111,7 @@ then <var>x</var> is truncated.
 <p>If called with three arguments, <var>dim</var> is an integer specifying the
 dimension of the matrix along which the inverse FFT is performed
 </p>
-<p><strong>See also:</strong> <a href="#XREFfft">fft</a>, <a href="#XREFifft2">ifft2</a>, <a href="#XREFifftn">ifftn</a>, <a href="#XREFfftw">fftw</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfft">fft</a>, <a href="Signal-Processing.html#XREFifft2">ifft2</a>, <a href="Signal-Processing.html#XREFifftn">ifftn</a>, <a href="Signal-Processing.html#XREFfftw">fftw</a>.
 </p></dd></dl>
 
 
@@ -128,7 +128,7 @@ size of <var>A</var>, <var>A</var> is resized and padded with zeros.
 <p>If <var>A</var> is a multi-dimensional matrix, each two-dimensional sub-matrix
 of <var>A</var> is treated separately.
 </p>
-<p><strong>See also:</strong> <a href="#XREFifft2">ifft2</a>, <a href="#XREFfft">fft</a>, <a href="#XREFfftn">fftn</a>, <a href="#XREFfftw">fftw</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFifft2">ifft2</a>, <a href="Signal-Processing.html#XREFfft">fft</a>, <a href="Signal-Processing.html#XREFfftn">fftn</a>, <a href="Signal-Processing.html#XREFfftw">fftw</a>.
 </p></dd></dl>
 
 
@@ -145,7 +145,7 @@ size of <var>A</var>, <var>A</var> is resized and padded with zeros.
 <p>If <var>A</var> is a multi-dimensional matrix, each two-dimensional sub-matrix
 of <var>A</var> is treated separately
 </p>
-<p><strong>See also:</strong> <a href="#XREFfft2">fft2</a>, <a href="#XREFifft">ifft</a>, <a href="#XREFifftn">ifftn</a>, <a href="#XREFfftw">fftw</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfft2">fft2</a>, <a href="Signal-Processing.html#XREFifft">ifft</a>, <a href="Signal-Processing.html#XREFifftn">ifftn</a>, <a href="Signal-Processing.html#XREFfftw">fftw</a>.
 </p></dd></dl>
 
 
@@ -162,7 +162,7 @@ truncated prior to performing the FFT.  Otherwise, if an element of
 <var>size</var> is larger than the corresponding dimension then <var>A</var> is
 resized and padded with zeros.
 </p>
-<p><strong>See also:</strong> <a href="#XREFifftn">ifftn</a>, <a href="#XREFfft">fft</a>, <a href="#XREFfft2">fft2</a>, <a href="#XREFfftw">fftw</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFifftn">ifftn</a>, <a href="Signal-Processing.html#XREFfft">fft</a>, <a href="Signal-Processing.html#XREFfft2">fft2</a>, <a href="Signal-Processing.html#XREFfftw">fftw</a>.
 </p></dd></dl>
 
 
@@ -179,7 +179,7 @@ truncated prior to performing the inverse FFT.  Otherwise, if an element of
 <var>size</var> is larger than the corresponding dimension then <var>A</var> is
 resized and padded with zeros.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfftn">fftn</a>, <a href="#XREFifft">ifft</a>, <a href="#XREFifft2">ifft2</a>, <a href="#XREFfftw">fftw</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfftn">fftn</a>, <a href="Signal-Processing.html#XREFifft">ifft</a>, <a href="Signal-Processing.html#XREFifft2">ifft2</a>, <a href="Signal-Processing.html#XREFfftw">fftw</a>.
 </p></dd></dl>
 
 
@@ -293,7 +293,7 @@ this feature.  The number of processors available to the current process is
 used per default.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFfft">fft</a>, <a href="#XREFifft">ifft</a>, <a href="#XREFfft2">fft2</a>, <a href="#XREFifft2">ifft2</a>, <a href="#XREFfftn">fftn</a>, <a href="#XREFifftn">ifftn</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfft">fft</a>, <a href="Signal-Processing.html#XREFifft">ifft</a>, <a href="Signal-Processing.html#XREFfft2">fft2</a>, <a href="Signal-Processing.html#XREFifft2">ifft2</a>, <a href="Signal-Processing.html#XREFfftn">fftn</a>, <a href="Signal-Processing.html#XREFifftn">ifftn</a>.
 </p></dd></dl>
 
 
@@ -328,7 +328,7 @@ the length of <var>b</var>.  If the specified <var>n</var> does not meet these
 criteria, it is automatically adjusted to the nearest value that does.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFfilter">filter</a>, <a href="#XREFfilter2">filter2</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfilter">filter</a>, <a href="Signal-Processing.html#XREFfilter2">filter2</a>.
 </p></dd></dl>
 
 
@@ -388,7 +388,7 @@ H(z) = ---------------------
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFfilter2">filter2</a>, <a href="#XREFfftfilt">fftfilt</a>, <a href="#XREFfreqz">freqz</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfilter2">filter2</a>, <a href="Signal-Processing.html#XREFfftfilt">fftfilt</a>, <a href="Signal-Processing.html#XREFfreqz">freqz</a>.
 </p></dd></dl>
 
 
@@ -465,7 +465,7 @@ The values for <var>w</var> are measured in radians.
 <p>Plot the magnitude and phase response of <var>h</var> rather than returning them.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFfreqz_005fplot">freqz_plot</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfreqz_005fplot">freqz_plot</a>.
 </p></dd></dl>
 
 
@@ -478,7 +478,7 @@ The values for <var>w</var> are measured in radians.
 <var>w</var> is in units of normalized radians.  If <var>freq_norm</var> is false, or
 not given, then <var>w</var> is measured in Hertz.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfreqz">freqz</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfreqz">freqz</a>.
 </p></dd></dl>
 
 
@@ -742,7 +742,7 @@ is an array, then the same holds along each dimension.
 <p>The optional <var>dim</var> argument can be used to limit the dimension along
 which the permutation occurs.
 </p>
-<p><strong>See also:</strong> <a href="#XREFifftshift">ifftshift</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFifftshift">ifftshift</a>.
 </p></dd></dl>
 
 
@@ -754,7 +754,7 @@ which the permutation occurs.
 <p>For even length <var>x</var>, <code>fftshift</code> is its own inverse, but odd lengths
 differ slightly.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfftshift">fftshift</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfftshift">fftshift</a>.
 </p></dd></dl>
 
 
@@ -900,7 +900,7 @@ one-sided calculations.  For two-sided calculations the range will be
 <p>When called with no outputs the periodogram is immediately plotted in the
 current figure window.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfft">fft</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFfft">fft</a>.
 </p></dd></dl>
 
 
@@ -913,7 +913,7 @@ seconds at sampling rate <var>rate</var> and with amplitude <var>ampl</var>.
 </p>
 <p>The defaults are <var>rate</var> = 8000, <var>sec</var> = 1, and <var>ampl</var> = 64.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsinewave">sinewave</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFsinewave">sinewave</a>.
 </p></dd></dl>
 
 
@@ -925,7 +925,7 @@ seconds at sampling rate <var>rate</var> and with amplitude <var>ampl</var>.
 <p>The default value for <var>d</var> is 0 and the default value for <var>n</var> is
 <var>m</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsinetone">sinetone</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFsinetone">sinetone</a>.
 </p></dd></dl>
 
 
@@ -943,7 +943,7 @@ used to search for a function called <code><var>win</var>_lw</code>.
 </p>
 <p>If <var>b</var> is omitted, <code>1 / sqrt (length (<var>x</var>))</code> is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFspectral_005fxdf">spectral_xdf</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFspectral_005fxdf">spectral_xdf</a>.
 </p></dd></dl>
 
 
@@ -961,7 +961,7 @@ search for a function called <code><var>win</var>_sw</code>.
 </p>
 <p>If <var>b</var> is omitted, <code>1 / sqrt (length (<var>x</var>))</code> is used.
 </p>
-<p><strong>See also:</strong> <a href="#XREFspectral_005fadf">spectral_adf</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFspectral_005fadf">spectral_adf</a>.
 </p></dd></dl>
 
 
@@ -1014,7 +1014,7 @@ STFT-matrix <var>y</var> and a 3-element vector <var>c</var> containing the wind
 size, increment, and window type, which is needed by the <code>synthesis</code>
 function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsynthesis">synthesis</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFsynthesis">synthesis</a>.
 </p></dd></dl>
 
 
@@ -1029,7 +1029,7 @@ function.
 <pre class="example">[<var>y</var>, <var>c</var>] = stft (<var>x</var> , &hellip;)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFstft">stft</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFstft">stft</a>.
 </p></dd></dl>
 
 
@@ -1041,7 +1041,6 @@ autocovariances <code>[gamma_0, &hellip;, gamma_p]</code>.
 <p>Returns the AR coefficients, <var>a</var>, and the variance of white noise,
 <var>v</var>.
 </p></dd></dl>
-
 
 
 

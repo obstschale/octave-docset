@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Special Functions</title>
+<title>GNU Octave: Special Functions</title>
 
 <meta name="description" content="GNU Octave: Special Functions">
 <meta name="keywords" content="GNU Octave: Special Functions">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -180,10 +180,10 @@ return <code>NaN</code>.
 
 <p>The Beta function can grow quite large and it is often more useful to work
 with the logarithm of the output rather than the function directly.
-See <a href="#XREFbetaln">betaln</a>, for computing the logarithm of the Beta function
+See <a href="Special-Functions.html#XREFbetaln">betaln</a>, for computing the logarithm of the Beta function
 in an efficient manner.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbetaln">betaln</a>, <a href="#XREFbetainc">betainc</a>, <a href="#XREFbetaincinv">betaincinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbetaln">betaln</a>, <a href="Special-Functions.html#XREFbetainc">betainc</a>, <a href="Special-Functions.html#XREFbetaincinv">betaincinv</a>.
 </p></dd></dl>
 
 
@@ -206,7 +206,7 @@ betainc (x, a, b) = -----------   | t^(a-1) (1-t)^(b-1) dt.
 scalars.  If <var>x</var> is a scalar, <var>a</var> and <var>b</var> must be of
 compatible dimensions.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbetaincinv">betaincinv</a>, <a href="#XREFbeta">beta</a>, <a href="#XREFbetaln">betaln</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbetaincinv">betaincinv</a>, <a href="Special-Functions.html#XREFbeta">beta</a>, <a href="Special-Functions.html#XREFbetaln">betaln</a>.
 </p></dd></dl>
 
 
@@ -220,7 +220,7 @@ compatible dimensions.
 <pre class="example"><var>y</var> == betainc (<var>x</var>, <var>a</var>, <var>b</var>)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFbetainc">betainc</a>, <a href="#XREFbeta">beta</a>, <a href="#XREFbetaln">betaln</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbetainc">betainc</a>, <a href="Special-Functions.html#XREFbeta">beta</a>, <a href="Special-Functions.html#XREFbetaln">betaln</a>.
 </p></dd></dl>
 
 
@@ -240,7 +240,7 @@ and <var>b</var>.
 <p>The Beta function can grow quite large and it is often more useful to work
 with the logarithm of the output rather than the function directly.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbeta">beta</a>, <a href="#XREFbetainc">betainc</a>, <a href="#XREFbetaincinv">betaincinv</a>, <a href="#XREFgammaln">gammaln</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFbeta">beta</a>, <a href="Special-Functions.html#XREFbetainc">betainc</a>, <a href="Special-Functions.html#XREFbetaincinv">betaincinv</a>, <a href="Special-Functions.html#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 
@@ -323,7 +323,7 @@ Calculus with Applications in Statistics and Econometrics.</cite>
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
@@ -362,7 +362,7 @@ return <code>NaN</code>.
 and 16.15), Dover, 1965.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFellipke">ellipke</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFellipke">ellipke</a>.
 </p></dd></dl>
 
 
@@ -411,7 +411,7 @@ E (m) = |  ------------------ dt
 <p>Reference: Milton Abramowitz and Irene A. Stegun,
 <cite>Handbook of Mathematical Functions</cite>, Chapter 17, Dover, 1965.
 </p>
-<p><strong>See also:</strong> <a href="#XREFellipj">ellipj</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFellipj">ellipj</a>.
 </p></dd></dl>
 
 
@@ -430,7 +430,7 @@ erf (z) = --------- *  | e^(-t^2) dt
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
@@ -441,7 +441,7 @@ erf (z) = --------- *  | e^(-t^2) dt
 <p>The complementary error function is defined as
 <code>1&nbsp;<span class="nolinebreak">-</span>&nbsp;erf&nbsp;(<var>z</var>)</code><!-- /@w -->.
 </p>
-<p><strong>See also:</strong> <a href="#XREFerfcinv">erfcinv</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfinv">erfinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>.
 </p></dd></dl>
 
 
@@ -456,7 +456,7 @@ erf (z) = --------- *  | e^(-t^2) dt
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
@@ -471,7 +471,7 @@ erf (z) = --------- *  | e^(-t^2) dt
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>, <a href="#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
@@ -485,7 +485,7 @@ erf (z) = --------- *  | e^(-t^2) dt
 <pre class="example">erf (<var>y</var>) == <var>x</var>
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFerf">erf</a>, <a href="#XREFerfc">erfc</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfcinv">erfcinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfcinv">erfcinv</a>.
 </p></dd></dl>
 
 
@@ -499,7 +499,7 @@ erf (z) = --------- *  | e^(-t^2) dt
 <pre class="example">erfc (<var>y</var>) == <var>x</var>
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFerfc">erfc</a>, <a href="#XREFerf">erf</a>, <a href="#XREFerfcx">erfcx</a>, <a href="#XREFerfi">erfi</a>, <a href="#XREFdawson">dawson</a>, <a href="#XREFerfinv">erfinv</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFerfc">erfc</a>, <a href="Special-Functions.html#XREFerf">erf</a>, <a href="Special-Functions.html#XREFerfcx">erfcx</a>, <a href="Special-Functions.html#XREFerfi">erfi</a>, <a href="Special-Functions.html#XREFdawson">dawson</a>, <a href="Special-Functions.html#XREFerfinv">erfinv</a>.
 </p></dd></dl>
 
 
@@ -553,7 +553,7 @@ logarithm of the gamma function (<code>gammaln</code>) in calculations to minimi
 loss of precision.  The final result is then
 <code>exp (<var>result_using_gammaln</var>).</code>
 </p>
-<p><strong>See also:</strong> <a href="#XREFgammainc">gammainc</a>, <a href="#XREFgammaln">gammaln</a>, <a href="Utility-Functions.html#XREFfactorial">factorial</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgammainc">gammainc</a>, <a href="Special-Functions.html#XREFgammaln">gammaln</a>, <a href="Utility-Functions.html#XREFfactorial">factorial</a>.
 </p></dd></dl>
 
 
@@ -591,7 +591,7 @@ integrated from <var>x</var> to infinity is calculated.  It should be noted that
 <pre class="example">gammainc (<var>x</var>, <var>a</var>) &equiv; 1 - gammainc (<var>x</var>, <var>a</var>, &quot;upper&quot;)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFgamma">gamma</a>, <a href="#XREFgammaln">gammaln</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgamma">gamma</a>, <a href="Special-Functions.html#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 
@@ -692,7 +692,7 @@ NP(x) = P(x) * (-1)  * [-------------]
 <dt><a name="index-lgamma"></a>: <em></em> <strong>lgamma</strong> <em>(<var>x</var>)</em></dt>
 <dd><p>Return the natural logarithm of the gamma function of <var>x</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFgamma">gamma</a>, <a href="#XREFgammainc">gammainc</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgamma">gamma</a>, <a href="Special-Functions.html#XREFgammainc">gammainc</a>.
 </p></dd></dl>
 
 
@@ -719,7 +719,7 @@ can have any value real or complex value.  However, for polygamma functions
 (<var>k</var> higher than 0), <var>z</var> must be real and non-negative.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFgamma">gamma</a>, <a href="#XREFgammainc">gammainc</a>, <a href="#XREFgammaln">gammaln</a>.
+<p><strong>See also:</strong> <a href="Special-Functions.html#XREFgamma">gamma</a>, <a href="Special-Functions.html#XREFgammainc">gammainc</a>, <a href="Special-Functions.html#XREFgammaln">gammaln</a>.
 </p></dd></dl>
 
 

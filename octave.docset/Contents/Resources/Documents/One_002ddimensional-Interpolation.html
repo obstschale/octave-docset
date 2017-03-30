@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>One-dimensional Interpolation</title>
+<title>GNU Octave: One-dimensional Interpolation</title>
 
 <meta name="description" content="GNU Octave: One-dimensional Interpolation">
 <meta name="keywords" content="GNU Octave: One-dimensional Interpolation">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -158,7 +158,7 @@ legend (&quot;original&quot;, &quot;nearest&quot;, &quot;linear&quot;, &quot;pch
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFpchip">pchip</a>, <a href="#XREFspline">spline</a>, <a href="#XREFinterpft">interpft</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp3">interp3</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterpn">interpn</a>.
+<p><strong>See also:</strong> <a href="Signal-Processing.html#XREFpchip">pchip</a>, <a href="One_002ddimensional-Interpolation.html#XREFspline">spline</a>, <a href="One_002ddimensional-Interpolation.html#XREFinterpft">interpft</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp3">interp3</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterpn">interpn</a>.
 </p></dd></dl>
 
 
@@ -191,8 +191,8 @@ plot (ti,ddys,&quot;r+&quot;, ti,ddyp,&quot;g*&quot;);
 legend (&quot;spline&quot;, &quot;pchip&quot;);
 </pre></div>
 
-<p>The result of which can be seen in <a href="#fig_003ainterpderiv1">Figure 29.1</a> and
-<a href="#fig_003ainterpderiv2">Figure 29.2</a>.
+<p>The result of which can be seen in <a href="One_002ddimensional-Interpolation.html#fig_003ainterpderiv1">Figure 29.1</a> and
+<a href="One_002ddimensional-Interpolation.html#fig_003ainterpderiv2">Figure 29.2</a>.
 </p>
 <div class="float"><a name="fig_003ainterpderiv1"></a>
 <div align="center"><img src="interpderiv1.png" alt="interpderiv1">
@@ -224,7 +224,7 @@ N-dimensional array, the interpolation is performed on each column of
 <p><code>interpft</code> assumes that the interpolated function is periodic, and so
 assumptions are made about the endpoints of the interpolation.
 </p>
-<p><strong>See also:</strong> <a href="#XREFinterp1">interp1</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>.
 </p></dd></dl>
 
 
@@ -246,7 +246,7 @@ legend (&quot;sin(4t+0.3)cos(3t-0.1)&quot;, &quot;spline&quot;, &quot;interpft&q
 </pre></div>
 
 <p>which demonstrates the poor behavior of Fourier interpolation for non-periodic
-functions, as can be seen in <a href="#fig_003ainterpft">Figure 29.3</a>.
+functions, as can be seen in <a href="One_002ddimensional-Interpolation.html#fig_003ainterpft">Figure 29.3</a>.
 </p>
 <div class="float"><a name="fig_003ainterpft"></a>
 <div align="center"><img src="interpft.png" alt="interpft">

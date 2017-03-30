@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Cell Arrays with Mex-Files</title>
+<title>GNU Octave: Cell Arrays with Mex-Files</title>
 
 <meta name="description" content="GNU Octave: Cell Arrays with Mex-Files">
 <meta name="keywords" content="GNU Octave: Cell Arrays with Mex-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,10 +58,9 @@ Next: <a href="Structures-with-Mex_002dFiles.html#Structures-with-Mex_002dFiles"
 <a name="Cell-Arrays-with-Mex_002dFiles-1"></a>
 <h4 class="subsection">A.2.4 Cell Arrays with Mex-Files</h4>
 
-<p>One can perform exactly the same operations on Cell arrays in mex-files
-as in oct-files.  An example that reduplicates the function of
-the <samp>celldemo.cc</samp> oct-file in a mex-file is given by <samp>mycell.c</samp>
-as shown below.
+<p>One can perform exactly the same operations on Cell arrays in mex-files as in
+oct-files.  An example that duplicates the function of the <samp>celldemo.cc</samp>
+oct-file in a mex-file is given by <samp>mycell.c</samp> as shown below.
 </p>
 <div class="example">
 <pre class="verbatim">#include &quot;mex.h&quot;
@@ -97,10 +96,10 @@ b2 =
 b3 = test
 </pre></div>
 
-<p>Note in the example the use of the <code>mxDuplicateArray</code> function.  This
-is needed as the <code>mxArray</code> pointer returned by <code>mxGetCell</code>
-might be deallocated.  The inverse function to <code>mxGetCell</code>, used for
-setting Cell values, is <code>mxSetCell</code> and is defined as
+<p>Note in the example the use of the <code>mxDuplicateArray</code> function.  This is
+needed as the <code>mxArray</code> pointer returned by <code>mxGetCell</code> might be
+deallocated.  The inverse function to <code>mxGetCell</code>, used for setting Cell
+values, is <code>mxSetCell</code> and is defined as
 </p>
 <div class="example">
 <pre class="example">void mxSetCell (mxArray *ptr, int idx, mxArray *val);

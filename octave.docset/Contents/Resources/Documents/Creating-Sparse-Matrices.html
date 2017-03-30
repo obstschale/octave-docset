@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Creating Sparse Matrices</title>
+<title>GNU Octave: Creating Sparse Matrices</title>
 
 <meta name="description" content="GNU Octave: Creating Sparse Matrices">
 <meta name="keywords" content="GNU Octave: Creating Sparse Matrices">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -161,7 +161,7 @@ positive values of <var>d</var> diagonals above the main diagonal.
 <var>m</var>-by-<var>m</var> is created.  If called with a single vector argument
 <var>sz</var>, this argument is taken to be the size of the matrix to create.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>, <a href="#XREFspdiags">spdiags</a>, <a href="Special-Utility-Matrices.html#XREFeye">eye</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>, <a href="Creating-Sparse-Matrices.html#XREFspdiags">spdiags</a>, <a href="Special-Utility-Matrices.html#XREFeye">eye</a>.
 </p></dd></dl>
 
 
@@ -171,7 +171,7 @@ positive values of <var>d</var> diagonals above the main diagonal.
 </p>
 <p>This creates a sparse matrix with the same structure as <var>S</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>, <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandn">sprandn</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="Function-Application.html#XREFspfun">spfun</a>, <a href="Information.html#XREFspy">spy</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>, <a href="Creating-Sparse-Matrices.html#XREFsprand">sprand</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandn">sprandn</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandsym">sprandsym</a>, <a href="Function-Application.html#XREFspfun">spfun</a>, <a href="Information.html#XREFspy">spy</a>.
 </p></dd></dl>
 
 
@@ -194,7 +194,7 @@ a vector, then it specifies the first singular values of the generated
 matrix (<code>length (<var>rc</var>) &lt;= min (<var>m</var>, <var>n</var>)</code>).
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFsprandn">sprandn</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="Special-Utility-Matrices.html#XREFrand">rand</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsprandn">sprandn</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandsym">sprandsym</a>, <a href="Special-Utility-Matrices.html#XREFrand">rand</a>.
 </p></dd></dl>
 
 
@@ -217,7 +217,7 @@ a vector, then it specifies the first singular values of the generated
 matrix (<code>length (<var>rc</var>) &lt;= min (<var>m</var>, <var>n</var>)</code>).
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsprand">sprand</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandsym">sprandsym</a>, <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>.
 </p></dd></dl>
 
 
@@ -233,7 +233,7 @@ be normally distributed with a mean of zero and a variance of 1.
 <p>If called with a single matrix argument, a random sparse matrix is generated
 wherever the matrix <var>s</var> is nonzero in its lower triangular part.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandn">sprandn</a>, <a href="#XREFspones">spones</a>, <a href="#XREFsparse">sparse</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsprand">sprand</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandn">sprandn</a>, <a href="Creating-Sparse-Matrices.html#XREFspones">spones</a>, <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 
@@ -299,7 +299,7 @@ number of memory allocations.
 <dd><p>Return a full storage matrix from a sparse, diagonal, or permutation matrix,
 or a range.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>, <a href="Information.html#XREFissparse">issparse</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>, <a href="Information.html#XREFissparse">issparse</a>.
 </p></dd></dl>
 
 
@@ -338,7 +338,7 @@ contiguous block of columns.
 <p>The amount of pre-allocated memory for a given matrix may be queried using
 the function <code>nzmax</code>.
 </p>
-<p><strong>See also:</strong> <a href="Information.html#XREFnzmax">nzmax</a>, <a href="#XREFsparse">sparse</a>.
+<p><strong>See also:</strong> <a href="Information.html#XREFnzmax">nzmax</a>, <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 
@@ -403,7 +403,7 @@ Compressed Column Sparse (rows = 3, cols = 4, nnz = 2 [17%])
   (2, 2) -&gt;  5
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFfull">full</a>, <a href="Accumulation.html#XREFaccumarray">accumarray</a>, <a href="#XREFspalloc">spalloc</a>, <a href="#XREFspdiags">spdiags</a>, <a href="#XREFspeye">speye</a>, <a href="#XREFspones">spones</a>, <a href="#XREFsprand">sprand</a>, <a href="#XREFsprandn">sprandn</a>, <a href="#XREFsprandsym">sprandsym</a>, <a href="#XREFspconvert">spconvert</a>, <a href="Function-Application.html#XREFspfun">spfun</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFfull">full</a>, <a href="Accumulation.html#XREFaccumarray">accumarray</a>, <a href="Creating-Sparse-Matrices.html#XREFspalloc">spalloc</a>, <a href="Creating-Sparse-Matrices.html#XREFspdiags">spdiags</a>, <a href="Creating-Sparse-Matrices.html#XREFspeye">speye</a>, <a href="Creating-Sparse-Matrices.html#XREFspones">spones</a>, <a href="Creating-Sparse-Matrices.html#XREFsprand">sprand</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandn">sprandn</a>, <a href="Creating-Sparse-Matrices.html#XREFsprandsym">sprandsym</a>, <a href="Creating-Sparse-Matrices.html#XREFspconvert">spconvert</a>, <a href="Function-Application.html#XREFspfun">spfun</a>.
 </p></dd></dl>
 
 
@@ -417,7 +417,7 @@ row, column, real, and imaginary parts of the elements of the sparse
 matrix.  An element with a zero real and imaginary part can be used to
 force a particular matrix size.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsparse">sparse</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFsparse">sparse</a>.
 </p></dd></dl>
 
 

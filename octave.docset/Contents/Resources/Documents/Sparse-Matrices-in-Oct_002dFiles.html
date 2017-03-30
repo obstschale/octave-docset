@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Sparse Matrices in Oct-Files</title>
+<title>GNU Octave: Sparse Matrices in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Sparse Matrices in Oct-Files">
 <meta name="keywords" content="GNU Octave: Sparse Matrices in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -74,20 +74,19 @@ Next: <a href="Accessing-Global-Variables-in-Oct_002dFiles.html#Accessing-Global
 </p></dd>
 </dl>
 
-<p>All of these classes inherit from the <code>Sparse&lt;T&gt;</code> template class,
-and so all have similar capabilities and usage.  The <code>Sparse&lt;T&gt;</code>
-class was based on Octave&rsquo;s <code>Array&lt;T&gt;</code> class, and so users familiar
-with Octave&rsquo;s <code>Array</code> classes will be comfortable with the use of
-the sparse classes.
+<p>All of these classes inherit from the <code>Sparse&lt;T&gt;</code> template class, and so
+all have similar capabilities and usage.  The <code>Sparse&lt;T&gt;</code> class was based
+on Octave&rsquo;s <code>Array&lt;T&gt;</code> class and users familiar with Octave&rsquo;s
+<code>Array</code> classes will be comfortable with the use of the sparse classes.
 </p>
-<p>The sparse classes will not be entirely described in this section, due
-to their similarity with the existing <code>Array</code> classes.  However,
-there are a few differences due the different nature of sparse objects,
-and these will be described.  First, although it is fundamentally
-possible to have N-dimensional sparse objects, the Octave sparse classes do
-not allow them at this time; All instances of the sparse classes
-must be 2-dimensional.  This means that <code>SparseMatrix</code> is actually
-more similar to Octave&rsquo;s <code>Matrix</code> class than its <code>NDArray</code> class.
+<p>The sparse classes will not be entirely described in this section, due to their
+similarity with the existing <code>Array</code> classes.  However, there are a few
+differences due the nature of sparse objects, and these will be described.
+First, although it is fundamentally possible to have N-dimensional sparse
+objects, the Octave sparse classes do not allow them at this time; All
+instances of the sparse classes <strong>must</strong> be 2-dimensional.  This means
+that <code>SparseMatrix</code> is actually more similar to Octave&rsquo;s <code>Matrix</code>
+class than it is to the <code>NDArray</code> class.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="Array-and-Sparse-Class-Differences.html#Array-and-Sparse-Class-Differences" accesskey="1">Array and Sparse Class Differences</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">

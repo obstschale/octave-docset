@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Function Files</title>
+<title>GNU Octave: Function Files</title>
 
 <meta name="description" content="GNU Octave: Function Files">
 <meta name="keywords" content="GNU Octave: Function Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -57,7 +57,7 @@ Next: <a href="Script-Files.html#Script-Files" accesskey="n" rel="next">Script F
 <hr>
 <a name="Function-Files-1"></a>
 <h3 class="section">11.9 Function Files</h3>
-<a name="index-function-file-1"></a>
+<a name="index-function-file"></a>
 
 <p>Except for simple one-shot programs, it is not practical to have to
 define all the functions you need each time you need them.  Instead, you
@@ -73,7 +73,7 @@ for variables or functions that are already compiled and currently
 listed in its symbol table.  If it fails to find a definition there, it
 searches a list of directories (the <em>path</em>) for files ending in
 <samp>.m</samp> that have the same base name as the undefined
-identifier.<a name="DOCF5" href="#FOOT5"><sup>5</sup></a>  Once Octave finds a file with a name that matches,
+identifier.<a name="DOCF5" href="Function-Files.html#FOOT5"><sup>5</sup></a>  Once Octave finds a file with a name that matches,
 the contents of the file are read.  If it defines a <em>single</em>
 function, it is compiled and executed.  See <a href="Script-Files.html#Script-Files">Script Files</a>, for more
 information about how you can define more than one function in a single
@@ -271,7 +271,7 @@ determine whether functions defined in function files need to recompiled.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT5" href="#DOCF5">(5)</a></h3>
+<h3><a name="FOOT5" href="Function-Files.html#DOCF5">(5)</a></h3>
 <p>The &lsquo;<samp>.m</samp>&rsquo; suffix was chosen for compatibility
 with <small>MATLAB</small>.</p>
 </div>

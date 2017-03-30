@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Array and Sparse Class Differences</title>
+<title>GNU Octave: Array and Sparse Class Differences</title>
 
 <meta name="description" content="GNU Octave: Array and Sparse Class Differences">
 <meta name="keywords" content="GNU Octave: Array and Sparse Class Differences">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -59,50 +59,50 @@ Next: <a href="Creating-Sparse-Matrices-in-Oct_002dFiles.html#Creating-Sparse-Ma
 <h4 class="subsubsection">A.1.6.1 Array and Sparse Class Differences</h4>
 
 <p>The number of elements in a sparse matrix is considered to be the number
-of nonzero elements rather than the product of the dimensions.  Therefore
+of nonzero elements, rather than the product of the dimensions.  Therefore,
 </p>
 <div class="example">
 <pre class="example">SparseMatrix sm;
 &hellip;
-int nel = sm.nelem ();
+int nnz = sm.nelem ();
 </pre></div>
 
-<p>returns the number of nonzero elements.  If the user really requires the
-number of elements in the matrix, including the nonzero elements, they
-should use <code>numel</code> rather than <code>nelem</code>.  Note that for very
-large matrices, where the product of the two dimensions is larger than
-the representation of an unsigned int, then <code>numel</code> can overflow.
-An example is <code>speye (1e6)</code> which will create a matrix with a million
-rows and columns, but only a million nonzero elements.  Therefore the
-number of rows by the number of columns in this case is more than two
-hundred times the maximum value that can be represented by an unsigned int.
-The use of <code>numel</code> should therefore be avoided unless it is known
-that it will not overflow.
+<p>returns the number of nonzero elements (like the interpreter function
+<code>nnz</code>).  If the user really requires the number of elements in the matrix,
+including the nonzero elements, they should use <code>numel</code> rather than
+<code>nelem</code>.  Note that for very large matrices, where the product of the two
+dimensions is larger than the representation of an unsigned int, <code>numel</code>
+can overflow.  An example is <code>speye (1e6)</code> which will create a matrix with
+a million rows and columns, but only a million nonzero elements.  In this case,
+the number of rows multiplied by the number of columns is more than two hundred
+times the maximum value that can be represented by an unsigned 32-bit int.  The
+use of <code>numel</code> should, therefore, be avoided unless it is known that it
+will not overflow.
 </p>
-<p>Extreme care must be take with the elem method and the <code>&quot;()&quot;</code> operator,
-which perform basically the same function.  The reason is that if a
-sparse object is non-const, then Octave will assume that a
-request for a zero element in a sparse matrix is in fact a request
-to create this element so it can be filled.  Therefore a piece of
-code like
+<p>Extreme care is also required when using the <code>elem</code> method or the
+<code>()</code> operator which perform essentially the same function.  The reason is
+that if a sparse object is non-const, then Octave will assume that a request
+for a zero element in a sparse matrix is in fact a request to create this
+element so it can be filled.  Therefore, a piece of code like
 </p>
 <div class="example">
 <pre class="example">SparseMatrix sm;
 &hellip;
 for (int j = 0; j &lt; nc; j++)
   for (int i = 0; i &lt; nr; i++)
-    std::cerr &lt;&lt; &quot; (&quot; &lt;&lt; i &lt;&lt; &quot;,&quot; &lt;&lt; j &lt;&lt; &quot;): &quot; &lt;&lt; sm(i,j) &lt;&lt; std::endl;
+    std::cerr &lt;&lt; &quot; (&quot; &lt;&lt; i &lt;&lt; &quot;,&quot; &lt;&lt; j &lt;&lt; &quot;): &quot; &lt;&lt; sm(i,j) &lt;&lt; &quot;\n&quot;;
 </pre></div>
 
-<p>is a great way of turning the sparse matrix into a dense one, and a
-very slow way at that since it reallocates the sparse object at each
-zero element in the matrix.
+<p>is a great way of turning a sparse matrix into a dense one, and a very slow
+way at that since it reallocates the sparse object for each zero element in the
+matrix.
 </p>
-<p>An easy way of preventing the above from happening is to create a temporary
-constant version of the sparse matrix.  Note that only the container for
-the sparse matrix will be copied, while the actual representation of the
-data will be shared between the two versions of the sparse matrix.  So this
-is not a costly operation.  For example, the above would become
+<p>A simple way of preventing the above from happening is to create a temporary
+constant version of the sparse matrix.  Note that only the container for the
+sparse matrix will be copied, while the actual representation of the data will
+be shared between the two versions of the sparse matrix; This is not a costly
+operation.  The example above, re-written to prevent sparse-to-dense
+conversion, is
 </p>
 <div class="example">
 <pre class="example">SparseMatrix sm;
@@ -110,17 +110,17 @@ is not a costly operation.  For example, the above would become
 const SparseMatrix tmp (sm);
 for (int j = 0; j &lt; nc; j++)
   for (int i = 0; i &lt; nr; i++)
-    std::cerr &lt;&lt; &quot; (&quot; &lt;&lt; i &lt;&lt; &quot;,&quot; &lt;&lt; j &lt;&lt; &quot;): &quot; &lt;&lt; tmp(i,j) &lt;&lt; std::endl;
+    std::cerr &lt;&lt; &quot; (&quot; &lt;&lt; i &lt;&lt; &quot;,&quot; &lt;&lt; j &lt;&lt; &quot;): &quot; &lt;&lt; tmp(i,j) &lt;&lt; &quot;\n&quot;;
 </pre></div>
 
-<p>Finally, as the sparse types aren&rsquo;t represented by a contiguous
-block of memory, the <code>fortran_vec</code> method of the <code>Array&lt;T&gt;</code>
-is not available.  It is, however, replaced by three separate methods
-<code>ridx</code>, <code>cidx</code> and <code>data</code>, that access the raw compressed
-column format that Octave sparse matrices are stored in.  These methods can be
-used in a manner similar to <code>elem</code> to allow the matrix to be accessed or
-filled.  However, in that case it is up to the user to respect the sparse
-matrix compressed column format.
+<p>Finally, because the sparse types aren&rsquo;t represented by a contiguous block of
+memory, the <code>fortran_vec</code> method of <code>Array&lt;T&gt;</code> is not
+available.  It is, however, replaced by three separate methods <code>ridx</code>,
+<code>cidx</code>, and <code>data</code>, that access the raw compressed column format that
+Octave sparse matrices are stored in.  These methods can be used in a manner
+similar to <code>elem</code> to allow the matrix to be accessed or filled.  However,
+it is up to the user to respect the sparse matrix compressed column format or
+the matrix will become corrupted.
 </p>
 <hr>
 <div class="header">

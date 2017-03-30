@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Figure Properties</title>
+<title>GNU Octave: Figure Properties</title>
 
 <meta name="description" content="GNU Octave: Figure Properties">
 <meta name="keywords" content="GNU Octave: Figure Properties">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -92,8 +92,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigurebuttondownfcn"></a><a name="index-figure-buttondownfcn"></a>
 </dd>
 <dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurechildren"></a><a name="index-figure-children"></a>
 </dd>
@@ -110,8 +110,10 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigurecloserequestfcn"></a><a name="index-figure-closerequestfcn"></a>
 </dd>
 <dt><code>closerequestfcn</code>: string | function handle, def. <code>&quot;closereq&quot;</code></dt>
-<dd>
-
+<dd><p>Function that is executed when a figure is deleted.  See <a href="Manipulation-of-Plot-Windows.html#XREFclosereq">closereq function</a>.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurecolor"></a><a name="index-figure-color"></a>
 </dd>
@@ -129,6 +131,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 </dd>
 <dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately after figure has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultfigurecreatefcn&quot;, 'disp (&quot;figure created!&quot;)')</code>.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
 </p>
 
 <a name="XREFfigurecurrentaxes"></a><a name="index-figure-currentaxes"></a>
@@ -172,6 +176,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 </dd>
 <dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately before figure is deleted.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
 </p>
 
 <a name="XREFfiguredockcontrols"></a><a name="index-figure-dockcontrols"></a>
@@ -225,8 +231,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigurekeypressfcn"></a><a name="index-figure-keypressfcn"></a>
 </dd>
 <dt><code>keypressfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>Callback function executed when a keystroke event happens while the figure has focus. The actual key that was pressed can be retrieved using the second argument &rsquo;evt&rsquo; of the function.  For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurekeyreleasefcn"></a><a name="index-figure-keyreleasefcn"></a>
 </dd>
@@ -244,11 +250,13 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 </p></dd>
 </dl>
 
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfiguremenubar"></a><a name="index-figure-menubar"></a>
 </dd>
 <dt><code>menubar</code>: {<code>&quot;figure&quot;</code>} | <code>&quot;none&quot;</code></dt>
-<dd><p>Control the display of the figure menu bar in the upper left of the figure.
+<dd><p>Control the display of the figure menu bar at the top of the figure.
 </p>
 
 <a name="XREFfigurename"></a><a name="index-figure-name"></a>
@@ -260,8 +268,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigurenextplot"></a><a name="index-figure-nextplot"></a>
 </dd>
 <dt><code>nextplot</code>: {<code>&quot;add&quot;</code>} | <code>&quot;new&quot;</code> | <code>&quot;replace&quot;</code> | <code>&quot;replacechildren&quot;</code></dt>
-<dd>
-
+<dd><p><code>nextplot</code> is used by high level plotting functions to decide what to do with axes already present in the figure.  See <a href="Manipulation-of-Plot-Windows.html#XREFnewplot">newplot&nbsp;function<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurenumbertitle"></a><a name="index-figure-numbertitle"></a>
 </dd>
@@ -272,8 +280,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigureouterposition"></a><a name="index-figure-outerposition"></a>
 </dd>
 <dt><code>outerposition</code>: four-element vector, def. <code>[-1  -1  -1  -1]</code></dt>
-<dd>
-
+<dd><p>Specify the position and size of the figure including the top menubar and the bottom status bar.  The four elements of the vector are the coordinates of the lower left corner and width and height of the figure.  See <a href="Figure-Properties.html#XREFfigureunits">units&nbsp;property<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurepaperorientation"></a><a name="index-figure-paperorientation"></a>
 </dd>
@@ -338,20 +346,20 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigureposition"></a><a name="index-figure-position"></a>
 </dd>
 <dt><code>position</code>: four-element vector, def. <code>[300   200   560   420]</code></dt>
-<dd><p>Specify the position and size of the figure.  The four elements of the vector are the coordinates of the lower left corner and width and height of the figure.  See <a href="#XREFfigureunits">units&nbsp;property<!-- /@w --></a>.
+<dd><p>Specify the position and size of the figure canvas.  The four elements of the vector are the coordinates of the lower left corner and width and height of the figure.  See <a href="Figure-Properties.html#XREFfigureunits">units&nbsp;property<!-- /@w --></a>.
 </p>
 
 <a name="XREFfigurerenderer"></a><a name="index-figure-renderer"></a>
 </dd>
 <dt><code>renderer</code>: {<code>&quot;opengl&quot;</code>} | <code>&quot;painters&quot;</code></dt>
-<dd>
-
+<dd><p><code>renderer</code> is unused.
+</p>
 
 <a name="XREFfigurerenderermode"></a><a name="index-figure-renderermode"></a>
 </dd>
 <dt><code>renderermode</code>: {<code>&quot;auto&quot;</code>} | <code>&quot;manual&quot;</code></dt>
-<dd>
-
+<dd><p><code>renderermode</code> is unused.
+</p>
 
 <a name="XREFfigureresize"></a><a name="index-figure-resize"></a>
 </dd>
@@ -388,6 +396,8 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <dt><code>sizechangedfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback triggered when the figure window size is changed.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfiguretag"></a><a name="index-figure-tag"></a>
 </dd>
@@ -398,7 +408,7 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfiguretoolbar"></a><a name="index-figure-toolbar"></a>
 </dd>
 <dt><code>toolbar</code>: {<code>&quot;auto&quot;</code>} | <code>&quot;figure&quot;</code> | <code>&quot;none&quot;</code></dt>
-<dd><p>Control the display of the toolbar along the bottom of the figure window.  When set to <code>&quot;auto&quot;</code>, the display is based on the value of the <code>menubar</code> property.
+<dd><p>Control the display of the toolbar (along the bottom of the menubar) and the status bar.  When set to <code>&quot;auto&quot;</code>, the display is based on the value of the <code>menubar</code> property.
 </p>
 
 <a name="XREFfiguretype"></a><a name="index-figure-type"></a>
@@ -434,13 +444,13 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <a name="XREFfigurewindowbuttondownfcn"></a><a name="index-figure-windowbuttondownfcn"></a>
 </dd>
 <dt><code>windowbuttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd><p>See <a href="#XREFfigurewindowbuttonupfcn">windowbuttonupfcn&nbsp;property<!-- /@w --></a>.
+<dd><p>See <a href="Figure-Properties.html#XREFfigurewindowbuttonupfcn">windowbuttonupfcn&nbsp;property<!-- /@w --></a>.
 </p>
 
 <a name="XREFfigurewindowbuttonmotionfcn"></a><a name="index-figure-windowbuttonmotionfcn"></a>
 </dd>
 <dt><code>windowbuttonmotionfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd><p>See <a href="#XREFfigurewindowbuttonupfcn">windowbuttonupfcn&nbsp;property<!-- /@w --></a>.
+<dd><p>See <a href="Figure-Properties.html#XREFfigurewindowbuttonupfcn">windowbuttonupfcn&nbsp;property<!-- /@w --></a>.
 </p>
 
 <a name="XREFfigurewindowbuttonupfcn"></a><a name="index-figure-windowbuttonupfcn"></a>
@@ -448,24 +458,30 @@ Next: <a href="Axes-Properties.html#Axes-Properties" accesskey="n" rel="next">Ax
 <dt><code>windowbuttonupfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>With <code>windowbuttondownfcn</code> and <code>windowbuttonmotionfcn</code>, the mouse callback functions.  These callback functions are called when a mouse button is pressed, dragged, or released respectively.  When these callback functions are executed, the <code>currentpoint</code> property holds the current coordinates of the cursor.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurewindowkeypressfcn"></a><a name="index-figure-windowkeypressfcn"></a>
 </dd>
 <dt><code>windowkeypressfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>Function that is executed when a key is pressed and the figure has focus.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurewindowkeyreleasefcn"></a><a name="index-figure-windowkeyreleasefcn"></a>
 </dd>
 <dt><code>windowkeyreleasefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>Function that is executed when a key is released and the figure has focus.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFfigurewindowscrollwheelfcn"></a><a name="index-figure-windowscrollwheelfcn"></a>
 </dd>
 <dt><code>windowscrollwheelfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p><code>windowscrollwheelfcn</code> is unused.
+</p>
 
 <a name="XREFfigurewindowstyle"></a><a name="index-figure-windowstyle"></a>
 </dd>

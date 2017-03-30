@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Special Utility Matrices</title>
+<title>GNU Octave: Special Utility Matrices</title>
 
 <meta name="description" content="GNU Octave: Special Utility Matrices">
 <meta name="keywords" content="GNU Octave: Special Utility Matrices">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -101,7 +101,7 @@ the specified type, like
 argument of 1.  Any negative dimensions are treated as zero.  These odd
 definitions are for compatibility with <small>MATLAB</small>.
 </p>
-<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFspeye">speye</a>, <a href="#XREFones">ones</a>, <a href="#XREFzeros">zeros</a>.
+<p><strong>See also:</strong> <a href="Creating-Sparse-Matrices.html#XREFspeye">speye</a>, <a href="Special-Utility-Matrices.html#XREFones">ones</a>, <a href="Special-Utility-Matrices.html#XREFzeros">zeros</a>.
 </p></dd></dl>
 
 
@@ -133,7 +133,7 @@ and defaults to double.  For example:
 <pre class="example">val = ones (m,n, &quot;uint8&quot;)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFzeros">zeros</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFzeros">zeros</a>.
 </p></dd></dl>
 
 
@@ -158,7 +158,7 @@ and defaults to double.  For example:
 <pre class="example">val = zeros (m,n, &quot;uint8&quot;)
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFones">ones</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFones">ones</a>.
 </p></dd></dl>
 
 
@@ -179,7 +179,7 @@ across each dimension <var>m</var>, <var>n</var>, <var>p</var>, &hellip;, in a v
 second argument.
 </p>
 
-<p><strong>See also:</strong> <a href="Broadcasting.html#XREFbsxfun">bsxfun</a>, <a href="Functions-of-a-Matrix.html#XREFkron">kron</a>, <a href="#XREFrepelems">repelems</a>.
+<p><strong>See also:</strong> <a href="Broadcasting.html#XREFbsxfun">bsxfun</a>, <a href="Functions-of-a-Matrix.html#XREFkron">kron</a>, <a href="Special-Utility-Matrices.html#XREFrepelems">repelems</a>.
 </p></dd></dl>
 
 
@@ -204,7 +204,7 @@ for i = 1:columns (<var>r</var>)
 endfor
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFrepmat">repmat</a>, <a href="Rearranging-Matrices.html#XREFcat">cat</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrepmat">repmat</a>, <a href="Rearranging-Matrices.html#XREFcat">cat</a>.
 </p></dd></dl>
 
 
@@ -232,7 +232,7 @@ each row is an independent sequence between
 <p>For compatibility with <small>MATLAB</small>, return the second argument (<var>limit</var>)
 if fewer than two values are requested.
 </p>
-<p><strong>See also:</strong> <a href="#XREFlogspace">logspace</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFlogspace">logspace</a>.
 </p></dd></dl>
 
 
@@ -256,7 +256,7 @@ in order to be compatible with the corresponding <small>MATLAB</small> function.
 <p>Also for compatibility with <small>MATLAB</small>, return the second argument <var>b</var>
 if fewer than two values are requested.
 </p>
-<p><strong>See also:</strong> <a href="#XREFlinspace">linspace</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFlinspace">linspace</a>.
 </p></dd></dl>
 
 
@@ -344,7 +344,7 @@ the <code>&quot;reset&quot;</code> keyword.
 <code>&quot;double&quot;</code> or <code>&quot;single&quot;</code> argument.  These are the only valid
 classes.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrandn">randn</a>, <a href="#XREFrande">rande</a>, <a href="#XREFrandg">randg</a>, <a href="#XREFrandp">randp</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>, <a href="Special-Utility-Matrices.html#XREFrande">rande</a>, <a href="Special-Utility-Matrices.html#XREFrandg">randg</a>, <a href="Special-Utility-Matrices.html#XREFrandp">randp</a>.
 </p></dd></dl>
 
 
@@ -382,7 +382,7 @@ returned by the <code>flintmax</code> function.  For IEEE floating point numbers
 this value is <em>2^{53} - 1</em><!-- /@w -->.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFrand">rand</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrand">rand</a>.
 </p></dd></dl>
 
 
@@ -416,7 +416,7 @@ J. Statistical Software, vol 5, 2000,
 <a href="http://www.jstatsoft.org/v05/i08/">http://www.jstatsoft.org/v05/i08/</a>
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFrand">rand</a>, <a href="#XREFrande">rande</a>, <a href="#XREFrandg">randg</a>, <a href="#XREFrandp">randp</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrand">rand</a>, <a href="Special-Utility-Matrices.html#XREFrande">rande</a>, <a href="Special-Utility-Matrices.html#XREFrandg">randg</a>, <a href="Special-Utility-Matrices.html#XREFrandp">randp</a>.
 </p></dd></dl>
 
 
@@ -450,7 +450,7 @@ J. Statistical Software, vol 5, 2000,
 <a href="http://www.jstatsoft.org/v05/i08/">http://www.jstatsoft.org/v05/i08/</a>
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFrand">rand</a>, <a href="#XREFrandn">randn</a>, <a href="#XREFrandg">randg</a>, <a href="#XREFrandp">randp</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrand">rand</a>, <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>, <a href="Special-Utility-Matrices.html#XREFrandg">randg</a>, <a href="Special-Utility-Matrices.html#XREFrandp">randp</a>.
 </p></dd></dl>
 
 
@@ -507,7 +507,7 @@ Physical Review D 50 p1284, 1994.
 <code>&quot;double&quot;</code> or <code>&quot;single&quot;</code> argument.  These are the only valid
 classes.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrand">rand</a>, <a href="#XREFrandn">randn</a>, <a href="#XREFrande">rande</a>, <a href="#XREFrandg">randg</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrand">rand</a>, <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>, <a href="Special-Utility-Matrices.html#XREFrande">rande</a>, <a href="Special-Utility-Matrices.html#XREFrandg">randg</a>.
 </p></dd></dl>
 
 
@@ -609,7 +609,7 @@ r = r / sum (r)
 <code>&quot;double&quot;</code> or <code>&quot;single&quot;</code> argument.  These are the only valid
 classes.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrand">rand</a>, <a href="#XREFrandn">randn</a>, <a href="#XREFrande">rande</a>, <a href="#XREFrandp">randp</a>.
+<p><strong>See also:</strong> <a href="Special-Utility-Matrices.html#XREFrand">rand</a>, <a href="Special-Utility-Matrices.html#XREFrandn">randn</a>, <a href="Special-Utility-Matrices.html#XREFrande">rande</a>, <a href="Special-Utility-Matrices.html#XREFrandp">randp</a>.
 </p></dd></dl>
 
 
@@ -649,7 +649,7 @@ independent, because the old <code>rande</code>, <code>randg</code> and
 </p>
 <p>The generators are initialized with random states at start-up, so
 that the sequences of random numbers are not the same each time you run
-Octave.<a name="DOCF7" href="#FOOT7"><sup>7</sup></a> If you really do
+Octave.<a name="DOCF7" href="Special-Utility-Matrices.html#FOOT7"><sup>7</sup></a> If you really do
 need to reproduce a sequence of numbers exactly, you can set the state
 or seed to a specific value.
 </p>
@@ -683,7 +683,7 @@ likely.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT7" href="#DOCF7">(7)</a></h3>
+<h3><a name="FOOT7" href="Special-Utility-Matrices.html#DOCF7">(7)</a></h3>
 <p>The old versions of <code>rand</code> and <code>randn</code>
 obtain their initial seeds from the system clock.</p>
 </div>

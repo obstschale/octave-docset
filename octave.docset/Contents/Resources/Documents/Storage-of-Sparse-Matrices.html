@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Storage of Sparse Matrices</title>
+<title>GNU Octave: Storage of Sparse Matrices</title>
 
 <meta name="description" content="GNU Octave: Storage of Sparse Matrices">
 <meta name="keywords" content="GNU Octave: Storage of Sparse Matrices">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -68,7 +68,7 @@ create their own oct-files.
 of the methods have in common is that they attempt to reduce the complexity
 and storage given a priori knowledge of the particular class of problems
 that will be solved.  A good summary of the available techniques for storing
-sparse matrix is given by Saad <a name="DOCF8" href="#FOOT8"><sup>8</sup></a>.
+sparse matrix is given by Saad <a name="DOCF8" href="Storage-of-Sparse-Matrices.html#FOOT8"><sup>8</sup></a>.
 With full matrices, knowledge of the point of an element of the matrix
 within the matrix is implied by its position in the computers memory.
 However, this is not the case for sparse matrices, and so the positions
@@ -81,7 +81,7 @@ easy to grasp, but requires more storage than is strictly needed.
 </p>
 <p>The storage technique used within Octave is the compressed column
 format.  It is similar to the Yale format.
-<a name="DOCF9" href="#FOOT9"><sup>9</sup></a>
+<a name="DOCF9" href="Storage-of-Sparse-Matrices.html#FOOT9"><sup>9</sup></a>
 In this format the position of each element in a row and the data are
 stored as previously.  However, if we assume that all elements in the
 same column are stored adjacent in the computers memory, then we only
@@ -157,11 +157,11 @@ it adds complexity and speed problems elsewhere.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT8" href="#DOCF8">(8)</a></h3>
+<h3><a name="FOOT8" href="Storage-of-Sparse-Matrices.html#DOCF8">(8)</a></h3>
 <p>Y. Saad &quot;SPARSKIT: A basic
 toolkit for sparse matrix computation&quot;, 1994,
 <a href="http://www-users.cs.umn.edu/~saad/software/SPARSKIT/paper.ps">http://www-users.cs.umn.edu/~saad/software/SPARSKIT/paper.ps</a></p>
-<h3><a name="FOOT9" href="#DOCF9">(9)</a></h3>
+<h3><a name="FOOT9" href="Storage-of-Sparse-Matrices.html#DOCF9">(9)</a></h3>
 <p><a href="http://en.wikipedia.org/wiki/Sparse_matrix#Yale_format">http://en.wikipedia.org/wiki/Sparse_matrix#Yale_format</a></p>
 </div>
 <hr>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Multiple Return Values</title>
+<title>GNU Octave: Multiple Return Values</title>
 
 <meta name="description" content="GNU Octave: Multiple Return Values">
 <meta name="keywords" content="GNU Octave: Multiple Return Values">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -142,7 +142,7 @@ following manner:
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="#XREFnargout">nargout</a>, <a href="#XREFvarargin">varargin</a>, <a href="#XREFvarargout">varargout</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>.
+<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>, <a href="Multiple-Return-Values.html#XREFvarargout">varargout</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>.
 </p></dd></dl>
 
 
@@ -219,7 +219,7 @@ negative.
 <p>In the second usage,
 </p>
 <div class="example">
-<pre class="example">nargout (@histc) \% or nargout (&quot;histc&quot;)
+<pre class="example">nargout (@histc)   # or nargout (&quot;histc&quot;) using a string input
 </pre></div>
 
 <p>will return 2, because <code>histc</code> has two outputs, whereas
@@ -234,7 +234,7 @@ negative.
 <p>Programming Note.  <code>nargout</code> does not work for built-in functions and
 returns -1 for all anonymous functions.
 </p>
-<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="#XREFvarargout">varargout</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>, <a href="#XREFnthargout">nthargout</a>.
+<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFvarargout">varargout</a>, <a href="Ignoring-Arguments.html#XREFisargout">isargout</a>, <a href="Multiple-Return-Values.html#XREFnthargout">nthargout</a>.
 </p></dd></dl>
 
 
@@ -268,7 +268,7 @@ Inf, and negative values are all allowed, and <var>minargs</var> and
 <p>Note that this function evaluates <code>nargin</code> on the caller.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFnargoutchk">nargoutchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="#XREFnargout">nargout</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>.
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnargoutchk">nargoutchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>.
 </p></dd></dl>
 
 
@@ -294,7 +294,7 @@ invalid.
 <p>This is useful for checking to that the number of output arguments supplied
 to a function is within an acceptable range.
 </p>
-<p><strong>See also:</strong> <a href="#XREFnarginchk">narginchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="#XREFnargout">nargout</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>.
+<p><strong>See also:</strong> <a href="Multiple-Return-Values.html#XREFnarginchk">narginchk</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Multiple-Return-Values.html#XREFnargout">nargout</a>, <a href="Defining-Functions.html#XREFnargin">nargin</a>.
 </p></dd></dl>
 
 
@@ -337,7 +337,7 @@ validatestring (&quot;b&quot;, {&quot;red&quot;, &quot;green&quot;, &quot;blue&q
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="#XREFvalidateattributes">validateattributes</a>, <a href="#XREFinputParser">inputParser</a>.
+<p><strong>See also:</strong> <a href="Comparing-Strings.html#XREFstrcmp">strcmp</a>, <a href="Comparing-Strings.html#XREFstrcmpi">strcmpi</a>, <a href="Multiple-Return-Values.html#XREFvalidateattributes">validateattributes</a>, <a href="Multiple-Return-Values.html#XREFinputParser">inputParser</a>.
 </p></dd></dl>
 
 
@@ -527,7 +527,7 @@ used.
 </dl>
 
 
-<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFisa">isa</a>, <a href="#XREFvalidatestring">validatestring</a>, <a href="#XREFinputParser">inputParser</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFisa">isa</a>, <a href="Multiple-Return-Values.html#XREFvalidatestring">validatestring</a>, <a href="Multiple-Return-Values.html#XREFinputParser">inputParser</a>.
 </p></dd></dl>
 
 
@@ -665,7 +665,7 @@ arguments.  The remaining arguments will be compared against any
 <code>Parameter</code> or <code>Switch</code> arguments.
 </p>
 
-<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="#XREFvalidateattributes">validateattributes</a>, <a href="#XREFvalidatestring">validatestring</a>, <a href="#XREFvarargin">varargin</a>.
+<p><strong>See also:</strong> <a href="Defining-Functions.html#XREFnargin">nargin</a>, <a href="Multiple-Return-Values.html#XREFvalidateattributes">validateattributes</a>, <a href="Multiple-Return-Values.html#XREFvalidatestring">validatestring</a>, <a href="Multiple-Return-Values.html#XREFvarargin">varargin</a>.
 </p></dd></dl>
 
 

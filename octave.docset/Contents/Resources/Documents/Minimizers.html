@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Minimizers</title>
+<title>GNU Octave: Minimizers</title>
 
 <meta name="description" content="GNU Octave: Minimizers">
 <meta name="keywords" content="GNU Octave: Minimizers">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -107,7 +107,7 @@ from you will need to use an unconstrained minimization algorithm such as
 <code>fminunc</code> or <code>fminsearch</code>.  <code>fminbnd</code> internally uses a
 Golden Section search strategy.
 </p>
-<p><strong>See also:</strong> <a href="Solvers.html#XREFfzero">fzero</a>, <a href="#XREFfminunc">fminunc</a>, <a href="#XREFfminsearch">fminsearch</a>, <a href="Linear-Least-Squares.html#XREFoptimset">optimset</a>.
+<p><strong>See also:</strong> <a href="Solvers.html#XREFfzero">fzero</a>, <a href="Minimizers.html#XREFfminunc">fminunc</a>, <a href="Minimizers.html#XREFfminsearch">fminsearch</a>, <a href="Linear-Least-Squares.html#XREFoptimset">optimset</a>.
 </p></dd></dl>
 
 
@@ -188,7 +188,7 @@ on the objective function being differentiable.  If the function has
 discontinuities it may be better to use a derivative-free algorithm such as
 <code>fminsearch</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfminbnd">fminbnd</a>, <a href="#XREFfminsearch">fminsearch</a>, <a href="Linear-Least-Squares.html#XREFoptimset">optimset</a>.
+<p><strong>See also:</strong> <a href="Minimizers.html#XREFfminbnd">fminbnd</a>, <a href="Minimizers.html#XREFfminsearch">fminsearch</a>, <a href="Linear-Least-Squares.html#XREFoptimset">optimset</a>.
 </p></dd></dl>
 
 
@@ -220,9 +220,8 @@ the function value thereof.
 fminsearch (inline (&quot;(x(1)-5).^2+(x(2)-8).^4&quot;, &quot;x&quot;), [0;0])
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFfminbnd">fminbnd</a>, <a href="#XREFfminunc">fminunc</a>, <a href="Linear-Least-Squares.html#XREFoptimset">optimset</a>.
+<p><strong>See also:</strong> <a href="Minimizers.html#XREFfminbnd">fminbnd</a>, <a href="Minimizers.html#XREFfminunc">fminunc</a>, <a href="Linear-Least-Squares.html#XREFoptimset">optimset</a>.
 </p></dd></dl>
-
 
 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Structures with Mex-Files</title>
+<title>GNU Octave: Structures with Mex-Files</title>
 
 <meta name="description" content="GNU Octave: Structures with Mex-Files">
 <meta name="keywords" content="GNU Octave: Structures with Mex-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -86,14 +86,14 @@ void mxSetFieldByNumber (mxArray *ptr, mwIndex index,
                          int key_num, mxArray *val);
 </pre></div>
 
-<p>A difference between the oct-file interface to structures and the
-mex-file version is that the functions to operate on structures in
-mex-files directly include an <code>index</code> over the elements of the
-arrays of elements per <code>field</code>; Whereas, the oct-file structure
-includes a Cell Array per field of the structure.
+<p>A difference between the oct-file interface to structures and the mex-file
+version is that the functions to operate on structures in mex-files directly
+include an <code>index</code> over the elements of the arrays of elements per
+<code>field</code>; Whereas, the oct-file structure includes a Cell Array per field
+of the structure.
 </p>
-<p>An example that demonstrates the use of structures in a mex-file can be
-found in the file <samp>mystruct.c</samp> shown below.
+<p>An example that demonstrates the use of structures in a mex-file can be found
+in the file <samp>mystruct.c</samp> shown below.
 </p>
 <div class="example">
 <pre class="verbatim">#include &quot;mex.h&quot;

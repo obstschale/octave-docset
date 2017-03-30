@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Creating Sparse Matrices in Oct-Files</title>
+<title>GNU Octave: Creating Sparse Matrices in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Creating Sparse Matrices in Oct-Files">
 <meta name="keywords" content="GNU Octave: Creating Sparse Matrices in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,15 +58,13 @@ Next: <a href="Using-Sparse-Matrices-in-Oct_002dFiles.html#Using-Sparse-Matrices
 <a name="Creating-Sparse-Matrices-in-Oct_002dFiles-1"></a>
 <h4 class="subsubsection">A.1.6.2 Creating Sparse Matrices in Oct-Files</h4>
 
-<p>There are several useful alternatives for creating a sparse matrix.
-The first is to create three vectors representing the row index, column index,
-and data values, and from these create the matrix.
-The second alternative is to create a sparse matrix with the appropriate
-amount of space and then fill in the values.  Both techniques have their
-advantages and disadvantages.
+<p>There are two useful strategies for creating a sparse matrix.  The first is to
+create three vectors representing the row index, column index, and data values,
+and from these create the matrix.  The second alternative is to create a sparse
+matrix with the appropriate amount of space, and then fill in the values.  Both
+techniques have their advantages and disadvantages.
 </p>
-<p>Below is an example of creating a small sparse matrix using the first
-technique
+<p>Below is an example of creating a small sparse matrix using the first technique
 </p>
 <div class="example">
 <pre class="example">int nz, nr, nc;
@@ -83,24 +81,22 @@ ridx(3) = 3; cidx(3) = 4; data(3) = 4;
 SparseMatrix sm (data, ridx, cidx, nr, nc);
 </pre></div>
 
-<p>which creates the matrix given in section
-<a href="Storage-of-Sparse-Matrices.html#Storage-of-Sparse-Matrices">Storage of Sparse Matrices</a>.  Note that the compressed matrix
-format is not used at the time of the creation of the matrix itself,
-but is used internally.
+<p>which creates the matrix given in section <a href="Storage-of-Sparse-Matrices.html#Storage-of-Sparse-Matrices">Storage of Sparse Matrices</a>.
+Note that the compressed matrix format is not used at the time of the creation
+of the matrix itself, but is used internally.
 </p>
-<p>As discussed in the chapter on Sparse Matrices, the values of the sparse
-matrix are stored in increasing column-major ordering.  Although the data
-passed by the user need not respect this requirement, pre-sorting the
-data will significantly speed up creation of the sparse matrix.
+<p>As discussed in the chapter on Sparse Matrices, the values of the sparse matrix
+are stored in increasing column-major ordering.  Although the data passed by
+the user need not respect this requirement, pre-sorting the data will
+significantly speed up creation of the sparse matrix.
 </p>
-<p>The disadvantage of this technique for creating a sparse matrix is
-that there is a brief time when two copies of the data exist.  For
-extremely memory constrained problems this may not be the best
-technique for creating a sparse matrix.
+<p>The disadvantage of this technique for creating a sparse matrix is that there
+is a brief time when two copies of the data exist.  For extremely memory
+constrained problems this may not be the best technique for creating a sparse
+matrix.
 </p>
-<p>The alternative is to first create a sparse matrix with the desired
-number of nonzero elements and then later fill those elements in.
-Sample code:
+<p>The alternative is to first create a sparse matrix with the desired number of
+nonzero elements and then later fill those elements in.  Sample code:
 </p>
 <div class="example">
 <pre class="example">int nz, nr, nc;
@@ -109,16 +105,16 @@ SparseMatrix sm (nr, nc, nz);
 sm(0,0) = 1; sm(0,1) = 2; sm(1,3) = 3; sm(2,3) = 4;
 </pre></div>
 
-<p>This creates the same matrix as previously.  Again, although not
-strictly necessary, it is significantly faster if the sparse matrix is
-created and the elements are added in column-major ordering.  The reason
-for this is that when elements are inserted at the end of the current list
-of known elements then no element in the matrix needs to be moved to allow
-the new element to be inserted; Only the column indexes need to be updated.
+<p>This creates the same matrix as previously.  Again, although not strictly
+necessary, it is significantly faster if the sparse matrix is created and the
+elements are added in column-major ordering.  The reason for this is that when
+elements are inserted at the end of the current list of known elements then no
+element in the matrix needs to be moved to allow the new element to be
+inserted; Only the column indices need to be updated.
 </p>
-<p>There are a few further points to note about this method of creating
-a sparse matrix.  First, it is possible to create a sparse matrix
-with fewer elements than are actually inserted in the matrix.  Therefore,
+<p>There are a few further points to note about this method of creating a sparse
+matrix.  First, it is possible to create a sparse matrix with fewer elements
+than are actually inserted in the matrix.  Therefore,
 </p>
 <div class="example">
 <pre class="example">int nr, nc;
@@ -127,25 +123,24 @@ SparseMatrix sm (nr, nc, 0);
 sm(0,0) = 1; sm(0,1) = 2; sm(1,3) = 3; sm(2,3) = 4;
 </pre></div>
 
-<p>is perfectly valid.  However, it is a very bad idea because as each new
-element is added to the sparse matrix the matrix needs to request more
-space and reallocate memory.  This is an expensive operation, that will
-significantly slow this means of creating a sparse matrix.  Furthermore,
-it is possible to create a sparse matrix with too much storage, so having
-<var>nz</var> greater than 4 is also valid.  The disadvantage is that the matrix
-occupies more memory than strictly needed.
+<p>is perfectly valid.  However, it is a very bad idea because as each new element
+is added to the sparse matrix the matrix needs to request more space and
+reallocate memory.  This is an expensive operation that will significantly slow
+this means of creating a sparse matrix.  It is possible to create a sparse
+matrix with excess storage, so having <var>nz</var> greater than 4 in this example
+is also valid.  The disadvantage is that the matrix occupies more memory than
+strictly needed.
 </p>
-<p>It is not always possible to know the number of nonzero elements prior
-to filling a matrix.  For this reason the additional unused storage of
-a sparse matrix can be removed after its creation with the
-<code>maybe_compress</code> function.  In addition, <code>maybe_compress</code> can
-deallocate the unused storage, but it can also remove zero elements
-from the matrix.  The removal of zero elements from the matrix is
-controlled by setting the argument of the <code>maybe_compress</code> function
-to be <code>true</code>.  However, the cost of removing the zeros is high because it
-implies re-sorting the elements.  If possible, it is better
-if the user does not add the unnecessary zeros in the first place.
-An example of the use of <code>maybe_compress</code> is
+<p>Of course, it is not always possible to know the number of nonzero elements
+prior to filling a matrix.  For this reason the additional unused storage of a
+sparse matrix can be removed after its creation with the <code>maybe_compress</code>
+function.  In addition to deallocating unused storage, <code>maybe_compress</code>
+can also remove zero elements from the matrix.  The removal of zero elements
+from the matrix is controlled by setting the argument of the
+<code>maybe_compress</code> function to be <code>true</code>.  However, the cost of
+removing the zeros is high because it implies re-sorting the elements.  If
+possible, it is better for the user to avoid adding the unnecessary zeros in
+the first place.  An example of the use of <code>maybe_compress</code> is
 </p>
 <div class="example">
 <pre class="example">int nz, nr, nc;
@@ -153,7 +148,7 @@ nz = 6, nr = 3, nc = 4;
 
 SparseMatrix sm1 (nr, nc, nz);
 sm1(0,0) = 1; sm1(0,1) = 2; sm1(1,3) = 3; sm1(2,3) = 4;
-sm1.maybe_compress ();  // No zero elements were added
+sm1.maybe_compress ();   // No zero elements were added
 
 SparseMatrix sm2 (nr, nc, nz);
 sm2(0,0) = 1; sm2(0,1) = 2; sm(0,2) = 0; sm(1,2) = 0;
@@ -161,12 +156,11 @@ sm1(1,3) = 3; sm1(2,3) = 4;
 sm2.maybe_compress (true);  // Zero elements were added
 </pre></div>
 
-<p>The use of the <code>maybe_compress</code> function should be avoided if
-possible as it will slow the creation of the matrix.
+<p>The use of the <code>maybe_compress</code> function should be avoided if possible as
+it will slow the creation of the matrix.
 </p>
-<p>A third means of creating a sparse matrix is to work directly with
-the data in compressed row format.  An example of this technique might
-be
+<p>A third means of creating a sparse matrix is to work directly with the data in
+compressed row format.  An example of this advanced technique might be
 </p>
 <div class="example">
 <pre class="example">octave_value arg;
@@ -182,7 +176,7 @@ for (int j = 1; j &lt; nc; j++)
   {
     for (int i = 0; i &lt; nr; i++)
       {
-        double tmp = foo (m(i,j));
+        double tmp = m(i,j);
         if (tmp != 0.)
           {
             sm.data(ii) = tmp;
@@ -197,16 +191,16 @@ sm.maybe_compress ();  // If don't know a priori the final # of nz.
 
 <p>which is probably the most efficient means of creating a sparse matrix.
 </p>
-<p>Finally, it might sometimes arise that the amount of storage initially
-created is insufficient to completely store the sparse matrix.  Therefore,
-the method <code>change_capacity</code> exists to reallocate the sparse memory.
-The above example would then be modified as
+<p>Finally, it may sometimes arise that the amount of storage initially created is
+insufficient to completely store the sparse matrix.  Therefore, the method
+<code>change_capacity</code> exists to reallocate the sparse memory.  The above
+example would then be modified as
 </p>
 <div class="example">
 <pre class="example">octave_value arg;
 &hellip;
 int nz, nr, nc;
-nz = 6, nr = 3, nc = 4;   // Assume we know the max # nz
+nz = 6, nr = 3, nc = 4;   // Guess the number of nz elements
 SparseMatrix sm (nr, nc, nz);
 Matrix m = arg.matrix_value ();
 
@@ -216,7 +210,7 @@ for (int j = 1; j &lt; nc; j++)
   {
     for (int i = 0; i &lt; nr; i++)
       {
-        double tmp = foo (m(i,j));
+        double tmp = m(i,j);
         if (tmp != 0.)
           {
             if (ii == nz)
@@ -231,14 +225,14 @@ for (int j = 1; j &lt; nc; j++)
       }
     sm.cidx(j+1) = ii;
  }
-sm.maybe_mutate ();  // If don't know a priori the final # of nz.
+sm.maybe_compress ();  // If don't know a priori the final # of nz.
 </pre></div>
 
-<p>Note that both increasing and decreasing the number of nonzero elements in
-a sparse matrix is expensive as it involves memory reallocation.  Also as
-parts of the matrix, though not its entirety, exist as old and new copies
-at the same time, additional memory is needed.  Therefore, if possible this
-should be avoided.
+<p>Note that both increasing and decreasing the number of nonzero elements in a
+sparse matrix is expensive as it involves memory reallocation.  Also because
+parts of the matrix, though not its entirety, exist as old and new copies at
+the same time, additional memory is needed.  Therefore, if possible avoid
+changing capacity.
 </p>
 <hr>
 <div class="header">

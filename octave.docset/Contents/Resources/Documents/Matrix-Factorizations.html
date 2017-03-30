@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Matrix Factorizations</title>
+<title>GNU Octave: Matrix Factorizations</title>
 
 <meta name="description" content="GNU Octave: Matrix Factorizations">
 <meta name="keywords" content="GNU Octave: Matrix Factorizations">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -121,7 +121,7 @@ returned as a vector such that
 <p>In general the lower triangular factorization is significantly faster for
 sparse matrices.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhess">hess</a>, <a href="#XREFlu">lu</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqz">qz</a>, <a href="#XREFschur">schur</a>, <a href="#XREFsvd">svd</a>, <a href="Iterative-Techniques.html#XREFichol">ichol</a>, <a href="#XREFcholinv">cholinv</a>, <a href="#XREFchol2inv">chol2inv</a>, <a href="#XREFcholupdate">cholupdate</a>, <a href="#XREFcholinsert">cholinsert</a>, <a href="#XREFcholdelete">choldelete</a>, <a href="#XREFcholshift">cholshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>, <a href="Matrix-Factorizations.html#XREFschur">schur</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>, <a href="Iterative-Techniques.html#XREFichol">ichol</a>, <a href="Matrix-Factorizations.html#XREFcholinv">cholinv</a>, <a href="Matrix-Factorizations.html#XREFchol2inv">chol2inv</a>, <a href="Matrix-Factorizations.html#XREFcholupdate">cholupdate</a>, <a href="Matrix-Factorizations.html#XREFcholinsert">cholinsert</a>, <a href="Matrix-Factorizations.html#XREFcholdelete">choldelete</a>, <a href="Matrix-Factorizations.html#XREFcholshift">cholshift</a>.
 </p></dd></dl>
 
 
@@ -130,7 +130,7 @@ sparse matrices.
 <dd><p>Compute the inverse of the symmetric positive definite matrix <var>A</var> using
 the Cholesky&nbsp;factorization.
 </p>
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFchol2inv">chol2inv</a>, <a href="Basic-Matrix-Functions.html#XREFinv">inv</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFchol2inv">chol2inv</a>, <a href="Basic-Matrix-Functions.html#XREFinv">inv</a>.
 </p></dd></dl>
 
 
@@ -143,7 +143,7 @@ decomposition, <var>U</var>.
 diagonal elements.  <code>chol2inv (<var>U</var>)</code> provides
 <code>inv (<var>U</var>'*<var>U</var>)</code> but it is much faster than using <code>inv</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFcholinv">cholinv</a>, <a href="Basic-Matrix-Functions.html#XREFinv">inv</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFcholinv">cholinv</a>, <a href="Basic-Matrix-Functions.html#XREFinv">inv</a>.
 </p></dd></dl>
 
 
@@ -174,7 +174,7 @@ if <var>op</var> is <code>&quot;-&quot;</code>
 
 <p>If <var>info</var> is not present, an error message is printed in cases 1 and 2.
 </p>
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFcholinsert">cholinsert</a>, <a href="#XREFcholdelete">choldelete</a>, <a href="#XREFcholshift">cholshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFcholinsert">cholinsert</a>, <a href="Matrix-Factorizations.html#XREFcholdelete">choldelete</a>, <a href="Matrix-Factorizations.html#XREFcholshift">cholshift</a>.
 </p></dd></dl>
 
 
@@ -199,7 +199,7 @@ p&nbsp;=&nbsp;<span class="nolinebreak">[1:j-1,j+1:n+1]</span><!-- /@w -->.  u(j
 
 <p>If <var>info</var> is not present, an error message is printed in cases 1 and 2.
 </p>
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFcholupdate">cholupdate</a>, <a href="#XREFcholdelete">choldelete</a>, <a href="#XREFcholshift">cholshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFcholupdate">cholupdate</a>, <a href="Matrix-Factorizations.html#XREFcholdelete">choldelete</a>, <a href="Matrix-Factorizations.html#XREFcholshift">cholshift</a>.
 </p></dd></dl>
 
 
@@ -210,7 +210,7 @@ positive definite matrix <var>A</var>&nbsp;=&nbsp;<var>R</var>&rsquo;*<var>R</va
 triangular, return the Cholesky&nbsp;factorization of A(p,p)<!-- /@w -->, where
 p&nbsp;=&nbsp;<span class="nolinebreak">[1:j-1,j+1:n+1]</span><!-- /@w -->.
 </p>
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFcholupdate">cholupdate</a>, <a href="#XREFcholinsert">cholinsert</a>, <a href="#XREFcholshift">cholshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFcholupdate">cholupdate</a>, <a href="Matrix-Factorizations.html#XREFcholinsert">cholinsert</a>, <a href="Matrix-Factorizations.html#XREFcholshift">cholshift</a>.
 </p></dd></dl>
 
 
@@ -225,7 +225,7 @@ triangular, return the Cholesky&nbsp;factorization of
 <code>p = [1:j-1, shift(j:i,-1), i+1:n]</code> if <var>j</var>&nbsp;&lt;&nbsp;<var>i</var><!-- /@w -->.  <br>
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFcholupdate">cholupdate</a>, <a href="#XREFcholinsert">cholinsert</a>, <a href="#XREFcholdelete">choldelete</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFcholupdate">cholupdate</a>, <a href="Matrix-Factorizations.html#XREFcholinsert">cholinsert</a>, <a href="Matrix-Factorizations.html#XREFcholdelete">choldelete</a>.
 </p></dd></dl>
 
 
@@ -246,7 +246,7 @@ eigenvalue computation, but has other applications as well
 (see Golub, Nash, and Van Loan,
 IEEE Transactions on Automatic Control, 1979).
 </p>
-<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="#XREFchol">chol</a>, <a href="#XREFlu">lu</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqz">qz</a>, <a href="#XREFschur">schur</a>, <a href="#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>, <a href="Matrix-Factorizations.html#XREFschur">schur</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -325,7 +325,7 @@ matrix <var>L</var> is embedded into <var>U</var> to give a return value similar
 the full case.  For both full and sparse matrices, <code>lu</code> loses the
 permutation information.
 </p>
-<p><strong>See also:</strong> <a href="#XREFluupdate">luupdate</a>, <a href="Iterative-Techniques.html#XREFilu">ilu</a>, <a href="#XREFchol">chol</a>, <a href="#XREFhess">hess</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqz">qz</a>, <a href="#XREFschur">schur</a>, <a href="#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFluupdate">luupdate</a>, <a href="Iterative-Techniques.html#XREFilu">ilu</a>, <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>, <a href="Matrix-Factorizations.html#XREFschur">schur</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -369,7 +369,7 @@ stable.
 enough k, it will be both faster and more accurate to recompute the
 factorization from scratch.
 </p>
-<p><strong>See also:</strong> <a href="#XREFlu">lu</a>, <a href="#XREFcholupdate">cholupdate</a>, <a href="#XREFqrupdate">qrupdate</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFcholupdate">cholupdate</a>, <a href="Matrix-Factorizations.html#XREFqrupdate">qrupdate</a>.
 </p></dd></dl>
 
 
@@ -488,7 +488,7 @@ That is, <var>R</var> will have only <code>size (<var>A</var>,1)</code> rows.  I
 permutation vector instead of a permutation matrix.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFchol">chol</a>, <a href="#XREFhess">hess</a>, <a href="#XREFlu">lu</a>, <a href="#XREFqz">qz</a>, <a href="#XREFschur">schur</a>, <a href="#XREFsvd">svd</a>, <a href="#XREFqrupdate">qrupdate</a>, <a href="#XREFqrinsert">qrinsert</a>, <a href="#XREFqrdelete">qrdelete</a>, <a href="#XREFqrshift">qrshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>, <a href="Matrix-Factorizations.html#XREFschur">schur</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>, <a href="Matrix-Factorizations.html#XREFqrupdate">qrupdate</a>, <a href="Matrix-Factorizations.html#XREFqrinsert">qrinsert</a>, <a href="Matrix-Factorizations.html#XREFqrdelete">qrdelete</a>, <a href="Matrix-Factorizations.html#XREFqrshift">qrshift</a>.
 </p></dd></dl>
 
 
@@ -507,7 +507,7 @@ accurate to recompute the factorization from scratch.
 economized (R is square).
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFqr">qr</a>, <a href="#XREFqrinsert">qrinsert</a>, <a href="#XREFqrdelete">qrdelete</a>, <a href="#XREFqrshift">qrshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqrinsert">qrinsert</a>, <a href="Matrix-Factorizations.html#XREFqrdelete">qrdelete</a>, <a href="Matrix-Factorizations.html#XREFqrshift">qrshift</a>.
 </p></dd></dl>
 
 
@@ -534,7 +534,7 @@ be either full (Q is square) or economized (R is square).
 </p>
 <p>If <var>orient</var> is <code>&quot;row&quot;</code>, full factorization is needed.
 </p>
-<p><strong>See also:</strong> <a href="#XREFqr">qr</a>, <a href="#XREFqrupdate">qrupdate</a>, <a href="#XREFqrdelete">qrdelete</a>, <a href="#XREFqrshift">qrshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqrupdate">qrupdate</a>, <a href="Matrix-Factorizations.html#XREFqrdelete">qrdelete</a>, <a href="Matrix-Factorizations.html#XREFqrshift">qrshift</a>.
 </p></dd></dl>
 
 
@@ -561,7 +561,7 @@ be either full (Q is square) or economized (R is square).
 </p>
 <p>If <var>orient</var> is <code>&quot;row&quot;</code>, full factorization is needed.
 </p>
-<p><strong>See also:</strong> <a href="#XREFqr">qr</a>, <a href="#XREFqrupdate">qrupdate</a>, <a href="#XREFqrinsert">qrinsert</a>, <a href="#XREFqrshift">qrshift</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqrupdate">qrupdate</a>, <a href="Matrix-Factorizations.html#XREFqrinsert">qrinsert</a>, <a href="Matrix-Factorizations.html#XREFqrshift">qrshift</a>.
 </p></dd></dl>
 
 
@@ -576,7 +576,7 @@ of <var>A</var>(:,p)<!-- /@w -->, where p<!-- /@w --> is the permutation <br>
 <code>p = [1:j-1, shift(j:i,-1), i+1:n]</code> if <var>j</var>&nbsp;&lt;&nbsp;<var>i</var><!-- /@w -->.  <br>
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFqr">qr</a>, <a href="#XREFqrupdate">qrupdate</a>, <a href="#XREFqrinsert">qrinsert</a>, <a href="#XREFqrdelete">qrdelete</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqrupdate">qrupdate</a>, <a href="Matrix-Factorizations.html#XREFqrinsert">qrinsert</a>, <a href="Matrix-Factorizations.html#XREFqrdelete">qrdelete</a>.
 </p></dd></dl>
 
 
@@ -653,7 +653,7 @@ in the closed right half-plane
 (see <a href="Basic-Matrix-Functions.html#XREFbalance">XREFbalance</a>).  The order of output arguments was selected for
 compatibility with <small>MATLAB</small>.
 </p>
-<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Basic-Matrix-Functions.html#XREFbalance">balance</a>, <a href="#XREFlu">lu</a>, <a href="#XREFchol">chol</a>, <a href="#XREFhess">hess</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqzhess">qzhess</a>, <a href="#XREFschur">schur</a>, <a href="#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Basic-Matrix-Functions.html#XREFbalance">balance</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqzhess">qzhess</a>, <a href="Matrix-Factorizations.html#XREFschur">schur</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -682,7 +682,7 @@ Moler and Stewart&rsquo;s QZ&nbsp;decomposition algorithm.
 <cite>Matrix Computations, 2nd edition</cite>.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFlu">lu</a>, <a href="#XREFchol">chol</a>, <a href="#XREFhess">hess</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqz">qz</a>, <a href="#XREFschur">schur</a>, <a href="#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>, <a href="Matrix-Factorizations.html#XREFschur">schur</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -732,7 +732,7 @@ subspace corresponding to the <var>k</var> leading eigenvalues of <var>S</var>.
 matrix, and has applications in the solution of algebraic Riccati equations
 in control (see <code>are</code> and <code>dare</code>).
 </p>
-<p><strong>See also:</strong> <a href="#XREFrsf2csf">rsf2csf</a>, <a href="#XREFordschur">ordschur</a>, <a href="#XREFlu">lu</a>, <a href="#XREFchol">chol</a>, <a href="#XREFhess">hess</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqz">qz</a>, <a href="#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFrsf2csf">rsf2csf</a>, <a href="Matrix-Factorizations.html#XREFordschur">ordschur</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -748,7 +748,7 @@ complex, upper triangular Schur&nbsp;form <var>T</var>.
 </p>
 <p>Note also that <var>U</var> and <var>T</var> are not unique.
 </p>
-<p><strong>See also:</strong> <a href="#XREFschur">schur</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFschur">schur</a>.
 </p></dd></dl>
 
 
@@ -791,7 +791,7 @@ is in the upper left corner, by doing:
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFschur">schur</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFschur">schur</a>.
 </p></dd></dl>
 
 
@@ -865,7 +865,7 @@ v =
 decomposition, eliminating the unnecessary rows or columns of <var>U</var> or
 <var>V</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsvd_005fdriver">svd_driver</a>, <a href="Sparse-Linear-Algebra.html#XREFsvds">svds</a>, <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="#XREFlu">lu</a>, <a href="#XREFchol">chol</a>, <a href="#XREFhess">hess</a>, <a href="#XREFqr">qr</a>, <a href="#XREFqz">qz</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFsvd_005fdriver">svd_driver</a>, <a href="Sparse-Linear-Algebra.html#XREFsvds">svds</a>, <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Matrix-Factorizations.html#XREFlu">lu</a>, <a href="Matrix-Factorizations.html#XREFchol">chol</a>, <a href="Matrix-Factorizations.html#XREFhess">hess</a>, <a href="Matrix-Factorizations.html#XREFqr">qr</a>, <a href="Matrix-Factorizations.html#XREFqz">qz</a>.
 </p></dd></dl>
 
 
@@ -882,7 +882,7 @@ The default is <code>&quot;gesvd&quot;</code>.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 

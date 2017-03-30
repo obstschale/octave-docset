@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manipulation of Plot Windows</title>
+<title>GNU Octave: Manipulation of Plot Windows</title>
 
 <meta name="description" content="GNU Octave: Manipulation of Plot Windows">
 <meta name="keywords" content="GNU Octave: Manipulation of Plot Windows">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -77,7 +77,7 @@ updated and no other events or callbacks are processed.
 <p>The third calling form of <code>drawnow</code> is for debugging and is
 undocumented.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrefresh">refresh</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFrefresh">refresh</a>.
 </p></dd></dl>
 
 
@@ -93,7 +93,7 @@ it is not modified.
 <p>When called without an argument the current figure is redrawn.  Otherwise,
 the figure with graphic handle <var>h</var> is redrawn.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdrawnow">drawnow</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFdrawnow">drawnow</a>.
 </p></dd></dl>
 
 
@@ -202,7 +202,7 @@ for this axis rather than the current axes returned by <code>gca</code>.
 </p>
 <p>To query the current hold state use the <code>ishold</code> function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFishold">ishold</a>, <a href="#XREFcla">cla</a>, <a href="#XREFclf">clf</a>, <a href="#XREFnewplot">newplot</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFishold">ishold</a>, <a href="Manipulation-of-Plot-Windows.html#XREFcla">cla</a>, <a href="Manipulation-of-Plot-Windows.html#XREFclf">clf</a>, <a href="Manipulation-of-Plot-Windows.html#XREFnewplot">newplot</a>.
 </p></dd></dl>
 
 
@@ -216,7 +216,7 @@ false if the plot device will be cleared before drawing the next plot.
 <p>If the first argument is an axes handle <var>hax</var> or figure handle
 <var>hfig</var> then operate on this plot rather than the current one.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhold">hold</a>, <a href="#XREFnewplot">newplot</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFhold">hold</a>, <a href="Manipulation-of-Plot-Windows.html#XREFnewplot">newplot</a>.
 </p></dd></dl>
 
 <p>To clear the current figure, call the <code>clf</code> function.  To clear the
@@ -247,7 +247,7 @@ this figure rather than the current figure returned by <code>gcf</code>.
 <p>The optional return value <var>h</var> is the graphics handle of the figure
 window that was cleared.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcla">cla</a>, <a href="#XREFclose">close</a>, <a href="#XREFdelete">delete</a>, <a href="Managing-Default-Properties.html#XREFreset">reset</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFcla">cla</a>, <a href="Manipulation-of-Plot-Windows.html#XREFclose">close</a>, <a href="Manipulation-of-Plot-Windows.html#XREFdelete">delete</a>, <a href="Managing-Default-Properties.html#XREFreset">reset</a>.
 </p></dd></dl>
 
 
@@ -269,7 +269,7 @@ Position, Units.
 <p>If the first argument <var>hax</var> is an axes handle, then operate on
 this axis rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFclf">clf</a>, <a href="#XREFdelete">delete</a>, <a href="Managing-Default-Properties.html#XREFreset">reset</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFclf">clf</a>, <a href="Manipulation-of-Plot-Windows.html#XREFdelete">delete</a>, <a href="Managing-Default-Properties.html#XREFreset">reset</a>.
 </p></dd></dl>
 
 
@@ -279,7 +279,7 @@ this axis rather than the current axes returned by <code>gca</code>.
 </p>
 <p>Currently, this is the same as executing <code>drawnow</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdrawnow">drawnow</a>, <a href="Multiple-Plot-Windows.html#XREFfigure">figure</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFdrawnow">drawnow</a>, <a href="Multiple-Plot-Windows.html#XREFfigure">figure</a>.
 </p></dd></dl>
 
 
@@ -297,7 +297,7 @@ to be deleted may be specified in the same function call.
 <p>Programming Note: Deleting graphics objects is the proper way to remove
 features from a plot without clearing the entire figure.
 </p>
-<p><strong>See also:</strong> <a href="#XREFclf">clf</a>, <a href="#XREFcla">cla</a>, <a href="Filesystem-Utilities.html#XREFunlink">unlink</a>, <a href="Filesystem-Utilities.html#XREFrmdir">rmdir</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFclf">clf</a>, <a href="Manipulation-of-Plot-Windows.html#XREFcla">cla</a>, <a href="Filesystem-Utilities.html#XREFunlink">unlink</a>, <a href="Filesystem-Utilities.html#XREFrmdir">rmdir</a>.
 </p></dd></dl>
 
 
@@ -332,7 +332,7 @@ executing any callback functions use <code>delete</code>.  When writing a callba
 function to close a window do not use <code>close</code> to avoid recursion.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFclosereq">closereq</a>, <a href="#XREFdelete">delete</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFclosereq">closereq</a>, <a href="Manipulation-of-Plot-Windows.html#XREFdelete">delete</a>.
 </p></dd></dl>
 
 
@@ -343,7 +343,7 @@ function to close a window do not use <code>close</code> to avoid recursion.
 <p>By default, the <code>&quot;closerequestfcn&quot;</code> property of a new plot figure
 points to this function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFclose">close</a>, <a href="#XREFdelete">delete</a>.
+<p><strong>See also:</strong> <a href="Manipulation-of-Plot-Windows.html#XREFclose">close</a>, <a href="Manipulation-of-Plot-Windows.html#XREFdelete">delete</a>.
 </p></dd></dl>
 
 

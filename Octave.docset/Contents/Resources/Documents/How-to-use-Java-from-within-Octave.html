@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>GNU Octave: How to use Java from within Octave</title>
+
+<meta name="description" content="GNU Octave: How to use Java from within Octave">
+<meta name="keywords" content="GNU Octave: How to use Java from within Octave">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Java-Interface.html#Java-Interface" rel="up" title="Java Interface">
+<link href="Passing-parameters-to-the-JVM.html#Passing-parameters-to-the-JVM" rel="next" title="Passing parameters to the JVM">
+<link href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" rel="prev" title="Making Java Classes Available">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="octave.css">
+
+
+</head>
+
+<body lang="en">
+<a name="How-to-use-Java-from-within-Octave"></a>
+<div class="header">
+<p>
+Next: <a href="Passing-parameters-to-the-JVM.html#Passing-parameters-to-the-JVM" accesskey="n" rel="next">Passing parameters to the JVM</a>, Previous: <a href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" accesskey="p" rel="prev">Making Java Classes Available</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<a name="How-to-use-Java-from-within-Octave-1"></a>
+<h4 class="subsection">A.4.2 How to use Java from within Octave</h4>
+
+<p>The function <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a> creates Java objects.
+In fact it invokes the public constructor of the class with the given name
+and with the given parameters.
+</p>
+<p>The following example shows how to invoke the constructors
+<code>BigDecimal(double)</code> and <code>BigDecimal(String)</code> of the builtin Java
+class <code>java.math.BigDecimal</code>.
+</p>
+<div class="example">
+<pre class="example">javaObject (&quot;java.math.BigDecimal&quot;,  1.001 );
+javaObject (&quot;java.math.BigDecimal&quot;, &quot;1.001&quot;);
+</pre></div>
+
+<p>Note that parameters of the Octave type <code>double</code> are implicitly converted
+into the Java type <code>double</code> and the Octave type (array of) <code>char</code> is
+converted into the java type <code>String</code>.  A Java object created by
+<a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a> is never automatically converted
+into an Octave type but remains a Java object.  It can be assigned to an
+Octave variable.
+</p>
+<div class="example">
+<pre class="example">a = 1.001;
+b = javaObject (&quot;java.math.BigDecimal&quot;, a);
+</pre></div>
+
+<p>Using <a href="Java-Interface-Functions.html#XREFisjava">isjava</a>, it is possible to check whether a
+variable is a Java object and its class can be determined as well.  In
+addition to the previous example:
+</p>
+<div class="example">
+<pre class="example">isjava (a)
+&rArr; ans = 0
+class (a)
+&rArr; ans = double
+isjava (b)
+&rArr; ans = 1
+class (b)
+&rArr; ans = java.math.BigDecimal
+</pre></div>
+
+<p>The example above can be carried out using only Java objects:
+</p>
+<div class="example">
+<pre class="example">a = javaObject (&quot;java.lang.Double&quot;, 1.001);
+b = javaObject (&quot;java.math.BigDecimal&quot;, a);
+
+isjava (a)
+&rArr; ans = 1
+class (a)
+&rArr; ans = java.lang.Double
+isjava (b)
+&rArr; ans = 1
+class (b)
+&rArr; ans = java.math.BigDecimal
+</pre></div>
+
+<p>One can see, that even a <code>java.lang.Double</code> is not converted to an Octave
+<code>double</code>, when created by <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a>.
+But ambiguities might arise, if the Java classes <code>java.lang.Double</code> or
+<code>double</code> are parameters of a method (or a constructor).  In this case
+they can be converted into one another, depending on the context.
+</p>
+
+<p>Via <a href="Java-Interface-Functions.html#XREFjavaObject">javaObject</a> one may create all kinds of
+Java objects but arrays.  The latter are created through
+<a href="Java-Interface-Functions.html#XREFjavaArray">javaArray</a>.
+</p>
+<p>It is possible to invoke public member methods on Java objects in Java syntax:
+</p>
+<div class="example">
+<pre class="example">a.toString
+&rArr; ans = 1.001
+b.toString
+&rArr; ans = 1.000999999999999889865...
+</pre></div>
+
+<p>The second result may be surprising, but simply comes from the fact, that
+<code>1.001</code> cannot exactly be represented as <code>double</code>, due to rounding.
+Note that unlike in Java, in Octave methods without arguments can be invoked
+with and without parentheses <code>()</code>.
+</p>
+<p>Currently it is not possible to invoke static methods with a Java like syntax
+from within Octave.  Instead, one has to use the function
+<a href="Java-Interface-Functions.html#XREFjavaMethod">javaMethod</a> as in the following example:
+</p>
+<div class="example">
+<pre class="example">java.math.BigDecimal.valueOf(1.001);                    # does not work
+javaMethod (&quot;valueOf&quot;, &quot;java.math.BigDecimal&quot;, 1.001);  # workaround
+</pre></div>
+
+<p>As mentioned before, method and constructor parameters are converted
+automatically between Octave and Java types, if appropriate.  For functions
+this is also true with return values, whereas for constructors this is not.
+</p>
+<p>It is also possible to access public fields of Java objects from within Octave
+using Java syntax, with the limitation of static fields:
+</p>
+<div class="example">
+<pre class="example">java.math.BigDecimal.ONE;                  # does not work
+java_get (&quot;java.math.BigDecimal&quot;, &quot;ONE&quot;);  # workaround
+</pre></div>
+
+<p>Accordingly, with <a href="Java-Interface-Functions.html#XREFjava_005fset">java_set</a> the value of a field
+can be set.  Note that only public Java fields are accessible from within
+Octave.
+</p>
+<p>The following example indicates that in Octave empty brackets <code>[]</code>
+represent Java&rsquo;s <code>null</code> value and how Java exceptions are represented.
+</p>
+<div class="example">
+<pre class="example">javaObject (&quot;java.math.BigDecimal&quot;, []);
+&rArr; error: [java] java.lang.NullPointerException
+</pre></div>
+
+<p>It is not recommended to represent Java&rsquo;s <code>null</code> value by empty brackets
+<code>[]</code>, because <code>null</code> has no type whereas <code>[]</code> has type
+<code>double</code>.
+</p>
+<p>In Octave it is possible to provide limited Java reflection by listing the
+public fields and methods of a Java object, both static or not.
+</p>
+<div class="example">
+<pre class="example">fieldnames (&lt;Java object&gt;)
+methods (&lt;Java object&gt;)
+</pre></div>
+
+<p>Finally, an examples is shown how to access the stack trace from within
+Octave, where the function <a href="Java-Interface-Functions.html#XREFdebug_005fjava">debug_java</a> is used
+to set and to get the current debug state.  In debug mode, the Java error and
+the stack trace are displayed.
+</p>
+<div class="example">
+<pre class="example">debug_java (true)  # use &quot;false&quot; to omit display of stack trace
+debug_java ()
+&rArr; ans = 1
+javaObject (&quot;java.math.BigDecimal&quot;, &quot;1&quot;) ...
+  .divide (javaObject (&quot;java.math.BigDecimal&quot;, &quot;0&quot;))
+</pre></div>
+
+
+
+<hr>
+<div class="header">
+<p>
+Next: <a href="Passing-parameters-to-the-JVM.html#Passing-parameters-to-the-JVM" accesskey="n" rel="next">Passing parameters to the JVM</a>, Previous: <a href="Making-Java-Classes-Available.html#Making-Java-Classes-Available" accesskey="p" rel="prev">Making Java Classes Available</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

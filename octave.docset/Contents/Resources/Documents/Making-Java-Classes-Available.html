@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Making Java Classes Available</title>
+<title>GNU Octave: Making Java Classes Available</title>
 
 <meta name="description" content="GNU Octave: Making Java Classes Available">
 <meta name="keywords" content="GNU Octave: Making Java Classes Available">
@@ -14,8 +14,8 @@
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Java-Interface.html#Java-Interface" rel="up" title="Java Interface">
-<link href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" rel="next" title="Creating an Instance of a Java Class">
-<link href="Java-Interface-Functions.html#Java-Interface-Functions" rel="prev" title="Java Interface Functions">
+<link href="How-to-use-Java-from-within-Octave.html#How-to-use-Java-from-within-Octave" rel="next" title="How to use Java from within Octave">
+<link href="Java-Interface.html#Java-Interface" rel="prev" title="Java Interface">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -52,23 +52,23 @@ ul.no-bullet {list-style: none}
 <a name="Making-Java-Classes-Available"></a>
 <div class="header">
 <p>
-Next: <a href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" accesskey="n" rel="next">Creating an Instance of a Java Class</a>, Previous: <a href="Java-Interface-Functions.html#Java-Interface-Functions" accesskey="p" rel="prev">Java Interface Functions</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="How-to-use-Java-from-within-Octave.html#How-to-use-Java-from-within-Octave" accesskey="n" rel="next">How to use Java from within Octave</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
 <a name="Making-Java-Classes-Available-1"></a>
-<h4 class="subsection">A.4.2 Making Java Classes Available</h4>
+<h4 class="subsection">A.4.1 Making Java Classes Available</h4>
 
 <a name="index-classpath_002c-setting"></a>
 <a name="index-classpath_002c-difference-between-static-and-dynamic"></a>
-<a name="index-static-classpath-1"></a>
-<a name="index-dynamic-classpath-1"></a>
+<a name="index-static-classpath"></a>
+<a name="index-dynamic-classpath"></a>
 <a name="index-javaclasspath_002etxt"></a>
 <a name="index-classpath_002etxt"></a>
 <a name="index-classes_002c-making-available-to-Octave"></a>
 
-<p>Java finds classes by searching a <var>classpath</var>.  This is a list of Java
-archive files and/or directories containing class files.  In Octave
-the <var>classpath</var> is composed of two parts:
+<p>Java finds classes by searching a <var>classpath</var> which is a list of Java
+archive files and/or directories containing class files.  In Octave the
+<var>classpath</var> is composed of two parts:
 </p>
 <ul>
 <li> the <var>static classpath</var> is initialized once at startup of the JVM, and
@@ -76,25 +76,25 @@ the <var>classpath</var> is composed of two parts:
 </li><li> the <var>dynamic classpath</var> which can be modified at runtime.
 </li></ul>
 
-<p>Octave searches the <var>static classpath</var> first, then the <var>dynamic
-classpath</var>.  Classes appearing in the <var>static</var> as well as in the
-<var>dynamic classpath</var> will therefore be found in the <var>static classpath</var>
-and loaded from this location.  Classes which will be used frequently or must
-be available to all users should be added to the <var>static classpath</var>.  The
-<var>static classpath</var> is populated once from the contents of a plain text file
-named <samp>javaclasspath.txt</samp> (or <samp>classpath.txt</samp> historically) when the
-Java Virtual Machine starts.  This file contains one line for each individual
-classpath to be added to the <var>static classpath</var>.  These lines can identify
-single class files, directories containing class files, or Java archives with
-complete class file hierarchies.  Comment lines starting with a &lsquo;<samp>#</samp>&rsquo; or a
-&lsquo;<samp>%</samp>&rsquo; character are ignored.
+<p>Octave searches the <var>static classpath</var> first, and then the
+<var>dynamic classpath</var>.  Classes appearing in the <var>static classpath</var>, as
+well as in the <var>dynamic classpath</var>, will therefore be found in the
+<var>static classpath</var> and loaded from this location.  Classes which will be
+used frequently, or must be available to all users, should be added to the
+<var>static classpath</var>.  The <var>static classpath</var> is populated once from the
+contents of a plain text file named <samp>javaclasspath.txt</samp> (or
+<samp>classpath.txt</samp> historically) when the Java Virtual Machine starts.  This
+file contains one line for each individual classpath to be added to the
+<var>static classpath</var>.  These lines can identify directories containing class
+files, or Java archives with complete class file hierarchies.  Comment lines
+starting with a &lsquo;<samp>#</samp>&rsquo; or a &lsquo;<samp>%</samp>&rsquo; character are ignored.
 </p>
-<p>The search rules for the file <samp>javaclasspath.txt</samp>
-(or <samp>classpath.txt</samp>) are:
+<p>The search rules for the file <samp>javaclasspath.txt</samp> (or
+<samp>classpath.txt</samp>) are:
 </p>
 <ul>
-<li> First, Octave tries to locate it in the current directory (where Octave
-was started from).  If such a file is found, it is read and defines the initial
+<li> First, Octave tries to locate it in the current directory (where Octave was
+started from).  If such a file is found, it is read and defines the initial
 <var>static classpath</var>.  Thus, it is possible to define a static classpath on a
 &rsquo;per Octave invocation&rsquo; basis.
 
@@ -103,19 +103,19 @@ was started from).  If such a file is found, it is read and defines the initial
 classpath (if any).  Thus, it is possible to build an initial static classpath
 on a &rsquo;per user&rsquo; basis.
 
-</li><li> Finally, Octave looks for a next occurrence of file
-<samp>javaclasspath.txt</samp> in the m-files directory where Octave Java functions
-live.  This is where <samp>javaclasspath.m</samp> resides, usually something like
-<samp><code><span class="nolinebreak">OCTAVE_HOME</span></code><!-- /@w -->/share/octave/<code><span class="nolinebreak">OCTAVE_VERSION</span></code><!-- /@w -->/m/java/</samp>.  You can
-find this directory by executing the command
+</li><li> Finally, Octave looks for a <samp>javaclasspath.txt</samp> in the m-file directory
+where Octave Java functions live.  This is where the function
+<samp>javaclasspath.m</samp> resides, usually something like
+<samp><code><span class="nolinebreak">OCTAVE_HOME</span></code><!-- /@w -->/share/octave/<code><span class="nolinebreak">OCTAVE_VERSION</span></code><!-- /@w -->/m/java/</samp>.
+You can find this directory by executing the command
 
 <div class="example">
 <pre class="example">which javaclasspath
 </pre></div>
 
-<p>If this file exists here, its contents are also appended to the static
-classpath.  Note that the archives and class directories defined in this last
-step will affect all users.
+<p>If this file exists here, its contents are also appended to the
+<var>static classpath</var>.  Note that the archives and class directories defined
+in this last step will affect all users.
 </p></li></ul>
 
 <p>Classes which are used only by a specific script should be placed in the
@@ -127,24 +127,24 @@ runtime using the <code>javaaddpath</code> and <code>javarmpath</code> functions
 <div class="example">
 <pre class="example">octave&gt; base_path = &quot;C:/Octave/java_files&quot;;
 
-octave&gt; % add two JARchives to the dynamic classpath
+octave&gt; # add two JAR archives to the dynamic classpath
 octave&gt; javaaddpath ([base_path, &quot;/someclasses.jar&quot;]);
 octave&gt; javaaddpath ([base_path, &quot;/moreclasses.jar&quot;]);
 
-octave&gt; % check the dynamic classpath
+octave&gt; # check the dynamic classpath
 octave&gt; p = javaclasspath;
 octave&gt; disp (p{1});
 C:/Octave/java_files/someclasses.jar
 octave&gt; disp (p{2});
 C:/Octave/java_files/moreclasses.jar
 
-octave&gt; % remove the first element from the classpath
+octave&gt; # remove the first element from the classpath
 octave&gt; javarmpath ([base_path, &quot;/someclasses.jar&quot;]);
 octave&gt; p = javaclasspath;
 octave&gt; disp (p{1});
 C:/Octave/java_files/moreclasses.jar
 
-octave&gt; % provoke an error
+octave&gt; # provoke an error
 octave&gt; disp (p{2});
 error: A(I): Index exceeds matrix dimension.
 </pre></div>
@@ -157,7 +157,7 @@ to Octave&rsquo;s search path and the archive <samp>myclasses.jar</samp> in this
 to the Java search path.
 </p>
 <div class="example">
-<pre class="example">% contents of .octaverc:
+<pre class="example"># contents of .octaverc:
 addpath (&quot;~/octave&quot;);
 javaaddpath (&quot;~/octave/myclasses.jar&quot;);
 </pre></div>
@@ -165,7 +165,7 @@ javaaddpath (&quot;~/octave/myclasses.jar&quot;);
 <hr>
 <div class="header">
 <p>
-Next: <a href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" accesskey="n" rel="next">Creating an Instance of a Java Class</a>, Previous: <a href="Java-Interface-Functions.html#Java-Interface-Functions" accesskey="p" rel="prev">Java Interface Functions</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="How-to-use-Java-from-within-Octave.html#How-to-use-Java-from-within-Octave" accesskey="n" rel="next">How to use Java from within Octave</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

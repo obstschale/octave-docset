@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Simple File I/O</title>
+<title>GNU Octave: Simple File I/O</title>
 
 <meta name="description" content="GNU Octave: Simple File I/O">
 <meta name="keywords" content="GNU Octave: Simple File I/O">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -91,8 +91,8 @@ A
 <dt><a name="index-save-1"></a>: <em></em> <strong>save</strong> <em>options file</em></dt>
 <dt><a name="index-save-2"></a>: <em></em> <strong>save</strong> <em>options file <var>v1</var> <var>v2</var> &hellip;</em></dt>
 <dt><a name="index-save-3"></a>: <em></em> <strong>save</strong> <em>options file -struct <var>STRUCT</var> <var>f1</var> <var>f2</var> &hellip;</em></dt>
-<dt><a name="index-save-4"></a>: <em></em> <strong>save</strong> <em><code>&quot;-&quot;</code> <var>v1</var> <var>v2</var> &hellip;</em></dt>
-<dt><a name="index-save-5"></a>: <em><var>s</var> =</em> <strong>save</strong> <em>(<code>&quot;-&quot;</code> <var>v1</var> <var>v2</var> &hellip;)</em></dt>
+<dt><a name="index-save-4"></a>: <em></em> <strong>save</strong> <em>- <var>v1</var> <var>v2</var> &hellip;</em></dt>
+<dt><a name="index-save-5"></a>: <em><var>str</var> =</em> <strong>save</strong> <em>(&quot;-&quot;, <code>&quot;<var>v1</var>&quot;</code>, <code>&quot;<var>v2</var>&quot;</code>, &hellip;)</em></dt>
 <dd><p>Save the named variables <var>v1</var>, <var>v2</var>, &hellip;, in the file
 <var>file</var>.
 </p>
@@ -226,7 +226,7 @@ global variable.
 <p>saves the variable &lsquo;<samp>a</samp>&rsquo; and all variables beginning with &lsquo;<samp>b</samp>&rsquo; to
 the file <samp>data</samp> in Octave&rsquo;s binary format.
 </p>
-<p><strong>See also:</strong> <a href="#XREFload">load</a>, <a href="#XREFsave_005fdefault_005foptions">save_default_options</a>, <a href="#XREFsave_005fheader_005fformat_005fstring">save_header_format_string</a>, <a href="#XREFdlmread">dlmread</a>, <a href="#XREFcsvread">csvread</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFload">load</a>, <a href="Simple-File-I_002fO.html#XREFsave_005fdefault_005foptions">save_default_options</a>, <a href="Simple-File-I_002fO.html#XREFsave_005fheader_005fformat_005fstring">save_header_format_string</a>, <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>, <a href="Simple-File-I_002fO.html#XREFcsvread">csvread</a>, <a href="Binary-I_002fO.html#XREFfread">fread</a>.
 </p></dd></dl>
 
 
@@ -246,7 +246,7 @@ The default value is <samp>-text</samp>.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsave">save</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFsave">save</a>.
 </p></dd></dl>
 
 
@@ -284,7 +284,7 @@ omitted from text-format data files.  The default value is
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="#XREFsave">save</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Simple-File-I_002fO.html#XREFsave">save</a>.
 </p></dd></dl>
 
 
@@ -391,7 +391,7 @@ format.
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFsave">save</a>, <a href="#XREFdlmwrite">dlmwrite</a>, <a href="#XREFcsvwrite">csvwrite</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFsave">save</a>, <a href="Simple-File-I_002fO.html#XREFdlmwrite">dlmwrite</a>, <a href="Simple-File-I_002fO.html#XREFcsvwrite">csvwrite</a>, <a href="Binary-I_002fO.html#XREFfwrite">fwrite</a>.
 </p></dd></dl>
 
 
@@ -399,7 +399,7 @@ format.
 <dt><a name="index-fileread"></a>: <em><var>str</var> =</em> <strong>fileread</strong> <em>(<var>filename</var>)</em></dt>
 <dd><p>Read the contents of <var>filename</var> and return it as a string.
 </p>
-<p><strong>See also:</strong> <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="#XREFtextread">textread</a>, <a href="Formatted-Input.html#XREFsscanf">sscanf</a>.
+<p><strong>See also:</strong> <a href="Binary-I_002fO.html#XREFfread">fread</a>, <a href="Simple-File-I_002fO.html#XREFtextread">textread</a>, <a href="Formatted-Input.html#XREFsscanf">sscanf</a>.
 </p></dd></dl>
 
 
@@ -513,7 +513,7 @@ string (as used by fprintf) or a number of significant digits.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFdlmread">dlmread</a>, <a href="#XREFcsvread">csvread</a>, <a href="#XREFcsvwrite">csvwrite</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>, <a href="Simple-File-I_002fO.html#XREFcsvread">csvread</a>, <a href="Simple-File-I_002fO.html#XREFcsvwrite">csvwrite</a>.
 </p></dd></dl>
 
 
@@ -548,7 +548,7 @@ latter case, the file is read until end of file is reached.
 fill empty fields.  The default is zero.  Note that any non-numeric values,
 such as text, are also replaced by the <code>&quot;emptyvalue&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcsvread">csvread</a>, <a href="#XREFtextscan">textscan</a>, <a href="#XREFtextread">textread</a>, <a href="#XREFdlmwrite">dlmwrite</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFcsvread">csvread</a>, <a href="Simple-File-I_002fO.html#XREFtextscan">textscan</a>, <a href="Simple-File-I_002fO.html#XREFtextread">textread</a>, <a href="Simple-File-I_002fO.html#XREFdlmwrite">dlmwrite</a>.
 </p></dd></dl>
 
 
@@ -565,9 +565,9 @@ such as text, are also replaced by the <code>&quot;emptyvalue&quot;</code>.
 </pre></div>
 
 <p>Any optional arguments are passed directly to <code>dlmwrite</code>
-(see <a href="#XREFdlmwrite">dlmwrite</a>).
+(see <a href="Simple-File-I_002fO.html#XREFdlmwrite">dlmwrite</a>).
 </p>
-<p><strong>See also:</strong> <a href="#XREFcsvread">csvread</a>, <a href="#XREFdlmwrite">dlmwrite</a>, <a href="#XREFdlmread">dlmread</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFcsvread">csvread</a>, <a href="Simple-File-I_002fO.html#XREFdlmwrite">dlmwrite</a>, <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>.
 </p></dd></dl>
 
 
@@ -586,9 +586,9 @@ such as text, are also replaced by the <code>&quot;emptyvalue&quot;</code>.
 </pre></div>
 
 <p>Any optional arguments are passed directly to <code>dlmread</code>
-(see <a href="#XREFdlmread">dlmread</a>).
+(see <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>).
 </p>
-<p><strong>See also:</strong> <a href="#XREFdlmread">dlmread</a>, <a href="#XREFtextread">textread</a>, <a href="#XREFtextscan">textscan</a>, <a href="#XREFcsvwrite">csvwrite</a>, <a href="#XREFdlmwrite">dlmwrite</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>, <a href="Simple-File-I_002fO.html#XREFtextread">textread</a>, <a href="Simple-File-I_002fO.html#XREFtextscan">textscan</a>, <a href="Simple-File-I_002fO.html#XREFcsvwrite">csvwrite</a>, <a href="Simple-File-I_002fO.html#XREFdlmwrite">dlmwrite</a>.
 </p></dd></dl>
 
 
@@ -676,7 +676,7 @@ the first data line of the file.  Empty fields are returned as zero values.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrread">strread</a>, <a href="#XREFload">load</a>, <a href="#XREFdlmread">dlmread</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="#XREFtextscan">textscan</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Strings.html#XREFstrread">strread</a>, <a href="Simple-File-I_002fO.html#XREFload">load</a>, <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Simple-File-I_002fO.html#XREFtextscan">textscan</a>.
 </p></dd></dl>
 
 
@@ -956,7 +956,7 @@ length
 from the beginning of the file or string, where processing stopped.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFdlmread">dlmread</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="#XREFload">load</a>, <a href="Manipulating-Strings.html#XREFstrread">strread</a>, <a href="#XREFtextread">textread</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>, <a href="Formatted-Input.html#XREFfscanf">fscanf</a>, <a href="Simple-File-I_002fO.html#XREFload">load</a>, <a href="Manipulating-Strings.html#XREFstrread">strread</a>, <a href="Simple-File-I_002fO.html#XREFtextread">textread</a>.
 </p></dd></dl>
 
 
@@ -1005,7 +1005,7 @@ specified delimiter.
 </li></ul>
 
 
-<p><strong>See also:</strong> <a href="#XREFtextscan">textscan</a>, <a href="#XREFdlmread">dlmread</a>, <a href="#XREFcsvread">csvread</a>, <a href="#XREFload">load</a>.
+<p><strong>See also:</strong> <a href="Simple-File-I_002fO.html#XREFtextscan">textscan</a>, <a href="Simple-File-I_002fO.html#XREFdlmread">dlmread</a>, <a href="Simple-File-I_002fO.html#XREFcsvread">csvread</a>, <a href="Simple-File-I_002fO.html#XREFload">load</a>.
 </p></dd></dl>
 
 

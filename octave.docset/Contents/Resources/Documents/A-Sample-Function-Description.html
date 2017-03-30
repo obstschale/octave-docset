@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>A Sample Function Description</title>
+<title>GNU Octave: A Sample Function Description</title>
 
 <meta name="description" content="GNU Octave: A Sample Function Description">
 <meta name="keywords" content="GNU Octave: A Sample Function Description">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -77,10 +77,12 @@ to related functions.
 <dt><a name="index-foo"></a>: <em></em> <strong>foo</strong> <em>(<var>x</var>)</em></dt>
 <dt><a name="index-foo-1"></a>: <em></em> <strong>foo</strong> <em>(<var>x</var>, <var>y</var>)</em></dt>
 <dt><a name="index-foo-2"></a>: <em></em> <strong>foo</strong> <em>(<var>x</var>, <var>y</var>, &hellip;)</em></dt>
-<dd><p>The function <code>foo</code> subtracts <var>x</var> from <var>y</var>, then adds the
-remaining arguments to the result.
+<dd><p>Subtract <var>x</var> from <var>y</var>, then add any remaining arguments to the
+result.
 </p>
-<p>If <var>y</var> is not supplied, then the number 19 is used by default.
+<p>The input <var>x</var> must be a numeric scalar, vector, or array.
+</p>
+<p>The optional input <var>y</var> defaults to 19 if it is not supplied.
 </p>
 <p>Example:
 </p>
@@ -109,39 +111,6 @@ with other sorts of names (e.g., <var>new_file</var>) are discussed
 specifically in the description of the function.  In some sections,
 features common to parameters of several functions are described at the
 beginning.
-</p>
-<p>Functions in Octave may be defined in several different ways:
-</p>
-<dl compact="compact">
-<dt>Function File</dt>
-<dd><a name="index-function-file"></a>
-<p>The function described is defined using Octave commands stored in a text
-file.  See <a href="Function-Files.html#Function-Files">Function Files</a>.
-</p>
-</dd>
-<dt>Built-in Function</dt>
-<dd><a name="index-built_002din-function"></a>
-<p>The function described is written in a language like C++, C, or Fortran,
-and is part of the compiled Octave binary.
-</p>
-</dd>
-<dt>Loadable Function</dt>
-<dd><a name="index-loadable-function"></a>
-<p>The function described is written in a language like C++, C, or Fortran.
-On systems that support dynamic linking of user-supplied functions, it
-may be automatically linked while Octave is running, but only if it is
-needed.  See <a href="External-Code-Interface.html#External-Code-Interface">External Code Interface</a>.
-</p>
-</dd>
-<dt>Mapping Function</dt>
-<dd><a name="index-mapping-function"></a>
-<p>The function described works element-by-element for matrix and vector
-arguments.
-</p></dd>
-</dl>
-
-<p>Use <code>which</code> or <code>exist</code> to determine the category of a function
-and where it resides.
 </p>
 <hr>
 <div class="header">

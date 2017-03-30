@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Controlling Subprocesses</title>
+<title>GNU Octave: Controlling Subprocesses</title>
 
 <meta name="description" content="GNU Octave: Controlling Subprocesses">
 <meta name="keywords" content="GNU Octave: Controlling Subprocesses">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -113,7 +113,7 @@ variable <code>status</code> to the integer &lsquo;<samp>2</samp>&rsquo;.
 <p>For commands run asynchronously, <var>status</var> is the process id of the
 command shell that is started to run the command.
 </p>
-<p><strong>See also:</strong> <a href="#XREFunix">unix</a>, <a href="#XREFdos">dos</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFunix">unix</a>, <a href="Controlling-Subprocesses.html#XREFdos">dos</a>.
 </p></dd></dl>
 
 
@@ -131,7 +131,7 @@ status of the program in <var>status</var> and any output in <var>text</var>.
 <p>When called with no output argument, or the <code>&quot;-echo&quot;</code> argument is
 given, then <var>text</var> is also sent to standard output.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdos">dos</a>, <a href="#XREFsystem">system</a>, <a href="System-Information.html#XREFisunix">isunix</a>, <a href="System-Information.html#XREFismac">ismac</a>, <a href="System-Information.html#XREFispc">ispc</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFdos">dos</a>, <a href="Controlling-Subprocesses.html#XREFsystem">system</a>, <a href="System-Information.html#XREFisunix">isunix</a>, <a href="System-Information.html#XREFismac">ismac</a>, <a href="System-Information.html#XREFispc">ispc</a>.
 </p></dd></dl>
 
 
@@ -149,12 +149,12 @@ status of the program in <var>status</var> and any output in <var>text</var>.
 <p>When called with no output argument, or the <code>&quot;-echo&quot;</code> argument is
 given, then <var>text</var> is also sent to standard output.
 </p>
-<p><strong>See also:</strong> <a href="#XREFunix">unix</a>, <a href="#XREFsystem">system</a>, <a href="System-Information.html#XREFisunix">isunix</a>, <a href="System-Information.html#XREFismac">ismac</a>, <a href="System-Information.html#XREFispc">ispc</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFunix">unix</a>, <a href="Controlling-Subprocesses.html#XREFsystem">system</a>, <a href="System-Information.html#XREFisunix">isunix</a>, <a href="System-Information.html#XREFismac">ismac</a>, <a href="System-Information.html#XREFispc">ispc</a>.
 </p></dd></dl>
 
 
 <a name="XREFopen"></a><dl>
-<dt><a name="index-open"></a>: <em><var>output</var> =</em> <strong>open</strong> <em><var>file</var></em></dt>
+<dt><a name="index-open"></a>: <em></em> <strong>open</strong> <em><var>file</var></em></dt>
 <dt><a name="index-open-1"></a>: <em><var>output</var> =</em> <strong>open</strong> <em>(<var>file</var>)</em></dt>
 <dd><p>Open the file <var>file</var> in Octave or in an external application based on
 the file type as determined by the filename extension.
@@ -190,7 +190,7 @@ arguments.
 <var>scriptfile</var> is not an absolute filename it is searched for in the
 current directory and then in the Octave loadpath.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsystem">system</a>, <a href="#XREFpython">python</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFsystem">system</a>, <a href="Controlling-Subprocesses.html#XREFpython">python</a>.
 </p></dd></dl>
 
 
@@ -205,7 +205,7 @@ arguments.
 <var>scriptfile</var> is not an absolute filename it is searched for in the
 current directory and then in the Octave loadpath.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsystem">system</a>, <a href="#XREFperl">perl</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFsystem">system</a>, <a href="Controlling-Subprocesses.html#XREFperl">perl</a>.
 </p></dd></dl>
 
 
@@ -244,7 +244,7 @@ endwhile
    -| drwxrwxrwt  15 root  root  2048 Feb 17 14:53 tmp
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFpopen2">popen2</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFpopen2">popen2</a>.
 </p></dd></dl>
 
 
@@ -254,7 +254,7 @@ endwhile
 </p>
 <p>The function <code>fclose</code> may also be used for the same purpose.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="#XREFpopen">popen</a>.
+<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="Controlling-Subprocesses.html#XREFpopen">popen</a>.
 </p></dd></dl>
 
 
@@ -302,7 +302,7 @@ waitpid (pid);
 the child process.  If you don&rsquo;t use <code>waitpid</code> to check the child&rsquo;s
 exit status, it will linger until Octave exits.
 </p>
-<p><strong>See also:</strong> <a href="#XREFpopen">popen</a>, <a href="#XREFwaitpid">waitpid</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFpopen">popen</a>, <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>.
 </p></dd></dl>
 
 
@@ -398,7 +398,7 @@ error message.
 Otherwise, <var>fid</var> is negative and <var>msg</var> contains a system-dependent
 error message.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="#XREFfcntl">fcntl</a>.
+<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Opening-and-Closing-Files.html#XREFfclose">fclose</a>, <a href="Controlling-Subprocesses.html#XREFfcntl">fcntl</a>.
 </p></dd></dl>
 
 
@@ -453,7 +453,7 @@ less than zero and <var>msg</var> will contain a system-dependent error message.
 The value of <var>status</var> contains additional system-dependent information
 about the subprocess that exited.
 </p>
-<p><strong>See also:</strong> <a href="#XREFWCONTINUE">WCONTINUE</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWNOHANG">WNOHANG</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWUNTRACED">WUNTRACED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFWCONTINUE">WCONTINUE</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWNOHANG">WNOHANG</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWUNTRACED">WUNTRACED</a>.
 </p></dd></dl>
 
 
@@ -463,7 +463,7 @@ about the subprocess that exited.
 passed to <code>waitpid</code> to indicate that it should also return if a stopped
 child has been resumed by delivery of a <code>SIGCONT</code> signal.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWNOHANG">WNOHANG</a>, <a href="#XREFWUNTRACED">WUNTRACED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWNOHANG">WNOHANG</a>, <a href="Controlling-Subprocesses.html#XREFWUNTRACED">WUNTRACED</a>.
 </p></dd></dl>
 
 
@@ -476,7 +476,7 @@ true if the child produced a core dump.
 The macro used to implement this function is not specified in POSIX.1-2001
 and is not available on some Unix implementations (e.g., AIX, SunOS).
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -487,7 +487,7 @@ the exit status of the child.
 </p>
 <p>This function should only be employed if <code>WIFEXITED</code> returned true.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -496,7 +496,7 @@ the exit status of the child.
 <dd><p>Given <var>status</var> from a call to <code>waitpid</code>, return
 true if the child process was resumed by delivery of <code>SIGCONT</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>.
 </p></dd></dl>
 
 
@@ -505,7 +505,7 @@ true if the child process was resumed by delivery of <code>SIGCONT</code>.
 <dd><p>Given <var>status</var> from a call to <code>waitpid</code>, return
 true if the child process was terminated by a signal.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -517,7 +517,7 @@ true if the child process was stopped by delivery of a signal.
 <p>This is only possible if the call was done using <code>WUNTRACED</code> or when
 the child is being traced (see ptrace(2)).
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -526,7 +526,7 @@ the child is being traced (see ptrace(2)).
 <dd><p>Given <var>status</var> from a call to <code>waitpid</code>, return
 true if the child terminated normally.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -536,7 +536,7 @@ true if the child terminated normally.
 passed to <code>waitpid</code> to indicate that it should return its status
 immediately instead of waiting for a process to exit.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWUNTRACED">WUNTRACED</a>, <a href="#XREFWCONTINUE">WCONTINUE</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWUNTRACED">WUNTRACED</a>, <a href="Controlling-Subprocesses.html#XREFWCONTINUE">WCONTINUE</a>.
 </p></dd></dl>
 
 
@@ -547,7 +547,7 @@ the number of the signal which caused the child to stop.
 </p>
 <p>This function should only be employed if <code>WIFSTOPPED</code> returned true.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWTERMSIG">WTERMSIG</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWTERMSIG">WTERMSIG</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -558,7 +558,7 @@ the number of the signal that caused the child process to terminate.
 </p>
 <p>This function should only be employed if <code>WIFSIGNALED</code> returned true.
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWIFEXITED">WIFEXITED</a>, <a href="#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="#XREFWCOREDUMP">WCOREDUMP</a>, <a href="#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="#XREFWSTOPSIG">WSTOPSIG</a>, <a href="#XREFWIFCONTINUED">WIFCONTINUED</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWIFEXITED">WIFEXITED</a>, <a href="Controlling-Subprocesses.html#XREFWEXITSTATUS">WEXITSTATUS</a>, <a href="Controlling-Subprocesses.html#XREFWIFSIGNALED">WIFSIGNALED</a>, <a href="Controlling-Subprocesses.html#XREFWCOREDUMP">WCOREDUMP</a>, <a href="Controlling-Subprocesses.html#XREFWIFSTOPPED">WIFSTOPPED</a>, <a href="Controlling-Subprocesses.html#XREFWSTOPSIG">WSTOPSIG</a>, <a href="Controlling-Subprocesses.html#XREFWIFCONTINUED">WIFCONTINUED</a>.
 </p></dd></dl>
 
 
@@ -568,7 +568,7 @@ the number of the signal that caused the child process to terminate.
 passed to <code>waitpid</code> to indicate that it should also return if the child
 process has stopped but is not traced via the <code>ptrace</code> system call
 </p>
-<p><strong>See also:</strong> <a href="#XREFwaitpid">waitpid</a>, <a href="#XREFWNOHANG">WNOHANG</a>, <a href="#XREFWCONTINUE">WCONTINUE</a>.
+<p><strong>See also:</strong> <a href="Controlling-Subprocesses.html#XREFwaitpid">waitpid</a>, <a href="Controlling-Subprocesses.html#XREFWNOHANG">WNOHANG</a>, <a href="Controlling-Subprocesses.html#XREFWCONTINUE">WCONTINUE</a>.
 </p></dd></dl>
 
 
@@ -667,7 +667,7 @@ returned (some of the flags may be undefined on some systems).
 <var>err</var> is nonzero and <var>msg</var> contains a system-dependent error
 message.
 </p>
-<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="#XREFdup2">dup2</a>.
+<p><strong>See also:</strong> <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>, <a href="Controlling-Subprocesses.html#XREFdup2">dup2</a>.
 </p></dd></dl>
 
 

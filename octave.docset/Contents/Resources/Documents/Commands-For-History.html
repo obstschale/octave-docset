@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Commands for History</title>
+<title>GNU Octave: Commands for History</title>
 
 <meta name="description" content="GNU Octave: Commands for History">
 <meta name="keywords" content="GNU Octave: Commands for History">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -157,7 +157,7 @@ typed without displaying line numbers, use the command
 <p>If invoked with a single output argument, the history will be saved to that
 argument as a cell string and will not be output to screen.
 </p>
-<p><strong>See also:</strong> <a href="#XREFedit_005fhistory">edit_history</a>, <a href="#XREFrun_005fhistory">run_history</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFedit_005fhistory">edit_history</a>, <a href="Commands-for-History.html#XREFrun_005fhistory">run_history</a>.
 </p></dd></dl>
 
 
@@ -191,7 +191,7 @@ edit_history -1
 last command reverses the list of commands before they are placed in the
 buffer to be edited.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrun_005fhistory">run_history</a>, <a href="#XREFhistory">history</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFrun_005fhistory">run_history</a>, <a href="Commands-for-History.html#XREFhistory">history</a>.
 </p></dd></dl>
 
 
@@ -238,7 +238,7 @@ run_history -1 -2
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFedit_005fhistory">edit_history</a>, <a href="#XREFhistory">history</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFedit_005fhistory">edit_history</a>, <a href="Commands-for-History.html#XREFhistory">history</a>.
 </p></dd></dl>
 
 
@@ -256,7 +256,7 @@ on the command line are saved in the history file.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhistory_005fcontrol">history_control</a>, <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFhistory_005fcontrol">history_control</a>, <a href="Commands-for-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-for-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-for-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
 </p></dd></dl>
 
 
@@ -281,7 +281,7 @@ line is saved.  Any value not in the above list is ignored.  If
 <code>history_control</code> is the empty string, all commands are saved on
 the history list, subject to the value of <code>history_save</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="#XREFhistory_005fsave">history_save</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-for-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-for-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="Commands-for-History.html#XREFhistory_005fsave">history_save</a>.
 </p></dd></dl>
 
 
@@ -294,7 +294,7 @@ file used to store command history.
 <p>The default value is <samp>~/.octave_hist</samp>, but may be overridden by the
 environment variable <code><span class="nolinebreak">OCTAVE_HISTFILE</span></code><!-- /@w -->.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005fsave">history_save</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-for-History.html#XREFhistory_005fsave">history_save</a>, <a href="Commands-for-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>.
 </p></dd></dl>
 
 
@@ -307,7 +307,7 @@ to store in the history file.
 <p>The default value is <code>1000</code>, but may be overridden by the environment
 variable <code><span class="nolinebreak">OCTAVE_HISTSIZE</span></code><!-- /@w -->.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="#XREFhistory_005fsave">history_save</a>.
+<p><strong>See also:</strong> <a href="Commands-for-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-for-History.html#XREFhistory_005ftimestamp_005fformat_005fstring">history_timestamp_format_string</a>, <a href="Commands-for-History.html#XREFhistory_005fsave">history_save</a>.
 </p></dd></dl>
 
 
@@ -329,7 +329,7 @@ exits.
 variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
-<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="#XREFhistory_005ffile">history_file</a>, <a href="#XREFhistory_005fsize">history_size</a>, <a href="#XREFhistory_005fsave">history_save</a>.
+<p><strong>See also:</strong> <a href="Timing-Utilities.html#XREFstrftime">strftime</a>, <a href="Commands-for-History.html#XREFhistory_005ffile">history_file</a>, <a href="Commands-for-History.html#XREFhistory_005fsize">history_size</a>, <a href="Commands-for-History.html#XREFhistory_005fsave">history_save</a>.
 </p></dd></dl>
 
 
@@ -348,7 +348,7 @@ variable is changed locally for the function and any subroutines it calls.
 The original variable value is restored when exiting the function.
 </p>
 
-<p><strong>See also:</strong> <a href="Function-Files.html#XREFedit">edit</a>, <a href="#XREFedit_005fhistory">edit_history</a>.
+<p><strong>See also:</strong> <a href="Function-Files.html#XREFedit">edit</a>, <a href="Commands-for-History.html#XREFedit_005fhistory">edit_history</a>.
 </p></dd></dl>
 
 

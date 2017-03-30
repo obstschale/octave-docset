@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Calling External Code from Oct-Files</title>
+<title>GNU Octave: Calling External Code from Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Calling External Code from Oct-Files">
 <meta name="keywords" content="GNU Octave: Calling External Code from Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,12 +58,12 @@ Next: <a href="Allocating-Local-Memory-in-Oct_002dFiles.html#Allocating-Local-Me
 <a name="Calling-External-Code-from-Oct_002dFiles-1"></a>
 <h4 class="subsection">A.1.9 Calling External Code from Oct-Files</h4>
 
-<p>Linking external C code to Octave is relatively simple, as the C
-functions can easily be called directly from C++.  One possible issue is
-that the declarations of the external C functions may need to be explicitly
-defined as C functions to the compiler.  If the declarations of the
-external C functions are in the header <samp>foo.h</samp>, then the tactic to
-ensure that the C++ compiler treats these declarations as C code is
+<p>Linking external C code to Octave is relatively simple, as the C functions can
+easily be called directly from C++.  One possible issue is that the
+declarations of the external C functions may need to be explicitly defined as C
+functions to the compiler.  If the declarations of the external C functions are
+in the header <samp>foo.h</samp>, then the tactic to ensure that the C++ compiler
+treats these declarations as C code is
 </p>
 <div class="example">
 <pre class="example">#ifdef __cplusplus
@@ -78,30 +78,29 @@ extern &quot;C&quot;
 
 <p>Calling Fortran code, however, can pose more difficulties.  This is due to
 differences in the manner in which compilers treat the linking of Fortran code
-with C or C++ code.  Octave supplies a number of macros that allow consistent
+with C or C++ code.  Octave supplies several macros that allow consistent
 behavior across a number of compilers.
 </p>
-<p>The underlying Fortran code should use the <code>XSTOPX</code> function to
-replace the Fortran <code>STOP</code> function.  <code>XSTOPX</code> uses the Octave
-exception handler to treat failing cases in the Fortran code
-explicitly.  Note that Octave supplies its own replacement <small>BLAS</small>
-<code>XERBLA</code> function, which uses <code>XSTOPX</code>.
+<p>The underlying Fortran code should use the <code>XSTOPX</code> function to replace
+the Fortran <code>STOP</code> function.  <code>XSTOPX</code> uses the Octave exception
+handler to treat failing cases in the Fortran code explicitly.  Note that
+Octave supplies its own replacement <small>BLAS</small> <code>XERBLA</code> function, which
+uses <code>XSTOPX</code>.
 </p>
-<p>If the code calls <code>XSTOPX</code>, then the <code><span class="nolinebreak">F77_XFCN</span></code><!-- /@w -->
-macro should be used to call the underlying Fortran function.  The Fortran
-exception state can then be checked with the global variable
-<code>f77_exception_encountered</code>.  If <code>XSTOPX</code> will not be called,
-then the <code><span class="nolinebreak">F77_FCN</span></code><!-- /@w --> macro should be used instead to call the Fortran
-code.
+<p>If the code calls <code>XSTOPX</code>, then the <code><span class="nolinebreak">F77_XFCN</span></code><!-- /@w --> macro should be
+used to call the underlying Fortran function.  The Fortran exception state can
+then be checked with the global variable <code>f77_exception_encountered</code>.  If
+<code>XSTOPX</code> will not be called, then the <code><span class="nolinebreak">F77_FCN</span></code><!-- /@w --> macro should be
+used instead to call the Fortran code.
 </p>
 <p>There is no great harm in using <code><span class="nolinebreak">F77_XFCN</span></code><!-- /@w --> in all cases, except that
 for Fortran code that is short running and executes a large number of times,
 there is potentially an overhead in doing so.  However, if <code><span class="nolinebreak">F77_FCN</span></code><!-- /@w -->
-is used with code that calls <code>XSTOP</code>, Octave can generate a
-segmentation fault.
+is used with code that calls <code>XSTOP</code>, Octave can generate a segmentation
+fault.
 </p>
-<p>An example of the inclusion of a Fortran function in an oct-file is
-given in the following example, where the C++ wrapper is
+<p>An example of the inclusion of a Fortran function in an oct-file is given in
+the following example, where the C++ wrapper is
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;octave/oct.h&gt;
@@ -156,13 +155,12 @@ DEFUN_DLD (fortrandemo, args, , &quot;Fortran Demo&quot;)
       endif
       return
       end
-
 </pre></div>
 
-<p>This example demonstrates most of the features needed to link to an
-external Fortran function, including passing arrays and strings, as well
-as exception handling.  Both the Fortran and C++ files need to be compiled
-in order for the example to work.
+<p>This example demonstrates most of the features needed to link to an external
+Fortran function, including passing arrays and strings, as well as exception
+handling.  Both the Fortran and C++ files need to be compiled in order for the
+example to work.
 </p>
 <div class="example">
 <pre class="example">mkoctfile fortrandemo.cc fortransub.f

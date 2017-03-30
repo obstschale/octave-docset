@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Basic Matrix Functions</title>
+<title>GNU Octave: Basic Matrix Functions</title>
 
 <meta name="description" content="GNU Octave: Basic Matrix Functions">
 <meta name="keywords" content="GNU Octave: Basic Matrix Functions">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -144,7 +144,7 @@ indicates small changes (such as underflow or round-off error) will produce
 large changes in the resulting output.  In such cases the solution results
 from numerical computing are not likely to be accurate.
 </p>
-<p><strong>See also:</strong> <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>, <a href="#XREFrcond">rcond</a>, <a href="#XREFcondeig">condeig</a>, <a href="#XREFnorm">norm</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>, <a href="Basic-Matrix-Functions.html#XREFrcond">rcond</a>, <a href="Basic-Matrix-Functions.html#XREFcondeig">condeig</a>, <a href="Basic-Matrix-Functions.html#XREFnorm">norm</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -181,7 +181,7 @@ c = condeig (a)
 &rArr; [1.0150; 1.0150]
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFeig">eig</a>, <a href="#XREFcond">cond</a>, <a href="#XREFbalance">balance</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Basic-Matrix-Functions.html#XREFbalance">balance</a>.
 </p></dd></dl>
 
 
@@ -199,7 +199,7 @@ code from <small>UMFPACK</small> is used for sparse matrices.
 For that, use any of the condition number functions: <code>cond</code>,
 <code>condest</code>, <code>rcond</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcond">cond</a>, <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>, <a href="#XREFrcond">rcond</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>, <a href="Basic-Matrix-Functions.html#XREFrcond">rcond</a>.
 </p></dd></dl>
 
 
@@ -294,7 +294,7 @@ QZ algorithm will be used)
        -0.70711   0.70711
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFplanerot">planerot</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFplanerot">planerot</a>.
 </p></dd></dl>
 
 
@@ -305,7 +305,7 @@ QZ algorithm will be used)
 <var>G</var> such that
 <code><var>y</var> = <var>g</var> * <var>x</var></code> and <code><var>y</var>(2) = 0</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFgivens">givens</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFgivens">givens</a>.
 </p></dd></dl>
 
 
@@ -389,7 +389,7 @@ result is cached so that it is only done once per linear system.
 <p>The optional second output <var>R</var> is the inverse condition number of
 <var>A</var> (zero if matrix is singular).
 </p>
-<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFmldivide">mldivide</a>, <a href="#XREFmatrix_005ftype">matrix_type</a>, <a href="#XREFrcond">rcond</a>.
+<p><strong>See also:</strong> <a href="Arithmetic-Ops.html#XREFmldivide">mldivide</a>, <a href="Basic-Matrix-Functions.html#XREFmatrix_005ftype">matrix_type</a>, <a href="Basic-Matrix-Functions.html#XREFrcond">rcond</a>.
 </p></dd></dl>
 
 
@@ -491,7 +491,7 @@ LU&nbsp;factorization.  Once the matrix has been factorized,
 <dt><a name="index-norm-2"></a>: <em></em> <strong>norm</strong> <em>(<var>A</var>, <var>p</var>, <var>opt</var>)</em></dt>
 <dd><p>Compute the p-norm of the matrix <var>A</var>.
 </p>
-<p>If the second argument is missing, <code>p&nbsp;=&nbsp;2</code><!-- /@w --> is assumed.
+<p>If the second argument is not given, <code>p&nbsp;=&nbsp;2</code><!-- /@w --> is used.
 </p>
 <p>If <var>A</var> is a matrix (or sparse matrix):
 </p>
@@ -536,7 +536,7 @@ LU&nbsp;factorization.  Once the matrix has been factorized,
 </p>
 </dd>
 <dt><var>p</var> = 0</dt>
-<dd><p>Hamming norm - the number of nonzero elements.
+<dd><p>Hamming norm&mdash;the number of nonzero elements.
 </p>
 </dd>
 <dt>other <var>p</var>, <code><var>p</var> &gt; 1</code></dt>
@@ -553,7 +553,7 @@ compute its norm.  The result is returned as a column vector.
 Similarly, if <var>opt</var> is <code>&quot;columns&quot;</code> or <code>&quot;cols&quot;</code> then
 compute the norms of each column and return a row vector.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcond">cond</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Sparse-Linear-Algebra.html#XREFnormest">normest</a>, <a href="Sparse-Linear-Algebra.html#XREFnormest1">normest1</a>, <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -570,7 +570,7 @@ it is computed as
 <pre class="example">max (size (<var>A</var>)) * max (svd (<var>A</var>)) * eps
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREForth">orth</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREForth">orth</a>.
 </p></dd></dl>
 
 
@@ -587,7 +587,7 @@ is computed as
 <pre class="example">max (size (<var>A</var>)) * max (svd (<var>A</var>)) * eps
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFnull">null</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFnull">null</a>.
 </p></dd></dl>
 
 
@@ -660,7 +660,7 @@ rank (x)
 linear combination of -1*row1 + 2*row2.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFnull">null</a>, <a href="Sparse-Linear-Algebra.html#XREFsprank">sprank</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFnull">null</a>, <a href="Sparse-Linear-Algebra.html#XREFsprank">sprank</a>, <a href="Matrix-Factorizations.html#XREFsvd">svd</a>.
 </p></dd></dl>
 
 
@@ -676,7 +676,7 @@ matrix is poorly conditioned it will be close to 0.
 <code>condest (<var>A</var>)</code> or <code>rcond (full (<var>A</var>))</code> should be used
 instead.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcond">cond</a>, <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>.
 </p></dd></dl>
 
 
@@ -687,7 +687,7 @@ diagonal.
 </p>
 <p>The implementation is straightforward: <code>sum (diag (<var>A</var>))</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFeig">eig</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>.
 </p></dd></dl>
 
 

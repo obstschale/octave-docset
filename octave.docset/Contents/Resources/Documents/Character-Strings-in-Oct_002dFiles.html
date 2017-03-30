@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Character Strings in Oct-Files</title>
+<title>GNU Octave: Character Strings in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Character Strings in Oct-Files">
 <meta name="keywords" content="GNU Octave: Character Strings in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,8 +58,8 @@ Next: <a href="Cell-Arrays-in-Oct_002dFiles.html#Cell-Arrays-in-Oct_002dFiles" a
 <a name="Character-Strings-in-Oct_002dFiles-1"></a>
 <h4 class="subsection">A.1.3 Character Strings in Oct-Files</h4>
 
-<p>A character string in Octave is just a special <code>Array</code> class.
-Consider the example:
+<p>A character string in Octave is just a special <code>Array</code> class.  Consider
+the example:
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;octave/oct.h&gt;
@@ -108,10 +108,10 @@ typeinfo (s1)
 &rArr; string
 </pre></div>
 
-<p>One additional complication of strings in Octave is the difference
-between single quoted and double quoted strings.  To find out if an
-<code>octave_value</code> contains a single or double quoted string use
-one of the predicate tests shown below.
+<p>One additional complication of strings in Octave is the difference between
+single quoted and double quoted strings.  To find out if an <code>octave_value</code>
+contains a single or double quoted string use one of the predicate tests shown
+below.
 </p>
 <div class="example">
 <pre class="example">if (args(0).is_sq_string ())
@@ -121,15 +121,15 @@ else if (args(0).is_dq_string ())
 </pre></div>
 
 <p>Note, however, that both types of strings are represented by the
-<code>charNDArray</code> type, and so when assigning to an
-<code>octave_value</code>, the type of string should be specified.  For example:
+<code>charNDArray</code> type, and so when assigning to an <code>octave_value</code>, the
+type of string should be specified.  For example:
 </p>
 <div class="example">
 <pre class="example">octave_value_list retval;
 charNDArray ch;
 &hellip;
 // Create single quoted string
-retval(1) = octave_value (ch);        // default constructor is sq_string
+retval(1) = octave_value (ch);   // default constructor is sq_string
            OR
 retval(1) = octave_value (ch, '\'');  // explicitly create sq_string
 

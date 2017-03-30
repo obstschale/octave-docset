@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Image Properties</title>
+<title>GNU Octave: Image Properties</title>
 
 <meta name="description" content="GNU Octave: Image Properties">
 <meta name="keywords" content="GNU Octave: Image Properties">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -98,8 +98,8 @@ Next: <a href="Patch-Properties.html#Patch-Properties" accesskey="n" rel="next">
 <a name="XREFimagebuttondownfcn"></a><a name="index-image-buttondownfcn"></a>
 </dd>
 <dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFimagecdata"></a><a name="index-image-cdata"></a>
 </dd>
@@ -130,11 +130,15 @@ Next: <a href="Patch-Properties.html#Patch-Properties" accesskey="n" rel="next">
 <dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately after image has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultimagecreatefcn&quot;, 'disp (&quot;image created!&quot;)')</code>.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFimagedeletefcn"></a><a name="index-image-deletefcn"></a>
 </dd>
 <dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately before image is deleted.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
 </p>
 
 <a name="XREFimagedisplayname"></a><a name="index-image-displayname"></a>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Uicontrol Properties</title>
+<title>GNU Octave: Uicontrol Properties</title>
 
 <meta name="description" content="GNU Octave: Uicontrol Properties">
 <meta name="keywords" content="GNU Octave: Uicontrol Properties">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -92,8 +92,8 @@ Next: <a href="Uitoolbar-Properties.html#Uitoolbar-Properties" accesskey="n" rel
 <a name="XREFuicontrolbuttondownfcn"></a><a name="index-uicontrol-buttondownfcn"></a>
 </dd>
 <dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFuicontrolcallback"></a><a name="index-uicontrol-callback"></a>
 </dd>
@@ -124,11 +124,15 @@ Next: <a href="Uitoolbar-Properties.html#Uitoolbar-Properties" accesskey="n" rel
 <dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately after uicontrol has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaultuicontrolcreatefcn&quot;, 'disp (&quot;uicontrol created!&quot;)')</code>.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFuicontroldeletefcn"></a><a name="index-uicontrol-deletefcn"></a>
 </dd>
 <dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately before uicontrol is deleted.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
 </p>
 
 <a name="XREFuicontrolenable"></a><a name="index-uicontrol-enable"></a>

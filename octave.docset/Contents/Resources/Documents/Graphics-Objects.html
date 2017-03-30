@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Graphics Objects</title>
+<title>GNU Octave: Graphics Objects</title>
 
 <meta name="description" content="GNU Octave: Graphics Objects">
 <meta name="keywords" content="GNU Octave: Graphics Objects">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -152,7 +152,7 @@ to <var>hax</var>.
 </p>
 <p>Called without any arguments, or with <var>property</var>/<var>value</var> pairs,
 construct a new axes.  For accepted properties and corresponding
-values, see <a href="#XREFset">set</a>.
+values, see <a href="Graphics-Objects.html#XREFset">set</a>.
 </p>
 <p>Called with a single axes handle argument <var>hax</var>, the function makes
 <var>hax</var> the current axis.  It also restacks the axes in the
@@ -161,7 +161,7 @@ of children.  This causes <var>hax</var> to be displayed on top of any other
 axes objects (Z-order stacking).
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFgca">gca</a>, <a href="#XREFset">set</a>, <a href="#XREFget">get</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFset">set</a>, <a href="Graphics-Objects.html#XREFget">get</a>.
 </p></dd></dl>
 
 
@@ -187,7 +187,7 @@ rather than the current axes returned by <code>gca</code>.
 handles) to the line objects created.
 </p>
 
-<p><strong>See also:</strong> <a href="Displaying-Images.html#XREFimage">image</a>, <a href="#XREFpatch">patch</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>, <a href="#XREFsurface">surface</a>, <a href="Plot-Annotations.html#XREFtext">text</a>.
+<p><strong>See also:</strong> <a href="Displaying-Images.html#XREFimage">image</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002ddimensional-Geometric-Shapes.html#XREFrectangle">rectangle</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Plot-Annotations.html#XREFtext">text</a>.
 </p></dd></dl>
 
 
@@ -244,7 +244,7 @@ customize them requires setting patch properties directly.  Useful patch
 properties are: <code>&quot;cdata&quot;</code>, <code>&quot;edgecolor&quot;</code>,
 <code>&quot;facecolor&quot;</code>, <code>&quot;faces&quot;</code>, <code>&quot;facevertexcdata&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFget">get</a>, <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -275,58 +275,58 @@ rather than the current axes returned by <code>gca</code>.
 <p>The optional return value <var>h</var> is a graphics handle to the created
 surface object.
 </p>
-<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="#XREFpatch">patch</a>, <a href="#XREFline">line</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Graphics-Objects.html#XREFline">line</a>.
 </p></dd></dl>
 
 
 <a name="XREFlight"></a><dl>
 <dt><a name="index-light"></a>: <em></em> <strong>light</strong> <em>()</em></dt>
-<dt><a name="index-light-1"></a>: <em></em> <strong>light</strong> <em>(&hellip;, <var>prop</var>, <var>val</var>, &hellip;)</em></dt>
+<dt><a name="index-light-1"></a>: <em></em> <strong>light</strong> <em>(&hellip;, &quot;<var>prop</var>&quot;, <var>val</var>, &hellip;)</em></dt>
 <dt><a name="index-light-2"></a>: <em></em> <strong>light</strong> <em>(<var>hax</var>, &hellip;)</em></dt>
 <dt><a name="index-light-3"></a>: <em><var>h</var> =</em> <strong>light</strong> <em>(&hellip;)</em></dt>
-<dd><p>Create light object in the current axes or for axes <var>hax</var>.
+<dd><p>Create a light object in the current axes or for axes <var>hax</var>.
 </p>
-<p>When a light object is present in an axes object and the properties
+<p>When a light object is present in an axes object, and the properties
 <code>&quot;EdgeLighting&quot;</code> or <code>&quot;FaceLighting&quot;</code> of a <code>patch</code> or
 <code>surface</code> object are set to a value other than <code>&quot;none&quot;</code>, these
-objects are drawn with light and shadow effects.  Supported values for these
-properties are <code>&quot;none&quot;</code> (no lighting effects), <code>&quot;flat&quot;</code>
-(faceted look of the objects) and <code>&quot;gouraud&quot;</code> (linear interpolation
-of the lighting effects between the vertices).
-For <code>patch</code> objects, the normals must be set manually (property
-<code>&quot;VertexNormals&quot;</code>).
+objects are drawn with light and shadow effects.  Supported values for
+Lighting properties are <code>&quot;none&quot;</code> (no lighting effects), <code>&quot;flat&quot;</code>
+(faceted look of the objects), and <code>&quot;gouraud&quot;</code> (linear interpolation
+of the lighting effects between the vertices).  For <code>patch</code> objects,
+the normals must be set manually (property <code>&quot;VertexNormals&quot;</code>).
 </p>
 <p>Up to eight light objects are supported per axes.
 </p>
-<p>Lighting is only supported for graphics toolkits supporting OpenGL (i.e.
-<code>&quot;fltk&quot;</code> and <code>&quot;qt&quot;</code>).
+<p>Lighting is only supported for OpenGL graphic toolkits (i.e., <code>&quot;fltk&quot;</code>
+and <code>&quot;qt&quot;</code>).
 </p>
-<p>The following properties specific to the light object can be passed with
-their respective values:
+<p>A light object has the following properties which alter the appearance of
+the plot.
 </p>
 <dl compact="compact">
-<dt><code>&quot;Color&quot;:</code> The color of the light object can be passed as an</dt>
+<dt><code>&quot;Color&quot;:</code> The color of the light can be passed as an</dt>
 <dd><p>RGB-vector (e.g., <code>[1 0 0]</code> for red) or as a string (e.g., <code>&quot;r&quot;</code>
 for red).  The default color is white (<code>[1 1 1]</code>).
 </p>
 </dd>
-<dt><code>&quot;Position&quot;:</code> The direction from which the light emanates as an</dt>
+<dt><code>&quot;Position&quot;:</code> The direction from which the light emanates as a</dt>
 <dd><p>1x3-vector.  The default direction is <code>[1 0 1]</code>.
 </p>
 </dd>
 <dt><code>&quot;Style&quot;:</code> This string defines whether the light emanates from a</dt>
 <dd><p>light source at infinite distance (<code>&quot;infinite&quot;</code>) or from a local point
-source (<code>&quot;local&quot;</code>).
+source (<code>&quot;local&quot;</code>).  The default is <code>&quot;infinite&quot;</code>.
 </p></dd>
 </dl>
 
-<p>If <code>light</code> is called with an axes handle <var>hax</var>, it must be passed
-as the first argument.
+<p>If the first argument <var>hax</var> is an axes handle, then add the light object
+to this axes, rather than the current axes returned by <code>gca</code>.
 </p>
-<p>Optionally, the handle to the light object is returned in <var>h</var>.
+<p>The optional return value <var>h</var> is a graphics handle to the created light
+object.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFget">get</a>, <a href="#XREFset">set</a>, <a href="#XREFpatch">patch</a>, <a href="#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFlighting">lighting</a>, <a href="Three_002dDimensional-Plots.html#XREFmaterial">material</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFlighting">lighting</a>, <a href="Three_002dDimensional-Plots.html#XREFmaterial">material</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>.
 </p></dd></dl>
 
 
@@ -346,7 +346,7 @@ to an axes or figure, use the functions <code>ishandle</code>, <code>isaxes</cod
 returned that is true where the elements of <var>h</var> are graphics handles and
 false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="#XREFisaxes">isaxes</a>, <a href="#XREFisfigure">isfigure</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFisaxes">isaxes</a>, <a href="Graphics-Objects.html#XREFisfigure">isfigure</a>.
 </p></dd></dl>
 
 
@@ -359,7 +359,7 @@ otherwise.
 <p>When no <var>type</var> is specified the function is equivalent to
 <code>ishandle</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFishandle">ishandle</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFishandle">ishandle</a>.
 </p></dd></dl>
 
 
@@ -370,7 +370,7 @@ otherwise.
 <p>If <var>h</var> is a matrix then return a logical array which is true where the
 elements of <var>h</var> are axes graphics handles and false where they are not.
 </p>
-<p><strong>See also:</strong> <a href="#XREFisaxes">isaxes</a>, <a href="#XREFishandle">ishandle</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFisaxes">isaxes</a>, <a href="Graphics-Objects.html#XREFishandle">ishandle</a>.
 </p></dd></dl>
 
 
@@ -382,7 +382,7 @@ elements of <var>h</var> are axes graphics handles and false where they are not.
 elements of <var>h</var> are figure graphics handles and false where they are
 not.
 </p>
-<p><strong>See also:</strong> <a href="#XREFisaxes">isaxes</a>, <a href="#XREFishandle">ishandle</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFisaxes">isaxes</a>, <a href="Graphics-Objects.html#XREFishandle">ishandle</a>.
 </p></dd></dl>
 
 
@@ -421,7 +421,7 @@ object.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFgca">gca</a>, <a href="#XREFgco">gco</a>, <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="#XREFget">get</a>, <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFgco">gco</a>, <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -452,7 +452,7 @@ does not exist, query the <code>&quot;CurrentAxes&quot;</code> property of a fig
 <pre class="example">get (gcf, &quot;currentaxes&quot;);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFgcf">gcf</a>, <a href="#XREFgco">gco</a>, <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="#XREFget">get</a>, <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFgcf">gcf</a>, <a href="Graphics-Objects.html#XREFgco">gco</a>, <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -477,7 +477,7 @@ executing callback can be interrupted by another callback and the current
 object may be changed.
 </p>
 
-<p><strong>See also:</strong> <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="#XREFgca">gca</a>, <a href="#XREFgcf">gcf</a>, <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="#XREFget">get</a>, <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFgcf">gcf</a>, <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -547,7 +547,7 @@ name) then only the defaults for the requested property are returned.
 <p>If <var>h</var> is a vector, return a cell array including the property values or
 lists respectively.
 </p>
-<p><strong>See also:</strong> <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -610,7 +610,7 @@ set (hf, &quot;paperorientation&quot;)
 <p>shows the paperorientation property can take three values with the default
 being <code>&quot;portrait&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFget">get</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFget">get</a>.
 </p></dd></dl>
 
 
@@ -629,7 +629,7 @@ type matches any of the given type strings.
 parent in the object hierarchy that matches the condition, instead
 of the first (nearest) one.
 </p>
-<p><strong>See also:</strong> <a href="Searching-Properties.html#XREFfindobj">findobj</a>, <a href="Searching-Properties.html#XREFfindall">findall</a>, <a href="#XREFallchild">allchild</a>.
+<p><strong>See also:</strong> <a href="Searching-Properties.html#XREFfindobj">findobj</a>, <a href="Searching-Properties.html#XREFfindall">findall</a>, <a href="Graphics-Objects.html#XREFallchild">allchild</a>.
 </p></dd></dl>
 
 
@@ -644,7 +644,7 @@ hidden objects (HandleVisibility = <code>&quot;off&quot;</code>).
 <var>h</var> will be a cell matrix of the same size as <var>handles</var> and each
 cell will contain a vector of handles.
 </p>
-<p><strong>See also:</strong> <a href="Searching-Properties.html#XREFfindall">findall</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>, <a href="#XREFget">get</a>, <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Searching-Properties.html#XREFfindall">findall</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -653,7 +653,7 @@ cell will contain a vector of handles.
 <dd><p>Find all visible figures that are currently off the screen and move them
 onto the screen.
 </p>
-<p><strong>See also:</strong> <a href="#XREFallchild">allchild</a>, <a href="Multiple-Plot-Windows.html#XREFfigure">figure</a>, <a href="#XREFget">get</a>, <a href="#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFallchild">allchild</a>, <a href="Multiple-Plot-Windows.html#XREFfigure">figure</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -683,7 +683,7 @@ of the object, and its children, associated with the handle, <var>h</var>.
 <p>The fields of the structure <var>s</var> are <code>&quot;type&quot;</code>, <code>&quot;handle&quot;</code>,
 <code>&quot;properties&quot;</code>, <code>&quot;children&quot;</code>, and <code>&quot;special&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstruct2hdl">struct2hdl</a>, <a href="Printing-and-Saving-Plots.html#XREFhgsave">hgsave</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFstruct2hdl">struct2hdl</a>, <a href="Printing-and-Saving-Plots.html#XREFhgsave">hgsave</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>.
 </p></dd></dl>
 
 
@@ -705,7 +705,7 @@ using the default values from the root figure.
 function should preserve listeners/callbacks, e.g., for legends or
 hggroups.  The default is false.
 </p>
-<p><strong>See also:</strong> <a href="#XREFhdl2struct">hdl2struct</a>, <a href="Printing-and-Saving-Plots.html#XREFhgload">hgload</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFhdl2struct">hdl2struct</a>, <a href="Printing-and-Saving-Plots.html#XREFhgload">hgload</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>.
 </p></dd></dl>
 
 
@@ -726,7 +726,7 @@ set to <var>hparent</var>.  Conversely, if <var>horig</var> is a scalar and
 same number of elements then <code><var>hnew</var>(i)</code> will have parent
 <code><var>hparent</var>(i)</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFstruct2hdl">struct2hdl</a>, <a href="#XREFhdl2struct">hdl2struct</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFstruct2hdl">struct2hdl</a>, <a href="Graphics-Objects.html#XREFhdl2struct">hdl2struct</a>, <a href="Searching-Properties.html#XREFfindobj">findobj</a>.
 </p></dd></dl>
 
 

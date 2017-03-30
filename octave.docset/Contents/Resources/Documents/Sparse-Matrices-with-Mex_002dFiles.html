@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Sparse Matrices with Mex-Files</title>
+<title>GNU Octave: Sparse Matrices with Mex-Files</title>
 
 <meta name="description" content="GNU Octave: Sparse Matrices with Mex-Files">
 <meta name="keywords" content="GNU Octave: Sparse Matrices with Mex-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,14 +58,15 @@ Next: <a href="Calling-Other-Functions-in-Mex_002dFiles.html#Calling-Other-Funct
 <a name="Sparse-Matrices-with-Mex_002dFiles-1"></a>
 <h4 class="subsection">A.2.6 Sparse Matrices with Mex-Files</h4>
 
-<p>The Octave format for sparse matrices is identical to the mex format in
-that it is a compressed column sparse format.  Also in both, sparse
-matrices are required to be two-dimensional.  The only difference is that
-the real and imaginary parts of the matrix are stored separately.
+<p>The Octave format for sparse matrices is identical to the mex format in that it
+is a compressed column sparse format.  Also, in both implementations sparse
+matrices are required to be two-dimensional.  The only difference of importance
+to the programmer is that the real and imaginary parts of the matrix are stored
+separately.
 </p>
 <p>The mex-file interface, in addition to using <code>mxGetM</code>, <code>mxGetN</code>,
-<code>mxSetM</code>, <code>mxSetN</code>, <code>mxGetPr</code>, <code>mxGetPi</code>,
-<code>mxSetPr</code>, and <code>mxSetPi</code>, also supplies the following functions.
+<code>mxSetM</code>, <code>mxSetN</code>, <code>mxGetPr</code>, <code>mxGetPi</code>, <code>mxSetPr</code>,
+and <code>mxSetPi</code>, also supplies the following functions.
 </p>
 <div class="example">
 <pre class="example">mwIndex *mxGetIr (const mxArray *ptr);
@@ -77,13 +78,12 @@ void mxSetJc (mxArray *ptr, mwIndex *jc);
 void mxSetNzmax (mxArray *ptr, mwSize nzmax);
 </pre></div>
 
-<p><code>mxGetNzmax</code> gets the maximum number of elements that can be stored
-in the sparse matrix.  This is not necessarily the number of nonzero
-elements in the sparse matrix.  <code>mxGetJc</code> returns an array with one
-additional value than the number of columns in the sparse matrix.  The
-difference between consecutive values of the array returned by
-<code>mxGetJc</code> define the number of nonzero elements in each column of
-the sparse matrix.  Therefore,
+<p><code>mxGetNzmax</code> gets the maximum number of elements that can be stored in the
+sparse matrix.  This is not necessarily the number of nonzero elements in the
+sparse matrix.  <code>mxGetJc</code> returns an array with one additional value than
+the number of columns in the sparse matrix.  The difference between consecutive
+values of the array returned by <code>mxGetJc</code> define the number of nonzero
+elements in each column of the sparse matrix.  Therefore,
 </p>
 <div class="example">
 <pre class="example">mwSize nz, n;
@@ -96,11 +96,11 @@ nz = Jc[n];
 </pre></div>
 
 <p>returns the actual number of nonzero elements stored in the matrix in
-<code>nz</code>.  As the arrays returned by <code>mxGetPr</code> and <code>mxGetPi</code>
-only contain the nonzero values of the matrix, we also need a pointer
-to the rows of the nonzero elements, and this is given by
-<code>mxGetIr</code>.  A complete example of the use of sparse matrices in
-mex-files is given by the file <samp>mysparse.c</samp> shown below.
+<code>nz</code>.  As the arrays returned by <code>mxGetPr</code> and <code>mxGetPi</code> only
+contain the nonzero values of the matrix, we also need a pointer to the rows of
+the nonzero elements, and this is given by <code>mxGetIr</code>.  A complete example
+of the use of sparse matrices in mex-files is given by the file
+<samp>mysparse.c</samp> shown below.
 </p>
 <div class="example">
 <pre class="verbatim">#include &quot;mex.h&quot;

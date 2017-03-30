@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Catching Errors</title>
+<title>GNU Octave: Catching Errors</title>
 
 <meta name="description" content="GNU Octave: Catching Errors">
 <meta name="keywords" content="GNU Octave: Catching Errors">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -159,7 +159,7 @@ set while any unspecified fields are initialized with default values.
 <p>If <code>lasterror</code> is called with the argument <code>&quot;reset&quot;</code>, all
 fields are set to their default values.
 </p>
-<p><strong>See also:</strong> <a href="#XREFlasterr">lasterr</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Issuing-Warnings.html#XREFlastwarn">lastwarn</a>.
+<p><strong>See also:</strong> <a href="Catching-Errors.html#XREFlasterr">lasterr</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Issuing-Warnings.html#XREFlastwarn">lastwarn</a>.
 </p></dd></dl>
 
 
@@ -176,7 +176,7 @@ message identifier.
 </p>
 <p>With two arguments, also set the last message identifier.
 </p>
-<p><strong>See also:</strong> <a href="#XREFlasterror">lasterror</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Issuing-Warnings.html#XREFlastwarn">lastwarn</a>.
+<p><strong>See also:</strong> <a href="Catching-Errors.html#XREFlasterror">lasterror</a>, <a href="Raising-Errors.html#XREFerror">error</a>, <a href="Issuing-Warnings.html#XREFlastwarn">lastwarn</a>.
 </p></dd></dl>
 
 
@@ -268,7 +268,7 @@ and <code>&quot;identifier&quot;</code> fields.  <var>err</var> can also contain
 <code>&quot;stack&quot;</code> that gives information on the assumed location of the
 error.  Typically <var>err</var> is returned from <code>lasterror</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFlasterror">lasterror</a>, <a href="#XREFlasterr">lasterr</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
+<p><strong>See also:</strong> <a href="Catching-Errors.html#XREFlasterror">lasterror</a>, <a href="Catching-Errors.html#XREFlasterr">lasterr</a>, <a href="Raising-Errors.html#XREFerror">error</a>.
 </p></dd></dl>
 
 
@@ -282,7 +282,7 @@ set its value to <var>val</var> and return the previous value, or return
 the named error code given <var>name</var> as a character string, or -1
 if <var>name</var> is not found.
 </p>
-<p><strong>See also:</strong> <a href="#XREFerrno_005flist">errno_list</a>.
+<p><strong>See also:</strong> <a href="Catching-Errors.html#XREFerrno_005flist">errno_list</a>.
 </p></dd></dl>
 
 
@@ -290,7 +290,7 @@ if <var>name</var> is not found.
 <dt><a name="index-errno_005flist"></a>: <em></em> <strong>errno_list</strong> <em>()</em></dt>
 <dd><p>Return a structure containing the system-dependent errno values.
 </p>
-<p><strong>See also:</strong> <a href="#XREFerrno">errno</a>.
+<p><strong>See also:</strong> <a href="Catching-Errors.html#XREFerrno">errno</a>.
 </p></dd></dl>
 
 

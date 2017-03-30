@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Object Sizes</title>
+<title>GNU Octave: Object Sizes</title>
 
 <meta name="description" content="GNU Octave: Object Sizes">
 <meta name="keywords" content="GNU Octave: Object Sizes">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -76,7 +76,7 @@ Trailing singleton dimensions are not counted.
     &rArr; 3
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFsize">size</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFsize">size</a>.
 </p></dd></dl>
 
 
@@ -84,7 +84,7 @@ Trailing singleton dimensions are not counted.
 <dt><a name="index-columns"></a>: <em></em> <strong>columns</strong> <em>(<var>a</var>)</em></dt>
 <dd><p>Return the number of columns of <var>a</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrows">rows</a>, <a href="#XREFsize">size</a>, <a href="#XREFlength">length</a>, <a href="#XREFnumel">numel</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisscalar">isscalar</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisvector">isvector</a>, <a href="Predicates-for-Numeric-Objects.html#XREFismatrix">ismatrix</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFrows">rows</a>, <a href="Object-Sizes.html#XREFsize">size</a>, <a href="Object-Sizes.html#XREFlength">length</a>, <a href="Object-Sizes.html#XREFnumel">numel</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisscalar">isscalar</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisvector">isvector</a>, <a href="Predicates-for-Numeric-Objects.html#XREFismatrix">ismatrix</a>.
 </p></dd></dl>
 
 
@@ -92,7 +92,7 @@ Trailing singleton dimensions are not counted.
 <dt><a name="index-rows"></a>: <em></em> <strong>rows</strong> <em>(<var>a</var>)</em></dt>
 <dd><p>Return the number of rows of <var>a</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFcolumns">columns</a>, <a href="#XREFsize">size</a>, <a href="#XREFlength">length</a>, <a href="#XREFnumel">numel</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisscalar">isscalar</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisvector">isvector</a>, <a href="Predicates-for-Numeric-Objects.html#XREFismatrix">ismatrix</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFcolumns">columns</a>, <a href="Object-Sizes.html#XREFsize">size</a>, <a href="Object-Sizes.html#XREFlength">length</a>, <a href="Object-Sizes.html#XREFnumel">numel</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisscalar">isscalar</a>, <a href="Predicates-for-Numeric-Objects.html#XREFisvector">isvector</a>, <a href="Predicates-for-Numeric-Objects.html#XREFismatrix">ismatrix</a>.
 </p></dd></dl>
 
 
@@ -130,7 +130,7 @@ numel (<var>a</var>, 2, &quot;:&quot;)
 <p>This method is also called when an object appears as lvalue with cs-list
 indexing, i.e., <code>object{&hellip;}</code> or <code>object(&hellip;).field</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsize">size</a>, <a href="#XREFlength">length</a>, <a href="#XREFndims">ndims</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFsize">size</a>, <a href="Object-Sizes.html#XREFlength">length</a>, <a href="Object-Sizes.html#XREFndims">ndims</a>.
 </p></dd></dl>
 
 
@@ -143,7 +143,7 @@ for vectors.  For matrix or N-dimensional objects, the length is the number
 of elements along the largest dimension
 (equivalent to <code>max&nbsp;(size&nbsp;(<var>a</var>))</code><!-- /@w -->).
 </p>
-<p><strong>See also:</strong> <a href="#XREFnumel">numel</a>, <a href="#XREFsize">size</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFnumel">numel</a>, <a href="Object-Sizes.html#XREFsize">size</a>.
 </p></dd></dl>
 
 
@@ -190,13 +190,13 @@ remaining dimensions in the final output argument.
 <p>Example 4: number of output arguments != number of dimensions
 </p>
 <div class="example">
-<pre class="example">[nr, remainder] = size (ones (2, 3, 4, 5)
+<pre class="example">[nr, remainder] = size (ones (2, 3, 4, 5))
     &rArr; nr = 2
     &rArr; remainder = 60
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFnumel">numel</a>, <a href="#XREFndims">ndims</a>, <a href="#XREFlength">length</a>, <a href="#XREFrows">rows</a>, <a href="#XREFcolumns">columns</a>, <a href="#XREFsize_005fequal">size_equal</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFcommon_005fsize">common_size</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFnumel">numel</a>, <a href="Object-Sizes.html#XREFndims">ndims</a>, <a href="Object-Sizes.html#XREFlength">length</a>, <a href="Object-Sizes.html#XREFrows">rows</a>, <a href="Object-Sizes.html#XREFcolumns">columns</a>, <a href="Object-Sizes.html#XREFsize_005fequal">size_equal</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFcommon_005fsize">common_size</a>.
 </p></dd></dl>
 
 
@@ -205,7 +205,7 @@ remaining dimensions in the final output argument.
 <dd><p>Return true if <var>a</var> is an empty matrix (any one of its dimensions is
 zero).
 </p>
-<p><strong>See also:</strong> <a href="#XREFisnull">isnull</a>, <a href="Built_002din-Data-Types.html#XREFisa">isa</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFisnull">isnull</a>, <a href="Built_002din-Data-Types.html#XREFisa">isa</a>.
 </p></dd></dl>
 
 
@@ -229,7 +229,7 @@ distinguish the cases:
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFisempty">isempty</a>, <a href="Advanced-Indexing.html#XREFisindex">isindex</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFisempty">isempty</a>, <a href="Advanced-Indexing.html#XREFisindex">isindex</a>.
 </p></dd></dl>
 
 
@@ -248,7 +248,7 @@ distinguish the cases:
 <p>Trailing singleton dimensions are ignored.  When called with a single argument,
 or no argument, <code>size_equal</code> returns true.
 </p>
-<p><strong>See also:</strong> <a href="#XREFsize">size</a>, <a href="#XREFnumel">numel</a>, <a href="#XREFndims">ndims</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFcommon_005fsize">common_size</a>.
+<p><strong>See also:</strong> <a href="Object-Sizes.html#XREFsize">size</a>, <a href="Object-Sizes.html#XREFnumel">numel</a>, <a href="Object-Sizes.html#XREFndims">ndims</a>, <a href="Finding-Elements-and-Checking-Conditions.html#XREFcommon_005fsize">common_size</a>.
 </p></dd></dl>
 
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Recursion</title>
+<title>GNU Octave: Recursion</title>
 
 <meta name="description" content="GNU Octave: Recursion">
 <meta name="keywords" content="GNU Octave: Recursion">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -59,9 +59,9 @@ Previous: <a href="Call-by-Value.html#Call-by-Value" accesskey="p" rel="prev">Ca
 <h4 class="subsection">8.2.2 Recursion</h4>
 <a name="index-factorial-function"></a>
 
-<p>With some restrictions<a name="DOCF3" href="#FOOT3"><sup>3</sup></a>, recursive function calls are allowed.  A
+<p>With some restrictions<a name="DOCF3" href="Recursion.html#FOOT3"><sup>3</sup></a>, recursive function calls are allowed.  A
 <em>recursive function</em> is one which calls itself, either directly or
-indirectly.  For example, here is an inefficient<a name="DOCF4" href="#FOOT4"><sup>4</sup></a> way to compute the factorial of a given integer:
+indirectly.  For example, here is an inefficient<a name="DOCF4" href="Recursion.html#FOOT4"><sup>4</sup></a> way to compute the factorial of a given integer:
 </p>
 <div class="example">
 <pre class="example">function retval = fact (n)
@@ -102,7 +102,7 @@ The original variable value is restored when exiting the function.
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT3" href="#DOCF3">(3)</a></h3>
+<h3><a name="FOOT3" href="Recursion.html#DOCF3">(3)</a></h3>
 <p>Some of Octave&rsquo;s functions are
 implemented in terms of functions that cannot be called recursively.
 For example, the ODE solver <code>lsode</code> is ultimately implemented in a
@@ -110,7 +110,7 @@ Fortran subroutine that cannot be called recursively, so <code>lsode</code>
 should not be called either directly or indirectly from within the
 user-supplied function that <code>lsode</code> requires.  Doing so will result
 in an error.</p>
-<h3><a name="FOOT4" href="#DOCF4">(4)</a></h3>
+<h3><a name="FOOT4" href="Recursion.html#DOCF4">(4)</a></h3>
 <p>It would be
 much better to use <code>prod (1:n)</code>, or <code>gamma (n+1)</code> instead,
 after first checking to ensure that the value <code>n</code> is actually a

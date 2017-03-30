@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Matlab-compatible solvers</title>
+<title>GNU Octave: Matlab-compatible solvers</title>
 
 <meta name="description" content="GNU Octave: Matlab-compatible solvers">
 <meta name="keywords" content="GNU Octave: Matlab-compatible solvers">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -94,6 +94,7 @@ The options for this class of methods are set using the functions.
 <dt><a name="index-ode45-1"></a>: <em>[<var>t</var>, <var>y</var>] =</em> <strong>ode45</strong> <em>(<var>fun</var>, <var>trange</var>, <var>init</var>, <var>ode_opt</var>)</em></dt>
 <dt><a name="index-ode45-2"></a>: <em>[<var>t</var>, <var>y</var>, <var>te</var>, <var>ye</var>, <var>ie</var>] =</em> <strong>ode45</strong> <em>(&hellip;)</em></dt>
 <dt><a name="index-ode45-3"></a>: <em><var>solution</var> =</em> <strong>ode45</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ode45-4"></a>: <em></em> <strong>ode45</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Solve a set of non-stiff Ordinary Differential Equations (non-stiff ODEs)
 with the well known explicit Dormand-Prince method of order 4.
@@ -133,6 +134,10 @@ that each column corresponds to a time in <var>x</var>.
 Use <code>fieldnames (<var>solution</var>)</code> to see the other fields and
 additional information returned.
 </p>
+<p>If no output arguments are requested, and no <code>OutputFcn</code> is
+specified in <var>ode_opt</var>, then the <code>OutputFcn</code> is set to
+<code>odeplot</code> and the results of the solver are plotted immediately.
+</p>
 <p>If using the <code>&quot;Events&quot;</code> option then three additional outputs may
 be returned.  <var>te</var> holds the time when an Event function returned a
 zero.  <var>ye</var> holds the value of the solution at time <var>te</var>.  <var>ie</var>
@@ -146,7 +151,7 @@ of multiple Event functions.
 [<var>t</var>,<var>y</var>] = ode45 (fvdp, [0, 20], [2, 0]);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>, <a href="#XREFodeget">odeget</a>, <a href="#XREFode23">ode23</a>.
+<p><strong>See also:</strong> <a href="Matlab_002dcompatible-solvers.html#XREFodeset">odeset</a>, <a href="Matlab_002dcompatible-solvers.html#XREFodeget">odeget</a>, <a href="Matlab_002dcompatible-solvers.html#XREFode23">ode23</a>.
 </p></dd></dl>
 
 
@@ -155,6 +160,7 @@ of multiple Event functions.
 <dt><a name="index-ode23-1"></a>: <em>[<var>t</var>, <var>y</var>] =</em> <strong>ode23</strong> <em>(<var>fun</var>, <var>trange</var>, <var>init</var>, <var>ode_opt</var>)</em></dt>
 <dt><a name="index-ode23-2"></a>: <em>[<var>t</var>, <var>y</var>, <var>te</var>, <var>ye</var>, <var>ie</var>] =</em> <strong>ode23</strong> <em>(&hellip;)</em></dt>
 <dt><a name="index-ode23-3"></a>: <em><var>solution</var> =</em> <strong>ode23</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-ode23-4"></a>: <em></em> <strong>ode23</strong> <em>(&hellip;)</em></dt>
 <dd>
 <p>Solve a set of non-stiff Ordinary Differential Equations (non-stiff ODEs)
 with the well known explicit Bogacki-Shampine method of order 3.
@@ -196,18 +202,15 @@ that each column corresponds to a time in <var>x</var>.
 Use <code>fieldnames (<var>solution</var>)</code> to see the other fields and
 additional information returned.
 </p>
+<p>If no output arguments are requested, and no <code>OutputFcn</code> is
+specified in <var>ode_opt</var>, then the <code>OutputFcn</code> is set to
+<code>odeplot</code> and the results of the solver are plotted immediately.
+</p>
 <p>If using the <code>&quot;Events&quot;</code> option then three additional outputs may
 be returned.  <var>te</var> holds the time when an Event function returned a
 zero.  <var>ye</var> holds the value of the solution at time <var>te</var>.  <var>ie</var>
 contains an index indicating which Event function was triggered in the case
 of multiple Event functions.
-</p>
-<p>This function can be called with two output arguments: <var>t</var> and <var>y</var>.
-Variable <var>t</var> is a column vector and contains the time stamps, instead
-<var>y</var> is a matrix in which each column refers to a different unknown of
-the problem and the rows number is the same of <var>t</var> rows number so
-that each row of <var>y</var> contains the values of all unknowns at the time
-value contained in the corresponding row in <var>t</var>.
 </p>
 <p>Example: Solve the Van der Pol equation
 </p>
@@ -216,7 +219,7 @@ value contained in the corresponding row in <var>t</var>.
 [<var>t</var>,<var>y</var>] = ode23 (fvdp, [0, 20], [2, 0]);
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>, <a href="#XREFodeget">odeget</a>, <a href="#XREFode45">ode45</a>.
+<p><strong>See also:</strong> <a href="Matlab_002dcompatible-solvers.html#XREFodeset">odeset</a>, <a href="Matlab_002dcompatible-solvers.html#XREFodeget">odeget</a>, <a href="Matlab_002dcompatible-solvers.html#XREFode45">ode45</a>.
 </p></dd></dl>
 
 
@@ -368,7 +371,7 @@ state at once.
 added to the result structure.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFodeget">odeget</a>.
+<p><strong>See also:</strong> <a href="Matlab_002dcompatible-solvers.html#XREFodeget">odeget</a>.
 </p></dd></dl>
 
 
@@ -388,7 +391,7 @@ value <var>val</var> corresponding to <var>field</var> from <var>ode_opt</var>.
 not set in the structure <var>ode_opt</var>, then return the default value
 <var>default</var> instead.
 </p>
-<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>.
+<p><strong>See also:</strong> <a href="Matlab_002dcompatible-solvers.html#XREFodeset">odeset</a>.
 </p></dd></dl>
 
 
@@ -444,7 +447,7 @@ At the end of the solution the ode solver calls
 <code>odeplot ([], [], &quot;done&quot;)</code> so that odeplot can perform any clean-up
 actions required.
 </p>
-<p><strong>See also:</strong> <a href="#XREFodeset">odeset</a>, <a href="#XREFodeget">odeget</a>, <a href="#XREFode23">ode23</a>, <a href="#XREFode45">ode45</a>.
+<p><strong>See also:</strong> <a href="Matlab_002dcompatible-solvers.html#XREFodeset">odeset</a>, <a href="Matlab_002dcompatible-solvers.html#XREFodeget">odeget</a>, <a href="Matlab_002dcompatible-solvers.html#XREFode23">ode23</a>, <a href="Matlab_002dcompatible-solvers.html#XREFode45">ode45</a>.
 </p></dd></dl>
 
 

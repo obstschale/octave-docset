@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Manipulating Structures</title>
+<title>GNU Octave: Manipulating Structures</title>
 
 <meta name="description" content="GNU Octave: Manipulating Structures">
 <meta name="keywords" content="GNU Octave: Manipulating Structures">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -64,7 +64,7 @@ Next: <a href="Processing-Data-in-Structures.html#Processing-Data-in-Structures"
 <dt><a name="index-numfields"></a>: <em></em> <strong>numfields</strong> <em>(<var>s</var>)</em></dt>
 <dd><p>Return the number of fields of the structure <var>s</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfieldnames">fieldnames</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>.
 </p></dd></dl>
 
 
@@ -86,7 +86,7 @@ properties of the object.
 name of a Java class <var>javaclassname</var>, the names are the public fields
 (data members) of the object or class.
 </p>
-<p><strong>See also:</strong> <a href="#XREFnumfields">numfields</a>, <a href="#XREFisfield">isfield</a>, <a href="#XREForderfields">orderfields</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>, <a href="Creating-a-Class.html#XREFmethods">methods</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFnumfields">numfields</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Manipulating-Structures.html#XREForderfields">orderfields</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>, <a href="Creating-a-Class.html#XREFmethods">methods</a>.
 </p></dd></dl>
 
 
@@ -99,7 +99,7 @@ name of a Java class <var>javaclassname</var>, the names are the public fields
 <p>If <var>name</var> is a cell array of strings then a logical array of equal
 dimension is returned.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfieldnames">fieldnames</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>.
 </p></dd></dl>
 
 
@@ -183,7 +183,7 @@ matrix value.
 <var>sa</var>(2).bar(3).baz(1,4) = 5
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFgetfield">getfield</a>, <a href="#XREFrmfield">rmfield</a>, <a href="#XREForderfields">orderfields</a>, <a href="#XREFisfield">isfield</a>, <a href="#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFgetfield">getfield</a>, <a href="Manipulating-Structures.html#XREFrmfield">rmfield</a>, <a href="Manipulating-Structures.html#XREForderfields">orderfields</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
 </p></dd></dl>
 
 
@@ -200,7 +200,7 @@ an array or cell array).  See <code>setfield</code> for a more complete
 description of the syntax.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFsetfield">setfield</a>, <a href="#XREFrmfield">rmfield</a>, <a href="#XREForderfields">orderfields</a>, <a href="#XREFisfield">isfield</a>, <a href="#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFsetfield">setfield</a>, <a href="Manipulating-Structures.html#XREFrmfield">rmfield</a>, <a href="Manipulating-Structures.html#XREForderfields">orderfields</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
 </p></dd></dl>
 
 
@@ -213,7 +213,7 @@ removed.
 <p>If <var>f</var> is a cell array of strings or a character array, remove each of
 the named fields.
 </p>
-<p><strong>See also:</strong> <a href="#XREForderfields">orderfields</a>, <a href="#XREFfieldnames">fieldnames</a>, <a href="#XREFisfield">isfield</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREForderfields">orderfields</a>, <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>.
 </p></dd></dl>
 
 
@@ -290,7 +290,7 @@ t2 = orderfields (s, t)
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFfieldnames">fieldnames</a>, <a href="#XREFgetfield">getfield</a>, <a href="#XREFsetfield">setfield</a>, <a href="#XREFrmfield">rmfield</a>, <a href="#XREFisfield">isfield</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
+<p><strong>See also:</strong> <a href="Manipulating-Structures.html#XREFfieldnames">fieldnames</a>, <a href="Manipulating-Structures.html#XREFgetfield">getfield</a>, <a href="Manipulating-Structures.html#XREFsetfield">setfield</a>, <a href="Manipulating-Structures.html#XREFrmfield">rmfield</a>, <a href="Manipulating-Structures.html#XREFisfield">isfield</a>, <a href="Creating-Structures.html#XREFisstruct">isstruct</a>, <a href="Creating-Structures.html#XREFstruct">struct</a>.
 </p></dd></dl>
 
 

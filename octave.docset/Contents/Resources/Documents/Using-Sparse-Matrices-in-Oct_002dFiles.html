@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using Sparse Matrices in Oct-Files</title>
+<title>GNU Octave: Using Sparse Matrices in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Using Sparse Matrices in Oct-Files">
 <meta name="keywords" content="GNU Octave: Using Sparse Matrices in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,18 +58,16 @@ Previous: <a href="Creating-Sparse-Matrices-in-Oct_002dFiles.html#Creating-Spars
 <a name="Using-Sparse-Matrices-in-Oct_002dFiles-1"></a>
 <h4 class="subsubsection">A.1.6.3 Using Sparse Matrices in Oct-Files</h4>
 
-<p>Most of the same operators and functions on sparse matrices that are
-available from the Octave command line are also available within oct-files.
-The basic means of extracting a sparse matrix from an <code>octave_value</code>
-and returning it as an <code>octave_value</code>, can be seen in the
-following example.
+<p>Most of the same operators and functions for sparse matrices that are available
+from the Octave interpeter are also available within oct-files.  The basic
+means of extracting a sparse matrix from an <code>octave_value</code>, and returning
+it as an <code>octave_value</code>, can be seen in the following example.
 </p>
 <div class="example">
 <pre class="example">octave_value_list retval;
 
 SparseMatrix sm = args(0).sparse_matrix_value ();
-SparseComplexMatrix scm =
-    args(1).sparse_complex_matrix_value ();
+SparseComplexMatrix scm = args(1).sparse_complex_matrix_value ();
 SparseBoolMatrix sbm = args(2).sparse_bool_matrix_value ();
 &hellip;
 retval(2) = sbm;

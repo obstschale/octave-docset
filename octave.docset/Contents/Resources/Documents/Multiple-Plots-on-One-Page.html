@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Multiple Plots on One Page</title>
+<title>GNU Octave: Multiple Plots on One Page</title>
 
 <meta name="description" content="GNU Octave: Multiple Plots on One Page">
 <meta name="keywords" content="GNU Octave: Multiple Plots on One Page">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -71,11 +71,13 @@ subplot (2, 1, 2)
 fplot (@cos, [-10, 10]);
 </pre></div>
 
-<p>creates a figure with two separate axes, one displaying a sine wave and
-the other a cosine wave.  The first call to subplot divides the figure
-into two plotting areas (two rows and one column) and makes the first plot
-area active.  The grid of plot areas created by <code>subplot</code> is
-numbered in column-major order (top to bottom, left to right).
+<p>creates a figure with two separate axes, one displaying a sine wave and the
+other a cosine wave.  The first call to subplot divides the figure into two
+plotting areas (two rows and one column) and makes the first plot area active.
+The grid of plot areas created by <code>subplot</code> is numbered in row-major order
+(left to right, top to bottom).  After plotting a sine wave, the next call to
+subplot activates the second subplot area, but does not re-partition the
+figure.
 </p>
 <a name="XREFsubplot"></a><dl>
 <dt><a name="index-subplot"></a>: <em></em> <strong>subplot</strong> <em>(<var>rows</var>, <var>cols</var>, <var>index</var>)</em></dt>

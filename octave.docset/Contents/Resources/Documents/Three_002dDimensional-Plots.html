@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Three-Dimensional Plots</title>
+<title>GNU Octave: Three-Dimensional Plots</title>
 
 <meta name="description" content="GNU Octave: Three-Dimensional Plots">
 <meta name="keywords" content="GNU Octave: Three-Dimensional Plots">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -67,9 +67,13 @@ Next: <a href="Plot-Annotations.html#Plot-Annotations" accesskey="n" rel="next">
 r = sqrt (xx .^ 2 + yy .^ 2) + eps;
 tz = sin (r) ./ r;
 mesh (tx, ty, tz);
+xlabel (&quot;tx&quot;);
+ylabel (&quot;ty&quot;);
+zlabel (&quot;tz&quot;);
+title (&quot;3-D Sombrero plot&quot;);
 </pre></div>
 
-<p>produces the familiar &ldquo;sombrero&rdquo; plot shown in <a href="#fig_003amesh">Figure 15.5</a>.  Note
+<p>produces the familiar &ldquo;sombrero&rdquo; plot shown in <a href="Three_002dDimensional-Plots.html#fig_003amesh">Figure 15.5</a>.  Note
 the use of the function <code>meshgrid</code> to create matrices of X and Y
 coordinates to use for plotting the Z data.  The <code>ndgrid</code> function
 is similar to <code>meshgrid</code>, but works for N-dimensional matrices.
@@ -88,10 +92,14 @@ without requiring it to form a surface.  For example,
 <pre class="example">t = 0:0.1:10*pi;
 r = linspace (0, 1, numel (t));
 z = linspace (0, 1, numel (t));
-plot3 (r.*sin(t), r.*cos(t), z);
+plot3 (r.*sin (t), r.*cos (t), z);
+xlabel (&quot;r.*sin (t)&quot;);
+ylabel (&quot;r.*cos (t)&quot;);
+zlabel (&quot;z&quot;);
+title (&quot;plot3 display of 3-D helix&quot;);
 </pre></div>
 
-<p>displays the spiral in three dimensions shown in <a href="#fig_003aplot3">Figure 15.6</a>.
+<p>displays the spiral in three dimensions shown in <a href="Three_002dDimensional-Plots.html#fig_003aplot3">Figure 15.6</a>.
 </p>
 <div class="float"><a name="fig_003aplot3"></a>
 <div align="center"><img src="plot3.png" alt="plot3">
@@ -135,7 +143,7 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="#XREFmeshz">meshz</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -174,7 +182,7 @@ rather than the current axes returned by <code>gca</code>.
 handle to the created surface object and to the created contour plot.
 </p>
 
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshz">meshz</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurfc">surfc</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -213,7 +221,7 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFwaterfall">waterfall</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFwaterfall">waterfall</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -238,7 +246,7 @@ objects behind the mesh can be seen through the faces (openings) of the
 mesh, although the mesh grid lines are still opaque.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="#XREFmeshz">meshz</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="#XREFwaterfall">waterfall</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmesh">ezmesh</a>, <a href="Three_002ddimensional-Function-Plotting.html#XREFezmeshc">ezmeshc</a>, <a href="Plotting-the-Triangulation.html#XREFtrimesh">trimesh</a>, <a href="Three_002dDimensional-Plots.html#XREFwaterfall">waterfall</a>.
 </p></dd></dl>
 
 
@@ -280,7 +288,7 @@ surface object.
 <code>shading</code> command or by using <code>set</code> to control surface object
 properties.
 </p>
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="#XREFsurfc">surfc</a>, <a href="#XREFsurfl">surfl</a>, <a href="#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurf">ezsurf</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfc">surfc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -322,7 +330,7 @@ surface object.
 <code>shading</code> command or by using <code>set</code> to control surface object
 properties.
 </p>
-<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="#XREFsurf">surf</a>, <a href="#XREFsurfl">surfl</a>, <a href="#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002ddimensional-Function-Plotting.html#XREFezsurfc">ezsurfc</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfnorm">surfnorm</a>, <a href="Plotting-the-Triangulation.html#XREFtrisurf">trisurf</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -381,7 +389,7 @@ surfl (peaks);
 shading interp;
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFdiffuse">diffuse</a>, <a href="#XREFspecular">specular</a>, <a href="#XREFsurf">surf</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFdiffuse">diffuse</a>, <a href="Three_002dDimensional-Plots.html#XREFspecular">specular</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 
@@ -435,7 +443,7 @@ equivalent information, except possibly near the boundary of the surface
 where different interpolation schemes may yield slightly different values.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFisonormals">isonormals</a>, <a href="Two_002dDimensional-Plots.html#XREFquiver3">quiver3</a>, <a href="#XREFsurf">surf</a>, <a href="#XREFmeshgrid">meshgrid</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>, <a href="Two_002dDimensional-Plots.html#XREFquiver3">quiver3</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
@@ -475,7 +483,7 @@ that are three-dimensional arrays with the same size as <var>v</var> or
 vectors with lengths corresponding to the dimensions of <var>v</var>, then the
 volume data is taken at the specified points.  If <var>x</var>, <var>y</var>, or
 <var>z</var> are empty, the grid corresponds to the indices (<code>1:n</code>) in
-the respective direction (see <a href="#XREFmeshgrid">meshgrid</a>).
+the respective direction (see <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>).
 </p>
 <p>The optional input argument <var>col</var>, which is a three-dimensional array
 of the same size as <var>v</var>, specifies coloring of the isosurface.  The
@@ -555,7 +563,7 @@ light (&quot;Position&quot;, [1 1 5]);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFisonormals">isonormals</a>, <a href="#XREFisocolors">isocolors</a>, <a href="#XREFisocaps">isocaps</a>, <a href="#XREFsmooth3">smooth3</a>, <a href="#XREFreducevolume">reducevolume</a>, <a href="#XREFreducepatch">reducepatch</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>, <a href="Three_002dDimensional-Plots.html#XREFisocolors">isocolors</a>, <a href="Three_002dDimensional-Plots.html#XREFisocaps">isocaps</a>, <a href="Three_002dDimensional-Plots.html#XREFsmooth3">smooth3</a>, <a href="Three_002dDimensional-Plots.html#XREFreducevolume">reducevolume</a>, <a href="Three_002dDimensional-Plots.html#XREFreducepatch">reducepatch</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -595,7 +603,7 @@ higher values in <var>val</var>).
 the patch associated with the patch handle <var>hp</var> is changed directly.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisocolors">isocolors</a>, <a href="#XREFsmooth3">smooth3</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisocolors">isocolors</a>, <a href="Three_002dDimensional-Plots.html#XREFsmooth3">smooth3</a>.
 </p></dd></dl>
 
 
@@ -633,7 +641,7 @@ that are three-dimensional arrays with the same size as <var>v</var> or
 vectors with lengths corresponding to the dimensions of <var>v</var>, then the
 volume data is taken at the specified points.  If <var>x</var>, <var>y</var>, or
 <var>z</var> are empty, the grid corresponds to the indices (<code>1:n</code>) in
-the respective direction (see <a href="#XREFmeshgrid">meshgrid</a>).
+the respective direction (see <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>).
 </p>
 <p>The optional parameter <var>which_caps</var> can have one of the following
 string values which defines how the data will be enclosed:
@@ -693,7 +701,7 @@ structure.
 current figure with the <code>patch</code> command.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -776,7 +784,7 @@ isofinish (p);
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>.
 </p></dd></dl>
 
 
@@ -820,7 +828,7 @@ case the same value is used in all three dimensions.  The default value is
 0.65.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -844,7 +852,7 @@ only every <var>r</var>-th element in the respective dimension.
 <p>Optionally, <var>x</var>, <var>y</var>, and <var>z</var> can be supplied to represent the
 set of coordinates of <var>v</var>.  They can either be matrices of the same size
 as <var>v</var> or vectors with sizes according to the dimensions of <var>v</var>, in
-which case they are expanded to matrices (see <a href="#XREFmeshgrid">meshgrid</a>).
+which case they are expanded to matrices (see <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>).
 </p>
 <p>If <code>reducevolume</code> is called with two arguments then <var>x</var>, <var>y</var>,
 and <var>z</var> are assumed to match the respective indices of <var>v</var>.
@@ -868,7 +876,7 @@ and <var>z</var> are assumed to match the respective indices of <var>v</var>.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>.
 </p></dd></dl>
 
 
@@ -931,7 +939,7 @@ returned in two separate matrices <var>reduced_faces</var> and
 <var>reduced_vertices</var>.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFisosurface">isosurface</a>, <a href="#XREFisonormals">isonormals</a>, <a href="#XREFreducevolume">reducevolume</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFisosurface">isosurface</a>, <a href="Three_002dDimensional-Plots.html#XREFisonormals">isonormals</a>, <a href="Three_002dDimensional-Plots.html#XREFreducevolume">reducevolume</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>.
 </p></dd></dl>
 
 
@@ -991,7 +999,7 @@ vector elements <var>sx</var>, <var>sy</var>, <var>sz</var>.
 <p>The light source location vector <var>lv</var> can be given as a 2-element vector
 [azimuth, elevation] in degrees or as a 3-element vector [x, y, z].
 </p>
-<p><strong>See also:</strong> <a href="#XREFspecular">specular</a>, <a href="#XREFsurfl">surfl</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFspecular">specular</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>.
 </p></dd></dl>
 
 
@@ -1010,7 +1018,7 @@ vectors [x, y, z].
 <p>An optional sixth argument specifies the specular exponent (spread)
 <var>se</var>.  If not given, <var>se</var> defaults to 10.
 </p>
-<p><strong>See also:</strong> <a href="#XREFdiffuse">diffuse</a>, <a href="#XREFsurfl">surfl</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFdiffuse">diffuse</a>, <a href="Three_002dDimensional-Plots.html#XREFsurfl">surfl</a>.
 </p></dd></dl>
 
 
@@ -1044,7 +1052,7 @@ effects of objects in this axis, rather than the current axes returned by
 present and visible in the same axes.
 </p>
 
-<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>, <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFshading">shading</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>, <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>.
 </p></dd></dl>
 
 
@@ -1098,7 +1106,7 @@ argument <var>mtype_string</var> is the name of a material, a 1x5 cell vector
 returned.  In both cases, no graphic properties are changed.
 </p>
 
-<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>, <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFlight">light</a>, <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>.
 </p></dd></dl>
 
 
@@ -1204,7 +1212,7 @@ input.  Some core functions expect <code>meshgrid</code> input and others expect
 <code>ndgrid</code> input.  Check the documentation for the function in question
 to determine the proper input format.
 </p>
-<p><strong>See also:</strong> <a href="#XREFndgrid">ndgrid</a>, <a href="#XREFmesh">mesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFndgrid">ndgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>.
 </p></dd></dl>
 
 
@@ -1227,7 +1235,7 @@ comparison to <code>meshgrid</code>.  Some core functions expect <code>meshgrid<
 input and others expect <code>ndgrid</code> input.  Check the documentation for
 the function in question to determine the proper input format.
 </p>
-<p><strong>See also:</strong> <a href="#XREFmeshgrid">meshgrid</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
@@ -1427,7 +1435,7 @@ rather than the current axes returned by <code>gca</code>.
 <p>The optional return value <var>h</var> is a vector of graphics handles to
 the surface objects representing each ribbon.
 </p>
-<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFwaterfall">waterfall</a>.
+<p><strong>See also:</strong> <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFwaterfall">waterfall</a>.
 </p></dd></dl>
 
 
@@ -1456,7 +1464,7 @@ invisible.
 <p>If the first argument <var>hax</var> is an axes handle, then plot into this axis,
 rather than the current axes returned by <code>gca</code>.
 </p>
-<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFlighting">lighting</a>.
+<p><strong>See also:</strong> <a href="Two_002dDimensional-Plots.html#XREFfill">fill</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Graphics-Objects.html#XREFpatch">patch</a>, <a href="Two_002dDimensional-Plots.html#XREFpcolor">pcolor</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFlighting">lighting</a>.
 </p></dd></dl>
 
 
@@ -1547,7 +1555,7 @@ rather than the current axes returned by <code>gca</code>.
 surface object.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFmeshz">meshz</a>, <a href="#XREFmesh">mesh</a>, <a href="#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="#XREFribbon">ribbon</a>, <a href="#XREFmeshgrid">meshgrid</a>, <a href="#XREFhidden">hidden</a>, <a href="#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
+<p><strong>See also:</strong> <a href="Three_002dDimensional-Plots.html#XREFmeshz">meshz</a>, <a href="Three_002dDimensional-Plots.html#XREFmesh">mesh</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshc">meshc</a>, <a href="Two_002dDimensional-Plots.html#XREFcontour">contour</a>, <a href="Three_002dDimensional-Plots.html#XREFsurf">surf</a>, <a href="Graphics-Objects.html#XREFsurface">surface</a>, <a href="Three_002dDimensional-Plots.html#XREFribbon">ribbon</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>, <a href="Three_002dDimensional-Plots.html#XREFhidden">hidden</a>, <a href="Three_002dDimensional-Plots.html#XREFshading">shading</a>, <a href="Representing-Images.html#XREFcolormap">colormap</a>, <a href="Axis-Configuration.html#XREFcaxis">caxis</a>.
 </p></dd></dl>
 
 

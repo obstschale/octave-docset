@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Multi-dimensional Interpolation</title>
+<title>GNU Octave: Multi-dimensional Interpolation</title>
 
 <meta name="description" content="GNU Octave: Multi-dimensional Interpolation">
 <meta name="keywords" content="GNU Octave: Multi-dimensional Interpolation">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -127,7 +127,7 @@ be specified as well.  If <var>extrap</var> is omitted and the <var>method</var>
 used.  Otherwise the default <var>extrap</var> value for any other <var>method</var>
 is <code>&quot;NA&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="#XREFinterp3">interp3</a>, <a href="#XREFinterpn">interpn</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp3">interp3</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterpn">interpn</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
@@ -195,7 +195,7 @@ must be specified as well.  If <var>extrapval</var> is omitted and the
 <code>&quot;spline&quot;</code> are used.  Otherwise the default <var>extrapval</var> value for
 any other <var>method</var> is <code>&quot;NA&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="#XREFinterp2">interp2</a>, <a href="#XREFinterpn">interpn</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterpn">interpn</a>, <a href="Three_002dDimensional-Plots.html#XREFmeshgrid">meshgrid</a>.
 </p></dd></dl>
 
 
@@ -258,7 +258,7 @@ must be specified as well.  If <var>extrapval</var> is omitted and the
 <code>&quot;spline&quot;</code> are used.  Otherwise the default <var>extrapval</var> value for
 any other <var>method</var> is <code>&quot;NA&quot;</code>.
 </p>
-<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="#XREFinterp2">interp2</a>, <a href="#XREFinterp3">interp3</a>, <a href="One_002ddimensional-Interpolation.html#XREFspline">spline</a>, <a href="Three_002dDimensional-Plots.html#XREFndgrid">ndgrid</a>.
+<p><strong>See also:</strong> <a href="One_002ddimensional-Interpolation.html#XREFinterp1">interp1</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp2">interp2</a>, <a href="Multi_002ddimensional-Interpolation.html#XREFinterp3">interp3</a>, <a href="One_002ddimensional-Interpolation.html#XREFspline">spline</a>, <a href="Three_002dDimensional-Plots.html#XREFndgrid">ndgrid</a>.
 </p></dd></dl>
 
 
@@ -286,13 +286,12 @@ mesh (zi, yi, squeeze (vi2(1,:,:)));
 <p>where <code>vi</code> and <code>vi2</code> are identical.  The reversal of the
 dimensions is treated in the <code>meshgrid</code> and <code>ndgrid</code> functions
 respectively.
-The result of this code can be seen in <a href="#fig_003ainterpn">Figure 29.4</a>.
+The result of this code can be seen in <a href="Multi_002ddimensional-Interpolation.html#fig_003ainterpn">Figure 29.4</a>.
 </p>
 <div class="float"><a name="fig_003ainterpn"></a>
 <div align="center"><img src="interpn.png" alt="interpn">
 </div>
 <div class="float-caption"><p><strong>Figure 29.4: </strong>Demonstration of the use of <code>interpn</code></p></div></div>
-
 
 <hr>
 <div class="header">

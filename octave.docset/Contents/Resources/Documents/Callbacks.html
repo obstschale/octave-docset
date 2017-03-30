@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Callbacks</title>
+<title>GNU Octave: Callbacks</title>
 
 <meta name="description" content="GNU Octave: Callbacks">
 <meta name="keywords" content="GNU Octave: Callbacks">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -64,18 +64,26 @@ after certain events occur.  The basic structure of all callback function
 is
 </p>
 <div class="example">
-<pre class="example">function mycallback (src, data)
+<pre class="example">function mycallback (hsrc, evt)
 &hellip;
 endfunction
 </pre></div>
 
-<p>where <code>src</code> gives a handle to the source of the callback, and
-<code>code</code> gives some event specific data.  This can then be associated
+<p>where <code>hsrc</code> is a handle to the source of the callback, and <code>evt</code> 
+gives some event specific data.  
+</p>
+<p>The function can be provided as a function handle to a plain Octave function, 
+as an anonymous function or as a string representing an Octvae command. The 
+latter syntax is not recommended since syntax errors will only occur when the 
+string is evaluated.  
+See <a href="Function-Handles-Anonymous-Functions-Inline-Functions.html#Function-Handles-Anonymous-Functions-Inline-Functions">Function Handles section</a>.
+</p>
+<p>This can then be associated
 with an object either at the objects creation or later with the
 <code>set</code> function.  For example,
 </p>
 <div class="example">
-<pre class="example">plot (x, &quot;DeleteFcn&quot;, @(s, e) disp (&quot;Window Deleted&quot;))
+<pre class="example">plot (x, &quot;DeleteFcn&quot;, @(h, e) disp (&quot;Window Deleted&quot;))
 </pre></div>
 
 <p>where at the moment that the plot is deleted, the message &quot;Window
@@ -87,7 +95,7 @@ be passed after the 2 default arguments.  For example:
 <div class="example">
 <pre class="example">plot (x, &quot;DeleteFcn&quot;, {@mycallback, &quot;1&quot;})
 &hellip;
-function mycallback (src, data, a1)
+function mycallback (h, e, a1)
   fprintf (&quot;Closing plot %d\n&quot;, a1);
 endfunction
 </pre></div>
@@ -96,21 +104,32 @@ endfunction
 are
 </p>
 <ul>
-<li> CreateFcn
-This is the callback that is called at the moment of the objects
-creation.  It is not called if the object is altered in any way, and so
-it only makes sense to define this callback in the function call that
-defines the object.  Callbacks that are added to <code>CreateFcn</code> later with
-the <code>set</code> function will never be executed.
+<li> CreateFcn: 
+called at the moment of the objects creation.  It is not called if the object is altered in any way, and so it only makes sense to define this callback in the function call that defines the object.  Callbacks that are added to <code>CreateFcn</code> later with the <code>set</code> function will never be executed.
 
-</li><li> DeleteFcn
-This is the callback that is called at the moment an object is deleted.
+</li><li> DeleteFcn: 
+called at the moment an object is deleted.
 
-</li><li> ButtonDownFcn
-This is the callback that is called if a mouse button is pressed while
-the pointer is over this object.  Note, that the gnuplot interface does
-not respect this callback.
+</li><li> ButtonDownFcn: 
+called if a mouse button is pressed while the pointer is over this object.  Note, that the gnuplot interface does not respect this callback.
 </li></ul>
+
+<p><strong>Caution:</strong> the second <code>evt</code> argument in callback functions is only 
+loosely implemented in the Qt graphics toolkit:
+</p>
+<ul>
+<li> Mouse click events:
+<code>evt</code> is a class <code>double</code> value, 1 for left, 2 for middle and 3 
+for right click.
+
+</li><li> Key press events:
+<code>evt</code> is a structure with fields <code>Key</code> (string), <code>Character</code> 
+(string) and <code>Modifier</code> (cell array of strings).
+
+</li><li> Other events:
+<code>evt</code> is a class <code>double</code> empty matrix.
+</li></ul>
+
 
 <p>The object and figure that the event occurred in that resulted in the
 callback being called can be found with the <code>gcbo</code> and <code>gcbf</code>
@@ -129,7 +148,7 @@ containing the object whose callback is currently executing.  If no callback
 is executing the second output is also set to the empty matrix.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFgcbf">gcbf</a>, <a href="Graphics-Objects.html#XREFgco">gco</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFgcf">gcf</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Callbacks.html#XREFgcbf">gcbf</a>, <a href="Graphics-Objects.html#XREFgco">gco</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFgcf">gcf</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 
@@ -143,7 +162,7 @@ handle returned by this function is the same as the second output argument
 of <code>gcbo</code>.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFgcbo">gcbo</a>, <a href="Graphics-Objects.html#XREFgcf">gcf</a>, <a href="Graphics-Objects.html#XREFgco">gco</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
+<p><strong>See also:</strong> <a href="Callbacks.html#XREFgcbo">gcbo</a>, <a href="Graphics-Objects.html#XREFgcf">gcf</a>, <a href="Graphics-Objects.html#XREFgco">gco</a>, <a href="Graphics-Objects.html#XREFgca">gca</a>, <a href="Graphics-Objects.html#XREFget">get</a>, <a href="Graphics-Objects.html#XREFset">set</a>.
 </p></dd></dl>
 
 

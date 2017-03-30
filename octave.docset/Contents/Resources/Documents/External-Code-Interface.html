@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>External Code Interface</title>
+<title>GNU Octave: External Code Interface</title>
 
 <meta name="description" content="GNU Octave: External Code Interface">
 <meta name="keywords" content="GNU Octave: External Code Interface">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -62,30 +62,29 @@ Next: <a href="Test-and-Demo-Functions.html#Test-and-Demo-Functions" accesskey="
 <a name="index-Octave-API"></a>
 
 <p>&quot;The sum of human wisdom is not contained in any one language&quot;
-  &mdash;Ezra Pound
+</p>
+<p>&mdash; Ezra Pound
 </p>
 <p>Octave is a fantastic language for solving many problems in science and
-engineering.  However, it is not the only computer language and there
-are times when you may want to use code written in other languages.
-Good reasons for doing so include: 1) not re-inventing the wheel; existing
-function libraries which have been thoroughly tested and debugged or
-large scale simulation codebases are a good example, 2) accessing unique
-capabilities of a different language; for example the well-known regular
-expression functions of Perl (but don&rsquo;t do that because <code>regexp</code>
-already exists in Octave).
+engineering.  However, it is not the only computer language and there are times
+when you may want to use code written in other languages.  Good reasons for
+doing so include: 1) not re-inventing the wheel; existing function libraries
+which have been thoroughly tested and debugged or large scale simulation
+codebases are a good example, 2) accessing unique capabilities of a different
+language; for example the well-known regular expression functions of Perl (but
+don&rsquo;t do that because <code>regexp</code> already exists in Octave).
 </p>
 <p>Performance should generally <strong>not</strong> be a reason for using compiled
-extensions.  Although compiled extensions can run faster, particularly
-if they replace a loop in Octave code, this is almost never the best path
-to take.  First, there are many techniques to speed up Octave performance while
-remaining within the language.  Second, Octave is a high-level language that
-makes it easy to perform common mathematical tasks.  Giving that up means
-shifting the focus from solving the real problem to solving a computer
-programming problem.  It means returning to low-level constructs such as
-pointers, memory management, mathematical overflow/underflow, etc.  Because
-of the low level nature, and the fact that the compiled code is executed
-outside of Octave, there is the very real possibility of crashing the
-interpreter and losing work.
+extensions.  Although compiled extensions can run faster, particularly if they
+replace a loop in Octave code, this is almost never the best path to take.
+First, there are many techniques to speed up Octave performance while remaining
+within the language.  Second, Octave is a high-level language that makes it
+easy to perform common mathematical tasks.  Giving that up means shifting the
+focus from solving the real problem to solving a computer programming problem.
+It means returning to low-level constructs such as pointers, memory management,
+mathematical overflow/underflow, etc.  Because of the low level nature, and the
+fact that the compiled code is executed outside of Octave, there is the very
+real possibility of crashing the interpreter and losing work.
 </p>
 <p>Before going further, you should first determine if you really need to bother
 writing code outside of Octave.
@@ -93,39 +92,38 @@ writing code outside of Octave.
 <ul>
 <li> Can I get the same functionality using the Octave scripting language alone?
 
-<p>Even when a function already exists outside the language, it may be
-better to simply reproduce the behavior in an m-file rather than attempt to
-interface to the outside code.
+<p>Even when a function already exists outside the language, it may be better to
+simply reproduce the behavior in an m-file rather than attempt to interface to
+the outside code.
 </p>
 </li><li> Is the code thoroughly optimized for Octave?
 
 <p>If performance is an issue you should always start with the in-language
 techniques for getting better performance.  Chief among these is vectorization
-(see <a href="Vectorization-and-Faster-Code-Execution.html#Vectorization-and-Faster-Code-Execution">Vectorization and Faster Code Execution</a>) which not only makes the
-code concise and more understandable but improves performance (10X-100X).
-If loops must be used, make sure that the allocation of space for variables
-takes place outside the loops using an assignment to a matrix of the right
-size, or zeros.
+(see <a href="Vectorization-and-Faster-Code-Execution.html#Vectorization-and-Faster-Code-Execution">Vectorization and Faster Code Execution</a>) which not only makes the code
+concise and more understandable but improves performance (10X-100X).  If loops
+must be used, make sure that the allocation of space for variables takes place
+outside the loops using an assignment to a matrix of the right size, or zeros.
 </p>
 </li><li> Does the code make as much use as possible of existing built-in library
 routines?
 
-<p>These routines are highly optimized and many do not carry the overhead
-of being interpreted.
+<p>These routines are highly optimized and many do not carry the overhead of being
+interpreted.
 </p>
-</li><li> Does writing a dynamically linked function represent a useful investment
-of your time, relative to staying in Octave?
+</li><li> Does writing a dynamically linked function represent a useful investment of
+your time, relative to staying in Octave?
 
-<p>It will take time to learn Octave&rsquo;s interface for external code and
-there will inevitably be issues with tools such as compilers.
+<p>It will take time to learn Octave&rsquo;s interface for external code and there will
+inevitably be issues with tools such as compilers.
 </p></li></ul>
 
-<p>With that said, Octave offers a versatile interface for including chunks
-of compiled code as dynamically linked extensions.  These dynamically linked
-functions can be called from the interpreter in the same manner as any
-ordinary function.  The interface is bi-directional and external code can
-call Octave functions (like <code>plot</code>) which otherwise might be very
-difficult to develop.
+<p>With that said, Octave offers a versatile interface for including chunks of
+compiled code as dynamically linked extensions.  These dynamically linked
+functions can be called from the interpreter in the same manner as any ordinary
+function.  The interface is bi-directional and external code can call Octave
+functions (like <code>plot</code>) which otherwise might be very difficult to
+develop.
 </p>
 <p>The interface is centered around supporting the languages C++, C, and Fortran.
 Octave itself is written in C++ and can call external C++/C code through its
@@ -133,9 +131,9 @@ native oct-file interface.  The C language is also supported through the
 mex-file interface for compatibility with <small>MATLAB</small>.  Fortran code is easiest
 to reach through the oct-file interface.
 </p>
-<p>Because many other languages provide C or C++ APIs it is relatively simple
-to build bridges between Octave and other languages.  This is also a way to
-bridge to hardware resources which often have device drivers written in C.
+<p>Because many other languages provide C or C++ APIs it is relatively simple to
+build bridges between Octave and other languages.  This is also a way to bridge
+to hardware resources which often have device drivers written in C.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="Oct_002dFiles.html#Oct_002dFiles" accesskey="1">Oct-Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">

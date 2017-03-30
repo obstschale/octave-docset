@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Sparse Linear Algebra</title>
+<title>GNU Octave: Sparse Linear Algebra</title>
 
 <meta name="description" content="GNU Octave: Sparse Linear Algebra">
 <meta name="keywords" content="GNU Octave: Sparse Linear Algebra">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -113,7 +113,7 @@ using <small>UMFPACK</small>.
 
 </li><li> If the matrix is not square, or any of the previous solvers flags
 a singular or near singular matrix, find a minimum norm solution using
-<small>CXSPARSE</small><a name="DOCF10" href="#FOOT10"><sup>10</sup></a>.
+<small>CXSPARSE</small><a name="DOCF10" href="Sparse-Linear-Algebra.html#FOOT10"><sup>10</sup></a>.
 </li></ol>
 
 <p>The band density is defined as the number of nonzero values in the band
@@ -147,9 +147,9 @@ will lead to unpredictable results, and so <code>matrix_type</code> should be
 used with care.
 </p>
 <a name="XREFnormest"></a><dl>
-<dt><a name="index-normest"></a>: <em><var>n</var> =</em> <strong>normest</strong> <em>(<var>A</var>)</em></dt>
-<dt><a name="index-normest-1"></a>: <em><var>n</var> =</em> <strong>normest</strong> <em>(<var>A</var>, <var>tol</var>)</em></dt>
-<dt><a name="index-normest-2"></a>: <em>[<var>n</var>, <var>c</var>] =</em> <strong>normest</strong> <em>(&hellip;)</em></dt>
+<dt><a name="index-normest"></a>: <em><var>nest</var> =</em> <strong>normest</strong> <em>(<var>A</var>)</em></dt>
+<dt><a name="index-normest-1"></a>: <em><var>nest</var> =</em> <strong>normest</strong> <em>(<var>A</var>, <var>tol</var>)</em></dt>
+<dt><a name="index-normest-2"></a>: <em>[<var>nest</var>, <var>iter</var>] =</em> <strong>normest</strong> <em>(&hellip;)</em></dt>
 <dd><p>Estimate the 2-norm of the matrix <var>A</var> using a power series analysis.
 </p>
 <p>This is typically used for large matrices, where the cost of calculating
@@ -159,43 +159,44 @@ acceptable.
 <p><var>tol</var> is the tolerance to which the 2-norm is calculated.  By default
 <var>tol</var> is 1e-6.
 </p>
-<p>The optional output <var>c</var> returns the number of iterations needed for
-<code>normest</code> to converge.
+<p>The optional output <var>iter</var> returns the number of iterations that were
+required for <code>normest</code> to converge.
+</p>
+<p><strong>See also:</strong> <a href="Sparse-Linear-Algebra.html#XREFnormest1">normest1</a>, <a href="Basic-Matrix-Functions.html#XREFnorm">norm</a>, <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>.
 </p></dd></dl>
 
 
 <a name="XREFnormest1"></a><dl>
-<dt><a name="index-normest1"></a>: <em><var>c</var> =</em> <strong>normest1</strong> <em>(<var>a</var>)</em></dt>
-<dt><a name="index-normest1-1"></a>: <em><var>c</var> =</em> <strong>normest1</strong> <em>(<var>a</var>, <var>t</var>)</em></dt>
-<dt><a name="index-normest1-2"></a>: <em><var>c</var> =</em> <strong>normest1</strong> <em>(<var>a</var>, <var>t</var>, <var>x0</var>)</em></dt>
-<dt><a name="index-normest1-3"></a>: <em><var>c</var> =</em> <strong>normest1</strong> <em>(<var>afun</var>, <var>t</var>, <var>x0</var>, <var>p1</var>, <var>p2</var>, &hellip;)</em></dt>
-<dt><a name="index-normest1-4"></a>: <em>[<var>c</var>, <var>v</var>] =</em> <strong>normest1</strong> <em>(<var>a</var>, &hellip;)</em></dt>
-<dt><a name="index-normest1-5"></a>: <em>[<var>c</var>, <var>v</var>, <var>w</var>] =</em> <strong>normest1</strong> <em>(<var>a</var>, &hellip;)</em></dt>
-<dt><a name="index-normest1-6"></a>: <em>[<var>c</var>, <var>v</var>, <var>w</var>, <var>it</var>] =</em> <strong>normest1</strong> <em>(<var>a</var>, &hellip;)</em></dt>
-<dd><p>Estimate the 1-norm of the matrix <var>a</var> using a block algorithm.
+<dt><a name="index-normest1"></a>: <em><var>nest</var> =</em> <strong>normest1</strong> <em>(<var>A</var>)</em></dt>
+<dt><a name="index-normest1-1"></a>: <em><var>nest</var> =</em> <strong>normest1</strong> <em>(<var>A</var>, <var>t</var>)</em></dt>
+<dt><a name="index-normest1-2"></a>: <em><var>nest</var> =</em> <strong>normest1</strong> <em>(<var>A</var>, <var>t</var>, <var>x0</var>)</em></dt>
+<dt><a name="index-normest1-3"></a>: <em><var>nest</var> =</em> <strong>normest1</strong> <em>(<var>Afun</var>, <var>t</var>, <var>x0</var>, <var>p1</var>, <var>p2</var>, &hellip;)</em></dt>
+<dt><a name="index-normest1-4"></a>: <em>[<var>nest</var>, <var>v</var>] =</em> <strong>normest1</strong> <em>(<var>A</var>, &hellip;)</em></dt>
+<dt><a name="index-normest1-5"></a>: <em>[<var>nest</var>, <var>v</var>, <var>w</var>] =</em> <strong>normest1</strong> <em>(<var>A</var>, &hellip;)</em></dt>
+<dt><a name="index-normest1-6"></a>: <em>[<var>nest</var>, <var>v</var>, <var>w</var>, <var>iter</var>] =</em> <strong>normest1</strong> <em>(<var>A</var>, &hellip;)</em></dt>
+<dd><p>Estimate the 1-norm of the matrix <var>A</var> using a block algorithm.
 </p>
-<p>For a medium size matrix <var>a</var>, <code>norm (<var>a</var>, 1)</code> should be
-used instead.  For a large sparse matrix, when only an estimate of the norm
-is needed, <code>normest1 (<var>a</var>)</code> might be faster.  Moreover, it can be
-used for the estimate of the 1-norm of a linear
-operator <var>a</var> when matrix-vector products <code><var>a</var> * <var>x</var></code> and
-<code><var>a</var>' * <var>x</var></code> can be cheaply computed.  In this case,
-instead of the matrix <var>a</var>, a function
-<code><var>afun</var> (<var>flag</var>, <var>x</var>)</code> can be used.  It should return:
+<p><code>normest1</code> is best for large sparse matrices where only an estimate of
+the norm is required.  For small to medium sized matrices, consider using
+<code>norm (<var>A</var>, 1)</code>.  In addition, <code>normest1</code> can be used for the
+estimate of the 1-norm of a linear operator <var>A</var> when matrix-vector
+products <code><var>A</var> * <var>x</var></code> and <code><var>A</var>' * <var>x</var></code> can be
+cheaply computed.  In this case, instead of the matrix <var>A</var>, a function
+<code><var>Afun</var> (<var>flag</var>, <var>x</var>)</code> is used; it must return:
 </p>
 <ul>
-<li> the dimension <var>n</var> of <var>a</var>, if <var>flag</var> is <code>&quot;dim&quot;</code>
+<li> the dimension <var>n</var> of <var>A</var>, if <var>flag</var> is <code>&quot;dim&quot;</code>
 
-</li><li> true if <var>a</var> is a real operator, if <var>flag</var> is <code>&quot;real&quot;</code>
+</li><li> true if <var>A</var> is a real operator, if <var>flag</var> is <code>&quot;real&quot;</code>
 
-</li><li> the result <code><var>a</var> * <var>x</var></code>, if <var>flag</var> is <code>&quot;notransp&quot;</code>
+</li><li> the result <code><var>A</var> * <var>x</var></code>, if <var>flag</var> is <code>&quot;notransp&quot;</code>
 
-</li><li> the result <code><var>a</var>' * <var>x</var></code>, if <var>flag</var> is <code>&quot;transp&quot;</code>
+</li><li> the result <code><var>A</var>' * <var>x</var></code>, if <var>flag</var> is <code>&quot;transp&quot;</code>
 </li></ul>
 
-<p>A typical case is <var>a</var> defined by <code><var>b</var> ^ <var>m</var></code>,
-in which the result <code><var>a</var> * <var>x</var></code> can be computed without
-even forming explicitly <code><var>b</var> ^ <var>m</var></code> by:
+<p>A typical case is <var>A</var> defined by <code><var>b</var> ^ <var>m</var></code>, in which the
+result <code><var>A</var> * <var>x</var></code> can be computed without even forming
+explicitly <code><var>b</var> ^ <var>m</var></code> by:
 </p>
 <div class="example">
 <pre class="example"><var>y</var> = <var>x</var>;
@@ -205,27 +206,28 @@ endfor
 </pre></div>
 
 <p>The parameters <var>p1</var>, <var>p2</var>, &hellip; are arguments of
-<code><var>afun</var> (<var>flag</var>, <var>x</var>, <var>p1</var>, <var>p2</var>, &hellip;)</code>.
+<code><var>Afun</var> (<var>flag</var>, <var>x</var>, <var>p1</var>, <var>p2</var>, &hellip;)</code>.
 </p>
-<p>The default value for <var>t</var> is 2. The algorithm requires
-matrix-matrix products with sizes <var>n</var> x <var>n</var> and
-<var>n</var> x <var>t</var>.
+<p>The default value for <var>t</var> is 2.  The algorithm requires matrix-matrix
+products with sizes <var>n</var> x <var>n</var> and <var>n</var> x <var>t</var>.
 </p>
-<p>The initial matrix <var>x0</var> should have columns of unit 1-norm.
-The default initial matrix <var>x0</var> has the first column
-<code>ones (<var>n</var>, 1) / <var>n</var></code>
-and, if <var>t</var> &gt;  1, the remaining columns with random elements
-<code>-1 / <var>n</var></code>, <code>1 / <var>n</var></code>, divided by <var>n</var>.
+<p>The initial matrix <var>x0</var> should have columns of unit 1-norm.  The default
+initial matrix <var>x0</var> has the first column
+<code>ones (<var>n</var>, 1) / <var>n</var></code> and, if <var>t</var> &gt; 1, the remaining
+columns with random elements <code>-1 / <var>n</var></code>, <code>1 / <var>n</var></code>,
+divided by <var>n</var>.
+</p>
+<p>On output, <var>nest</var> is the desired estimate, <var>v</var> and <var>w</var>
+are vectors such that <code><var>w</var> = <var>A</var> * <var>v</var></code>, with
+<code>norm (<var>w</var>, 1)</code> = <code><var>c</var> * norm (<var>v</var>, 1)</code>.  <var>iter</var>
+contains in <code><var>iter</var>(1)</code> the number of iterations (the maximum is
+hardcoded to 5) and in <code><var>iter</var>(2)</code> the total number of products
+<code><var>A</var> * <var>x</var></code> or <code><var>A</var>' * <var>x</var></code> performed by the
+algorithm.
+</p>
+<p>Algorithm Note: <code>normest1</code> uses random numbers during evaluation.
 Therefore, if consistent results are required, the <code>&quot;state&quot;</code> of the
 random generator should be fixed before invoking <code>normest1</code>.
-</p>
-<p>On output, <var>c</var> is the desired estimate, <var>v</var> and <var>w</var>
-vectors such that <code><var>w</var> = <var>a</var> * <var>v</var></code>, with
-<code>norm (<var>w</var>, 1)</code> = <code><var>c</var> * norm (<var>v</var>, 1)</code>.
-<var>it</var> contains in <code><var>it</var>(1)</code> the number of iterations
-(the maximum number is hardcoded to 5) and in  <code><var>it</var>(2)</code>
-the total number of products <code><var>a</var> * <var>x</var></code> or
-<code><var>a</var>' * <var>x</var></code> performed by the algorithm.
 </p>
 <p>Reference: N. J. Higham and F. Tisseur,
 <cite>A block algorithm for matrix 1-norm estimation, with and
@@ -234,28 +236,28 @@ SIAM J. Matrix Anal. Appl.,
 pp. 1185&ndash;1201, Vol 21, No. 4, 2000.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFnormest">normest</a>, <a href="Special-Utility-Matrices.html#XREFrand">rand</a>.
+<p><strong>See also:</strong> <a href="Sparse-Linear-Algebra.html#XREFnormest">normest</a>, <a href="Basic-Matrix-Functions.html#XREFnorm">norm</a>, <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Sparse-Linear-Algebra.html#XREFcondest">condest</a>.
 </p></dd></dl>
 
 
 <a name="XREFcondest"></a><dl>
-<dt><a name="index-condest"></a>: <em></em> <strong>condest</strong> <em>(<var>A</var>)</em></dt>
-<dt><a name="index-condest-1"></a>: <em></em> <strong>condest</strong> <em>(<var>A</var>, <var>t</var>)</em></dt>
-<dt><a name="index-condest-2"></a>: <em>[<var>est</var>, <var>v</var>] =</em> <strong>condest</strong> <em>(&hellip;)</em></dt>
-<dt><a name="index-condest-3"></a>: <em>[<var>est</var>, <var>v</var>] =</em> <strong>condest</strong> <em>(<var>A</var>, <var>solvefun</var>, <var>t</var>, <var>p1</var>, <var>p2</var>, &hellip;)</em></dt>
-<dt><a name="index-condest-4"></a>: <em>[<var>est</var>, <var>v</var>] =</em> <strong>condest</strong> <em>(<var>afun</var>, <var>solvefun</var>, <var>t</var>, <var>p1</var>, <var>p2</var>, &hellip;)</em></dt>
+<dt><a name="index-condest"></a>: <em><var>cest</var> =</em> <strong>condest</strong> <em>(<var>A</var>)</em></dt>
+<dt><a name="index-condest-1"></a>: <em><var>cest</var> =</em> <strong>condest</strong> <em>(<var>A</var>, <var>t</var>)</em></dt>
+<dt><a name="index-condest-2"></a>: <em><var>cest</var> =</em> <strong>condest</strong> <em>(<var>A</var>, <var>solvefun</var>, <var>t</var>, <var>p1</var>, <var>p2</var>, &hellip;)</em></dt>
+<dt><a name="index-condest-3"></a>: <em><var>cest</var> =</em> <strong>condest</strong> <em>(<var>Afcn</var>, <var>solvefun</var>, <var>t</var>, <var>p1</var>, <var>p2</var>, &hellip;)</em></dt>
+<dt><a name="index-condest-4"></a>: <em>[<var>cest</var>, <var>v</var>] =</em> <strong>condest</strong> <em>(&hellip;)</em></dt>
 <dd>
-<p>Estimate the 1-norm condition number of a matrix <var>A</var> using <var>t</var> test
-vectors using a randomized 1-norm estimator.
+<p>Estimate the 1-norm condition number of a square matrix <var>A</var> using
+<var>t</var> test vectors and a randomized 1-norm estimator.
 </p>
-<p>If <var>t</var> exceeds 5, then only 5 test vectors are used.
+<p>The optional input <var>t</var> specifies the number of test vectors (default 5).
 </p>
-<p>If the matrix is not explicit, e.g., when estimating the condition
-number of <var>A</var> given an LU&nbsp;factorization, <code>condest</code> uses the
-following functions:
+<p>If the matrix is not explicit, e.g., when estimating the condition number of
+<var>A</var> given an LU&nbsp;factorization, <code>condest</code> uses the following
+functions:
 </p>
 <ul class="no-bullet">
-<li>- <var>afun</var> which should returns
+<li>- <var>Afcn</var> which must return
 
 <ul>
 <li> the dimension <var>n</var> of <var>a</var>, if <var>flag</var> is <code>&quot;dim&quot;</code>
@@ -267,7 +269,7 @@ following functions:
 </li><li> the result <code><var>a</var>' * <var>x</var></code>, if <var>flag</var> is &quot;transp&quot;
 </li></ul>
 
-</li><li>- <var>solvefun</var> which should returns
+</li><li>- <var>solvefun</var> which must return
 
 <ul>
 <li> the dimension <var>n</var> of <var>a</var>, if <var>flag</var> is <code>&quot;dim&quot;</code>
@@ -281,19 +283,20 @@ following functions:
 </li></ul>
 
 <p>The parameters <var>p1</var>, <var>p2</var>, &hellip; are arguments of
-<code><var>afun</var> (<var>flag</var>, <var>x</var>, <var>p1</var>, <var>p2</var>, &hellip;)</code>
-and <code><var>solvefun</var> (<var>flag</var>, <var>x</var>, <var>p1</var>, <var>p2</var>,
+<code><var>Afcn</var> (<var>flag</var>, <var>x</var>, <var>p1</var>, <var>p2</var>, &hellip;)</code>
+and <code><var>solvefcn</var> (<var>flag</var>, <var>x</var>, <var>p1</var>, <var>p2</var>,
 &hellip;)</code>.
 </p>
-<p><code>condest</code> uses a randomized algorithm to approximate the
-1-norms.  Therefore, if consistent results are required, the
-<code>&quot;state&quot;</code> of the random generator should be fixed before invoking
-<code>normest1</code>.
+<p>The principal output is the 1-norm condition number estimate <var>cest</var>.
 </p>
-<p><code>condest</code> returns the 1-norm condition estimate <var>est</var> and a vector
-<var>v</var> satisfying <code>norm (A*v, 1) == norm (A, 1) * norm
-(<var>v</var>, 1) / <var>est</var></code>.  When <var>est</var> is large, <var>v</var> is an
-approximate null vector.
+<p>The optional second output is an approximate null vector when <var>cest</var> is
+large; it satisfies the equation
+<code>norm (A*v, 1) == norm (A, 1) * norm (<var>v</var>, 1) / <var>est</var></code>.
+</p>
+<p>Algorithm Note: <code>condest</code> uses a randomized algorithm to approximate
+the 1-norms.  Therefore, if consistent results are required, the
+<code>&quot;state&quot;</code> of the random generator should be fixed before invoking
+<code>condest</code>.
 </p>
 <p>References:
 </p>
@@ -309,7 +312,7 @@ Pseudospectra</cite>. <a href="http://citeseer.ist.psu.edu/223007.html">http://c
 </li></ul>
 
 
-<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Basic-Matrix-Functions.html#XREFnorm">norm</a>, <a href="#XREFnormest1">normest1</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFcond">cond</a>, <a href="Basic-Matrix-Functions.html#XREFnorm">norm</a>, <a href="Sparse-Linear-Algebra.html#XREFnormest1">normest1</a>, <a href="Sparse-Linear-Algebra.html#XREFnormest">normest</a>.
 </p></dd></dl>
 
 
@@ -729,7 +732,7 @@ R. Lehoucq, K. Maschhoff, D. Sorensen, and C. Yang.  For more
 information see <a href="http://www.caam.rice.edu/software/ARPACK/">http://www.caam.rice.edu/software/ARPACK/</a>.
 </p>
 
-<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="#XREFsvds">svds</a>.
+<p><strong>See also:</strong> <a href="Basic-Matrix-Functions.html#XREFeig">eig</a>, <a href="Sparse-Linear-Algebra.html#XREFsvds">svds</a>.
 </p></dd></dl>
 
 
@@ -805,14 +808,14 @@ sparse matrix.  Otherwise, <code>svd (full (<var>A</var>))</code> will likely be
 efficient.
 </p></dd></dl>
 
-<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFsvd">svd</a>, <a href="#XREFeigs">eigs</a>.
+<p><strong>See also:</strong> <a href="Matrix-Factorizations.html#XREFsvd">svd</a>, <a href="Sparse-Linear-Algebra.html#XREFeigs">eigs</a>.
 </p>
 
 <div class="footnote">
 <hr>
 <h4 class="footnotes-heading">Footnotes</h4>
 
-<h3><a name="FOOT10" href="#DOCF10">(10)</a></h3>
+<h3><a name="FOOT10" href="Sparse-Linear-Algebra.html#DOCF10">(10)</a></h3>
 <p>The <small>CHOLMOD</small>, <small>UMFPACK</small> and <small>CXSPARSE</small>
 packages were written by Tim Davis and are available at
 <a href="http://www.cise.ufl.edu/research/sparse/">http://www.cise.ufl.edu/research/sparse/</a></p>

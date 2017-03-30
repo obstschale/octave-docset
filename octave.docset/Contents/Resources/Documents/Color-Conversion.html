@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Color Conversion</title>
+<title>GNU Octave: Color Conversion</title>
 
 <meta name="description" content="GNU Octave: Color Conversion">
 <meta name="keywords" content="GNU Octave: Color Conversion">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -62,8 +62,8 @@ Previous: <a href="Plotting-on-top-of-Images.html#Plotting-on-top-of-Images" acc
 and vice versa.
 </p>
 <a name="XREFrgb2hsv"></a><dl>
-<dt><a name="index-rgb2hsv"></a>: <em><var>hsv_map</var> =</em> <strong>rgb2hsv</strong> <em>(<var>rgb</var>)</em></dt>
-<dt><a name="index-rgb2hsv-1"></a>: <em><var>hsv_map</var> =</em> <strong>rgb2hsv</strong> <em>(<var>rgb</var>)</em></dt>
+<dt><a name="index-rgb2hsv"></a>: <em><var>hsv_map</var> =</em> <strong>rgb2hsv</strong> <em>(<var>rgb_map</var>)</em></dt>
+<dt><a name="index-rgb2hsv-1"></a>: <em><var>hsv_img</var> =</em> <strong>rgb2hsv</strong> <em>(<var>rgb_img</var>)</em></dt>
 <dd><p>Transform a colormap or image from RGB to HSV color space.
 </p>
 <p>A color in the RGB space consists of red, green, and blue intensities.
@@ -77,7 +77,7 @@ the height and is the amount of light in the color.
 <p>Output class and size will be the same as input.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFhsv2rgb">hsv2rgb</a>, <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>, <a href="#XREFrgb2ntsc">rgb2ntsc</a>.
+<p><strong>See also:</strong> <a href="Color-Conversion.html#XREFhsv2rgb">hsv2rgb</a>, <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>, <a href="Color-Conversion.html#XREFrgb2ntsc">rgb2ntsc</a>.
 </p></dd></dl>
 
 
@@ -111,7 +111,7 @@ of hue (azimuth), since the value corresponds to an angle,
 <p>Output class and size will be the same as input.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFrgb2hsv">rgb2hsv</a>, <a href="Representing-Images.html#XREFind2rgb">ind2rgb</a>, <a href="#XREFntsc2rgb">ntsc2rgb</a>.
+<p><strong>See also:</strong> <a href="Color-Conversion.html#XREFrgb2hsv">rgb2hsv</a>, <a href="Representing-Images.html#XREFind2rgb">ind2rgb</a>, <a href="Color-Conversion.html#XREFntsc2rgb">ntsc2rgb</a>.
 </p></dd></dl>
 
 
@@ -135,7 +135,7 @@ The reference matrix for the transformation is
 significant figures.  Note: The FCC version of NTSC uses only 2 significant
 digits and is slightly different.
 </p>
-<p><strong>See also:</strong> <a href="#XREFntsc2rgb">ntsc2rgb</a>, <a href="#XREFrgb2hsv">rgb2hsv</a>, <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>.
+<p><strong>See also:</strong> <a href="Color-Conversion.html#XREFntsc2rgb">ntsc2rgb</a>, <a href="Color-Conversion.html#XREFrgb2hsv">rgb2hsv</a>, <a href="Representing-Images.html#XREFrgb2ind">rgb2ind</a>.
 </p></dd></dl>
 
 
@@ -156,10 +156,8 @@ rgb2ntsc such that
 <p><small>MATLAB</small> uses a slightly different matrix where rounding means the
 equality above does not hold.
 </p>
-<p><strong>See also:</strong> <a href="#XREFrgb2ntsc">rgb2ntsc</a>, <a href="#XREFhsv2rgb">hsv2rgb</a>, <a href="Representing-Images.html#XREFind2rgb">ind2rgb</a>.
+<p><strong>See also:</strong> <a href="Color-Conversion.html#XREFrgb2ntsc">rgb2ntsc</a>, <a href="Color-Conversion.html#XREFhsv2rgb">hsv2rgb</a>, <a href="Representing-Images.html#XREFind2rgb">ind2rgb</a>.
 </p></dd></dl>
-
-
 
 
 

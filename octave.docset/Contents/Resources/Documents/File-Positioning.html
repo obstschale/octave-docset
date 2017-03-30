@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>File Positioning</title>
+<title>GNU Octave: File Positioning</title>
 
 <meta name="description" content="GNU Octave: File Positioning">
 <meta name="keywords" content="GNU Octave: File Positioning">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -66,7 +66,7 @@ the file pointer for a given file.
 <dd><p>Return the position of the file pointer as the number of characters from the
 beginning of the file specified by file descriptor <var>fid</var>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfseek">fseek</a>, <a href="#XREFfrewind">frewind</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="EOF-and-Errors.html#XREFfeof">feof</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
@@ -86,7 +86,7 @@ be positive, negative, or zero but not all combinations of <var>origin</var> and
 </p>
 <p><code>fseek</code> returns 0 on success and -1 on error.
 </p>
-<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="#XREFfrewind">frewind</a>, <a href="#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="Line_002dOriented-Input.html#XREFfskipl">fskipl</a>, <a href="File-Positioning.html#XREFfrewind">frewind</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
@@ -111,7 +111,7 @@ following actions:
 </p></dd>
 </dl>
 
-<p><strong>See also:</strong> <a href="#XREFfseek">fseek</a>.
+<p><strong>See also:</strong> <a href="File-Positioning.html#XREFfseek">fseek</a>.
 </p></dd></dl>
 
 
@@ -124,7 +124,7 @@ descriptor <var>fid</var>.
 <p><code>frewind</code> returns 0 for success, and -1 if an error is encountered.  It
 is equivalent to <code>fseek (<var>fid</var>, 0, SEEK_SET)</code>.
 </p>
-<p><strong>See also:</strong> <a href="#XREFfseek">fseek</a>, <a href="#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
+<p><strong>See also:</strong> <a href="File-Positioning.html#XREFfseek">fseek</a>, <a href="File-Positioning.html#XREFftell">ftell</a>, <a href="Opening-and-Closing-Files.html#XREFfopen">fopen</a>.
 </p></dd></dl>
 
 
@@ -138,7 +138,6 @@ frewind (myfile);
 fourch = fgets (myfile, 4);
 fseek (myfile, marker, SEEK_SET);
 </pre></div>
-
 
 
 <hr>

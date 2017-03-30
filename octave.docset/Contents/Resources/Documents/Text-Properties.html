@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Text Properties</title>
+<title>GNU Octave: Text Properties</title>
 
 <meta name="description" content="GNU Octave: Text Properties">
 <meta name="keywords" content="GNU Octave: Text Properties">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -92,8 +92,8 @@ Next: <a href="Image-Properties.html#Image-Properties" accesskey="n" rel="next">
 <a name="XREFtextbuttondownfcn"></a><a name="index-text-buttondownfcn"></a>
 </dd>
 <dt><code>buttondownfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
-<dd>
-
+<dd><p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFtextchildren"></a><a name="index-text-children"></a>
 </dd>
@@ -118,11 +118,15 @@ Next: <a href="Image-Properties.html#Image-Properties" accesskey="n" rel="next">
 <dt><code>createfcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately after text has been created.  Function is set by using default property on root object, e.g., <code>set (0, &quot;defaulttextcreatefcn&quot;, 'disp (&quot;text created!&quot;)')</code>.
 </p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
+</p>
 
 <a name="XREFtextdeletefcn"></a><a name="index-text-deletefcn"></a>
 </dd>
 <dt><code>deletefcn</code>: string | function handle, def. <code>[](0x0)</code></dt>
 <dd><p>Callback function executed immediately before text is deleted.
+</p>
+<p>For information on how to write graphics listener functions see <a href="Callbacks.html#Callbacks">Callbacks&nbsp;section<!-- /@w --></a>.
 </p>
 
 <a name="XREFtextdisplayname"></a><a name="index-text-displayname"></a>
@@ -140,19 +144,19 @@ Next: <a href="Image-Properties.html#Image-Properties" accesskey="n" rel="next">
 <a name="XREFtextediting"></a><a name="index-text-editing"></a>
 </dd>
 <dt><code>editing</code>: {<code>&quot;off&quot;</code>} | <code>&quot;on&quot;</code></dt>
-<dd>
-
+<dd><p><code>editing</code> is unused.
+</p>
 
 <a name="XREFtextextent"></a><a name="index-text-extent"></a>
 </dd>
-<dt><code>extent</code> (read-only): def. <code>[0.000000  -0.005843   0.000000   0.032136]</code></dt>
-<dd>
-
+<dt><code>extent</code> (read-only): four-element vector, def. <code>[0.000000  -0.005843   0.000000   0.032136]</code></dt>
+<dd><p>Vector <code>[x0 y0 width height]</code> indicating the size and location of the text string.
+</p>
 
 <a name="XREFtextfontangle"></a><a name="index-text-fontangle"></a>
 </dd>
 <dt><code>fontangle</code>: <code>&quot;italic&quot;</code> | {<code>&quot;normal&quot;</code>} | <code>&quot;oblique&quot;</code></dt>
-<dd><p>Flag whether the font is italic or normal.  <code>fontangle</code> is currently unused.
+<dd><p>Control whether the font is italic or normal.  <code>fontangle</code> is currently unused.
 </p>
 
 <a name="XREFtextfontname"></a><a name="index-text-fontname"></a>

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Built-in Data Types</title>
+<title>GNU Octave: Built-in Data Types</title>
 
 <meta name="description" content="GNU Octave: Built-in Data Types">
 <meta name="keywords" content="GNU Octave: Built-in Data Types">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -80,7 +80,7 @@ fields from structure <var>s</var> and name (string) <var>id</var>.
 <p>Additional arguments name a list of parent classes from which the new class
 is derived.
 </p>
-<p><strong>See also:</strong> <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>, <a href="#XREFisa">isa</a>.
+<p><strong>See also:</strong> <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>, <a href="Built_002din-Data-Types.html#XREFisa">isa</a>.
 </p></dd></dl>
 
 
@@ -110,7 +110,7 @@ size is returned, containing true for each class to which <var>obj</var>
 belongs to.
 </p>
 
-<p><strong>See also:</strong> <a href="#XREFclass">class</a>, <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>.
 </p></dd></dl>
 
 
@@ -118,7 +118,8 @@ belongs to.
 <dt><a name="index-cast"></a>: <em></em> <strong>cast</strong> <em>(<var>val</var>, &quot;<var>type</var>&quot;)</em></dt>
 <dd><p>Convert <var>val</var> to data type <var>type</var>.
 </p>
-<p><var>val</var> must be one of the numeric classes:
+<p>Both <var>val</var> and <var>type</var> are typically one of the following built-in
+classes:
 </p>
 <div class="example">
 <pre class="example">&quot;double&quot;
@@ -146,8 +147,20 @@ cast (300, &quot;int8&quot;)
    &rArr; 127
 </pre></div>
 
+<p>Programming Note: This function relies on the object <var>val</var> having a
+conversion method named <var>type</var>.  User-defined classes may implement only
+a subset of the full list of types shown above.  In that case, it may be
+necessary to call cast twice in order to reach the desired type.
+For example, the conversion to double is nearly always implemented, but
+the conversion to uint8 might not be.  In that case, the following code will
+work
+</p>
+<div class="example">
+<pre class="example">cast (cast (<var>user_defined_val</var>, &quot;double&quot;), &quot;uint8&quot;)
+</pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFtypecast">typecast</a>, <a href="Integer-Data-Types.html#XREFint8">int8</a>, <a href="Integer-Data-Types.html#XREFuint8">uint8</a>, <a href="Integer-Data-Types.html#XREFint16">int16</a>, <a href="Integer-Data-Types.html#XREFuint16">uint16</a>, <a href="Integer-Data-Types.html#XREFint32">int32</a>, <a href="Integer-Data-Types.html#XREFuint32">uint32</a>, <a href="Integer-Data-Types.html#XREFint64">int64</a>, <a href="Integer-Data-Types.html#XREFuint64">uint64</a>, <a href="Numeric-Data-Types.html#XREFdouble">double</a>, <a href="Single-Precision-Data-Types.html#XREFsingle">single</a>, <a href="Logical-Values.html#XREFlogical">logical</a>, <a href="Concatenating-Strings.html#XREFchar">char</a>, <a href="#XREFclass">class</a>, <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>.
+
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFtypecast">typecast</a>, <a href="Integer-Data-Types.html#XREFint8">int8</a>, <a href="Integer-Data-Types.html#XREFuint8">uint8</a>, <a href="Integer-Data-Types.html#XREFint16">int16</a>, <a href="Integer-Data-Types.html#XREFuint16">uint16</a>, <a href="Integer-Data-Types.html#XREFint32">int32</a>, <a href="Integer-Data-Types.html#XREFuint32">uint32</a>, <a href="Integer-Data-Types.html#XREFint64">int64</a>, <a href="Integer-Data-Types.html#XREFuint64">uint64</a>, <a href="Numeric-Data-Types.html#XREFdouble">double</a>, <a href="Single-Precision-Data-Types.html#XREFsingle">single</a>, <a href="Logical-Values.html#XREFlogical">logical</a>, <a href="Concatenating-Strings.html#XREFchar">char</a>, <a href="Built_002din-Data-Types.html#XREFclass">class</a>, <a href="Data-Types.html#XREFtypeinfo">typeinfo</a>.
 </p></dd></dl>
 
 
@@ -198,7 +211,7 @@ typecast (<var>x</var>, &quot;uint8&quot;)
 &rArr; [   1,   0, 255, 255]
 </pre></div>
 
-<p><strong>See also:</strong> <a href="#XREFcast">cast</a>, <a href="#XREFbitpack">bitpack</a>, <a href="#XREFbitunpack">bitunpack</a>, <a href="#XREFswapbytes">swapbytes</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFcast">cast</a>, <a href="Built_002din-Data-Types.html#XREFbitpack">bitpack</a>, <a href="Built_002din-Data-Types.html#XREFbitunpack">bitunpack</a>, <a href="Built_002din-Data-Types.html#XREFswapbytes">swapbytes</a>.
 </p></dd></dl>
 
 
@@ -215,7 +228,7 @@ and vice versa.
 </pre></div>
 
 
-<p><strong>See also:</strong> <a href="#XREFtypecast">typecast</a>, <a href="#XREFcast">cast</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFtypecast">typecast</a>, <a href="Built_002din-Data-Types.html#XREFcast">cast</a>.
 </p></dd></dl>
 
 
@@ -250,7 +263,7 @@ bit 1, etc.
 <p>The result is a row vector if <var>x</var> is a row vector, otherwise it is a
 column vector.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbitunpack">bitunpack</a>, <a href="#XREFtypecast">typecast</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFbitunpack">bitunpack</a>, <a href="Built_002din-Data-Types.html#XREFtypecast">typecast</a>.
 </p></dd></dl>
 
 
@@ -278,7 +291,7 @@ column vector.
 <p>The result is a row vector if <var>x</var> is a row vector; otherwise, it is a
 column vector.
 </p>
-<p><strong>See also:</strong> <a href="#XREFbitpack">bitpack</a>, <a href="#XREFtypecast">typecast</a>.
+<p><strong>See also:</strong> <a href="Built_002din-Data-Types.html#XREFbitpack">bitpack</a>, <a href="Built_002din-Data-Types.html#XREFtypecast">typecast</a>.
 </p></dd></dl>
 
 

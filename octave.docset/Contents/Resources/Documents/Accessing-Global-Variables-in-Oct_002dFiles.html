@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Accessing Global Variables in Oct-Files</title>
+<title>GNU Octave: Accessing Global Variables in Oct-Files</title>
 
 <meta name="description" content="GNU Octave: Accessing Global Variables in Oct-Files">
 <meta name="keywords" content="GNU Octave: Accessing Global Variables in Oct-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,13 +58,13 @@ Next: <a href="Calling-Octave-Functions-from-Oct_002dFiles.html#Calling-Octave-F
 <a name="Accessing-Global-Variables-in-Oct_002dFiles-1"></a>
 <h4 class="subsection">A.1.7 Accessing Global Variables in Oct-Files</h4>
 
-<p>Global variables allow variables in the global scope to be
-accessed.  Global variables can be accessed within oct-files by using
-the support functions <code>get_global_value</code> and <code>set_global_value</code>.
-<code>get_global_value</code> takes two arguments, the first is a string representing
-the variable name to obtain.  The second argument is a boolean argument
-specifying what to do if no global variable of the desired name is found.
-An example of the use of these two functions is
+<p>Global variables allow variables in the global scope to be accessed.  Global
+variables can be accessed within oct-files by using the support functions
+<code><span class="nolinebreak">get_global_value</span></code><!-- /@w --> and <code><span class="nolinebreak">set_global_value</span></code><!-- /@w -->.
+<code><span class="nolinebreak">get_global_value</span></code><!-- /@w --> takes two arguments, the first is a string
+representing the variable name to obtain.  The second argument is a boolean
+argument specifying what to do if no global variable of the desired name is
+found.  An example of the use of these two functions is
 </p>
 <div class="example">
 <pre class="verbatim">#include &lt;octave/oct.h&gt;

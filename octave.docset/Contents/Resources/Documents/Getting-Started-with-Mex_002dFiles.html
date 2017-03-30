@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Getting Started with Mex-Files</title>
+<title>GNU Octave: Getting Started with Mex-Files</title>
 
 <meta name="description" content="GNU Octave: Getting Started with Mex-Files">
 <meta name="keywords" content="GNU Octave: Getting Started with Mex-Files">
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -58,11 +58,11 @@ Next: <a href="Working-with-Matrices-and-Arrays-in-Mex_002dFiles.html#Working-wi
 <a name="Getting-Started-with-Mex_002dFiles-1"></a>
 <h4 class="subsection">A.2.1 Getting Started with Mex-Files</h4>
 
-<p>The basic command to build a mex-file is either <code>mkoctfile --mex</code>
-or <code>mex</code>.  The first command can be used either from within Octave or from
-the command line.  However, to avoid issues with <small>MATLAB</small>&rsquo;s own <code>mex</code>
-command, the use of the command <code>mex</code> is limited to within Octave.
-Compiled mex-files have the extension <samp>.mex</samp>.
+<p>The basic command to build a mex-file is either <code>mkoctfile --mex</code> or
+<code>mex</code>.  The first command can be used either from within Octave or from
+the command line.  To avoid issues with <small>MATLAB</small>&rsquo;s own <code>mex</code> command,
+the use of the command <code>mex</code> is limited to within Octave.  Compiled
+mex-files have the extension <samp>.mex</samp>.
 </p>
 <a name="XREFmex"></a><dl>
 <dt><a name="index-mex-1"></a>: <em></em> <strong>mex</strong> <em>[options] file &hellip;</em></dt>
@@ -70,7 +70,7 @@ Compiled mex-files have the extension <samp>.mex</samp>.
 </p>
 <p>This is equivalent to <code>mkoctfile --mex [options] file</code>.
 </p>
-<p><strong>See also:</strong> <a href="Getting-Started-with-Oct_002dFiles.html#XREFmkoctfile">mkoctfile</a>, <a href="#XREFmexext">mexext</a>.
+<p><strong>See also:</strong> <a href="Getting-Started-with-Oct_002dFiles.html#XREFmkoctfile">mkoctfile</a>, <a href="Getting-Started-with-Mex_002dFiles.html#XREFmexext">mexext</a>.
 </p></dd></dl>
 
 
@@ -78,7 +78,7 @@ Compiled mex-files have the extension <samp>.mex</samp>.
 <dt><a name="index-mexext"></a>: <em></em> <strong>mexext</strong> <em>()</em></dt>
 <dd><p>Return the filename extension used for MEX files.
 </p>
-<p><strong>See also:</strong> <a href="#XREFmex">mex</a>.
+<p><strong>See also:</strong> <a href="Getting-Started-with-Mex_002dFiles.html#XREFmex">mex</a>.
 </p></dd></dl>
 
 
@@ -118,10 +118,10 @@ function takes four arguments:
 </li></ol>
 
 <p>Note that the function name definition is not explicitly included in
-<code>mexFunction</code> and so there can only be a single <code>mexFunction</code>
-entry point per file.  Instead, the name of the function as seen in Octave is
-determined by the name of the mex-file itself minus the extension.  Therefore,
-if the above function is in the file <samp>myhello.c</samp>, it can be compiled with
+<code>mexFunction</code> and so there can only be a single <code>mexFunction</code> entry
+point per file.  Instead, the name of the function as seen in Octave is
+determined by the name of the mex-file itself minus the extension.  If the
+above function is in the file <samp>myhello.c</samp>, it can be compiled with
 </p>
 <div class="example">
 <pre class="example">mkoctfile --mex myhello.c
@@ -136,25 +136,24 @@ Octave as
 &rArr; I have 3 inputs and 0 outputs
 </pre></div>
 
-<p>It should be noted that the mex-file contains no help string for the
-functions it contains.  To document mex-files, there should exist an
-m-file in the same directory as the mex-file itself.  Taking the above as
-an example, we would therefore have a file <samp>myhello.m</samp> that might
-contain the text
+<p>It should be noted that the mex-file contains no help string.  To document
+mex-files, there should exist an m-file in the same directory as the mex-file
+itself.  Taking the above as an example, there would need to be a file
+<samp>myhello.m</samp> which might contain the text
 </p>
 <div class="example">
 <pre class="example">%MYHELLO Simple test of the functionality of a mex-file.
 </pre></div>
 
-<p>In this case, the function that will be executed within Octave will be
-given by the mex-file, while the help string will come from the
-m-file.  This can also be useful to allow a sample implementation of the
-mex-file within the Octave language itself for testing purposes.
+<p>In this case, the function that will be executed within Octave will be given by
+the mex-file, while the help string will come from the m-file.  This can also
+be useful to allow a sample implementation of the mex-file within the Octave
+language itself for testing purposes.
 </p>
-<p>Although there cannot be multiple entry points in a single mex-file,
-one can use the <code>mexFunctionName</code> function to determine what name
-the mex-file was called with.  This can be used to alter the behavior of
-the mex-file based on the function name.  For example, if
+<p>Although there cannot be multiple entry points in a single mex-file, one can
+use the <code>mexFunctionName</code> function to determine what name the mex-file was
+called with.  This can be used to alter the behavior of the mex-file based on
+the function name.  For example, if
 </p>
 <div class="example">
 <pre class="verbatim">#include &quot;mex.h&quot;
@@ -174,7 +173,7 @@ mexFunction (int nlhs, mxArray *plhs[],
 }
 </pre></div>
 
-<p>is in file <samp>myfunc.c</samp>, and it is compiled with
+<p>is in the file <samp>myfunc.c</samp>, and is compiled with
 </p>
 <div class="example">
 <pre class="example">mkoctfile --mex myfunc.c
@@ -191,12 +190,11 @@ myfunc2 ()
 &rArr; You called function: myfunc2
 </pre></div>
 
-<p>the behavior of the mex-file can be altered depending on the functions
-name.
+<p>the behavior of the mex-file can be altered depending on the function&rsquo;s name.
 </p>
 <p>Although the user should only include <samp>mex.h</samp> in their code, Octave
-declares additional functions, typedefs, etc., available to the user to
-write mex-files in the headers <samp>mexproto.h</samp> and <samp>mxarray.h</samp>.
+declares additional functions, typedefs, etc., available to the user to write
+mex-files in the headers <samp>mexproto.h</samp> and <samp>mxarray.h</samp>.
 </p>
 <hr>
 <div class="header">

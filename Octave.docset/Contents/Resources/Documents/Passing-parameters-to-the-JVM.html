@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Handling Java Memory Limitations</title>
+<title>GNU Octave: Passing parameters to the JVM</title>
 
-<meta name="description" content="GNU Octave: Handling Java Memory Limitations">
-<meta name="keywords" content="GNU Octave: Handling Java Memory Limitations">
+<meta name="description" content="GNU Octave: Passing parameters to the JVM">
+<meta name="keywords" content="GNU Octave: Passing parameters to the JVM">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -14,8 +14,8 @@
 <link href="Concept-Index.html#Concept-Index" rel="index" title="Concept Index">
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="Java-Interface.html#Java-Interface" rel="up" title="Java Interface">
-<link href="Test-and-Demo-Functions.html#Test-and-Demo-Functions" rel="next" title="Test and Demo Functions">
-<link href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" rel="prev" title="Creating an Instance of a Java Class">
+<link href="Java-Interface-Functions.html#Java-Interface-Functions" rel="next" title="Java Interface Functions">
+<link href="How-to-use-Java-from-within-Octave.html#How-to-use-Java-from-within-Octave" rel="prev" title="How to use Java from within Octave">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -43,49 +43,50 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
 
 <body lang="en">
-<a name="Handling-Java-Memory-Limitations"></a>
+<a name="Passing-parameters-to-the-JVM"></a>
 <div class="header">
 <p>
-Previous: <a href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" accesskey="p" rel="prev">Creating an Instance of a Java Class</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Java-Interface-Functions.html#Java-Interface-Functions" accesskey="n" rel="next">Java Interface Functions</a>, Previous: <a href="How-to-use-Java-from-within-Octave.html#How-to-use-Java-from-within-Octave" accesskey="p" rel="prev">How to use Java from within Octave</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 <hr>
-<a name="Handling-Java-Memory-Limitations-1"></a>
-<h4 class="subsection">A.4.4 Handling Java Memory Limitations</h4>
-<a name="index-memory_002c-limitations"></a>
+<a name="Passing-parameters-to-the-JVM-1"></a>
+<h4 class="subsection">A.4.3 Passing parameters to the JVM</h4>
+<a name="index-memory_002c-limitations-on-JVM"></a>
 
 <p>In order to execute Java code Octave creates a Java Virtual Machine (JVM).
 Such a JVM allocates a fixed amount of initial memory and may expand this pool
 up to a fixed maximum memory limit.  The default values depend on the Java
-version (see <a href="Java-Interface-Functions.html#XREFjavamem">javamem</a>).  The memory pool is shared by all
-Java objects running in the JVM.  This strict memory limit is intended mainly
-to avoid that runaway applications inside web browsers or in enterprise servers
+version (see <a href="Java-Interface-Functions.html#XREFjavamem">javamem</a>).  The memory pool is shared by all Java
+objects running in the JVM.  This strict memory limit is intended mainly to
+avoid runaway applications inside web browsers or in enterprise servers which
 can consume all memory and crash the system.  When the maximum memory limit is
 hit, Java code will throw exceptions so that applications will fail or behave
 unexpectedly.
 </p>
 <p>You can specify options for the creation of the JVM inside a file named
-<samp>java.opts</samp>.  This is a text file where you can enter lines containing
-<samp>-X</samp> and <samp>-D</samp> options handed to the JVM during initialization.
+<samp>java.opts</samp>.  This is a text file where enter you enter lines containing
+<samp>-X</samp> and <samp>-D</samp> options that are then passed to the JVM during
+initialization.
 </p>
 <p>The directory where the Java options file is located is specified by the
 environment variable <code><span class="nolinebreak">OCTAVE_JAVA_DIR</span></code><!-- /@w -->.  If unset the directory where
 <samp>javaclasspath.m</samp> resides is used instead (typically
-<samp><code><span class="nolinebreak">OCTAVE_HOME</span></code><!-- /@w -->/share/octave/<code><span class="nolinebreak">OCTAVE_VERSION</span></code><!-- /@w -->/m/java/</samp>).  You can
-find this directory by executing
+<samp><code><span class="nolinebreak">OCTAVE_HOME</span></code><!-- /@w -->/share/octave/<code><span class="nolinebreak">OCTAVE_VERSION</span></code><!-- /@w -->/m/java/</samp>).
+You can find this directory by executing
 </p>
 <div class="example">
 <pre class="example">which javaclasspath
 </pre></div>
 
 <p>The <samp>-X</samp> options allow you to increase the maximum amount of memory
-available to the JVM.  The following example allows up to 256 Megabytes to
-be used by adding the following line to the <samp>java.opts</samp> file:
+available to the JVM.  The following example allows up to 256 Megabytes to be
+used by adding the following line to the <samp>java.opts</samp> file:
 </p>
 <div class="example">
 <pre class="example">-Xmx256m
@@ -131,11 +132,10 @@ ans = 12.34
 </p>
 
 
-
 <hr>
 <div class="header">
 <p>
-Previous: <a href="Creating-an-Instance-of-a-Java-Class.html#Creating-an-Instance-of-a-Java-Class" accesskey="p" rel="prev">Creating an Instance of a Java Class</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
+Next: <a href="Java-Interface-Functions.html#Java-Interface-Functions" accesskey="n" rel="next">Java Interface Functions</a>, Previous: <a href="How-to-use-Java-from-within-Octave.html#How-to-use-Java-from-within-Octave" accesskey="p" rel="prev">How to use Java from within Octave</a>, Up: <a href="Java-Interface.html#Java-Interface" accesskey="u" rel="up">Java Interface</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Concept-Index.html#Concept-Index" title="Index" rel="index">Index</a>]</p>
 </div>
 
 

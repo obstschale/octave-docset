@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- Created by GNU Texinfo 6.1, http://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Mex-Files</title>
+<title>GNU Octave: Mex-Files</title>
 
 <meta name="description" content="GNU Octave: Mex-Files">
 <meta name="keywords" content="GNU Octave: Mex-Files">
@@ -15,7 +15,7 @@
 <link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="External-Code-Interface.html#External-Code-Interface" rel="up" title="External Code Interface">
 <link href="Getting-Started-with-Mex_002dFiles.html#Getting-Started-with-Mex_002dFiles" rel="next" title="Getting Started with Mex-Files">
-<link href="Documentation-and-Test-of-Oct_002dFiles.html#Documentation-and-Test-of-Oct_002dFiles" rel="prev" title="Documentation and Test of Oct-Files">
+<link href="Documentation-and-Testing-of-Oct_002dFiles.html#Documentation-and-Testing-of-Oct_002dFiles" rel="prev" title="Documentation and Testing of Oct-Files">
 <style type="text/css">
 <!--
 a.summary-letter {text-decoration: none}
@@ -43,7 +43,7 @@ span.sansserif {font-family: sans-serif; font-weight: normal}
 ul.no-bullet {list-style: none}
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="assets/octave.css">
+<link rel="stylesheet" type="text/css" href="octave.css">
 
 
 </head>
@@ -60,16 +60,16 @@ Next: <a href="Standalone-Programs.html#Standalone-Programs" accesskey="n" rel="
 <a name="index-mex_002dfiles"></a>
 <a name="index-mex"></a>
 
-<p>Octave includes an interface to allow legacy mex-files to be compiled
-and used with Octave.  This interface can also be used to share code
-between Octave and <small>MATLAB</small> users.  However, as mex-files expose
-<small>MATLAB</small>&rsquo;s internal API, and the internal structure of Octave is
-different, a mex-file can never have the same performance in Octave as
-the equivalent oct-file.  In particular, to support the manner in which
-variables are passed to mex functions there are a significant number of
-additional copies of memory blocks when calling or returning from a
-mex-file function.  For this reason, it is recommended that any new code
-be written with the oct-file interface previously discussed.
+<p>Octave includes an interface to allow legacy mex-files to be compiled and used
+with Octave.  This interface can also be used to share compiled code between
+Octave and <small>MATLAB</small> users.  However, as mex-files expose <small>MATLAB</small>&rsquo;s
+internal API, and the internal structure of Octave is different, a mex-file can
+never have the same performance in Octave as the equivalent oct-file.  In
+particular, to support the manner in which variables are passed to mex
+functions there are a significant number of additional copies of memory blocks
+when invoking or returning from a mex-file function.  For this reason, it is
+recommended that any new code be written with the oct-file interface previously
+discussed.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="Getting-Started-with-Mex_002dFiles.html#Getting-Started-with-Mex_002dFiles" accesskey="1">Getting Started with Mex-Files</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
