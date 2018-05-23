@@ -2,8 +2,8 @@
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-VERSION=v4.2.1
-DOCS_URL=https://www.gnu.org/software/octave/doc/$VERSION/
+VERSION=v4.4.0
+DOCS_URL=https://octave.org/doc/$VERSION/
 printf "${GREEN}Starting to build octave.docset for version $VERSION${NC}\n"
 
 # clean up previous remains, if any
@@ -17,8 +17,8 @@ printf "${GREEN}Starting to download Octave $VERSION documentation from $DOCS_UR
 wget -m -p -E -k -np $DOCS_URL
 
 # change folder name to just Documents
-mv www.gnu.org/software/octave/doc/$VERSION ./Documents
-rm -rf www.gnu.org
+mv octave.org/doc/$VERSION ./Documents
+rm -rf octave.org
 cd ../../
 
 # bundle up!
