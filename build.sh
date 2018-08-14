@@ -2,7 +2,7 @@
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
-VERSION=v4.4.0
+VERSION=v4.4.1
 DOCS_URL=https://octave.org/doc/$VERSION/
 printf "${GREEN}Starting to build octave.docset for version $VERSION${NC}\n"
 
