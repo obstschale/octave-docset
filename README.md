@@ -1,9 +1,11 @@
 # Octave docset
 
+```
 Author: Hans-Helge Buerger ([GitHub](https://github.com/obstschale/) | [Twitter](https://twitter.com/obstschale))
-Date: 2 January 2017
-Version: v4.2.0
+Date: 14. August 2018
+Version: v4.4.1
 GitHub Repo: [obstschale/octave-docset](https://github.com/obstschale/octave-docset)
+```
 
 
 [Octave](http://www.gnu.org/software/octave/) is a programming language for matrix mathematical calculations. It is very similar to [MatLab](http://www.mathworks.de/products/matlab/) and its syntax is almost interchangable. I use Octave at university for _Machine Learning_ and _Speech Processing_ calculations.
