@@ -14,7 +14,7 @@ mkdir -p Contents/Resources
 # fetch the whole doc site
 cd Contents/Resources
 printf "${GREEN}Starting to download Octave $VERSION documentation from $DOCS_URL${NC}\n"
-wget -m -p -E -k -np $DOCS_URL
+wget --mirror --page-requisites --adjust-extension --convert-links --no-parent $DOCS_URL
 
 # change folder name to just Documents
 mv octave.org/doc/$VERSION ./Documents
