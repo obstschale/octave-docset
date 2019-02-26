@@ -71,3 +71,6 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+Contents/Resources
+Octave.tgz
+Octave.docset
