@@ -42,9 +42,9 @@ for p in pages:
 
                         # save fct to DB
                         cur.execute('INSERT OR IGNORE INTO searchIndex(name, type, path) VALUES (?,?,?)', (name, type, path))
-                        print 'name: %s' % (name)
-                        print '\ttype: %s' % (type)
-                        print '\tpath: %s' % (path)
+                        print('name: %s' % (name))
+                        print('\ttype: %s' % (type))
+                        print('\tpath: %s' % (path))
 
                         # reste type
                         if name[0] == "-" and len(name) > 3:
