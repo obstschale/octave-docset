@@ -23,7 +23,7 @@ pages = {
 for p in pages:
     type = p
     page = open(os.path.join(docpath, pages[p])).read()
-    soup = BeautifulSoup(page)
+    soup = BeautifulSoup(page, 'html.parser')
     any = re.compile('.*')
 
     for td in soup.find_all('td', attrs={"valign": "top"}):
