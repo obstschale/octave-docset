@@ -3,7 +3,7 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-VERSION=v5.2.0
+VERSION=v6.1.0
 DOCS_URL=https://octave.org/doc/$VERSION/
 printf "${GREEN}Starting to build octave.docset for version $VERSION${NC}\n"
 
@@ -40,3 +40,5 @@ fi
 # Create gzip bundle for Dash Contribution
 printf "${GREEN}Archiving to Octave.tgz ...${NC}\n"
 tar --exclude='.DS_Store' -cvzf Octave.tgz Octave.docset
+
+printf "${GREEN}Finished!${NC}\n"
