@@ -16,7 +16,8 @@ docpath = 'Octave.docset/Contents/Resources/Documents'
 pages = {
     "Function": "Function-Index.html",
     "Guide": "Concept-Index.html",
-    "Operator": "Operator-Index.html"
+    "Operator": "Operator-Index.html",
+    "Graphics-Properties": "Graphics-Properties-Index.html"
     }
 
 # loop through each index page
@@ -26,7 +27,7 @@ for p in pages:
     soup = BeautifulSoup(page, 'html.parser')
     any = re.compile('.*')
 
-    for td in soup.find_all('td', attrs={"valign": "top"}):
+    for td in soup.find_all('td', attrs={"class": "printindex-index-entry"}):
         for a in td.find_all('a'):
             name = a.text.strip()
             if len(name) > 0:
